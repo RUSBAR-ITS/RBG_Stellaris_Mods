@@ -1,0 +1,104 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80310
+	title = cdpd_event_chain_strange_worlds_features_title
+	desc = cdpd_event_chain_strange_worlds_features_desc
+	picture = GFX_evt_alien_nature
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_geothermal_hotspot
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_geothermal_hotspot = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_geothermal_hotspot
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_geothermal_hotspot
+			}
+			country_event = { id = CDPD.80310 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ancient_cloaking_array
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ancient_cloaking_array = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ancient_cloaking_array
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ancient_cloaking_array
+			}
+			country_event = { id = CDPD.80310 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_psionic_sands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_psionic_sands = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_psionic_sands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_psionic_sands
+			}
+			country_event = { id = CDPD.80310 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_bogplants
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_bogplants = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_bogplants
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_bogplants
+			}
+			country_event = { id = CDPD.80310 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_liquid_dark_matter
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_liquid_dark_matter = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_liquid_dark_matter
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_liquid_dark_matter
+			}
+			country_event = { id = CDPD.80310 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80300 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

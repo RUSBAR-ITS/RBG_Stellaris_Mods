@@ -1,0 +1,109 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.90421
+	title = cdpd_event_orbital_society_1_title
+	desc = cdpd_event_orbital_society_1_desc
+	picture = GFX_evt_mining_station
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_orbital_add_d_society_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_society_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_society_1
+			}
+			country_event = { id = CDPD.90421 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_society_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_society_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_society_2
+			}
+			country_event = { id = CDPD.90421 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_society_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_society_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_society_3
+			}
+			country_event = { id = CDPD.90421 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_society_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_society_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_society_4
+			}
+			country_event = { id = CDPD.90421 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_society_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_society_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_society_5
+			}
+			country_event = { id = CDPD.90421 }
+		}
+	}
+
+	option = {
+		name = cdpd_next_page
+		country_event = { id = CDPD.90422 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.90400 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

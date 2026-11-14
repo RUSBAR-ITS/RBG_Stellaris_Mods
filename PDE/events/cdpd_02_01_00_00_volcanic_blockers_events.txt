@@ -1,0 +1,127 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.20100
+	title = cdpd_event_volcanic_blockers_title
+	desc = cdpd_event_volcanic_blockers_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_mountain_range
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_size_10_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_mountain_range
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_mountain_range
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.20100 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_active_volcano
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_size_10_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_active_volcano
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_active_volcano
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.20100 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_deep_sinkhole
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_dry_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_deep_sinkhole
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_deep_sinkhole
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.20100 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_quicksand_basin
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_dry_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_quicksand_basin
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_quicksand_basin
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.20100 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_raging_lavafalls
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_volcanic_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_raging_lavafalls
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_raging_lavafalls
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.20100 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_rugged_landscape
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_volcanic_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_rugged_landscape
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_rugged_landscape
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.20100 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.20000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

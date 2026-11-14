@@ -1,0 +1,157 @@
+cdpd_decision_is_planetary_target = {
+	OR = {
+		cdpd_is_natural_editor_planet = yes
+		cdpd_is_volcanic_editor_planet = yes
+		is_planet_class = pc_city
+		is_planet_class = pc_machine
+		is_planet_class = pc_hive
+	}
+}
+
+cdpd_decision_is_non_artificial_world = {
+	cdpd_decision_is_planetary_target = yes
+	is_artificial = no
+}
+
+cdpd_decision_is_non_artificial_non_city_machine_hive = {
+	cdpd_decision_is_non_artificial_world = yes
+	NOR = {
+		is_planet_class = pc_city
+		is_planet_class = pc_machine
+		is_planet_class = pc_hive
+	}
+}
+
+cdpd_decision_can_add_d_dayside_farm = {
+	cdpd_decision_is_planetary_target = yes
+}
+
+cdpd_decision_can_add_d_forceful_winds = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { has_deposit = d_forceful_winds }
+}
+
+cdpd_decision_can_add_d_project_cornucopia = {
+	cdpd_decision_is_non_artificial_non_city_machine_hive = yes
+	NOT = { has_deposit = d_project_cornucopia }
+	NOT = { has_designation = col_nanotech_world }
+}
+
+cdpd_decision_can_add_d_prospectorium_strip_mine = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { uses_district_set = shattered_ring_world }
+	NOT = { has_deposit = d_prospectorium_strip_mine }
+}
+
+cdpd_decision_can_add_d_planet_stripmine = {
+	cdpd_decision_is_non_artificial_world = yes
+	NOR = {
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_city
+		is_planet_class = pc_machine
+		is_planet_class = pc_hive
+	}
+	NOT = { has_deposit = d_planet_stripmine }
+}
+
+cdpd_decision_can_add_d_rockworm_hive = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { is_planet_class = pc_volcanic }
+	NOT = { has_deposit = d_rockworm_hive }
+	NOT = { has_deposit = d_rockworm_hive_volcanic }
+}
+
+cdpd_decision_can_add_d_rockworm_hive_volcanic = {
+	cdpd_is_volcanic_editor_planet = yes
+	NOT = { has_deposit = d_rockworm_hive }
+	NOT = { has_deposit = d_rockworm_hive_volcanic }
+}
+
+cdpd_decision_can_add_d_shroud_rift_deposit = {
+	cdpd_decision_is_non_artificial_non_city_machine_hive = yes
+}
+
+cdpd_decision_can_add_d_former_relic_world = {
+	is_planet_class = pc_city
+	NOT = { has_deposit = d_former_relic_world }
+}
+
+cdpd_decision_can_add_d_dimensional_manipulation_device = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { has_deposit = d_dimensional_manipulation_device }
+}
+
+cdpd_decision_can_add_d_tree_of_life_colony = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { has_deposit = d_tree_of_life_colony }
+}
+
+cdpd_decision_can_add_d_progenitor = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { has_deposit = d_progenitor }
+}
+
+cdpd_decision_can_add_d_fractal_seed = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { has_deposit = d_fractal_seed }
+}
+
+cdpd_decision_can_add_d_microplanet_memorial = {
+	cdpd_decision_is_planetary_target = yes
+	NOT = { has_deposit = d_microplanet_memorial }
+}
+
+cdpd_decision_can_add_d_genesis_preserve = {
+	cdpd_decision_is_planetary_target = yes
+	NOR = {
+		has_deposit = d_genesis_preserve
+		has_deposit = d_genesis_monument
+	}
+	NOT = { has_designation = col_nanotech_world }
+	free_district_slots > 1
+}
+
+cdpd_decision_can_add_blazing_scourge_blocker = {
+	cdpd_decision_is_non_artificial_world = yes
+	NOR = {
+		is_planet_class = pc_city
+		is_planet_class = pc_machine
+		is_planet_class = pc_hive
+		is_ideal = yes
+	}
+}
+
+cdpd_decision_can_add_d_large_volcano = {
+	cdpd_decision_can_add_blazing_scourge_blocker = yes
+	NOT = { has_deposit = d_large_volcano }
+}
+
+cdpd_decision_can_add_d_ash_storms = {
+	cdpd_decision_can_add_blazing_scourge_blocker = yes
+	NOT = { has_deposit = d_ash_storms }
+}
+
+cdpd_decision_can_add_d_charged_atmosphere = {
+	cdpd_decision_can_add_blazing_scourge_blocker = yes
+	NOT = { has_deposit = d_charged_atmosphere }
+}
+
+cdpd_decision_can_add_d_lava_flooding = {
+	cdpd_decision_can_add_blazing_scourge_blocker = yes
+	NOT = { has_deposit = d_lava_flooding }
+}
+
+cdpd_decision_can_add_d_toxic_atmosphere = {
+	cdpd_decision_can_add_blazing_scourge_blocker = yes
+	NOT = { has_deposit = d_toxic_atmosphere }
+}
+
+cdpd_decision_can_add_d_aura_blocker = {
+	cdpd_decision_is_planetary_target = yes
+	free_district_slots > 1
+}
+
+cdpd_decision_can_add_d_big_nature_preserve_blocker = {
+	cdpd_decision_is_planetary_target = yes
+	free_district_slots > 0
+}

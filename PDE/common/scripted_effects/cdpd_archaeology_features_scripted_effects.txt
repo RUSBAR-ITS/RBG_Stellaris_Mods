@@ -1,0 +1,13 @@
+cdpd_archaeology_sync_d_alloys_25_habitat_feature = {
+	event_target:cdpd_target_planet.solar_system = {
+		every_system_planet = {
+			limit = {
+				is_planet_class = pc_habitat
+			}
+			add_deposit = d_hab_alloy_25
+			last_added_deposit = {
+				set_deposit_flag = planet@event_target:cdpd_target_planet
+			}
+		}
+	}
+}

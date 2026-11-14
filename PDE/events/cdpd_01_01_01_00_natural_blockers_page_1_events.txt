@@ -1,0 +1,204 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.10110
+	title = cdpd_event_natural_blockers_p1_title
+	desc = cdpd_event_natural_blockers_p1_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_mountain_range
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_size_10_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_mountain_range
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_mountain_range
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_active_volcano
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_size_10_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_active_volcano
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_active_volcano
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_dangerous_wildlife_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_dangerous_wildlife_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_dangerous_wildlife_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_dangerous_wildlife_blocker
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_dense_jungle
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_wet_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_dense_jungle
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_dense_jungle
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_toxic_kelp
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_wet_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_toxic_kelp
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_toxic_kelp
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_deep_sinkhole
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_dry_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_deep_sinkhole
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_deep_sinkhole
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_quicksand_basin
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_dry_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_quicksand_basin
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_quicksand_basin
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_noxious_swamp
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_cold_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_noxious_swamp
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_noxious_swamp
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_massive_glacier
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_cold_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_massive_glacier
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_massive_glacier
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_radioactive_wasteland
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_nuked_city_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_radioactive_wasteland
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_radioactive_wasteland
+				cdpd_after_add_blocker = yes
+			}
+			country_event = { id = CDPD.10110 }
+		}
+	}
+
+	option = {
+		name = cdpd_next_page
+		country_event = { id = CDPD.10120 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.10000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

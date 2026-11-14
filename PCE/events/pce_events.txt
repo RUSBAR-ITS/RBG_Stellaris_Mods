@@ -1,0 +1,589 @@
+namespace = PCE
+
+planet_event = {
+    id = PCE.1
+    title = PCE.1.name
+    desc = PCE.1.desc
+    picture = GFX_evt_pce_capacity_extension
+    show_sound = event_administrative_work
+    is_triggered_only = yes
+
+    option = {
+        name = PCE.1.option.add_1
+        custom_tooltip = PCE.1.option.add_1.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_2
+        custom_tooltip = PCE.1.option.add_2.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_3
+        custom_tooltip = PCE.1.option.add_3.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_4
+        custom_tooltip = PCE.1.option.add_4.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_5
+        custom_tooltip = PCE.1.option.add_5.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_6
+        custom_tooltip = PCE.1.option.add_6.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_7
+        custom_tooltip = PCE.1.option.add_7.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_8
+        custom_tooltip = PCE.1.option.add_8.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_9
+        custom_tooltip = PCE.1.option.add_9.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.add_10
+        custom_tooltip = PCE.1.option.add_10.tooltip
+        hidden_effect = {
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            if = {
+                limit = {
+                    pce_is_artificial_district_world = yes
+                }
+                add_deposit = d_pce_additional_compartments
+                else = {
+                    add_deposit = d_pce_multilayered_cities
+                }
+            }
+            planet_event = { id = PCE.1 }
+        }
+    }
+
+    option = {
+        name = PCE.1.option.cancel
+    }
+}

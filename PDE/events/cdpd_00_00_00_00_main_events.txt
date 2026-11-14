@@ -1,0 +1,107 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.1
+	title = cdpd_event_main_title
+	desc = cdpd_event_main_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_menu_natural
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_natural_editor_planet = yes
+			}
+		}
+		country_event = { id = CDPD.10000 }
+	}
+
+	option = {
+		name = cdpd_menu_volcanic
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_volcanic_editor_planet = yes
+			}
+		}
+		country_event = { id = CDPD.20000 }
+	}
+
+	option = {
+		name = cdpd_menu_anomaly_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+		}
+		country_event = { id = CDPD.30000 }
+	}
+
+	option = {
+		name = cdpd_menu_starting_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+		}
+		country_event = { id = CDPD.40000 }
+	}
+
+	option = {
+		name = cdpd_menu_decision_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+		}
+		country_event = { id = CDPD.50000 }
+	}
+
+	option = {
+		name = cdpd_menu_archaeology_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+		}
+		country_event = { id = CDPD.60000 }
+	}
+
+	option = {
+		name = cdpd_menu_terraforming_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+		}
+		country_event = { id = CDPD.70000 }
+	}
+
+
+	option = {
+		name = cdpd_menu_event_chain_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80000 }
+	}
+
+	option = {
+		name = cdpd_orbital_menu
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		country_event = { id = CDPD.90000 }
+	}
+
+	option = {
+		name = cdpd_remove_menu
+		trigger = {
+			exists = event_target:cdpd_target_planet
+		}
+		country_event = { id = CDPD.99000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

@@ -1,0 +1,87 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80111
+	title = cdpd_event_chain_colony_ancient_features_title
+	desc = cdpd_event_chain_colony_ancient_features_desc
+	picture = GFX_evt_alien_ruins
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_ancient_bombardment_craters
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ancient_bombardment_craters = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ancient_bombardment_craters
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ancient_bombardment_craters
+			}
+			country_event = { id = CDPD.80111 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ancient_battlefield
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ancient_battlefield = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ancient_battlefield
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ancient_battlefield
+			}
+			country_event = { id = CDPD.80111 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ancient_particle_accelerator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ancient_particle_accelerator = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ancient_particle_accelerator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ancient_particle_accelerator
+			}
+			country_event = { id = CDPD.80111 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_impact_crater
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_impact_crater = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_impact_crater
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_impact_crater
+			}
+			country_event = { id = CDPD.80111 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80110 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

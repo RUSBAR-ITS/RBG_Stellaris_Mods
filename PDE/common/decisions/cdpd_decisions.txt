@@ -1,0 +1,24 @@
+decision_cdpd_open_editor = {
+	owned_planets_only = no
+	sound = event_administrative_work
+	icon = decision_cdpd_editor
+	enactment_time = 0
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		from = { is_ai = no }
+		is_within_borders_of = from
+	}
+
+	allow = { always = yes }
+
+	effect = {
+		save_event_target_as = cdpd_target_planet
+		from = { country_event = { id = CDPD.1 } }
+	}
+
+	ai_weight = { weight = 0 }
+}

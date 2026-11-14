@@ -1,0 +1,240 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.40310
+	title = cdpd_event_starting_ringworld_page_1_title
+	desc = cdpd_event_starting_ringworld_page_1_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_starting_add_d_segment_rubble_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_segment_rubble_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_segment_rubble_1
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_segment_rubble_1_small
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_segment_rubble_1_small
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_segment_rubble_1_small
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_segment_rubble_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_segment_rubble_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_segment_rubble_2
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_segment_rubble_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_segment_rubble_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_segment_rubble_3
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_segment_rubble_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_segment_rubble_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_segment_rubble_4
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_decrepit_tunnels_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_decrepit_tunnels_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_decrepit_tunnels_2
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_malfunctioning_reactor
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_malfunctioning_reactor
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_malfunctioning_reactor
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_sr_diurnal_regulator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_sr_diurnal_regulator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_sr_diurnal_regulator
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_sr_vacuum_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_sr_vacuum_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_sr_vacuum_fields
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_sr_ring_gyros
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_sr_ring_gyros
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_sr_ring_gyros
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_sr_power_grid
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_sr_power_grid
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_sr_power_grid
+			}
+			country_event = { id = CDPD.40310 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_arcane_generator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_arcane_generator
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_arcane_generator
+				}
+				country_event = { id = CDPD.40310 }
+			}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_arcane_replicator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_arcane_replicator
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_arcane_replicator
+				}
+				country_event = { id = CDPD.40310 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.40300 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

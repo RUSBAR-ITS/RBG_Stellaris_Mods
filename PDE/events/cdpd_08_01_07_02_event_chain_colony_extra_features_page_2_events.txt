@@ -1,0 +1,200 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80172
+	title = cdpd_event_chain_colony_extra_features_p2_title
+	desc = cdpd_event_chain_colony_extra_features_p2_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_meals_in_pods
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_meals_in_pods
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_meals_in_pods
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_mineral_seabed
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_mineral_seabed
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_mineral_seabed
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_myrmeku_power_farms
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_myrmeku_power_farms
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_myrmeku_power_farms
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_odd_factory
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_odd_factory
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_odd_factory
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_portal_research_zone
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_portal_research_zone
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_portal_research_zone
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_prisoner_intergration
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_prisoner_intergration
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_prisoner_intergration
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_star_mall_promenade
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_star_mall_promenade
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_star_mall_promenade
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_underground_farm
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_underground_farm
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_underground_farm
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_underground_generator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_underground_generator
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_underground_generator
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_underground_mine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_underground_mine
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_underground_mine
+				}
+				country_event = { id = CDPD.80172 }
+			}
+	}
+
+	option = {
+		name = cdpd_next_page
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80173 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80171 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

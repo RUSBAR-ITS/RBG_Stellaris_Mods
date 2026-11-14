@@ -1,0 +1,206 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.30100
+	title = cdpd_event_anomaly_planetary_features_title
+	desc = cdpd_event_anomaly_planetary_features_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_anomaly_add_d_hyperfertile_valley
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_hyperfertile_valley
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_hyperfertile_valley
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_ancient_mining_site
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_ancient_mining_site
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ancient_mining_site
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_toy_factory_complex
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_toy_factory_complex
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_toy_factory_complex
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_metal_boneyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_metal_boneyard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_metal_boneyard
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_ancient_one
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_ancient_one
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ancient_one
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_hab_lonely_bot_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_hab_lonely_bot_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_hab_lonely_bot_deposit
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_nano_corpses
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_nano_corpses
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_nano_corpses
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_red_desert
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_red_desert
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_red_desert
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_geocentric_experiment
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_geocentric_experiment
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_geocentric_experiment
+			}
+			country_event = { id = CDPD.30100 }
+		}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_hab_lonely_bot_deposit_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_hab_lonely_bot_deposit_2
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_hab_lonely_bot_deposit_2
+				}
+				country_event = { id = CDPD.30100 }
+			}
+	}
+
+	option = {
+		name = cdpd_anomaly_add_d_hab_lonely_bot_deposit_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_hab_lonely_bot_deposit_3
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_hab_lonely_bot_deposit_3
+				}
+				country_event = { id = CDPD.30100 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.30000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

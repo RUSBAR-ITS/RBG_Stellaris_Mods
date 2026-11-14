@@ -1,0 +1,6 @@
+cdpd_terraforming_is_planetary_target = {
+	OR = {
+		cdpd_is_natural_editor_planet = yes
+		cdpd_is_volcanic_editor_planet = yes
+	}
+}

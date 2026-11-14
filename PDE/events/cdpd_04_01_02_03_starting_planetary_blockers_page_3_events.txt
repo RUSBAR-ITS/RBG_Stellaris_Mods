@@ -1,0 +1,77 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.40123
+	title = cdpd_event_starting_planetary_blockers_p3_title
+	desc = cdpd_event_starting_planetary_blockers_p3_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_starting_add_d_stasis_pods
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_stasis_pods
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_stasis_pods
+			}
+			country_event = { id = CDPD.40123 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_scorched_plains
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_scorched_plains
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_scorched_plains
+			}
+			country_event = { id = CDPD.40123 }
+		}
+	}
+
+	option = {
+		name = cdpd_prev_page
+		country_event = { id = CDPD.40122 }
+	}
+
+	option = {
+		name = cdpd_starting_add_d_resource_consolidation_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_resource_consolidation_1
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_resource_consolidation_1
+					}
+				}
+				country_event = { id = CDPD.40123 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.40100 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

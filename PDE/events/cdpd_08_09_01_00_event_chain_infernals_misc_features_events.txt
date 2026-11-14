@@ -1,0 +1,87 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80910
+	title = cdpd_event_chain_infernals_misc_features_title
+	desc = cdpd_event_chain_infernals_misc_features_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_cd_ancient_tunnels
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_cd_ancient_tunnels = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_cd_ancient_tunnels
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_cd_ancient_tunnels
+			}
+			country_event = { id = CDPD.80910 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_galvanic_living_metal
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_galvanic_living_metal = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_galvanic_living_metal
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_galvanic_living_metal
+			}
+			country_event = { id = CDPD.80910 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_treasure_planet
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_treasure_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_treasure_planet
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_treasure_planet
+			}
+			country_event = { id = CDPD.80910 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_stellarite_trophy
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_stellarite_trophy = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_stellarite_trophy
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_stellarite_trophy
+			}
+			country_event = { id = CDPD.80910 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80900 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

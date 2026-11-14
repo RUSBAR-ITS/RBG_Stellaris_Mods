@@ -1,0 +1,194 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.10410
+	title = cdpd_event_natural_food_p1_title
+	desc = cdpd_event_natural_food_p1_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_lichen_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_lichen_fields = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_lichen_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_lichen_fields
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_bountiful_plains
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_bountiful_plains = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_bountiful_plains
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_bountiful_plains
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_rugged_woods
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_rugged_woods = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_rugged_woods
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_rugged_woods
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_green_hills
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_green_hills = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_green_hills
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_green_hills
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_forgiving_tundra
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_forgiving_tundra = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_forgiving_tundra
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_forgiving_tundra
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_boggy_fens
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_boggy_fens = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_boggy_fens
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_boggy_fens
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_nutritious_mudland
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_nutritious_mudland = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_nutritious_mudland
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_nutritious_mudland
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_fungal_caves
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_fungal_caves = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_fungal_caves
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_fungal_caves
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_lush_jungle
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_lush_jungle = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_lush_jungle
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_lush_jungle
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_fertile_lands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_fertile_lands = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_fertile_lands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_fertile_lands
+			}
+			country_event = { id = CDPD.10410 }
+		}
+	}
+
+	option = {
+		name = cdpd_next_page
+		country_event = { id = CDPD.10420 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.10000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

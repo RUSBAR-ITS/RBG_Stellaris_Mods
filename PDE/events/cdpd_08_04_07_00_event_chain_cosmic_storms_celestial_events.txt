@@ -1,0 +1,70 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80470
+	title = cdpd_event_chain_cosmic_storms_celestial_title
+	desc = cdpd_event_chain_cosmic_storms_celestial_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_celestial_storm_1_mines
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_celestial_storm_1_mines
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_celestial_storm_1_mines
+				}
+				country_event = { id = CDPD.80470 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_celestial_storm_2_society
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_celestial_storm_2_society
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_celestial_storm_2_society
+				}
+				country_event = { id = CDPD.80470 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_celestial_storm_3_crystal
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_celestial_storm_3_crystal
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_celestial_storm_3_crystal
+				}
+				country_event = { id = CDPD.80470 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80400 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

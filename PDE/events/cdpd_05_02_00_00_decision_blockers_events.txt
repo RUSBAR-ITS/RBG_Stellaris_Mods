@@ -1,0 +1,138 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.50200
+	title = cdpd_event_decision_blockers_title
+	desc = cdpd_event_decision_blockers_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_decision_add_d_large_volcano
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_large_volcano = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_large_volcano
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_blocker = { type = d_large_volcano }
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_ash_storms
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_ash_storms = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_ash_storms
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_blocker = { type = d_ash_storms }
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_charged_atmosphere
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_charged_atmosphere = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_charged_atmosphere
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_blocker = { type = d_charged_atmosphere }
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_lava_flooding
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_lava_flooding = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_lava_flooding
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_blocker = { type = d_lava_flooding }
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_toxic_atmosphere
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_toxic_atmosphere = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_toxic_atmosphere
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_blocker = { type = d_toxic_atmosphere }
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_aura_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_aura_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_aura_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_decision_add_two_aura_blockers_effect = yes
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_big_nature_preserve_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_big_nature_preserve_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_big_nature_preserve_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_big_nature_preserve_blocker
+			}
+			country_event = { id = CDPD.50200 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.50000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

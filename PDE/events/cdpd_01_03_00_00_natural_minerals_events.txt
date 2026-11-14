@@ -1,0 +1,138 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.10300
+	title = cdpd_event_natural_minerals_title
+	desc = cdpd_event_natural_minerals_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_veiny_cliffs
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_veiny_cliffs = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_veiny_cliffs
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_veiny_cliffs
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_mineral_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_mineral_fields = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_mineral_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_mineral_fields
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_prosperous_mesa
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_prosperous_mesa = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_prosperous_mesa
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_prosperous_mesa
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_ore_rich_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_ore_rich_caverns = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_ore_rich_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ore_rich_caverns
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_rich_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_rich_mountain = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_rich_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_rich_mountain
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_submerged_ore_veins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_submerged_ore_veins = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_submerged_ore_veins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_submerged_ore_veins
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_mineral_striations
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_gaia_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_mineral_striations
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_mineral_striations
+			}
+			country_event = { id = CDPD.10300 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.10000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

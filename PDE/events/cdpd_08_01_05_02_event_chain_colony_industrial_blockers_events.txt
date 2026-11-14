@@ -1,0 +1,34 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80152
+	title = cdpd_event_chain_colony_industrial_blockers_title
+	desc = cdpd_event_chain_colony_industrial_blockers_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_sprawling_landfill_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_sprawling_landfill_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_sprawling_landfill_blocker
+		hidden_effect = {
+			cdpd_event_chain_add_d_sprawling_landfill_blocker_effect = yes
+			country_event = { id = CDPD.80152 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80150 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

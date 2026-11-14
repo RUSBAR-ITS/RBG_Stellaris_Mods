@@ -1,0 +1,155 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.81010
+	title = cdpd_event_chain_paragons_features_title
+	desc = cdpd_event_chain_paragons_features_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_ancient_facilities
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ancient_facilities
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_ancient_facilities
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_arcane_device
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_arcane_device
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_arcane_device
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_fallen_orbital_shipyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_fallen_orbital_shipyard
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_fallen_orbital_shipyard
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_hostile_fauna
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_hostile_fauna
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_hostile_fauna
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_hostile_flora
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_hostile_flora
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_hostile_flora
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_pulsar_scarred
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_pulsar_scarred
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_pulsar_scarred
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_space_ship_graveyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_space_ship_graveyard
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_space_ship_graveyard
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_volcanic_active_planet
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_volcanic_active_planet
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_volcanic_active_planet
+				}
+				country_event = { id = CDPD.81010 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.81000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

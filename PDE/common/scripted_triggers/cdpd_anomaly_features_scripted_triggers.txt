@@ -1,0 +1,6 @@
+cdpd_anomaly_is_potentially_colonizable_planet = {
+	OR = {
+		cdpd_is_natural_editor_planet = yes
+		cdpd_is_volcanic_editor_planet = yes
+	}
+}

@@ -1,0 +1,41 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.30000
+	title = cdpd_event_anomaly_features_root_title
+	desc = cdpd_event_anomaly_features_root_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_menu_anomaly_planetary_features
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		country_event = { id = CDPD.30100 }
+	}
+
+	option = {
+		name = cdpd_menu_anomaly_blockers
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		country_event = { id = CDPD.30200 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.1 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

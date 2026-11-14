@@ -1,0 +1,53 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.10540
+	title = cdpd_event_natural_rare_other_title
+	desc = cdpd_event_natural_rare_other_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_betharian_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_generic_habitable_resource = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_betharian_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_betharian_deposit
+			}
+			country_event = { id = CDPD.10540 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_alien_pets_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_alien_pets_deposit = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_alien_pets_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_alien_pets_deposit
+			}
+			country_event = { id = CDPD.10540 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.10500 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

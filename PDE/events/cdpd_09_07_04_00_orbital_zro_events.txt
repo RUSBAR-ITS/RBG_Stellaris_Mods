@@ -1,0 +1,109 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.90740
+	title = cdpd_event_orbital_zro_title
+	desc = cdpd_event_orbital_zro_desc
+	picture = GFX_evt_mining_station
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_orbital_add_d_zro_deposit_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_zro_deposit_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_zro_deposit_1
+			}
+			cdpd_orbital_sync_d_zro_deposit_1_habitat_feature = yes
+			country_event = { id = CDPD.90740 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_zro_deposit_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_zro_deposit_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_zro_deposit_2
+			}
+			cdpd_orbital_sync_d_zro_deposit_2_habitat_feature = yes
+			country_event = { id = CDPD.90740 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_zro_deposit_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_zro_deposit_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_zro_deposit_3
+			}
+			cdpd_orbital_sync_d_zro_deposit_3_habitat_feature = yes
+			country_event = { id = CDPD.90740 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_zro_deposit_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_zro_deposit_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_zro_deposit_4
+			}
+			cdpd_orbital_sync_d_zro_deposit_4_habitat_feature = yes
+			country_event = { id = CDPD.90740 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_zro_deposit_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_zro_deposit_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_zro_deposit_5
+			}
+			cdpd_orbital_sync_d_zro_deposit_5_habitat_feature = yes
+			country_event = { id = CDPD.90740 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.90700 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

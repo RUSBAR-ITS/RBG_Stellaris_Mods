@@ -1,0 +1,16 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_decision_pce_extend_planetary_capacity"
+        texturefile = "gfx/interface/icons/decisions/pce_extend_planetary_capacity.dds"
+    }
+
+    spriteType = {
+        name = "GFX_d_pce_multilayered_cities"
+        texturefile = "gfx/interface/icons/deposits/pce_multilayered_cities.dds"
+    }
+
+    spriteType = {
+        name = "GFX_d_pce_additional_compartments"
+        texturefile = "gfx/interface/icons/deposits/pce_additional_compartments.dds"
+    }
+}

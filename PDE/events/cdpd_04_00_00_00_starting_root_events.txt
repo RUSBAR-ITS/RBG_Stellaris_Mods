@@ -1,0 +1,52 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.40000
+	title = cdpd_event_starting_root_title
+	desc = cdpd_event_starting_root_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_menu_starting_planetary
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.40100 }
+	}
+
+	option = {
+		name = cdpd_menu_starting_habitat
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_habitat_target = yes
+			}
+		}
+		country_event = { id = CDPD.40200 }
+	}
+
+	option = {
+		name = cdpd_menu_starting_ringworld
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_ringworld_target = yes
+			}
+		}
+		country_event = { id = CDPD.40300 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.1 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

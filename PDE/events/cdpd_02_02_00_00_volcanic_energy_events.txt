@@ -1,0 +1,53 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.20200
+	title = cdpd_event_volcanic_energy_title
+	desc = cdpd_event_volcanic_energy_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_geothermal_vent
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_geothermal_vent = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_geothermal_vent
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_geothermal_vent
+			}
+			country_event = { id = CDPD.20200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_tempestous_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_tempestous_mountain = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_tempestous_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_tempestous_mountain
+			}
+			country_event = { id = CDPD.20200 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.20000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

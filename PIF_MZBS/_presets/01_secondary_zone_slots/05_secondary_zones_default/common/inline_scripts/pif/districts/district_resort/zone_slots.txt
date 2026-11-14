@@ -1,0 +1,8 @@
+zone_slots = {
+	slot_city_government
+	slot_resort_01
+	slot_resort_02
+	slot_resort_02
+	slot_resort_02
+	slot_resort_02
+}

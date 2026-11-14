@@ -1,0 +1,53 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.10530
+	title = cdpd_event_natural_rare_motes_title
+	desc = cdpd_event_natural_rare_motes_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_dust_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_generic_habitable_resource = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_dust_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_dust_caverns
+			}
+			country_event = { id = CDPD.10530 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_dust_desert
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_generic_habitable_resource_non_volcanic = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_dust_desert
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_dust_desert
+			}
+			country_event = { id = CDPD.10530 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.10500 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

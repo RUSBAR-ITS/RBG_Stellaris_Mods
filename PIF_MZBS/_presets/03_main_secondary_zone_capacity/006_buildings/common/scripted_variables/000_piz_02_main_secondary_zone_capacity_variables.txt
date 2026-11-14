@@ -1,0 +1,27 @@
+@pif_zone_urban_building_capacity_max_buildings_1 = 6
+@pif_zone_industrial_building_capacity_max_buildings_1 = 6
+@pif_zone_foundry_building_capacity_max_buildings_1 = 6
+@pif_zone_factory_building_capacity_max_buildings_1 = 6
+@pif_zone_unity_building_capacity_max_buildings_1 = 6
+@pif_zone_unity_spiritualist_building_capacity_max_buildings_1 = 6
+@pif_zone_unity_bio_trophy_building_capacity_max_buildings_1 = 6
+@pif_zone_fortress_building_capacity_max_buildings_1 = 6
+@pif_zone_trade_building_capacity_max_buildings_1 = 6
+@pif_zone_research_unity_building_capacity_max_buildings_1 = 6
+@pif_zone_research_building_capacity_max_buildings_1 = 6
+@pif_zone_research_physics_building_capacity_max_buildings_1 = 6
+@pif_zone_research_society_building_capacity_max_buildings_1 = 6
+@pif_zone_research_engineering_building_capacity_max_buildings_1 = 6
+@pif_zone_central_spire_building_capacity_max_buildings_1 = 6
+@pif_zone_urban_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_foundry_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_research_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_unity_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_research_unity_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_trade_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_fortress_wilderness_building_capacity_max_buildings_1 = 6
+@pif_zone_habitat_knights_building_capacity_max_buildings_1 = 6
+@pif_zone_habitat_research_unity_building_capacity_max_buildings_1 = 6
+@pif_zone_resort_building_capacity_max_buildings_1 = 6
+@pif_zone_resort_entertainment_building_capacity_max_buildings_1 = 6
+

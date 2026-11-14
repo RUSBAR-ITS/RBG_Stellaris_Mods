@@ -1,0 +1,27 @@
+decision_pce_extend_planetary_capacity = {
+    owned_planets_only = yes
+    icon = pce_extend_planetary_capacity
+    sound = event_administrative_work
+    enactment_time = 0
+
+    resources = {
+        category = decisions
+        cost = { }
+    }
+
+    potential = {
+        pce_is_valid_capacity_target = yes
+    }
+
+    allow = {
+        always = yes
+    }
+
+    effect = {
+        planet_event = { id = PCE.1 }
+    }
+
+    ai_weight = {
+        weight = 0
+    }
+}

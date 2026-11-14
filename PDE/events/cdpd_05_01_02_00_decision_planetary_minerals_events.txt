@@ -1,0 +1,104 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.50120
+	title = cdpd_event_decision_planetary_minerals_title
+	desc = cdpd_event_decision_planetary_minerals_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_decision_add_d_project_cornucopia
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_project_cornucopia = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_project_cornucopia
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_project_cornucopia
+			}
+			country_event = { id = CDPD.50120 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_prospectorium_strip_mine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_prospectorium_strip_mine = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_prospectorium_strip_mine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_prospectorium_strip_mine
+			}
+			country_event = { id = CDPD.50120 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_planet_stripmine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_planet_stripmine = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_planet_stripmine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_planet_stripmine
+			}
+			country_event = { id = CDPD.50120 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_rockworm_hive
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_rockworm_hive = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_rockworm_hive
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_rockworm_hive
+			}
+			country_event = { id = CDPD.50120 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_rockworm_hive_volcanic
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_rockworm_hive_volcanic = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_rockworm_hive_volcanic
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_rockworm_hive_volcanic
+			}
+			country_event = { id = CDPD.50120 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.50100 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

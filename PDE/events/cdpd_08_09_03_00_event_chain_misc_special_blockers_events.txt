@@ -1,0 +1,247 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80930
+	title = cdpd_event_chain_misc_special_blockers_title
+	desc = cdpd_event_chain_misc_special_blockers_desc
+	picture = GFX_evt_dead_city
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_lethal_ecosphere_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_lethal_ecosphere_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_lethal_ecosphere_blocker
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_lithoid_devastation
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_lithoid_devastation
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_lithoid_devastation
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_nanotech_devastation
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_nanotech_devastation
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_nanotech_devastation
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_poisonous_algae
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_poisonous_algae
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_poisonous_algae
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_rotten_soil
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_rotten_soil
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_rotten_soil
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ruined_building_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ruined_building_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_ruined_building_blocker
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ruined_district
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ruined_district
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_ruined_district
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ruined_hatchery
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ruined_hatchery
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_ruined_hatchery
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_tainted_snowcaps
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_tainted_snowcaps
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_tainted_snowcaps
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_unpleasant_atmosphere
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_unpleasant_atmosphere
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_unpleasant_atmosphere
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_venomous_insects
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_venomous_insects
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_venomous_insects
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_wandering_forests
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_wandering_forests
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_wandering_forests
+					}
+				}
+				country_event = { id = CDPD.80930 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80900 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

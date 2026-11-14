@@ -1,0 +1,2 @@
+@pif_zone_default_building_capacity_max_buildings_1 = 24
+

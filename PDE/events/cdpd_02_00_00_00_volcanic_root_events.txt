@@ -1,0 +1,44 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.20000
+	title = cdpd_event_volcanic_root_title
+	desc = cdpd_event_volcanic_root_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_menu_blockers
+		country_event = { id = CDPD.20100 }
+	}
+
+	option = {
+		name = cdpd_menu_energy
+		country_event = { id = CDPD.20200 }
+	}
+
+	option = {
+		name = cdpd_menu_minerals
+		country_event = { id = CDPD.20300 }
+	}
+
+	option = {
+		name = cdpd_menu_planetary
+		country_event = { id = CDPD.20400 }
+	}
+
+	option = {
+		name = cdpd_menu_rare_special
+		country_event = { id = CDPD.20500 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.1 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

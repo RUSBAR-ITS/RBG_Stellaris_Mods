@@ -1,0 +1,29 @@
+d_pce_multilayered_cities = {
+    icon = pce_multilayered_cities
+    is_for_colonizable = yes
+    should_swap_deposit_on_terraforming = no
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_max_districts_add = 1
+    }
+
+    drop_weight = {
+        weight = 0
+    }
+}
+
+d_pce_additional_compartments = {
+    icon = pce_additional_compartments
+    is_for_colonizable = yes
+    should_swap_deposit_on_terraforming = no
+    category = deposit_cat_rare
+
+    planet_modifier = {
+        planet_max_districts_add = 1
+    }
+
+    drop_weight = {
+        weight = 0
+    }
+}

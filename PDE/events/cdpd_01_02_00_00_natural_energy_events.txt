@@ -1,0 +1,172 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.10200
+	title = cdpd_event_natural_energy_title
+	desc = cdpd_event_natural_energy_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_arid_highlands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_arid_highlands = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_arid_highlands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_arid_highlands
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_hot_springs
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_hot_springs = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_hot_springs
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_hot_springs
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_rushing_waterfalls
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_rushing_waterfalls = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_rushing_waterfalls
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_rushing_waterfalls
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_searing_desert
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_searing_desert = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_searing_desert
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_searing_desert
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_frozen_gas_lake
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_frozen_gas_lake = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_frozen_gas_lake
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_frozen_gas_lake
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_geothermal_vent
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_geothermal_vent = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_geothermal_vent
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_geothermal_vent
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_underwater_vent
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_underwater_vent = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_underwater_vent
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_underwater_vent
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_tempestous_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_d_tempestous_mountain = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_tempestous_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_tempestous_mountain
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_buzzing_plains
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_gaia_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_buzzing_plains
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_buzzing_plains
+			}
+			country_event = { id = CDPD.10200 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.10000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

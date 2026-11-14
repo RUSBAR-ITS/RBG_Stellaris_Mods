@@ -1,0 +1,6 @@
+cdpd_orbital_is_target = {
+	exists = solar_system
+	NOR = {
+		cdpd_event_chain_is_planetary_target = yes
+	}
+}

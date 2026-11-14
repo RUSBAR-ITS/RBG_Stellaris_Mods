@@ -1,0 +1,104 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80621
+	title = cdpd_event_chain_other_origins_features_title
+	desc = cdpd_event_chain_other_origins_features_desc
+	picture = GFX_evt_alien_ruins
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_abandoned_black_needle_base
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_abandoned_black_needle_base = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_abandoned_black_needle_base
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_abandoned_black_needle_base
+			}
+			country_event = { id = CDPD.80621 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ruined_hive_dwelling
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ruined_hive_dwelling = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ruined_hive_dwelling
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ruined_hive_dwelling
+			}
+			country_event = { id = CDPD.80621 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_progenitor_empty
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_progenitor_empty
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_progenitor_empty
+				}
+				country_event = { id = CDPD.80621 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_black_needle_base
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_black_needle_base
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_black_needle_base
+				}
+				country_event = { id = CDPD.80621 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_hive_dwelling
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_hive_dwelling
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_hive_dwelling
+				}
+				country_event = { id = CDPD.80621 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80620 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

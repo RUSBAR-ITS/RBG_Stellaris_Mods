@@ -1,0 +1,4712 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.99110
+	title = cdpd_remove_planetary_features_title
+	desc = cdpd_remove_planetary_features_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_remove_d_abandoned_black_needle_base
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_abandoned_black_needle_base
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_abandoned_black_needle_base
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_abandoned_black_needle_base_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_abandoned_mining_tunnels
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_abandoned_mining_tunnels
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_abandoned_mining_tunnels
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_abandoned_mining_tunnels_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_abandoned_primitive_homesteads
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_abandoned_primitive_homesteads
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_abandoned_primitive_homesteads
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_abandoned_primitive_homesteads_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_admirals_bickering_crashed_cargo_ship
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_admirals_bickering_crashed_cargo_ship
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_admirals_bickering_crashed_cargo_ship
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_admirals_bickering_crashed_cargo_ship_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alien_pets_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alien_pets_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alien_pets_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alien_pets_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alien_sanctuary
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alien_sanctuary
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alien_sanctuary
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alien_sanctuary_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_battlefield
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_battlefield
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_battlefield
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_battlefield_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_bombardment_craters
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_bombardment_craters
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_bombardment_craters
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_bombardment_craters_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_cloaking_array
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_cloaking_array
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_cloaking_array
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_cloaking_array_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_facilities
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_facilities
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_facilities
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_facilities_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_manufactorium_crater
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_manufactorium_crater
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_manufactorium_crater
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_manufactorium_crater_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_manufactorium_scrapyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_manufactorium_scrapyard
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_manufactorium_scrapyard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_manufactorium_scrapyard_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_manufactorium_vaultexploration
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_manufactorium_vaultexploration
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_manufactorium_vaultexploration
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_manufactorium_vaultexploration_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_manufactorium_working
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_manufactorium_working
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_manufactorium_working
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_manufactorium_working_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_mining_site
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_mining_site
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_mining_site
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_mining_site_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_one
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_one
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_one
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_one_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_particle_accelerator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_particle_accelerator
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_particle_accelerator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_particle_accelerator_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ancient_reactor_pits
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ancient_reactor_pits
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ancient_reactor_pits
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ancient_reactor_pits_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_andisol_soil
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_andisol_soil
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_andisol_soil
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_andisol_soil_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_arcane_device
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_arcane_device
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_arcane_device
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_arcane_device_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_arcane_generator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_arcane_generator
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_arcane_generator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_arcane_generator_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_arcane_replicator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_arcane_replicator
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_arcane_replicator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_arcane_replicator_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_arid_highlands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_arid_highlands
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_arid_highlands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_arid_highlands_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_astrogarbage_collector
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_astrogarbage_collector
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_astrogarbage_collector
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_astrogarbage_collector_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_avian_reserve
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_avian_reserve
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_avian_reserve
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_avian_reserve_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_betharian_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_betharian_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_betharian_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_betharian_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_black_needle_base
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_black_needle_base
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_black_needle_base
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_black_needle_base_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_black_soil
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_black_soil
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_black_soil
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_black_soil_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_blue_lava
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_blue_lava
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_blue_lava
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_blue_lava_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_bluelotus
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_bluelotus
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_bluelotus
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_bluelotus_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_bluelotus2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_bluelotus2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_bluelotus2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_bluelotus2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_boggy_fens
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_boggy_fens
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_boggy_fens
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_boggy_fens_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_bogplants
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_bogplants
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_bogplants
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_bogplants_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_boswash_metropolitan_axis
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_boswash_metropolitan_axis
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_boswash_metropolitan_axis
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_boswash_metropolitan_axis_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_bountiful_plains
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_bountiful_plains
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_bountiful_plains
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_bountiful_plains_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_bubbling_swamp
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_bubbling_swamp
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_bubbling_swamp
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_bubbling_swamp_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_buzzing_plains
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_buzzing_plains
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_buzzing_plains
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_buzzing_plains_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_cave_shroom_veins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_cave_shroom_veins
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_cave_shroom_veins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_cave_shroom_veins_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_cd_ancient_tunnels
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_cd_ancient_tunnels
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_cd_ancient_tunnels
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_cd_ancient_tunnels_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_celestial_storm_1_mines
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_celestial_storm_1_mines
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_celestial_storm_1_mines
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_celestial_storm_1_mines_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_celestial_storm_2_society
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_celestial_storm_2_society
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_celestial_storm_2_society
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_celestial_storm_2_society_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_celestial_storm_3_crystal
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_celestial_storm_3_crystal
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_celestial_storm_3_crystal
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_celestial_storm_3_crystal_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_central_spire
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_central_spire
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_central_spire
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_central_spire_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crashed_slaver_ship
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crashed_slaver_ship
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crashed_slaver_ship
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crashed_slaver_ship_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crashed_slaver_ship_memorial
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crashed_slaver_ship_memorial
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crashed_slaver_ship_memorial
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crashed_slaver_ship_memorial_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crater_bluelotus
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crater_bluelotus
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crater_bluelotus
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crater_bluelotus_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_cryonic_clones
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_cryonic_clones
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_cryonic_clones
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_cryonic_clones_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystal_forest
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystal_forest
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystal_forest
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystal_forest_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystal_kraken_body
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystal_kraken_body
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystal_kraken_body
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystal_kraken_body_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystal_kraken_body_bombed
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystal_kraken_body_bombed
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystal_kraken_body_bombed
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystal_kraken_body_bombed_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystal_reef
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystal_reef
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystal_reef
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystal_reef_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystaline_growths
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystaline_growths
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystaline_growths
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystaline_growths_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystalline_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystalline_caverns
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystalline_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystalline_caverns_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystalline_glacier
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystalline_glacier
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystalline_glacier
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystalline_glacier_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dayside_farm
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dayside_farm
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dayside_farm
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dayside_farm_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_delhi_sprawl
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_delhi_sprawl
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_delhi_sprawl
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_delhi_sprawl_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_desertling_infestation
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_desertling_infestation
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_desertling_infestation
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_desertling_infestation_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dimensional_manipulation_device
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dimensional_manipulation_device
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dimensional_manipulation_device
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dimensional_manipulation_device_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_disco_planet
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_disco_planet
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_disco_planet
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_disco_planet_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_disco_planet2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_disco_planet2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_disco_planet2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_disco_planet2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dragon_monument
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dragon_monument
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dragon_monument
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dragon_monument_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dust_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dust_caverns
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dust_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dust_caverns_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dust_desert
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dust_desert
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dust_desert
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dust_desert_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_eater_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_eater_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_eater_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_eater_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_electric_storm_1_engineering
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_electric_storm_1_engineering
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_electric_storm_1_engineering
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_electric_storm_1_engineering_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_electric_storm_2_unity
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_electric_storm_2_unity
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_electric_storm_2_unity
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_electric_storm_2_unity_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_electric_storm_3_physics
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_electric_storm_3_physics
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_electric_storm_3_physics
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_electric_storm_3_physics_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_electrified_oceans
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_electrified_oceans
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_electrified_oceans
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_electrified_oceans_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_exotic_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_exotic_mountain
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_exotic_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_exotic_mountain_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_explosive_atmosphere
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_explosive_atmosphere
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_explosive_atmosphere
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_explosive_atmosphere_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fallen_orbital_shipyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fallen_orbital_shipyard
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fallen_orbital_shipyard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fallen_orbital_shipyard_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_federation_hegemony_monument_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_federation_hegemony_monument_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_federation_hegemony_monument_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_federation_hegemony_monument_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_federation_hegemony_monument_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_federation_hegemony_monument_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_federation_hegemony_monument_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_federation_hegemony_monument_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fertile_lands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fertile_lands
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fertile_lands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fertile_lands_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_flooded_mounds
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_flooded_mounds
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_flooded_mounds
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_flooded_mounds_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_forceful_winds
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_forceful_winds
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_forceful_winds
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_forceful_winds_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_forgiving_tundra
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_forgiving_tundra
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_forgiving_tundra
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_forgiving_tundra_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_former_relic_world
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_former_relic_world
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_former_relic_world
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_former_relic_world_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fractal_seed
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fractal_seed
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fractal_seed
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fractal_seed_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_freeports
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_freeports
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_freeports
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_freeports_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_frozen_gas_lake
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_frozen_gas_lake
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_frozen_gas_lake
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_frozen_gas_lake_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fuming_bog
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fuming_bog
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fuming_bog
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fuming_bog_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fungal_caves
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fungal_caves
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fungal_caves
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fungal_caves_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fungal_forest
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fungal_forest
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fungal_forest
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fungal_forest_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_fungal_study_zone
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_fungal_study_zone
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_fungal_study_zone
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_fungal_study_zone_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_galvanic_living_metal
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_galvanic_living_metal
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_galvanic_living_metal
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_galvanic_living_metal_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_genesis_monument
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_genesis_monument
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_genesis_monument
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_genesis_monument_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_genesis_preserve
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_genesis_preserve
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_genesis_preserve
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_genesis_preserve_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_geocentric_experiment
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_geocentric_experiment
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_geocentric_experiment
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_geocentric_experiment_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_geothermal_hotspot
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_geothermal_hotspot
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_geothermal_hotspot
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_geothermal_hotspot_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_geothermal_vent
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_geothermal_vent
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_geothermal_vent
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_geothermal_vent_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ghostly_canyon
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ghostly_canyon
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ghostly_canyon
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ghostly_canyon_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_gravity_storm_1_districts
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_gravity_storm_1_districts
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_gravity_storm_1_districts
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_gravity_storm_1_districts_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_gravity_storm_2_unity
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_gravity_storm_2_unity
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_gravity_storm_2_unity
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_gravity_storm_2_unity_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_gravity_storm_3_engineering
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_gravity_storm_3_engineering
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_gravity_storm_3_engineering
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_gravity_storm_3_engineering_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_great_albertan_crater
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_great_albertan_crater
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_great_albertan_crater
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_great_albertan_crater_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_great_river
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_great_river
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_great_river
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_great_river_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_green_hills
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_green_hills
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_green_hills
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_green_hills_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hab_lonely_bot_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hab_lonely_bot_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hab_lonely_bot_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hab_lonely_bot_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hab_lonely_bot_deposit_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hab_lonely_bot_deposit_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hab_lonely_bot_deposit_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hab_lonely_bot_deposit_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hab_lonely_bot_deposit_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hab_lonely_bot_deposit_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hab_lonely_bot_deposit_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hab_lonely_bot_deposit_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_harvester_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_harvester_fields
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_harvester_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_harvester_fields_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hive_dwelling
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hive_dwelling
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hive_dwelling
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hive_dwelling_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hostile_fauna
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hostile_fauna
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hostile_fauna
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hostile_fauna_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hostile_flora
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hostile_flora
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hostile_flora
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hostile_flora_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hot_springs
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hot_springs
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hot_springs
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hot_springs_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_house_turtle
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_house_turtle
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_house_turtle
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_house_turtle_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hydroactive_eggs
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hydroactive_eggs
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hydroactive_eggs
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hydroactive_eggs_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_hyperfertile_valley
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_hyperfertile_valley
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_hyperfertile_valley
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_hyperfertile_valley_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_immense_solar_array
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_immense_solar_array
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_immense_solar_array
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_immense_solar_array_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_impact_crater
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_impact_crater
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_impact_crater
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_impact_crater_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_impossiblecorrie
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_impossiblecorrie
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_impossiblecorrie
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_impossiblecorrie_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_industrial_sector
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_industrial_sector
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_industrial_sector
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_industrial_sector_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_irradiated_ruins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_irradiated_ruins
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_irradiated_ruins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_irradiated_ruins_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_irradiated_valley
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_irradiated_valley
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_irradiated_valley
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_irradiated_valley_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_junk_canals
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_junk_canals
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_junk_canals
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_junk_canals_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_junk_hollows
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_junk_hollows
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_junk_hollows
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_junk_hollows_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_junk_wastes
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_junk_wastes
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_junk_wastes
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_junk_wastes_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_knights_calibrator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_knights_calibrator
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_knights_calibrator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_knights_calibrator_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_landed_dragon
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_landed_dragon
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_landed_dragon
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_landed_dragon_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_landgrab_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_landgrab_blocker
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_landgrab_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_landgrab_blocker_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_landgrab_foreign_holdings
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_landgrab_foreign_holdings
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_landgrab_foreign_holdings
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_landgrab_foreign_holdings_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_lava_tubes
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_lava_tubes
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_lava_tubes
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_lava_tubes_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_lichen_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_lichen_fields
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_lichen_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_lichen_fields_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_liquid_dark_matter
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_liquid_dark_matter
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_liquid_dark_matter
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_liquid_dark_matter_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_lithoid_crater
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_lithoid_crater
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_lithoid_crater
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_lithoid_crater_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_living_metal_medium
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_living_metal_medium
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_living_metal_medium
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_living_metal_medium_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_living_metal_small
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_living_metal_small
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_living_metal_small
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_living_metal_small_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_living_metal_tiny
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_living_metal_tiny
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_living_metal_tiny
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_living_metal_tiny_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_living_snow_reserve
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_living_snow_reserve
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_living_snow_reserve
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_living_snow_reserve_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_lush_jungle
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_lush_jungle
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_lush_jungle
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_lush_jungle_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_machine_care_home
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_machine_care_home
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_machine_care_home
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_machine_care_home_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_machine_minerals
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_machine_minerals
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_machine_minerals
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_machine_minerals_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_magnetic_storm_1_minerals
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_magnetic_storm_1_minerals
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_magnetic_storm_1_minerals
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_magnetic_storm_1_minerals_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_magnetic_storm_2_alloys
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_magnetic_storm_2_alloys
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_magnetic_storm_2_alloys
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_magnetic_storm_2_alloys_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_magnetic_storm_3_mix
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_magnetic_storm_3_mix
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_magnetic_storm_3_mix
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_magnetic_storm_3_mix_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_marvelous_oasis
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_marvelous_oasis
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_marvelous_oasis
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_marvelous_oasis_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mauritanian_security_zone
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mauritanian_security_zone
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mauritanian_security_zone
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mauritanian_security_zone_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_meals_in_pods
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_meals_in_pods
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_meals_in_pods
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_meals_in_pods_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mesopotamian_urban_corridor
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mesopotamian_urban_corridor
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mesopotamian_urban_corridor
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mesopotamian_urban_corridor_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_metal_boneyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_metal_boneyard
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_metal_boneyard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_metal_boneyard_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_metallic_puddles
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_metallic_puddles
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_metallic_puddles
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_metallic_puddles_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_microplanet_memorial
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_microplanet_memorial
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_microplanet_memorial
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_microplanet_memorial_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_migrating_forest_reserve
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_migrating_forest_reserve
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_migrating_forest_reserve
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_migrating_forest_reserve_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_migrating_forests
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_migrating_forests
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_migrating_forests
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_migrating_forests_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mineral_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mineral_fields
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mineral_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mineral_fields_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mineral_seabed
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mineral_seabed
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mineral_seabed
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mineral_seabed_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mineral_striations
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mineral_striations
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mineral_striations
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mineral_striations_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mountains_of_steel
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mountains_of_steel
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mountains_of_steel
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mountains_of_steel_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_msi_air_freshener
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_msi_air_freshener
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_msi_air_freshener
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_msi_air_freshener_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mutant_landfill
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mutant_landfill
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mutant_landfill
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mutant_landfill_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_mutation_vats
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_mutation_vats
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_mutation_vats
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_mutation_vats_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_myrmeku_power_farms
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_myrmeku_power_farms
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_myrmeku_power_farms
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_myrmeku_power_farms_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanites_medium
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanites_medium
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanites_medium
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanites_medium_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanites_small
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanites_small
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanites_small
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanites_small_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanites_tiny
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanites_tiny
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanites_tiny
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanites_tiny_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nano_corpses
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nano_corpses
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nano_corpses
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nano_corpses_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanosands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanosands
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanosands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanosands_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_natural_farmland
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_natural_farmland
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_natural_farmland
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_natural_farmland_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_numas_breath
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_numas_breath
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_numas_breath
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_numas_breath_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nutritious_mudland
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nutritious_mudland
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nutritious_mudland
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nutritious_mudland_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_odd_factory
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_odd_factory
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_odd_factory
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_odd_factory_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ore_rich_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ore_rich_caverns
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ore_rich_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ore_rich_caverns_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_organic_landfill
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_organic_landfill
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_organic_landfill
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_organic_landfill_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_organic_slurry
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_organic_slurry
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_organic_slurry
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_organic_slurry_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_pacific_algae_tracts
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_pacific_algae_tracts
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_pacific_algae_tracts
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_pacific_algae_tracts_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_particle_storm_1_society
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_particle_storm_1_society
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_particle_storm_1_society
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_particle_storm_1_society_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_particle_storm_2_unity
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_particle_storm_2_unity
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_particle_storm_2_unity
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_particle_storm_2_unity_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_particle_storm_3_motes
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_particle_storm_3_motes
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_particle_storm_3_motes
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_particle_storm_3_motes_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_payback_habitat_research
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_payback_habitat_research
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_payback_habitat_research
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_payback_habitat_research_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_pearl_river_agglomerate
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_pearl_river_agglomerate
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_pearl_river_agglomerate
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_pearl_river_agglomerate_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_planet_stripmine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_planet_stripmine
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_planet_stripmine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_planet_stripmine_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_polaris_city
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_polaris_city
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_polaris_city
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_polaris_city_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_portal_research_zone
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_portal_research_zone
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_portal_research_zone
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_portal_research_zone_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_prisoner_intergration
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_prisoner_intergration
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_prisoner_intergration
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_prisoner_intergration_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_processing_pens
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_processing_pens
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_processing_pens
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_processing_pens_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_progenitor
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_progenitor
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_progenitor
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_progenitor_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_progenitor_empty
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_progenitor_empty
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_progenitor_empty
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_progenitor_empty_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_project_cornucopia
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_project_cornucopia
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_project_cornucopia
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_project_cornucopia_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_prospectorium_strip_mine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_prospectorium_strip_mine
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_prospectorium_strip_mine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_prospectorium_strip_mine_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_prosperous_mesa
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_prosperous_mesa
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_prosperous_mesa
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_prosperous_mesa_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_psionic_sands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_psionic_sands
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_psionic_sands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_psionic_sands_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_pulsar_scarred
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_pulsar_scarred
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_pulsar_scarred
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_pulsar_scarred_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_radiotrophic_preserve
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_radiotrophic_preserve
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_radiotrophic_preserve
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_radiotrophic_preserve_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_red_desert
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_red_desert
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_red_desert
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_red_desert_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_relic_dense_ruins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_relic_dense_ruins
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_relic_dense_ruins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_relic_dense_ruins_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_relic_metal_boneyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_relic_metal_boneyard
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_relic_metal_boneyard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_relic_metal_boneyard_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rich_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rich_mountain
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rich_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rich_mountain_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rockworm_hive
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rockworm_hive
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rockworm_hive
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rockworm_hive_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rockworm_hive_volcanic
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rockworm_hive_volcanic
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rockworm_hive_volcanic
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rockworm_hive_volcanic_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rugged_woods
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rugged_woods
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rugged_woods
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rugged_woods_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ruin_bluelotus
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ruin_bluelotus
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ruin_bluelotus
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ruin_bluelotus_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_ruined_hive_dwelling
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_ruined_hive_dwelling
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_ruined_hive_dwelling
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_ruined_hive_dwelling_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rushing_waterfalls
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rushing_waterfalls
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rushing_waterfalls
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rushing_waterfalls_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_saharan_irrigation_project
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_saharan_irrigation_project
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_saharan_irrigation_project
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_saharan_irrigation_project_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_savage_wildlands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_savage_wildlands
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_savage_wildlands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_savage_wildlands_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_scandinavian_reclamation_sector
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_scandinavian_reclamation_sector
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_scandinavian_reclamation_sector
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_scandinavian_reclamation_sector_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_searing_desert
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_searing_desert
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_searing_desert
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_searing_desert_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_sentinels
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_sentinels
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_sentinels
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_sentinels_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_sentinels_metal
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_sentinels_metal
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_sentinels_metal
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_sentinels_metal_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_sentinels_monument
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_sentinels_monument
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_sentinels_monument
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_sentinels_monument_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_shroud_flora_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_shroud_flora_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_shroud_flora_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_shroud_flora_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_shroud_rift_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_shroud_rift_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_shroud_rift_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_shroud_rift_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_shroud_storm_1_society
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_shroud_storm_1_society
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_shroud_storm_1_society
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_shroud_storm_1_society_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_shroud_storm_2_zro
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_shroud_storm_2_zro
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_shroud_storm_2_zro
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_shroud_storm_2_zro_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_shroud_storm_3_happy
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_shroud_storm_3_happy
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_shroud_storm_3_happy
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_shroud_storm_3_happy_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_sky_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_sky_mountain
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_sky_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_sky_mountain_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_solar_storm_1_energy
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_solar_storm_1_energy
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_solar_storm_1_energy
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_solar_storm_1_energy_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_solar_storm_2_districts
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_solar_storm_2_districts
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_solar_storm_2_districts
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_solar_storm_2_districts_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_solar_storm_3_output
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_solar_storm_3_output
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_solar_storm_3_output
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_solar_storm_3_output_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_space_junk_hazards
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_space_junk_hazards
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_space_junk_hazards
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_space_junk_hazards_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_space_ship_graveyard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_space_ship_graveyard
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_space_ship_graveyard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_space_ship_graveyard_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_space_time_anomaly
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_space_time_anomaly
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_space_time_anomaly
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_space_time_anomaly_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_spore_vents
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_spore_vents
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_spore_vents
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_spore_vents_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_star_mall_promenade
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_star_mall_promenade
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_star_mall_promenade
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_star_mall_promenade_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_stasis_prison
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_stasis_prison
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_stasis_prison
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_stasis_prison_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_stellarite_trophy
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_stellarite_trophy
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_stellarite_trophy
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_stellarite_trophy_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_submerged_ore_veins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_submerged_ore_veins
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_submerged_ore_veins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_submerged_ore_veins_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_teeming_reef
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_teeming_reef
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_teeming_reef
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_teeming_reef_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_tempestous_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_tempestous_mountain
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_tempestous_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_tempestous_mountain_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_the_zone
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_the_zone
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_the_zone
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_the_zone_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_titanic_life_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_titanic_life_blocker
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_titanic_life_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_titanic_life_blocker_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_blight_upon_the_land
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_blight_upon_the_land
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_blight_upon_the_land
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_blight_upon_the_land_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_blight_upon_the_land_upgraded
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_blight_upon_the_land_upgraded
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_blight_upon_the_land_upgraded
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_blight_upon_the_land_upgraded_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_deitys_swarms
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_deitys_swarms
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_deitys_swarms
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_deitys_swarms_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_deitys_swarms_upgraded
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_deitys_swarms_upgraded
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_deitys_swarms_upgraded
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_deitys_swarms_upgraded_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_envenomed_seas
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_envenomed_seas
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_envenomed_seas
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_envenomed_seas_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_envenomed_seas_upgraded
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_envenomed_seas_upgraded
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_envenomed_seas_upgraded
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_envenomed_seas_upgraded_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_pestilential_wasteland
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_pestilential_wasteland
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_pestilential_wasteland
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_pestilential_wasteland_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_pestilential_wasteland_upgraded
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_pestilential_wasteland_upgraded
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_pestilential_wasteland_upgraded
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_pestilential_wasteland_upgraded_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_pools_most_venemous
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_pools_most_venemous
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_pools_most_venemous
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_pools_most_venemous_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toxic_god_pools_most_venemous_upgraded
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toxic_god_pools_most_venemous_upgraded
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toxic_god_pools_most_venemous_upgraded
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toxic_god_pools_most_venemous_upgraded_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_toy_factory_complex
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_toy_factory_complex
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_toy_factory_complex
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_toy_factory_complex_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_treasure_planet
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_treasure_planet
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_treasure_planet
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_treasure_planet_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_tree_of_life_colony
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_tree_of_life_colony
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_tree_of_life_colony
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_tree_of_life_colony_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_tree_of_life_home
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_tree_of_life_home
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_tree_of_life_home
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_tree_of_life_home_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_tropical_island
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_tropical_island
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_tropical_island
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_tropical_island_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_turtle_corpse
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_turtle_corpse
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_turtle_corpse
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_turtle_corpse_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_turtle_miner
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_turtle_miner
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_turtle_miner
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_turtle_miner_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_contact_zone
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_contact_zone
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_contact_zone
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_contact_zone_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_farm
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_farm
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_farm
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_farm_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_farm_blocked
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_farm_blocked
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_farm_blocked
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_farm_blocked_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_generator
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_generator
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_generator
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_generator_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_generator_blocked
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_generator_blocked
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_generator_blocked
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_generator_blocked_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_mine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_mine
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_mine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_mine_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_mine_blocked
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_mine_blocked
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_mine_blocked
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_mine_blocked_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_vault
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_vault
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_vault
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_vault_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underground_vault_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underground_vault_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underground_vault_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underground_vault_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_underwater_vent
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_underwater_vent
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_underwater_vent
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_underwater_vent_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_valley_of_zanaam
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_valley_of_zanaam
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_valley_of_zanaam
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_valley_of_zanaam_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_veiny_cliffs
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_veiny_cliffs
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_veiny_cliffs
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_veiny_cliffs_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_virtual_power_medium
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_virtual_power_medium
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_virtual_power_medium
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_virtual_power_medium_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_virtual_power_small
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_virtual_power_small
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_virtual_power_small
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_virtual_power_small_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_virtual_power_tiny
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_virtual_power_tiny
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_virtual_power_tiny
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_virtual_power_tiny_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_active_planet
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_active_planet
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_active_planet
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_active_planet_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_basalt_plains
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_basalt_plains
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_basalt_plains
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_basalt_plains_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_dried_lavariver
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_dried_lavariver
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_dried_lavariver
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_dried_lavariver_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_fumarole
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_fumarole
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_fumarole
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_fumarole_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_intraplate
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_intraplate
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_intraplate
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_intraplate_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_lava_river
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_lava_river
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_lava_river
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_lava_river_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_mineral_fields
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_mineral_fields
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_mineral_fields
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_mineral_fields_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_mineral_hills
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_mineral_hills
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_mineral_hills
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_mineral_hills_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_mineral_layers
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_mineral_layers
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_mineral_layers
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_mineral_layers_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_ore_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_ore_caverns
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_ore_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_ore_caverns_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_ore_veins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_ore_veins
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_ore_veins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_ore_veins_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_rich_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_rich_mountain
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_rich_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_rich_mountain_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_stable_plateaus
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_stable_plateaus
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_stable_plateaus
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_stable_plateaus_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_stifling_atmosphere
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_stifling_atmosphere
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_stifling_atmosphere
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_stifling_atmosphere_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_sulfur_lava
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_sulfur_lava
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_sulfur_lava
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_sulfur_lava_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_tranquil_flatlands
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_tranquil_flatlands
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_tranquil_flatlands
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_tranquil_flatlands_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_tunnels
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_tunnels
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_tunnels
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_tunnels_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volcanic_weak_crust
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volcanic_weak_crust
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volcanic_weak_crust
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volcanic_weak_crust_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_weapon_extraction_facility
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_weapon_extraction_facility
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_weapon_extraction_facility
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_weapon_extraction_facility_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_wetware_computer
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_wetware_computer
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_wetware_computer
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_wetware_computer_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_worm_farm
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_worm_farm
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_worm_farm
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_worm_farm_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_remove_d_worm_mine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_worm_mine
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_worm_mine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_worm_mine_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99110 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.99100 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+
+}

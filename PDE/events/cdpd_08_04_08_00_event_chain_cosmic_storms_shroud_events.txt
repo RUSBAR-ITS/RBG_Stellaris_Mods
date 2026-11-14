@@ -1,0 +1,70 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80480
+	title = cdpd_event_chain_cosmic_storms_shroud_title
+	desc = cdpd_event_chain_cosmic_storms_shroud_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_shroud_storm_1_society
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_shroud_storm_1_society
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_shroud_storm_1_society
+				}
+				country_event = { id = CDPD.80480 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_shroud_storm_2_zro
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_shroud_storm_2_zro
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_shroud_storm_2_zro
+				}
+				country_event = { id = CDPD.80480 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_shroud_storm_3_happy
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_shroud_storm_3_happy
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_shroud_storm_3_happy
+				}
+				country_event = { id = CDPD.80480 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80400 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

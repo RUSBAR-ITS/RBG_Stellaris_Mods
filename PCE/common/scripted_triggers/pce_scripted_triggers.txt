@@ -1,0 +1,15 @@
+pce_is_artificial_district_world = {
+    OR = {
+        is_planet_class = pc_habitat
+        is_planet_class = pc_ringworld_habitable
+        is_planet_class = pc_shattered_ring_habitable
+    }
+}
+
+pce_is_valid_capacity_target = {
+    is_colony = yes
+    exists = owner
+    owner = {
+        is_ai = no
+    }
+}

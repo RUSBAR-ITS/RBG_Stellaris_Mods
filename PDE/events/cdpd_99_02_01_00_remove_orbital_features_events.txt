@@ -1,0 +1,2060 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.99210
+	title = cdpd_remove_orbital_features_title
+	desc = cdpd_remove_orbital_features_desc
+	picture = GFX_evt_mining_station
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_remove_d_alloys_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alloys_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alloys_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alloys_25
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_25
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_25
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_25_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alloys_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alloys_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_alloys_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_alloys_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_alloys_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_alloys_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_artifacts_mining_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_artifacts_mining_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_artifacts_mining_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_artifacts_mining_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_artifacts_mining_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_artifacts_mining_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_artifacts_mining_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_artifacts_mining_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_artifacts_mining_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_artifacts_mining_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_artifacts_mining_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_artifacts_mining_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_artifacts_research_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_artifacts_research_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_artifacts_research_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_artifacts_research_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_artifacts_research_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_artifacts_research_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_artifacts_research_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_artifacts_research_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_artifacts_research_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_artifacts_research_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_artifacts_research_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_artifacts_research_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_astral_threads_deposit_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_astral_threads_deposit_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_astral_threads_deposit_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_astral_threads_deposit_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_astral_threads_deposit_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_astral_threads_deposit_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_astral_threads_deposit_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_astral_threads_deposit_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_astral_threads_deposit_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_astral_threads_deposit_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_astral_threads_deposit_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_astral_threads_deposit_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_consumer_goods_obsessional_directive
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_consumer_goods_obsessional_directive
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_consumer_goods_obsessional_directive
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_consumer_goods_obsessional_directive_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_crystal_rift
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_crystal_rift
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_crystal_rift
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_crystal_rift_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dark_matter_deposit_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dark_matter_deposit_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dark_matter_deposit_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dark_matter_deposit_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dark_matter_deposit_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dark_matter_deposit_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dark_matter_deposit_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dark_matter_deposit_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dark_matter_deposit_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dark_matter_deposit_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dark_matter_deposit_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dark_matter_deposit_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_dark_matter_deposit_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_dark_matter_deposit_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_dark_matter_deposit_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_dark_matter_deposit_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_7
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_7
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_7
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_7_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_8
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_8
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_8
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_8_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_energy_9
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_energy_9
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_energy_9
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_energy_9_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_25
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_25
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_25
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_25_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_7
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_7
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_7
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_7_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_8
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_8
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_8
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_8_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_engineering_9
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_engineering_9
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_engineering_9
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_engineering_9_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_exotic_gases_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_exotic_gases_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_exotic_gases_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_exotic_gases_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_exotic_gases_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_exotic_gases_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_exotic_gases_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_exotic_gases_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_exotic_gases_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_exotic_gases_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_exotic_gases_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_exotic_gases_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_exotic_gases_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_exotic_gases_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_exotic_gases_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_exotic_gases_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_exotic_gases_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_exotic_gases_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_exotic_gases_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_exotic_gases_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_food_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_food_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_food_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_food_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_food_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_food_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_food_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_food_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_food_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_food_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_food_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_food_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_food_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_food_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_food_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_food_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_food_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_food_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_food_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_food_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_guardian_dragon_hoard
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_guardian_dragon_hoard
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_guardian_dragon_hoard
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_guardian_dragon_hoard_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_living_metal_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_living_metal_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_living_metal_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_living_metal_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_7
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_7
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_7
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_7_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_8
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_8
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_8
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_8_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_minerals_9
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_minerals_9
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_minerals_9
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_minerals_9_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanite_harvester_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanite_harvester_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanite_harvester_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanite_harvester_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanite_harvester_deposit_large
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanite_harvester_deposit_large
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanite_harvester_deposit_large
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanite_harvester_deposit_large_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanite_harvester_deposit_regular
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanite_harvester_deposit_regular
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanite_harvester_deposit_regular
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanite_harvester_deposit_regular_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_nanites_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_nanites_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_nanites_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_nanites_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_25
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_25
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_25
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_25_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_7
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_7
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_7
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_7_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_8
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_8
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_8
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_8_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_physics_9
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_physics_9
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_physics_9
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_physics_9_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rare_crystals_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rare_crystals_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rare_crystals_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rare_crystals_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rare_crystals_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rare_crystals_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rare_crystals_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rare_crystals_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rare_crystals_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rare_crystals_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rare_crystals_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rare_crystals_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rare_crystals_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rare_crystals_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rare_crystals_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rare_crystals_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_rare_crystals_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_rare_crystals_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_rare_crystals_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_rare_crystals_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_red_giant_dm
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_red_giant_dm
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_red_giant_dm
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_red_giant_dm_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_red_giant_unstable
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_red_giant_unstable
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_red_giant_unstable
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_red_giant_unstable_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_15
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_15
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_15
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_15_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_25
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_25
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_25
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_25_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_7
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_7
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_7
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_7_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_8
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_8
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_8
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_8_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_society_9
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_society_9
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_society_9
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_society_9_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_10
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_10
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_10
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_10_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_6
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_6
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_6
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_6_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_7
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_7
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_7
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_7_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_8
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_8
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_8
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_8_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_trade_value_9
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_trade_value_9
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_trade_value_9
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_trade_value_9_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_vast_unity_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_vast_unity_deposit
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_vast_unity_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_vast_unity_deposit_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volatile_motes_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volatile_motes_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volatile_motes_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volatile_motes_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volatile_motes_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volatile_motes_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volatile_motes_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volatile_motes_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volatile_motes_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volatile_motes_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volatile_motes_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volatile_motes_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volatile_motes_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volatile_motes_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volatile_motes_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volatile_motes_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_volatile_motes_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_volatile_motes_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_volatile_motes_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_volatile_motes_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_zro_deposit_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_zro_deposit_1
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_zro_deposit_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_zro_deposit_1_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_zro_deposit_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_zro_deposit_2
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_zro_deposit_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_zro_deposit_2_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_zro_deposit_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_zro_deposit_3
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_zro_deposit_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_zro_deposit_3_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_zro_deposit_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_zro_deposit_4
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_zro_deposit_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_zro_deposit_4_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_remove_d_zro_deposit_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				has_deposit = d_zro_deposit_5
+			}
+		}
+		custom_tooltip = cdpd_remove_tt_d_zro_deposit_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_remove_d_zro_deposit_5_effect = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.99200 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+
+}

@@ -1,0 +1,38 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.30200
+	title = cdpd_event_anomaly_blockers_title
+	desc = cdpd_event_anomaly_blockers_desc
+	picture = GFX_evt_dead_city
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_anomaly_add_d_radioactive_ruins
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_anomaly_is_potentially_colonizable_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_anomaly_tt_d_radioactive_ruins
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_blocker = {
+					type = d_radioactive_ruins
+				}
+			}
+			country_event = { id = CDPD.30200 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.30000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

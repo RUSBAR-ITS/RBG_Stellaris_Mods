@@ -1,0 +1,104 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80622
+	title = cdpd_event_chain_other_origins_blockers_title
+	desc = cdpd_event_chain_other_origins_blockers_desc
+	picture = GFX_evt_alien_ruins
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_unplugged_assimilator_hulk
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_unplugged_assimilator_hulk = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_unplugged_assimilator_hulk
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_unplugged_assimilator_hulk
+			}
+			country_event = { id = CDPD.80622 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ruined_sanctum_of_the_lost
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ruined_sanctum_of_the_lost = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ruined_sanctum_of_the_lost
+		hidden_effect = {
+			cdpd_event_chain_add_d_ruined_sanctum_of_the_lost_effect = yes
+			country_event = { id = CDPD.80622 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_shroudgate
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_shroudgate = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_shroudgate
+		hidden_effect = {
+			cdpd_event_chain_add_d_shroudgate_effect = yes
+			country_event = { id = CDPD.80622 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_seed_bombing_fungoid_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_seed_bombing_fungoid_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_seed_bombing_fungoid_blocker
+					}
+				}
+				country_event = { id = CDPD.80622 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_seed_bombing_plantoid_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_seed_bombing_plantoid_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_seed_bombing_plantoid_blocker
+					}
+				}
+				country_event = { id = CDPD.80622 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80620 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

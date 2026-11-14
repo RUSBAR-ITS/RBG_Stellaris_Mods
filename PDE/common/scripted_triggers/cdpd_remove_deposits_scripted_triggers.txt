@@ -1,0 +1,7 @@
+cdpd_remove_is_planetary_target = {
+	cdpd_event_chain_is_planetary_target = yes
+}
+
+cdpd_remove_is_orbital_target = {
+	cdpd_orbital_is_target = yes
+}

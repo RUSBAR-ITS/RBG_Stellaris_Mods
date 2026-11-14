@@ -1,0 +1,13 @@
+zone_slots = {
+	slot_city_government
+	slot_habitat_01
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+	slot_habitat_02
+}

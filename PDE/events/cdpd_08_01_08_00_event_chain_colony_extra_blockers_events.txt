@@ -1,0 +1,95 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80180
+	title = cdpd_event_chain_colony_extra_blockers_title
+	desc = cdpd_event_chain_colony_extra_blockers_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_empty_quarry
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_empty_quarry
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_empty_quarry
+					}
+				}
+				country_event = { id = CDPD.80180 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_mothballed_facilities
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_mothballed_facilities
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_mothballed_facilities
+					}
+				}
+				country_event = { id = CDPD.80180 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_star_mall_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_star_mall_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_star_mall_blocker
+					}
+				}
+				country_event = { id = CDPD.80180 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_star_mall_promenade_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_star_mall_promenade_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_star_mall_promenade_blocker
+					}
+				}
+				country_event = { id = CDPD.80180 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80100 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

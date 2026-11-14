@@ -1,0 +1,25 @@
+cdpd_archaeology_is_planetary_target = {
+	OR = {
+		cdpd_is_natural_editor_planet = yes
+		cdpd_is_volcanic_editor_planet = yes
+	}
+}
+
+cdpd_archaeology_is_alloys_25_orbital_target = {
+	OR = {
+		is_planet_class = pc_junk
+		is_planet_class = pc_asteroid
+		is_planet_class = pc_crystal_asteroid
+		is_moon = yes
+	}
+	NOR = {
+		cdpd_is_natural_editor_planet = yes
+		cdpd_is_volcanic_editor_planet = yes
+		is_planet_class = pc_city
+		is_planet_class = pc_machine
+		is_planet_class = pc_hive
+		is_planet_class = pc_habitat
+		is_planet_class = pc_ringworld_habitable
+		is_planet_class = pc_shattered_ring_habitable
+	}
+}

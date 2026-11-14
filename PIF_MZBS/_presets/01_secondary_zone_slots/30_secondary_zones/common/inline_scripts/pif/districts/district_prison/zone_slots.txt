@@ -1,0 +1,33 @@
+zone_slots = {
+	slot_city_government
+	slot_city_01
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+	slot_city_02
+}

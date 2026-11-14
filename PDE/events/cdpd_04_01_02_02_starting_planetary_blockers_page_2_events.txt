@@ -1,0 +1,199 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.40122
+	title = cdpd_event_starting_planetary_blockers_p2_title
+	desc = cdpd_event_starting_planetary_blockers_p2_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_starting_add_d_collapsed_burrows
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_collapsed_burrows
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_collapsed_burrows
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_forgotten_civilization
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_forgotten_civilization
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_forgotten_civilization
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_hibernating_lithoids
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_hibernating_lithoids
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_hibernating_lithoids
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_ruined_arcology
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_ruined_arcology
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ruined_arcology
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_buried_lithoids
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_buried_lithoids
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_buried_lithoids
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_ship_debris_payback_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_ship_debris_payback_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ship_debris_payback_blocker
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_ship_debris_broken_shackles_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_ship_debris_broken_shackles_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ship_debris_broken_shackles_blocker
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_abandoned_cities
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_abandoned_cities
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_abandoned_cities
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_machine_prototype_pc_machine
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_machine_prototype_pc_machine
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_machine_prototype_pc_machine
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_starting_add_d_machine_ongoing_construction
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_starting_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_starting_tt_d_machine_ongoing_construction
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_machine_ongoing_construction
+			}
+			country_event = { id = CDPD.40122 }
+		}
+	}
+
+	option = {
+		name = cdpd_next_page
+		country_event = { id = CDPD.40123 }
+	}
+
+	option = {
+		name = cdpd_prev_page
+		country_event = { id = CDPD.40121 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.40100 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

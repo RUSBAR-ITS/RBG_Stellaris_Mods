@@ -1,0 +1,53 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80940
+	title = cdpd_event_chain_dragons_aquatics_title
+	desc = cdpd_event_chain_dragons_aquatics_desc
+	picture = GFX_evt_space_dragon
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_dragon_monument
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_dragon_monument
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_dragon_monument
+				}
+				country_event = { id = CDPD.80940 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_landed_dragon
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_landed_dragon
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_landed_dragon
+				}
+				country_event = { id = CDPD.80940 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80900 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

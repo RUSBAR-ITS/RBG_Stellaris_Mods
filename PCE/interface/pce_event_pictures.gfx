@@ -1,0 +1,6 @@
+spriteTypes = {
+    spriteType = {
+        name = "GFX_evt_pce_capacity_extension"
+        texturefile = "gfx/event_pictures/pce_capacity_extension.dds"
+    }
+}

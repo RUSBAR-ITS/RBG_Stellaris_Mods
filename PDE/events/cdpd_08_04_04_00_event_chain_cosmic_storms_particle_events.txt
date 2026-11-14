@@ -1,0 +1,70 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80440
+	title = cdpd_event_chain_cosmic_storms_particle_title
+	desc = cdpd_event_chain_cosmic_storms_particle_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_particle_storm_1_society
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_particle_storm_1_society
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_particle_storm_1_society
+				}
+				country_event = { id = CDPD.80440 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_particle_storm_2_unity
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_particle_storm_2_unity
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_particle_storm_2_unity
+				}
+				country_event = { id = CDPD.80440 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_particle_storm_3_motes
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_particle_storm_3_motes
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_deposit = d_particle_storm_3_motes
+				}
+				country_event = { id = CDPD.80440 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80400 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

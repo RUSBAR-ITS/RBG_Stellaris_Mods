@@ -1,0 +1,109 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.90710
+	title = cdpd_event_orbital_gases_title
+	desc = cdpd_event_orbital_gases_desc
+	picture = GFX_evt_mining_station
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_orbital_add_d_exotic_gases_1
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_exotic_gases_1
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_exotic_gases_1
+			}
+			cdpd_orbital_sync_d_exotic_gases_1_habitat_feature = yes
+			country_event = { id = CDPD.90710 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_exotic_gases_2
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_exotic_gases_2
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_exotic_gases_2
+			}
+			cdpd_orbital_sync_d_exotic_gases_2_habitat_feature = yes
+			country_event = { id = CDPD.90710 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_exotic_gases_3
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_exotic_gases_3
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_exotic_gases_3
+			}
+			cdpd_orbital_sync_d_exotic_gases_3_habitat_feature = yes
+			country_event = { id = CDPD.90710 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_exotic_gases_4
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_exotic_gases_4
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_exotic_gases_4
+			}
+			cdpd_orbital_sync_d_exotic_gases_4_habitat_feature = yes
+			country_event = { id = CDPD.90710 }
+		}
+	}
+
+	option = {
+		name = cdpd_orbital_add_d_exotic_gases_5
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_orbital_is_target = yes
+			}
+		}
+		custom_tooltip = cdpd_orbital_tt_d_exotic_gases_5
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_exotic_gases_5
+			}
+			cdpd_orbital_sync_d_exotic_gases_5_habitat_feature = yes
+			country_event = { id = CDPD.90710 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.90700 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

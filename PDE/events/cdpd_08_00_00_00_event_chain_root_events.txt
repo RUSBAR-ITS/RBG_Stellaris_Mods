@@ -1,0 +1,140 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80000
+	title = cdpd_event_chain_root_title
+	desc = cdpd_event_chain_root_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_menu_colony_events
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80100 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_distant_stars
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80200 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_strange_worlds
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80300 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_cosmic_storms
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80400 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_contact_federations_overlord
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80500 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_origin_progression
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80600 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_shroud_situations_astral
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80700 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_machine_biogenesis
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80800 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_infernals_misc
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.80900 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_paragons
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.81000 }
+	}
+
+	option = {
+		name = cdpd_event_chain_menu_extreme_frontiers
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		country_event = { id = CDPD.81100 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.1 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

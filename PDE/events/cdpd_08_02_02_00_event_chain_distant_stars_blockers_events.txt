@@ -1,0 +1,53 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80220
+	title = cdpd_event_chain_distant_stars_blockers_title
+	desc = cdpd_event_chain_distant_stars_blockers_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_fungoid_extermination
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_fungoid_extermination = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_fungoid_extermination
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_fungoid_extermination
+			}
+			country_event = { id = CDPD.80220 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_egg_cracking
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_egg_cracking = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_egg_cracking
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_egg_cracking
+			}
+			country_event = { id = CDPD.80220 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80200 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

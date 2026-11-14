@@ -1,0 +1,142 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80520
+	title = cdpd_event_chain_contact_federations_overlord_blockers_title
+	desc = cdpd_event_chain_contact_federations_overlord_blockers_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_buried_lithoids_overlord
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_buried_lithoids_overlord = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_buried_lithoids_overlord
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_buried_lithoids_overlord
+			}
+			country_event = { id = CDPD.80520 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_technocracy_toxic_waste_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_technocracy_toxic_waste_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_technocracy_toxic_waste_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_technocracy_toxic_waste_blocker
+			}
+			country_event = { id = CDPD.80520 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_technocracy_barren_lands_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_technocracy_barren_lands_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_technocracy_barren_lands_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_technocracy_barren_lands_blocker
+			}
+			country_event = { id = CDPD.80520 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_technocracy_toxic_ocean_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_technocracy_toxic_ocean_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_technocracy_toxic_ocean_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_technocracy_toxic_ocean_blocker
+			}
+			country_event = { id = CDPD.80520 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_technocracy_molten_waste_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_technocracy_molten_waste_blocker = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_technocracy_molten_waste_blocker
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_technocracy_molten_waste_blocker
+			}
+			country_event = { id = CDPD.80520 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_nature_preserve_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_nature_preserve_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_nature_preserve_blocker
+					}
+				}
+				country_event = { id = CDPD.80520 }
+			}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_spawning_complex_blocker
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_is_planetary_target = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_spawning_complex_blocker
+			hidden_effect = {
+				event_target:cdpd_target_planet = {
+					add_blocker = {
+						type = d_spawning_complex_blocker
+					}
+				}
+				country_event = { id = CDPD.80520 }
+			}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80500 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

@@ -1,0 +1,138 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.20500
+	title = cdpd_event_volcanic_rare_title
+	desc = cdpd_event_volcanic_rare_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_add_d_crystalline_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_generic_habitable_resource = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_crystalline_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_crystalline_caverns
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_dust_caverns
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_generic_habitable_resource = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_dust_caverns
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_dust_caverns
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_betharian_deposit
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_can_add_generic_habitable_resource = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_betharian_deposit
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_betharian_deposit
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_volcanic_sulfur_lava
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_volcanic_editor_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_volcanic_sulfur_lava
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_volcanic_sulfur_lava
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_volcanic_tunnels
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_volcanic_editor_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_volcanic_tunnels
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_volcanic_tunnels
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_volcanic_fumarole
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_volcanic_editor_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_volcanic_fumarole
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_volcanic_fumarole
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_add_d_volcanic_stifling_atmosphere
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_is_volcanic_editor_planet = yes
+			}
+		}
+		custom_tooltip = cdpd_tt_d_volcanic_stifling_atmosphere
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_volcanic_stifling_atmosphere
+			}
+			country_event = { id = CDPD.20500 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.20000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

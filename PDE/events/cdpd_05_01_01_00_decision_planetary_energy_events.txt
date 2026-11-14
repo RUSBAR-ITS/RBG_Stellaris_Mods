@@ -1,0 +1,53 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.50110
+	title = cdpd_event_decision_planetary_energy_title
+	desc = cdpd_event_decision_planetary_energy_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_decision_add_d_dayside_farm
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_dayside_farm = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_dayside_farm
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_dayside_farm
+			}
+			country_event = { id = CDPD.50110 }
+		}
+	}
+
+	option = {
+		name = cdpd_decision_add_d_forceful_winds
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_decision_can_add_d_forceful_winds = yes
+			}
+		}
+		custom_tooltip = cdpd_decision_tt_d_forceful_winds
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				cdpd_decision_add_forceful_winds_effect = yes
+			}
+			country_event = { id = CDPD.50110 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.50100 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

@@ -1,0 +1,49 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80320
+	title = cdpd_event_chain_strange_worlds_blockers_title
+	desc = cdpd_event_chain_strange_worlds_blockers_desc
+	picture = GFX_evt_alien_nature
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_coagulated_landscape
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_coagulated_landscape = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_coagulated_landscape
+		hidden_effect = {
+			cdpd_event_chain_add_d_coagulated_landscape_effect = yes
+			country_event = { id = CDPD.80320 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_shimmering_structure
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_shimmering_structure = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_shimmering_structure
+		hidden_effect = {
+			cdpd_event_chain_add_d_shimmering_structure_effect = yes
+			country_event = { id = CDPD.80320 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80300 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

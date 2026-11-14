@@ -1,0 +1,87 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.80410
+	title = cdpd_event_chain_cosmic_storms_existing_title
+	desc = cdpd_event_chain_cosmic_storms_existing_desc
+	picture = GFX_evt_alien_planet
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_event_chain_add_d_electrified_oceans
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_electrified_oceans = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_electrified_oceans
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_electrified_oceans
+			}
+			country_event = { id = CDPD.80410 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_ghostly_canyon
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_ghostly_canyon = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_ghostly_canyon
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_ghostly_canyon
+			}
+			country_event = { id = CDPD.80410 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_sky_mountain
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_sky_mountain = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_sky_mountain
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_sky_mountain
+			}
+			country_event = { id = CDPD.80410 }
+		}
+	}
+
+	option = {
+		name = cdpd_event_chain_add_d_avian_reserve
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_event_chain_can_add_d_avian_reserve = yes
+			}
+		}
+		custom_tooltip = cdpd_event_chain_tt_d_avian_reserve
+		hidden_effect = {
+			event_target:cdpd_target_planet = {
+				add_deposit = d_avian_reserve
+			}
+			country_event = { id = CDPD.80410 }
+		}
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.80400 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+}

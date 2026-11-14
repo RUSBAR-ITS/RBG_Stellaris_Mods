@@ -1,0 +1,31 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.99200
+	title = cdpd_remove_orbital_title
+	desc = cdpd_remove_orbital_desc
+	picture = GFX_evt_mining_station
+	show_sound = event_default
+	is_triggered_only = yes
+
+	option = {
+		name = cdpd_remove_orbital_features_menu
+		trigger = {
+			exists = event_target:cdpd_target_planet
+			event_target:cdpd_target_planet = {
+				cdpd_remove_is_orbital_target = yes
+			}
+		}
+		country_event = { id = CDPD.99210 }
+	}
+
+	option = {
+		name = cdpd_back
+		country_event = { id = CDPD.99000 }
+	}
+
+	option = {
+		name = cdpd_close
+	}
+
+}
