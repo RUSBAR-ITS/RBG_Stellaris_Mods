@@ -48,6 +48,9 @@ class BuildFixture(unittest.TestCase):
         self.tech = self.game / "common/technology"
         self.inline = self.game / "common/inline_scripts"
         self.inline.mkdir(parents=True)
+        self.static = self.game / 'common/scripted_variables'
+        self.static.mkdir(parents=True)
+        (self.static / 'base.txt').write_text('@external = 2', encoding='utf-8')
         for name in ("", "category", "tier"):
             (self.tech / name).mkdir(parents=True, exist_ok=True)
         self.options = copy.deepcopy(read_json(PRODUCT_ROOT / "config/backend.json"))
@@ -57,6 +60,7 @@ class BuildFixture(unittest.TestCase):
             "TECH_PATH": "common/technology",
             "INLINE_SCRIPTS_DIR": "common/inline_scripts",
             "SCRIPTED_EFFECTS_DIR": "common/scripted_effects",
+            "SCRIPTED_VARIABLES_DIR": "common/scripted_variables",
         }
         self.variable_file = self.root / "variables.json"
         self.config_file = self.root / "backend.json"

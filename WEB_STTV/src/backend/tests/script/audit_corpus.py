@@ -13,7 +13,8 @@ from sttv.script.parser import parse_text
 from sttv.script.serialization import serialize_document, walk_nodes
 from sttv.database.history import validate_history
 from sttv.sources.expansion import expansion_context, independent_sources, source_exclusion
-from sttv.sources.settings import load_settings
+from sttv.sources.settings import check_sources, load_settings
+from sttv.sources.static_variables import variable_processor
 from script.corpus_statistics import Statistics
 
 PROSE = {'common/HOW_TO_MAKE_NEW_SHIPS.txt', 'common/edicts/99_README_EDICTS.txt'}
@@ -25,16 +26,19 @@ def digest(path):
 
 def audit():
     settings = load_settings(PRODUCT_ROOT / 'global_variables.json', PRODUCT_ROOT / 'config/backend.json')
+    check_sources(settings)
     files = sorted(path for folder in ('common', 'events')
                    for path in (settings.game / folder).rglob('*.txt') if path.is_file())
     roots = list(independent_sources(files, settings))
     exclusions = Counter(source_exclusion(path, settings) for path in files)
     protected_lists = {str(p): digest(p) for p in (settings.work / 'text_frequency').rglob('*.txt')}
-    diagnostics, statistics = Report(), Statistics()
+    diagnostics, statistics = Report(), Statistics(settings.static_rules)
+    variables = variable_processor(settings, diagnostics)
     expansion = expansion_context(settings, diagnostics)
     report = {'physical_txt_files': len(files), 'independent_files': len(roots), 'parsed': 0,
               'excluded_template_files': exclusions['INLINE_SCRIPTS_DIR'],
-              'excluded_scripted_effect_files': exclusions['SCRIPTED_EFFECTS_DIR'], 'empty': 0, 'prose': [],
+              'excluded_scripted_effect_files': exclusions['SCRIPTED_EFFECTS_DIR'],
+              'excluded_scripted_variable_files': exclusions['SCRIPTED_VARIABLES_DIR'], 'empty': 0, 'prose': [],
               'serialized_documents': 0, 'serialized_nodes': 0, 'serialized_bytes': 0,
               'failures': [], 'sources_unchanged': True, 'research_lists_unchanged': True}
     sources = {}
@@ -46,6 +50,7 @@ def audit():
             continue
         try:
             document = parse_text(path.read_text(encoding='utf-8-sig'), settings.syntax, relative, expansion=expansion)
+            variables.apply(document)
             encoded = serialize_document(document)
             content = json.dumps(encoded, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
             loaded = json.loads(content)
@@ -70,19 +75,25 @@ def audit():
                                       for path, value in expansion.templates.manifest.items())
     report['research_lists_unchanged'] = all(digest(Path(path)) == value for path, value in protected_lists.items())
     report['inline_scripts'] = expansion.counts
+    report['static_variables'] = diagnostics.data['counts']['static_variables']
+    report['static_variable_sources'] = diagnostics.data['static_variable_sources']
+    report['variable_sources_unchanged'] = all(digest(settings.game / path) == value
+                                             for path, value in report['static_variable_sources'].items())
     report['logical_operations'] = dict(statistics.logical)
     report['expanded_nodes_in_successful_files'] = statistics.node_count
     report['status'] = 'partial' if report['failures'] else 'complete'
     report['excluded_text'] = dict(statistics.excluded)
-    report['statistics_scope'] = 'Successfully parsed and fully expanded independent files only.'
-    output = output_path(settings.work, 'stage6/without_scripted_effects/corpus_report.json', settings.protected)
+    report['statistics_scope'] = 'Successfully expanded independent files after static substitution; declarations excluded.'
+    output = output_path(settings.work, 'stage7/corpus_report.json', settings.protected)
     output.parent.mkdir(parents=True, exist_ok=True)
     report['list_counts'] = statistics.write(output.parent / 'text_frequency')
     report['inline_sources'] = dict(sorted(expansion.templates.manifest.items()))
     report['diagnostics'] = diagnostics.data['diagnostics']
     output.write_text(json.dumps(report, indent=2), encoding='utf-8')
-    print(json.dumps({key: value for key, value in report.items() if key not in ('diagnostics', 'inline_sources')}, indent=2))
-    return not all(report[key] for key in ('sources_unchanged', 'templates_unchanged', 'research_lists_unchanged'))
+    print(json.dumps({key: value for key, value in report.items()
+                      if key not in ('diagnostics', 'inline_sources', 'static_variable_sources')}, indent=2))
+    return not all(report[key] for key in ('sources_unchanged', 'templates_unchanged', 'variable_sources_unchanged',
+                                         'research_lists_unchanged'))
 
 
 if __name__ == '__main__':

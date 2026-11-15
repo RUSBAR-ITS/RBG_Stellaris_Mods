@@ -29,7 +29,7 @@
 
 ## Document status
 
-**Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [current guide](BACKEND_STAGE_6_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
+**Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [transition guide](BACKEND_STAGE_6_EN.md). Static-variable substitution is documented in the [current stage-seven guide](BACKEND_STAGE_7_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
 
 Project: **Stellaris Technological Tree View**, directory: `WEB_STTV`.
 

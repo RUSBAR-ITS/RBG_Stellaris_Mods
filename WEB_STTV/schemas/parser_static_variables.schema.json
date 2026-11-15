@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_sensitive": {
+      "type": "boolean"
+    },
+    "encoding": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "max_reference_depth": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "name_pattern": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "pattern": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prefix": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recursive": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "format_version",
+    "prefix",
+    "name_pattern",
+    "case_sensitive",
+    "pattern",
+    "recursive",
+    "encoding",
+    "max_reference_depth"
+  ],
+  "type": "object"
+}

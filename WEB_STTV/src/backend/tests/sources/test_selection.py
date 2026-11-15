@@ -9,29 +9,42 @@ from support import BuildFixture, PRODUCT_ROOT
 class SelectionTests(BuildFixture):
     def test_library_directories_are_excluded_using_configured_paths(self):
         self.variables['SCRIPTED_EFFECTS_DIR'] = 'common/effect_library'
+        self.variables['SCRIPTED_VARIABLES_DIR'] = 'common/variable_library'
         self.variables['ALL_SOURCES'] = '.'
         self.options['sources'][0]['variable'] = 'ALL_SOURCES'
-        for folder in ('common/effect_library', 'common/effect_library/nested'):
+        for folder in ('common/effect_library', 'common/effect_library/nested',
+                       'common/variable_library', 'common/variable_library/nested'):
             directory = self.game / folder
             directory.mkdir(parents=True, exist_ok=True)
-            (directory / 'bad.txt').write_text('unclosed = {', encoding='utf-8')
+            content = '@nested = 1' if folder.endswith('/nested') else '@local_library = 2'
+            if 'effect_library' in folder:
+                content = 'unclosed = {'
+            (directory / 'bad.txt').write_text(content, encoding='utf-8')
         (self.inline / 'template.txt').write_text('expanded = $VALUE$', encoding='utf-8')
-        for folder in ('common/effect_library_extra', 'common/scripted_effects', 'events'):
+        for folder in ('common/effect_library_extra', 'common/scripted_effects', 'events',
+                       'common/variable_library_extra', 'common/scripted_variables'):
             directory = self.game / folder
             directory.mkdir(parents=True, exist_ok=True)
             (directory / 'kept.txt').write_text('entry = yes', encoding='utf-8')
         self.write_script('base.txt', 'inline_script = { script = template VALUE = yes }')
         result = self.run_build()
         self.assertEqual(result['status'], 'success', result)
-        self.assertEqual(result['counts']['selected_files'], 6)
+        self.assertEqual(result['counts']['selected_files'], 9)
         self.assertEqual(result['counts']['inline_scripts']['expanded'], 1)
         self.assertFalse(any('/effect_library/' in path or '/inline_scripts/' in path
+                             or '/variable_library/' in path
                              for path in result['sources']))
 
     def test_scripted_effects_path_is_required_and_confined_to_game(self):
         del self.variables['SCRIPTED_EFFECTS_DIR']
         self.assertIn('missing_variable', self.errors(self.run_build()))
         self.variables['SCRIPTED_EFFECTS_DIR'] = '../outside_game'
+        self.assertIn('unsafe_source', self.errors(self.run_build()))
+
+    def test_scripted_variables_path_is_required_and_confined_to_game(self):
+        del self.variables['SCRIPTED_VARIABLES_DIR']
+        self.assertIn('missing_variable', self.errors(self.run_build()))
+        self.variables['SCRIPTED_VARIABLES_DIR'] = '../outside_game'
         self.assertIn('unsafe_source', self.errors(self.run_build()))
 
     def test_overlapping_selections_and_hardlinks_are_read_once(self):

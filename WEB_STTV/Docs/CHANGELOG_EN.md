@@ -2,6 +2,9 @@
 
 ## Contents
 
+- [2026-11-15 — implemented static-variable substitution](#2026-11-15--implemented-static-variable-substitution)
+- [2026-11-15 — static-variable substitution specification](#2026-11-15--static-variable-substitution-specification)
+- [2026-11-15 — static variable directory](#2026-11-15--static-variable-directory)
 - [2026-11-15 — explicit inline_script path exceptions](#2026-11-15--explicit-inline_script-path-exceptions)
 - [2026-11-15 — vanilla issue TODO and color exception](#2026-11-15--vanilla-issue-todo-and-color-exception)
 - [2026-11-15 — excluded scripted effect library](#2026-11-15--excluded-scripted-effect-library)
@@ -41,6 +44,28 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-15 — implemented static-variable substitution
+
+- Implemented approved stage seven: separate shared-library reading, local tables and overrides, chains, duplicate/cycle/depth checks, and working-scalar substitution after inline expansion. Formulas are not evaluated; declarations and coordinates are preserved, with no replacement metadata.
+- Connected the sixth configuration, `static_variables.json`, and ninth generated schema. Report format is now 3 with a shared-file manifest and aggregate counts; database structure remains version 1. Builds and analysis use one processor; analysis skips declarations.
+- All 104 tests passed. Independent technology verification: 35 files, 1,929 substitutions, 67,513 nodes, and 301 inline calls, without errors or warnings; history/provenance preserved and repeat builds byte-identical. The new verified database is `data/stage7/database.json`; the previous standard database is unchanged.
+- Full audit: 1,522 successful files, two documentation exclusions, and 17 failures. The previous 16 CLASS/RELIC issues remain; discovered missing variable `@max_unlocked_council_positions` in `common/script_values/01_script_values_paragon.txt:365`. Source defects were not repaired. New frequency lists and reports are under `data/stage7/`; game files, templates, the library, and previous lists were unchanged.
+- Added a bilingual stage guide and updated specification status, README, and general-document pointers. All Python files remain at most 200 lines.
+
+## 2026-11-15 — static-variable substitution specification
+
+- Prepared separate `TZ_BACKEND_STAGE_7_RU.md` / `TZ_BACKEND_STAGE_7_EN.md`, awaiting approval. Defined shared-library reading, local overrides, reference chains, scope after inline expansion, diagnostics, and verification.
+- Specified no separate replacement history in database metadata. Preserve use-site coordinates and existing inline invocation history; formula evaluation remains outside the stage. Case, duplicate, and two-pass resolution policies are identified as the proposed implementation contract.
+- Structurally checked 2,917 shared declarations and 1,228 local declarations from 232 discovered files. Checked 1,929 static references after inline expansion in 35 technology files, with no missing declarations. Research material: `data/stage7/specification_research/`.
+- Linked both README files. Product code, configuration, and schemas were not changed; substitution implementation has not started.
+
+## 2026-11-15 — static variable directory
+
+- Added required `SCRIPTED_VARIABLES_DIR = common/scripted_variables`, relative to `STELLARIS_ROOT`. The shared builder/corpus filter excludes the directory and descendants from independent inputs; the path remains inside the game and protected from writes.
+- Added a separate excluded-variable-file counter to corpus reports. Future full reports and lists go to `data/stage6/without_scripted_libraries/`, preserving previous results.
+- Actual selection check: 23 variable files excluded, reducing independent inputs from 1,564 to 1,541; technology selection remains 35 files. Report: `data/stage6/without_scripted_libraries/selection_report.json`. Full corpus parsing was not repeated.
+- All 88 tests passed, including configurable library paths, nested directories, retained neighboring inputs, and game-root confinement. Substitution of `@name` and metadata changes were not implemented. Updated both languages of the README, guide, and specification amendment; extended configurable-directory and source-boundary checks.
 
 ## 2026-11-15 — explicit inline_script path exceptions
 

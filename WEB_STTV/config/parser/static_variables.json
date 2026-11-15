@@ -1,0 +1,10 @@
+{
+  "format_version": 1,
+  "prefix": "@",
+  "name_pattern": "[A-Za-z_][A-Za-z0-9_]*",
+  "case_sensitive": true,
+  "pattern": "*.txt",
+  "recursive": true,
+  "encoding": "utf-8-sig",
+  "max_reference_depth": 64
+}

@@ -4,13 +4,16 @@
 class Report:
     def __init__(self):
         self.data = {
-            "format_version": 2,
+            "format_version": 3,
             "status": "failed",
             "counts": {"selected_files": 0, "parsed_files": 0, "failed_files": 0, "nodes": 0,
                        "errors": 0, "warnings": 0,
+                       "static_variables": dict(files=0, global_definitions=0, local_definitions=0,
+                                                references=0, substituted=0),
                        "inline_scripts": dict(encountered=0, expanded=0, failed=0, template_files=0, max_depth=0)},
             "sources": {},
             "inline_sources": {},
+            "static_variable_sources": {},
             "diagnostics": [],
             "database_written": False,
         }

@@ -18,7 +18,7 @@ Project: **Stellaris Technological Tree View**, directory: `WEB_STTV`. This docu
 
 **User decision dated 2026-11-15:** JSON containing parsing results becomes the primary database. Mandatory conversion to a strict technology domain model and validation of game names against a profile are dropped from the target design. Enrichment by specific fields and rules belongs to later stages.
 
-The transition is implemented under the approved [stage-six specification](TZ_BACKEND_STAGE_6_EN.md). The current process, format, and verification results are described in the [guide](BACKEND_STAGE_6_EN.md).
+The transition is implemented under the approved [stage-six specification](TZ_BACKEND_STAGE_6_EN.md). Stage seven adds static-variable substitution without separate replacement history; the current process and results are described in the [guide](BACKEND_STAGE_7_EN.md).
 
 The [previous database model](DATABASE_MODEL_EN.md) and [stage-five guide](BACKEND_STAGE_5_EN.md) describe the historical implementation. Game files are read-only. The interface and portable distribution are not implemented yet.
 

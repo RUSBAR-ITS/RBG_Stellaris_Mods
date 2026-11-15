@@ -11,7 +11,8 @@ PARAMETER = re.compile(r'\$[^$|\s]+(?:\|[^$]*)?\$')
 
 
 class Statistics:
-    def __init__(self):
+    def __init__(self, static_rules=None):
+        self.static_rules = static_rules
         self.rows = {}
         self.logical = Counter()
         self.excluded = Counter()
@@ -65,6 +66,9 @@ class Statistics:
 
     def consume(self, document):
         for node in document.items:
+            if self.static_rules is not None and self.static_rules.declaration(node):
+                self.excluded['static_declarations'] += 1
+                continue
             self.walk(node)
 
     def lists(self):

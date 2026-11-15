@@ -1,7 +1,7 @@
 """Build diagnostics and read-only input manifests."""
 
 from .helpers import BOOL, HASH, LINE, NULL, RELATIVE, STRING, TEXT, array, mapping, obj, union
-from . import inline
+from . import inline, static_variables
 
 
 def diagnostic():
@@ -15,11 +15,12 @@ def diagnostic():
 
 
 def schema():
-    result = obj({"format_version": {"const": 2}, "status": {"enum": ["success", "failed"]},
+    result = obj({"format_version": {"const": 3}, "status": {"enum": ["success", "failed"]},
                   "counts": obj({**{key: {"type": "integer", "minimum": 0} for key in
                                     ("selected_files", "parsed_files", "failed_files", "nodes", "errors", "warnings")},
-                                 "inline_scripts": inline.counts()}),
+                                 "inline_scripts": inline.counts(), "static_variables": static_variables.counts()}),
                   "sources": mapping(HASH, RELATIVE), "inline_sources": mapping(HASH, RELATIVE),
+                  "static_variable_sources": mapping(HASH, RELATIVE),
                   "database_written": BOOL, "diagnostics": array(diagnostic())})
     result["$defs"] = {"origin": inline.origin()}
     return result

@@ -7,7 +7,7 @@ from sttv.sources.files import selected_files, read_source
 from .validation import FORMAT, FORMAT_VERSION
 
 
-def collect(settings, report):
+def collect(settings, report, variables):
     database = {"format": FORMAT, "format_version": FORMAT_VERSION, "documents": []}
     expansion = expansion_context(settings, report)
     files = selected_files(settings)
@@ -17,6 +17,7 @@ def collect(settings, report):
         try:
             text = read_source(path, encoding, report, relative)
             parsed = parse_text(text, settings.syntax, relative, expansion=expansion)
+            variables.apply(parsed)
             document = serialize_document(parsed)
             database["documents"].append(document)
             report.data["counts"]["nodes"] += sum(1 for _ in walk_nodes(document["items"]))

@@ -36,10 +36,10 @@ def selected_files(settings):
     return sorted(selected.values(), key=lambda item: item[0].relative_to(settings.game).as_posix())
 
 
-def read_source(path, encoding, report, relative):
+def read_source(path, encoding, report, relative, manifest='sources'):
     try:
         raw = path.read_bytes()
-        report.data["sources"][relative] = sha256(raw).hexdigest()
+        report.data[manifest][relative] = sha256(raw).hexdigest()
         return raw.decode(encoding).replace("\r\n", "\n").replace("\r", "\n")
     except (OSError, UnicodeError, LookupError) as exc:
         raise BuildError("source_read_error", str(exc)) from exc

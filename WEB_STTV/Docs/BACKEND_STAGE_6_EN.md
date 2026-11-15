@@ -13,6 +13,8 @@
 
 ## Status and purpose
 
+This guide preserves stage-six behavior. The current build adds static-variable substitution: [stage-seven guide](BACKEND_STAGE_7_EN.md).
+
 The approved [stage-six specification](TZ_BACKEND_STAGE_6_EN.md) is implemented. The backend reads selected scripts, parses them, expands nested `inline_script` calls, and persists syntax trees as JSON. All sources are read-only.
 
 The game-command profile, registry, recommendation analyzer, and closed technology conversion have been removed. Localization and evaluation are not part of this build. Game names are preserved independently of their presence in the previous profile.
@@ -51,13 +53,15 @@ database = read_database(product / "data/database.json")
 - `parser`: selection of five configurations from `config/parser/` — lexical notation, constructs, logical operators, inline expansion, and exceptions. Each supports `product` and `work` bases.
 - `outputs`: `database.json` and `reports/build_report.json`, relative to `WORK_DIR`.
 
-Require `STELLARIS_ROOT`, `WORK_DIR`, `INLINE_SCRIPTS_DIR`, `SCRIPTED_EFFECTS_DIR`, and variables named by selected sources. Workshop and localization remain in the shared variables file for future enrichment but are optional for this operation.
+Require `STELLARIS_ROOT`, `WORK_DIR`, `INLINE_SCRIPTS_DIR`, `SCRIPTED_EFFECTS_DIR`, `SCRIPTED_VARIABLES_DIR`, and variables named by selected sources. Workshop and localization remain in the shared variables file for future enrichment but are optional for this operation.
 
 Sources remain inside `STELLARIS_ROOT`. Selection includes `category` and `tier` as ordinary files. Identical physical files are processed once; conflicting encodings for one file produce an error. Relative paths determine document order. An empty script is persisted with empty `items`; selecting no files is an error.
 
 Templates under `INLINE_SCRIPTS_DIR` are excluded from independent selection. They are read only through reached calls. The template cache lasts for one operation; the next build reads current files.
 
 `SCRIPTED_EFFECTS_DIR` identifies the named-effect library, defaulting to `common/scripted_effects` relative to `STELLARIS_ROOT`. The directory and all descendants are excluded from independent selection by the shared builder/corpus filter. Effect calls remain ordinary tree nodes; their expansion is not implemented yet. The path must remain inside the game, but the excluded library need not exist unless explicitly selected as a source.
+
+`SCRIPTED_VARIABLES_DIR` similarly identifies the static-variable library: `common/scripted_variables` relative to `STELLARIS_ROOT`. The directory and descendants are excluded from independent traversal and counted separately in corpus reports. Substitution of `@name` is not implemented yet; the library is not read for values. The path remains inside the game; the excluded library need not exist unless explicitly selected as a source. The next full audit writes results under `data/stage6/without_scripted_libraries/`, preserving previous reports.
 
 `WORK_DIR` defaults to `data`; another relative or absolute path inside the repository is supported. Writes cannot overlap sources, code, configuration, or other protected material. Source TXT files are not copied into the working directory.
 
@@ -123,7 +127,7 @@ Report version 2 includes selected, parsed, and failed file counts, node counts,
 
 ## Verification
 
-Initial results are under `data/stage6/`; the repeat corpus audit after excluding scripted effects writes its report and frequency lists under `data/stage6/without_scripted_effects/`. Original lists in `data/text_frequency/` are preserved. Run automated checks from the repository root:
+Initial results are under `data/stage6/`; the previous audit after excluding scripted effects is under `data/stage6/without_scripted_effects/`. Future corpus audits after excluding static variables write reports and lists under `data/stage6/without_scripted_libraries/`. Original lists in `data/text_frequency/` are preserved. Run automated checks from the repository root:
 
 ```powershell
 $env:PYTHONPATH = "$PWD/WEB_STTV/src/backend;$PWD/WEB_STTV/src/backend/tests"

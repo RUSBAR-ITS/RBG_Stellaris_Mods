@@ -179,6 +179,39 @@
           "minimum": 0,
           "type": "integer"
         },
+        "static_variables": {
+          "additionalProperties": false,
+          "properties": {
+            "files": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "global_definitions": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "local_definitions": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "references": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "substituted": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "files",
+            "global_definitions",
+            "local_definitions",
+            "references",
+            "substituted"
+          ],
+          "type": "object"
+        },
         "warnings": {
           "minimum": 0,
           "type": "integer"
@@ -191,7 +224,8 @@
         "nodes",
         "errors",
         "warnings",
-        "inline_scripts"
+        "inline_scripts",
+        "static_variables"
       ],
       "type": "object"
     },
@@ -346,7 +380,7 @@
       "type": "array"
     },
     "format_version": {
-      "const": 2
+      "const": 3
     },
     "inline_sources": {
       "additionalProperties": {
@@ -370,6 +404,17 @@
       },
       "type": "object"
     },
+    "static_variable_sources": {
+      "additionalProperties": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "propertyNames": {
+        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+        "type": "string"
+      },
+      "type": "object"
+    },
     "status": {
       "enum": [
         "success",
@@ -383,6 +428,7 @@
     "counts",
     "sources",
     "inline_sources",
+    "static_variable_sources",
     "database_written",
     "diagnostics"
   ],

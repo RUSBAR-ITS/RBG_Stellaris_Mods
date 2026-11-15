@@ -13,6 +13,7 @@ def schema():
     return obj({
         "sources": array(source, minItems=1),
         "parser": obj({key: selection() for key in
-                       ("lexical", "constructs", "logical_operators", "inline_scripts", "exceptions")}),
+                       ("lexical", "constructs", "logical_operators", "inline_scripts", "exceptions",
+                        "static_variables")}),
         "outputs": obj({"database": RELATIVE, "report": RELATIVE}),
     })

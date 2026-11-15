@@ -12,7 +12,8 @@ def expansion_context(settings, report=None):
 def source_exclusion(path, settings):
     resolved = path.resolve()
     for variable, directory in (("INLINE_SCRIPTS_DIR", settings.inline_directory),
-                                ("SCRIPTED_EFFECTS_DIR", settings.scripted_effects_directory)):
+                                ("SCRIPTED_EFFECTS_DIR", settings.scripted_effects_directory),
+                                ("SCRIPTED_VARIABLES_DIR", settings.scripted_variables_directory)):
         if resolved.is_relative_to(directory):
             return variable
     return None

@@ -29,8 +29,8 @@ class BuildTests(BuildFixture):
         self.assertFalse(list(self.database_path().parent.rglob("*.txt")))
         self.assertFalse(list(self.database_path().parent.rglob("*.tmp")))
 
-    def test_unknown_names_repeats_and_unresolved_values_are_saved(self):
-        self.write_script("base.txt", "future={x=yes x=42 x=@unknown arbitrary > nonexistent} future={}")
+    def test_unknown_names_repeats_and_literal_references_are_saved(self):
+        self.write_script("base.txt", 'future={x=yes x=42 x="@unknown" arbitrary > nonexistent} future={}')
         self.variables.update(WORKSHOP_DIR=str(self.root / "missing_workshop"),
                               RU_LOC_TIER_1=str(self.root / "missing_ru"))
         result = self.run_build()

@@ -2,6 +2,7 @@
 
 from sttv.common.report import Report
 from sttv.sources.settings import check_sources, load_settings
+from sttv.sources.static_variables import variable_processor
 from sttv.database.collection import collect
 from sttv.database.storage import publish, write_report
 from sttv.database.validation import validate_database
@@ -12,8 +13,10 @@ def build(variables_path, config_path):
     try:
         settings = load_settings(variables_path, config_path)
         check_sources(settings)
+        stage = "static_variables"
+        variables = variable_processor(settings, report)
         stage = "parsing"
-        database = collect(settings, report)
+        database = collect(settings, report, variables)
         if not report.failed:
             stage = "validation"
             validate_database(database)

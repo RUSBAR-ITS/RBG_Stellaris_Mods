@@ -8,6 +8,10 @@
     }
   ],
   "parser": {
+    "static_variables": {
+      "base": "product",
+      "path": "config/parser/static_variables.json"
+    },
     "exceptions": {
       "base": "product",
       "path": "config/parser/exceptions.json"
