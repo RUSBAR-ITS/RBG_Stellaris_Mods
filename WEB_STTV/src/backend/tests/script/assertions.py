@@ -30,17 +30,8 @@ def check_document(document, syntax):
         index = token.span.end
     assert index == len(text)
     assert ''.join(token.raw for token in document.tokens) == text
-    skips = iter(document.skipped_inline_scripts)
-    skip = next(skips, None)
-    significant = []
-    for token in document.tokens:
-        while skip and token.span.start >= skip.end:
-            skip = next(skips, None)
-        if skip and skip.start <= token.span.start < skip.end:
-            assert token.span.end <= skip.end
-            continue
-        if token.kind not in ('space', 'comment', 'bom'):
-            significant.append(token.raw)
+    significant = [token.raw for token in document.tokens
+                   if token.kind not in ('space', 'comment', 'bom')]
     reconstructed = [token for node in document.items for token in node_tokens(node, syntax)]
     assert reconstructed == significant
     return len(significant)

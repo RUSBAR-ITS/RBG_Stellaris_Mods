@@ -3,6 +3,7 @@
 from .helpers import HASH, LINE, NULL, STRING, TEXT, array, obj, union
 from .reports import diagnostic
 from .rules import rule
+from . import inline
 
 
 def schema():
@@ -39,10 +40,13 @@ def schema():
         "game_version": nullable, "status": {"enum": ["disabled", "read", "partial", "unavailable", "empty"]},
         "files": array(obj({"file": TEXT, "sha256": HASH})),
     })
-    return obj({
+    result = obj({
         "format_version": {"const": 1}, "status": {"enum": ["complete", "partial"]},
-        "counts": obj({"skipped_inline_scripts": {"type": "integer", "minimum": 0}}),
+        "counts": obj({"inline_scripts": inline.counts()}),
+        "inline_sources": {"type": "object", "additionalProperties": HASH},
         "profile_id": TEXT, "profile_revision": LINE, "profile_fingerprint": HASH,
         "sources": array(source), "observations": array(observation),
         "recommendations": array(recommendation), "diagnostics": array(diagnostic()),
     })
+    result["$defs"] = {"origin": inline.origin()}
+    return result

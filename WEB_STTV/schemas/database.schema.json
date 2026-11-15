@@ -19,9 +19,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "pattern": "^[A-Za-z0-9_:.?/-]+$",
@@ -29,7 +28,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -91,6 +90,125 @@
         "file",
         "line",
         "key"
+      ],
+      "type": "object"
+    },
+    "origin": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        },
+        "fragments": {
+          "items": {
+            "$ref": "#/$defs/origin"
+          },
+          "type": "array"
+        },
+        "generated_span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        },
+        "inline_call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "placeholder": {
+          "$ref": "#/$defs/origin"
+        },
+        "root": {
+          "enum": [
+            "STELLARIS_ROOT",
+            "TECH_PATH",
+            "INLINE_SCRIPTS_DIR"
+          ]
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "root",
+        "file",
+        "span",
+        "inline_call_id"
       ],
       "type": "object"
     },
@@ -184,10 +302,6 @@
                   }
                 ]
               },
-              "line": {
-                "minimum": 1,
-                "type": "integer"
-              },
               "operator": {
                 "enum": [
                   "!=",
@@ -199,6 +313,9 @@
                   "?=",
                   null
                 ]
+              },
+              "source": {
+                "$ref": "#/$defs/source"
               },
               "value": {
                 "anyOf": [
@@ -215,7 +332,7 @@
               "key",
               "operator",
               "value",
-              "line"
+              "source"
             ],
             "type": "object"
           },
@@ -230,18 +347,43 @@
     "source": {
       "additionalProperties": false,
       "properties": {
+        "column": {
+          "minimum": 1,
+          "type": "integer"
+        },
         "file": {
           "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
           "type": "string"
         },
+        "inline_call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "line": {
           "minimum": 1,
           "type": "integer"
+        },
+        "root": {
+          "enum": [
+            "STELLARIS_ROOT",
+            "TECH_PATH",
+            "INLINE_SCRIPTS_DIR"
+          ]
         }
       },
       "required": [
+        "root",
         "file",
-        "line"
+        "line",
+        "column",
+        "inline_call_id"
       ],
       "type": "object"
     },
@@ -335,16 +477,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -376,9 +517,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "enum": [
@@ -389,7 +529,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -421,9 +561,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "items": {
@@ -434,7 +573,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -493,9 +632,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "anyOf": [
@@ -533,7 +671,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -589,9 +727,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "anyOf": [
@@ -626,7 +763,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -658,9 +795,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "items": {
@@ -671,7 +807,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -700,9 +836,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "pattern": "^[A-Za-z0-9_:.?/-]+$",
@@ -710,7 +845,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -739,9 +874,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "pattern": "^[A-Za-z0-9_:.?/-]+$",
@@ -749,7 +883,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -777,16 +911,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -814,16 +947,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -851,16 +983,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -888,16 +1019,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -953,9 +1083,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "anyOf": [
@@ -990,7 +1119,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1018,16 +1147,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1055,16 +1183,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1092,16 +1219,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1136,16 +1262,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/requirement"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1173,16 +1298,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1210,16 +1334,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1282,9 +1405,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "anyOf": [
@@ -1319,7 +1441,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1375,9 +1497,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "anyOf": [
@@ -1412,7 +1533,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1444,9 +1565,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "items": {
@@ -1457,7 +1577,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1602,9 +1722,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "anyOf": [
@@ -1639,7 +1758,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1770,9 +1889,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "enum": [
@@ -1783,7 +1901,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1815,9 +1933,8 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "items": {
@@ -1828,7 +1945,7 @@
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1856,16 +1973,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1893,16 +2009,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "type": "boolean"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1930,16 +2045,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -1974,16 +2088,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -2011,16 +2124,15 @@
                       "items": {
                         "additionalProperties": false,
                         "properties": {
-                          "line": {
-                            "minimum": 1,
-                            "type": "integer"
+                          "source": {
+                            "$ref": "#/$defs/source"
                           },
                           "value": {
                             "$ref": "#/$defs/script"
                           }
                         },
                         "required": [
-                          "line",
+                          "source",
                           "value"
                         ],
                         "type": "object"
@@ -2136,13 +2248,12 @@
         "items": {
           "additionalProperties": false,
           "properties": {
-            "line": {
-              "minimum": 1,
-              "type": "integer"
-            },
             "name": {
               "pattern": "^@[A-Za-z0-9_]+$",
               "type": "string"
+            },
+            "source": {
+              "$ref": "#/$defs/source"
             },
             "value": {
               "type": "string"
@@ -2151,7 +2262,7 @@
           "required": [
             "name",
             "value",
-            "line"
+            "source"
           ],
           "type": "object"
         },
@@ -2164,7 +2275,111 @@
       "type": "object"
     },
     "format_version": {
-      "const": 1
+      "const": 2
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "inline_scripts": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "arguments": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "raw": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "raw",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "call_site": {
+                "$ref": "#/$defs/origin"
+              },
+              "form": {
+                "enum": [
+                  "reference",
+                  "block"
+                ]
+              },
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "parent_id": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "result_paths": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array",
+                "uniqueItems": true
+              },
+              "script": {
+                "additionalProperties": false,
+                "properties": {
+                  "raw": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "raw",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "template": {
+                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "parent_id",
+              "call_site",
+              "form",
+              "script",
+              "template",
+              "arguments",
+              "result_paths"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "inline_scripts"
+      ],
+      "type": "object"
     },
     "technologies": {
       "additionalProperties": {
@@ -2189,6 +2404,7 @@
   "required": [
     "format_version",
     "technologies",
+    "metadata",
     "categories",
     "tiers",
     "file_variables"

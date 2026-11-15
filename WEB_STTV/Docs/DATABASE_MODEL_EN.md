@@ -16,13 +16,14 @@
 - [Repeated and missing fields](#repeated-and-missing-fields)
 - [Categories and tiers](#categories-and-tiers)
 - [Local variable definitions](#local-variable-definitions)
+- [Inclusion history](#inclusion-history)
 - [Record example](#record-example)
 - [Validation rules](#validation-rules)
 - [Related documents](#related-documents)
 
 ## Status and data scope
 
-The [implemented fourth stage](BACKEND_STAGE_4_EN.md#database-and-reports) retains this database schema while excluding `inline_script` entries through a stub and canonicalizing recognized logical-block names according to configuration. Emptied parent blocks remain. Skipped inclusions do not contribute to this database; build and analysis reports expose their count as `counts.skipped_inline_scripts`.
+[Stage five](BACKEND_STAGE_5_EN.md) introduces database version `2`: `inline_script` expands before conversion, call history lives in `metadata.inline_scripts`, and source locations contain a root, path, line, column, and call ID. Database version 1 is no longer supported.
 
 Date: **2026-11-15**. The user agreed to the first JSON database model, now implemented under the separately approved [first backend stage](TZ_EN.md#3-first-backend-stage--database-building). It builds on the [game object description](TECHNOLOGY_MODEL_EN.md).
 
@@ -33,7 +34,7 @@ Stage inputs:
 - Local `@...` definitions from those same files.
 - **Only technology and conditional variant names**, separately in Russian and English, from the configured localization sources.
 
-Technology descriptions, effect text, category names, and other localized text are not added yet. Their keys remain in game fields where present. External game variables, scripted triggers, inline inclusions, images, and definitions of unlocked objects are not loaded at this stage. For example, `common/scripted_variables/` lies outside `TECH_PATH`.
+Technology descriptions, effect text, category names, and other localized text are not added yet. Their keys remain in game fields where present. External game variables, scripted triggers, images, and definitions of unlocked objects are not loaded at this stage. For example, `common/scripted_variables/` lies outside `TECH_PATH`.
 
 The database stores structure known from these sources. It does not evaluate country eligibility, the active variant, final cost, or draw probability. A graph or another interactive presentation uses the same model.
 
@@ -61,21 +62,25 @@ One UTF-8 JSON file contains the following required fields:
 
 | Field | Type | Purpose |
 | --- | --- | --- |
-| `format_version` | Integer | File structure version; `1` for this model. Not an application or game version |
+| `format_version` | Integer | File structure version; `2` for this model. Not an application or game version |
 | `technologies` | `ID → TechnologyRecord` object | Base technologies; the ID is the entry key and is not duplicated inside the record |
 | `categories` | `ID → DefinitionRecord` object | Categories from `category/` |
 | `tiers` | `ID → DefinitionRecord` object | Tiers from `tier/`; JSON keys are strings, such as `"0"`, `"5"` |
 | `file_variables` | `file path → VariableDefinition[]` object | Local game variable definitions retaining file scope and order |
+| `metadata` | Object | Required `inline_scripts` call-history array; outside game fields and analysis |
 
 A valid empty database is:
 
 ```json
 {
-  "format_version": 1,
+  "format_version": 2,
   "technologies": {},
   "categories": {},
   "tiers": {},
-  "file_variables": {}
+  "file_variables": {},
+  "metadata": {
+    "inline_scripts": []
+  }
 }
 ```
 
@@ -94,7 +99,7 @@ All `TechnologyRecord` envelope fields are required:
 | `name_sources` | `{ "ru": LocalizationSource or null, "en": LocalizationSource or null }` | Provenance of selected names |
 | `fields` | Closed game field object | Only prepared values of allowed fields from the table below; fields absent in the game are omitted |
 
-`SourceLocation` contains `file: string` and `line: integer`. `file` is relative to `TECH_PATH`, and lines start at 1. Example: `{"file":"00_megastructures.txt","line":1}`. Nested records use the same path root.
+`SourceLocation` requires `root`, `file`, `line`, `column`, and `inline_call_id`. `root` is `STELLARIS_ROOT`, `TECH_PATH`, or `INLINE_SCRIPTS_DIR`; `file` is relative to that root. Lines and columns start at 1. `inline_call_id` identifies the originating invocation or is `null`. Example: `{"root":"TECH_PATH","file":"00_megastructures.txt","line":1,"column":1,"inline_call_id":null}`. Localization provenance has its own unchanged contract.
 
 `fields` separates game names from database metadata. In particular, the envelope's `name` is localized text, not an additional field in the game definition.
 
@@ -159,7 +164,7 @@ This table covers all 25 observed base-definition fields. Assumed game defaults 
 
 For example, although earlier research established `@tier5cost3` in the shared variables directory, the current collection does not read it there or insert a remembered number. Definitions from another `TECH_PATH` file are not automatically treated as global either.
 
-Nested script expressions containing `@...` and `value:...` remain in `ScriptBlock`; `inline_script` invocations are temporarily excluded entirely. This stage does not evaluate complete cost or weight expressions. A direct reference's `resolved` value is only a local constant, not the final in-game price.
+Nested script expressions containing `@...` and `value:...` remain in `ScriptBlock`; `inline_script` invocations expand before conversion. This stage does not evaluate complete cost or weight expressions. A direct reference's `resolved` value is only a local constant, not the final in-game price.
 
 ## Requirements and relationships
 
@@ -176,9 +181,29 @@ Each entry contains exactly one of `tech`, `all`, or `any`. Outer `prerequisites
 ```json
 {
   "all": [
-    { "any": [{ "tech": "tech_starbase_5" }, { "tech": "tech_arkship_tier_3" }] },
-    { "tech": "tech_zero_point_power" },
-    { "any": [{ "tech": "tech_battleships" }, { "tech": "tech_stingers" }] }
+    {
+      "any": [
+        {
+          "tech": "tech_starbase_5"
+        },
+        {
+          "tech": "tech_arkship_tier_3"
+        }
+      ]
+    },
+    {
+      "tech": "tech_zero_point_power"
+    },
+    {
+      "any": [
+        {
+          "tech": "tech_battleships"
+        },
+        {
+          "tech": "tech_stingers"
+        }
+      ]
+    }
   ]
 }
 ```
@@ -210,7 +235,7 @@ Nested conditions retain their logical groups and evaluation scopes. For example
 
 **Storing a condition does not evaluate whether it holds.** This database contains no state from a particular game: country ethics and civics, species composition, constructed buildings, current flags, and so on. Consequently, no computed “available to this player” result is stored here. Missing information must not be treated as a condition being true or false; zero ordinary draw weight also does not prove that acquisition through another mechanism is impossible.
 
-Known references to external scripted triggers and values remain only under explicitly declared rules. Their bodies are not read; stage four excludes `inline_script` invocations entirely before conversion. The database therefore lacks the complete eligibility logic supplied by external inclusions. An unknown command does not automatically qualify as an external reference: strict-schema rejection and reporting rules still apply.
+External scripted triggers and values remain under declared rules without reading their bodies. `inline_script` expands recursively; resulting commands undergo the same strict checks as directly written commands. Unknown commands cause an error and are never discarded.
 
 ## Script blocks
 
@@ -221,7 +246,7 @@ Known references to external scripted triggers and values remain only under expl
 | `key` | String or `null` | Only a name permitted by the current context's rule; `null` for an allowed standalone list item |
 | `operator` | String or `null` | Only an operator allowed for this command, such as `=` or `<`; `null` only for a standalone item |
 | `value` | String or `ScriptBlock` | Value shape and content are checked against the declared command rule |
-| `line` | Integer from 1 | Line within the containing definition's file |
+| `source` | `SourceLocation` | Physical entry origin and invocation ID |
 
 Inside script blocks, scalars are stored as strings: `"yes"`, `"0.50"`, `"@some_value"`. This is a storage convention for known arguments, not permission to accept unknown ones. Each command rule defines the allowed value meaning: `yes` / `no`, a numeric token, a particular identifier kind, a declared reference, or a nested block. An invalid form is rejected even if it is a valid JSON string. Outer game fields have prepared numbers and Booleans according to the earlier table. Syntactic outer scalar quotes are excluded from its value; original formatting and comments remain in source files and are not copied into the database.
 
@@ -232,7 +257,18 @@ Example `potential` value:
 ```json
 {
   "entries": [
-    { "key": "is_nomadic", "operator": "=", "value": "no", "line": 16 }
+    {
+      "key": "is_nomadic",
+      "operator": "=",
+      "value": "no",
+      "source": {
+        "root": "TECH_PATH",
+        "file": "example.txt",
+        "line": 16,
+        "column": 1,
+        "inline_call_id": null
+      }
+    }
   ]
 }
 ```
@@ -272,13 +308,34 @@ The link to the base technology is expressed through **nesting**, not a separate
 ```json
 {
   "occurrences": [
-    { "line": 665, "value": 0 },
-    { "line": 668, "value": { "variable": "@tier2weight3", "resolved": null } }
+    {
+      "source": {
+        "column": 5,
+        "file": "00_machine_age_tech.txt",
+        "inline_call_id": null,
+        "line": 665,
+        "root": "TECH_PATH"
+      },
+      "value": 0
+    },
+    {
+      "source": {
+        "column": 5,
+        "file": "00_machine_age_tech.txt",
+        "inline_call_id": null,
+        "line": 668,
+        "root": "TECH_PATH"
+      },
+      "value": {
+        "resolved": null,
+        "variable": "@tier2weight3"
+      }
+    }
   ]
 }
 ```
 
-This represents `fields.weight` in `tech_orbital_arc_furnace`. Each `value` has the field's ordinary type; `line` identifies the source occurrence. The array has at least two entries and preserves source order. It does not mean addition, last-value selection, or an established engine precedence rule. Identical repetitions are also retained.
+This represents `fields.weight` in `tech_orbital_arc_furnace`. Each `value` has the field's ordinary type; `source` identifies the source occurrence. The array has at least two entries and preserves source order. It does not mean addition, last-value selection, or an established engine precedence rule. Identical repetitions are also retained.
 
 The model distinguishes:
 
@@ -300,15 +357,25 @@ The empty tier-0 definition remains a record with `fields: {}` rather than being
 
 ## Local variable definitions
 
-`file_variables` stores definitions only from the read `TECH_PATH` files, separately per file. Each entry contains an ordered `VariableDefinition` array:
+`file_variables` stores local definitions in each input `TECH_PATH` file scope, including expanded inclusions. Each entry contains an ordered `VariableDefinition` array:
 
 | Field | Type | Purpose |
 | --- | --- | --- |
 | `name` | String | Name including `@` |
 | `value` | String | Scalar definition contents, including a possible reference to another variable |
-| `line` | Integer from 1 | Definition location |
+| `source` | `SourceLocation` | Physical definition origin |
 
-File paths use the same root as `SourceLocation.file`. Files without local variables may be omitted from this object. Repeated names are not collapsed into one dictionary key. These are game variables; project settings from `global_variables.json` are not copied here.
+File keys are relative to `TECH_PATH`; each definition's `source` identifies its physical origin relative to its own `root`. Files without local variables may be omitted from this object. Repeated names are not collapsed into one dictionary key. These are game variables; project settings from `global_variables.json` are not copied here.
+
+## Inclusion history
+
+`metadata.inline_scripts` is a required array, empty without calls. Each record contains `id`, `parent_id`, `call_site`, `form`, `script: {raw, value}`, `template`, `arguments: [{name, raw, value}]`, and `result_paths: string[]`. IDs are unique within a build; parents precede children. `form` is `reference` or `block`. `template` is relative to `INLINE_SCRIPTS_DIR`. Empty inclusions retain `result_paths = []`.
+
+`call_site` contains `root`, `file`, `span`, and `inline_call_id`; substituted text additionally records `generated_span`, `fragments`, and, where applicable, `placeholder`. A `span` contains `start`, `end` (zero-based character offsets, exclusive end), and `line`, `column`, `end_line`, `end_column` (one-based). `fragments` and `placeholder` use the same recursive origin contract.
+
+`result_paths` are unique JSON Pointers into the final database, validated for existence and forbidden from pointing into `metadata`. Parents may reference nested-call results. History never contributes to command, frequency, or scalar-usage analysis.
+
+`file_variables` retains the calling `TECH_PATH` file scope; inserted definitions record the physical `source` of their template or argument. This does not load global game variables.
 
 ## Record example
 
@@ -316,7 +383,13 @@ The following is an abbreviated `technologies.tech_arcane_deciphering` record. I
 
 ```json
 {
-  "source": { "file": "00_ancient_relics_tech.txt", "line": 2 },
+  "source": {
+    "column": 1,
+    "file": "00_ancient_relics_tech.txt",
+    "inline_call_id": null,
+    "line": 2,
+    "root": "TECH_PATH"
+  },
   "name": {
     "ru": "Расшифровка загадок",
     "en": "Arcane Deciphering"
@@ -338,11 +411,21 @@ The following is an abbreviated `technologies.tech_arcane_deciphering` record. I
   "fields": {
     "area": "society",
     "tier": 2,
-    "category": ["archaeostudies"],
-    "cost": { "variable": "@tier2cost3", "resolved": null },
-    "weight": { "variable": "@tier2weight3", "resolved": null },
+    "category": [
+      "archaeostudies"
+    ],
+    "cost": {
+      "variable": "@tier2cost3",
+      "resolved": null
+    },
+    "weight": {
+      "variable": "@tier2weight3",
+      "resolved": null
+    },
     "is_rare": true,
-    "feature_flags": ["unlock_arcane_deciphering"]
+    "feature_flags": [
+      "unlock_arcane_deciphering"
+    ]
   }
 }
 ```

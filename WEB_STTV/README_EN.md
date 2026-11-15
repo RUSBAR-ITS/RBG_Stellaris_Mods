@@ -16,7 +16,9 @@ A local interactive web reference for Stellaris technologies. Its primary view i
 
 ## Status
 
-The approved [fourth parser stage](Docs/TZ_BACKEND_STAGE_4_EN.md) is implemented: a separate logical-operator configuration, `LogicalOperation` nodes, and an `inline_script` expansion function with an empty stub. All 101 tests pass; the vanilla corpus yielded 36,026 logical nodes and 6,885 skips. The database matched an independently transformed baseline; inline contributions are temporarily excluded. [Current interface, configuration, and verification](Docs/BACKEND_STAGE_4_EN.md).
+Implemented the approved [fifth stage](Docs/TZ_BACKEND_STAGE_5_EN.md): nested `inline_script` expansion, argument substitution, history excluded from analysis, and inserted-code provenance. Database version 2 contains 679 technologies, 206 variants, and 301 expanded calls from 10 templates. The corpus audit excludes templates as independent inputs; results and limitations are documented in the [stage-five guide](Docs/BACKEND_STAGE_5_EN.md). Existing research lists are preserved.
+
+Stage four introduced a separate logical-operator configuration and `LogicalOperation` nodes. Stage five replaces its inline stub. The [stage-four results](Docs/BACKEND_STAGE_4_EN.md) remain as historical documentation.
 
 Implemented the approved [third stage](Docs/TZ_BACKEND_STAGE_3_EN.md): an independent parser and two compact syntax configurations. All 79 tests pass; 2,235 vanilla files parse successfully and the database matches the baseline byte for byte. Game-command semantic validation is separate from the parser. [Settings, interface, and limitations](Docs/BACKEND_STAGE_3_EN.md).
 
@@ -53,13 +55,18 @@ The shared [global_variables.json](global_variables.json) file stores project va
 | `WORK_DIR` | Product and validation working folder, relative to the project directory by default | `data` |
 | `STELLARIS_ROOT` | Absolute path to the installed game root | `E:/SteamLibrary/steamapps/common/Stellaris` |
 | `TECH_PATH` | Path to the technology directory relative to `STELLARIS_ROOT` | `common/technology` |
+| `INLINE_SCRIPTS_DIR` | Directory containing `inline_script` templates, relative to `STELLARIS_ROOT` | `common/inline_scripts` |
 | `WORKSHOP_DIR` | Absolute path to Stellaris Steam Workshop mods | `E:/SteamLibrary/steamapps/workshop/content/281990` |
 | `RU_LOC_TIER_1` | Russian localization, highest priority: the Russian Localization Fix RE mod's `replace` directory | `${WORKSHOP_DIR}/681483874/localisation/replace` |
 | `RU_LOC_TIER_2` | Russian localization, second priority: the same mod's `russian` directory | `${WORKSHOP_DIR}/681483874/localisation/russian` |
 | `RU_LOC_TIER_3` | Russian localization, third priority: vanilla, relative to `STELLARIS_ROOT` | `localisation/russian` |
 | `EN_LOC_TIER_1` | English localization: vanilla, relative to `STELLARIS_ROOT` | `localisation/english` |
 
-`TECH_PATH`, `RU_LOC_TIER_3`, and `EN_LOC_TIER_1` are relative to `STELLARIS_ROOT`. `${WORKSHOP_DIR}` in the other two paths denotes substitution of the variable with that name. This is a configuration-file convention: JSON stores ordinary strings and does not perform substitution itself. Paths use forward slashes `/`, consistent with the previously defined variables.
+`TECH_PATH`, `INLINE_SCRIPTS_DIR`, `RU_LOC_TIER_3`, and `EN_LOC_TIER_1` are relative to `STELLARIS_ROOT`. `${WORKSHOP_DIR}` in the other two paths denotes substitution of the variable with that name. This is a configuration-file convention: JSON stores ordinary strings and does not perform substitution itself. Paths use forward slashes `/`, consistent with the previously defined variables.
+
+`INLINE_SCRIPTS_DIR` is used for inclusion expansion. For example, `script = technologies/rare_technologies_weight_modifiers` refers to `STELLARIS_ROOT/INLINE_SCRIPTS_DIR/technologies/rare_technologies_weight_modifiers.txt`. The directory is read-only; templates are loaded through reached calls, including nested ones.
+
+Requirements for the next stage: handle nested calls, retain supplied arguments separately for each invocation, and insert expanded code with substitutions into the calling object's body at the invocation position. Preserve the invocation, template path, and arguments in a separate metadata field that analysis does not traverse. Proposed rules, metadata, and checks are described in the [stage-five specification](Docs/TZ_BACKEND_STAGE_5_EN.md), awaiting approval; handler code is unchanged.
 
 Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
 
@@ -67,6 +74,7 @@ Absolute source roots belong to the current environment. Game and localization d
 
 ## Documents
 
+- [Language construct catalog](language/README_EN.md).
 - [Project concept](Docs/CONCEPT_EN.md).
 - [Specification: technical foundation, coding principles, and first backend stage](Docs/TZ_EN.md).
 - [First backend stage: operation, modules, diagnostics, and validation](Docs/BACKEND_STAGE_1_EN.md).
@@ -77,8 +85,11 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Keywords and values: agreed classification](Docs/KEYWORDS_AND_VALUES_EN.md).
 - [Fourth-stage specification: logical operators and the inline_script handler — implemented](Docs/TZ_BACKEND_STAGE_4_EN.md).
 - [Fourth stage: interface, configurations, skips, and verification](Docs/BACKEND_STAGE_4_EN.md).
+- [Fifth-stage specification: inline_script expansion and invocation history — implemented](Docs/TZ_BACKEND_STAGE_5_EN.md).
 - [Stellaris v4.5.4 technology tree research](Docs/RESEARCH_TECH_TREE_EN.md).
 - [Technology object model: fields, types, and nested structures](Docs/TECHNOLOGY_MODEL_EN.md).
 - [Stage-one JSON database model: technology structure and RU/EN names](Docs/DATABASE_MODEL_EN.md).
 - [Changelog](Docs/CHANGELOG_EN.md).
 - [Обзор на русском](README_RU.md).
+
+- [Backend: inline_script expansion](Docs/BACKEND_STAGE_5_EN.md).

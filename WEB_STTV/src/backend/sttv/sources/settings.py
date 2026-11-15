@@ -29,6 +29,8 @@ class Settings:
     protected: list
     config_files: list
     syntax: Syntax
+    inline_directory: Path
+    inline_options: dict
 
 
 def substitute(value, lookup):
@@ -64,7 +66,7 @@ def load_settings(variables_path, config_path):
     values = expand_variables(read_json(variables_path))
     options = read_json(config_path)
     validate_schema(options, "backend.schema.json")
-    required = {"WORK_DIR", "STELLARIS_ROOT", "WORKSHOP_DIR", "TECH_PATH"}
+    required = {"WORK_DIR", "STELLARIS_ROOT", "WORKSHOP_DIR", "TECH_PATH", "INLINE_SCRIPTS_DIR"}
     names = {name for spec in options["localization"]["languages"].values()
              for name in spec["sources"]}
     missing = (required | names) - values.keys()
@@ -73,11 +75,14 @@ def load_settings(variables_path, config_path):
     game = path_from(values["STELLARIS_ROOT"], PRODUCT_ROOT)
     workshop = path_from(values["WORKSHOP_DIR"], PRODUCT_ROOT)
     technology = path_from(values["TECH_PATH"], game)
+    inline_directory = path_from(values["INLINE_SCRIPTS_DIR"], game)
+    if not inline_directory.is_relative_to(game):
+        raise BuildError("unsafe_source", "INLINE_SCRIPTS_DIR must remain inside STELLARIS_ROOT")
     if not technology.is_relative_to(game):
         raise BuildError("unsafe_source", "TECH_PATH must remain inside STELLARIS_ROOT")
     sources = {name: path_from(values[name], game) for name in names}
     work = path_from(values["WORK_DIR"], PRODUCT_ROOT)
-    roots = [game, workshop, technology, *sources.values(),
+    roots = [game, workshop, technology, inline_directory, *sources.values(),
              *(PRODUCT_ROOT / name for name in PRODUCT_DIRECTORIES)]
     if protected(work, roots):
         raise BuildError("unsafe_output", "WORK_DIR overlaps a protected directory")
@@ -88,6 +93,10 @@ def load_settings(variables_path, config_path):
     config_files = [Path(variables_path).resolve(), Path(config_path).resolve()]
     parser_paths = [selected_path(options["parser"][key], work) for key in ("lexical", "constructs", "logical_operators")]
     config_files.extend(parser_paths)
+    inline_config = selected_path(options["parser"]["inline_scripts"], work)
+    config_files.append(inline_config)
+    inline_options = read_json(inline_config)
+    validate_schema(inline_options, "parser_inline_scripts.schema.json")
     distinct_paths([*paths, profile, *config_files])
     syntax = load_syntax(*parser_paths)
     for lang, spec in options["localization"]["languages"].items():
@@ -95,11 +104,12 @@ def load_settings(variables_path, config_path):
             raise BuildError("language_mismatch", f"Invalid header for {lang}")
     database, report, registry, generation_report = paths
     return Settings(values, options, work, game, workshop, technology, sources,
-                    database, report, profile, registry, generation_report, roots, config_files, syntax)
+                    database, report, profile, registry, generation_report, roots, config_files, syntax,
+                    inline_directory, inline_options)
 
 
 def check_sources(settings):
-    directories = {settings.game, settings.technology, *settings.sources.values()}
+    directories = {settings.game, settings.technology, settings.inline_directory, *settings.sources.values()}
     for profile in settings.options["definitions"].values():
         directory = path_from(profile["subdirectory"], settings.technology)
         if not directory.is_relative_to(settings.technology):

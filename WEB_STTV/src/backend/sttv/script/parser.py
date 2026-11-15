@@ -2,16 +2,17 @@
 
 from .delimiters import parameters
 from .lexer import Lexer
-from .inline import InlineScriptValue, expand_inline_script
 from .nodes import (Assignment, Block, Conditional, Document, Formula, LogicalOperation, Scalar,
-                    Source, TaggedBlock)
+                    InlineInvocation, Source, TaggedBlock)
+from .traversal import locate
 
 
 class Parser:
-    def __init__(self, source, syntax):
+    def __init__(self, source, syntax, specials=True):
         self.source, self.syntax = source, syntax
+        self.specials = specials
         self.lexer = Lexer(source, syntax)
-        self.tokens, self.skipped_inline_scripts = [], []
+        self.tokens = []
         self.pending = None
 
     def read(self, opaque=False):
@@ -38,9 +39,7 @@ class Parser:
         if token is None:
             self.source.fail("missing_value", "Expected an inline value", len(self.source.text))
         form = "block" if token.raw.startswith(self.syntax.lexical["block"]["open"]) else "reference"
-        value = InlineScriptValue(token.raw, form, token.span)
-        self.skipped_inline_scripts.append(self.span(key, token))
-        return expand_inline_script(value, self.source)
+        return InlineInvocation(token.raw, form, self.span(key, token), token.span)
 
     def span(self, start, end):
         return self.source.span(start.span.start, end.span.end)
@@ -103,10 +102,10 @@ class Parser:
             if token.kind == "formula":
                 self.source.fail("invalid_key", "A formula cannot be a key", token.span.start)
             operator = self.take().raw
-            if token.kind == "atom" and operator == "=" and self.syntax.is_inline(token.raw):
+            if self.specials and token.kind == "atom" and operator == "=" and self.syntax.is_inline(token.raw):
                 return self.inline(token)
             value = self.value(self.take())
-            name = self.syntax.logical_name(token.raw) if token.kind == "atom" else None
+            name = self.syntax.logical_name(token.raw) if self.specials and token.kind == "atom" else None
             if (name is not None and operator == self.syntax.logical_operators["assignment_operator"]
                     and isinstance(value, Block)):
                 return LogicalOperation(name, self.scalar(token), operator, value, self.span(token, value))
@@ -134,13 +133,28 @@ class Parser:
         return items, None
 
 
-def parse_text(text, syntax, source_name=None):
-    source = Source(text, source_name)
-    parser = Parser(source, syntax)
+def parse_source(source, syntax, specials=True):
+    parser = Parser(source, syntax, specials)
     try:
         items, _ = parser.sequence()
     except RecursionError:
         token = parser.peek()
         source.fail("nesting_depth", "Nesting exceeds parser capacity",
-                    token.span.start if token else len(text))
-    return Document(source, parser.tokens, items, parser.skipped_inline_scripts)
+                    token.span.start if token else len(source.text))
+    return Document(source, parser.tokens, [locate(item, source) for item in items],
+                    {"inline_scripts": []})
+
+
+def parse_text(text, syntax, source_name=None, *, expansion=None, role="source", root="STELLARIS_ROOT"):
+    from .traversal import walk
+    if role not in ("source", "template"):
+        raise ValueError(f"Unknown document role: {role}")
+    document = parse_source(Source(text, source_name, root), syntax)
+    if role == "template":
+        return document
+    if expansion is not None:
+        return expansion.expand(document, syntax)
+    for node in walk(document.items):
+        if isinstance(node, InlineInvocation):
+            document.source.fail("inline_context_required", "Expansion context is required", node.span.start)
+    return document

@@ -20,8 +20,11 @@ class Walker:
         self.rows = []
 
     def record(self, node, context, scope, path, **changes):
-        return observation(node, context, scope, {**self.location, "path": path},
-                           self.lines, self.length, **changes)
+        location, lines = {**self.location, "path": path}, self.lines
+        if node.origin and node.origin["inline_call_id"]:
+            location.update(source=node.origin["root"], file=node.origin["file"])
+            lines = []
+        return observation(node, context, scope, location, lines, self.length, **changes)
 
     def commands(self, nodes, context, scope, path):
         counts = Counter(node.key for node in nodes)

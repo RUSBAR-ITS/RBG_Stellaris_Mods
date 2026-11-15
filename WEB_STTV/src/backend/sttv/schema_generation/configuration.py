@@ -15,7 +15,7 @@ def schema():
         "definitions": obj({key: profile for key in ("technologies", "categories", "tiers")}),
         "localization": obj({"pattern": TEXT, "recursive": BOOL, "encoding": {"const": "utf-8-sig"},
                              "languages": obj({key: language for key in ("ru", "en")})}),
-        "parser": obj({key: selection() for key in ("lexical", "constructs", "logical_operators")}),
+        "parser": obj({key: selection() for key in ("lexical", "constructs", "logical_operators", "inline_scripts")}),
         "outputs": obj({"database": RELATIVE, "report": RELATIVE}),
         "rules": obj({"profile": selection(), "registry": RELATIVE, "report": RELATIVE,
                       "game_version": union(TEXT, NULL)}),

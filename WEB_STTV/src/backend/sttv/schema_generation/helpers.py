@@ -36,7 +36,7 @@ def mapping(value, keys=IDENTIFIER):
 
 def repeated(item):
     return union(item, obj({"occurrences": array(
-        obj({"line": LINE, "value": item}), minItems=2)}))
+        obj({"source": ref("source"), "value": item}), minItems=2)}))
 
 
 def document(value):

@@ -3,6 +3,7 @@
 from sttv.technologies.contracts import AREAS, CONTRACTS, SCRIPT_CONTEXTS, SCRIPT_OPERATORS
 from .helpers import (BOOL, IDENTIFIER, LINE, NULL, NUMBER, RELATIVE, STRING, TEXT,
                       VARIABLE_NAME, array, mapping, obj, ref, repeated, union)
+from . import inline
 
 
 def fields(context):
@@ -38,13 +39,14 @@ def record(context):
 
 def schema():
     entry = obj({"key": union(TEXT, NULL), "operator": {"enum": [*sorted(SCRIPT_OPERATORS), None]},
-                 "value": union(STRING, ref("script")), "line": LINE})
+                 "value": union(STRING, ref("script")), "source": ref("source")})
     entry["allOf"] = [{"if": {"properties": {"key": NULL}},
                       "then": {"properties": {"operator": NULL}},
                       "else": {"properties": {"operator": STRING}}}]
     defs = {
         "script": obj({"entries": array(entry)}),
-        "source": obj({"file": RELATIVE, "line": LINE}),
+        "source": inline.location(),
+        "origin": inline.origin(),
         "localization_source": obj({"tier": TEXT, "file": RELATIVE, "line": LINE, "key": TEXT}),
         "requirement": union(obj({"tech": IDENTIFIER}), obj({"all": array(ref("requirement"))}),
                              obj({"any": array(ref("requirement"))})),
@@ -52,10 +54,11 @@ def schema():
         "category": obj({"source": ref("source"), "fields": fields("categories")}),
         "tier": obj({"source": ref("source"), "fields": fields("tiers")}),
     }
-    result = obj({"format_version": {"const": 1}, "technologies": mapping(ref("technology")),
+    result = obj({"format_version": {"const": 2}, "technologies": mapping(ref("technology")),
+                  "metadata": obj({"inline_scripts": array(inline.call())}),
                   "categories": mapping(ref("category")),
                   "tiers": mapping(ref("tier"), {"pattern": "^[0-9]+$"}),
                   "file_variables": mapping(array(obj({
-                      "name": VARIABLE_NAME, "value": STRING, "line": LINE})), RELATIVE)})
+                      "name": VARIABLE_NAME, "value": STRING, "source": ref("source")})), RELATIVE)})
     result["$defs"] = defs
     return result

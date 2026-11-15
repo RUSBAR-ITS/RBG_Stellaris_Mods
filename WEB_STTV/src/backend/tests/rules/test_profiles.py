@@ -22,11 +22,31 @@ def boolean_group(value):
 
 class ProfileTests(unittest.TestCase):
     def test_initial_effective_rules_match_migrated_reference(self):
-        value = registry()
+        value = copy.deepcopy(registry())
         effective = {key: value[key] for key in (
             "value_types", "scopes", "root_scope", "conditions", "contexts", "inline_scripts")}
+        for key in ("is_preferred_weapons", "is_councilor_type", "ai_armor_ratio",
+                    "ai_shields_ratio", "is_ai_ship_role"):
+            effective["conditions"].pop(key)
+        effective["contexts"].pop("ai_ship_role")
         expected = (PRODUCT_ROOT / "src/backend/tests/fixtures/initial_rules.sha256").read_text().strip()
         self.assertEqual(fingerprint(effective), expected)
+
+    def test_approved_inline_commands(self):
+        rules = ScriptRules(registry())
+        rules.validate(script_block(parse_text(
+            'is_preferred_weapons = energy ai_armor_ratio >= 0.5 ai_shields_ratio <= 0.3 '
+            'is_ai_ship_role = { ship_size = corvette role = artillery }')), "condition")
+        rules.validate(script_block(parse_text('is_councilor_type = councilor_storm_callers')),
+                       "condition", "leader")
+        for text, scope in [
+            ('is_councilor_type = councilor_storm_callers', 'country'),
+            ('ai_armor_ratio = text', 'country'),
+            ('is_ai_ship_role = { ship_size = corvette }', 'country'),
+            ('is_ai_ship_role = { ship_size = corvette role = artillery role = brawler }', 'country'),
+        ]:
+            with self.subTest(text=text), self.assertRaises(BuildError):
+                rules.validate(script_block(parse_text(text)), "condition", scope)
 
     def test_identical_groups_consolidate_but_conflicts_fail(self):
         value = profile()

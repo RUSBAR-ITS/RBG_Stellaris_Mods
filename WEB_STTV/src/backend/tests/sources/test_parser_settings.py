@@ -125,7 +125,7 @@ class ParserSettingsTests(BuildFixture):
         self.assertEqual(result['status'], 'partial')
         errors = [row for row in result['diagnostics'] if row['code'] == 'unsupported_analysis_form']
         self.assertEqual(len(errors), 1)
-        self.assertEqual((errors[0]['file'], errors[0]['line']), ('base.txt', 2))
+        self.assertEqual((errors[0]['file'], errors[0]['line']), ('common/technology/base.txt', 2))
 
     def test_analyzer_rejects_incompatible_registry_before_reading_sources(self):
         self.initialize()

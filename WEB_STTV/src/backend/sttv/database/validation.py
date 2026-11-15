@@ -7,6 +7,7 @@ from sttv.common.errors import BuildError
 from sttv.common.schema import validate_schema
 from sttv.script.rules import ScriptRules
 from sttv.rules.validation import validate_registry
+from sttv.technologies.provenance import validate_history
 
 
 def occurrences(value):
@@ -91,5 +92,6 @@ def validate_references(database):
 def validate_database(database, registry):
     validate_registry(registry)
     validate_schema(database, "database.schema.json")
+    validate_history(database)
     validate_contexts(database, ScriptRules(registry))
     validate_references(database)

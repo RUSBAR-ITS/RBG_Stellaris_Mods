@@ -28,22 +28,22 @@ class ScriptRules:
             key = item["key"]
             rule = self.lookup(context, key)
             location = f"{path}.{key}"
-            if rule is None:
-                raise BuildError("unsupported_command", f"Unsupported {context} command: {key}",
-                                 line=item["line"], field_path=location)
-            counts[key] += 1
-            if counts[key] > 1 and not rule["many"]:
-                raise BuildError("repeated_argument", f"Repeated argument: {key}",
-                                 line=item["line"], field_path=location)
             try:
+                if rule is None:
+                    raise BuildError("unsupported_command", f"Unsupported {context} command: {key}")
+                counts[key] += 1
+                if counts[key] > 1 and not rule["many"]:
+                    raise BuildError("repeated_argument", f"Repeated argument: {key}")
                 if rule["scopes"] is not None and scope not in rule["scopes"]:
                     raise BuildError("invalid_scope", f"{key} is not supported in {scope}")
                 if item["operator"] not in rule["operators"]:
                     raise BuildError("invalid_operator", f"Invalid operator for {key}")
                 self.value(item["value"], rule, scope, location)
             except BuildError as exc:
-                exc.line = exc.line or item["line"]
+                exc.line = exc.line or item["source"]["line"]
                 exc.field_path = exc.field_path or location
+                if not hasattr(exc, "source_location"):
+                    exc.source_location = item["source"]
                 raise
         missing = set(spec["required"]) - counts.keys()
         if missing:
@@ -70,7 +70,7 @@ class ScriptRules:
                 key = entry["key"]
                 if key in fields or entry["operator"] != "=" or not isinstance(entry["value"], str):
                     raise BuildError("invalid_inline", "Invalid or repeated inline argument",
-                                     line=entry["line"])
+                                     line=entry["source"]["line"])
                 fields[key] = entry["value"]
             name = fields.pop("script", None)
         spec = self.registry["inline_scripts"].get(name)

@@ -57,6 +57,10 @@
     "report": "reports/generation_report.json"
   },
   "parser": {
+    "inline_scripts": {
+      "base": "product",
+      "path": "config/parser/inline_scripts.json"
+    },
     "lexical": {
       "base": "product",
       "path": "config/parser/lexical.json"

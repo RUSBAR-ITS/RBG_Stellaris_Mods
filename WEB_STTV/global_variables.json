@@ -2,6 +2,7 @@
   "WORK_DIR": "data",
   "STELLARIS_ROOT": "E:/SteamLibrary/steamapps/common/Stellaris",
   "TECH_PATH": "common/technology",
+  "INLINE_SCRIPTS_DIR": "common/inline_scripts",
   "WORKSHOP_DIR": "E:/SteamLibrary/steamapps/workshop/content/281990",
   "RU_LOC_TIER_1": "${WORKSHOP_DIR}/681483874/localisation/replace",
   "RU_LOC_TIER_2": "${WORKSHOP_DIR}/681483874/localisation/russian",

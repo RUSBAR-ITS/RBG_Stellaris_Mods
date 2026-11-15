@@ -1,17 +1,167 @@
 {
+  "$defs": {
+    "origin": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        },
+        "fragments": {
+          "items": {
+            "$ref": "#/$defs/origin"
+          },
+          "type": "array"
+        },
+        "generated_span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        },
+        "inline_call_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "placeholder": {
+          "$ref": "#/$defs/origin"
+        },
+        "root": {
+          "enum": [
+            "STELLARIS_ROOT",
+            "TECH_PATH",
+            "INLINE_SCRIPTS_DIR"
+          ]
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "root",
+        "file",
+        "span",
+        "inline_call_id"
+      ],
+      "type": "object"
+    }
+  },
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
     "counts": {
       "additionalProperties": false,
       "properties": {
-        "skipped_inline_scripts": {
-          "minimum": 0,
-          "type": "integer"
+        "inline_scripts": {
+          "additionalProperties": false,
+          "properties": {
+            "encountered": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "expanded": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "failed": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "max_depth": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "template_files": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "encountered",
+            "expanded",
+            "failed",
+            "template_files",
+            "max_depth"
+          ],
+          "type": "object"
         }
       },
       "required": [
-        "skipped_inline_scripts"
+        "inline_scripts"
       ],
       "type": "object"
     },
@@ -19,9 +169,52 @@
       "items": {
         "additionalProperties": false,
         "properties": {
+          "call_chain": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "call_site": {
+                  "$ref": "#/$defs/origin"
+                },
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "template": {
+                  "anyOf": [
+                    {
+                      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "template",
+                "call_site"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
           "code": {
             "minLength": 1,
             "type": "string"
+          },
+          "column": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "definition_id": {
             "anyOf": [
@@ -70,6 +263,26 @@
           "message": {
             "type": "string"
           },
+          "provenance": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/origin"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "root_source": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/origin"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "severity": {
             "enum": [
               "error",
@@ -101,7 +314,11 @@
           "file",
           "line",
           "definition_id",
-          "field_path"
+          "field_path",
+          "column",
+          "provenance",
+          "root_source",
+          "call_chain"
         ],
         "type": "object"
       },
@@ -109,6 +326,13 @@
     },
     "format_version": {
       "const": 1
+    },
+    "inline_sources": {
+      "additionalProperties": {
+        "pattern": "^[a-f0-9]{64}$",
+        "type": "string"
+      },
+      "type": "object"
     },
     "observations": {
       "items": {
@@ -744,6 +968,7 @@
     "format_version",
     "status",
     "counts",
+    "inline_sources",
     "profile_id",
     "profile_revision",
     "profile_fingerprint",

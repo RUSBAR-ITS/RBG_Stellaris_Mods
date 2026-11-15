@@ -1248,9 +1248,77 @@
         "stage_one_registry"
       ],
       "template": "block_67"
+    },
+    {
+      "commands": [
+        "is_preferred_weapons"
+      ],
+      "context": "$conditions",
+      "evidence": [
+        "weapon_preference"
+      ],
+      "template": "identifier_10"
+    },
+    {
+      "commands": [
+        "ai_armor_ratio"
+      ],
+      "context": "$conditions",
+      "evidence": [
+        "armor_preference"
+      ],
+      "template": "number_17"
+    },
+    {
+      "commands": [
+        "ai_shields_ratio"
+      ],
+      "context": "$conditions",
+      "evidence": [
+        "shield_preference"
+      ],
+      "template": "number_17"
+    },
+    {
+      "commands": [
+        "is_ai_ship_role"
+      ],
+      "context": "$conditions",
+      "evidence": [
+        "ship_role_preference"
+      ],
+      "template": "inline_ship_role"
+    },
+    {
+      "commands": [
+        "is_councilor_type"
+      ],
+      "context": "$conditions",
+      "evidence": [
+        "storm_councilor"
+      ],
+      "template": "inline_leader_identifier"
+    },
+    {
+      "commands": [
+        "ship_size",
+        "role"
+      ],
+      "context": "ai_ship_role",
+      "evidence": [
+        "ship_role_preference"
+      ],
+      "template": "identifier_49"
     }
   ],
   "contexts": {
+    "ai_ship_role": {
+      "conditions": false,
+      "required": [
+        "ship_size",
+        "role"
+      ]
+    },
     "calc_true_if": {
       "conditions": true,
       "required": [
@@ -1451,9 +1519,54 @@
       "line": null,
       "notes": "Transferred effective stage-one rules; individual engine-source evidence was not recorded. Current-source acceptance is not proof of engine completeness.",
       "record": "sha256:402243d48a0455b81fe29da46828e16343a5fe4b8fcab1f321ce636162eff00b"
+    },
+    {
+      "file": "common/inline_scripts/ai/weapon_preference_weight.txt",
+      "game_version": "4.5.4",
+      "id": "weapon_preference",
+      "kind": "observed",
+      "line": null,
+      "notes": "Observed in vanilla inline templates; addition approved for backend stage five.",
+      "record": "is_preferred_weapons"
+    },
+    {
+      "file": "common/inline_scripts/ai/armor_preference_weight.txt",
+      "game_version": "4.5.4",
+      "id": "armor_preference",
+      "kind": "observed",
+      "line": null,
+      "notes": "Observed in vanilla inline templates; addition approved for backend stage five.",
+      "record": "ai_armor_ratio"
+    },
+    {
+      "file": "common/inline_scripts/ai/shield_preference_weight.txt",
+      "game_version": "4.5.4",
+      "id": "shield_preference",
+      "kind": "observed",
+      "line": null,
+      "notes": "Observed in vanilla inline templates; addition approved for backend stage five.",
+      "record": "ai_shields_ratio"
+    },
+    {
+      "file": "common/inline_scripts/ai/ship_role_preference_weight.txt",
+      "game_version": "4.5.4",
+      "id": "ship_role_preference",
+      "kind": "observed",
+      "line": null,
+      "notes": "Observed in vanilla inline templates; addition approved for backend stage five.",
+      "record": "is_ai_ship_role"
+    },
+    {
+      "file": "common/inline_scripts/technologies/cosmic_storms_technologies_weight_modifiers.txt",
+      "game_version": "4.5.4",
+      "id": "storm_councilor",
+      "kind": "observed",
+      "line": null,
+      "notes": "Observed in vanilla inline templates; addition approved for backend stage five.",
+      "record": "is_councilor_type"
     }
   ],
-  "revision": 1,
+  "revision": 2,
   "root_scope": "country",
   "scopes": [
     "archaeology",
@@ -2288,6 +2401,20 @@
         "scope": null,
         "scopes": null,
         "type": "inline"
+      }
+    },
+    "inline_leader_identifier": {
+      "extends": "identifier_10",
+      "rule": {
+        "scopes": [
+          "leader"
+        ]
+      }
+    },
+    "inline_ship_role": {
+      "extends": "block_37",
+      "rule": {
+        "context": "ai_ship_role"
       }
     },
     "integer_62": {

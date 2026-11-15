@@ -5,6 +5,7 @@ from collections import defaultdict
 
 from sttv.common.errors import BuildError
 from sttv.common.json_io import numeric_value
+from .traversal import source_location
 
 
 class Variables:
@@ -16,10 +17,11 @@ class Variables:
                 continue
             if (entry.operator != "=" or not isinstance(entry.value, str)
                     or not re.fullmatch(r"@[A-Za-z0-9_]+", entry.key)):
-                raise BuildError("invalid_variable_definition", "Invalid local variable",
-                                 line=entry.line)
+                error = BuildError("invalid_variable_definition", "Invalid local variable", line=entry.line)
+                error.provenance = entry.origin
+                raise error
             self.definitions.append({"name": entry.key, "value": entry.value,
-                                     "line": entry.line})
+                                     "source": source_location(entry.origin)})
             self.by_name[entry.key].append(entry.value)
 
     def resolve(self, name, trail=()):

@@ -46,6 +46,8 @@ class BuildFixture(unittest.TestCase):
         assert self.root.is_relative_to(base)
         self.game = self.root / "game"
         self.tech = self.game / "common/technology"
+        self.inline = self.game / "common/inline_scripts"
+        self.inline.mkdir(parents=True)
         for name in ("", "category", "tier"):
             (self.tech / name).mkdir(parents=True, exist_ok=True)
         self.locales = {name: self.root / name for name in ("ru1", "ru2", "ru3", "en1")}
@@ -57,6 +59,7 @@ class BuildFixture(unittest.TestCase):
             "STELLARIS_ROOT": str(self.game),
             "WORKSHOP_DIR": str(self.root / "workshop"),
             "TECH_PATH": "common/technology",
+            "INLINE_SCRIPTS_DIR": "common/inline_scripts",
             **{f"RU_LOC_TIER_{i}": str(self.locales[f"ru{i}"]) for i in (1, 2, 3)},
             "EN_LOC_TIER_1": str(self.locales["en1"]),
         }

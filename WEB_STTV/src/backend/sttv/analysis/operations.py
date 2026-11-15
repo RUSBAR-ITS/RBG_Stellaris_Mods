@@ -11,9 +11,11 @@ from sttv.common.report import Report
 from sttv.common.schema import validate_schema
 from sttv.rules.compiler import generate_registry, load_profile
 from sttv.script.parser import parse_text
+from sttv.script.diagnostics import annotate_error
 from sttv.script.serialization import data_entries
 from sttv.rules.validation import validate_registry_syntax
 from sttv.sources.files import source_files
+from sttv.sources.expansion import expansion_context, independent_sources
 from .adapters import documentation, script_definitions
 from .recommendations import recommend, validate_recommendation_profile
 from .sources import selected_sources
@@ -27,12 +29,13 @@ def analyze(settings, config_path, profile=None):
     registry = generate_registry(profile)
     validate_registry_syntax(registry, settings.syntax)
     diagnostics = Report()
+    expansion = expansion_context(settings, diagnostics)
     result = {
         "format_version": 1, "status": "complete",
         "profile_id": profile["profile_id"], "profile_revision": profile["revision"],
         "profile_fingerprint": registry["profile_fingerprint"],
         "sources": [], "observations": [], "recommendations": [], "diagnostics": [],
-        "counts": {"skipped_inline_scripts": 0},
+        "counts": {"inline_scripts": expansion.counts}, "inline_sources": {},
     }
     for source in selected_sources(settings, options):
         manifest = {key: source[key] for key in ("id", "kind", "path", "enabled", "game_version")}
@@ -53,7 +56,8 @@ def analyze(settings, config_path, profile=None):
             if not directory.is_dir():
                 manifest["status"] = "unavailable"
                 raise BuildError("source_unavailable", f"Source directory unavailable: {directory}")
-            files = list(source_files(directory, source["pattern"], source["recursive"]))
+            candidates = source_files(directory, source["pattern"], source["recursive"])
+            files = list(candidates if source["kind"] == "inline_scripts" else independent_sources(candidates, settings))
             if not files:
                 manifest["status"] = "empty"
                 raise BuildError("empty_source", "Enabled source contains no matching files")
@@ -63,6 +67,7 @@ def analyze(settings, config_path, profile=None):
             continue
         for path in files:
             relative = path.relative_to(directory).as_posix()
+            document = None
             try:
                 raw = path.read_bytes()
                 manifest["files"].append({"file": relative, "sha256": sha256(raw).hexdigest()})
@@ -71,18 +76,23 @@ def analyze(settings, config_path, profile=None):
                 if source["kind"] == "engine_documentation":
                     rows = documentation(walker, text, settings.syntax)
                 else:
-                    document = parse_text(text, settings.syntax, relative)
-                    result["counts"]["skipped_inline_scripts"] += len(document.skipped_inline_scripts)
-                    nodes = data_entries(document, purpose="analysis")
+                    template = source["kind"] == "inline_scripts"
+                    document = parse_text(text, settings.syntax,
+                                          path.relative_to(settings.game).as_posix() if path.is_relative_to(settings.game) else relative,
+                                          expansion=expansion, role="template" if template else "source")
+                    nodes = data_entries(document, purpose="analysis_template" if template else "analysis", syntax=settings.syntax)
                     rows = (walker.technologies(nodes, source["kind"])
                             if source["kind"] in settings.options["definitions"]
                             else script_definitions(walker, nodes, source["kind"], relative))
                 result["observations"].extend(rows)
             except (BuildError, OSError, ValueError, RecursionError) as exc:
+                if document is not None:
+                    annotate_error(exc, document)
                 manifest["status"] = "partial"
                 diagnostics.failure(exc, "analysis", source=source["id"], file=relative)
     result["recommendations"] = recommend(result["observations"], profile, registry, options["max_examples"])
     result["diagnostics"] = diagnostics.data["diagnostics"]
+    result["inline_sources"] = dict(sorted(expansion.templates.manifest.items()))
     if diagnostics.failed:
         result["status"] = "partial"
     validate_schema(result, "analysis_report.schema.json")

@@ -1,17 +1,6 @@
-"""Expansion boundary for opaque inline calls; expansion is deliberately deferred."""
+"""Public inline expansion interface; template access is supplied by the caller."""
 
-from dataclasses import dataclass
+from .inlining.expansion import Expansion, expand_inline_script
+from .inlining.loader import FileTemplates, MemoryTemplates
 
-from .nodes import Source, Span
-
-
-@dataclass(frozen=True)
-class InlineScriptValue:
-    raw: str
-    form: str
-    span: Span
-
-
-def expand_inline_script(value: InlineScriptValue, source: Source) -> list:
-    """Skip the entire invocation without reading or interpreting its payload."""
-    return []
+__all__ = ["Expansion", "FileTemplates", "MemoryTemplates", "expand_inline_script"]

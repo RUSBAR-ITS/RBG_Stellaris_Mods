@@ -2,6 +2,14 @@
 
 ## Contents
 
+- [2026-11-15 — implemented inline_script expansion](#2026-11-15--implemented-inline_script-expansion)
+- [2026-11-15 — stage five specification: inline_script expansion](#2026-11-15--stage-five-specification-inline_script-expansion)
+- [2026-11-15 — inline_script directory and expansion requirements](#2026-11-15--inline_script-directory-and-expansion-requirements)
+- [2026-11-15 — extracted families removed from the working list](#2026-11-15--extracted-families-removed-from-the-working-list)
+- [2026-11-15 — set_, add_, and remove_ family lists](#2026-11-15--set_-add_-and-remove_-family-lists)
+- [2026-11-15 — initial is_ and has_ construct inventories](#2026-11-15--initial-is_-and-has_-construct-inventories)
+- [2026-11-15 — variables and substitutions excluded from lists](#2026-11-15--variables-and-substitutions-excluded-from-lists)
+- [2026-11-15 — two scalar-use lists](#2026-11-15--two-scalar-use-lists)
 - [2026-11-15 — third frequency pass](#2026-11-15--third-frequency-pass)
 - [2026-11-15 — fourth-stage parser implementation](#2026-11-15--fourth-stage-parser-implementation)
 - [2026-11-15 — fourth-stage parser specification](#2026-11-15--fourth-stage-parser-specification)
@@ -27,6 +35,60 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-15 — implemented inline_script expansion
+
+- Implemented the approved fifth stage: separate configuration, template loading, substitution, nested calls, isolated bindings, cycle detection, and diagnostics with physical provenance.
+- Upgraded the database to format 2: call history outside analysis, JSON Pointers to results, and sources on script entries, repeated values, and variables. Updated the builder, analyzer, generator, and 12 schemas.
+- With separate user approval, profile revision 2 adds five commands exposed by expansion. All other effective rules are preserved.
+- Rebuilt the technology database: 679 technologies, 206 variants, 301 calls, and no errors. Comparison confirms changes only in 261 technologies containing inclusions.
+- The corpus audit loads reachable templates only and writes new frequency/scalar lists under `data/stage5/`; existing research lists are preserved. The full corpus has 22 unsuccessful inputs; its limitations and complete report are separate from the successful technology build.
+- Added and updated checks, bilingual backend guidance, the database model, README, and specification status. Game files were not modified.
+
+## 2026-11-15 — stage five specification: inline_script expansion
+
+- Following the user's clarification, `INLINE_SCRIPTS_DIR` is excluded from independent inputs during a general pass: templates are loaded only through reached calls, including nested calls. Updated analysis, diagnostics, and the verification criterion in both specification versions.
+- Added separate `TZ_BACKEND_STAGE_5_RU.md` and `TZ_BACKEND_STAGE_5_EN.md` documents covering invocation forms, argument substitution, nesting, tree insertion, and diagnostics.
+- Specified invocation history excluded from analysis, inserted-node provenance, and proposed changes to the strict database contract. Defined scope, unsupported-form handling, and verification criteria.
+- Updated both README versions with links and status. The specification awaits approval; code, active configurations, schemas, and working frequency lists were not changed in this iteration.
+
+## 2026-11-15 — inline_script directory and expansion requirements
+
+- Added `INLINE_SCRIPTS_DIR = common/inline_scripts` to `global_variables.json`, relative to `STELLARIS_ROOT`, and documented it in both README versions.
+- Recorded the user's requirements for nested calls, per-invocation argument retention, expansion inside the calling object's body, and separate metadata excluded from analysis.
+- Verified loading the updated variables and existence of the configured directory. Expansion and metadata format remain under design; the stub is unchanged.
+
+## 2026-11-15 — extracted families removed from the working list
+
+- At the user's request, removed 635 entries belonging to the extracted `is_`, `has_`, `set_`, `add_`, and `remove_` families from `data/text_frequency/scalar_analysis/scalar_assignments.txt`.
+- The working TXT retains 3,123 entries with their text, frequencies, and order preserved. The original analysis JSON and separate family inventories are unchanged.
+- Documentation distinguishes the remaining working TXT from the complete analysis snapshot in JSON.
+
+## 2026-11-15 — set_, add_, and remove_ family lists
+
+- Extracted three more families from the same `scalar_assignments.txt` into separate directories: `set` — 132 names, `add` — 40, `remove` — 44. Retained the existing JSON inventory format.
+- Updated family listings, bilingual documentation, and reports. The research exporter accepts selected families and preserves earlier report entries.
+- Verified 216 new entries and their examples against source files; the combined check covers 635 entries. The `is`/`has` inventories and original frequency data are unchanged.
+
+## 2026-11-15 — initial is_ and has_ construct inventories
+
+- Created separate `language/keywords/is/` and `language/keywords/has/` directories with initial JSON inventories of 235 and 184 names. Each retains frequencies, observed operators, and a source-linked example.
+- Inventories await semantic review; conditions, definition fields, and other roles are not assigned one shared rule solely from their prefix. Further subdivision within each family is planned without duplicate records.
+- Added bilingual documentation of structure, fields, examples, and the rule/localization review workflow. Linked the catalog from the README files.
+- Verified membership, order, counts, all 419 examples against source coordinates, and source hashes. Original frequency lists, game files, and parser behavior are unchanged.
+
+## 2026-11-15 — variables and substitutions excluded from lists
+
+- Added a shared filter for script variables written as `@name` and text containing `$NAME$` substitutions, including compound names, to the frequency and scalar-use research handlers.
+- Rebuilt the general list and both scalar lists with their JSON reports. Retained 56,268 general entries, 3,758 names with scalar right-hand sides, and 33,880 texts occurring only as scalar values.
+- Comparison against the saved third-pass snapshot confirms only variable and substitution rows were removed; other frequencies and structural details match. Formulas without substitutions and embedded `@` references remain.
+- Updated bilingual research documents. Fixtures and report checks passed; game files, product code, configurations, schemas, profile, and database are unchanged.
+
+## 2026-11-15 — two scalar-use lists
+
+- Extracted 6,835 names with scalar right-hand sides in every assignment and 34,283 texts occurring only as scalar values from the current corpus AST. Criteria cover checked files outside skipped inline calls.
+- Saved both TXT/JSON lists, the complete role/form inventory with examples, a report, and checks under `data/text_frequency/scalar_analysis/`. Frequencies for all 59,828 input texts match the third pass; lists do not overlap.
+- Added bilingual `RESEARCH_SCALAR_USAGE_RU.md` / `RESEARCH_SCALAR_USAGE_EN.md`. The original frequency list, parser rules, configurations, profile, database, and game files are unchanged; language classification was not automatically extended.
 
 ## 2026-11-15 — third frequency pass
 

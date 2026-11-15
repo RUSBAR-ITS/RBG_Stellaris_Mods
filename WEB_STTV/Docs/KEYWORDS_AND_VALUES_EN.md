@@ -157,7 +157,7 @@ Implementation is complete: logical blocks use `LogicalOperation` nodes, and bot
 
 ## Evidence and verification scope
 
-The source corpus consists of vanilla `.txt` files under `common/` and `events/` in the installed Stellaris v4.5.4, researched on 2026-11-15. Coverage and excluded files are described in the [frequency research](RESEARCH_TEXT_FREQUENCY_EN.md). Figures for `yes`/`no` refer to the first, case-sensitive pass; `id` statistics merge case variants. The current [frequencies.txt](../data/text_frequency/frequencies.txt) excludes `yes`/`no`, elements with a frequency of 1, recognized logical operators, and entire `inline_script` calls. Report filtering does not extend the scope of the classification rules verified here.
+The source corpus consists of vanilla `.txt` files under `common/` and `events/` in the installed Stellaris v4.5.4, researched on 2026-11-15. Coverage and excluded files are described in the [frequency research](RESEARCH_TEXT_FREQUENCY_EN.md). Figures for `yes`/`no` refer to the first, case-sensitive pass; `id` statistics merge case variants. The current [frequencies.txt](../data/text_frequency/frequencies.txt) excludes `yes`/`no`, elements with a frequency of 1, recognized logical operators, and entire `inline_script` calls. The fourth frequency pass also excludes script variables written as `@name` and `$NAME$` substitutions; the frequency research specifies the filter boundaries. Report filtering does not extend the scope of the classification rules verified here.
 
 A separate contextual check of all **106,529** occurrences of `yes` and `no` established that:
 

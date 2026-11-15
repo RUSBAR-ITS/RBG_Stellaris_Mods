@@ -17,9 +17,18 @@ class Span:
 
 
 class Source:
-    def __init__(self, text, file=None):
+    def __init__(self, text, file=None, root="STELLARIS_ROOT", call_id=None):
         self.text, self.file = text, file
+        self.root, self.call_id = root, call_id
         self.lines = [0, *(i + 1 for i, char in enumerate(text) if char == "\n")]
+
+    def original_text(self, start, end):
+        return self.text[start:end]
+
+    def origin(self, start, end):
+        from dataclasses import asdict
+        return {"root": self.root, "file": self.file or "<text>",
+                "span": asdict(self.span(start, end)), "inline_call_id": self.call_id}
 
     def span(self, start, end):
         first, last = bisect_right(self.lines, start), bisect_right(self.lines, end)
@@ -27,10 +36,12 @@ class Source:
                     last, end - self.lines[last - 1] + 1)
 
     def fail(self, code, message, offset):
-        span = self.span(offset, offset)
-        location = f"{self.file or '<text>'}:{span.line}:{span.column}"
-        error = BuildError(code, f"{location}: {message}", line=span.line)
-        error.column, error.offset, error.file = span.column, offset, self.file
+        origin = self.origin(offset, offset)
+        span = origin["span"]
+        location = f"{origin['file']}:{span['line']}:{span['column']}"
+        error = BuildError(code, f"{location}: {message}", line=span["line"])
+        error.column, error.offset, error.file = span["column"], offset, origin["file"]
+        error.provenance = origin
         raise error
 
 
@@ -49,8 +60,13 @@ class Parameter:
     span: Span
 
 
+@dataclass(frozen=True, kw_only=True)
+class Located:
+    origin: dict | None = None
+
+
 @dataclass(frozen=True)
-class Scalar:
+class Scalar(Located):
     raw: str
     text: str
     quoted: bool
@@ -59,7 +75,7 @@ class Scalar:
 
 
 @dataclass(frozen=True)
-class Formula:
+class Formula(Located):
     raw: str
     opener: str
     body: str
@@ -67,20 +83,20 @@ class Formula:
 
 
 @dataclass(frozen=True)
-class Block:
+class Block(Located):
     items: list
     span: Span
 
 
 @dataclass(frozen=True)
-class TaggedBlock:
+class TaggedBlock(Located):
     tag: Scalar
     block: Block
     span: Span
 
 
 @dataclass(frozen=True)
-class Conditional:
+class Conditional(Located):
     parameter: str
     negated: bool
     items: list
@@ -88,7 +104,7 @@ class Conditional:
 
 
 @dataclass(frozen=True)
-class Assignment:
+class Assignment(Located):
     key: Scalar
     operator: str
     value: Scalar | Formula | Block | TaggedBlock
@@ -96,7 +112,7 @@ class Assignment:
 
 
 @dataclass(frozen=True)
-class LogicalOperation:
+class LogicalOperation(Located):
     operator: str
     name: Scalar
     assignment_operator: str
@@ -105,8 +121,16 @@ class LogicalOperation:
 
 
 @dataclass(frozen=True)
+class InlineInvocation(Located):
+    raw: str
+    form: str
+    span: Span
+    value_span: Span
+
+
+@dataclass(frozen=True)
 class Document:
     source: Source
     tokens: list[Token]
     items: list
-    skipped_inline_scripts: list[Span]
+    metadata: dict

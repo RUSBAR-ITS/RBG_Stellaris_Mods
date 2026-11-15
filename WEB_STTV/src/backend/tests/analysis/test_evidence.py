@@ -29,14 +29,18 @@ class EvidenceTests(unittest.TestCase):
         rows = script_definitions(walker, parse_text(text), "inline_scripts", "fixture.txt")
         self.assertEqual(rows[0]["parameters"], ["COUNT"])
 
-    def test_skipped_inline_invocation_does_not_produce_recommendations(self):
+    def test_expanded_inline_payload_is_analyzed_without_invocation_metadata(self):
+        from sttv.script.inline import Expansion, MemoryTemplates
+        options = read_json(PRODUCT_ROOT / 'config/parser/inline_scripts.json')
+        context = Expansion(MemoryTemplates({'new/path.txt': 'factor=$COUNT$'}, options), options)
         text = "tech_a = { weight_modifier = { inline_script = { script = new/path COUNT = 5 } } }"
+        document = parse_document(text, syntax(), expansion=context)
         walker = Walker(registry(), "TECH_PATH", "fixture.txt", text, 40)
-        rows = walker.technologies(parse_text(text), "technologies")
-        self.assertFalse(any(item["command"] == "inline_script" for item in rows))
+        rows = walker.technologies(data_entries(document), "technologies")
+        self.assertFalse(any(item["command"] in ("inline_script", "COUNT") for item in rows))
+        self.assertTrue(any(item["command"] == "factor" for item in rows))
         profile = read_json(PRODUCT_ROOT / "profiles/stellaris_4_5_4.json")
-        result = recommend(rows, profile, registry(), 3)
-        self.assertEqual(result, [])
+        self.assertEqual(recommend(rows, profile, registry(), 3), [])
 
     def test_documentation_without_example_does_not_invent_argument_kind(self):
         text = "== TRIGGER DOCUMENTATION ==\ncustom - Unknown signature\nSupported Scopes: all\n"
