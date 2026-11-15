@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "database": "database.json",
+  "report": "reports/localization_report.json",
+  "selection": {"variable": "TECH_PATH", "pattern": "*.txt", "recursive": false},
+  "keys": {"variant": "technology_swap", "name": "name", "description_suffix": "_desc"},
+  "languages": {
+    "ru": {"header": "l_russian", "sources": ["RU_LOC_TIER_1", "RU_LOC_TIER_2", "RU_LOC_TIER_3"]},
+    "en": {"header": "l_english", "sources": ["EN_LOC_TIER_1"]}
+  },
+  "reading": {"pattern": "*.yml", "recursive": true, "encoding": "utf-8-sig"},
+  "references": {"delimiter": "$", "key_pattern": "[A-Za-z0-9_.:-]+", "max_depth": 64, "max_characters": 1000000},
+  "inherit_description": true
+}

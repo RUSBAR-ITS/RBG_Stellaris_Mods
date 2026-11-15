@@ -3,9 +3,10 @@
 from sttv.common.errors import BuildError
 from sttv.common.schema import validate_schema
 from .history import validate_history
+from .enrichment import validate_enrichments
 
 FORMAT = "sttv.parse_database"
-FORMAT_VERSION = 3
+FORMAT_VERSION = 4
 
 
 def validate_database(database):
@@ -20,3 +21,5 @@ def validate_database(database):
             raise BuildError("duplicate_source", f"Repeated source document: {identity[1]}")
         sources.add(identity)
         validate_history(document)
+
+    validate_enrichments(database)

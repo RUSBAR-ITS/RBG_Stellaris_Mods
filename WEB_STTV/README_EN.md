@@ -16,13 +16,15 @@ A local interactive web reference for Stellaris technologies. Its primary view i
 
 ## Status
 
-The approved [stage-nine specification — script value expansion](Docs/TZ_BACKEND_STAGE_9_EN.md) is implemented. The backend expands inline insertions, named effects, triggers, and calculations, binding parameters and static variables. `script_value` nodes preserve calculation bodies and evaluation scopes; shared history preserves invocation provenance. Game conditions and arithmetic are not evaluated; no command profile is used.
+The approved [stage-ten specification — localization in the database](Docs/TZ_BACKEND_STAGE_10_EN.md) is implemented. RU/EN names and descriptions reside beside technologies and variants in `enrichments.localization`. A separate operation expands static references, retains original text and sources, inherits missing descriptions, and safely updates the same database. Game trees and the general-purpose parser are preserved; possible reference-specific database cleanup remains a future stage.
 
-The [current guide](Docs/BACKEND_STAGE_9_EN.md) describes operation and limitations. Standard paths are `data/database.json` and `data/reports/build_report.json`. The verified new database is separate at `data/stage9/database.json`; the previous standard database is preserved. Database format: `sttv.parse_database`, version 3; report version: 5. Reading requires neither the game nor repeated expansion.
+The backend continues to expand inline insertions, named effects, triggers, and calculations, binding parameters and static variables. `script_value` nodes preserve calculation bodies and evaluation scopes; shared history preserves invocation provenance. Game conditions and arithmetic are not evaluated; no command profile is used.
 
-All 154 tests passed. The 35 technology files were processed successfully: 82,246 nodes, 36 expanded script values, 1,776 trigger calls, 32 nonboolean tests, 301 inline insertions, and 1,929 static substitutions. No errors or warnings occurred. Independent tree/expansion comparison, byte-identical rebuilding, and source checks passed: `data/stage9/real_validation_report.json`.
+The [current guide](Docs/BACKEND_STAGE_10_EN.md) describes operation and limitations. The verified enriched database is `data/stage10/database.json`, its report is `data/stage10/localization_report.json`, and the unenriched baseline is `data/stage10/database_unenriched.json`. Standard and previous outputs are preserved. Database format: `sttv.parse_database`, version 4; build report version: 5; localization report version: 1. Reading requires neither the game nor repeated expansion; older databases must be rebuilt before enrichment.
 
-Full audit: 1,466 successful inputs, two documentation exclusions, and 21 failing files. Of the failures, 19 are previous and two are new; one previous library input is excluded from independent traversal without fixing its source. Causes, limitations, and verification of 7,464,925 nodes are documented in the guide. Reports and separate lists are under `data/stage9/`; previous outputs are preserved. Guides for stages 1–8 are historical.
+All 184 tests passed, including 30 new checks. Rebuilt 35 files, preserving 82,246 game nodes. Enriched 679 technologies and 206 variants: 885 names and 885 descriptions per language, including 81 inherited variant descriptions. All 3,540 fields, trees, and history were independently compared; repeated execution produces an identical database. No errors or warnings occurred. Database size: 140,937,166 bytes. Verification reports are under `data/stage10/`.
+
+The stage-nine full audit had 1,466 successful inputs, two documentation exclusions, and 21 failing files. Causes and limitations remain in [its guide](Docs/BACKEND_STAGE_9_EN.md); reports and lists are under `data/stage9/`. Localization did not repeat a full-game traversal. Guides for stages 1–9 are historical.
 
 Code is in `src/backend/`. The UI, HTTP service, images, and portable distribution are not implemented yet; no software release version is assigned. TypeScript, HTML/CSS, and PyInstaller in `onedir` mode are agreed for subsequent stages.
 
@@ -32,8 +34,8 @@ Code is in `src/backend/`. The UI, HTTP service, images, and portable distributi
 | --- | --- |
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
-| `config/` | Sources, output paths, and eight parser configurations including exceptions and static variables |
-| `schemas/` | Eleven generated configuration, syntax-tree, and report schemas |
+| `config/` | Sources, output paths, eight parser configurations, and a separate localization configuration |
+| `schemas/` | Thirteen generated configuration, database, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 
@@ -67,12 +69,14 @@ The shared [global_variables.json](global_variables.json) file stores project va
 
 Nested calls, argument substitution, and invocation history are implemented. Metadata is excluded from analytical traversal; the current representation is described in the [stage-nine guide](Docs/BACKEND_STAGE_9_EN.md).
 
-During future enrichment, Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
+During enrichment, Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
 
-Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads settings, expands inline calls, named effects, triggers, and script values, and substitutes static variables. Localization directories are not required; retrieving names belongs to future enrichment.
+Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads settings, expands inline calls, named effects, triggers, and script values, and substitutes static variables. It does not require localization directories; names and descriptions are added by a separate operation on a completed database.
 
 ## Documents
 
+- [Stage ten: localization invocation, database format, and verification](Docs/BACKEND_STAGE_10_EN.md).
+- [Stage ten specification: RU/EN names and descriptions in the database — implemented](Docs/TZ_BACKEND_STAGE_10_EN.md).
 - [Stage nine specification: script value expansion — implemented](Docs/TZ_BACKEND_STAGE_9_EN.md).
 - [Stage eight specification: effect and trigger expansion — implemented](Docs/TZ_BACKEND_STAGE_8_EN.md).
 - [Language construct catalog](language/README_EN.md).

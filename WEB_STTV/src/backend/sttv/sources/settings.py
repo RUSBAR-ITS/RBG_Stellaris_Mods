@@ -1,10 +1,10 @@
 """Resolve parser inputs and protected workspace outputs independently of cwd."""
 
-import re
 from dataclasses import dataclass
 from pathlib import Path
 
 from sttv.common.errors import BuildError
+from sttv.common.variables import expand_variables, substitute
 from sttv.common.json_io import read_json
 from sttv.common.paths import (PRODUCT_ROOT, PRODUCT_DIRECTORIES, REPOSITORY_ROOT, distinct_paths,
                                output_path, path_from, protected, selected_path)
@@ -35,35 +35,6 @@ class Settings:
     scripted_options: dict
     script_values_directory: Path
     value_options: dict
-
-
-def substitute(value, lookup):
-    result = re.sub(r"\$\{([A-Za-z0-9_]+)\}", lambda match: lookup(match[1]), value)
-    if "$" + "{" in result:
-        raise BuildError("invalid_variable", "Invalid variable substitution")
-    return result
-
-
-def expand_variables(raw):
-    if not isinstance(raw, dict) or any(
-        not re.fullmatch(r"[A-Z][A-Z0-9_]*", key) or not isinstance(value, str)
-        or not value for key, value in raw.items()
-    ):
-        raise BuildError("invalid_variables", "Variables must be named nonempty strings")
-    expanded = {}
-
-    def expand(key, trail=()):
-        if key not in raw:
-            raise BuildError("unknown_variable", f"Unknown variable: {key}")
-        if key in trail:
-            raise BuildError("variable_cycle", f"Configuration variable cycle: {key}")
-        if key not in expanded:
-            expanded[key] = substitute(raw[key], lambda name: expand(name, trail + (key,)))
-        return expanded[key]
-
-    for key in raw:
-        expand(key)
-    return expanded
 
 
 def load_settings(variables_path, config_path):

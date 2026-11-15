@@ -1,7 +1,7 @@
 """Structural node contracts; game field names are unrestricted strings."""
 
 from .helpers import BOOL, NULL, STRING, TEXT, array, obj, ref, union
-from . import inline
+from . import inline, localization
 
 
 def node(kind, properties):
@@ -26,6 +26,7 @@ def definitions():
         'scripted_trigger_test': node('scripted_trigger_test', {'operator': TEXT,
                                        'value': union(ref('scalar'), ref('formula'), ref('script_value')), 'body': ref('block')}),
     }
+    nodes["assignment"]["properties"]["enrichments"] = localization.enrichment()
     # Conditional dispatch avoids exploring every recursive alternative on invalid data.
     dispatch = {"type": "object", "required": ["kind"],
                 "properties": {"kind": {"enum": list(nodes)}},
@@ -37,7 +38,7 @@ def definitions():
 
 
 def schema():
-    result = obj({"format": {"const": "sttv.parse_database"}, "format_version": {"const": 3},
+    result = obj({"format": {"const": "sttv.parse_database"}, "format_version": {"const": 4},
                   "documents": array(ref("document"), minItems=1)})
     result["$defs"] = definitions()
     return result

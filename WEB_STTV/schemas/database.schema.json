@@ -3,6 +3,439 @@
     "assignment": {
       "additionalProperties": false,
       "properties": {
+        "enrichments": {
+          "additionalProperties": false,
+          "properties": {
+            "localization": {
+              "additionalProperties": false,
+              "properties": {
+                "en": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "description": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "inherited_from": {
+                          "anyOf": [
+                            {
+                              "pattern": "^/documents/\\d+/items/\\d+$",
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "key": {
+                          "anyOf": [
+                            {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "raw": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "requested_key": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "source": {
+                          "anyOf": [
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "file": {
+                                  "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                                  "type": "string"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "tier": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "tier",
+                                "file",
+                                "line"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "text": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "unresolved_references": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "type": "array",
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "requested_key",
+                        "key",
+                        "raw",
+                        "text",
+                        "source",
+                        "inherited_from",
+                        "unresolved_references"
+                      ],
+                      "type": "object"
+                    },
+                    "name": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "inherited_from": {
+                          "anyOf": [
+                            {
+                              "pattern": "^/documents/\\d+/items/\\d+$",
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "key": {
+                          "anyOf": [
+                            {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "raw": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "requested_key": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "source": {
+                          "anyOf": [
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "file": {
+                                  "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                                  "type": "string"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "tier": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "tier",
+                                "file",
+                                "line"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "text": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "unresolved_references": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "type": "array",
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "requested_key",
+                        "key",
+                        "raw",
+                        "text",
+                        "source",
+                        "inherited_from",
+                        "unresolved_references"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "description"
+                  ],
+                  "type": "object"
+                },
+                "ru": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "description": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "inherited_from": {
+                          "anyOf": [
+                            {
+                              "pattern": "^/documents/\\d+/items/\\d+$",
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "key": {
+                          "anyOf": [
+                            {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "raw": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "requested_key": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "source": {
+                          "anyOf": [
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "file": {
+                                  "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                                  "type": "string"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "tier": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "tier",
+                                "file",
+                                "line"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "text": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "unresolved_references": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "type": "array",
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "requested_key",
+                        "key",
+                        "raw",
+                        "text",
+                        "source",
+                        "inherited_from",
+                        "unresolved_references"
+                      ],
+                      "type": "object"
+                    },
+                    "name": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "inherited_from": {
+                          "anyOf": [
+                            {
+                              "pattern": "^/documents/\\d+/items/\\d+$",
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "key": {
+                          "anyOf": [
+                            {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "raw": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "requested_key": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "source": {
+                          "anyOf": [
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "file": {
+                                  "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                                  "type": "string"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "tier": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "tier",
+                                "file",
+                                "line"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "text": {
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "unresolved_references": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "type": "array",
+                          "uniqueItems": true
+                        }
+                      },
+                      "required": [
+                        "requested_key",
+                        "key",
+                        "raw",
+                        "text",
+                        "source",
+                        "inherited_from",
+                        "unresolved_references"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "description"
+                  ],
+                  "type": "object"
+                }
+              },
+              "required": [
+                "ru",
+                "en"
+              ],
+              "type": "object"
+            }
+          },
+          "required": [],
+          "type": "object"
+        },
         "key": {
           "$ref": "#/$defs/scalar"
         },
@@ -1627,7 +2060,7 @@
       "const": "sttv.parse_database"
     },
     "format_version": {
-      "const": 3
+      "const": 4
     }
   },
   "required": [

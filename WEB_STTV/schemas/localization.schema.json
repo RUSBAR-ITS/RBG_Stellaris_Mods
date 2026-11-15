@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "database": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "inherit_description": {
+      "type": "boolean"
+    },
+    "keys": {
+      "additionalProperties": false,
+      "properties": {
+        "description_suffix": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "variant": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "variant",
+        "name",
+        "description_suffix"
+      ],
+      "type": "object"
+    },
+    "languages": {
+      "additionalProperties": false,
+      "properties": {
+        "en": {
+          "additionalProperties": false,
+          "properties": {
+            "header": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sources": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "header",
+            "sources"
+          ],
+          "type": "object"
+        },
+        "ru": {
+          "additionalProperties": false,
+          "properties": {
+            "header": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "sources": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "header",
+            "sources"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "ru",
+        "en"
+      ],
+      "type": "object"
+    },
+    "reading": {
+      "additionalProperties": false,
+      "properties": {
+        "encoding": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "pattern": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "recursive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pattern",
+        "recursive",
+        "encoding"
+      ],
+      "type": "object"
+    },
+    "references": {
+      "additionalProperties": false,
+      "properties": {
+        "delimiter": {
+          "maxLength": 1,
+          "minLength": 1,
+          "type": "string"
+        },
+        "key_pattern": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "max_characters": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_depth": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "delimiter",
+        "key_pattern",
+        "max_depth",
+        "max_characters"
+      ],
+      "type": "object"
+    },
+    "report": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "selection": {
+      "additionalProperties": false,
+      "properties": {
+        "pattern": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "recursive": {
+          "type": "boolean"
+        },
+        "variable": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "variable",
+        "pattern",
+        "recursive"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "format_version",
+    "database",
+    "report",
+    "selection",
+    "keys",
+    "languages",
+    "reading",
+    "references",
+    "inherit_description"
+  ],
+  "type": "object"
+}

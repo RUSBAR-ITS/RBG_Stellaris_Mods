@@ -1,0 +1,1 @@
+"""Localization enrichment acceptance tests."""

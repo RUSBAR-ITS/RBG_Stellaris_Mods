@@ -7,10 +7,13 @@ from sttv.common.errors import BuildError
 from sttv.common.persistence import save_json
 from . import configuration, database, reports, syntax, inline, static_variables, scripted, values
 from .helpers import document
+from . import localization, localization_report
 
 
 def declarations():
     return {
+        "localization.schema.json": localization.configuration(),
+        "localization_report.schema.json": localization_report.schema(),
         "parser_script_values.schema.json": values.configuration(),
         "parser_scripted_calls.schema.json": scripted.configuration(),
         "parser_static_variables.schema.json": static_variables.configuration(),

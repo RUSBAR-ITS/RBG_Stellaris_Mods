@@ -12,6 +12,8 @@
 
 ## Pipeline and invocation
 
+**Historical stage-nine guide.** Current database format 4 and localization are documented in the [stage-ten guide](BACKEND_STAGE_10_EN.md). Counts and formats below describe stage-nine verification.
+
 Implementation follows the approved [stage-nine specification](TZ_BACKEND_STAGE_9_EN.md). After preparing libraries, the shared coordinator expands inline insertions, effects, triggers, and script values. Final static-variable substitution precedes structural validation and JSON publication. Game sources remain read-only; no technology domain model or game-command profile is used.
 
 Verification build from the repository root:

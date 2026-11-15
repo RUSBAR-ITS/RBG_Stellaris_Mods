@@ -29,7 +29,9 @@
 
 ## Document status
 
-The [stage-nine specification — script value expansion](TZ_BACKEND_STAGE_9_EN.md) is approved and implemented. Current formats, architecture, and results: [stage-nine guide](BACKEND_STAGE_9_EN.md).
+The [stage-ten specification — localization in the database](TZ_BACKEND_STAGE_10_EN.md) is approved and implemented. RU/EN names and descriptions reside beside objects in the same database, with static references and variant description inheritance. Current formats, invocation, and verification are in the [stage-ten guide](BACKEND_STAGE_10_EN.md).
+
+The [stage-nine specification — script value expansion](TZ_BACKEND_STAGE_9_EN.md) is approved and implemented. Historical formats, architecture, and results: [stage-nine guide](BACKEND_STAGE_9_EN.md).
 
 The preceding effect/trigger expansion stage remains documented in the [stage-eight specification](TZ_BACKEND_STAGE_8_EN.md) and [its historical guide](BACKEND_STAGE_8_EN.md).
 

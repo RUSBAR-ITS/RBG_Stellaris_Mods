@@ -1,0 +1,428 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "languages": {
+          "additionalProperties": {
+            "additionalProperties": {
+              "additionalProperties": false,
+              "properties": {
+                "found": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "inherited": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "missing": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "unresolved": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "found",
+                "missing",
+                "inherited",
+                "unresolved"
+              ],
+              "type": "object"
+            },
+            "propertyNames": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "technologies": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "variants": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "technologies",
+        "variants",
+        "languages"
+      ],
+      "type": "object"
+    },
+    "database_after": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "database_before": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "database_written": {
+      "type": "boolean"
+    },
+    "diagnostics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "chain": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "field": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "language": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "line": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "node": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requested_key": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warning"
+            ]
+          },
+          "source": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "file": {
+                    "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                    "type": "string"
+                  },
+                  "line": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "tier": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "tier",
+                  "file",
+                  "line"
+                ],
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stage": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "severity",
+          "code",
+          "message",
+          "stage",
+          "node",
+          "language",
+          "field",
+          "requested_key",
+          "source",
+          "line",
+          "chain"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "duplicates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "conflicting": {
+            "type": "boolean"
+          },
+          "key": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "language": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sources": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "file": {
+                  "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                  "type": "string"
+                },
+                "line": {
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                "tier": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "tier",
+                "file",
+                "line"
+              ],
+              "type": "object"
+            },
+            "minItems": 2,
+            "type": "array"
+          },
+          "tier": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "language",
+          "key",
+          "tier",
+          "conflicting",
+          "sources"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "format": {
+      "const": "sttv.localization_report"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "inputs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "kind"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "paths": {
+      "additionalProperties": false,
+      "properties": {
+        "database": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "report": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "database",
+        "report"
+      ],
+      "type": "object"
+    },
+    "seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "selected_sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "language": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "file": {
+                "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$",
+                "type": "string"
+              },
+              "line": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "tier": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "tier",
+              "file",
+              "line"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "language",
+          "key",
+          "source"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "settings": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "success",
+        "failed",
+        "running"
+      ]
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "status",
+    "database_written",
+    "paths",
+    "database_before",
+    "database_after",
+    "settings",
+    "inputs",
+    "counts",
+    "duplicates",
+    "selected_sources",
+    "diagnostics",
+    "seconds"
+  ],
+  "type": "object"
+}

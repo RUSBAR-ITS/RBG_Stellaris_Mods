@@ -2,6 +2,8 @@
 
 ## Contents
 
+- [2026-11-16 — implemented localization in the database](#2026-11-16--implemented-localization-in-the-database)
+- [2026-11-16 — localization in the database specification](#2026-11-16--localization-in-the-database-specification)
 - [2026-11-15 — script value expansion implementation](#2026-11-15--script-value-expansion-implementation)
 - [2026-11-15 — script value expansion specification](#2026-11-15--script-value-expansion-specification)
 - [2026-11-15 — implemented effect and trigger expansion](#2026-11-15--implemented-effect-and-trigger-expansion)
@@ -48,6 +50,22 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-16 — implemented localization in the database
+
+- Implemented the approved stage-ten specification: independent `sttv.enrichment.localization.enrich_localization`, noninteractive invocation, and a separate configuration. RU/EN technology and variant names/descriptions reside directly in the database.
+- Added game YML reading without text coercion, per-key priorities, duplicate diagnostics, recursive ordinary static reference expansion, and inheritance of missing descriptions. Dynamic substitutions remain; unknown tokens carry chains in diagnostics.
+- Raised database format to 4: `enrichments.localization` preserves game nodes, history, and analytics. Added inheritance validation, localization-only refresh, and stale-result removal after selection changes. Shared configuration variable expansion moved out of parser loading; other parsing mechanisms are preserved.
+- Added two generated schemas, bringing the total to 13. Publication validates the temporary file, input consistency, and source file inventory; errors remain explicit, and database replacement is accurately reported even when report writing fails.
+- All 184 tests passed, including 30 new checks. Rebuilt 35 technology files and enriched 679 technologies and 206 variants. Each language has 885 names and 885 descriptions, including 81 inherited variant descriptions. Independently checked 3,540 fields, sources, expanded references, original trees, and history. No errors or warnings; repeated processing is byte-identical.
+- The verification database and reports are under `data/stage10/`; previous outputs, frequency lists, and sources are preserved. Database size increased from 138,156,360 to 140,937,166 bytes. Added a bilingual guide and updated concept, README, and specification statuses. Code files remain at most 160 lines; no in-game or visual checks were performed.
+
+## 2026-11-16 — localization in the database specification
+
+- Prepared a bilingual stage-ten draft specification: RU/EN names/descriptions for technologies and variants, per-key source priorities, static references with retained original strings, and inheritance of missing descriptions from base technologies.
+- Documented agreed in-database storage as a separate service section beside objects; proposed format 4, a separate refresh operation, safe publication, and reporting. Code, configurations, schemas, and existing databases remain unchanged; the specification awaits approval.
+- Recorded the research selection: 679 technologies and 206 variants, plus separate 13 categories and 6 tiers. Each language has every name, 679 base descriptions, and 125 variant-specific descriptions; 81 variants require inheritance. Source/reference inventories are under `data/stage10/specification_research/`; they are not verification of the future implementation.
+- Updated the concept, README, and general specification status in both languages. Possible future reference-specific database cleanup is separated from the general-purpose parser and excluded from localization scope.
 
 ## 2026-11-15 — script value expansion implementation
 
