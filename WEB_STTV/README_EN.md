@@ -16,19 +16,15 @@ A local interactive web reference for Stellaris technologies. Its primary view i
 
 ## Status
 
-Implemented the approved [fifth stage](Docs/TZ_BACKEND_STAGE_5_EN.md): nested `inline_script` expansion, argument substitution, history excluded from analysis, and inserted-code provenance. Database version 2 contains 679 technologies, 206 variants, and 301 expanded calls from 10 templates. The corpus audit excludes templates as independent inputs; results and limitations are documented in the [stage-five guide](Docs/BACKEND_STAGE_5_EN.md). Existing research lists are preserved.
+The approved [stage-six specification](Docs/TZ_BACKEND_STAGE_6_EN.md) is implemented: sources → parser and `inline_script` expansion → JSON containing file trees. The profile, command registry, dependent analyzer, and previous domain conversion have been removed. Localization and dependency computation belong to subsequent enrichment stages.
 
-Stage four introduced a separate logical-operator configuration and `LogicalOperation` nodes. Stage five replaces its inline stub. The [stage-four results](Docs/BACKEND_STAGE_4_EN.md) remain as historical documentation.
+The [stage-six guide](Docs/BACKEND_STAGE_6_EN.md) describes operation, format, modules, and limitations. The standard database is `data/database.json`; the report is `data/reports/build_report.json`. The new format is `sttv.parse_database`, version 1; loading requires neither the game nor parser configuration.
 
-Implemented the approved [third stage](Docs/TZ_BACKEND_STAGE_3_EN.md): an independent parser and two compact syntax configurations. All 79 tests pass; 2,235 vanilla files parse successfully and the database matches the baseline byte for byte. Game-command semantic validation is separate from the parser. [Settings, interface, and limitations](Docs/BACKEND_STAGE_3_EN.md).
+All 78 current tests passed. Technology set: 35 files, 67,513 nodes, and 301 expanded calls from 10 templates, with no errors or warnings. JSON matches every parser tree field and is reproducible byte for byte. The full audit has 1,583 successful files and the same 22 problematic inputs; results and lists are under `data/stage6/`.
 
-The approved [second backend stage](Docs/TZ_BACKEND_STAGE_2_EN.md) is implemented: module packages, permanent schema generation, shared field contracts, JSON profiles and a separate analyzer. All 54 tests pass; database bytes match stage one. [Settings, operations and limitations](Docs/BACKEND_STAGE_2_EN.md).
+Sources and previous research lists are preserved. Guides for stages 1–5 describe historical implementations. The current database does not retrieve RU/EN names or compute relationships; those operations will be designed separately.
 
-As of 2026-11-15, the approved [first backend stage](Docs/TZ_EN.md#3-first-backend-stage--database-building) is implemented: a standalone Python builder with a strict JSON model, RU/EN names, validation, and a separate report. Current sources produce 679 technologies and 206 variants; all 885 records have names in both languages. First-stage checks are retained. [Operation, structure, and validation results](Docs/BACKEND_STAGE_1_EN.md).
-
-[Technology tree research](Docs/RESEARCH_TECH_TREE_EN.md) of the installed Stellaris v4.5.4 was completed before further design, covering definitions, logical dependencies, tiers, eligibility, variants, and repetition. These findings are not a new approved specification part.
-
-Builder code is in `src/backend/`, and the validated database is at `data/database.json`. The UI, HTTP service, images, and portable distribution are not implemented yet; no software release version has been assigned. TypeScript, HTML/CSS, and PyInstaller in `onedir` mode are agreed for subsequent stages. The research audit remains in `TMP/WEB_STTV/` and is not a product input.
+Code is in `src/backend/`. The UI, HTTP service, images, and portable distribution are not implemented yet; no software release version is assigned. TypeScript, HTML/CSS, and PyInstaller in `onedir` mode are agreed for subsequent stages.
 
 ## Directory structure
 
@@ -36,15 +32,14 @@ Builder code is in `src/backend/`, and the validated database is at `data/databa
 | --- | --- |
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
-| `config/` | Reading, priorities, active profile, analysis sources, output paths, and syntax in `parser/` |
-| `schemas/` | Generated closed application schemas |
-| `profiles/` | Supplied game-rule profiles |
+| `config/` | Sources, output paths, and four parser configurations |
+| `schemas/` | Seven generated configuration, syntax-tree, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 
-`WORK_DIR` configures the working folder. Relative values are resolved against the `WEB_STTV`/product directory; absolute paths are also allowed. Changing the setting does not move existing data. The root `.gitignore` includes `/WEB_STTV/data/`; a different working folder is ignored separately when needed. The setting is applied on each builder invocation.
+`WORK_DIR` configures the working folder. Relative values are resolved against the `WEB_STTV`/product directory; absolute paths inside the repository are also allowed. Changing the setting does not move existing data. The root `.gitignore` includes `/WEB_STTV/data/`; a different working folder is ignored separately when needed. The setting is applied on each builder invocation.
 
-Sources are read directly from selected directories in read-only mode. Source-file copies and a persistent intermediate snapshot are not created; parsing and transformation operate on in-memory data. Rebuilding requires sources; reading a completed database does not.
+Sources are read directly from selected directories in read-only mode. Parsing results are persisted as JSON for subsequent enrichment without copying source files. Rebuilding requires sources; reading a completed database does not.
 
 ## Global variables
 
@@ -66,11 +61,11 @@ The shared [global_variables.json](global_variables.json) file stores project va
 
 `INLINE_SCRIPTS_DIR` is used for inclusion expansion. For example, `script = technologies/rare_technologies_weight_modifiers` refers to `STELLARIS_ROOT/INLINE_SCRIPTS_DIR/technologies/rare_technologies_weight_modifiers.txt`. The directory is read-only; templates are loaded through reached calls, including nested ones.
 
-Requirements for the next stage: handle nested calls, retain supplied arguments separately for each invocation, and insert expanded code with substitutions into the calling object's body at the invocation position. Preserve the invocation, template path, and arguments in a separate metadata field that analysis does not traverse. Proposed rules, metadata, and checks are described in the [stage-five specification](Docs/TZ_BACKEND_STAGE_5_EN.md), awaiting approval; handler code is unchanged.
+Nested calls, argument substitution, and invocation history are implemented. Metadata is excluded from analytical traversal; the current representation is described in the [stage-six guide](Docs/BACKEND_STAGE_6_EN.md).
 
-Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
+During future enrichment, Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
 
-Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. Variable loading, reference substitution, and name selection are implemented in the builder.
+Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads variables and expands inline calls. Localization directories are not required; retrieving names belongs to future enrichment.
 
 ## Documents
 
@@ -86,6 +81,7 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Fourth-stage specification: logical operators and the inline_script handler — implemented](Docs/TZ_BACKEND_STAGE_4_EN.md).
 - [Fourth stage: interface, configurations, skips, and verification](Docs/BACKEND_STAGE_4_EN.md).
 - [Fifth-stage specification: inline_script expansion and invocation history — implemented](Docs/TZ_BACKEND_STAGE_5_EN.md).
+- [Stage-six specification: parsing results database and backend simplification — implemented](Docs/TZ_BACKEND_STAGE_6_EN.md).
 - [Stellaris v4.5.4 technology tree research](Docs/RESEARCH_TECH_TREE_EN.md).
 - [Technology object model: fields, types, and nested structures](Docs/TECHNOLOGY_MODEL_EN.md).
 - [Stage-one JSON database model: technology structure and RU/EN names](Docs/DATABASE_MODEL_EN.md).
@@ -93,3 +89,5 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Обзор на русском](README_RU.md).
 
 - [Backend: inline_script expansion](Docs/BACKEND_STAGE_5_EN.md).
+
+- [Backend: parsing results database](Docs/BACKEND_STAGE_6_EN.md).

@@ -2,6 +2,9 @@
 
 ## Contents
 
+- [2026-11-15 — stage six implementation: syntax-tree database](#2026-11-15--stage-six-implementation-syntax-tree-database)
+- [2026-11-15 — stage six specification: backend simplification](#2026-11-15--stage-six-specification-backend-simplification)
+- [2026-11-15 — parsing results as the database foundation](#2026-11-15--parsing-results-as-the-database-foundation)
 - [2026-11-15 — implemented inline_script expansion](#2026-11-15--implemented-inline_script-expansion)
 - [2026-11-15 — stage five specification: inline_script expansion](#2026-11-15--stage-five-specification-inline_script-expansion)
 - [2026-11-15 — inline_script directory and expansion requirements](#2026-11-15--inline_script-directory-and-expansion-requirements)
@@ -35,6 +38,28 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-15 — stage six implementation: syntax-tree database
+
+- Implemented the approved stage-six specification: persistence of all seven syntax-node kinds, original order, duplicates, provenance, and inline invocation history. The new format is `sttv.parse_database`, version 1; loading requires neither the game nor parser settings.
+- Removed the profile, registry, recommendation analyzer, closed technology model, previous localization, and variable evaluation. Removed related modules, configurations, schemas, tests, and unused helpers; retained seven schemas and the in-code generator.
+- Configuration now covers sources, parser, and outputs. Added physical-file deduplication, source hashes, repository-confined work-area protection, and structural history checks. Preserved separate database/report publication and truthful status after a partial write failure.
+- All 111 baseline tests passed; 78 current tests passed after the transition. Real build: 35 files, 67,513 nodes, and 301 insertions from 10 templates, with no errors or warnings. Independent comparison confirmed every tree field and byte-for-byte repeatability; the standard `data/database.json` was updated.
+- The corpus audit verified JSON for 1,583 files and 3,681,397 nodes. The same 22 inputs still fail as in stage five; new frequency lists match the previous reference run byte for byte. Sources and manually processed lists remain unchanged; results are under `data/stage6/`.
+- Added a bilingual stage-six guide and updated the README, concept, and specification statuses; previous guides are marked historical. The standard database is 107,520,690 bytes; memory and known expansion limitations are documented in the guide.
+
+## 2026-11-15 — stage six specification: backend simplification
+
+- Prepared a bilingual stage-six specification draft: one JSON containing source-file trees, preserving order, duplicates, provenance, and inline invocation history.
+- Defined simplified configuration and building, structural checks, and removal of the profile, registry, dependent analyzer, and previous domain conversion; enrichment belongs to later stages.
+- Defined checks and cleanup boundaries: preserve the parser, expansion, useful statistics, and research material. Updated README and concept links and statuses in both languages.
+- Approval is pending. Code, active configurations, schemas, profile, and working database were not changed in this iteration.
+
+## 2026-11-15 — parsing results as the database foundation
+
+- Updated the concept following the user decision: the primary result is JSON after parsing; a closed domain model and command profile cease to be storage prerequisites in the target architecture.
+- Enrichment by specific fields and rules belongs to later stages; the concrete JSON format is not selected yet.
+- Updated processing, launch and refresh workflows, README, and the previous model/specification status in both languages. Code, schemas, the profile, and working data were unchanged in this iteration.
 
 ## 2026-11-15 — implemented inline_script expansion
 

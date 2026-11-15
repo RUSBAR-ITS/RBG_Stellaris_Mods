@@ -1,64 +1,40 @@
-"""Database schema generated directly from the converter's field contract."""
+"""Structural node contracts; game field names are unrestricted strings."""
 
-from sttv.technologies.contracts import AREAS, CONTRACTS, SCRIPT_CONTEXTS, SCRIPT_OPERATORS
-from .helpers import (BOOL, IDENTIFIER, LINE, NULL, NUMBER, RELATIVE, STRING, TEXT,
-                      VARIABLE_NAME, array, mapping, obj, ref, repeated, union)
+from .helpers import BOOL, NULL, STRING, TEXT, array, obj, ref, union
 from . import inline
 
 
-def fields(context):
-    variable = obj({"variable": VARIABLE_NAME, "resolved": union(NUMBER, NULL)})
-    integer = union({"type": "integer"}, obj({
-        "variable": VARIABLE_NAME, "resolved": union({"type": "integer"}, NULL)}))
-    kinds = {
-        "area": {"enum": list(AREAS)}, "number": union(NUMBER, variable),
-        "integer": integer, "cost": union(NUMBER, variable, ref("script")),
-        "identifier": IDENTIFIER, "boolean": BOOL, "list": array(IDENTIFIER),
-        "requirements": ref("requirement"), "variant": ref("variant"),
-        **{kind: ref("script") for kind in SCRIPT_CONTEXTS},
+def node(kind, properties):
+    return obj({"kind": {"const": kind}, "span": inline.span(), "origin": ref("origin"), **properties})
+
+
+def definitions():
+    nodes = {
+        "scalar": node("scalar", {"raw": STRING, "text": STRING, "quoted": BOOL,
+            "parameters": array(obj({"name": TEXT, "default": union(STRING, NULL),
+                                     "raw": STRING, "span": inline.span()}))}),
+        "formula": node("formula", {"raw": STRING, "opener": TEXT, "body": STRING}),
+        "block": node("block", {"items": array(ref("node"))}),
+        "tagged_block": node("tagged_block", {"tag": ref("scalar"), "block": ref("block")}),
+        "conditional": node("conditional", {"parameter": TEXT, "negated": BOOL,
+                                             "items": array(ref("node"))}),
+        "assignment": node("assignment", {"key": ref("scalar"), "operator": TEXT,
+            "value": union(*(ref(kind) for kind in ("scalar", "formula", "block", "tagged_block")))}),
+        "logical_operation": node("logical_operation", {"operator": TEXT, "name": ref("scalar"),
+                                                        "assignment_operator": TEXT, "body": ref("block")}),
     }
-    return obj({name: array(kinds[field.kind], minItems=1) if field.multiple
-                else repeated(kinds[field.kind]) for name, field in CONTRACTS[context].items()}, [])
-
-
-def record(context):
-    value = obj({
-        "source": ref("source"), "fields": fields(context),
-        "name": obj({lang: union(STRING, NULL) for lang in ("ru", "en")}),
-        "name_sources": obj({lang: union(ref("localization_source"), NULL) for lang in ("ru", "en")}),
-        **({"name_key": TEXT} if context == "variant" else {}),
-    })
-    value["allOf"] = [
-        {"if": {"properties": {"name": {"properties": {lang: NULL}}}},
-         "then": {"properties": {"name_sources": {"properties": {lang: NULL}}}},
-         "else": {"properties": {"name_sources": {
-             "properties": {lang: ref("localization_source")}}}}}
-        for lang in ("ru", "en")]
-    return value
+    # Conditional dispatch avoids exploring every recursive alternative on invalid data.
+    dispatch = {"type": "object", "required": ["kind"],
+                "properties": {"kind": {"enum": list(nodes)}},
+                "allOf": [{"if": {"properties": {"kind": {"const": kind}}}, "then": ref(kind)}
+                          for kind in nodes]}
+    return {**nodes, "node": dispatch, "origin": inline.origin(), "document": obj({
+        "source": obj({"root": {"const": "STELLARIS_ROOT"}, "file": inline.location()["properties"]["file"]}),
+        "items": array(ref("node")), "metadata": obj({"inline_scripts": array(inline.call())})})}
 
 
 def schema():
-    entry = obj({"key": union(TEXT, NULL), "operator": {"enum": [*sorted(SCRIPT_OPERATORS), None]},
-                 "value": union(STRING, ref("script")), "source": ref("source")})
-    entry["allOf"] = [{"if": {"properties": {"key": NULL}},
-                      "then": {"properties": {"operator": NULL}},
-                      "else": {"properties": {"operator": STRING}}}]
-    defs = {
-        "script": obj({"entries": array(entry)}),
-        "source": inline.location(),
-        "origin": inline.origin(),
-        "localization_source": obj({"tier": TEXT, "file": RELATIVE, "line": LINE, "key": TEXT}),
-        "requirement": union(obj({"tech": IDENTIFIER}), obj({"all": array(ref("requirement"))}),
-                             obj({"any": array(ref("requirement"))})),
-        "technology": record("technologies"), "variant": record("variant"),
-        "category": obj({"source": ref("source"), "fields": fields("categories")}),
-        "tier": obj({"source": ref("source"), "fields": fields("tiers")}),
-    }
-    result = obj({"format_version": {"const": 2}, "technologies": mapping(ref("technology")),
-                  "metadata": obj({"inline_scripts": array(inline.call())}),
-                  "categories": mapping(ref("category")),
-                  "tiers": mapping(ref("tier"), {"pattern": "^[0-9]+$"}),
-                  "file_variables": mapping(array(obj({
-                      "name": VARIABLE_NAME, "value": STRING, "source": ref("source")})), RELATIVE)})
-    result["$defs"] = defs
+    result = obj({"format": {"const": "sttv.parse_database"}, "format_version": {"const": 1},
+                  "documents": array(ref("document"), minItems=1)})
+    result["$defs"] = definitions()
     return result

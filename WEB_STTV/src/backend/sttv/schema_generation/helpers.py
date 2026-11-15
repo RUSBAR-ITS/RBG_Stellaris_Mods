@@ -5,10 +5,7 @@ TEXT = {"type": "string", "minLength": 1}
 NULL = {"type": "null"}
 BOOL = {"type": "boolean"}
 LINE = {"type": "integer", "minimum": 1}
-NUMBER = {"type": "number"}
-IDENTIFIER = {"type": "string", "pattern": r"^[A-Za-z0-9_:.?/-]+$"}
 RELATIVE = {"type": "string", "pattern": r"^(?![A-Za-z]:)(?![/\\])(?!.*(?:^|[/\\])\.\.(?:[/\\]|$)).+$"}
-VARIABLE_NAME = {"type": "string", "pattern": r"^@[A-Za-z0-9_]+$"}
 HASH = {"type": "string", "pattern": "^[a-f0-9]{64}$"}
 
 
@@ -30,13 +27,8 @@ def union(*items):
     return {"anyOf": list(items)}
 
 
-def mapping(value, keys=IDENTIFIER):
+def mapping(value, keys=TEXT):
     return {"type": "object", "propertyNames": keys, "additionalProperties": value}
-
-
-def repeated(item):
-    return union(item, obj({"occurrences": array(
-        obj({"source": ref("source"), "value": item}), minItems=2)}))
 
 
 def document(value):

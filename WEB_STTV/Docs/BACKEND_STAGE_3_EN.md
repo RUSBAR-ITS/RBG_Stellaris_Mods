@@ -12,6 +12,8 @@
 
 ## Stage result
 
+**Historical guide.** Describes the implementation before the syntax-tree database transition. Current operation and format: [stage six](BACKEND_STAGE_6_EN.md).
+
 Historical stage-three guide. Current signatures with three configurations, logical nodes, and skipped `inline_script` calls are described in the [stage-four guide](BACKEND_STAGE_4_EN.md). Examples and results below refer to stage three.
 
 The approved [third-stage specification](TZ_BACKEND_STAGE_3_EN.md) is implemented. The syntax engine receives text and validated configuration, preserves structure and source spelling, and works without a game-command profile. The builder and analyzer use this engine through shared settings.

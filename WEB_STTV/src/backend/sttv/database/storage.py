@@ -29,3 +29,12 @@ def publish(settings, database, report):
         for temporary in (database_temp, report_temp):
             if temporary is not None:
                 temporary.unlink(missing_ok=True)
+
+
+def read_database(path):
+    """Load a persisted tree without loading game or parser configuration."""
+    from sttv.common.json_io import read_json
+    from .validation import validate_database
+    value = read_json(path)
+    validate_database(value)
+    return value

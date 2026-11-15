@@ -1,4 +1,4 @@
-"""Command-line entry point for database building with an explicit rule profile."""
+"""Command-line entry point for syntax-tree database building."""
 
 import argparse
 import json
@@ -12,7 +12,7 @@ from sttv.common.paths import PRODUCT_ROOT
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Build the Stellaris technology database.")
+    parser = argparse.ArgumentParser(description="Build the Stellaris parsing results database.")
     parser.add_argument("--variables", type=Path,
                         default=PRODUCT_ROOT / "global_variables.json")
     parser.add_argument("--config", type=Path,

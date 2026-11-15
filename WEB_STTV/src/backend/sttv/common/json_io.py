@@ -1,7 +1,6 @@
 """Strict JSON reading and deterministic serialization."""
 
 import json
-import math
 from pathlib import Path
 
 from sttv.common.errors import BuildError
@@ -36,12 +35,3 @@ def json_text(value):
     return json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True,
                       allow_nan=False) + "\n"
 
-
-def numeric_value(text, integer=False):
-    try:
-        value = int(text) if integer else float(text)
-    except (ValueError, TypeError, OverflowError) as exc:
-        raise BuildError("invalid_number", f"Expected a numeric value: {text}") from exc
-    if not math.isfinite(value):
-        raise BuildError("invalid_number", f"Non-finite numeric value: {text}")
-    return int(value) if value == int(value) else value

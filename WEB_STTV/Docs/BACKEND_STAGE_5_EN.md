@@ -13,6 +13,8 @@
 
 ## Result
 
+**Historical guide.** Describes the implementation before the syntax-tree database transition. Current operation and format: [stage six](BACKEND_STAGE_6_EN.md).
+
 The approved [stage-five specification](TZ_BACKEND_STAGE_5_EN.md) is implemented. Both `inline_script` forms expand at the call site, including nested invocations and code passed as string arguments. Bindings are isolated between calls. Entry order, repeated keys, and empty results are preserved.
 
 Call history is separate from the working tree. The builder and analyzer consume expanded nodes; statistics do not count metadata arguments or paths again. Game sources are read without modification.

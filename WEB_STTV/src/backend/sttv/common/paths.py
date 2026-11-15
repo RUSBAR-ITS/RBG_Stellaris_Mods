@@ -5,7 +5,8 @@ from pathlib import Path
 from .errors import BuildError
 
 PRODUCT_ROOT = Path(__file__).resolve().parents[4]
-PRODUCT_DIRECTORIES = ("src", "schemas", "config", "profiles", "Docs")
+REPOSITORY_ROOT = PRODUCT_ROOT.parent
+PRODUCT_DIRECTORIES = ("src", "schemas", "config", "Docs", "language")
 
 
 def path_from(value, parent):
@@ -33,7 +34,7 @@ def selected_path(selection, work):
     base = PRODUCT_ROOT if selection["base"] == "product" else work
     path = path_from(selection["path"], base)
     if path == base or not path.is_relative_to(base):
-        raise BuildError("unsafe_profile", "Profile path escapes its selected base")
+        raise BuildError("unsafe_config", "Configuration path escapes its selected base")
     return path
 
 

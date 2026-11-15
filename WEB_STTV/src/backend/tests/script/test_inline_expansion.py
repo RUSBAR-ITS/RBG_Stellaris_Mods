@@ -9,7 +9,7 @@ from sttv.common.json_io import read_json
 from sttv.script.inline import Expansion, MemoryTemplates
 from sttv.script.nodes import InlineInvocation, LogicalOperation
 from sttv.script.parser import parse_text
-from sttv.script.serialization import data_entries
+from support import syntax_payload
 from sttv.script.syntax import make_syntax
 
 
@@ -120,12 +120,10 @@ class InlineExpansionTests(unittest.TestCase):
     def test_manual_inclusion_matches_projected_values(self):
         doc = self.expand('box={ inline_script={script=p X=yes} }', {'p.txt': 'a=$X$ OR={b=no}'})
         manual = parse_text('box={a=yes OR={b=no}}', syntax())
-        def values(entries):
-            return [(e.key, e.operator, values(e.value) if isinstance(e.value, list) else e.value) for e in entries]
-        self.assertEqual(values(data_entries(doc)), values(data_entries(manual)))
-        before = values(data_entries(doc))
+        self.assertEqual(syntax_payload(doc), syntax_payload(manual))
+        before = syntax_payload(doc)
         doc.metadata['inline_scripts'].append({'irrelevant': 'a a a'})
-        self.assertEqual(before, values(data_entries(doc)))
+        self.assertEqual(before, syntax_payload(doc))
 
     def test_generated_call_and_escaped_quotes_keep_argument_source(self):
         text = r'inline_script={script=outer BODY="inline_script={script=last TECH=tech_a} title=\"hello world\""}'

@@ -9,6 +9,8 @@ from sttv.common.errors import BuildError
 from sttv.common.paths import output_path
 from sttv.common.report import Report
 from sttv.script.parser import parse_text
+from sttv.script.serialization import serialize_document, walk_nodes
+from sttv.database.history import validate_history
 from sttv.sources.expansion import expansion_context, independent_sources
 from sttv.sources.settings import load_settings
 from script.corpus_statistics import Statistics
@@ -30,6 +32,7 @@ def audit():
     expansion = expansion_context(settings, diagnostics)
     report = {'physical_txt_files': len(files), 'independent_files': len(roots), 'parsed': 0,
               'excluded_template_files': len(files) - len(roots), 'empty': 0, 'prose': [],
+              'serialized_documents': 0, 'serialized_nodes': 0, 'serialized_bytes': 0,
               'failures': [], 'sources_unchanged': True, 'research_lists_unchanged': True}
     sources = {}
     for index, path in enumerate(roots):
@@ -40,6 +43,16 @@ def audit():
             continue
         try:
             document = parse_text(path.read_text(encoding='utf-8-sig'), settings.syntax, relative, expansion=expansion)
+            encoded = serialize_document(document)
+            content = json.dumps(encoded, ensure_ascii=False, separators=(',', ':'), allow_nan=False)
+            loaded = json.loads(content)
+            if loaded != encoded:
+                raise BuildError('roundtrip_mismatch', 'Serialized document changed after JSON loading')
+            validate_history(loaded)
+            report['serialized_documents'] += 1
+            report['serialized_nodes'] += sum(1 for _ in walk_nodes(loaded['items']))
+            report['serialized_bytes'] += len(content.encode('utf-8'))
+            del encoded, loaded, content
             statistics.consume(document)
             report['parsed'] += 1
             report['empty'] += not bool(document.items)
@@ -59,7 +72,7 @@ def audit():
     report['status'] = 'partial' if report['failures'] else 'complete'
     report['excluded_text'] = dict(statistics.excluded)
     report['statistics_scope'] = 'Successfully parsed and fully expanded independent files only.'
-    output = output_path(settings.work, 'stage5/corpus_report.json', settings.protected)
+    output = output_path(settings.work, 'stage6/corpus_report.json', settings.protected)
     output.parent.mkdir(parents=True, exist_ok=True)
     report['list_counts'] = statistics.write(output.parent / 'text_frequency')
     report['inline_sources'] = dict(sorted(expansion.templates.manifest.items()))

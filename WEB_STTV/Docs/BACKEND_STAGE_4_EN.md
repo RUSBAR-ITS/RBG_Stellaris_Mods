@@ -15,6 +15,8 @@ Historical stage-four guide. The current inline processor is described in [stage
 
 ## Stage result
 
+**Historical guide.** Describes the implementation before the syntax-tree database transition. Current operation and format: [stage six](BACKEND_STAGE_6_EN.md).
+
 The approved [fourth-stage specification](TZ_BACKEND_STAGE_4_EN.md) is implemented. The parser creates distinct logical-operation nodes according to configuration. Both forms of `inline_script` invocation reach an expansion function that currently returns an empty list. Invocation contents are not parsed.
 
 ## Configurations

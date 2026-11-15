@@ -1,61 +1,12 @@
 {
-  "definitions": {
-    "categories": {
-      "encoding": "utf-8-sig",
+  "sources": [
+    {
+      "variable": "TECH_PATH",
       "pattern": "*.txt",
-      "recursive": false,
-      "subdirectory": "category",
-      "variable": "TECH_PATH"
-    },
-    "technologies": {
-      "encoding": "utf-8-sig",
-      "pattern": "*.txt",
-      "recursive": false,
-      "subdirectory": "",
-      "variable": "TECH_PATH"
-    },
-    "tiers": {
-      "encoding": "utf-8-sig",
-      "pattern": "*.txt",
-      "recursive": false,
-      "subdirectory": "tier",
-      "variable": "TECH_PATH"
+      "recursive": true,
+      "encoding": "utf-8-sig"
     }
-  },
-  "localization": {
-    "encoding": "utf-8-sig",
-    "languages": {
-      "en": {
-        "header": "l_english",
-        "sources": [
-          "EN_LOC_TIER_1"
-        ]
-      },
-      "ru": {
-        "header": "l_russian",
-        "sources": [
-          "RU_LOC_TIER_1",
-          "RU_LOC_TIER_2",
-          "RU_LOC_TIER_3"
-        ]
-      }
-    },
-    "pattern": "*.yml",
-    "recursive": true
-  },
-  "outputs": {
-    "database": "database.json",
-    "report": "reports/build_report.json"
-  },
-  "rules": {
-    "game_version": "4.5.4",
-    "profile": {
-      "base": "product",
-      "path": "profiles/stellaris_4_5_4.json"
-    },
-    "registry": "rules/script_rules.json",
-    "report": "reports/generation_report.json"
-  },
+  ],
   "parser": {
     "inline_scripts": {
       "base": "product",
@@ -73,5 +24,9 @@
       "base": "product",
       "path": "config/parser/logical_operators.json"
     }
+  },
+  "outputs": {
+    "database": "database.json",
+    "report": "reports/build_report.json"
   }
 }

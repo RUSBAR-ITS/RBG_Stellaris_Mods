@@ -1,95 +1,616 @@
 {
   "$defs": {
-    "category": {
+    "assignment": {
       "additionalProperties": false,
       "properties": {
-        "fields": {
+        "key": {
+          "$ref": "#/$defs/scalar"
+        },
+        "kind": {
+          "const": "assignment"
+        },
+        "operator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "span": {
           "additionalProperties": false,
           "properties": {
-            "icon": {
-              "anyOf": [
-                {
-                  "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                  "type": "string"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
+            "column": {
+              "minimum": 1,
+              "type": "integer"
             },
-            "weight_modifier": {
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/scalar"
+            },
+            {
+              "$ref": "#/$defs/formula"
+            },
+            {
+              "$ref": "#/$defs/block"
+            },
+            {
+              "$ref": "#/$defs/tagged_block"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "key",
+        "operator",
+        "value"
+      ],
+      "type": "object"
+    },
+    "block": {
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "const": "block"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "items"
+      ],
+      "type": "object"
+    },
+    "conditional": {
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "const": "conditional"
+        },
+        "negated": {
+          "type": "boolean"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "parameter": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "parameter",
+        "negated",
+        "items"
+      ],
+      "type": "object"
+    },
+    "document": {
+      "additionalProperties": false,
+      "properties": {
+        "items": {
+          "items": {
+            "$ref": "#/$defs/node"
+          },
+          "type": "array"
+        },
+        "metadata": {
+          "additionalProperties": false,
+          "properties": {
+            "inline_scripts": {
               "items": {
-                "$ref": "#/$defs/script"
+                "additionalProperties": false,
+                "properties": {
+                  "arguments": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "raw": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "raw",
+                        "value"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "call_site": {
+                    "$ref": "#/$defs/origin"
+                  },
+                  "form": {
+                    "enum": [
+                      "reference",
+                      "block"
+                    ]
+                  },
+                  "id": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "insertion": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "container": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "count": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "index": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "container",
+                      "index",
+                      "count"
+                    ],
+                    "type": "object"
+                  },
+                  "parent_id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "script": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "raw": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "raw",
+                      "value"
+                    ],
+                    "type": "object"
+                  },
+                  "template": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "parent_id",
+                  "call_site",
+                  "form",
+                  "script",
+                  "template",
+                  "arguments",
+                  "insertion"
+                ],
+                "type": "object"
               },
-              "minItems": 1,
               "type": "array"
             }
           },
-          "required": [],
+          "required": [
+            "inline_scripts"
+          ],
           "type": "object"
         },
         "source": {
-          "$ref": "#/$defs/source"
+          "additionalProperties": false,
+          "properties": {
+            "file": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            },
+            "root": {
+              "const": "STELLARIS_ROOT"
+            }
+          },
+          "required": [
+            "root",
+            "file"
+          ],
+          "type": "object"
         }
       },
       "required": [
         "source",
-        "fields"
+        "items",
+        "metadata"
       ],
       "type": "object"
     },
-    "localization_source": {
+    "formula": {
       "additionalProperties": false,
       "properties": {
-        "file": {
-          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+        "body": {
           "type": "string"
         },
-        "key": {
+        "kind": {
+          "const": "formula"
+        },
+        "opener": {
           "minLength": 1,
           "type": "string"
         },
-        "line": {
-          "minimum": 1,
-          "type": "integer"
+        "origin": {
+          "$ref": "#/$defs/origin"
         },
-        "tier": {
-          "minLength": 1,
+        "raw": {
           "type": "string"
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
         }
       },
       "required": [
-        "tier",
-        "file",
-        "line",
-        "key"
+        "kind",
+        "span",
+        "origin",
+        "raw",
+        "opener",
+        "body"
+      ],
+      "type": "object"
+    },
+    "logical_operation": {
+      "additionalProperties": false,
+      "properties": {
+        "assignment_operator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "body": {
+          "$ref": "#/$defs/block"
+        },
+        "kind": {
+          "const": "logical_operation"
+        },
+        "name": {
+          "$ref": "#/$defs/scalar"
+        },
+        "operator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "operator",
+        "name",
+        "assignment_operator",
+        "body"
+      ],
+      "type": "object"
+    },
+    "node": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "scalar"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/scalar"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "formula"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/formula"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "block"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/block"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "tagged_block"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/tagged_block"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "conditional"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/conditional"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "assignment"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/assignment"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "logical_operation"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/logical_operation"
+          }
+        }
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "scalar",
+            "formula",
+            "block",
+            "tagged_block",
+            "conditional",
+            "assignment",
+            "logical_operation"
+          ]
+        }
+      },
+      "required": [
+        "kind"
       ],
       "type": "object"
     },
@@ -212,89 +733,22 @@
       ],
       "type": "object"
     },
-    "requirement": {
-      "anyOf": [
-        {
-          "additionalProperties": false,
-          "properties": {
-            "tech": {
-              "pattern": "^[A-Za-z0-9_:.?/-]+$",
-              "type": "string"
-            }
-          },
-          "required": [
-            "tech"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "all": {
-              "items": {
-                "$ref": "#/$defs/requirement"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "all"
-          ],
-          "type": "object"
-        },
-        {
-          "additionalProperties": false,
-          "properties": {
-            "any": {
-              "items": {
-                "$ref": "#/$defs/requirement"
-              },
-              "type": "array"
-            }
-          },
-          "required": [
-            "any"
-          ],
-          "type": "object"
-        }
-      ]
-    },
-    "script": {
+    "scalar": {
       "additionalProperties": false,
       "properties": {
-        "entries": {
+        "kind": {
+          "const": "scalar"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "parameters": {
           "items": {
             "additionalProperties": false,
-            "allOf": [
-              {
-                "else": {
-                  "properties": {
-                    "operator": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "if": {
-                  "properties": {
-                    "key": {
-                      "type": "null"
-                    }
-                  }
-                },
-                "then": {
-                  "properties": {
-                    "operator": {
-                      "type": "null"
-                    }
-                  }
-                }
-              }
-            ],
             "properties": {
-              "key": {
+              "default": {
                 "anyOf": [
                   {
-                    "minLength": 1,
                     "type": "string"
                   },
                   {
@@ -302,1930 +756,181 @@
                   }
                 ]
               },
-              "operator": {
-                "enum": [
-                  "!=",
-                  "<",
-                  "<=",
-                  "=",
-                  ">",
-                  ">=",
-                  "?=",
-                  null
-                ]
+              "name": {
+                "minLength": 1,
+                "type": "string"
               },
-              "source": {
-                "$ref": "#/$defs/source"
+              "raw": {
+                "type": "string"
               },
-              "value": {
-                "anyOf": [
-                  {
-                    "type": "string"
+              "span": {
+                "additionalProperties": false,
+                "properties": {
+                  "column": {
+                    "minimum": 1,
+                    "type": "integer"
                   },
-                  {
-                    "$ref": "#/$defs/script"
+                  "end": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "end_column": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "end_line": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "line": {
+                    "minimum": 1,
+                    "type": "integer"
+                  },
+                  "start": {
+                    "minimum": 0,
+                    "type": "integer"
                   }
-                ]
+                },
+                "required": [
+                  "start",
+                  "end",
+                  "line",
+                  "column",
+                  "end_line",
+                  "end_column"
+                ],
+                "type": "object"
               }
             },
             "required": [
-              "key",
-              "operator",
-              "value",
-              "source"
+              "name",
+              "default",
+              "raw",
+              "span"
             ],
             "type": "object"
           },
           "type": "array"
-        }
-      },
-      "required": [
-        "entries"
-      ],
-      "type": "object"
-    },
-    "source": {
-      "additionalProperties": false,
-      "properties": {
-        "column": {
-          "minimum": 1,
-          "type": "integer"
         },
-        "file": {
-          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+        "quoted": {
+          "type": "boolean"
+        },
+        "raw": {
           "type": "string"
         },
-        "inline_call_id": {
-          "anyOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "line": {
-          "minimum": 1,
-          "type": "integer"
-        },
-        "root": {
-          "enum": [
-            "STELLARIS_ROOT",
-            "TECH_PATH",
-            "INLINE_SCRIPTS_DIR"
-          ]
-        }
-      },
-      "required": [
-        "root",
-        "file",
-        "line",
-        "column",
-        "inline_call_id"
-      ],
-      "type": "object"
-    },
-    "technology": {
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "else": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "ru": {
-                    "$ref": "#/$defs/localization_source"
-                  }
-                }
-              }
-            }
-          },
-          "if": {
-            "properties": {
-              "name": {
-                "properties": {
-                  "ru": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "ru": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "else": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "en": {
-                    "$ref": "#/$defs/localization_source"
-                  }
-                }
-              }
-            }
-          },
-          "if": {
-            "properties": {
-              "name": {
-                "properties": {
-                  "en": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "en": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "properties": {
-        "fields": {
+        "span": {
           "additionalProperties": false,
           "properties": {
-            "ai_weight": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
+            "column": {
+              "minimum": 1,
+              "type": "integer"
             },
-            "area": {
-              "anyOf": [
-                {
-                  "enum": [
-                    "physics",
-                    "society",
-                    "engineering"
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "enum": [
-                              "physics",
-                              "society",
-                              "engineering"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
+            "end": {
+              "minimum": 0,
+              "type": "integer"
             },
-            "category": {
-              "anyOf": [
-                {
-                  "items": {
-                    "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "items": {
-                              "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
             },
-            "cost": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "additionalProperties": false,
-                      "properties": {
-                        "resolved": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "variable": {
-                          "pattern": "^@[A-Za-z0-9_]+$",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "variable",
-                        "resolved"
-                      ],
-                      "type": "object"
-                    },
-                    {
-                      "$ref": "#/$defs/script"
-                    }
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "resolved": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "variable": {
-                                    "pattern": "^@[A-Za-z0-9_]+$",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "variable",
-                                  "resolved"
-                                ],
-                                "type": "object"
-                              },
-                              {
-                                "$ref": "#/$defs/script"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
             },
-            "cost_per_level": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "additionalProperties": false,
-                      "properties": {
-                        "resolved": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "variable": {
-                          "pattern": "^@[A-Za-z0-9_]+$",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "variable",
-                        "resolved"
-                      ],
-                      "type": "object"
-                    }
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "resolved": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "variable": {
-                                    "pattern": "^@[A-Za-z0-9_]+$",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "variable",
-                                  "resolved"
-                                ],
-                                "type": "object"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
+            "line": {
+              "minimum": 1,
+              "type": "integer"
             },
-            "feature_flags": {
-              "anyOf": [
-                {
-                  "items": {
-                    "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "items": {
-                              "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "gateway": {
-              "anyOf": [
-                {
-                  "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                  "type": "string"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "icon": {
-              "anyOf": [
-                {
-                  "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                  "type": "string"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "is_dangerous": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "is_insight": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "is_rare": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "is_reverse_engineerable": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "levels": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "additionalProperties": false,
-                      "properties": {
-                        "resolved": {
-                          "anyOf": [
-                            {
-                              "type": "integer"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "variable": {
-                          "pattern": "^@[A-Za-z0-9_]+$",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "variable",
-                        "resolved"
-                      ],
-                      "type": "object"
-                    }
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "anyOf": [
-                              {
-                                "type": "integer"
-                              },
-                              {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "resolved": {
-                                    "anyOf": [
-                                      {
-                                        "type": "integer"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "variable": {
-                                    "pattern": "^@[A-Za-z0-9_]+$",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "variable",
-                                  "resolved"
-                                ],
-                                "type": "object"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "mod_weight_if_group_picked": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "modifier": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "potential": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "prereqfor_desc": {
-              "items": {
-                "$ref": "#/$defs/script"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            "prerequisites": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/requirement"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/requirement"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "start_tech": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "starting_potential": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "technology_swap": {
-              "items": {
-                "$ref": "#/$defs/variant"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            "tier": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "integer"
-                    },
-                    {
-                      "additionalProperties": false,
-                      "properties": {
-                        "resolved": {
-                          "anyOf": [
-                            {
-                              "type": "integer"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "variable": {
-                          "pattern": "^@[A-Za-z0-9_]+$",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "variable",
-                        "resolved"
-                      ],
-                      "type": "object"
-                    }
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "anyOf": [
-                              {
-                                "type": "integer"
-                              },
-                              {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "resolved": {
-                                    "anyOf": [
-                                      {
-                                        "type": "integer"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "variable": {
-                                    "pattern": "^@[A-Za-z0-9_]+$",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "variable",
-                                  "resolved"
-                                ],
-                                "type": "object"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "weight": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "additionalProperties": false,
-                      "properties": {
-                        "resolved": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "variable": {
-                          "pattern": "^@[A-Za-z0-9_]+$",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "variable",
-                        "resolved"
-                      ],
-                      "type": "object"
-                    }
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "resolved": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "variable": {
-                                    "pattern": "^@[A-Za-z0-9_]+$",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "variable",
-                                  "resolved"
-                                ],
-                                "type": "object"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "weight_groups": {
-              "anyOf": [
-                {
-                  "items": {
-                    "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "items": {
-                              "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "weight_modifier": {
-              "items": {
-                "$ref": "#/$defs/script"
-              },
-              "minItems": 1,
-              "type": "array"
-            }
-          },
-          "required": [],
-          "type": "object"
-        },
-        "name": {
-          "additionalProperties": false,
-          "properties": {
-            "en": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "ru": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
+            "start": {
+              "minimum": 0,
+              "type": "integer"
             }
           },
           "required": [
-            "ru",
-            "en"
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
           ],
           "type": "object"
         },
-        "name_sources": {
-          "additionalProperties": false,
-          "properties": {
-            "en": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/localization_source"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "ru": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/localization_source"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "required": [
-            "ru",
-            "en"
-          ],
-          "type": "object"
-        },
-        "source": {
-          "$ref": "#/$defs/source"
-        }
-      },
-      "required": [
-        "source",
-        "fields",
-        "name",
-        "name_sources"
-      ],
-      "type": "object"
-    },
-    "tier": {
-      "additionalProperties": false,
-      "properties": {
-        "fields": {
-          "additionalProperties": false,
-          "properties": {
-            "previously_unlocked": {
-              "anyOf": [
-                {
-                  "anyOf": [
-                    {
-                      "type": "number"
-                    },
-                    {
-                      "additionalProperties": false,
-                      "properties": {
-                        "resolved": {
-                          "anyOf": [
-                            {
-                              "type": "number"
-                            },
-                            {
-                              "type": "null"
-                            }
-                          ]
-                        },
-                        "variable": {
-                          "pattern": "^@[A-Za-z0-9_]+$",
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "variable",
-                        "resolved"
-                      ],
-                      "type": "object"
-                    }
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "anyOf": [
-                              {
-                                "type": "number"
-                              },
-                              {
-                                "additionalProperties": false,
-                                "properties": {
-                                  "resolved": {
-                                    "anyOf": [
-                                      {
-                                        "type": "number"
-                                      },
-                                      {
-                                        "type": "null"
-                                      }
-                                    ]
-                                  },
-                                  "variable": {
-                                    "pattern": "^@[A-Za-z0-9_]+$",
-                                    "type": "string"
-                                  }
-                                },
-                                "required": [
-                                  "variable",
-                                  "resolved"
-                                ],
-                                "type": "object"
-                              }
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "weight_modifier": {
-              "items": {
-                "$ref": "#/$defs/script"
-              },
-              "minItems": 1,
-              "type": "array"
-            }
-          },
-          "required": [],
-          "type": "object"
-        },
-        "source": {
-          "$ref": "#/$defs/source"
-        }
-      },
-      "required": [
-        "source",
-        "fields"
-      ],
-      "type": "object"
-    },
-    "variant": {
-      "additionalProperties": false,
-      "allOf": [
-        {
-          "else": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "ru": {
-                    "$ref": "#/$defs/localization_source"
-                  }
-                }
-              }
-            }
-          },
-          "if": {
-            "properties": {
-              "name": {
-                "properties": {
-                  "ru": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "ru": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          }
-        },
-        {
-          "else": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "en": {
-                    "$ref": "#/$defs/localization_source"
-                  }
-                }
-              }
-            }
-          },
-          "if": {
-            "properties": {
-              "name": {
-                "properties": {
-                  "en": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "name_sources": {
-                "properties": {
-                  "en": {
-                    "type": "null"
-                  }
-                }
-              }
-            }
-          }
-        }
-      ],
-      "properties": {
-        "fields": {
-          "additionalProperties": false,
-          "properties": {
-            "area": {
-              "anyOf": [
-                {
-                  "enum": [
-                    "physics",
-                    "society",
-                    "engineering"
-                  ]
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "enum": [
-                              "physics",
-                              "society",
-                              "engineering"
-                            ]
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "category": {
-              "anyOf": [
-                {
-                  "items": {
-                    "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                    "type": "string"
-                  },
-                  "type": "array"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "items": {
-                              "pattern": "^[A-Za-z0-9_:.?/-]+$",
-                              "type": "string"
-                            },
-                            "type": "array"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "inherit_effects": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "inherit_icon": {
-              "anyOf": [
-                {
-                  "type": "boolean"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "type": "boolean"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "modifier": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "prereqfor_desc": {
-              "items": {
-                "$ref": "#/$defs/script"
-              },
-              "minItems": 1,
-              "type": "array"
-            },
-            "trigger": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            },
-            "weight": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/script"
-                },
-                {
-                  "additionalProperties": false,
-                  "properties": {
-                    "occurrences": {
-                      "items": {
-                        "additionalProperties": false,
-                        "properties": {
-                          "source": {
-                            "$ref": "#/$defs/source"
-                          },
-                          "value": {
-                            "$ref": "#/$defs/script"
-                          }
-                        },
-                        "required": [
-                          "source",
-                          "value"
-                        ],
-                        "type": "object"
-                      },
-                      "minItems": 2,
-                      "type": "array"
-                    }
-                  },
-                  "required": [
-                    "occurrences"
-                  ],
-                  "type": "object"
-                }
-              ]
-            }
-          },
-          "required": [],
-          "type": "object"
-        },
-        "name": {
-          "additionalProperties": false,
-          "properties": {
-            "en": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "ru": {
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "required": [
-            "ru",
-            "en"
-          ],
-          "type": "object"
-        },
-        "name_key": {
-          "minLength": 1,
+        "text": {
           "type": "string"
-        },
-        "name_sources": {
-          "additionalProperties": false,
-          "properties": {
-            "en": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/localization_source"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            },
-            "ru": {
-              "anyOf": [
-                {
-                  "$ref": "#/$defs/localization_source"
-                },
-                {
-                  "type": "null"
-                }
-              ]
-            }
-          },
-          "required": [
-            "ru",
-            "en"
-          ],
-          "type": "object"
-        },
-        "source": {
-          "$ref": "#/$defs/source"
         }
       },
       "required": [
-        "source",
-        "fields",
-        "name",
-        "name_sources",
-        "name_key"
+        "kind",
+        "span",
+        "origin",
+        "raw",
+        "text",
+        "quoted",
+        "parameters"
+      ],
+      "type": "object"
+    },
+    "tagged_block": {
+      "additionalProperties": false,
+      "properties": {
+        "block": {
+          "$ref": "#/$defs/block"
+        },
+        "kind": {
+          "const": "tagged_block"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        },
+        "tag": {
+          "$ref": "#/$defs/scalar"
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "tag",
+        "block"
       ],
       "type": "object"
     }
@@ -2233,181 +938,24 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
-    "categories": {
-      "additionalProperties": {
-        "$ref": "#/$defs/category"
+    "documents": {
+      "items": {
+        "$ref": "#/$defs/document"
       },
-      "propertyNames": {
-        "pattern": "^[A-Za-z0-9_:.?/-]+$",
-        "type": "string"
-      },
-      "type": "object"
+      "minItems": 1,
+      "type": "array"
     },
-    "file_variables": {
-      "additionalProperties": {
-        "items": {
-          "additionalProperties": false,
-          "properties": {
-            "name": {
-              "pattern": "^@[A-Za-z0-9_]+$",
-              "type": "string"
-            },
-            "source": {
-              "$ref": "#/$defs/source"
-            },
-            "value": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "name",
-            "value",
-            "source"
-          ],
-          "type": "object"
-        },
-        "type": "array"
-      },
-      "propertyNames": {
-        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-        "type": "string"
-      },
-      "type": "object"
+    "format": {
+      "const": "sttv.parse_database"
     },
     "format_version": {
-      "const": 2
-    },
-    "metadata": {
-      "additionalProperties": false,
-      "properties": {
-        "inline_scripts": {
-          "items": {
-            "additionalProperties": false,
-            "properties": {
-              "arguments": {
-                "items": {
-                  "additionalProperties": false,
-                  "properties": {
-                    "name": {
-                      "minLength": 1,
-                      "type": "string"
-                    },
-                    "raw": {
-                      "type": "string"
-                    },
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "name",
-                    "raw",
-                    "value"
-                  ],
-                  "type": "object"
-                },
-                "type": "array"
-              },
-              "call_site": {
-                "$ref": "#/$defs/origin"
-              },
-              "form": {
-                "enum": [
-                  "reference",
-                  "block"
-                ]
-              },
-              "id": {
-                "minLength": 1,
-                "type": "string"
-              },
-              "parent_id": {
-                "anyOf": [
-                  {
-                    "minLength": 1,
-                    "type": "string"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "result_paths": {
-                "items": {
-                  "type": "string"
-                },
-                "type": "array",
-                "uniqueItems": true
-              },
-              "script": {
-                "additionalProperties": false,
-                "properties": {
-                  "raw": {
-                    "type": "string"
-                  },
-                  "value": {
-                    "minLength": 1,
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "raw",
-                  "value"
-                ],
-                "type": "object"
-              },
-              "template": {
-                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                "type": "string"
-              }
-            },
-            "required": [
-              "id",
-              "parent_id",
-              "call_site",
-              "form",
-              "script",
-              "template",
-              "arguments",
-              "result_paths"
-            ],
-            "type": "object"
-          },
-          "type": "array"
-        }
-      },
-      "required": [
-        "inline_scripts"
-      ],
-      "type": "object"
-    },
-    "technologies": {
-      "additionalProperties": {
-        "$ref": "#/$defs/technology"
-      },
-      "propertyNames": {
-        "pattern": "^[A-Za-z0-9_:.?/-]+$",
-        "type": "string"
-      },
-      "type": "object"
-    },
-    "tiers": {
-      "additionalProperties": {
-        "$ref": "#/$defs/tier"
-      },
-      "propertyNames": {
-        "pattern": "^[0-9]+$"
-      },
-      "type": "object"
+      "const": 1
     }
   },
   "required": [
+    "format",
     "format_version",
-    "technologies",
-    "metadata",
-    "categories",
-    "tiers",
-    "file_variables"
+    "documents"
   ],
   "type": "object"
 }

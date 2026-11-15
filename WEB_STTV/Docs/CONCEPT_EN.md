@@ -14,11 +14,13 @@
 
 ## Concept status
 
-Initially documented on **2026-11-15**. Project name: **Stellaris Technological Tree View**. Directory: `WEB_STTV`.
+Project: **Stellaris Technological Tree View**, directory: `WEB_STTV`. This document describes the standalone application concept and **is not a technical specification**. The technical foundation and coding principles remain in the [general specification](TZ_EN.md).
 
-This is a working concept for a standalone application based on discussion with the user. It describes the purpose, general architecture, and intended workflows. It is **not a technical specification**. The technical foundation, coding principles, and first backend stage are recorded in the [specification](TZ_EN.md); the first database structure is defined in the [database model](DATABASE_MODEL_EN.md). The user approved the first stage, which is now implemented; [operation and validation results](BACKEND_STAGE_1_EN.md) are documented separately.
+**User decision dated 2026-11-15:** JSON containing parsing results becomes the primary database. Mandatory conversion to a strict technology domain model and validation of game names against a profile are dropped from the target design. Enrichment by specific fields and rules belongs to later stages.
 
-A standalone database builder, schemas, configuration, checks, and documentation are implemented. The UI and portable distribution remain for subsequent stages. Installed game files are read-only sources; the application does not modify game definitions or create a persistent copy of them.
+The transition is implemented under the approved [stage-six specification](TZ_BACKEND_STAGE_6_EN.md). The current process, format, and verification results are described in the [guide](BACKEND_STAGE_6_EN.md).
+
+The [previous database model](DATABASE_MODEL_EN.md) and [stage-five guide](BACKEND_STAGE_5_EN.md) describe the historical implementation. Game files are read-only. The interface and portable distribution are not implemented yet.
 
 ## Purpose and primary view
 
@@ -40,46 +42,46 @@ A completed database with future prepared images allows browsing without access 
 
 ## Three data processes
 
-The processes have separate inputs and outputs. Reading and transformation pass data in memory without preserving source copies or a persistent intermediate snapshot. This separation allows data to be updated independently of presentation.
+Parsing results are persisted as JSON and become a self-contained, manageable database. Subsequent actions use this structure without requiring game definitions to be parsed again.
 
-| Process | Input | Work | Output |
-| --- | --- | --- | --- |
-| Initial information collection | Source settings and selected directories | Read permitted files directly and retain provenance | Source data in memory |
-| Information transformation | In-memory data and localization source priorities | Parse definitions, perform available computations, validate structure and relationships, and select names | A validated internal database and separate report |
-| Presentation | Completed database and prepared images | Build the tree and cards and handle user interaction | The reference application in a web interface |
+| Process | Input | Output |
+| --- | --- | --- |
+| Reading and parsing | Selected sources and parser settings | JSON containing parsed structure, expanded inclusions, and provenance; separate diagnostics |
+| Enrichment — later stages | Saved JSON, processing rules, and necessary additional sources | Data prepared by specific fields and rules |
+| Presentation — later stages | Data prepared for viewing and images | The tree, cards, and user interaction |
 
 ```mermaid
 flowchart LR
-    sources[Selected sources] --> collect[Information collection]
-    collect --> raw[Data in memory]
-    raw --> transform[Transformation]
-    transform --> database[Validated database]
-    database --> view[Tree and cards]
+    sources[Selected sources] --> parse[Parsing and inclusion expansion]
+    parse --> database[JSON containing parsing results]
+    database --> enrich[Enrichment by fields and rules]
+    enrich --> view[Tree and cards]
 ```
 
-Presentation reads the completed internal database. Collection is explicitly requested and rereads selected sources. Image preparation and presentation belong to later stages; the first backend version builds a database with RU/EN names.
+Saving parsing results does not depend on localized names, computed values, or a prepared tree. Enrichment runs as separate actions. Specific fields, rules, action order, and storage of their results will be agreed later. `inline_script` expansion remains part of source processing; call history stays separate from game-data analysis.
 
 ## Internal data
 
-JSON is selected for the internal database and structured data exchange. The [first database model](DATABASE_MODEL_EN.md) defines one file containing technologies, categories, tiers, local variables, and RU/EN names. Images are intended to be prepared separately in later stages.
+The primary database is a JSON representation of parsing results. It preserves constructs supported by the parser: names, operators, values, nesting, order, repeated entries, and provenance. An unknown field or command name alone does not justify rejecting storage. Closed technology-field lists and command profiles no longer define the target storage foundation.
 
-The concept distinguishes these materials:
+Format `sttv.parse_database` version 1 stores source-file trees in the `documents` array, preserving node kinds, order, and repetition. It is defined in the [stage-six specification](TZ_BACKEND_STAGE_6_EN.md#5-persisted-json-format). This is a convention for representing parser output; storage does not require listing all game fields and commands. Reading, syntax, and expansion errors continue to produce diagnostics; incomplete output must not be published as a success.
 
 | Material | Purpose |
 | --- | --- |
-| Source settings | Selected paths and localization priorities |
-| Initial information | In-memory data before conversion; not persisted to disk |
-| Completed database | Technologies, relationships, prepared text, and provenance |
-| Build report | Validation results and diagnostics separate from the database |
-| Prepared images | Vanilla images in a form suitable for the web interface |
+| Source settings | Selected paths and source priorities |
+| Parsing-results database | Saved definition structure and provenance |
+| Service metadata | Inline-call history and source mappings outside game-data analysis |
+| Enriched data | Names, relationships, and other information from later stages; placement not yet selected |
+| Processing report | Checks and diagnostics separate from the database |
+| Prepared images | Interface images from later stages |
 
-It remains possible to identify the source of a technology definition and its text. The intended user distribution contains the application with an empty database, which is populated from user-selected sources.
+JSON containing parsing results is persisted; original game files are not copied into the product. The previous technology model does not constrain the new format. The user distribution still starts with an empty database populated from selected sources.
 
 ## Sources and localization
 
 The user selects the directories from which the application obtains game data. The developer's particular paths are not mandatory application settings.
 
-Localization uses an ordered list of sources. Priority applies **to each key individually**: the value from the highest-priority source containing that key is selected. If the key is absent, lookup continues in the next source. This allows incomplete translations to be supplemented by subsequent sources. The selected text's provenance is retained.
+Localization belongs to subsequent enrichment and retains an ordered list of sources. Priority applies **to each key individually**: the value from the highest-priority source containing that key is selected. If the key is absent, lookup continues in the next source. This allows incomplete translations to be supplemented by subsequent sources. The selected text's provenance is retained.
 
 The current Russian translation order in this repository provides an example:
 
@@ -95,34 +97,33 @@ Support for modded game definitions and their merging rules has not been defined
 
 ## First launch
 
-The proposed first-launch workflow is:
+Intended workflow for the future application:
 
-1. The user launches the application from its directory.
-2. An empty database leads to source setup.
-3. The user specifies the necessary directories and localization priorities.
-4. The application collects initial information.
-5. In-memory data is transformed into a validated internal database; image preparation is added at a later stage.
-6. Once data preparation finishes, the technology tree opens.
+1. The user launches the application; an empty database opens source setup.
+2. The user selects the required directories.
+3. The application reads and parses sources, then saves the results as JSON.
+4. Separate actions enrich data by agreed fields and rules, requesting additional sources where needed.
+5. The reference opens when the data required for viewing is ready. Enrichment, images, and the interface belong to later stages; exporting structure alone does not imply a ready tree.
 
-On subsequent launches, the reference uses its existing database. Browsing prepared data does not require selecting directories or collecting information again.
+Subsequent launches use saved results. Working with these results does not require selecting source directories or parsing the game again.
 
 ## Updating and rebuilding the database
 
-The user can reopen source settings, change directories and localization priorities, and then refresh the database. Changes to selected paths or their order apply to the new processing run.
+Reparsing rereads selected sources in read-only mode and creates new JSON results. This requires source-directory access. After a game update, reparsing uses the updated files.
 
-Each rebuild rereads selected sources in read-only mode and creates a new database. There is no persistent-snapshot transformation workflow. Rebuilding requires source-directory access; browsing an existing database does not. After a game update, rebuilding uses the updated files.
+Enrichment works with saved JSON. Additional sources are needed only for the relevant actions, such as localization lookup. Changing enrichment rules alone does not require reparsing game definitions when the required structure is already saved.
 
-The new database is validated before replacing the active data. A pre-replacement error must not substitute partial output for the working database. First-stage checks and diagnostics are described in the specification; subsequent image preparation and interface status presentation are discussed separately.
+Reading, parsing, or saving failures must not replace the working database with partial output. Checks, enriched-data updates after reparsing, and status presentation will be defined in the relevant stage specifications. Validating game commands against the old profile is not a prerequisite for saving structural results in the new concept.
 
 ## Open decisions
 
 The following topics remain for further discussion:
 
 - Technology card content and details, tree navigation, search, and filters.
-- Interface languages and display of missing names; the first database stores RU/EN and `null` for absent translations.
+- Interface languages and display of missing names; retrieving RU/EN names belongs to enrichment.
 - Presentation of availability conditions, conditional technology variants, and links to other game objects.
 - Handling mods, DLC, and multiple source sets.
-- JSON schema and source extensions after the first stage.
+- Enrichment actions, their order and rules, and storage and updates of their results.
 - The interface framework, graph library, specific versions of selected technologies, build details, and Windows environment requirements.
 - Future interface presentation of source errors, unresolved references, and interrupted processing.
 

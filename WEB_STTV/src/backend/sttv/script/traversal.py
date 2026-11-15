@@ -35,8 +35,3 @@ def walk(items):
     for _, sequence in sequences(items):
         yield from sequence
 
-
-def source_location(origin):
-    return {"root": origin["root"], "file": origin["file"],
-            "line": origin["span"]["line"], "column": origin["span"]["column"],
-            "inline_call_id": origin["inline_call_id"]}

@@ -39,7 +39,8 @@ def call():
                 "call_site": {"$ref": "#/$defs/origin"}, "form": {"enum": ["reference", "block"]},
                 "script": obj({"raw": STRING, "value": TEXT}), "template": RELATIVE,
                 "arguments": array(obj({"name": TEXT, "raw": STRING, "value": STRING})),
-                "result_paths": array(STRING, uniqueItems=True)})
+                "insertion": obj({"container": TEXT, "index": {"type": "integer", "minimum": 0},
+                                  "count": {"type": "integer", "minimum": 0}})})
 
 
 def chain():

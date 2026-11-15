@@ -18,12 +18,6 @@ from sttv.common.paths import PRODUCT_ROOT
 
 
 @lru_cache
-def registry():
-    from sttv.rules.compiler import generate_registry, load_profile
-    return generate_registry(load_profile(PRODUCT_ROOT / "profiles/stellaris_4_5_4.json"))
-
-
-@lru_cache
 def syntax():
     from sttv.script.syntax import load_syntax
     return load_syntax(PRODUCT_ROOT / "config/parser/lexical.json",
@@ -31,10 +25,16 @@ def syntax():
                        PRODUCT_ROOT / "config/parser/logical_operators.json")
 
 
-def parse_entries(text):
-    from sttv.script.parser import parse_text
-    from sttv.script.serialization import data_entries
-    return data_entries(parse_text(text, syntax()))
+def syntax_payload(document):
+    from sttv.script.serialization import serialize_document
+
+    def clean(value):
+        if isinstance(value, dict):
+            return {key: clean(child) for key, child in value.items() if key not in ("origin", "span")}
+        if isinstance(value, list):
+            return [clean(child) for child in value]
+        return value
+    return clean(serialize_document(document)["items"])
 
 
 class BuildFixture(unittest.TestCase):
@@ -50,18 +50,12 @@ class BuildFixture(unittest.TestCase):
         self.inline.mkdir(parents=True)
         for name in ("", "category", "tier"):
             (self.tech / name).mkdir(parents=True, exist_ok=True)
-        self.locales = {name: self.root / name for name in ("ru1", "ru2", "ru3", "en1")}
-        for directory in self.locales.values():
-            directory.mkdir()
         self.options = copy.deepcopy(read_json(PRODUCT_ROOT / "config/backend.json"))
         self.variables = {
             "WORK_DIR": str(self.root / "work"),
             "STELLARIS_ROOT": str(self.game),
-            "WORKSHOP_DIR": str(self.root / "workshop"),
             "TECH_PATH": "common/technology",
             "INLINE_SCRIPTS_DIR": "common/inline_scripts",
-            **{f"RU_LOC_TIER_{i}": str(self.locales[f"ru{i}"]) for i in (1, 2, 3)},
-            "EN_LOC_TIER_1": str(self.locales["en1"]),
         }
         self.variable_file = self.root / "variables.json"
         self.config_file = self.root / "backend.json"
@@ -82,10 +76,6 @@ tech_b = {
  weight_modifier = { modifier = { factor = 0 has_technology = tech_b } }
 }
 """)
-        self.write_locale("en1", 'tech_a:0 "Name A"\ntech_a_variant:0 "Variant"\ntech_b:0 "Name B"')
-        self.write_locale("ru1", 'tech_a:0 "\u0418\u043c\u044f A"')
-        self.write_locale("ru2", 'tech_a:0 "Lower priority"\ntech_a_variant:0 ""')
-        self.write_locale("ru3", 'tech_b:0 "\u0418\u043c\u044f B"')
 
     def tearDown(self):
         assert self.root.is_relative_to((PRODUCT_ROOT / "data/tests").resolve())
@@ -93,11 +83,6 @@ tech_b = {
 
     def write_script(self, name, content):
         (self.tech / name).write_text(content, encoding="utf-8-sig")
-
-    def write_locale(self, source, content, name="names.yml"):
-        header = "l_english" if source == "en1" else "l_russian"
-        (self.locales[source] / name).write_text(header + ":\n" + content + "\n",
-                                                encoding="utf-8-sig")
 
     def run_build(self):
         for path, value in ((self.variable_file, self.variables),
@@ -115,6 +100,6 @@ tech_b = {
         return [row["code"] for row in result["diagnostics"] if row["severity"] == "error"]
 
     def hashes(self):
-        sources = [self.game, *self.locales.values()]
+        sources = [self.game]
         return {str(path): hashlib.sha256(path.read_bytes()).hexdigest()
                 for root in sources for path in root.rglob("*") if path.is_file()}

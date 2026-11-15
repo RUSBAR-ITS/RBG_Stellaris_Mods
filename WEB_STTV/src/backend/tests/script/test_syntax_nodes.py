@@ -8,7 +8,7 @@ from script.assertions import check_document
 from sttv.common.errors import BuildError
 from sttv.script.nodes import Assignment, Block, Conditional, Formula, Scalar, TaggedBlock
 from sttv.script.parser import parse_text
-from sttv.script.serialization import data_entries
+from sttv.script.serialization import serialize_document
 
 
 class SyntaxNodeTests(unittest.TestCase):
@@ -108,9 +108,8 @@ class SyntaxNodeTests(unittest.TestCase):
             self.parse('x={' * 1500 + '}' * 1500)
         self.assertEqual(error.exception.code, 'nesting_depth')
 
-    def test_projection_never_flattens_unrepresentable_nodes(self):
+    def test_serialization_keeps_previously_unrepresentable_nodes(self):
         for text in ('x = @[ 1 + 2 ]', '[[P] x = yes ]', '{ x = yes }',
                      'color = rgb { 0 1 2 }', 'x = { { a = b } }'):
-            with self.subTest(text=text), self.assertRaises(BuildError) as error:
-                data_entries(self.parse(text))
-            self.assertEqual(error.exception.code, 'unsupported_database_form')
+            with self.subTest(text=text):
+                self.assertTrue(serialize_document(self.parse(text))["items"])

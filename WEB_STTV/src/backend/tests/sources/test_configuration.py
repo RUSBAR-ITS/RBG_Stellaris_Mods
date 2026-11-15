@@ -5,7 +5,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from support import BuildFixture, registry
+from support import BuildFixture
 from sttv.builder import build
 from sttv.common.errors import BuildError
 from sttv.common.paths import PRODUCT_ROOT
@@ -33,7 +33,7 @@ class ConfigurationTests(BuildFixture):
         self.assertTrue((PRODUCT_ROOT / self.variables["WORK_DIR"] / "database.json").is_file())
 
     def test_cli_failure_returns_report_and_nonzero_exit(self):
-        self.write_script("base.txt", "tech_a = { unrecognized = yes }")
+        self.write_script("base.txt", "tech_a = { unclosed = yes")
         self.run_build()
         result = subprocess.run(
             [sys.executable, "-B", str(PRODUCT_ROOT / "src/backend/main.py"),
@@ -60,7 +60,7 @@ class ConfigurationTests(BuildFixture):
         self.options["outputs"]["report"] = "database.json"
         self.assertIn("output_collision", self.errors(self.run_build()))
         self.options["outputs"]["report"] = "reports/build_report.json"
-        self.variables["RU_LOC_TIER_1"] = str(self.root / "missing")
+        self.variables["TECH_PATH"] = "common/missing"
         result = self.run_build()
         self.assertIn("source_unavailable", self.errors(result))
         self.assertFalse(self.database_path().exists())

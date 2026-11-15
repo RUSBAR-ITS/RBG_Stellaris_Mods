@@ -13,6 +13,8 @@
 
 ## Stage result
 
+**Historical guide.** Describes the implementation before the syntax-tree database transition. Current operation and format: [stage six](BACKEND_STAGE_6_EN.md).
+
 The approved [first stage](TZ_EN.md#3-first-backend-stage--database-building) is implemented as a standalone Python JSON database builder. It reads technologies, categories, tiers, and RU/EN names from configured directories, validates the [database model](DATABASE_MODEL_EN.md), and saves the database and a separate report.
 
 The builder does not modify sources. Parsing and conversion run in memory; source files and the intermediate parse tree are not copied into the working directory. The research audit is not a builder input.
@@ -66,7 +68,7 @@ The future service integration entry point is `sttv.builder.build(variables_path
 | [schemas/database.schema.json](../schemas/database.schema.json) | Closed database schema, format 1 |
 | [schemas/backend.schema.json](../schemas/backend.schema.json) | Closed build-configuration schema |
 | [schemas/report.schema.json](../schemas/report.schema.json) | Closed report schema |
-| [profiles/stellaris_4_5_4.json](../profiles/stellaris_4_5_4.json) | Declared contexts, commands, arguments, operators, and scopes |
+| `profiles/stellaris_4_5_4.json` (removed in stage six) | Declared contexts, commands, arguments, operators, and scopes |
 
 Primary outputs are `data/database.json` and `data/reports/build_report.json`. Stage two also writes `data/rules/script_rules.json` and `data/reports/generation_report.json`; their names are configured under `rules`. Their relative names are configured under `outputs`; `WORK_DIR` determines their absolute location.
 

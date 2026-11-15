@@ -29,6 +29,8 @@
 
 ## Document status
 
+**Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [current guide](BACKEND_STAGE_6_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
+
 Project: **Stellaris Technological Tree View**, directory: `WEB_STTV`.
 
 **On 2026-11-15, the user approved the first backend stage and authorized implementation.** Section 1 describes the complete product's technical foundation, section 2 its structure and general coding principles, and section 3 the approved scope of the first backend stage.

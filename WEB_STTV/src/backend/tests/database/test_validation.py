@@ -1,120 +1,90 @@
-"""Strict database validation and preservation of supported source values."""
+"""All syntax forms survive JSON; corrupted structural metadata is rejected."""
 
-import copy
-from unittest.mock import patch
+from copy import deepcopy
+from dataclasses import asdict
+import json
+import unittest
 
-from support import BuildFixture, registry
+from support import PRODUCT_ROOT, syntax
 from sttv.common.errors import BuildError
 from sttv.common.json_io import read_json
-from sttv.localization.names import parse_names
-from support import parse_entries as parse_text
-from sttv.common.paths import PRODUCT_ROOT
-from sttv.common.schema import validate_schema
 from sttv.database.validation import validate_database
-from sttv.script.variables import Variables
+from sttv.script.inline import Expansion, MemoryTemplates
+from sttv.script.nodes import InlineInvocation, Span
+from sttv.script.parser import parse_text
+from sttv.script.serialization import encode, serialize_document, walk_nodes
 
 
-class ValidationTests(BuildFixture):
-    def test_closed_objects_and_invalid_types(self):
-        self.assertEqual(self.run_build()["status"], "success")
-        original = self.database()
-        changes = [
-            lambda db: db.update(unrecognized={}),
-            lambda db: db["technologies"]["tech_a"].update(unrecognized=1),
-            lambda db: db["technologies"]["tech_a"]["fields"].update(unrecognized=True),
-            lambda db: db["technologies"]["tech_a"]["fields"].update(area="invalid"),
-            lambda db: db["technologies"]["tech_a"]["fields"].update(is_rare="yes"),
-            lambda db: db["technologies"]["tech_a"]["source"].update(extra="x"),
-            lambda db: db["technologies"]["tech_a"]["fields"]["technology_swap"][0].update(parent_id="x"),
-            lambda db: db["technologies"]["tech_a"]["fields"]["potential"]["entries"][0].update(extra=0),
-        ]
-        for change in changes:
-            database = copy.deepcopy(original)
-            change(database)
-            with self.subTest(change=change), self.assertRaises(BuildError):
-                validate_database(database, registry())
+def fixture(text, templates=None):
+    options = read_json(PRODUCT_ROOT / "config/parser/inline_scripts.json")
+    context = Expansion(MemoryTemplates(templates or {}, options), options)
+    document = parse_text(text, syntax(), "fixture.txt", expansion=context)
+    return {"format": "sttv.parse_database", "format_version": 1,
+            "documents": [serialize_document(document)]}, document
 
-    def test_missing_internal_references_and_cycles(self):
-        self.assertEqual(self.run_build()["status"], "success")
-        original = self.database()
-        cases = [
-            ("missing_technology", "prerequisites", {"all": [{"tech": "tech_missing"}]}),
-            ("missing_category", "category", ["missing"]),
-            ("missing_tier", "tier", 55),
-            ("prerequisite_cycle", "prerequisites", {"all": [{"tech": "tech_b"}]}),
-        ]
-        for code, field, value in cases:
-            database = copy.deepcopy(original)
-            database["technologies"]["tech_a"]["fields"][field] = value
-            with self.subTest(code=code), self.assertRaises(BuildError) as error:
-                validate_database(database, registry())
-            self.assertEqual(error.exception.code, code)
 
-    def test_commands_and_name_provenance_are_checked_offline(self):
-        self.assertEqual(self.run_build()["status"], "success")
-        database = self.database()
-        database["technologies"]["tech_a"]["fields"]["potential"]["entries"][0]["key"] = "unknown"
+class ValidationTests(unittest.TestCase):
+    def test_every_node_kind_and_field_survives_json(self):
+        text = 'bare @x=2 n=003.50 flag=yes key="$P|fallback$" x=@x x=@[ 1 + 2 ] '
+        text += 'color=rgb { 1 2 3 } { inner=no } [[P] NOT={ a=b bare } ]'
+        db, parsed = fixture(text)
+        loaded = json.loads(json.dumps(db))
+        validate_database(loaded)
+        self.assertEqual(loaded, db)
+        self.assertEqual({node["kind"] for _, node in walk_nodes(loaded["documents"][0]["items"])},
+                         {"scalar", "formula", "block", "tagged_block", "conditional", "assignment", "logical_operation"})
+        for encoded, original in zip(loaded["documents"][0]["items"], parsed.items):
+            def json_form(value):
+                return json.loads(json.dumps(value))
+            self.assertEqual({k: v for k, v in encoded.items() if k != "kind" and k not in ("value", "items", "body", "key", "name")},
+                             {k: json_form(v) for k, v in asdict(original).items() if k not in ("value", "items", "body", "key", "name")})
+        parameters = loaded["documents"][0]["items"][4]["value"]["parameters"]
+        self.assertEqual(parameters[0]["default"], "fallback")
+
+    def test_wrong_shapes_unknown_kinds_and_extra_fields_fail(self):
+        db, _ = fixture('x=yes')
+        mutations = [lambda d: d["documents"][0]["items"][0].update(kind="unknown"),
+                     lambda d: d["documents"][0]["items"][0]["value"].update(text=True),
+                     lambda d: d["documents"][0]["items"][0].update(unknown="data"),
+                     lambda d: d["documents"][0].update(items={}),
+                     lambda d: d["documents"][0]["items"][0]["key"].update(kind="block")]
+        for mutate in mutations:
+            damaged = deepcopy(db)
+            mutate(damaged)
+            with self.subTest(mutation=mutate), self.assertRaises(BuildError):
+                validate_database(damaged)
+
+    def test_nested_history_and_empty_ranges_are_preserved(self):
+        db, _ = fixture('box={ inline_script=outer inline_script=empty }',
+                        {'outer.txt': 'a=yes inline_script=inner', 'inner.txt': 'b=no', 'empty.txt': ''})
+        validate_database(db)
+        history = db["documents"][0]["metadata"]["inline_scripts"]
+        self.assertEqual([c["insertion"]["count"] for c in history], [2, 1, 0])
+        self.assertEqual(history[1]["parent_id"], history[0]["id"])
+        self.assertEqual(history[0]["insertion"]["container"], "/items/0/value/items")
+        mutations = [lambda h: h[1].update(id=h[0]["id"]),
+                     lambda h: h[0].update(parent_id=h[1]["id"]),
+                     lambda h: h[1].update(parent_id="missing"),
+                     lambda h: h[0]["insertion"].update(index=999),
+                     lambda h: h[0]["insertion"].update(count=-1),
+                     lambda h: h[0]["insertion"].update(container="/metadata/inline_scripts"),
+                     lambda h: h[1]["insertion"].update(index=0)]
+        for mutate in mutations:
+            damaged = deepcopy(db)
+            mutate(damaged["documents"][0]["metadata"]["inline_scripts"])
+            with self.subTest(mutation=mutate), self.assertRaises(BuildError):
+                validate_database(damaged)
+        damaged = deepcopy(db)
+        damaged["documents"][0]["items"][0]["origin"]["inline_call_id"] = "missing"
         with self.assertRaises(BuildError):
-            validate_database(database, registry())
-        database = self.database()
-        database["technologies"]["tech_a"]["name_sources"]["ru"]["key"] = "tech_b"
+            validate_database(damaged)
+
+    def test_incompatible_database_and_unexpanded_invocation_are_explicit_errors(self):
+        for value in ({"format_version": 2, "technologies": {}}, [], {"format": "sttv.parse_database", "format_version": 999}):
+            with self.assertRaises(BuildError) as error:
+                validate_database(value)
+            self.assertEqual(error.exception.code, "incompatible_database")
+        span = Span(0, 1, 1, 1, 1, 2)
         with self.assertRaises(BuildError) as error:
-            validate_database(database, registry())
-        self.assertEqual(error.exception.code, "name_provenance")
-
-    def test_local_variables_chains_cycles_and_ambiguity(self):
-        variables = Variables(parse_text(
-            "@a = 1 @alias = @a @same = 2 @same = 2 @bad = 1 @bad = 2 "
-            "@loop = @other @other = @loop @text = yes"))
-        self.assertEqual(variables.resolve("@alias"), (1, None))
-        self.assertEqual(variables.resolve("@same"), (2, None))
-        self.assertEqual(variables.resolve("@bad"), (None, "ambiguous_local_variable"))
-        self.assertEqual(variables.resolve("@loop"), (None, "cyclic_local_variable"))
-        self.assertEqual(variables.resolve("@external"), (None, "external_variable"))
-        self.assertEqual(variables.resolve("@text"), (None, "unresolved_local_variable"))
-        self.assertEqual(len(variables.definitions), 9)
-
-    def test_duplicate_ids_and_bad_integer_are_fatal(self):
-        for text in ("tech_a = {} tech_a = {}", "@level = 1.5 tech_a = { tier = @level }"):
-            with self.subTest(text=text):
-                self.write_script("base.txt", text)
-                self.assertEqual(self.run_build()["status"], "failed")
-                self.assertFalse(self.database_path().exists())
-
-    def test_name_markup_escapes_comments_and_unrelated_keys(self):
-        value = r'Name $OTHER$ \n \"quote\" # text ' + "\u00a7Y[Root.GetName]\u00a7!"
-        text = 'l_english:\ntech_a:0 "' + value + '" # comment\nunused:0 broken'
-        self.assertEqual(list(parse_names(text, "l_english", {"tech_a"})),
-                         [("tech_a", value, 2)])
-        for text in ('l_russian:\ntech_a:0 "Name"', 'l_english:\ntech_a:0 "open'):
-            with self.subTest(text=text), self.assertRaises(BuildError):
-                list(parse_names(text, "l_english", {"tech_a"}))
-
-    def test_invalid_utf8_does_not_publish(self):
-        (self.tech / "base.txt").write_bytes(b"tech_a = {\xff}")
-        self.assertEqual(self.run_build()["status"], "failed")
-        self.assertFalse(self.database_path().exists())
-
-    def test_report_preparation_failure_preserves_old_database(self):
-        self.assertEqual(self.run_build()["status"], "success")
-        before = self.database_path().read_bytes()
-        from sttv.database.storage import prepare_json
-
-        def fail_report(path, value, schema):
-            if schema == "report.schema.json":
-                raise OSError("Simulated report failure")
-            return prepare_json(path, value, schema)
-
-        with patch("sttv.database.storage.prepare_json", side_effect=fail_report):
-            result = self.run_build()
-        self.assertEqual(result["status"], "failed")
-        self.assertFalse(result["database_written"])
-        self.assertEqual(before, self.database_path().read_bytes())
-        self.assertFalse(list(self.root.rglob("*.tmp")))
-
-    def test_report_and_database_schema_definitions(self):
-        result = self.run_build()
-        validate_schema(result, "report.schema.json")
-        for path in (PRODUCT_ROOT / "schemas").glob("*.schema.json"):
-            from jsonschema import Draft202012Validator
-            Draft202012Validator.check_schema(read_json(path))
+            encode(InlineInvocation("p", "reference", span, span))
+        self.assertEqual(error.exception.code, "unsupported_node")

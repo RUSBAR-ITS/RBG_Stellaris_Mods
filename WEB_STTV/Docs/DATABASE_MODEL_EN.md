@@ -23,6 +23,8 @@
 
 ## Status and data scope
 
+**Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [current guide](BACKEND_STAGE_6_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
+
 [Stage five](BACKEND_STAGE_5_EN.md) introduces database version `2`: `inline_script` expands before conversion, call history lives in `metadata.inline_scripts`, and source locations contain a root, path, line, column, and call ID. Database version 1 is no longer supported.
 
 Date: **2026-11-15**. The user agreed to the first JSON database model, now implemented under the separately approved [first backend stage](TZ_EN.md#3-first-backend-stage--database-building). It builds on the [game object description](TECHNOLOGY_MODEL_EN.md).
@@ -54,7 +56,7 @@ An unknown field, unsupported nested construct, or invalid type goes into a **se
 
 A build with these errors is unsuccessful and must not replace the working database with partial output. The construct must first be investigated and the model and its handling refined. This differs from an explicitly supported unresolved reference: for example, the known `VariableValue` form with `resolved: null` is allowed under this stage's rules.
 
-These restrictions are implemented through a [machine-readable JSON schema](../schemas/database.schema.json) and contextual builder validation. Supported nested commands and their arguments are explicitly listed in the [rule profile](../profiles/stellaris_4_5_4.json), from which the working registry is generated; the general `ScriptBlock` shape does not define that set by itself. Operation and implementation structure are described in the [first-stage guide](BACKEND_STAGE_1_EN.md); profiles and generation are covered in the [second-stage guide](BACKEND_STAGE_2_EN.md).
+These restrictions are implemented through a [machine-readable JSON schema](../schemas/database.schema.json) and contextual builder validation. Supported nested commands and their arguments are explicitly listed in the `profiles/stellaris_4_5_4.json` (removed in stage six), from which the working registry is generated; the general `ScriptBlock` shape does not define that set by itself. Operation and implementation structure are described in the [first-stage guide](BACKEND_STAGE_1_EN.md); profiles and generation are covered in the [second-stage guide](BACKEND_STAGE_2_EN.md).
 
 ## Database root object
 

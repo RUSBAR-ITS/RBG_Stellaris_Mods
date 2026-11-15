@@ -1,1 +1,1 @@
-"""Stellaris technology database building, rule profiles, and source analysis."""
+"""Read-only script parsing and syntax-tree database persistence."""

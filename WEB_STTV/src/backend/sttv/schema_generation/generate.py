@@ -5,7 +5,7 @@ from jsonschema import Draft202012Validator
 from sttv.common.paths import PRODUCT_ROOT
 from sttv.common.errors import BuildError
 from sttv.common.persistence import save_json
-from . import analysis, configuration, database, reports, rules, syntax, inline
+from . import configuration, database, reports, syntax, inline
 from .helpers import document
 
 
@@ -18,11 +18,6 @@ def declarations():
         "database.schema.json": database.schema(),
         "backend.schema.json": configuration.schema(),
         "report.schema.json": reports.schema(),
-        "profile.schema.json": rules.profile(),
-        "registry.schema.json": rules.registry(),
-        "analysis.schema.json": configuration.analysis(),
-        "analysis_report.schema.json": analysis.schema(),
-        "generation_report.schema.json": rules.generation_report(),
     }
 
 

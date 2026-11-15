@@ -15,6 +15,8 @@
 
 ## Stage result
 
+**Historical guide.** Describes the implementation before the syntax-tree database transition. Current operation and format: [stage six](BACKEND_STAGE_6_EN.md).
+
 The subsequent [configurable parser](BACKEND_STAGE_3_EN.md) adds syntax configurations, new nodes, and explicit projection into the current model. Profiles described here retain their separate role.
 
 The approved [second-stage specification](TZ_BACKEND_STAGE_2_EN.md) is implemented. The backend is organized into packages; schema generation resides in permanent code. Building uses an explicitly selected JSON profile, while a separate analyzer produces observations and recommendations.
@@ -37,7 +39,7 @@ The database retains format 1: technologies, variants, categories, tiers, local 
 
 `builder.py` coordinates builds; `src/backend/main.py` remains the CLI entry point. Tests are grouped by subsystem in `src/backend/tests/`, with shared fixtures in `support.py`.
 
-The sole object-field declaration is [technologies/contracts.py](../src/backend/sttv/technologies/contracts.py): context, name, conversion kind and cardinality. The converter and database-schema generator both consume it. A new technology field requires contract and supporting-code changes under an agreed specification.
+The sole object-field declaration is `src/backend/sttv/technologies/contracts.py` (removed in stage six): context, name, conversion kind and cardinality. The converter and database-schema generator both consume it. A new technology field requires contract and supporting-code changes under an agreed specification.
 
 ## Application schemas
 
@@ -98,7 +100,7 @@ Output paths are relative and stay inside `WORK_DIR`. Configuration, sources, sc
 
 ## Profile structure
 
-The supplied [stellaris_4_5_4.json](../profiles/stellaris_4_5_4.json) transfers effective first-stage rules: 183 shared condition commands, 23 contexts and 10 inline signatures. Shared definitions use 67 templates and 89 command groups. This is an initial profile for the researched version, not a complete engine-language specification.
+The supplied `profiles/stellaris_4_5_4.json` (removed in stage six) transfers effective first-stage rules: 183 shared condition commands, 23 contexts and 10 inline signatures. Shared definitions use 67 templates and 89 command groups. This is an initial profile for the researched version, not a complete engine-language specification.
 
 | Field | Contents |
 | --- | --- |
@@ -127,7 +129,7 @@ Per-command evidence was not recorded for the original registry. Initial-profile
 
 ## Additional analysis sources
 
-[config/analysis.json](../config/analysis.json) defaults to an empty additional-source list. Technologies use existing `TECH_PATH`, category and tier settings. Rule analysis does not require localization.
+`config/analysis.json` (removed in stage six) defaults to an empty additional-source list. Technologies use existing `TECH_PATH`, category and tier settings. Rule analysis does not require localization.
 
 Example explicitly connected source:
 

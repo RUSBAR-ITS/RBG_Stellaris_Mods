@@ -8,7 +8,7 @@ from script.assertions import check_document
 from sttv.common.errors import BuildError
 from sttv.script.nodes import Assignment, LogicalOperation, Scalar
 from sttv.script.parser import parse_text
-from sttv.script.serialization import data_entries
+from sttv.script.serialization import serialize_document
 from sttv.script.syntax import make_syntax
 
 
@@ -47,11 +47,12 @@ class LogicalOperationTests(unittest.TestCase):
         self.assertTrue(all(isinstance(n, Assignment) for n in doc.items))
         self.assertEqual(doc.items[3].value.text, 'AND')
 
-    def test_projection_canonicalizes_only_logical_names(self):
-        rows = data_entries(self.parse('aNd = { x = Or "or" = {} NOT = tech_a }'))
-        self.assertEqual((rows[0].key, rows[0].operator), ('AND', '='))
-        self.assertEqual([(n.key, n.value) for n in rows[0].value],
-                         [('x', 'Or'), ('or', []), ('NOT', 'tech_a')])
+    def test_serialization_preserves_logical_and_original_names(self):
+        row = serialize_document(self.parse('aNd = { x = Or "or" = {} NOT = tech_a }'))['items'][0]
+        self.assertEqual((row['operator'], row['name']['raw']), ('AND', 'aNd'))
+        self.assertEqual(row['body']['items'][0]['value']['text'], 'Or')
+        self.assertTrue(row['body']['items'][1]['key']['quoted'])
+        self.assertEqual(row['body']['items'][2]['kind'], 'assignment')
 
     def test_configuration_changes_recognition_without_registry(self):
         self.logical['operators'] = ['XoR']
