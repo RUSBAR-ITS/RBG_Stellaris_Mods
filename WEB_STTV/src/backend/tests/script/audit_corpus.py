@@ -2,12 +2,14 @@
 
 import hashlib
 import json
+from dataclasses import asdict
 from pathlib import Path
 
 from support import PRODUCT_ROOT
 from sttv.common.errors import BuildError
 from sttv.common.paths import output_path
 from sttv.script.parser import parse_text
+from sttv.script.nodes import Assignment, Block, Conditional, LogicalOperation, TaggedBlock
 from sttv.sources.settings import load_settings
 from script.assertions import check_document
 
@@ -15,11 +17,24 @@ PROSE = {"common/HOW_TO_MAKE_NEW_SHIPS.txt", "common/edicts/99_README_EDICTS.txt
 EXPECTED = {"common/named_colors/01_trait_colors.txt": ("missing_operator", 65)}
 
 
+def logical_count(node):
+    if isinstance(node, LogicalOperation):
+        return 1 + logical_count(node.body)
+    if isinstance(node, Assignment):
+        return logical_count(node.value)
+    if isinstance(node, TaggedBlock):
+        return logical_count(node.block)
+    if isinstance(node, (Block, Conditional)):
+        return sum(logical_count(child) for child in node.items)
+    return 0
+
+
 def audit():
     settings = load_settings(PRODUCT_ROOT / 'global_variables.json', PRODUCT_ROOT / 'config/backend.json')
     files = sorted(path for folder in ('common', 'events')
                    for path in (settings.game / folder).rglob('*.txt') if path.is_file())
     report = {'files': len(files), 'parsed': 0, 'empty': 0, 'significant_tokens': 0,
+              'logical_operations': 0, 'skipped_inline_scripts': 0, 'skipped': [],
               'prose': [], 'diagnostics': [], 'unexpected': [], 'sources_unchanged': True}
     for path in files:
         relative = path.relative_to(settings.game).as_posix()
@@ -32,6 +47,10 @@ def audit():
             report['significant_tokens'] += check_document(document, settings.syntax)
             report['parsed'] += 1
             report['empty'] += not bool(document.items)
+            report['logical_operations'] += sum(logical_count(node) for node in document.items)
+            report['skipped_inline_scripts'] += len(document.skipped_inline_scripts)
+            report['skipped'].extend({'file': relative, **asdict(span)}
+                                     for span in document.skipped_inline_scripts)
             if relative in EXPECTED:
                 report['unexpected'].append({'file': relative, 'error': 'Expected diagnostic missing'})
         except BuildError as exc:
@@ -42,10 +61,10 @@ def audit():
         except AssertionError as exc:
             report['unexpected'].append({'file': relative, 'error': 'Reconstruction mismatch: ' + str(exc)})
         report['sources_unchanged'] &= hashlib.sha256(raw).digest() == hashlib.sha256(path.read_bytes()).digest()
-    output = output_path(settings.work, 'stage3/corpus_report.json', settings.protected)
+    output = output_path(settings.work, 'stage4/corpus_report.json', settings.protected)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2), encoding='utf-8')
-    print(json.dumps(report, indent=2))
+    print(json.dumps({key: value for key, value in report.items() if key != 'skipped'}, indent=2))
     return bool(report['unexpected']) or not report['sources_unchanged']
 
 

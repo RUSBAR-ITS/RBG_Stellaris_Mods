@@ -27,7 +27,8 @@ def registry():
 def syntax():
     from sttv.script.syntax import load_syntax
     return load_syntax(PRODUCT_ROOT / "config/parser/lexical.json",
-                       PRODUCT_ROOT / "config/parser/constructs.json")
+                       PRODUCT_ROOT / "config/parser/constructs.json",
+                       PRODUCT_ROOT / "config/parser/logical_operators.json")
 
 
 def parse_entries(text):

@@ -2,6 +2,14 @@
 
 ## Contents
 
+- [2026-11-15 — third frequency pass](#2026-11-15--third-frequency-pass)
+- [2026-11-15 — fourth-stage parser implementation](#2026-11-15--fourth-stage-parser-implementation)
+- [2026-11-15 — fourth-stage parser specification](#2026-11-15--fourth-stage-parser-specification)
+- [2026-11-15 — logical operators and opaque inline_script](#2026-11-15--logical-operators-and-opaque-inline_script)
+- [2026-11-15 — keyword id](#2026-11-15--keyword-id)
+- [2026-11-15 — second frequency pass](#2026-11-15--second-frequency-pass)
+- [2026-11-15 — keywords and boolean values](#2026-11-15--keywords-and-boolean-values)
+- [2026-11-15 — text element frequency research](#2026-11-15--text-element-frequency-research)
 - [2026-11-15 — third-stage implementation: configurable parser](#2026-11-15--third-stage-implementation-configurable-parser)
 - [2026-11-15 — third-stage specification: parser and syntax configuration](#2026-11-15--third-stage-specification-parser-and-syntax-configuration)
 - [2026-11-15 — script syntax description](#2026-11-15--script-syntax-description)
@@ -19,6 +27,62 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-15 — third frequency pass
+
+- Recounted the current parser AST, excluding 36,026 logical-operator names and 6,885 complete inline_script calls while preserving logical bodies.
+- Retained case merging, yes/no exclusion, and the global minimum count of 2. Result: 59,828 distinct elements and 1,553,955 occurrences.
+- Counted 2,235 files; excluded two prose documents and recorded the known common/named_colors/01_trait_colors.txt:65 error without lexical fallback. No unexpected diagnostics.
+- Adapted the research handler and checks in TMP; updated reports and bilingual documentation. Previous artifacts are retained in pass_2_snapshot. Sources, product code, configurations, schemas, profile, and database are unchanged.
+
+## 2026-11-15 — fourth-stage parser implementation
+
+- Implemented the approved specification: separate `logical_operators.json`, `LogicalOperation` nodes, mandatory loading of three configurations, and consistency checks.
+- Token reading now follows parser requests. `inline_script` is passed as an opaque value to an expansion function with an empty stub; its contents are not parsed, while source text and skip coordinates remain available.
+- Updated database projection, builder, analyzer, schema generation, and `skipped_inline_scripts` counters. The command profile and database schema remain; other strict checks still apply.
+- All 101 tests passed. Of 2,238 corpus files, 2,235 parsed, with two prose documents and the known line-65 error in `common/named_colors/01_trait_colors.txt` accounted separately. Found 36,026 logical nodes and 6,885 skips.
+- The database matched an independently transformed baseline: 301 inline entries removed, with 679 technologies, 206 variants, and RU/EN names preserved. Source hashes are unchanged; analysis completed fully.
+- Added a bilingual stage-four guide and updated the specification, README files, database model, keyword classification, and historical guide pointers. Reports reside in `data/stage4/`; the frequency list was not recalculated.
+
+## 2026-11-15 — fourth-stage parser specification
+
+- Prepared bilingual `TZ_BACKEND_STAGE_4_RU.md` / `TZ_BACKEND_STAGE_4_EN.md` for approval: a separate logical-operator configuration, `LogicalOperation` node, opaque-value reading, and an `inline_script` expansion function with an empty stub.
+- Incorporated the user's clarification: both reference and block are skipped in full; the opaque scalar is handler input, not a retained result node. Internal inline-parsing rules were not designed.
+- Specified integration, skip counters, source-text preservation, ignored-value boundary checks, and comparison against an independently prepared database with inline entries removed. The former unchanged-database equality requirement is replaced by an explicitly bounded comparison.
+- Updated the keyword document, README files, and a database-model note in both languages. This is a stage draft: code, configurations, schemas, working database, and frequency list were unchanged.
+
+## 2026-11-15 — logical operators and opaque inline_script
+
+- Added the basic `AND`, `OR`, `NOT`, `NAND`, `NOR` rule to both keyword-document versions: case-insensitive recognition of named blocks, preserving order, repetitions, lists, and nesting without evaluating conditions.
+- Following the user's clarification, both `inline_script` value forms — reference and block — are described as one opaque scalar. Content parsing, reference following, and template expansion are deferred; no internal inline-processing rules were introduced.
+- Retained the started call and template research only in `TMP/WEB_STTV/text_frequency/`: repeatable handlers, an inventory, and a separate string-fragment report. These materials are neither parser rules nor product inputs.
+- Updated contents and document status. Changes concern documentation and temporary research materials; product code, configurations, schemas, database, frequency list, and game sources were unchanged.
+
+## 2026-11-15 — keyword id
+
+- Following user agreement, added `id` to the bilingual keyword document as a field defining or specifying the identifier of an object or group, with one entry covering different object types.
+- Recorded its purpose, the `id = identifier` form, examples, and findings from checking all 20,358 occurrences. Added a research-report link, vanilla example coordinates, and aura documentation explaining identifier-based grouping.
+- Updated contents and document status. Verified links, examples, numerical data, and consistency between language versions. Only documentation changed; the parser, configurations, database, and frequency list remain unchanged.
+
+## 2026-11-15 — second frequency pass
+
+- At the user's request, recalculated statistics without case sensitivity using Unicode `casefold`; excluded whole `yes`/`no` elements in all cases and elements with a total frequency of 1. Minimum frequency is applied after merging all files and case variants.
+- Updated TXT, JSON, report, manifest, and verification outputs in `data/text_frequency/`. Retained 61,033 elements and 1,632,370 occurrences; excluded 106,535 `yes`/`no` occurrences and 96,750 singleton elements.
+- Updated the research handler and checks in `TMP/WEB_STTV/text_frequency/`, the bilingual counting description, and the keyword document's link explanation. The new run exactly matches an independent transformation of the previous report; all 2,238 source files retained their hashes.
+- Verified case normalization, exclusion boundaries, filtering after global counting, totals, ordering, uniqueness, and TXT/JSON correspondence. Parser code/configurations, schemas, profile, and database remain unchanged.
+
+## 2026-11-15 — keywords and boolean values
+
+- Created the bilingual [Keywords and values](KEYWORDS_AND_VALUES_EN.md) document to incrementally record verified and agreed interpretations.
+- Following the user's decision, classified `yes` and `no` as boolean values. Recorded their `true`/`false` equivalents, rule boundaries, examples, and findings from checking all 106,529 occurrences.
+- Added README links. Checked contents, links, numerical data, and consistency between language versions. Only documentation changed; parser implementation, configurations, and database remain unchanged.
+
+## 2026-11-15 — text element frequency research
+
+- At the user's request, produced a combined list of text elements without role classification, sorted by decreasing frequency. The existing tokenizer processed 2,236 vanilla `.txt` files from `common/` and `events/`; two prose instruction files were excluded.
+- Measured 1,835,655 occurrences and 158,592 distinct texts. TXT, JSON, report, and manifest are saved in `data/text_frequency/`; the research handler and checks are in repository-root `TMP/WEB_STTV/text_frequency/`.
+- Added a bilingual [counting description](RESEARCH_TEXT_FREQUENCY_EN.md). Verified fixtures, token coverage, totals, ordering, uniqueness, and TXT-to-JSON round trips. Hashes of all 2,238 source files remain unchanged.
+- Product code, configuration, schemas, profile, and database were not changed. Results support the user's manual review; this is research, not a new specification.
 
 ## 2026-11-15 — third-stage implementation: configurable parser
 

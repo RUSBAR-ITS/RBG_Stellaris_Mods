@@ -86,7 +86,7 @@ def load_settings(variables_path, config_path):
         options["outputs"]["database"], options["outputs"]["report"],
         options["rules"]["registry"], options["rules"]["report"])]
     config_files = [Path(variables_path).resolve(), Path(config_path).resolve()]
-    parser_paths = [selected_path(options["parser"][key], work) for key in ("lexical", "constructs")]
+    parser_paths = [selected_path(options["parser"][key], work) for key in ("lexical", "constructs", "logical_operators")]
     config_files.extend(parser_paths)
     distinct_paths([*paths, profile, *config_files])
     syntax = load_syntax(*parser_paths)

@@ -64,6 +64,10 @@
     "constructs": {
       "base": "product",
       "path": "config/parser/constructs.json"
+    },
+    "logical_operators": {
+      "base": "product",
+      "path": "config/parser/logical_operators.json"
     }
   }
 }

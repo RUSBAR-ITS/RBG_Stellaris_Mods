@@ -27,5 +27,9 @@
     "header_close": "]",
     "body_close": "]",
     "negation": "!"
+  },
+  "inline_script": {
+    "keyword": "inline_script",
+    "case_sensitive": false
   }
 }

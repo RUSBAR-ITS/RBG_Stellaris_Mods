@@ -12,6 +12,20 @@ from sttv.common.schema import validate_schema
 class Syntax:
     lexical: dict
     constructs: dict
+    logical_operators: dict
+
+    def logical_name(self, name):
+        sensitive = self.logical_operators["case_sensitive"]
+        return next((item for item in self.logical_operators["operators"]
+                     if matches(name, item, sensitive)), None)
+
+    def is_inline(self, name):
+        spec = self.constructs["inline_script"]
+        return matches(name, spec["keyword"], spec["case_sensitive"])
+
+
+def matches(value, name, sensitive):
+    return value == name if sensitive else value.casefold() == name.casefold()
 
 
 def configuration_error(message, path):
@@ -68,17 +82,43 @@ def validate_markers(lexical, constructs):
             configuration_error("A block tag must be an unquoted atom", "tagged_blocks")
 
 
-def make_syntax(lexical, constructs):
+def validate_keywords(lexical, constructs, logical):
+    inline = constructs["inline_script"]
+    delimiters = [lexical["line_comment"], *lexical["string"].values(),
+                  *lexical["block"].values(), *lexical["operators"],
+                  *constructs["parameters"].values(), *constructs["conditional"].values(),
+                  *(v for spec in constructs["formulas"] for v in spec.values())]
+    for name in [inline["keyword"], *logical["operators"]]:
+        if (any(char.isspace() or char == "\ufeff" for char in name)
+                or any(marker in name for marker in delimiters if isinstance(marker, str))):
+            configuration_error("A keyword must be an unquoted atom", "operators")
+    sensitive = logical["case_sensitive"]
+    names = [name if sensitive else name.casefold() for name in logical["operators"]]
+    if len(set(names)) != len(names):
+        configuration_error("Duplicate logical operators", "operators")
+    for name in logical["operators"]:
+        if matches(name, inline["keyword"], sensitive and inline["case_sensitive"]):
+            configuration_error("Logical and inline keywords conflict", "operators")
+    if logical["assignment_operator"] not in lexical["operators"]:
+        configuration_error("Logical assignment sign is not a lexical operator", "assignment_operator")
+    if "=" not in lexical["operators"]:
+        configuration_error("Inline calls require the assignment sign", "inline_script")
+
+
+def make_syntax(lexical, constructs, logical_operators):
     validate_schema(lexical, "parser_lexical.schema.json")
     validate_schema(constructs, "parser_constructs.schema.json")
+    validate_schema(logical_operators, "parser_logical_operators.schema.json")
     validate_markers(lexical, constructs)
-    return Syntax(deepcopy(lexical), deepcopy(constructs))
+    validate_keywords(lexical, constructs, logical_operators)
+    return Syntax(deepcopy(lexical), deepcopy(constructs), deepcopy(logical_operators))
 
 
-def load_syntax(lexical_path, constructs_path):
+def load_syntax(lexical_path, constructs_path, logical_path):
     values = []
     for path, name in ((lexical_path, "parser_lexical.schema.json"),
-                       (constructs_path, "parser_constructs.schema.json")):
+                       (constructs_path, "parser_constructs.schema.json"),
+                       (logical_path, "parser_logical_operators.schema.json")):
         try:
             value = read_json(path)
             validate_schema(value, name)
@@ -86,8 +126,9 @@ def load_syntax(lexical_path, constructs_path):
         except BuildError as exc:
             raise BuildError(exc.code, f"{path}: {exc}", field_path=exc.field_path) from exc
     try:
-        validate_markers(*values)
+        validate_markers(*values[:2])
+        validate_keywords(*values)
         return Syntax(*deepcopy(values))
     except BuildError as exc:
-        raise BuildError(exc.code, f"{lexical_path}; {constructs_path}: {exc}",
+        raise BuildError(exc.code, f"{lexical_path}; {constructs_path}; {logical_path}: {exc}",
                          field_path=exc.field_path) from exc

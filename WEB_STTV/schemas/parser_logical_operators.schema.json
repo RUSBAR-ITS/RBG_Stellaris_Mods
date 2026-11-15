@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "assignment_operator": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "case_sensitive": {
+      "type": "boolean"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "operators": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format_version",
+    "case_sensitive",
+    "assignment_operator",
+    "operators"
+  ],
+  "type": "object"
+}

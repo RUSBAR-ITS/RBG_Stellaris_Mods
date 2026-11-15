@@ -32,6 +32,7 @@ def analyze(settings, config_path, profile=None):
         "profile_id": profile["profile_id"], "profile_revision": profile["revision"],
         "profile_fingerprint": registry["profile_fingerprint"],
         "sources": [], "observations": [], "recommendations": [], "diagnostics": [],
+        "counts": {"skipped_inline_scripts": 0},
     }
     for source in selected_sources(settings, options):
         manifest = {key: source[key] for key in ("id", "kind", "path", "enabled", "game_version")}
@@ -67,13 +68,15 @@ def analyze(settings, config_path, profile=None):
                 manifest["files"].append({"file": relative, "sha256": sha256(raw).hexdigest()})
                 text = raw.decode(source["encoding"])
                 walker = Walker(registry, source["id"], relative, text, options["excerpt_length"])
-                if source["kind"] in settings.options["definitions"]:
-                    rows = walker.technologies(data_entries(parse_text(text, settings.syntax, relative),
-                                                            purpose="analysis"), source["kind"])
-                elif source["kind"] == "engine_documentation":
+                if source["kind"] == "engine_documentation":
                     rows = documentation(walker, text, settings.syntax)
                 else:
-                    rows = script_definitions(walker, text, source["kind"], relative, settings.syntax)
+                    document = parse_text(text, settings.syntax, relative)
+                    result["counts"]["skipped_inline_scripts"] += len(document.skipped_inline_scripts)
+                    nodes = data_entries(document, purpose="analysis")
+                    rows = (walker.technologies(nodes, source["kind"])
+                            if source["kind"] in settings.options["definitions"]
+                            else script_definitions(walker, nodes, source["kind"], relative))
                 result["observations"].extend(rows)
             except (BuildError, OSError, ValueError, RecursionError) as exc:
                 manifest["status"] = "partial"

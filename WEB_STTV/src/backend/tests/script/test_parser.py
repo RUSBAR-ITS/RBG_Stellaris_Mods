@@ -45,11 +45,12 @@ class ParserTests(unittest.TestCase):
             ScriptRules(support.registry()).validate(script_block(parse_text(invalid)), "condition")
         self.assertEqual(error.exception.code, "invalid_scope")
 
-    def test_inline_parameters_and_reference_forms(self):
+    def test_inline_calls_never_reach_signature_validation(self):
         valid = ('factor = trigger:acquired_specimen_count inline_script = { '
                  'script = technologies/rare_technologies_weight_modifiers TECHNOLOGY = tech_a }')
         ScriptRules(support.registry()).validate(script_block(parse_text(valid)), "calculation")
         for text in ('inline_script = unknown/path',
                      'inline_script = { script = ai/weapon_preference_weight EXTRA = x }'):
-            with self.subTest(text=text), self.assertRaises(BuildError):
+            with self.subTest(text=text):
+                self.assertEqual(parse_text(text), [])
                 ScriptRules(support.registry()).validate(script_block(parse_text(text)), "calculation")

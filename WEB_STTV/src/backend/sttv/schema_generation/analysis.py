@@ -41,6 +41,7 @@ def schema():
     })
     return obj({
         "format_version": {"const": 1}, "status": {"enum": ["complete", "partial"]},
+        "counts": obj({"skipped_inline_scripts": {"type": "integer", "minimum": 0}}),
         "profile_id": TEXT, "profile_revision": LINE, "profile_fingerprint": HASH,
         "sources": array(source), "observations": array(observation),
         "recommendations": array(recommendation), "diagnostics": array(diagnostic()),

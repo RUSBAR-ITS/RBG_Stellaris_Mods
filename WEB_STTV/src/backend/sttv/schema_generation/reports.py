@@ -15,6 +15,6 @@ def diagnostic():
 def schema():
     return obj({"format_version": {"const": 1}, "status": {"enum": ["success", "failed"]},
                 "counts": obj({key: {"type": "integer", "minimum": 0}
-                               for key in ("files", "technologies", "variants", "errors", "warnings")}),
+                               for key in ("files", "technologies", "variants", "errors", "warnings", "skipped_inline_scripts")}),
                 "database_written": BOOL, "registry_written": BOOL,
                 "generation_report_written": BOOL, "diagnostics": array(diagnostic())})

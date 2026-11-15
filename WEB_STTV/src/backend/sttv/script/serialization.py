@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass
 
-from .nodes import Assignment, Block, Scalar
+from .nodes import Assignment, Block, LogicalOperation, Scalar
 
 
 @dataclass(frozen=True)
@@ -16,6 +16,8 @@ class DataEntry:
 
 def data_entries(document, purpose="database"):
     def convert(item):
+        if isinstance(item, LogicalOperation):
+            return DataEntry(item.operator, item.assignment_operator, value(item.body), item.span.line)
         if isinstance(item, Assignment):
             fragments = item.key.parameters + (item.value.parameters if isinstance(item.value, Scalar) else ())
             return DataEntry(item.key.text, item.operator, value(item.value), item.span.line, fragments)

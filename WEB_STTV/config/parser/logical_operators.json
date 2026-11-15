@@ -1,0 +1,6 @@
+{
+  "format_version": 1,
+  "case_sensitive": false,
+  "assignment_operator": "=",
+  "operators": ["AND", "OR", "NOT", "NAND", "NOR"]
+}

@@ -2,26 +2,45 @@
 
 from .delimiters import parameters
 from .lexer import Lexer
-from .nodes import (Assignment, Block, Conditional, Document, Formula, Scalar,
+from .inline import InlineScriptValue, expand_inline_script
+from .nodes import (Assignment, Block, Conditional, Document, Formula, LogicalOperation, Scalar,
                     Source, TaggedBlock)
 
 
 class Parser:
     def __init__(self, source, syntax):
         self.source, self.syntax = source, syntax
-        self.tokens = list(Lexer(source, syntax).tokens())
-        self.significant = [t for t in self.tokens if t.kind not in ("space", "comment", "bom")]
-        self.index = 0
+        self.lexer = Lexer(source, syntax)
+        self.tokens, self.skipped_inline_scripts = [], []
+        self.pending = None
+
+    def read(self, opaque=False):
+        while (token := self.lexer.next_token(opaque)) is not None:
+            self.tokens.append(token)
+            if token.kind not in ("space", "comment", "bom"):
+                return token
+        return None
 
     def peek(self):
-        return self.significant[self.index] if self.index < len(self.significant) else None
+        if self.pending is None:
+            self.pending = self.read()
+        return self.pending
 
     def take(self):
         token = self.peek()
         if token is None:
             self.source.fail("missing_value", "Expected a value", len(self.source.text))
-        self.index += 1
+        self.pending = None
         return token
+
+    def inline(self, key):
+        token = self.read(opaque=True)
+        if token is None:
+            self.source.fail("missing_value", "Expected an inline value", len(self.source.text))
+        form = "block" if token.raw.startswith(self.syntax.lexical["block"]["open"]) else "reference"
+        value = InlineScriptValue(token.raw, form, token.span)
+        self.skipped_inline_scripts.append(self.span(key, token))
+        return expand_inline_script(value, self.source)
 
     def span(self, start, end):
         return self.source.span(start.span.start, end.span.end)
@@ -84,7 +103,13 @@ class Parser:
             if token.kind == "formula":
                 self.source.fail("invalid_key", "A formula cannot be a key", token.span.start)
             operator = self.take().raw
+            if token.kind == "atom" and operator == "=" and self.syntax.is_inline(token.raw):
+                return self.inline(token)
             value = self.value(self.take())
+            name = self.syntax.logical_name(token.raw) if token.kind == "atom" else None
+            if (name is not None and operator == self.syntax.logical_operators["assignment_operator"]
+                    and isinstance(value, Block)):
+                return LogicalOperation(name, self.scalar(token), operator, value, self.span(token, value))
             return Assignment(self.scalar(token), operator, value, self.span(token, value))
         value = self.value(token)
         if not self.syntax.constructs["bare_values"]:
@@ -98,8 +123,9 @@ class Parser:
             if token.kind == end:
                 return items, token
             node = self.item(token)
-            items.append(node)
-            forms.add(isinstance(node, Assignment))
+            nodes = node if isinstance(node, list) else [node]
+            items.extend(nodes)
+            forms.update(isinstance(item, (Assignment, LogicalOperation)) for item in nodes)
             if len(forms) > 1 and not self.syntax.constructs["mixed_blocks"]:
                 self.source.fail("disabled_form", "Mixed containers are disabled", token.span.start)
         if end:
@@ -117,4 +143,4 @@ def parse_text(text, syntax, source_name=None):
         token = parser.peek()
         source.fail("nesting_depth", "Nesting exceeds parser capacity",
                     token.span.start if token else len(text))
-    return Document(source, parser.tokens, items)
+    return Document(source, parser.tokens, items, parser.skipped_inline_scripts)

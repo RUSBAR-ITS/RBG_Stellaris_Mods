@@ -62,6 +62,23 @@
       "type": "array",
       "uniqueItems": true
     },
+    "inline_script": {
+      "additionalProperties": false,
+      "properties": {
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "keyword": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyword",
+        "case_sensitive"
+      ],
+      "type": "object"
+    },
     "mixed_blocks": {
       "type": "boolean"
     },
@@ -105,7 +122,8 @@
     "tagged_blocks",
     "parameters",
     "formulas",
-    "conditional"
+    "conditional",
+    "inline_script"
   ],
   "type": "object"
 }

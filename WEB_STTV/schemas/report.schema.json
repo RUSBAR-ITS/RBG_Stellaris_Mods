@@ -13,6 +13,10 @@
           "minimum": 0,
           "type": "integer"
         },
+        "skipped_inline_scripts": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "technologies": {
           "minimum": 0,
           "type": "integer"
@@ -31,7 +35,8 @@
         "technologies",
         "variants",
         "errors",
-        "warnings"
+        "warnings",
+        "skipped_inline_scripts"
       ],
       "type": "object"
     },

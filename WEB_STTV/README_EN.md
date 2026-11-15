@@ -16,6 +16,8 @@ A local interactive web reference for Stellaris technologies. Its primary view i
 
 ## Status
 
+The approved [fourth parser stage](Docs/TZ_BACKEND_STAGE_4_EN.md) is implemented: a separate logical-operator configuration, `LogicalOperation` nodes, and an `inline_script` expansion function with an empty stub. All 101 tests pass; the vanilla corpus yielded 36,026 logical nodes and 6,885 skips. The database matched an independently transformed baseline; inline contributions are temporarily excluded. [Current interface, configuration, and verification](Docs/BACKEND_STAGE_4_EN.md).
+
 Implemented the approved [third stage](Docs/TZ_BACKEND_STAGE_3_EN.md): an independent parser and two compact syntax configurations. All 79 tests pass; 2,235 vanilla files parse successfully and the database matches the baseline byte for byte. Game-command semantic validation is separate from the parser. [Settings, interface, and limitations](Docs/BACKEND_STAGE_3_EN.md).
 
 The approved [second backend stage](Docs/TZ_BACKEND_STAGE_2_EN.md) is implemented: module packages, permanent schema generation, shared field contracts, JSON profiles and a separate analyzer. All 54 tests pass; database bytes match stage one. [Settings, operations and limitations](Docs/BACKEND_STAGE_2_EN.md).
@@ -72,6 +74,9 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Second stage: profiles, analyzer and programmatic operations](Docs/BACKEND_STAGE_2_EN.md).
 - [Third-stage specification: parsing engine and syntax configuration — implemented](Docs/TZ_BACKEND_STAGE_3_EN.md).
 - [Third stage: configurations, nodes, programmatic interface, and validation](Docs/BACKEND_STAGE_3_EN.md).
+- [Keywords and values: agreed classification](Docs/KEYWORDS_AND_VALUES_EN.md).
+- [Fourth-stage specification: logical operators and the inline_script handler — implemented](Docs/TZ_BACKEND_STAGE_4_EN.md).
+- [Fourth stage: interface, configurations, skips, and verification](Docs/BACKEND_STAGE_4_EN.md).
 - [Stellaris v4.5.4 technology tree research](Docs/RESEARCH_TECH_TREE_EN.md).
 - [Technology object model: fields, types, and nested structures](Docs/TECHNOLOGY_MODEL_EN.md).
 - [Stage-one JSON database model: technology structure and RU/EN names](Docs/DATABASE_MODEL_EN.md).

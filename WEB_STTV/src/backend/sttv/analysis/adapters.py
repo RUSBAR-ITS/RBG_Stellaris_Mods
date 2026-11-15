@@ -3,8 +3,7 @@
 import re
 
 from sttv.common.errors import BuildError
-from sttv.script.parser import parse_text
-from sttv.script.serialization import DataEntry, data_entries
+from sttv.script.serialization import DataEntry
 from .observations import finish
 from .walker import Walker
 
@@ -68,8 +67,7 @@ def documentation(walker, text, syntax):
     return rows
 
 
-def script_definitions(walker, text, kind, file, syntax):
-    nodes = data_entries(parse_text(text, syntax, file), purpose="analysis")
+def script_definitions(walker, nodes, kind, file):
     if kind == "inline_scripts":
         name = file[:-4] if file.endswith(".txt") else file
         parameters = parameter_names(nodes)

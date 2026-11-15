@@ -16,7 +16,7 @@ class SyntaxConfigurationTests(unittest.TestCase):
         self.constructs = deepcopy(syntax().constructs)
 
     def parse(self, text):
-        selected = make_syntax(self.lexical, self.constructs)
+        selected = make_syntax(self.lexical, self.constructs, syntax().logical_operators)
         document = parse_text(text, selected)
         check_document(document, selected)
         return document
@@ -75,21 +75,21 @@ class SyntaxConfigurationTests(unittest.TestCase):
             with self.subTest(key=key):
                 lexical = {**self.lexical, key: value}
                 with self.assertRaises(BuildError):
-                    make_syntax(lexical, self.constructs)
+                    make_syntax(lexical, self.constructs, syntax().logical_operators)
         for key, value in [('bare_values', 'yes'), ('unknown', {}), ('tagged_blocks', ['rgb', 'rgb'])]:
             with self.subTest(key=key), self.assertRaises(BuildError):
-                make_syntax(self.lexical, {**self.constructs, key: value})
+                make_syntax(self.lexical, {**self.constructs, key: value}, syntax().logical_operators)
 
     def test_conflicting_markers_are_rejected_not_order_dependent(self):
         for marker in ('=', '==', '{', '[[', '@['):
             with self.subTest(marker=marker), self.assertRaises(BuildError) as error:
-                make_syntax({**self.lexical, 'line_comment': marker}, self.constructs)
+                make_syntax({**self.lexical, 'line_comment': marker}, self.constructs, syntax().logical_operators)
             self.assertEqual(error.exception.code, 'syntax_configuration')
         with self.assertRaises(BuildError):
             make_syntax(self.lexical, {**self.constructs, 'formulas':
-                                      [{'open': '@[', 'close': ']'}, {'open': '@[', 'close': ')'}]})
+                                      [{'open': '@[', 'close': ']'}, {'open': '@[', 'close': ')'}]}, syntax().logical_operators)
         for closer in ('#', '"', '$', '@['):
             with self.subTest(closer=closer), self.assertRaises(BuildError):
-                make_syntax(self.lexical, {**self.constructs, 'formulas': [{'open': '@[', 'close': closer}]})
+                make_syntax(self.lexical, {**self.constructs, 'formulas': [{'open': '@[', 'close': closer}]}, syntax().logical_operators)
         with self.assertRaises(BuildError):
-            make_syntax({**self.lexical, 'whitespace': [' '], 'line_comment': '\n'}, self.constructs)
+            make_syntax({**self.lexical, 'whitespace': [' '], 'line_comment': '\n'}, self.constructs, syntax().logical_operators)

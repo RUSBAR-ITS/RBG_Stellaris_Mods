@@ -12,6 +12,8 @@
 
 ## Stage result
 
+Historical stage-three guide. Current signatures with three configurations, logical nodes, and skipped `inline_script` calls are described in the [stage-four guide](BACKEND_STAGE_4_EN.md). Examples and results below refer to stage three.
+
 The approved [third-stage specification](TZ_BACKEND_STAGE_3_EN.md) is implemented. The syntax engine receives text and validated configuration, preserves structure and source spelling, and works without a game-command profile. The builder and analyzer use this engine through shared settings.
 
 Sources are read directly. Validation saved a baseline database and hashes, not copies of game files. The database format remains unchanged; the current build matches the baseline byte for byte.

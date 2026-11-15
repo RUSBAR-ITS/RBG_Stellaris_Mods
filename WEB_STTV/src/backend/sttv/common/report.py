@@ -7,7 +7,7 @@ class Report:
             "format_version": 1,
             "status": "failed",
             "counts": {"files": 0, "technologies": 0, "variants": 0,
-                       "errors": 0, "warnings": 0},
+                       "errors": 0, "warnings": 0, "skipped_inline_scripts": 0},
             "diagnostics": [],
             "database_written": False,
             "registry_written": False,

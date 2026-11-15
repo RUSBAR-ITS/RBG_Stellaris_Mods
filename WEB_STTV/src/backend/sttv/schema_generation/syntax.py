@@ -24,4 +24,10 @@ def constructs():
         "formulas": array(obj({"open": TEXT, "close": TEXT}), minItems=1, uniqueItems=True),
         "conditional": obj({"open": TEXT, "header_close": TEXT,
                             "body_close": TEXT, "negation": TEXT}),
+        "inline_script": obj({"keyword": TEXT, "case_sensitive": BOOL}),
     })
+
+
+def logical_operators():
+    return obj({"format_version": {"const": 1}, "case_sensitive": BOOL,
+                "assignment_operator": TEXT, "operators": array(TEXT, uniqueItems=True)})

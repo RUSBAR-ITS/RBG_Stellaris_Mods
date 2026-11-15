@@ -96,7 +96,17 @@ class Assignment:
 
 
 @dataclass(frozen=True)
+class LogicalOperation:
+    operator: str
+    name: Scalar
+    assignment_operator: str
+    body: Block
+    span: Span
+
+
+@dataclass(frozen=True)
 class Document:
     source: Source
     tokens: list[Token]
     items: list
+    skipped_inline_scripts: list[Span]

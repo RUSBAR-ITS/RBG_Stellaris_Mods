@@ -22,6 +22,8 @@
 
 ## Status and data scope
 
+The [implemented fourth stage](BACKEND_STAGE_4_EN.md#database-and-reports) retains this database schema while excluding `inline_script` entries through a stub and canonicalizing recognized logical-block names according to configuration. Emptied parent blocks remain. Skipped inclusions do not contribute to this database; build and analysis reports expose their count as `counts.skipped_inline_scripts`.
+
 Date: **2026-11-15**. The user agreed to the first JSON database model, now implemented under the separately approved [first backend stage](TZ_EN.md#3-first-backend-stage--database-building). It builds on the [game object description](TECHNOLOGY_MODEL_EN.md).
 
 Stage inputs:
@@ -157,7 +159,7 @@ This table covers all 25 observed base-definition fields. Assumed game defaults 
 
 For example, although earlier research established `@tier5cost3` in the shared variables directory, the current collection does not read it there or insert a remembered number. Definitions from another `TECH_PATH` file are not automatically treated as global either.
 
-Nested script expressions containing `@...`, `value:...`, and inline references remain in `ScriptBlock`. This stage does not evaluate complete cost or weight expressions. A direct reference's `resolved` value is only a local constant, not the final in-game price.
+Nested script expressions containing `@...` and `value:...` remain in `ScriptBlock`; `inline_script` invocations are temporarily excluded entirely. This stage does not evaluate complete cost or weight expressions. A direct reference's `resolved` value is only a local constant, not the final in-game price.
 
 ## Requirements and relationships
 
@@ -208,7 +210,7 @@ Nested conditions retain their logical groups and evaluation scopes. For example
 
 **Storing a condition does not evaluate whether it holds.** This database contains no state from a particular game: country ethics and civics, species composition, constructed buildings, current flags, and so on. Consequently, no computed “available to this player” result is stored here. Missing information must not be treated as a condition being true or false; zero ordinary draw weight also does not prove that acquisition through another mechanism is impossible.
 
-Known references to external scripted triggers, inline inclusions, and values may be retained only under explicitly declared rules for the corresponding reference. Their bodies are not read at this stage, so the technology directory alone does not always expose complete eligibility logic. An unknown command does not automatically qualify as an external reference: the strict-schema rejection and reporting rules apply.
+Known references to external scripted triggers and values remain only under explicitly declared rules. Their bodies are not read; stage four excludes `inline_script` invocations entirely before conversion. The database therefore lacks the complete eligibility logic supplied by external inclusions. An unknown command does not automatically qualify as an external reference: strict-schema rejection and reporting rules still apply.
 
 ## Script blocks
 

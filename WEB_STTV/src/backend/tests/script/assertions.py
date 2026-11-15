@@ -1,6 +1,6 @@
 """Independent reconstruction of meaningful tokens from syntax nodes."""
 
-from sttv.script.nodes import Assignment, Block, Conditional, Formula, Scalar, TaggedBlock
+from sttv.script.nodes import Assignment, Block, Conditional, Formula, LogicalOperation, Scalar, TaggedBlock
 
 
 def node_tokens(node, syntax):
@@ -8,6 +8,8 @@ def node_tokens(node, syntax):
         return [node.raw]
     if isinstance(node, Assignment):
         return [node.key.raw, node.operator, *node_tokens(node.value, syntax)]
+    if isinstance(node, LogicalOperation):
+        return [node.name.raw, node.assignment_operator, *node_tokens(node.body, syntax)]
     if isinstance(node, TaggedBlock):
         return [node.tag.raw, *node_tokens(node.block, syntax)]
     children = [token for child in node.items for token in node_tokens(child, syntax)]
@@ -28,7 +30,17 @@ def check_document(document, syntax):
         index = token.span.end
     assert index == len(text)
     assert ''.join(token.raw for token in document.tokens) == text
-    significant = [t.raw for t in document.tokens if t.kind not in ('space', 'comment', 'bom')]
+    skips = iter(document.skipped_inline_scripts)
+    skip = next(skips, None)
+    significant = []
+    for token in document.tokens:
+        while skip and token.span.start >= skip.end:
+            skip = next(skips, None)
+        if skip and skip.start <= token.span.start < skip.end:
+            assert token.span.end <= skip.end
+            continue
+        if token.kind not in ('space', 'comment', 'bom'):
+            significant.append(token.raw)
     reconstructed = [token for node in document.items for token in node_tokens(node, syntax)]
     assert reconstructed == significant
     return len(significant)

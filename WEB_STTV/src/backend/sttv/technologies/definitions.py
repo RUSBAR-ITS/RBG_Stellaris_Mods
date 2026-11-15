@@ -25,6 +25,7 @@ def collect_definitions(settings, report, registry):
                     raise BuildError("source_overlap", "Definition source profiles overlap")
                 seen_files.add(path.resolve())
                 document = parse_text(read_source(path, profile["encoding"], report), settings.syntax, relative)
+                report.data["counts"]["skipped_inline_scripts"] += len(document.skipped_inline_scripts)
                 stage = "conversion"
                 nodes = data_entries(document)
                 variables = Variables(nodes)

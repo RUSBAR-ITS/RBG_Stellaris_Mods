@@ -108,7 +108,6 @@ class ProfileTests(unittest.TestCase):
             ("is_ai = yes is_ai = no", "condition"),
             ("factor = @external", "calculation"),
             ("factor = value:example", "calculation"),
-            ("inline_script = ai/shield_preference_weight", "calculation"),
         ]
         for text, context in good:
             rules.validate(script_block(parse_text(text)), context)
@@ -118,8 +117,10 @@ class ProfileTests(unittest.TestCase):
             ("has_resource = { type = energy amount = text }", "condition"),
             ("is_ai != yes", "condition"),
             ("factor = nan", "calculation"),
-            ("inline_script = { script = ai/weapon_preference_weight EXTRA = yes }", "calculation"),
         ]
         for text, context in bad:
             with self.subTest(text=text), self.assertRaises(BuildError):
                 rules.validate(script_block(parse_text(text)), context)
+        rules.inline("ai/shield_preference_weight", None, "fixture")
+        with self.assertRaises(BuildError):
+            rules.inline(script_block(parse_text('script = ai/weapon_preference_weight EXTRA = yes')), None, "fixture")

@@ -21,7 +21,7 @@ class ParserSettingsTests(BuildFixture):
         work = Path(self.variables['WORK_DIR'])
         folder = work / 'parser'
         folder.mkdir(parents=True, exist_ok=True)
-        for name in ('lexical', 'constructs'):
+        for name in ('lexical', 'constructs', 'logical_operators'):
             (folder / f'{name}.json').write_bytes((PRODUCT_ROOT / f'config/parser/{name}.json').read_bytes())
             self.options['parser'][name] = {'base': 'work', 'path': f'parser/{name}.json'}
         return folder
@@ -36,6 +36,27 @@ class ParserSettingsTests(BuildFixture):
                                 cwd=self.root, capture_output=True, encoding='utf-8')
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(baseline, self.database_path().read_bytes())
+
+    def test_missing_logical_config_or_selection_never_uses_defaults(self):
+        self.initialize()
+        baseline = self.database_path().read_bytes()
+        folder = self.select_work_configs()
+        (folder / 'logical_operators.json').unlink()
+        result = self.run_build()
+        self.assertEqual(result['status'], 'failed')
+        self.assertIn('logical_operators.json', result['diagnostics'][0]['message'])
+        del self.options['parser']['logical_operators']
+        self.assertEqual(self.run_build()['status'], 'failed')
+        self.assertEqual(baseline, self.database_path().read_bytes())
+
+    def test_logical_configuration_is_protected_from_outputs(self):
+        self.initialize()
+        folder = self.select_work_configs()
+        path = folder / 'logical_operators.json'
+        before = path.read_bytes()
+        self.options['outputs']['database'] = 'parser/logical_operators.json'
+        self.assertIn('output_collision', self.errors(self.run_build()))
+        self.assertEqual(path.read_bytes(), before)
 
     def test_invalid_or_missing_selected_config_preserves_all_outputs_without_fallback(self):
         settings = self.initialize()

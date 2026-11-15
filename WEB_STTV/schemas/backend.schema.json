@@ -238,11 +238,32 @@
             "path"
           ],
           "type": "object"
+        },
+        "logical_operators": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
         }
       },
       "required": [
         "lexical",
-        "constructs"
+        "constructs",
+        "logical_operators"
       ],
       "type": "object"
     },

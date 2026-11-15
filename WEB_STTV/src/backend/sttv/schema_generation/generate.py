@@ -13,6 +13,7 @@ def declarations():
     return {
         "parser_lexical.schema.json": syntax.lexical(),
         "parser_constructs.schema.json": syntax.constructs(),
+        "parser_logical_operators.schema.json": syntax.logical_operators(),
         "database.schema.json": database.schema(),
         "backend.schema.json": configuration.schema(),
         "report.schema.json": reports.schema(),
