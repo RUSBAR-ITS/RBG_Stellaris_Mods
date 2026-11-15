@@ -4,16 +4,25 @@
 class Report:
     def __init__(self):
         self.data = {
-            "format_version": 3,
+            "format_version": 5,
             "status": "failed",
             "counts": {"selected_files": 0, "parsed_files": 0, "failed_files": 0, "nodes": 0,
                        "errors": 0, "warnings": 0,
+                       'max_call_depth': 0,
+                       'parameters': dict(defaults=0, retained_fragments=0, discarded_fragments=0),
+                       'scripted_calls': {kind: dict(files=0, definitions=0, local_definitions=0,
+                            encountered=0, expanded=0, failed=0, tests=0)
+                            for kind in ('scripted_effect', 'scripted_trigger', 'script_value')},
                        "static_variables": dict(files=0, global_definitions=0, local_definitions=0,
                                                 references=0, substituted=0),
                        "inline_scripts": dict(encountered=0, expanded=0, failed=0, template_files=0, max_depth=0)},
             "sources": {},
             "inline_sources": {},
             "static_variable_sources": {},
+            'scripted_effect_sources': {},
+            'scripted_trigger_sources': {},
+            'script_value_sources': {},
+            'library_fields': {},
             "diagnostics": [],
             "database_written": False,
         }

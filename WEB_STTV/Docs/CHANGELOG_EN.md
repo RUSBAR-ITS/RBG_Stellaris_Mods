@@ -2,6 +2,10 @@
 
 ## Contents
 
+- [2026-11-15 — script value expansion implementation](#2026-11-15--script-value-expansion-implementation)
+- [2026-11-15 — script value expansion specification](#2026-11-15--script-value-expansion-specification)
+- [2026-11-15 — implemented effect and trigger expansion](#2026-11-15--implemented-effect-and-trigger-expansion)
+- [2026-11-15 — effect and trigger expansion design](#2026-11-15--effect-and-trigger-expansion-design)
 - [2026-11-15 — implemented static-variable substitution](#2026-11-15--implemented-static-variable-substitution)
 - [2026-11-15 — static-variable substitution specification](#2026-11-15--static-variable-substitution-specification)
 - [2026-11-15 — static variable directory](#2026-11-15--static-variable-directory)
@@ -44,6 +48,41 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-15 — script value expansion implementation
+
+- Implemented the approved stage-nine specification: dedicated `script_value` nodes, parameters/defaults, conditional fragments, scope prefixes, nested references, and mixed chains of four invocation kinds. Arithmetic and game state are not evaluated.
+- Added `SCRIPT_VALUES_DIR`, the eighth parser configuration, and exclusion of the fifth library from independent traversal. The index uses shared named-library settings, retains environments, and leaves unused bodies unexpanded.
+- Raised database format to 3 and report format to 5. New nodes use a single JSON Pointer in shared history; previous invocation kinds retain ranges. Updated serialization, history validation, static substitution, reports, and analysis; generated all 11 schemas.
+- All 154 tests passed, including 26 new tests. Technology build: 35 files, 82,246 nodes, 36 script values, 1,776 triggers, 301 inline insertions, and 1,929 static substitutions, without errors or warnings. Independent surrounding/expansion checks, seven additional examples, and byte-identical rebuilding passed.
+- Full audit completed: 1,466 successful inputs, two documentation exclusions, 21 failing files; checked 7,464,925 nodes and shared history. Nineteen failures are previous; new cases are an extra argument delimiter and `BONUS` / `$bonus$` mismatch under the current parameter case setting. One previous library input is excluded without fixing its source. All 11,674 successful script value expansions and two failures are counted in the report; new frequency lists are separate, and source/previous-output hashes are unchanged.
+- Prepared the bilingual stage-nine guide, updated README, concept, specification statuses, and the stage-eight guide's historical notice. All 102 backend Python files are at most 160 lines. The verification database and reports are under `data/stage9/`; previous results and lists are preserved.
+
+## 2026-11-15 — script value expansion specification
+
+- Prepared the bilingual stage-nine draft: a script value library, dedicated calculation node, parameters, evaluation scopes, mixed expansion, and preservation of arithmetic without evaluating results.
+- Proposed `SCRIPT_VALUES_DIR`, a separate reference-form configuration, exclusion of the fifth library from independent traversal, database format 3, report format 5, and single-node addressing in shared history. These changes are not implemented yet.
+- Included findings from 15 files with 674 definitions and source references in `common/` and `events/`, plus requirements for diagnostics, static environments, analysis, and synthetic/corpus checks.
+- Updated README and general-specification links and statuses in both languages. Code, operational configuration, schemas, and the working database were unchanged; the specification awaits approval.
+
+## 2026-11-15 — implemented effect and trigger expansion
+
+- Implemented approved stage eight: a dedicated named-call module, prebuilt indexes of both libraries, mixed inline expansion, parameters, defaults, and conditional fragments. Added `SCRIPTED_TRIGGERS_DIR`; four libraries are excluded from independent traversal.
+- Effects are inserted into the caller's body; boolean triggers retain result boundaries through `AND` and `NOT`. Nonboolean tests use `scripted_trigger_test` with operator, value, and expanded body, without evaluating game results.
+- Added separate variable environments for libraries and arguments, shared cycle/depth/created-node limits, and consumed-source verification before publication. Unified `metadata.expansions` history remains separate from analytics.
+- An additional test exposed and resolved directive handling in conditional and inline fragments: history contains actually removed markers, and nested insertion positions are adjusted after removal.
+- The full audit and repeat after the directive fix matched: 1,481 successful inputs, two documentation exclusions, and 21 failing files, including 17 previous failures. Serialization and history covered 7,177,784 nodes; separate frequency lists were generated. All consumed sources and previous lists were preserved.
+- With separate user approval, added `root_definition_files = ["common/game_rules/*.txt"]`: retain root definitions, expand inner calls, and propagate context to root inline insertions. This removes the false `NOMAD` diagnostic caused by a game rule sharing a trigger name. Both directory files passed without errors or warnings. Combining full and targeted runs leaves 20 failing inputs; the guide documents the list and limitations. Full-run frequency lists reflect the state before this targeted correction.
+- Connected the seventh parser configuration, `scripted_calls.json`, and tenth generated schema. Database format is now 2 and report format 4; rebuild older databases. Structural consumers and checks were updated without restoring a command profile.
+- All 128 tests passed. Real technology build: 35 files, 81,502 nodes, 1,776 expanded triggers, 32 nonboolean tests, 301 inline insertions, and 1,929 static substitutions, with no errors or warnings. Independent comparison of every field and value, byte-identical rebuilding, and source checks passed.
+- Verification database and reports go under `data/stage8/`; previous standard outputs and curated lists are preserved. Added a bilingual guide and updated README, concept, and specification statuses. The stage-seven guide is marked historical. All 89 backend Python files remain at most 200 lines; all 10 schemas match their generator.
+
+## 2026-11-15 — effect and trigger expansion design
+
+- Prepared the bilingual stage-eight specification for review: a dedicated scripted effect/trigger expander, inline coordination, indexes, arguments/defaults/conditional fragments, and static-variable environments.
+- Proposed a separate node preserving nonboolean tests, unified mixed-call history, database format 2, and report format 4. Adding `SCRIPTED_TRIGGERS_DIR` and excluding its library from traversal are planned in the specification; operational configuration and product code remain unchanged.
+- Inspected 80 library files and 35 technology files: 1,691 effects, 1,692 triggers, numeric comparisons, formula arguments, and service directives. Materials are under `data/stage8/specification_research/`; this is an inventory, not completed expansion or game validation.
+- Updated README and general-specification links and statuses in both languages. Stage-eight implementation has not started.
 
 ## 2026-11-15 — implemented static-variable substitution
 

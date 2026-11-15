@@ -19,7 +19,7 @@ def fixture(text, templates=None):
     options = read_json(PRODUCT_ROOT / "config/parser/inline_scripts.json")
     context = Expansion(MemoryTemplates(templates or {}, options), options)
     document = parse_text(text, syntax(), "fixture.txt", expansion=context)
-    return {"format": "sttv.parse_database", "format_version": 1,
+    return {"format": "sttv.parse_database", "format_version": 3,
             "documents": [serialize_document(document)]}, document
 
 
@@ -37,7 +37,7 @@ class ValidationTests(unittest.TestCase):
             def json_form(value):
                 return json.loads(json.dumps(value))
             self.assertEqual({k: v for k, v in encoded.items() if k != "kind" and k not in ("value", "items", "body", "key", "name")},
-                             {k: json_form(v) for k, v in asdict(original).items() if k not in ("value", "items", "body", "key", "name")})
+                         {k: json_form(v) for k, v in asdict(original).items() if k not in ("value", "items", "body", "key", "name", "environment")})
         parameters = loaded["documents"][0]["items"][4]["value"]["parameters"]
         self.assertEqual(parameters[0]["default"], "fallback")
 
@@ -58,7 +58,7 @@ class ValidationTests(unittest.TestCase):
         db, _ = fixture('box={ inline_script=outer inline_script=empty }',
                         {'outer.txt': 'a=yes inline_script=inner', 'inner.txt': 'b=no', 'empty.txt': ''})
         validate_database(db)
-        history = db["documents"][0]["metadata"]["inline_scripts"]
+        history = db["documents"][0]["metadata"]["expansions"]
         self.assertEqual([c["insertion"]["count"] for c in history], [2, 1, 0])
         self.assertEqual(history[1]["parent_id"], history[0]["id"])
         self.assertEqual(history[0]["insertion"]["container"], "/items/0/value/items")
@@ -71,11 +71,11 @@ class ValidationTests(unittest.TestCase):
                      lambda h: h[1]["insertion"].update(index=0)]
         for mutate in mutations:
             damaged = deepcopy(db)
-            mutate(damaged["documents"][0]["metadata"]["inline_scripts"])
+            mutate(damaged["documents"][0]["metadata"]["expansions"])
             with self.subTest(mutation=mutate), self.assertRaises(BuildError):
                 validate_database(damaged)
         damaged = deepcopy(db)
-        damaged["documents"][0]["items"][0]["origin"]["inline_call_id"] = "missing"
+        damaged["documents"][0]["items"][0]["origin"]["expansion_id"] = "missing"
         with self.assertRaises(BuildError):
             validate_database(damaged)
 

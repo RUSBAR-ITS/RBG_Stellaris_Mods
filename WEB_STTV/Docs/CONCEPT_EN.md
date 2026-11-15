@@ -18,7 +18,7 @@ Project: **Stellaris Technological Tree View**, directory: `WEB_STTV`. This docu
 
 **User decision dated 2026-11-15:** JSON containing parsing results becomes the primary database. Mandatory conversion to a strict technology domain model and validation of game names against a profile are dropped from the target design. Enrichment by specific fields and rules belongs to later stages.
 
-The transition is implemented under the approved [stage-six specification](TZ_BACKEND_STAGE_6_EN.md). Stage seven adds static-variable substitution without separate replacement history; the current process and results are described in the [guide](BACKEND_STAGE_7_EN.md).
+The transition is implemented under the approved [stage-six specification](TZ_BACKEND_STAGE_6_EN.md). Stage seven added static variables; stage eight added named effects/triggers coordinated with inline insertions; stage nine adds script value nodes with parameters and evaluation scopes. The current process and results are described in the [stage-nine guide](BACKEND_STAGE_9_EN.md).
 
 The [previous database model](DATABASE_MODEL_EN.md) and [stage-five guide](BACKEND_STAGE_5_EN.md) describe the historical implementation. Game files are read-only. The interface and portable distribution are not implemented yet.
 
@@ -64,13 +64,13 @@ Saving parsing results does not depend on localized names, computed values, or a
 
 The primary database is a JSON representation of parsing results. It preserves constructs supported by the parser: names, operators, values, nesting, order, repeated entries, and provenance. An unknown field or command name alone does not justify rejecting storage. Closed technology-field lists and command profiles no longer define the target storage foundation.
 
-Format `sttv.parse_database` version 1 stores source-file trees in the `documents` array, preserving node kinds, order, and repetition. It is defined in the [stage-six specification](TZ_BACKEND_STAGE_6_EN.md#5-persisted-json-format). This is a convention for representing parser output; storage does not require listing all game fields and commands. Reading, syntax, and expansion errors continue to produce diagnostics; incomplete output must not be published as a success.
+Format `sttv.parse_database` version 3 stores source-file trees in the `documents` array, preserving node kinds, order, and repetition. The current description is in [stage nine](BACKEND_STAGE_9_EN.md#database-format-and-history): shared `expansions` history, `scripted_trigger_test`, and `script_value` extend structural storage. Calculation bodies and scopes are preserved without evaluating results. Storage does not require listing all game fields and commands. Reading, syntax, and expansion errors produce diagnostics; incomplete output must not be published as a success.
 
 | Material | Purpose |
 | --- | --- |
 | Source settings | Selected paths and source priorities |
 | Parsing-results database | Saved definition structure and provenance |
-| Service metadata | Inline-call history and source mappings outside game-data analysis |
+| Service metadata | Inline/effect/trigger history and source bindings outside game analytics |
 | Enriched data | Names, relationships, and other information from later stages; placement not yet selected |
 | Processing report | Checks and diagnostics separate from the database |
 | Prepared images | Interface images from later stages |

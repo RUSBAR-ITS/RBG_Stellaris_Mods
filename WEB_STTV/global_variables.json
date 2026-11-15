@@ -4,10 +4,12 @@
   "TECH_PATH": "common/technology",
   "INLINE_SCRIPTS_DIR": "common/inline_scripts",
   "SCRIPTED_EFFECTS_DIR": "common/scripted_effects",
+  "SCRIPTED_TRIGGERS_DIR": "common/scripted_triggers",
   "SCRIPTED_VARIABLES_DIR": "common/scripted_variables",
   "WORKSHOP_DIR": "E:/SteamLibrary/steamapps/workshop/content/281990",
   "RU_LOC_TIER_1": "${WORKSHOP_DIR}/681483874/localisation/replace",
   "RU_LOC_TIER_2": "${WORKSHOP_DIR}/681483874/localisation/russian",
   "RU_LOC_TIER_3": "localisation/russian",
-  "EN_LOC_TIER_1": "localisation/english"
+  "EN_LOC_TIER_1": "localisation/english",
+  "SCRIPT_VALUES_DIR": "common/script_values"
 }

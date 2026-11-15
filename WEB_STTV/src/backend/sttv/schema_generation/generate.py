@@ -5,12 +5,14 @@ from jsonschema import Draft202012Validator
 from sttv.common.paths import PRODUCT_ROOT
 from sttv.common.errors import BuildError
 from sttv.common.persistence import save_json
-from . import configuration, database, reports, syntax, inline, static_variables
+from . import configuration, database, reports, syntax, inline, static_variables, scripted, values
 from .helpers import document
 
 
 def declarations():
     return {
+        "parser_script_values.schema.json": values.configuration(),
+        "parser_scripted_calls.schema.json": scripted.configuration(),
         "parser_static_variables.schema.json": static_variables.configuration(),
         "parser_inline_scripts.schema.json": inline.configuration(),
         "parser_exceptions.schema.json": inline.exceptions(),

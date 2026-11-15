@@ -31,6 +31,10 @@ class Settings:
     scripted_variables_directory: Path
     parser_exceptions: dict
     static_rules: Rules
+    scripted_triggers_directory: Path
+    scripted_options: dict
+    script_values_directory: Path
+    value_options: dict
 
 
 def substitute(value, lookup):
@@ -67,7 +71,7 @@ def load_settings(variables_path, config_path):
     options = read_json(config_path)
     validate_schema(options, "backend.schema.json")
     required = {"WORK_DIR", "STELLARIS_ROOT", "INLINE_SCRIPTS_DIR", "SCRIPTED_EFFECTS_DIR",
-                "SCRIPTED_VARIABLES_DIR"}
+                "SCRIPTED_VARIABLES_DIR", "SCRIPTED_TRIGGERS_DIR", "SCRIPT_VALUES_DIR"}
     required.update(spec["variable"] for spec in options["sources"])
     missing = required - values.keys()
     if missing:
@@ -76,9 +80,11 @@ def load_settings(variables_path, config_path):
     inline_directory = path_from(values["INLINE_SCRIPTS_DIR"], game)
     scripted_effects_directory = path_from(values["SCRIPTED_EFFECTS_DIR"], game)
     scripted_variables_directory = path_from(values["SCRIPTED_VARIABLES_DIR"], game)
+    scripted_triggers_directory = path_from(values['SCRIPTED_TRIGGERS_DIR'], game)
+    script_values_directory = path_from(values['SCRIPT_VALUES_DIR'], game)
     sources = [{**spec, "directory": path_from(values[spec["variable"]], game)}
                for spec in options["sources"]]
-    directories = [inline_directory, scripted_effects_directory, scripted_variables_directory,
+    directories = [script_values_directory, inline_directory, scripted_effects_directory, scripted_variables_directory, scripted_triggers_directory,
                    *(spec["directory"] for spec in sources)]
     if any(not path.is_relative_to(game) for path in directories):
         raise BuildError("unsafe_source", "Source directories must remain inside STELLARIS_ROOT")
@@ -97,7 +103,10 @@ def load_settings(variables_path, config_path):
     inline_config = selected_path(options["parser"]["inline_scripts"], work)
     exceptions_config = selected_path(options["parser"]["exceptions"], work)
     static_config = selected_path(options["parser"]["static_variables"], work)
-    config_files.extend([*parser_paths, inline_config, exceptions_config, static_config])
+    scripted_config = selected_path(options['parser']['scripted_calls'], work)
+    value_config = selected_path(options['parser']['script_values'], work)
+    config_files.append(value_config)
+    config_files.extend([*parser_paths, inline_config, exceptions_config, static_config, scripted_config])
     distinct_paths([*paths, *config_files])
     inline_options = read_json(inline_config)
     validate_schema(inline_options, "parser_inline_scripts.schema.json")
@@ -105,13 +114,20 @@ def load_settings(variables_path, config_path):
     validate_schema(parser_exceptions, "parser_exceptions.schema.json")
     syntax = load_syntax(*parser_paths)
     static_rules = Rules(read_json(static_config), syntax)
+    scripted_options = read_json(scripted_config)
+    validate_schema(scripted_options, 'parser_scripted_calls.schema.json')
+    from sttv.script.values.references import validate_options
+    value_options = read_json(value_config)
+    validate_options(value_options, syntax)
     return Settings(values, options, work, game, sources, *paths, roots, config_files,
                     syntax, inline_directory, inline_options, scripted_effects_directory,
-                    scripted_variables_directory, parser_exceptions, static_rules)
+                    scripted_variables_directory, parser_exceptions, static_rules,
+                    scripted_triggers_directory, scripted_options, script_values_directory, value_options)
 
 
 def check_sources(settings):
-    directories = {settings.game, settings.inline_directory, settings.scripted_variables_directory,
+    directories = {settings.script_values_directory, settings.game, settings.inline_directory, settings.scripted_variables_directory,
+                   settings.scripted_effects_directory, settings.scripted_triggers_directory,
                    *(spec["directory"] for spec in settings.sources)}
     for directory in sorted(directories):
         if not directory.is_dir():

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "argument_separator": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "reference_prefix": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scope_separator": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "reference_prefix",
+    "scope_separator",
+    "argument_separator"
+  ],
+  "type": "object"
+}

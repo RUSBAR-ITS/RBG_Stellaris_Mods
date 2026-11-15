@@ -142,7 +142,7 @@ def parse_source(source, syntax, specials=True):
         source.fail("nesting_depth", "Nesting exceeds parser capacity",
                     token.span.start if token else len(source.text))
     return Document(source, parser.tokens, [locate(item, source) for item in items],
-                    {"inline_scripts": []})
+                    {"expansions": []})
 
 
 def parse_text(text, syntax, source_name=None, *, expansion=None, role="source", root="STELLARIS_ROOT"):

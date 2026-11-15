@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "definition_directives": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "encoding": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "file_fields": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "format_version": {
+      "const": 1
+    },
+    "max_call_depth": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "max_expanded_nodes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "name_case_sensitive": {
+      "type": "boolean"
+    },
+    "parameter_case_sensitive": {
+      "type": "boolean"
+    },
+    "pattern": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "recursive": {
+      "type": "boolean"
+    },
+    "root_definition_files": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format_version",
+    "pattern",
+    "recursive",
+    "encoding",
+    "name_case_sensitive",
+    "parameter_case_sensitive",
+    "max_call_depth",
+    "max_expanded_nodes",
+    "root_definition_files",
+    "file_fields",
+    "definition_directives"
+  ],
+  "type": "object"
+}

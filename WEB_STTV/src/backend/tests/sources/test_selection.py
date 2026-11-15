@@ -18,7 +18,7 @@ class SelectionTests(BuildFixture):
             directory.mkdir(parents=True, exist_ok=True)
             content = '@nested = 1' if folder.endswith('/nested') else '@local_library = 2'
             if 'effect_library' in folder:
-                content = 'unclosed = {'
+                content = ('nested_effect' if folder.endswith('/nested') else 'root_effect') + ' = {}'
             (directory / 'bad.txt').write_text(content, encoding='utf-8')
         (self.inline / 'template.txt').write_text('expanded = $VALUE$', encoding='utf-8')
         for folder in ('common/effect_library_extra', 'common/scripted_effects', 'events',

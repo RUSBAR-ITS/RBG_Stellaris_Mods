@@ -8,6 +8,10 @@
     }
   ],
   "parser": {
+    "scripted_calls": {
+      "base": "product",
+      "path": "config/parser/scripted_calls.json"
+    },
     "static_variables": {
       "base": "product",
       "path": "config/parser/static_variables.json"
@@ -31,6 +35,10 @@
     "logical_operators": {
       "base": "product",
       "path": "config/parser/logical_operators.json"
+    },
+    "script_values": {
+      "base": "product",
+      "path": "config/parser/script_values.json"
     }
   },
   "outputs": {

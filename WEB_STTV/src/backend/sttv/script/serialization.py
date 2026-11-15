@@ -4,15 +4,16 @@ from dataclasses import fields, is_dataclass
 
 from sttv.common.errors import BuildError
 from .nodes import (Assignment, Block, Conditional, Formula, Located,
-                    LogicalOperation, Scalar, TaggedBlock)
+                    LogicalOperation, Scalar, TaggedBlock, ScriptedTriggerTest, ScriptValue)
 
 KINDS = {Scalar: "scalar", Formula: "formula", Block: "block",
          TaggedBlock: "tagged_block", Conditional: "conditional",
-         Assignment: "assignment", LogicalOperation: "logical_operation"}
+         Assignment: "assignment", LogicalOperation: "logical_operation",
+         ScriptedTriggerTest: "scripted_trigger_test", ScriptValue: "script_value"}
 CHILDREN = {"scalar": (), "formula": (), "block": ("items",),
             "conditional": ("items",), "tagged_block": ("tag", "block"),
             "assignment": ("key", "value"),
-            "logical_operation": ("name", "body")}
+            "logical_operation": ("name", "body"), "scripted_trigger_test": ("value", "body"), "script_value": ("body",)}
 
 
 def encode(value):
@@ -21,7 +22,7 @@ def encode(value):
         if kind is None:
             raise BuildError("unsupported_node", f"Cannot persist {type(value).__name__}")
         return {"kind": kind, **{field.name: encode(getattr(value, field.name))
-                                 for field in fields(value)}}
+                                 for field in fields(value) if field.name != 'environment'}}
     if is_dataclass(value):
         return {field.name: encode(getattr(value, field.name)) for field in fields(value)}
     if isinstance(value, (tuple, list)):

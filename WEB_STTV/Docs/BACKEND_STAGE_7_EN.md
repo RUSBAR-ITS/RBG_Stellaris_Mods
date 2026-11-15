@@ -13,6 +13,8 @@
 
 ## Status and process
 
+This document preserves stage seven. Current implementation: [stage eight](BACKEND_STAGE_8_EN.md).
+
 The approved [stage-seven specification](TZ_BACKEND_STAGE_7_EN.md) is implemented. Builds read shared static variables, parse independent scripts, expand nested `inline_script` calls, substitute `@name` values, and persist trees as JSON. Game sources are read-only. The [stage-six guide](BACKEND_STAGE_6_EN.md) preserves the previous state.
 
 ## Invocation and outputs

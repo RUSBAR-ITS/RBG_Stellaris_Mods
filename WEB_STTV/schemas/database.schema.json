@@ -67,6 +67,9 @@
             },
             {
               "$ref": "#/$defs/tagged_block"
+            },
+            {
+              "$ref": "#/$defs/script_value"
             }
           ]
         }
@@ -226,9 +229,393 @@
         "metadata": {
           "additionalProperties": false,
           "properties": {
-            "inline_scripts": {
+            "expansions": {
               "items": {
                 "additionalProperties": false,
+                "allOf": [
+                  {
+                    "if": {
+                      "properties": {
+                        "kind": {
+                          "const": "inline_script"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "insertion": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "container": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "count": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "index": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "container",
+                            "index",
+                            "count"
+                          ],
+                          "type": "object"
+                        },
+                        "invocation": {
+                          "properties": {
+                            "form": {
+                              "enum": [
+                                "reference",
+                                "arguments"
+                              ]
+                            },
+                            "operator": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "target": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "file": {
+                              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "file"
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "kind": {
+                          "const": "scripted_effect"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "insertion": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "container": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "count": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "index": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "container",
+                            "index",
+                            "count"
+                          ],
+                          "type": "object"
+                        },
+                        "invocation": {
+                          "properties": {
+                            "form": {
+                              "enum": [
+                                "boolean",
+                                "arguments"
+                              ]
+                            },
+                            "operator": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "target": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "file": {
+                              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                              "type": "string"
+                            },
+                            "name": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "span": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "column": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "end": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                },
+                                "end_column": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "end_line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "start": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end",
+                                "line",
+                                "column",
+                                "end_line",
+                                "end_column"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "file",
+                            "span"
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "kind": {
+                          "const": "scripted_trigger"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "insertion": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "container": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "count": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "index": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "container",
+                            "index",
+                            "count"
+                          ],
+                          "type": "object"
+                        },
+                        "invocation": {
+                          "properties": {
+                            "form": {
+                              "enum": [
+                                "boolean",
+                                "arguments",
+                                "test"
+                              ]
+                            },
+                            "operator": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          }
+                        },
+                        "target": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "file": {
+                              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                              "type": "string"
+                            },
+                            "name": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "span": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "column": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "end": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                },
+                                "end_column": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "end_line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "start": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end",
+                                "line",
+                                "column",
+                                "end_line",
+                                "end_column"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "file",
+                            "span"
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "if": {
+                      "properties": {
+                        "kind": {
+                          "const": "script_value"
+                        }
+                      }
+                    },
+                    "then": {
+                      "properties": {
+                        "directives": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "maxItems": 0,
+                          "type": "array"
+                        },
+                        "insertion": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "node": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "node"
+                          ],
+                          "type": "object"
+                        },
+                        "invocation": {
+                          "properties": {
+                            "form": {
+                              "enum": [
+                                "reference",
+                                "arguments"
+                              ]
+                            },
+                            "operator": {
+                              "type": "null"
+                            }
+                          }
+                        },
+                        "target": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "file": {
+                              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                              "type": "string"
+                            },
+                            "name": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "span": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "column": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "end": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                },
+                                "end_column": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "end_line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "line": {
+                                  "minimum": 1,
+                                  "type": "integer"
+                                },
+                                "start": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "start",
+                                "end",
+                                "line",
+                                "column",
+                                "end_line",
+                                "end_column"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "name",
+                            "file",
+                            "span"
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    }
+                  }
+                ],
                 "properties": {
                   "arguments": {
                     "items": {
@@ -257,38 +644,97 @@
                   "call_site": {
                     "$ref": "#/$defs/origin"
                   },
-                  "form": {
-                    "enum": [
-                      "reference",
-                      "block"
-                    ]
+                  "directives": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array"
                   },
                   "id": {
                     "minLength": 1,
                     "type": "string"
                   },
                   "insertion": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "container": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "count": {
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "index": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "container",
+                          "index",
+                          "count"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "node": {
+                            "minLength": 1,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "node"
+                        ],
+                        "type": "object"
+                      }
+                    ]
+                  },
+                  "invocation": {
                     "additionalProperties": false,
                     "properties": {
-                      "container": {
-                        "minLength": 1,
+                      "form": {
+                        "enum": [
+                          "reference",
+                          "arguments",
+                          "boolean",
+                          "test"
+                        ]
+                      },
+                      "operator": {
+                        "anyOf": [
+                          {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "raw": {
                         "type": "string"
-                      },
-                      "count": {
-                        "minimum": 0,
-                        "type": "integer"
-                      },
-                      "index": {
-                        "minimum": 0,
-                        "type": "integer"
                       }
                     },
                     "required": [
-                      "container",
-                      "index",
-                      "count"
+                      "operator",
+                      "form",
+                      "raw"
                     ],
                     "type": "object"
+                  },
+                  "kind": {
+                    "enum": [
+                      "inline_script",
+                      "scripted_effect",
+                      "scripted_trigger",
+                      "script_value"
+                    ]
                   },
                   "parent_id": {
                     "anyOf": [
@@ -301,35 +747,89 @@
                       }
                     ]
                   },
-                  "script": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "raw": {
-                        "type": "string"
+                  "target": {
+                    "anyOf": [
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "file": {
+                            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "file"
+                        ],
+                        "type": "object"
                       },
-                      "value": {
-                        "minLength": 1,
-                        "type": "string"
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "file": {
+                            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                            "type": "string"
+                          },
+                          "name": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "span": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "column": {
+                                "minimum": 1,
+                                "type": "integer"
+                              },
+                              "end": {
+                                "minimum": 0,
+                                "type": "integer"
+                              },
+                              "end_column": {
+                                "minimum": 1,
+                                "type": "integer"
+                              },
+                              "end_line": {
+                                "minimum": 1,
+                                "type": "integer"
+                              },
+                              "line": {
+                                "minimum": 1,
+                                "type": "integer"
+                              },
+                              "start": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "start",
+                              "end",
+                              "line",
+                              "column",
+                              "end_line",
+                              "end_column"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "file",
+                          "span"
+                        ],
+                        "type": "object"
                       }
-                    },
-                    "required": [
-                      "raw",
-                      "value"
-                    ],
-                    "type": "object"
-                  },
-                  "template": {
-                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                    "type": "string"
+                    ]
                   }
                 },
                 "required": [
                   "id",
                   "parent_id",
+                  "kind",
                   "call_site",
-                  "form",
-                  "script",
-                  "template",
+                  "target",
+                  "invocation",
+                  "directives",
                   "arguments",
                   "insertion"
                 ],
@@ -339,7 +839,7 @@
             }
           },
           "required": [
-            "inline_scripts"
+            "expansions"
           ],
           "type": "object"
         },
@@ -594,6 +1094,30 @@
           "then": {
             "$ref": "#/$defs/logical_operation"
           }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "script_value"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/script_value"
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "scripted_trigger_test"
+              }
+            }
+          },
+          "then": {
+            "$ref": "#/$defs/scripted_trigger_test"
+          }
         }
       ],
       "properties": {
@@ -605,7 +1129,9 @@
             "tagged_block",
             "conditional",
             "assignment",
-            "logical_operation"
+            "logical_operation",
+            "script_value",
+            "scripted_trigger_test"
           ]
         }
       },
@@ -617,6 +1143,17 @@
     "origin": {
       "additionalProperties": false,
       "properties": {
+        "expansion_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
         "file": {
           "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
           "type": "string"
@@ -665,17 +1202,6 @@
           ],
           "type": "object"
         },
-        "inline_call_id": {
-          "anyOf": [
-            {
-              "minLength": 1,
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
         "placeholder": {
           "$ref": "#/$defs/origin"
         },
@@ -723,13 +1249,16 @@
             "end_column"
           ],
           "type": "object"
+        },
+        "synthetic": {
+          "type": "boolean"
         }
       },
       "required": [
         "root",
         "file",
         "span",
-        "inline_call_id"
+        "expansion_id"
       ],
       "type": "object"
     },
@@ -871,6 +1400,155 @@
       ],
       "type": "object"
     },
+    "script_value": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/block"
+        },
+        "kind": {
+          "const": "script_value"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "scope",
+        "body"
+      ],
+      "type": "object"
+    },
+    "scripted_trigger_test": {
+      "additionalProperties": false,
+      "properties": {
+        "body": {
+          "$ref": "#/$defs/block"
+        },
+        "kind": {
+          "const": "scripted_trigger_test"
+        },
+        "operator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "origin": {
+          "$ref": "#/$defs/origin"
+        },
+        "span": {
+          "additionalProperties": false,
+          "properties": {
+            "column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "end_column": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "end_line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "line": {
+              "minimum": 1,
+              "type": "integer"
+            },
+            "start": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "start",
+            "end",
+            "line",
+            "column",
+            "end_line",
+            "end_column"
+          ],
+          "type": "object"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/scalar"
+            },
+            {
+              "$ref": "#/$defs/formula"
+            },
+            {
+              "$ref": "#/$defs/script_value"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "span",
+        "origin",
+        "operator",
+        "value",
+        "body"
+      ],
+      "type": "object"
+    },
     "tagged_block": {
       "additionalProperties": false,
       "properties": {
@@ -949,7 +1627,7 @@
       "const": "sttv.parse_database"
     },
     "format_version": {
-      "const": 1
+      "const": 3
     }
   },
   "required": [

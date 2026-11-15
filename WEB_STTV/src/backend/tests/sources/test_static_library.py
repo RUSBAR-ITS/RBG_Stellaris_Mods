@@ -35,7 +35,7 @@ class StaticLibraryTests(BuildFixture):
         self.assertEqual(second['status'], 'success', second)
         self.assertNotEqual(first['static_variable_sources'], second['static_variable_sources'])
         self.assertEqual(self.database()['documents'][0]['items'][0]['value']['text'], '8')
-        self.assertEqual(second['format_version'], 3)
+        self.assertEqual(second['format_version'], 5)
         validate_schema(second, 'report.schema.json')
 
     def test_global_failure_precedes_documents_and_preserves_database(self):

@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "pattern": "*.txt",
+  "recursive": true,
+  "encoding": "utf-8-sig",
+  "name_case_sensitive": false,
+  "parameter_case_sensitive": true,
+  "max_call_depth": 64,
+  "max_expanded_nodes": 1000000,
+  "root_definition_files": ["common/game_rules/*.txt"],
+  "file_fields": ["namespace"],
+  "definition_directives": ["optimize_memory"]
+}

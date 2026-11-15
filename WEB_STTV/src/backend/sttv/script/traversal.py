@@ -6,7 +6,8 @@ from .nodes import Located
 
 
 def locate(node, source):
-    changes = {"origin": source.origin(node.span.start, node.span.end)}
+    changes = {"origin": source.origin(node.span.start, node.span.end),
+               "environment": source.environment_at(node.span.start, node.span.end)}
     for field in fields(node):
         value = getattr(node, field.name)
         if isinstance(value, Located):

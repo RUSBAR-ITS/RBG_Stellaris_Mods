@@ -34,8 +34,8 @@ class StaticBuildTests(BuildFixture):
                 text='3' if file.endswith('/base.txt') else '7')
             self.assertEqual(document, expected)
             self.assertEqual(document['items'][1]['value']['items'][1]['value']['text'], '@cost')
-            self.assertEqual(document['metadata']['inline_scripts'][0]['arguments'][0]['value'], '@cost')
-            self.assertIsNotNone(amount['origin']['inline_call_id'])
+            self.assertEqual(document['metadata']['expansions'][0]['arguments'][0]['value'], '@cost')
+            self.assertIsNotNone(amount['origin']['expansion_id'])
             validate_history(document)
 
     def test_inline_declarations_and_failure_preserve_previous_database(self):

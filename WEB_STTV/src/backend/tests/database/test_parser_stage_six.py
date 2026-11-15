@@ -15,7 +15,7 @@ class ExpansionBuildTests(BuildFixture):
         self.assertEqual(result['counts']['inline_scripts']['expanded'], 3)
         doc = self.database()['documents'][0]
         self.assertEqual(doc['items'][0]['value']['items'][0]['value']['text'], 'alpha')
-        self.assertEqual(doc['metadata']['inline_scripts'][1]['arguments'][0]['raw'], '$V$')
+        self.assertEqual(doc['metadata']['expansions'][1]['arguments'][0]['raw'], '$V$')
         self.assertEqual(before, self.hashes())
         (self.inline / 'inner.txt').write_text('changed=$V$', encoding='utf-8')
         self.assertEqual(self.run_build()['status'], 'success')

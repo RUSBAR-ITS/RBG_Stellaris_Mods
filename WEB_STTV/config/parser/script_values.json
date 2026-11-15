@@ -1,0 +1,6 @@
+{
+  "format_version": 1,
+  "reference_prefix": "value:",
+  "scope_separator": ".",
+  "argument_separator": "|"
+}

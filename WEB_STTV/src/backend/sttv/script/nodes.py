@@ -21,6 +21,10 @@ class Source:
         self.text, self.file = text, file
         self.root, self.call_id = root, call_id
         self.lines = [0, *(i + 1 for i, char in enumerate(text) if char == "\n")]
+        self.environment = None
+
+    def environment_at(self, start, end):
+        return self.environment
 
     def original_text(self, start, end):
         return self.text[start:end]
@@ -28,7 +32,7 @@ class Source:
     def origin(self, start, end):
         from dataclasses import asdict
         return {"root": self.root, "file": self.file or "<text>",
-                "span": asdict(self.span(start, end)), "inline_call_id": self.call_id}
+                "span": asdict(self.span(start, end)), "expansion_id": self.call_id}
 
     def span(self, start, end):
         first, last = bisect_right(self.lines, start), bisect_right(self.lines, end)
@@ -63,6 +67,7 @@ class Parameter:
 @dataclass(frozen=True, kw_only=True)
 class Located:
     origin: dict | None = None
+    environment: object = None
 
 
 @dataclass(frozen=True)
@@ -89,6 +94,13 @@ class Block(Located):
 
 
 @dataclass(frozen=True)
+class ScriptValue(Located):
+    scope: str | None
+    body: Block
+    span: Span
+
+
+@dataclass(frozen=True)
 class TaggedBlock(Located):
     tag: Scalar
     block: Block
@@ -107,7 +119,7 @@ class Conditional(Located):
 class Assignment(Located):
     key: Scalar
     operator: str
-    value: Scalar | Formula | Block | TaggedBlock
+    value: Scalar | Formula | Block | TaggedBlock | ScriptValue
     span: Span
 
 
@@ -126,6 +138,14 @@ class InlineInvocation(Located):
     form: str
     span: Span
     value_span: Span
+
+
+@dataclass(frozen=True)
+class ScriptedTriggerTest(Located):
+    operator: str
+    value: Scalar | Formula | ScriptValue
+    body: Block
+    span: Span
 
 
 @dataclass(frozen=True)

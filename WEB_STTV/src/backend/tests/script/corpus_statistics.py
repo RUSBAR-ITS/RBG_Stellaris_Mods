@@ -5,6 +5,7 @@ import json
 from collections import Counter
 
 from sttv.script.nodes import Assignment, Block, Conditional, Formula, LogicalOperation, Scalar, TaggedBlock
+from sttv.script.nodes import ScriptedTriggerTest, ScriptValue
 
 VARIABLE = re.compile(r'@(?:[A-Za-z0-9_]+|\$[^$\r\n]+\$)+')
 PARAMETER = re.compile(r'\$[^$|\s]+(?:\|[^$]*)?\$')
@@ -35,7 +36,7 @@ class Statistics:
         sample = role + ':' + str(shape)
         if sample not in row['examples']:
             origin = node.origin
-            row['examples'][sample] = {key: origin[key] for key in ('root', 'file', 'inline_call_id')}
+            row['examples'][sample] = {key: origin[key] for key in ('root', 'file', 'expansion_id')}
             row['examples'][sample].update(line=origin['span']['line'], column=origin['span']['column'])
 
     def walk(self, node, role='list_value'):
@@ -51,6 +52,11 @@ class Statistics:
         elif isinstance(node, LogicalOperation):
             self.node_count += 1
             self.logical[node.operator.casefold()] += 1
+            self.walk(node.body)
+        elif isinstance(node, ScriptedTriggerTest):
+            self.walk(node.value, 'scalar_value')
+            self.walk(node.body)
+        elif isinstance(node, ScriptValue):
             self.walk(node.body)
         elif isinstance(node, TaggedBlock):
             self.node_count += 1

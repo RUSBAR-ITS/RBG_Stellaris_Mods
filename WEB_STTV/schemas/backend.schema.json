@@ -123,6 +123,46 @@
           ],
           "type": "object"
         },
+        "script_values": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "scripted_calls": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
         "static_variables": {
           "additionalProperties": false,
           "properties": {
@@ -150,7 +190,9 @@
         "logical_operators",
         "inline_scripts",
         "exceptions",
-        "static_variables"
+        "static_variables",
+        "scripted_calls",
+        "script_values"
       ],
       "type": "object"
     },

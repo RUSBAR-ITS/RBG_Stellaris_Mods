@@ -9,7 +9,7 @@ from .validation import FORMAT, FORMAT_VERSION
 
 def collect(settings, report, variables):
     database = {"format": FORMAT, "format_version": FORMAT_VERSION, "documents": []}
-    expansion = expansion_context(settings, report)
+    expansion = expansion_context(settings, report, variables)
     files = selected_files(settings)
     report.data["counts"]["selected_files"] = len(files)
     for path, encoding in files:
@@ -28,4 +28,6 @@ def collect(settings, report, variables):
         finally:
             report.data["counts"]["inline_scripts"] = dict(expansion.counts)
             report.data["inline_sources"] = dict(sorted(expansion.templates.manifest.items()))
+            report.data['counts']['parameters'] = dict(expansion.parameter_counts)
+            report.data['counts']['max_call_depth'] = expansion.max_depth
     return database

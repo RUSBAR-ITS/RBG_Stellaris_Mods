@@ -5,7 +5,7 @@ from sttv.common.schema import validate_schema
 from .history import validate_history
 
 FORMAT = "sttv.parse_database"
-FORMAT_VERSION = 1
+FORMAT_VERSION = 3
 
 
 def validate_database(database):

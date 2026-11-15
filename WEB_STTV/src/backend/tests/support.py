@@ -50,6 +50,12 @@ class BuildFixture(unittest.TestCase):
         self.inline.mkdir(parents=True)
         self.static = self.game / 'common/scripted_variables'
         self.static.mkdir(parents=True)
+        self.effects = self.game / 'common/scripted_effects'
+        self.triggers = self.game / 'common/scripted_triggers'
+        self.effects.mkdir(parents=True)
+        self.triggers.mkdir(parents=True)
+        self.values = self.game / 'common/script_values'
+        self.values.mkdir(parents=True)
         (self.static / 'base.txt').write_text('@external = 2', encoding='utf-8')
         for name in ("", "category", "tier"):
             (self.tech / name).mkdir(parents=True, exist_ok=True)
@@ -60,7 +66,9 @@ class BuildFixture(unittest.TestCase):
             "TECH_PATH": "common/technology",
             "INLINE_SCRIPTS_DIR": "common/inline_scripts",
             "SCRIPTED_EFFECTS_DIR": "common/scripted_effects",
+            "SCRIPTED_TRIGGERS_DIR": "common/scripted_triggers",
             "SCRIPTED_VARIABLES_DIR": "common/scripted_variables",
+            "SCRIPT_VALUES_DIR": "common/script_values",
         }
         self.variable_file = self.root / "variables.json"
         self.config_file = self.root / "backend.json"

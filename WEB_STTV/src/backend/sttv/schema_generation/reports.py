@@ -1,7 +1,7 @@
 """Build diagnostics and read-only input manifests."""
 
 from .helpers import BOOL, HASH, LINE, NULL, RELATIVE, STRING, TEXT, array, mapping, obj, union
-from . import inline, static_variables
+from . import inline, static_variables, scripted
 
 
 def diagnostic():
@@ -15,12 +15,18 @@ def diagnostic():
 
 
 def schema():
-    result = obj({"format_version": {"const": 3}, "status": {"enum": ["success", "failed"]},
+    result = obj({"format_version": {"const": 5}, "status": {"enum": ["success", "failed"]},
                   "counts": obj({**{key: {"type": "integer", "minimum": 0} for key in
                                     ("selected_files", "parsed_files", "failed_files", "nodes", "errors", "warnings")},
-                                 "inline_scripts": inline.counts(), "static_variables": static_variables.counts()}),
+                                 "inline_scripts": inline.counts(), "static_variables": static_variables.counts(),
+                                 'scripted_calls': scripted.counts(), 'parameters': scripted.parameters(),
+                                 'max_call_depth': {'type': 'integer', 'minimum': 0}}),
                   "sources": mapping(HASH, RELATIVE), "inline_sources": mapping(HASH, RELATIVE),
                   "static_variable_sources": mapping(HASH, RELATIVE),
+                  'scripted_effect_sources': mapping(HASH, RELATIVE),
+                  'scripted_trigger_sources': mapping(HASH, RELATIVE),
+                  'script_value_sources': mapping(HASH, RELATIVE),
+                  'library_fields': mapping(mapping(STRING), RELATIVE),
                   "database_written": BOOL, "diagnostics": array(diagnostic())})
     result["$defs"] = {"origin": inline.origin()}
     return result

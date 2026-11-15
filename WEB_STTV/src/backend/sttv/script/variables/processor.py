@@ -12,19 +12,43 @@ class Processor:
         self.rules, self.shared, self.counts = rules, shared, counts
 
     def apply(self, document):
-        table = Table(self.rules, self.shared)
+        table = document.source.environment or self.prepare(document)
         try:
-            for node in document.items:
-                if self.rules.declaration(node):
-                    table.add(node)
-                    self.counts['local_definitions'] += 1
-            table.resolve_all()
             document.items[:] = [node if self.rules.declaration(node) else self.visit(node, table)
                                  for node in document.items]
         except Exception as exc:
             exc.root_source = document.source.origin(0, 0)
             raise
         return document
+
+    def prepare(self, document, count=True, table=None, resolve=True):
+        table = table or Table(self.rules, self.shared)
+        table.declarations.clear()
+        table.resolved.clear()
+        for node in document.items:
+            if self.rules.declaration(node):
+                table.add(node)
+                if count:
+                    self.counts['local_definitions'] += 1
+        if resolve:
+            table.resolve_all()
+        document.source.environment = table
+        return table
+
+    def control(self, source, syntax):
+        from ..parser import parse_source
+        parsed = parse_source(source, syntax, specials=False)
+        if len(parsed.items) != 1 or not isinstance(parsed.items[0], Scalar):
+            return source.text
+        node = parsed.items[0]
+        name = self.rules.reference(node)
+        return self.resolve(node, name, source.environment).text if name else source.text
+
+    def resolve(self, node, name, fallback):
+        table = node.environment or fallback
+        if isinstance(table, tuple) or table is None:
+            fail('ambiguous_static_environment', 'Cannot identify static reference environment', node)
+        return table.resolve(name, node).value
 
     def visit(self, node, table, role='value'):
         if self.rules.declaration(node):
@@ -34,7 +58,7 @@ class Processor:
             if name is None:
                 return node
             self.counts['references'] += 1
-            value = table.resolve(name, node).value
+            value = self.resolve(node, name, table)
             self.counts['substituted'] += 1
             return replace(node, raw=value.raw, text=value.text, quoted=value.quoted, parameters=())
         changes = {}

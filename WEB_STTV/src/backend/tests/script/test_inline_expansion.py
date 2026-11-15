@@ -24,7 +24,7 @@ class InlineExpansionTests(unittest.TestCase):
         doc = self.expand(text, {'p.txt': 'x=1 x=1', 'empty.txt': ''})
         self.assertEqual([n.key.text for n in doc.items], ['x', 'box', 'x', 'x', 'x', 'x', 'x'])
         self.assertEqual(doc.items[1].value.items, [])
-        calls = doc.metadata['inline_scripts']
+        calls = doc.metadata['expansions']
         self.assertEqual([r['insertion']['count'] for r in calls], [0, 2, 2])
         self.assertEqual([r['insertion']['index'] for r in calls], [0, 2, 5])
 
@@ -35,9 +35,9 @@ class InlineExpansionTests(unittest.TestCase):
         doc = self.expand('inline_script={script=outer N=1 TECHNOLOGY=tech_a} '
                           'inline_script={script=outer N=1 TECHNOLOGY=tech_b}', templates)
         self.assertEqual([n.value.text for n in doc.items], ['tech_a', 'tech_b'])
-        calls = doc.metadata['inline_scripts']
+        calls = doc.metadata['expansions']
         self.assertEqual(calls[1]['arguments'], [{'name': 'TECH', 'raw': '$TECHNOLOGY$', 'value': 'tech_a'}])
-        self.assertEqual(calls[1]['script']['raw'], 'inner_$N$')
+        self.assertIn('inner_$N$', calls[1]['invocation']['raw'])
         self.assertEqual([c['parent_id'] for c in calls], [None, 'inline_1', 'inline_2', None, 'inline_4', 'inline_5'])
         self.assertEqual(self.context.counts['max_depth'], 3)
         self.assertEqual([c['insertion']['index'] for c in calls], [0, 0, 0, 1, 1, 1])
@@ -67,8 +67,6 @@ class InlineExpansionTests(unittest.TestCase):
                  ('{}', '', 'invalid_inline_path'), ('""', '', 'invalid_inline_path'),
                  ('{script=p X={}}', '', 'invalid_inline'),
                  ('p', 'x=$MISSING$', 'missing_inline_parameter'),
-                 ('p', 'x=$X|no$', 'unsupported_inline_default'),
-                 ('p', '[[X] x=yes ]', 'unsupported_inline_conditional'),
                  ('../p', '', 'invalid_inline_path'), ('missing', '', 'missing_inline_template'),
                  ('{script=p X="$X$"}', 'x=$X$', 'unresolved_inline_parameter')]
         for payload, template, code in cases:
@@ -122,15 +120,15 @@ class InlineExpansionTests(unittest.TestCase):
         manual = parse_text('box={a=yes OR={b=no}}', syntax())
         self.assertEqual(syntax_payload(doc), syntax_payload(manual))
         before = syntax_payload(doc)
-        doc.metadata['inline_scripts'].append({'irrelevant': 'a a a'})
+        doc.metadata['expansions'].append({'irrelevant': 'a a a'})
         self.assertEqual(before, syntax_payload(doc))
 
     def test_generated_call_and_escaped_quotes_keep_argument_source(self):
         text = r'inline_script={script=outer BODY="inline_script={script=last TECH=tech_a} title=\"hello world\""}'
         doc = self.expand(text, {'outer.txt': '$BODY$', 'last.txt': 'has_technology=$TECH$'})
-        call = doc.metadata['inline_scripts'][1]
+        call = doc.metadata['expansions'][1]
         self.assertEqual(call['arguments'], [{'name': 'TECH', 'raw': 'tech_a', 'value': 'tech_a'}])
-        self.assertEqual(call['script']['raw'], 'last')
+        self.assertEqual(call['target']['file'], 'last.txt')
         self.assertEqual(call['call_site']['file'], 'caller.txt')
         self.assertEqual(doc.items[1].value.text, 'hello world')
 
@@ -154,7 +152,7 @@ class InlineExpansionTests(unittest.TestCase):
                     for name, rows in stats.lists().items()}
         self.assertEqual(signatures(first), signatures(second))
         self.assertEqual(first.logical, second.logical)
-        doc.metadata['inline_scripts'].append({'text': 'extra', 'count': 999})
+        doc.metadata['expansions'].append({'text': 'extra', 'count': 999})
         third = Statistics()
         third.consume(doc)
         self.assertEqual(signatures(first), signatures(third))

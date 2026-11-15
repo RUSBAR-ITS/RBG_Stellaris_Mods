@@ -25,6 +25,18 @@ class MappedSource(Source):
             self.starts.append(offset)
             offset += len(piece.text)
 
+    def environment_at(self, start, end):
+        environments = []
+        for piece, left, right in self.portions(start, end):
+            if right <= left:
+                continue
+            value = (piece.argument.environment_at(left, right) if piece.argument is not None
+                     else piece.source.environment_at(piece.start + left, piece.start + right))
+            for environment in value if isinstance(value, tuple) else (value,):
+                if environment is not None and environment not in environments:
+                    environments.append(environment)
+        return environments[0] if len(environments) == 1 else tuple(environments) or self.environment
+
     def portions(self, start, end):
         first = max(0, bisect_right(self.starts, start) - 1)
         for index in range(first, len(self.pieces)):
@@ -57,8 +69,9 @@ class MappedSource(Source):
             if origin not in fragments:
                 fragments.append(origin)
         origin = dict(fragments[0] if fragments else self.base.origin(0, 0))
-        origin.update(inline_call_id=self.call_id, generated_span=asdict(self.span(start, end)),
-                      fragments=fragments)
+        origin.update(expansion_id=self.call_id, generated_span=asdict(self.span(start, end)))
+        if len(fragments) > 1:
+            origin['fragments'] = fragments
         return origin
 
 

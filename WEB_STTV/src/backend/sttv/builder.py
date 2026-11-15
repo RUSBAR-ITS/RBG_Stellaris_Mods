@@ -3,6 +3,7 @@
 from sttv.common.report import Report
 from sttv.sources.settings import check_sources, load_settings
 from sttv.sources.static_variables import variable_processor
+from sttv.sources.verification import verify_inputs
 from sttv.database.collection import collect
 from sttv.database.storage import publish, write_report
 from sttv.database.validation import validate_database
@@ -18,6 +19,8 @@ def build(variables_path, config_path):
         stage = "parsing"
         database = collect(settings, report, variables)
         if not report.failed:
+            stage = 'source_verification'
+            verify_inputs(settings, report)
             stage = "validation"
             validate_database(database)
             stage = "storage"

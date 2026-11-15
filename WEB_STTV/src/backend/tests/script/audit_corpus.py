@@ -34,11 +34,13 @@ def audit():
     protected_lists = {str(p): digest(p) for p in (settings.work / 'text_frequency').rglob('*.txt')}
     diagnostics, statistics = Report(), Statistics(settings.static_rules)
     variables = variable_processor(settings, diagnostics)
-    expansion = expansion_context(settings, diagnostics)
+    expansion = expansion_context(settings, diagnostics, variables)
     report = {'physical_txt_files': len(files), 'independent_files': len(roots), 'parsed': 0,
               'excluded_template_files': exclusions['INLINE_SCRIPTS_DIR'],
               'excluded_scripted_effect_files': exclusions['SCRIPTED_EFFECTS_DIR'],
-              'excluded_scripted_variable_files': exclusions['SCRIPTED_VARIABLES_DIR'], 'empty': 0, 'prose': [],
+              'excluded_scripted_trigger_files': exclusions['SCRIPTED_TRIGGERS_DIR'],
+              'excluded_scripted_variable_files': exclusions['SCRIPTED_VARIABLES_DIR'],
+              'excluded_script_value_files': exclusions['SCRIPT_VALUES_DIR'], 'empty': 0, 'prose': [],
               'serialized_documents': 0, 'serialized_nodes': 0, 'serialized_bytes': 0,
               'failures': [], 'sources_unchanged': True, 'research_lists_unchanged': True}
     sources = {}
@@ -76,6 +78,11 @@ def audit():
     report['research_lists_unchanged'] = all(digest(Path(path)) == value for path, value in protected_lists.items())
     report['inline_scripts'] = expansion.counts
     report['static_variables'] = diagnostics.data['counts']['static_variables']
+    report['scripted_calls'] = expansion.library.counts
+    report['parameters'] = expansion.parameter_counts
+    report['max_call_depth'] = expansion.max_depth
+    report['named_sources_unchanged'] = all(digest(settings.game / path) == value
+          for key in ('scripted_effect_sources', 'scripted_trigger_sources', 'script_value_sources') for path, value in diagnostics.data[key].items())
     report['static_variable_sources'] = diagnostics.data['static_variable_sources']
     report['variable_sources_unchanged'] = all(digest(settings.game / path) == value
                                              for path, value in report['static_variable_sources'].items())
@@ -84,7 +91,7 @@ def audit():
     report['status'] = 'partial' if report['failures'] else 'complete'
     report['excluded_text'] = dict(statistics.excluded)
     report['statistics_scope'] = 'Successfully expanded independent files after static substitution; declarations excluded.'
-    output = output_path(settings.work, 'stage7/corpus_report.json', settings.protected)
+    output = output_path(settings.work, 'stage9/corpus_report.json', settings.protected)
     output.parent.mkdir(parents=True, exist_ok=True)
     report['list_counts'] = statistics.write(output.parent / 'text_frequency')
     report['inline_sources'] = dict(sorted(expansion.templates.manifest.items()))
@@ -93,7 +100,7 @@ def audit():
     print(json.dumps({key: value for key, value in report.items()
                       if key not in ('diagnostics', 'inline_sources', 'static_variable_sources')}, indent=2))
     return not all(report[key] for key in ('sources_unchanged', 'templates_unchanged', 'variable_sources_unchanged',
-                                         'research_lists_unchanged'))
+                                         'research_lists_unchanged', 'named_sources_unchanged'))
 
 
 if __name__ == '__main__':

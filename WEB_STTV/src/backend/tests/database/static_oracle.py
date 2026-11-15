@@ -41,7 +41,9 @@ def expected_items(document, shared):
         if isinstance(node, Scalar):
             if (role not in ('key', 'tag', 'name') and not node.quoted and not node.parameters
                     and re.fullmatch(r'@[A-Za-z_][A-Za-z0-9_]*', node.text)):
-                literal = values[node.text]
+                environment = node.environment or document.source.environment
+                local = numeric_declarations(environment.declarations.values()) if environment is not None else {}
+                literal = {**values, **local}[node.text]
                 replaced += 1
                 return replace(node, raw=literal.raw, text=literal.text, quoted=False, parameters=())
             return node

@@ -18,13 +18,14 @@ from sttv.sources.expansion import expansion_context
 from sttv.sources.files import selected_files
 from sttv.sources.settings import load_settings
 from database.static_oracle import expected_items, shared_values
+from database.value_oracle import verify_surroundings
 
 
 def compare(expected, actual):
     """Compare every AST field independently of the production serializer."""
     count = 0
     if is_dataclass(expected):
-        names = {field.name for field in fields(expected)}
+        names = {field.name for field in fields(expected) if field.name != 'environment'}
         if isinstance(expected, Located):
             kind = re.sub(r'(?<!^)(?=[A-Z])', '_', type(expected).__name__).lower()
             assert actual['kind'] == kind
@@ -52,10 +53,10 @@ def digest(path):
 def audit():
     variables = PRODUCT_ROOT / 'global_variables.json'
     original = load_settings(variables, PRODUCT_ROOT / 'config/backend.json')
-    folder = output_path(original.work, 'stage7', original.protected)
+    folder = output_path(original.work, 'stage9', original.protected)
     folder.mkdir(parents=True, exist_ok=True)
     options = original.options
-    options['outputs'] = {'database': 'stage7/database.json', 'report': 'stage7/build_report.json'}
+    options['outputs'] = {'database': 'stage9/database.json', 'report': 'stage9/build_report.json'}
     config = folder / 'backend.json'
     config.write_text(json_text(options), encoding='utf-8')
     settings = load_settings(variables, config)
@@ -64,6 +65,8 @@ def audit():
     previous = {str(path): digest(path) for path in (original.database, original.report) if path.exists()}
     started = perf_counter()
     first = build(variables, config)
+    print(json.dumps({'first_build': first['status'], 'counts': first['counts'],
+                      'diagnostics': first['diagnostics'][:8]}), flush=True)
     assert first['status'] == 'success', first
     build_seconds = perf_counter() - started
     database = read_database(settings.database)
@@ -81,6 +84,7 @@ def audit():
         compare(parsed.metadata, saved['metadata'])
     assert nodes == first['counts']['nodes']
     assert substitutions == first['counts']['static_variables']['substituted']
+    value_check = verify_surroundings(settings, selected, database)
     initial = digest(settings.database)
     second = build(variables, config)
     assert second['status'] == 'success', second
@@ -88,13 +92,15 @@ def audit():
     assert all(digest(Path(path)) == value for path, value in before.items())
     assert all(digest(settings.inline_directory / path) == value for path, value in first['inline_sources'].items())
     assert all(digest(settings.game / path) == value for path, value in first['static_variable_sources'].items())
+    assert all(digest(settings.game / path) == value for key in ('scripted_effect_sources', 'scripted_trigger_sources', 'script_value_sources')
+               for path, value in first[key].items())
     assert all(digest(Path(path)) == value for path, value in previous.items())
     report = {'status': 'success', 'counts': first['counts'], 'database_sha256': initial,
               'database_bytes': settings.database.stat().st_size, 'build_seconds': round(build_seconds, 3),
               'total_seconds': round(perf_counter() - started, 3), 'ast_fields_match': True,
               'repeatable': True, 'sources_unchanged': True, 'templates_unchanged': True,
-              'variable_sources_unchanged': True, 'previous_outputs_unchanged': True,
-              'independent_substitution_check': substitutions}
+              'variable_sources_unchanged': True, 'named_sources_unchanged': True, 'previous_outputs_unchanged': True,
+              'independent_substitution_check': substitutions, 'independent_value_check': value_check}
     (folder / 'real_validation_report.json').write_text(json_text(report), encoding='utf-8')
     print(json.dumps(report, indent=2))
 

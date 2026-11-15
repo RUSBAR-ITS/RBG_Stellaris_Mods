@@ -38,7 +38,7 @@ class InlineExceptionTests(BuildFixture):
         self.assertEqual(doc['items'][0]['key']['text'], 'result')
         self.assertEqual(doc['items'][0]['value']['text'], 'yes')
         self.assertEqual(doc['items'][0]['origin']['file'], 'allowed')
-        self.assertEqual([c['template'] for c in doc['metadata']['inline_scripts']], ['outer.txt', 'allowed'])
+        self.assertEqual([c['target']['file'] for c in doc['metadata']['expansions']], ['outer.txt', 'allowed'])
         self.assertEqual(before, self.hashes())
 
     def test_missing_override_and_unlisted_neighbor_never_fall_back(self):

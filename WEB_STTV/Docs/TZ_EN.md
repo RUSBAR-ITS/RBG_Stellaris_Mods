@@ -29,7 +29,11 @@
 
 ## Document status
 
-**Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [transition guide](BACKEND_STAGE_6_EN.md). Static-variable substitution is documented in the [current stage-seven guide](BACKEND_STAGE_7_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
+The [stage-nine specification — script value expansion](TZ_BACKEND_STAGE_9_EN.md) is approved and implemented. Current formats, architecture, and results: [stage-nine guide](BACKEND_STAGE_9_EN.md).
+
+The preceding effect/trigger expansion stage remains documented in the [stage-eight specification](TZ_BACKEND_STAGE_8_EN.md) and [its historical guide](BACKEND_STAGE_8_EN.md).
+
+**Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [transition guide](BACKEND_STAGE_6_EN.md). Static-variable substitution is documented in the [historical stage-seven guide](BACKEND_STAGE_7_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
 
 Project: **Stellaris Technological Tree View**, directory: `WEB_STTV`.
 
