@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+from collections import Counter
 from pathlib import Path
 
 from support import PRODUCT_ROOT
@@ -11,7 +12,7 @@ from sttv.common.report import Report
 from sttv.script.parser import parse_text
 from sttv.script.serialization import serialize_document, walk_nodes
 from sttv.database.history import validate_history
-from sttv.sources.expansion import expansion_context, independent_sources
+from sttv.sources.expansion import expansion_context, independent_sources, source_exclusion
 from sttv.sources.settings import load_settings
 from script.corpus_statistics import Statistics
 
@@ -27,11 +28,13 @@ def audit():
     files = sorted(path for folder in ('common', 'events')
                    for path in (settings.game / folder).rglob('*.txt') if path.is_file())
     roots = list(independent_sources(files, settings))
+    exclusions = Counter(source_exclusion(path, settings) for path in files)
     protected_lists = {str(p): digest(p) for p in (settings.work / 'text_frequency').rglob('*.txt')}
     diagnostics, statistics = Report(), Statistics()
     expansion = expansion_context(settings, diagnostics)
     report = {'physical_txt_files': len(files), 'independent_files': len(roots), 'parsed': 0,
-              'excluded_template_files': len(files) - len(roots), 'empty': 0, 'prose': [],
+              'excluded_template_files': exclusions['INLINE_SCRIPTS_DIR'],
+              'excluded_scripted_effect_files': exclusions['SCRIPTED_EFFECTS_DIR'], 'empty': 0, 'prose': [],
               'serialized_documents': 0, 'serialized_nodes': 0, 'serialized_bytes': 0,
               'failures': [], 'sources_unchanged': True, 'research_lists_unchanged': True}
     sources = {}
@@ -72,7 +75,7 @@ def audit():
     report['status'] = 'partial' if report['failures'] else 'complete'
     report['excluded_text'] = dict(statistics.excluded)
     report['statistics_scope'] = 'Successfully parsed and fully expanded independent files only.'
-    output = output_path(settings.work, 'stage6/corpus_report.json', settings.protected)
+    output = output_path(settings.work, 'stage6/without_scripted_effects/corpus_report.json', settings.protected)
     output.parent.mkdir(parents=True, exist_ok=True)
     report['list_counts'] = statistics.write(output.parent / 'text_frequency')
     report['inline_sources'] = dict(sorted(expansion.templates.manifest.items()))

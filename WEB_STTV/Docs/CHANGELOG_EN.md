@@ -2,6 +2,9 @@
 
 ## Contents
 
+- [2026-11-15 — explicit inline_script path exceptions](#2026-11-15--explicit-inline_script-path-exceptions)
+- [2026-11-15 — vanilla issue TODO and color exception](#2026-11-15--vanilla-issue-todo-and-color-exception)
+- [2026-11-15 — excluded scripted effect library](#2026-11-15--excluded-scripted-effect-library)
 - [2026-11-15 — stage six implementation: syntax-tree database](#2026-11-15--stage-six-implementation-syntax-tree-database)
 - [2026-11-15 — stage six specification: backend simplification](#2026-11-15--stage-six-specification-backend-simplification)
 - [2026-11-15 — parsing results as the database foundation](#2026-11-15--parsing-results-as-the-database-foundation)
@@ -38,6 +41,28 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-15 — explicit inline_script path exceptions
+
+- Connected a separate `config/parser/exceptions.json`: exact mapping from inline invocation names to permitted relative files, with explanatory reasons. Added an exception for the extensionless `tr_purity_imperfection_remediation_wilderness` file.
+- Retained normal `.txt` lookup, `INLINE_SCRIPTS_DIR` confinement, reached-template-only reading, actual provenance, and hashes. Exception patterns and unsafe paths are rejected, as are duplicate normalized names. A missing permitted file does not trigger alternative lookup; cycles use actual template identity.
+- Added the fifth parser configuration selection and eighth generated schema, `parser_exceptions.schema.json`. The required configuration is validated and protected from output overwrites. Updated both languages of the specification, guide, README, and investigation.
+- All 87 tests passed. Three actual tradition files expanded successfully and passed JSON checks: 75 calls from 16 templates, four exception applications, and no expansion errors. Sources and templates remained unchanged; the full corpus was not run. Report: `data/stage6/inline_exceptions/validation_report.json`.
+
+## 2026-11-15 — vanilla issue TODO and color exception
+
+- Created shared bilingual `TO_DO_RU.md` / `TO_DO_EN.md` in the repository root. Deferred verification and fixes for `CLASS` forwarding across 14 trait files and the suspected `RELIC` typo in two event chains; no game fixes were implemented.
+- Investigated `tr_purity_imperfection_remediation_wilderness`: an extensionless file exists, whereas the loader requests `.txt`. Confirmed chains from the Purity, Cloning, and Mutation categories through their shared template; findings and verification boundaries are recorded in a separate bilingual research document. Template lookup rules remain unchanged.
+- Added the agreed `trait_bg_active_glow` exception for a block without `=` in `constructs.json`. Parser mechanics are unchanged; the declaration is preserved as a `tagged_block`, while arbitrary names without an operator remain rejected.
+- All 17 targeted tests passed. The actual color file parsed successfully and passed JSON schema validation and round-trip loading; its source remained unchanged. The full corpus audit was not rerun. Updated both languages of the README, specification, and guide; targeted report: `data/stage6/known_input_issues/validation_report.json`.
+
+## 2026-11-15 — excluded scripted effect library
+
+- Added `SCRIPTED_EFFECTS_DIR = common/scripted_effects`, relative to `STELLARIS_ROOT`. The shared builder/full-audit filter excludes the directory and all descendants from independent selection; scripted effect expansion was not added.
+- The corpus report counts excluded effect files separately from inline templates. New results go to `data/stage6/without_scripted_effects/`, preserving initial reports and research lists.
+- All 80 tests passed, including configurable paths, nested directories, retained neighboring sources, and inline expansion. Technology selection remains unchanged at 35 files. The effect library excludes 43 TXT files.
+- Updated both languages of the README, guide, and stage-six specification following the user request.
+- Repeat audit: 1,542 files and 3,510,653 nodes processed successfully, with 20 previously known problematic inputs remaining. The two excluded failing inputs belong to the effect library; there are no new failures. Sources, templates, and previous research lists remain unchanged.
 
 ## 2026-11-15 — stage six implementation: syntax-tree database
 

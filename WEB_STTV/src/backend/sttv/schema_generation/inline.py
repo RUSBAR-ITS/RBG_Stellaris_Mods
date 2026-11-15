@@ -1,6 +1,6 @@
 """Closed contracts for inline settings, history, and source provenance."""
 
-from .helpers import BOOL, LINE, NULL, RELATIVE, STRING, TEXT, array, obj, union
+from .helpers import BOOL, LINE, NULL, RELATIVE, STRING, TEXT, array, mapping, obj, union
 
 
 def configuration():
@@ -14,6 +14,11 @@ def configuration():
 def counts():
     return obj({key: {"type": "integer", "minimum": 0} for key in
                 ("encountered", "expanded", "failed", "template_files", "max_depth")})
+
+
+def exceptions():
+    return obj({"format_version": {"const": 1},
+                "inline_script_files": mapping(obj({"file": RELATIVE, "reason": TEXT}), RELATIVE)})
 
 
 def location():

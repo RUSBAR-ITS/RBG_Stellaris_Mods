@@ -20,7 +20,9 @@ The approved [stage-six specification](Docs/TZ_BACKEND_STAGE_6_EN.md) is impleme
 
 The [stage-six guide](Docs/BACKEND_STAGE_6_EN.md) describes operation, format, modules, and limitations. The standard database is `data/database.json`; the report is `data/reports/build_report.json`. The new format is `sttv.parse_database`, version 1; loading requires neither the game nor parser configuration.
 
-All 78 current tests passed. Technology set: 35 files, 67,513 nodes, and 301 expanded calls from 10 templates, with no errors or warnings. JSON matches every parser tree field and is reproducible byte for byte. The full audit has 1,583 successful files and the same 22 problematic inputs; results and lists are under `data/stage6/`.
+All 87 current tests passed. The reference technology build contains 35 files, 67,513 nodes, and 301 expanded calls from 10 templates, with no errors or warnings; JSON matches parser trees and is reproducible byte for byte. The last full audit before targeted exceptions had 1,542 successful files and 20 problematic inputs, excluding 43 effect files and 631 inline templates. Its report and lists are under `data/stage6/without_scripted_effects/`; initial results remain under `data/stage6/`.
+
+Targeted exceptions subsequently passed checks on the color file and three tradition files. All 75 tradition calls expanded, including four references to the explicitly permitted extensionless file; report: `data/stage6/inline_exceptions/validation_report.json`. The full audit was not rerun.
 
 Sources and previous research lists are preserved. Guides for stages 1–5 describe historical implementations. The current database does not retrieve RU/EN names or compute relationships; those operations will be designed separately.
 
@@ -32,8 +34,8 @@ Code is in `src/backend/`. The UI, HTTP service, images, and portable distributi
 | --- | --- |
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
-| `config/` | Sources, output paths, and four parser configurations |
-| `schemas/` | Seven generated configuration, syntax-tree, and report schemas |
+| `config/` | Sources, output paths, and five parser configurations including exceptions |
+| `schemas/` | Eight generated configuration, syntax-tree, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 
@@ -51,13 +53,14 @@ The shared [global_variables.json](global_variables.json) file stores project va
 | `STELLARIS_ROOT` | Absolute path to the installed game root | `E:/SteamLibrary/steamapps/common/Stellaris` |
 | `TECH_PATH` | Path to the technology directory relative to `STELLARIS_ROOT` | `common/technology` |
 | `INLINE_SCRIPTS_DIR` | Directory containing `inline_script` templates, relative to `STELLARIS_ROOT` | `common/inline_scripts` |
+| `SCRIPTED_EFFECTS_DIR` | Named-effect library relative to `STELLARIS_ROOT`, excluded from independent traversal | `common/scripted_effects` |
 | `WORKSHOP_DIR` | Absolute path to Stellaris Steam Workshop mods | `E:/SteamLibrary/steamapps/workshop/content/281990` |
 | `RU_LOC_TIER_1` | Russian localization, highest priority: the Russian Localization Fix RE mod's `replace` directory | `${WORKSHOP_DIR}/681483874/localisation/replace` |
 | `RU_LOC_TIER_2` | Russian localization, second priority: the same mod's `russian` directory | `${WORKSHOP_DIR}/681483874/localisation/russian` |
 | `RU_LOC_TIER_3` | Russian localization, third priority: vanilla, relative to `STELLARIS_ROOT` | `localisation/russian` |
 | `EN_LOC_TIER_1` | English localization: vanilla, relative to `STELLARIS_ROOT` | `localisation/english` |
 
-`TECH_PATH`, `INLINE_SCRIPTS_DIR`, `RU_LOC_TIER_3`, and `EN_LOC_TIER_1` are relative to `STELLARIS_ROOT`. `${WORKSHOP_DIR}` in the other two paths denotes substitution of the variable with that name. This is a configuration-file convention: JSON stores ordinary strings and does not perform substitution itself. Paths use forward slashes `/`, consistent with the previously defined variables.
+`TECH_PATH`, `INLINE_SCRIPTS_DIR`, `SCRIPTED_EFFECTS_DIR`, `RU_LOC_TIER_3`, and `EN_LOC_TIER_1` are relative to `STELLARIS_ROOT`. `${WORKSHOP_DIR}` in the other two paths denotes substitution of the variable with that name. This is a configuration-file convention: JSON stores ordinary strings and does not perform substitution itself. Paths use forward slashes `/`, consistent with the previously defined variables.
 
 `INLINE_SCRIPTS_DIR` is used for inclusion expansion. For example, `script = technologies/rare_technologies_weight_modifiers` refers to `STELLARIS_ROOT/INLINE_SCRIPTS_DIR/technologies/rare_technologies_weight_modifiers.txt`. The directory is read-only; templates are loaded through reached calls, including nested ones.
 
@@ -86,8 +89,11 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Technology object model: fields, types, and nested structures](Docs/TECHNOLOGY_MODEL_EN.md).
 - [Stage-one JSON database model: technology structure and RU/EN names](Docs/DATABASE_MODEL_EN.md).
 - [Changelog](Docs/CHANGELOG_EN.md).
+- [Shared repository TODO: CLASS and RELIC](../TO_DO_EN.md).
+- [Investigation of the missing genetic tradition template](Docs/RESEARCH_MISSING_TRADITION_TEMPLATE_EN.md).
 - [Обзор на русском](README_RU.md).
 
 - [Backend: inline_script expansion](Docs/BACKEND_STAGE_5_EN.md).
 
 - [Backend: parsing results database](Docs/BACKEND_STAGE_6_EN.md).
+- [Inline_script path exceptions](config/parser/exceptions.json): exact permitted files and reasons; application rules are described in the backend guide.

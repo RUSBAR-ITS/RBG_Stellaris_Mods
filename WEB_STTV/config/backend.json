@@ -8,6 +8,10 @@
     }
   ],
   "parser": {
+    "exceptions": {
+      "base": "product",
+      "path": "config/parser/exceptions.json"
+    },
     "inline_scripts": {
       "base": "product",
       "path": "config/parser/inline_scripts.json"

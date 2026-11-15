@@ -15,13 +15,35 @@ def template_name(name, extension):
     return path.as_posix() + extension
 
 
+def exception_path(name):
+    if any(char in name for char in '*?\x00') or any(ord(char) < 32 for char in name):
+        raise BuildError("invalid_inline_path", "Exception paths must name a single relative file")
+    relative = template_name(name, "")
+    if relative == "." or name.endswith(("/", "\\")):
+        raise BuildError("invalid_inline_path", "Exception paths must name a file")
+    return relative
+
+
+def exception_files(entries):
+    result = {}
+    for script, entry in entries.items():
+        key = exception_path(script).casefold()
+        if key in result:
+            raise BuildError("duplicate_inline_exception", f"Repeated inline exception: {script}")
+        result[key] = exception_path(entry["file"])
+    return result
+
+
 class FileTemplates:
-    def __init__(self, directory, options):
+    def __init__(self, directory, options, exceptions=None):
         self.directory = Path(directory).resolve()
         self.options, self.cache, self.manifest = options, {}, {}
+        self.exceptions = exception_files(exceptions or {})
 
     def identity(self, name):
         relative = template_name(name, self.options["extension"])
+        script = template_name(name, "").casefold()
+        relative = self.exceptions.get(script, relative)
         path = (self.directory / relative).resolve()
         if not path.is_relative_to(self.directory):
             raise BuildError("invalid_inline_path", f"Template escapes source root: {name}")

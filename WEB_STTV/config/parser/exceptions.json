@@ -1,0 +1,9 @@
+{
+  "format_version": 1,
+  "inline_script_files": {
+    "traditions/tr_purity_imperfection_remediation_wilderness": {
+      "file": "traditions/tr_purity_imperfection_remediation_wilderness",
+      "reason": "The installed vanilla template is shipped without the .txt extension."
+    }
+  }
+}

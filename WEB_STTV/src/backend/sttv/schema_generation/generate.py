@@ -12,6 +12,7 @@ from .helpers import document
 def declarations():
     return {
         "parser_inline_scripts.schema.json": inline.configuration(),
+        "parser_exceptions.schema.json": inline.exceptions(),
         "parser_lexical.schema.json": syntax.lexical(),
         "parser_constructs.schema.json": syntax.constructs(),
         "parser_logical_operators.schema.json": syntax.logical_operators(),

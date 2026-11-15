@@ -23,8 +23,8 @@ class GenerationTests(BuildFixture):
         for name in declarations():
             Draft202012Validator.check_schema(read_json(destination / name))
 
-    def test_only_seven_active_schemas_remain(self):
-        self.assertEqual(len(declarations()), 7)
+    def test_active_schemas_match_declarations(self):
+        self.assertEqual(len(declarations()), 8)
         self.assertEqual(set(declarations()), {path.name for path in (PRODUCT_ROOT / 'schemas').glob('*.json')})
 
     def test_generation_reports_partial_writes(self):

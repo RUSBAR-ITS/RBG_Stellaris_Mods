@@ -26,6 +26,8 @@ class Settings:
     syntax: Syntax
     inline_directory: Path
     inline_options: dict
+    scripted_effects_directory: Path
+    parser_exceptions: dict
 
 
 def substitute(value, lookup):
@@ -61,16 +63,17 @@ def load_settings(variables_path, config_path):
     values = expand_variables(read_json(variables_path))
     options = read_json(config_path)
     validate_schema(options, "backend.schema.json")
-    required = {"WORK_DIR", "STELLARIS_ROOT", "INLINE_SCRIPTS_DIR"}
+    required = {"WORK_DIR", "STELLARIS_ROOT", "INLINE_SCRIPTS_DIR", "SCRIPTED_EFFECTS_DIR"}
     required.update(spec["variable"] for spec in options["sources"])
     missing = required - values.keys()
     if missing:
         raise BuildError("missing_variable", f"Missing variables: {sorted(missing)}")
     game = path_from(values["STELLARIS_ROOT"], PRODUCT_ROOT)
     inline_directory = path_from(values["INLINE_SCRIPTS_DIR"], game)
+    scripted_effects_directory = path_from(values["SCRIPTED_EFFECTS_DIR"], game)
     sources = [{**spec, "directory": path_from(values[spec["variable"]], game)}
                for spec in options["sources"]]
-    directories = [inline_directory, *(spec["directory"] for spec in sources)]
+    directories = [inline_directory, scripted_effects_directory, *(spec["directory"] for spec in sources)]
     if any(not path.is_relative_to(game) for path in directories):
         raise BuildError("unsafe_source", "Source directories must remain inside STELLARIS_ROOT")
     work = path_from(values["WORK_DIR"], PRODUCT_ROOT)
@@ -86,13 +89,16 @@ def load_settings(variables_path, config_path):
     parser_paths = [selected_path(options["parser"][key], work)
                     for key in ("lexical", "constructs", "logical_operators")]
     inline_config = selected_path(options["parser"]["inline_scripts"], work)
-    config_files.extend([*parser_paths, inline_config])
+    exceptions_config = selected_path(options["parser"]["exceptions"], work)
+    config_files.extend([*parser_paths, inline_config, exceptions_config])
     distinct_paths([*paths, *config_files])
     inline_options = read_json(inline_config)
     validate_schema(inline_options, "parser_inline_scripts.schema.json")
+    parser_exceptions = read_json(exceptions_config)
+    validate_schema(parser_exceptions, "parser_exceptions.schema.json")
     syntax = load_syntax(*parser_paths)
     return Settings(values, options, work, game, sources, *paths, roots, config_files,
-                    syntax, inline_directory, inline_options)
+                    syntax, inline_directory, inline_options, scripted_effects_directory, parser_exceptions)
 
 
 def check_sources(settings):

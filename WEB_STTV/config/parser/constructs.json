@@ -5,7 +5,8 @@
   "mixed_blocks": true,
   "tagged_blocks": [
     "rgb",
-    "hsv"
+    "hsv",
+    "trait_bg_active_glow"
   ],
   "parameters": {
     "open": "$",

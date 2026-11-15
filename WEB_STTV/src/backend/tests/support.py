@@ -56,6 +56,7 @@ class BuildFixture(unittest.TestCase):
             "STELLARIS_ROOT": str(self.game),
             "TECH_PATH": "common/technology",
             "INLINE_SCRIPTS_DIR": "common/inline_scripts",
+            "SCRIPTED_EFFECTS_DIR": "common/scripted_effects",
         }
         self.variable_file = self.root / "variables.json"
         self.config_file = self.root / "backend.json"
