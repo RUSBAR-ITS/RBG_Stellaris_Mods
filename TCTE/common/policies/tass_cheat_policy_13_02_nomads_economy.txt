@@ -1,0 +1,176 @@
+tass_policy_cheat_nomad_economy = {
+	category = tass_cheat_nomadic
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_nomad_economy_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_nomad_economy_1"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 1
+			shipsize_nomads_constructor_stockpile_capacity_mult = 1
+			ship_starbase_stockpile_collection_rate_mult = 1
+			starbase_stockpile_capacity_mult = 1
+			starbase_collected_system_resources_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_nomad_economy_2"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 2
+			shipsize_nomads_constructor_stockpile_capacity_mult = 2
+			ship_starbase_stockpile_collection_rate_mult = 2
+			starbase_stockpile_capacity_mult = 2
+			starbase_collected_system_resources_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_nomad_economy_3"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 5
+			shipsize_nomads_constructor_stockpile_capacity_mult = 5
+			ship_starbase_stockpile_collection_rate_mult = 5
+			starbase_stockpile_capacity_mult = 5
+			starbase_collected_system_resources_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_nomad_economy_4"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 10
+			shipsize_nomads_constructor_stockpile_capacity_mult = 10
+			ship_starbase_stockpile_collection_rate_mult = 10
+			starbase_stockpile_capacity_mult = 10
+			starbase_collected_system_resources_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_nomad_economy_5"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 100
+			shipsize_nomads_constructor_stockpile_capacity_mult = 100
+			ship_starbase_stockpile_collection_rate_mult = 100
+			starbase_stockpile_capacity_mult = 100
+			starbase_collected_system_resources_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_nomad_economy_regular_6"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 200
+			shipsize_nomads_constructor_stockpile_capacity_mult = 200
+			ship_starbase_stockpile_collection_rate_mult = 200
+			starbase_stockpile_capacity_mult = 200
+			starbase_collected_system_resources_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_nomad_economy_regular_7"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 400
+			shipsize_nomads_constructor_stockpile_capacity_mult = 400
+			ship_starbase_stockpile_collection_rate_mult = 400
+			starbase_stockpile_capacity_mult = 400
+			starbase_collected_system_resources_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_nomad_economy_regular_8"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 800
+			shipsize_nomads_constructor_stockpile_capacity_mult = 800
+			ship_starbase_stockpile_collection_rate_mult = 800
+			starbase_stockpile_capacity_mult = 800
+			starbase_collected_system_resources_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_nomad_economy_regular_9"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 1600
+			shipsize_nomads_constructor_stockpile_capacity_mult = 1600
+			ship_starbase_stockpile_collection_rate_mult = 1600
+			starbase_stockpile_capacity_mult = 1600
+			starbase_collected_system_resources_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_nomad_economy_regular_10"
+		modifier = {
+			arkship_harvest_resources_produces_mult = 3200
+			shipsize_nomads_constructor_stockpile_capacity_mult = 3200
+			ship_starbase_stockpile_collection_rate_mult = 3200
+			starbase_stockpile_capacity_mult = 3200
+			starbase_collected_system_resources_mult = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_nomadic = yes
+		}
+	}
+}

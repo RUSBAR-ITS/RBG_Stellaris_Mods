@@ -1,0 +1,146 @@
+tass_policy_cheat_cloaking = {
+	category = tass_cheat_technique
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_cloaking_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_cloaking_1"
+		modifier = {
+			ship_cloaking_strength_add = 2
+			ship_cloaking_detection_add = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_cloaking_2"
+		modifier = {
+			ship_cloaking_strength_add = 4
+			ship_cloaking_detection_add = 4
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_cloaking_3"
+		modifier = {
+			ship_cloaking_strength_add = 10
+			ship_cloaking_detection_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_cloaking_4"
+		modifier = {
+			ship_cloaking_strength_add = 20
+			ship_cloaking_detection_add = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tcte_policy_cloaking_regular_5"
+		modifier = {
+			ship_cloaking_strength_add = 40
+			ship_cloaking_detection_add = 40
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tcte_policy_cloaking_regular_6"
+		modifier = {
+			ship_cloaking_strength_add = 80
+			ship_cloaking_detection_add = 80
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tcte_policy_cloaking_regular_7"
+		modifier = {
+			ship_cloaking_strength_add = 160
+			ship_cloaking_detection_add = 160
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tcte_policy_cloaking_regular_8"
+		modifier = {
+			ship_cloaking_strength_add = 320
+			ship_cloaking_detection_add = 320
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tcte_policy_cloaking_regular_9"
+		modifier = {
+			ship_cloaking_strength_add = 640
+			ship_cloaking_detection_add = 640
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+	option = {
+		name = "tcte_policy_cloaking_regular_10"
+		modifier = {
+			ship_cloaking_strength_add = 1280
+			ship_cloaking_detection_add = 1280
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			
+		}
+	}
+}

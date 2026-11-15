@@ -1,0 +1,94 @@
+namespace = tcte_envoys
+
+country_event = {
+	id = tcte_envoys.1
+	title = tcte_envoy_menu_title
+	desc = tcte_envoy_menu_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_synth_sabotage
+	option = {
+		name = tcte_envoy_amount_5
+		custom_tooltip = tcte_envoy_amount_5_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			while = {
+				count = 1
+				give_technology = { tech = tcte_tech_extra_envoys message = no }
+			}
+			country_event = { id = tcte_envoys.1 }
+		}
+	}
+	option = {
+		name = tcte_envoy_amount_10
+		custom_tooltip = tcte_envoy_amount_10_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			while = {
+				count = 2
+				give_technology = { tech = tcte_tech_extra_envoys message = no }
+			}
+			country_event = { id = tcte_envoys.1 }
+		}
+	}
+	option = {
+		name = tcte_envoy_amount_25
+		custom_tooltip = tcte_envoy_amount_25_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			while = {
+				count = 5
+				give_technology = { tech = tcte_tech_extra_envoys message = no }
+			}
+			country_event = { id = tcte_envoys.1 }
+		}
+	}
+	option = {
+		name = tcte_envoy_amount_50
+		custom_tooltip = tcte_envoy_amount_50_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			while = {
+				count = 10
+				give_technology = { tech = tcte_tech_extra_envoys message = no }
+			}
+			country_event = { id = tcte_envoys.1 }
+		}
+	}
+	option = {
+		name = tcte_envoy_amount_100
+		custom_tooltip = tcte_envoy_amount_100_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			while = {
+				count = 20
+				give_technology = { tech = tcte_tech_extra_envoys message = no }
+			}
+			country_event = { id = tcte_envoys.1 }
+		}
+	}
+	option = {
+		name = tcte_envoy_amount_500
+		custom_tooltip = tcte_envoy_amount_500_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			while = {
+				count = 100
+				give_technology = { tech = tcte_tech_extra_envoys message = no }
+			}
+			country_event = { id = tcte_envoys.1 }
+		}
+	}
+	option = {
+		name = tcte_envoy_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.1 } }
+	}
+}

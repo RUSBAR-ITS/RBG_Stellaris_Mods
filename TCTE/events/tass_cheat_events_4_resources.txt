@@ -1,0 +1,53 @@
+namespace = tass_cheat
+
+# Resource category menu override.
+country_event = {
+	id = tass_cheat.4
+	title = tass_cheat.4.name
+	desc = tcte_resource_menu_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_category_economy
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+	option = {
+		name = tcte_resource_category_strategic
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+	option = {
+		name = tcte_resource_category_empire
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.3 } }
+	}
+	option = {
+		name = tcte_resource_category_research
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.4 } }
+	}
+	option = {
+		name = tcte_resource_category_artifacts
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.5 } }
+	}
+	option = {
+		name = tcte_resource_category_special_paths
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.1 } }
+	}
+}

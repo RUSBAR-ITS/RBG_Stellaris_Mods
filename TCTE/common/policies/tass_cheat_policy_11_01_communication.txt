@@ -1,0 +1,126 @@
+tass_policy_cheat_communication = {
+	category = tass_cheat_diplomacy
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_communication_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_communication_1"
+		modifier = {
+			country_insult_efficiency = 1
+			envoy_improve_relations_mult = 1
+			envoy_harm_relations_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_communication_2"
+		modifier = {
+			country_insult_efficiency = 2
+			envoy_improve_relations_mult = 2
+			envoy_harm_relations_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_communication_3"
+		modifier = {
+			country_insult_efficiency = 5
+			envoy_improve_relations_mult = 5
+			envoy_harm_relations_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_communication_4"
+		modifier = {
+			country_insult_efficiency = 10
+			envoy_improve_relations_mult = 10
+			envoy_harm_relations_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_communication_regular_5"
+		modifier = {
+			country_insult_efficiency = 20
+			envoy_improve_relations_mult = 20
+			envoy_harm_relations_mult = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_communication_regular_6"
+		modifier = {
+			country_insult_efficiency = 40
+			envoy_improve_relations_mult = 40
+			envoy_harm_relations_mult = 40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_communication_regular_7"
+		modifier = {
+			country_insult_efficiency = 80
+			envoy_improve_relations_mult = 80
+			envoy_harm_relations_mult = 80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_communication_regular_8"
+		modifier = {
+			country_insult_efficiency = 160
+			envoy_improve_relations_mult = 160
+			envoy_harm_relations_mult = 160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_communication_regular_9"
+		modifier = {
+			country_insult_efficiency = 320
+			envoy_improve_relations_mult = 320
+			envoy_harm_relations_mult = 320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_communication_regular_10"
+		modifier = {
+			country_insult_efficiency = 640
+			envoy_improve_relations_mult = 640
+			envoy_harm_relations_mult = 640
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

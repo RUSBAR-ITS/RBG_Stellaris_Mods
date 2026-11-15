@@ -1,0 +1,116 @@
+tass_policy_cheat_patron = {
+	category = tass_cheat_psionic
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_patron_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_patron_1"
+		modifier = {
+			envoy_attunement_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tass_policy_cheat_patron_2"
+		modifier = {
+			envoy_attunement_mult = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tass_policy_cheat_patron_3"
+		modifier = {
+			envoy_attunement_mult = 50
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tass_policy_cheat_patron_4"
+		modifier = {
+			envoy_attunement_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tass_policy_cheat_patron_5"
+		modifier = {
+			envoy_attunement_mult = 1000
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tcte_policy_patron_regular_6"
+		modifier = {
+			envoy_attunement_mult = 2000
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tcte_policy_patron_regular_7"
+		modifier = {
+			envoy_attunement_mult = 4000
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tcte_policy_patron_regular_8"
+		modifier = {
+			envoy_attunement_mult = 8000
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tcte_policy_patron_regular_9"
+		modifier = {
+			envoy_attunement_mult = 16000
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+	option = {
+		name = "tcte_policy_patron_regular_10"
+		modifier = {
+			envoy_attunement_mult = 32000
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {}
+	}
+}

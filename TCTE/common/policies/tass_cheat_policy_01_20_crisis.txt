@@ -1,0 +1,236 @@
+tass_policy_cheat_crisis = {
+	category = tass_cheat_resources
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_crisis_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_crisis_1"
+		modifier = {
+			country_menace_produces_mult = 1
+			country_advanced_logic_produces_mult = 1
+			country_feral_insight_produces_mult = 1
+			country_entropy_crystals_produces_mult = 1
+			country_integrity_produces_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_crisis_2"
+		modifier = {
+			country_menace_produces_mult = 2
+			country_advanced_logic_produces_mult = 2
+			country_feral_insight_produces_mult = 2
+			country_entropy_crystals_produces_mult = 2
+			country_integrity_produces_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_crisis_3"
+		modifier = {
+			country_menace_produces_mult = 5
+			country_advanced_logic_produces_mult = 5
+			country_feral_insight_produces_mult = 5
+			country_entropy_crystals_produces_mult = 5
+			country_integrity_produces_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_crisis_4"
+		modifier = {
+			country_menace_produces_mult = 10
+			country_advanced_logic_produces_mult = 10
+			country_feral_insight_produces_mult = 10
+			country_entropy_crystals_produces_mult = 10
+			country_integrity_produces_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_crisis_5"
+		modifier = {
+			country_menace_produces_mult = 100
+			country_advanced_logic_produces_mult = 100
+			country_feral_insight_produces_mult = 100
+			country_entropy_crystals_produces_mult = 100
+			country_integrity_produces_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tcte_policy_crisis_regular_6"
+		modifier = {
+			country_menace_produces_mult = 200
+			country_advanced_logic_produces_mult = 200
+			country_feral_insight_produces_mult = 200
+			country_entropy_crystals_produces_mult = 200
+			country_integrity_produces_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tcte_policy_crisis_regular_7"
+		modifier = {
+			country_menace_produces_mult = 400
+			country_advanced_logic_produces_mult = 400
+			country_feral_insight_produces_mult = 400
+			country_entropy_crystals_produces_mult = 400
+			country_integrity_produces_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tcte_policy_crisis_regular_8"
+		modifier = {
+			country_menace_produces_mult = 800
+			country_advanced_logic_produces_mult = 800
+			country_feral_insight_produces_mult = 800
+			country_entropy_crystals_produces_mult = 800
+			country_integrity_produces_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tcte_policy_crisis_regular_9"
+		modifier = {
+			country_menace_produces_mult = 1600
+			country_advanced_logic_produces_mult = 1600
+			country_feral_insight_produces_mult = 1600
+			country_entropy_crystals_produces_mult = 1600
+			country_integrity_produces_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+	option = {
+		name = "tcte_policy_crisis_regular_10"
+		modifier = {
+			country_menace_produces_mult = 3200
+			country_advanced_logic_produces_mult = 3200
+			country_feral_insight_produces_mult = 3200
+			country_entropy_crystals_produces_mult = 3200
+			country_integrity_produces_mult = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			OR = {
+				has_ascension_perk = ap_become_the_crisis
+				has_ascension_perk = ap_cosmogenesis
+				has_ascension_perk = ap_behemoths
+				has_ascension_perk = ap_galactic_hyperthermia
+				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+			}
+		}
+	}
+}

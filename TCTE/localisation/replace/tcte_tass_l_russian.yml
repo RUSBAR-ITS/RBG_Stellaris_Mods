@@ -1,0 +1,73 @@
+﻿l_russian:
+ 
+ tass_mod: "(§GTass§!)"
+ 
+#FLAGS
+ FLAG_CATEGORY_necron: "Некроны"
+ 
+#Civics
+ civic_tass_cheat_customized: "$tass_mod$ Полная настраиваемость"
+ civic_tass_cheat_customized_desc: "Действие «$MOD_GOVERNMENT_TITLE$» доступно с начала игры"
+ 
+#Origin
+ 
+#Traits
+ trait_tass_cheat_immortal: "$tass_mod$ Бессмертие"
+ trait_tass_cheat_immortal_desc: "Достаточно долгая жизнь позволяет приспособиться к любой среде"
+ trait_tass_cheat_immortal_tooltip: "При кочевом старте даёт корабль-ковчег 2 уровня и возможность строить новые"
+ leader_trait_tass_cheat_summoned: "$tass_mod$ Прекрасное образование"
+ leader_trait_tass_cheat_summoned_desc: "Этот лидер получил прекрасное образование"
+ 
+#Modifiers
+ modifier_tass_leader_cap: "$tass_mod$ Лимит лидеров"
+ modifier_tass_ascension_perks_increase: "$tass_mod$ Открыть ячейки бонусов за стремление"
+ modifier_tass_unlock_starbase_slot: "$tass_mod$ Открыть ячейки космических баз"
+ modifier_tass_summoned_science_ship: "$tass_mod$ Совершенный научный корабль"
+ modifier_tass_extra_envoy: "$tass_mod$ Дополнительные послы"
+ modifier_tass_extra_species_modding: "$tass_mod$ Расширенная модификация видов"
+ modifier_tass_origin_nomad: "$tass_mod$ Кочевое происхождение"
+ 
+#Decisions
+ decision_tass_cheat_open_menu: "$tass_mod$ §dГосударство:§! Главное меню читов"
+ decision_tass_cheat_open_menu_desc: "Открывает меню «$tass_cheat.1.name$»."
+ decision_tass_cheat_open_menu_tooltip: "Открывает главное меню читов"
+ decision_tass_cheat_planet_infrastructure: "$tass_mod$ §dПланета:§! Инфраструктура колонии"
+ decision_tass_cheat_planet_infrastructure_desc: "Навсегда добавляет особенность «$d_tass_cheat_planet_infrastructure$»."
+ decision_tass_cheat_planet_infrastructure_tooltip: "Добавляет §G20§! районов, §G4000§! жилья и снижает §Gвдвое§! преступность/отклонение от нормы.\nДобавляет §G50%§!к базовой скорости корабля и §G5§! мест в очереди строительства, если это корабль-ковчег.\n§RВнимание:§! Это действие НЕОБРАТИМО!"
+ decision_tass_cheat_create_pop: "$tass_mod$ §dПланета:§! Создать 500 поселений"
+ decision_tass_cheat_create_pop_desc: "Пополняет подходящую группу поселений основного вида."
+ decision_tass_cheat_create_pop_tooltip: "Создаёт §G500§! дополнительных поселений в колонии §Y[Root.GetName]§!." 
+ decision_tass_cheat_improve_leader: "$tass_mod$ §dПланета:§! Усилить лидера"
+ decision_tass_cheat_improve_leader_desc: "Усиливает лидера, назначенного губернатором этой колонии."
+ decision_tass_cheat_improve_leader_fail: "£trigger_no£ Сначала назначьте нужного лидера губернатором этой колонии"
+ decision_tass_cheat_improve_leader_tooltip: "Это решение даёт дополнительные варианты черт лидеру, назначенному губернатором колонии.\nУсиление для категорий §Y$ruler$§! и §Yузлы гештальт-сознания§! доступно через главное меню читов, в разделе лидеров."
+ 
+#Edicts
+ edict_tass_edict_cheat_test: "$tass_mod$ §dТест§!"
+ edict_tass_edict_cheat_test_desc: ""
+ edict_tass_edict_cheat_genetic_ascension_situation: "$tass_mod$ §dУскорение: §G$genetic_ascension_situation$§!§!"
+ edict_tass_edict_cheat_genetic_ascension_situation_desc: "Пока указ включён, раз в месяц добавляет 25 прогресса одной подходящей ситуации «$genetic_ascension_situation$», включая вариант улья. Не действует во время паузы. Требуется действующее сооружение «$building_genomic_facility$» либо происхождение «$origin_wilderness$»; при прогрессе от 600 также требуется технология «$tech_gene_tailoring$». Указ не запускает ситуацию."
+ edict_tass_edict_cheat_situation_cyberization: "$tass_mod$ §dУскорение: §G$situation_cyberization$§!"
+ edict_tass_edict_cheat_situation_cyberization_desc: "Пока указ включён, раз в месяц добавляет 25 прогресса одной подходящей ситуации «$situation_cyberization$» или её варианту для улья и отдельно одной ситуации «$situation_cybernetic_creed_cyberization$». Пауза и этапы текущего преобразования блокируют прибавку. При прогрессе от 250, а для варианта «$origin_cybernetic_creed$» — от 1800, требуется действующее сооружение «$building_augmentation_center$» или «$building_augmentation_bazaars$». Указ не запускает ситуации."
+ edict_tass_edict_cheat_situation_digitization: "$tass_mod$ §dУскорение: §G$situation_digitization$§!"
+ edict_tass_edict_cheat_situation_digitization_desc: "Пока указ включён, раз в месяц добавляет 25 прогресса одной подходящей ситуации «$situation_digitization$». Требуется действующее сооружение «$building_identity_complex$». Пауза и текущий этап переноса сознания блокируют прибавку. Указ не запускает ситуацию."
+ edict_tass_edict_cheat_situation_transformation: "$tass_mod$ §dУскорение: §G$situation_transformation$§!"
+ edict_tass_edict_cheat_situation_transformation_desc: "Пока указ включён, раз в месяц добавляет 25 прогресса одной ситуации «$situation_transformation$», если она не приостановлена. Указ не запускает ситуацию и не снимает паузу."
+ edict_tass_edict_cheat_situation_breach_shroud: "$tass_mod$ §dУскорение: §G$situation_breach_shroud$§!"
+ edict_tass_edict_cheat_situation_breach_shroud_desc: "Пока указ включён, раз в месяц добавляет 25 прогресса одной подходящей ситуации «$situation_breach_shroud$» и отдельно одной ситуации её варианта для происхождения «$origin_endbringers$». До 500 прогресса дополнительных условий нет. От 500 до 750 требуется действующий пси-корпус: «$building_psi_corps$», «$sm_ring_psi_corps$» или «$sm_arkship_psi_corps$». Для особого варианта вместо этого нужны традиция «$tr_psionics_shroud_psi_corps$» и хотя бы одно сооружение «$building_chamber_of_silence$». От 750 нужна традиция «$tr_psionics_shroud_great_awakening$». Указ не запускает ситуации."
+ edict_tass_edict_cheat_situation_consume: "$tass_mod$ §dУскорение: §GПоглощение§!&§GАбсорбция§!"
+ edict_tass_edict_cheat_situation_consume_desc: "Пока указ включён, раз в месяц добавляет 30 прогресса каждой активной ситуации поглощения мира терраворами или нанитами, включая соответствующие варианты кораблей-ковчегов. Не запускает поглощение новых миров."
+ edict_tass_edict_cheat_situation_observation_insight: "$tass_mod$ §dУскорение: §G$situation_observation_insight$§!"
+ edict_tass_edict_cheat_situation_observation_insight_desc: "Пока указ включён, раз в месяц добавляет 5 прогресса каждой активной ситуации «$situation_observation_insight$». Указ не создаёт новые ситуации и не выдаёт технологии немедленно."
+ edict_tass_edict_cheat_instant_project: "$tass_mod$ §dУскорение: §GИсследовательские проекты§!"
+ edict_tass_edict_cheat_instant_project_desc: "Технологии, особые проекты и исследовательские контракты будут завершены 1 числа следующего месяца."
+ 
+#Deposits
+ d_tass_cheat_planet_infrastructure: "$tass_mod$ Инфраструктура колонии"
+ d_tass_cheat_planet_infrastructure_desc: "Постоянная инфраструктура: $MOD_PLANET_MAX_DISTRICTS_ADD$ +20, $MOD_PLANET_HOUSING_ADD$ +4000, $MOD_PLANET_BUILDING_CAPACITY_ADD$ +5. Для обычного государства снижает преступность на 50%, для гештальт-сознания — отклонение от нормы на 50%. Если владелец — кочевое государство, дополнительно даёт +50% к базовой скорости корабля. Особенность сохраняется при терраформировании."
+ 
+#System
+ BYPASS_TASS_CHEAT_WORMHOLE: "$tass_mod$ Портал в Уединённый рай"
+ ENTRY_BYPASS_TASS_CHEAT_WORMHOLE: "$tass_mod$ Войти в портал в Уединённый рай"
+ EXIT_BYPASS_TASS_CHEAT_WORMHOLE: "$tass_mod$ Выйти из портала в Уединённый рай"
+ NAME_tass_cheat_initializer_1: "Уединённый рай"

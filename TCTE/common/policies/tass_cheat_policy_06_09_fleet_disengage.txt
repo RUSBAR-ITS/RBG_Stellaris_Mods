@@ -1,0 +1,136 @@
+tass_policy_cheat_fleet_disengage = {
+	category = tass_cheat_fleet
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_fleet_disengage_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_disengage_1"
+		modifier = {
+			ship_disengage_opportunities_add = 2
+			ship_disengage_chance_mult = 0.25
+			ship_emergency_ftl_mult = -0.25
+			ship_emergency_ftl_min_days_mult = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_disengage_2"
+		modifier = {
+			ship_disengage_opportunities_add = 4
+			ship_disengage_chance_mult = 0.5
+			ship_emergency_ftl_mult = -0.5
+			ship_emergency_ftl_min_days_mult = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_disengage_3"
+		modifier = {
+			ship_disengage_opportunities_add = 10
+			ship_disengage_chance_mult = 0.75
+			ship_emergency_ftl_mult = -0.75
+			ship_emergency_ftl_min_days_mult = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_disengage_4"
+		modifier = {
+			ship_disengage_opportunities_add = 20
+			ship_disengage_chance_mult = 1
+			ship_emergency_ftl_mult = -1
+			ship_emergency_ftl_min_days_mult = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_disengage_regular_5"
+		modifier = {
+			ship_disengage_opportunities_add = 40
+			ship_disengage_chance_mult = 2
+			ship_emergency_ftl_mult = -2
+			ship_emergency_ftl_min_days_mult = -2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_disengage_regular_6"
+		modifier = {
+			ship_disengage_opportunities_add = 80
+			ship_disengage_chance_mult = 4
+			ship_emergency_ftl_mult = -4
+			ship_emergency_ftl_min_days_mult = -4
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_disengage_regular_7"
+		modifier = {
+			ship_disengage_opportunities_add = 160
+			ship_disengage_chance_mult = 8
+			ship_emergency_ftl_mult = -8
+			ship_emergency_ftl_min_days_mult = -8
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_disengage_regular_8"
+		modifier = {
+			ship_disengage_opportunities_add = 320
+			ship_disengage_chance_mult = 16
+			ship_emergency_ftl_mult = -16
+			ship_emergency_ftl_min_days_mult = -16
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_disengage_regular_9"
+		modifier = {
+			ship_disengage_opportunities_add = 640
+			ship_disengage_chance_mult = 32
+			ship_emergency_ftl_mult = -32
+			ship_emergency_ftl_min_days_mult = -32
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_disengage_regular_10"
+		modifier = {
+			ship_disengage_opportunities_add = 1280
+			ship_disengage_chance_mult = 64
+			ship_emergency_ftl_mult = -64
+			ship_emergency_ftl_min_days_mult = -64
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

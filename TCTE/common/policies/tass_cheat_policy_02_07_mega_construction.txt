@@ -1,0 +1,116 @@
+tass_policy_cheat_mega_construction = {
+	category = tass_cheat_construction
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_mega_construction_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_mega_construction_1"
+		modifier = {
+			megastructure_build_speed_mult = 1
+			country_megastructure_build_cap_add = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_mega_construction_2"
+		modifier = {
+			megastructure_build_speed_mult = 2
+			country_megastructure_build_cap_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_mega_construction_3"
+		modifier = {
+			megastructure_build_speed_mult = 5
+			country_megastructure_build_cap_add = 25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_mega_construction_4"
+		modifier = {
+			megastructure_build_speed_mult = 10
+			country_megastructure_build_cap_add = 50
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_mega_construction_5"
+		modifier = {
+			megastructure_build_speed_mult = 100
+			country_megastructure_build_cap_add = 500
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_mega_construction_regular_6"
+		modifier = {
+			megastructure_build_speed_mult = 200
+			country_megastructure_build_cap_add = 1000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_mega_construction_regular_7"
+		modifier = {
+			megastructure_build_speed_mult = 400
+			country_megastructure_build_cap_add = 2000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_mega_construction_regular_8"
+		modifier = {
+			megastructure_build_speed_mult = 800
+			country_megastructure_build_cap_add = 4000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_mega_construction_regular_9"
+		modifier = {
+			megastructure_build_speed_mult = 1600
+			country_megastructure_build_cap_add = 8000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_mega_construction_regular_10"
+		modifier = {
+			megastructure_build_speed_mult = 3200
+			country_megastructure_build_cap_add = 16000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

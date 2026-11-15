@@ -1,0 +1,126 @@
+tass_policy_cheat_leader_skill = {
+	category = tass_cheat_leader
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_leader_skill_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_leader_skill_1"
+		modifier = {
+			leader_skill_add = 5
+			councilor_skill_add = 5
+			ruler_skill_add = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_leader_skill_2"
+		modifier = {
+			leader_skill_add = 10
+			councilor_skill_add = 10
+			ruler_skill_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_leader_skill_3"
+		modifier = {
+			leader_skill_add = 25
+			councilor_skill_add = 25
+			ruler_skill_add = 25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_leader_skill_4"
+		modifier = {
+			leader_skill_add = 50
+			councilor_skill_add = 50
+			ruler_skill_add = 50
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_leader_skill_regular_5"
+		modifier = {
+			leader_skill_add = 100
+			councilor_skill_add = 100
+			ruler_skill_add = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_leader_skill_regular_6"
+		modifier = {
+			leader_skill_add = 200
+			councilor_skill_add = 200
+			ruler_skill_add = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_leader_skill_regular_7"
+		modifier = {
+			leader_skill_add = 400
+			councilor_skill_add = 400
+			ruler_skill_add = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_leader_skill_regular_8"
+		modifier = {
+			leader_skill_add = 800
+			councilor_skill_add = 800
+			ruler_skill_add = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_leader_skill_regular_9"
+		modifier = {
+			leader_skill_add = 1600
+			councilor_skill_add = 1600
+			ruler_skill_add = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_leader_skill_regular_10"
+		modifier = {
+			leader_skill_add = 3200
+			councilor_skill_add = 3200
+			ruler_skill_add = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

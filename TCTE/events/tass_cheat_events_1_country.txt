@@ -1,0 +1,198 @@
+namespace = tass_cheat
+
+#Main Cheat Event
+country_event = {
+	id = tass_cheat.1
+	title = tass_cheat.1.name
+	desc = tass_cheat.1.desc
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+	}
+	picture = GFX_evt_synth_sabotage
+
+	immediate = {
+		set_country_flag = tass_cheat_menu_on
+	}
+	after = {
+		hidden_effect = {}
+	}
+#	option = {
+#		name = tass_cheat.1.test
+#		ai_chance = { factor = 0 }
+#		trigger = {
+#			is_ai = no
+#		}
+#		hidden_effect = {
+#			
+#			country_event = { id = tass_cheat.1 }
+#		}
+#	}
+	option = {
+		name = tass_cheat.1.add_resources
+		custom_tooltip = tass_cheat.1.add_resources_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		hidden_effect = {
+			country_event = { id = tass_cheat.4 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.leader
+		custom_tooltip = tass_cheat.1.leader_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		hidden_effect = {
+			country_event = { id = tass_cheat.2 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.technology
+		custom_tooltip = tass_cheat.1.technology_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		hidden_effect = {
+			country_event = { id = tass_cheat.5 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.ascension
+		custom_tooltip = tass_cheat.1.ascension_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		hidden_effect = {
+			country_event = { id = tass_cheat.6 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.shroud
+		custom_tooltip = tass_cheat.1.shroud_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = tass_cheat.1.shroud_fail
+				has_psionic_ascension = yes
+			}
+		}
+		hidden_effect = {
+			country_event = { id = tass_cheat.8 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.unlock_starbase_slot
+		custom_tooltip = tass_cheat.1.unlock_starbase_slot_tooltip
+		ai_chance = {
+			factor = 0
+		}
+		allow = {
+			custom_tooltip = {
+				fail_text = tass_cheat.1.unlock_starbase_slot_fail
+				is_ai = no
+				NOT = { has_modifier = modifier_tass_unlock_starbase_slot }
+			}
+		}
+		hidden_effect = {
+			add_modifier = {
+				modifier = modifier_tass_unlock_starbase_slot
+				days = -1
+			}
+			country_event = { id = tass_cheat.1 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.trait_points
+		custom_tooltip = tcte_species_modding_enable_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+			NOT = { has_modifier = modifier_tass_extra_species_modding }
+		}
+		add_modifier = {
+			modifier = modifier_tass_extra_species_modding
+			days = -1
+		}
+		hidden_effect = {
+			country_event = { id = tass_cheat.1 }
+		}
+	}
+	option = {
+		name = tcte_species_modding_remove
+		custom_tooltip = tcte_species_modding_remove_tooltip
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+			has_modifier = modifier_tass_extra_species_modding
+		}
+		remove_modifier = modifier_tass_extra_species_modding
+		hidden_effect = {
+			country_event = { id = tass_cheat.1 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.extra_envoy
+		custom_tooltip = tcte_envoy_menu_open_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_envoys.1 } }
+	}
+	option = {
+		name = tass_cheat.1.summon_ship
+		custom_tooltip = tass_cheat.1.summon_ship_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			country_event = { id = tass_cheat.7 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.special_action
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = {
+			country_event = { id = tass_cheat.3 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.paradise
+		custom_tooltip = tass_cheat.1.paradise_tooltip
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			custom_tooltip = {
+				fail_text = tass_cheat.1.paradise_failed
+				NOT = { has_country_flag = tass_cheat_paradise_exist }
+				NOT = {
+					any_system = {
+						has_star_flag = tass_cheat_system_paradise
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			set_country_flag = tass_cheat_paradise_exist
+			country_event = { id = tass_cheat_system.1 }
+			country_event = { id = tass_cheat.1 }
+		}
+	}
+	option = {
+		name = tass_cheat.1.exit
+		default_hide_option = yes
+		ai_chance = {
+			factor = 100
+		}
+		hidden_effect = {
+			remove_country_flag = tass_cheat_menu_on
+		}
+	}
+}

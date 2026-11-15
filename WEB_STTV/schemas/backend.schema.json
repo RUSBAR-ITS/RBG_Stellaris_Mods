@@ -1,0 +1,206 @@
+{
+  "type": "object",
+  "properties": {
+    "definitions": {
+      "type": "object",
+      "properties": {
+        "technologies": {
+          "type": "object",
+          "properties": {
+            "variable": {
+              "const": "TECH_PATH"
+            },
+            "subdirectory": {
+              "type": "string"
+            },
+            "pattern": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "encoding": {
+              "const": "utf-8-sig"
+            }
+          },
+          "required": [
+            "variable",
+            "subdirectory",
+            "pattern",
+            "recursive",
+            "encoding"
+          ],
+          "additionalProperties": false
+        },
+        "categories": {
+          "type": "object",
+          "properties": {
+            "variable": {
+              "const": "TECH_PATH"
+            },
+            "subdirectory": {
+              "type": "string"
+            },
+            "pattern": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "encoding": {
+              "const": "utf-8-sig"
+            }
+          },
+          "required": [
+            "variable",
+            "subdirectory",
+            "pattern",
+            "recursive",
+            "encoding"
+          ],
+          "additionalProperties": false
+        },
+        "tiers": {
+          "type": "object",
+          "properties": {
+            "variable": {
+              "const": "TECH_PATH"
+            },
+            "subdirectory": {
+              "type": "string"
+            },
+            "pattern": {
+              "type": "string",
+              "minLength": 1
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "encoding": {
+              "const": "utf-8-sig"
+            }
+          },
+          "required": [
+            "variable",
+            "subdirectory",
+            "pattern",
+            "recursive",
+            "encoding"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "technologies",
+        "categories",
+        "tiers"
+      ],
+      "additionalProperties": false
+    },
+    "localization": {
+      "type": "object",
+      "properties": {
+        "pattern": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recursive": {
+          "type": "boolean"
+        },
+        "encoding": {
+          "const": "utf-8-sig"
+        },
+        "languages": {
+          "type": "object",
+          "properties": {
+            "ru": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "header",
+                "sources"
+              ],
+              "additionalProperties": false
+            },
+            "en": {
+              "type": "object",
+              "properties": {
+                "header": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sources": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "header",
+                "sources"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "ru",
+            "en"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "pattern",
+        "recursive",
+        "encoding",
+        "languages"
+      ],
+      "additionalProperties": false
+    },
+    "outputs": {
+      "type": "object",
+      "properties": {
+        "database": {
+          "type": "string",
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
+        },
+        "report": {
+          "type": "string",
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
+        }
+      },
+      "required": [
+        "database",
+        "report"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "definitions",
+    "localization",
+    "outputs"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

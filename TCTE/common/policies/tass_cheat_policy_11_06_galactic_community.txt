@@ -1,0 +1,156 @@
+tass_policy_cheat_galactic_community = {
+	category = tass_cheat_diplomacy
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_galactic_community_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_galactic_community_1"
+		modifier = {
+			veto_cooldown_mult = -0.25
+			emergency_measures_cooldown_mult = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_galactic_community_2"
+		modifier = {
+			veto_cooldown_mult = -0.5
+			emergency_measures_cooldown_mult = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_galactic_community_3"
+		modifier = {
+			veto_cooldown_mult = -0.75
+			emergency_measures_cooldown_mult = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_galactic_community_4"
+		modifier = {
+			veto_cooldown_mult = -1
+			emergency_measures_cooldown_mult = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tcte_policy_galactic_community_regular_5"
+		modifier = {
+			veto_cooldown_mult = -2
+			emergency_measures_cooldown_mult = -2
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tcte_policy_galactic_community_regular_6"
+		modifier = {
+			veto_cooldown_mult = -4
+			emergency_measures_cooldown_mult = -4
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tcte_policy_galactic_community_regular_7"
+		modifier = {
+			veto_cooldown_mult = -8
+			emergency_measures_cooldown_mult = -8
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tcte_policy_galactic_community_regular_8"
+		modifier = {
+			veto_cooldown_mult = -16
+			emergency_measures_cooldown_mult = -16
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tcte_policy_galactic_community_regular_9"
+		modifier = {
+			veto_cooldown_mult = -32
+			emergency_measures_cooldown_mult = -32
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+	option = {
+		name = "tcte_policy_galactic_community_regular_10"
+		modifier = {
+			veto_cooldown_mult = -64
+			emergency_measures_cooldown_mult = -64
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			is_galactic_community_formed = yes
+			is_homicidal = no
+		}
+	}
+}

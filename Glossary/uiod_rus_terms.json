@@ -1,0 +1,200 @@
+{
+  "terms": [
+    {
+      "english": "Ascension Theory",
+      "russian": "Теория вознесения",
+      "sources": [
+        {
+          "key": "tech_ascension_theory",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/technology_l_english.yml",
+          "english_line": 616,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/technology_l_russian.yml",
+          "russian_line": 616,
+          "priority": 2
+        },
+        {
+          "key": "tech_ascension_theory",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/technology_l_english.yml",
+          "english_line": 616,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/technology_l_russian.yml",
+          "russian_line": 559,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Ascension Perks",
+      "russian": "Бонусы за стремление",
+      "sources": [
+        {
+          "key": "ASCENSION_PERKS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/utopia_l_english.yml",
+          "english_line": 309,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/utopia_l_russian.yml",
+          "russian_line": 309,
+          "priority": 2
+        },
+        {
+          "key": "TUTORIAL_ASCENSION_PERKS_DESC",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/tutorial_l_english.yml",
+          "english_line": 107,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/tutorial_l_russian.yml",
+          "russian_line": 107,
+          "priority": 2
+        },
+        {
+          "key": "ASCENSION_PERKS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/utopia_l_english.yml",
+          "english_line": 309,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/utopia_l_russian.yml",
+          "russian_line": 277,
+          "priority": 3
+        },
+        {
+          "key": "TUTORIAL_ASCENSION_PERKS_DESC",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/tutorial_l_english.yml",
+          "english_line": 107,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/tutorial_l_russian.yml",
+          "russian_line": 105,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Ascension Perk Slot",
+      "russian": "Ячейка бонусов за стремление",
+      "sources": [
+        {
+          "key": "TUTORIAL_ASCENSION_PERKS_DESC",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/tutorial_l_english.yml",
+          "english_line": 107,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/tutorial_l_russian.yml",
+          "russian_line": 107,
+          "priority": 2
+        },
+        {
+          "key": "NUM_ASCENSION_PERK_SLOTS_TRIGGER",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/triggers_effects_l_english.yml",
+          "english_line": 860,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/triggers_effects_l_russian.yml",
+          "russian_line": 860,
+          "priority": 2
+        },
+        {
+          "key": "TUTORIAL_ASCENSION_PERKS_DESC",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/tutorial_l_english.yml",
+          "english_line": 107,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/tutorial_l_russian.yml",
+          "russian_line": 105,
+          "priority": 3
+        },
+        {
+          "key": "NUM_ASCENSION_PERK_SLOTS_TRIGGER",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/triggers_effects_l_english.yml",
+          "english_line": 860,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/triggers_effects_l_russian.yml",
+          "russian_line": 855,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Traditions",
+      "russian": "Традиции",
+      "sources": [
+        {
+          "key": "TRADITIONS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/traditions_l_english.yml",
+          "english_line": 8,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/traditions_l_russian.yml",
+          "russian_line": 8,
+          "priority": 2
+        },
+        {
+          "key": "TRADITIONS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/traditions_l_english.yml",
+          "english_line": 8,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/traditions_l_russian.yml",
+          "russian_line": 7,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Tradition Categories",
+      "russian": "Категории традиций",
+      "sources": [
+        {
+          "key": "TRADITION_COST_MULT_NUM_GROUPS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/traditions_l_english.yml",
+          "english_line": 35,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/traditions_l_russian.yml",
+          "russian_line": 35,
+          "priority": 2
+        },
+        {
+          "key": "NUM_TRADITION_CATEGORIES",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/triggers_effects_l_english.yml",
+          "english_line": 1532,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/triggers_effects_l_russian.yml",
+          "russian_line": 1532,
+          "priority": 2
+        },
+        {
+          "key": "TRADITION_COST_MULT_NUM_GROUPS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/traditions_l_english.yml",
+          "english_line": 35,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/traditions_l_russian.yml",
+          "russian_line": 34,
+          "priority": 3
+        },
+        {
+          "key": "NUM_TRADITION_CATEGORIES",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/triggers_effects_l_english.yml",
+          "english_line": 1532,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/triggers_effects_l_russian.yml",
+          "russian_line": 1512,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Repeatable Technology",
+      "russian": "Повторяющаяся технология",
+      "sources": [
+        {
+          "key": "exploration.400.hint",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/focus_l_english.yml",
+          "english_line": 549,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/focus_l_russian.yml",
+          "russian_line": 549,
+          "priority": 2
+        },
+        {
+          "key": "NUM_REPEATABLE_TECHS_TRIGGER",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/triggers_effects_l_english.yml",
+          "english_line": 876,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/triggers_effects_l_russian.yml",
+          "russian_line": 876,
+          "priority": 2
+        },
+        {
+          "key": "exploration.400.hint",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/focus_l_english.yml",
+          "english_line": 549,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/focus_l_russian.yml",
+          "russian_line": 475,
+          "priority": 3
+        },
+        {
+          "key": "NUM_REPEATABLE_TECHS_TRIGGER",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/triggers_effects_l_english.yml",
+          "english_line": 876,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/triggers_effects_l_russian.yml",
+          "russian_line": 870,
+          "priority": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1950 @@
+namespace = tcte_resources
+
+# economy category.
+country_event = {
+	id = tcte_resources.1
+	title = tcte_resource_category_economy_title
+	desc = tcte_resource_category_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_energy
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_minerals
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_food
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_consumer_goods
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_biomass
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_alloys
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_trade
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.4 } }
+	}
+}
+
+# strategic category.
+country_event = {
+	id = tcte_resources.2
+	title = tcte_resource_category_strategic_title
+	desc = tcte_resource_category_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_volatile_motes
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_exotic_gases
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_rare_crystals
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_sr_living_metal
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_sr_zro
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_sr_dark_matter
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_nanites
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.4 } }
+	}
+}
+
+# empire category.
+country_event = {
+	id = tcte_resources.3
+	title = tcte_resource_category_empire_title
+	desc = tcte_resource_category_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_influence
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_unity
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.4 } }
+	}
+}
+
+# research category.
+country_event = {
+	id = tcte_resources.4
+	title = tcte_resource_category_research_title
+	desc = tcte_resource_category_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_physics_research
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_society_research
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_engineering_research
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.4 } }
+	}
+}
+
+# artifacts category.
+country_event = {
+	id = tcte_resources.5
+	title = tcte_resource_category_artifacts_title
+	desc = tcte_resource_category_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_minor_artifacts
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_astral_threads
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.4 } }
+	}
+}
+
+# special_paths category.
+country_event = {
+	id = tcte_resources.6
+	title = tcte_resource_category_special_paths_title
+	desc = tcte_resource_category_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_menace
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_advanced_logic
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_feral_insight
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_entropy_crystals
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_integrity
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tass_cheat.4 } }
+	}
+}
+
+# energy grants.
+country_event = {
+	id = tcte_resources.101
+	title = tcte_resource_energy_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_energy_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { energy = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_energy_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { energy = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_energy_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { energy = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_energy_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { energy = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_energy_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { energy = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_energy_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { energy = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.101 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# minerals grants.
+country_event = {
+	id = tcte_resources.102
+	title = tcte_resource_minerals_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_minerals_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { minerals = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_minerals_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { minerals = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_minerals_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { minerals = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_minerals_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { minerals = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_minerals_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { minerals = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_minerals_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { minerals = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.102 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# food grants.
+country_event = {
+	id = tcte_resources.103
+	title = tcte_resource_food_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_food_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { food = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_food_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { food = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_food_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { food = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_food_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { food = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_food_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { food = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_food_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { food = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.103 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# consumer_goods grants.
+country_event = {
+	id = tcte_resources.104
+	title = tcte_resource_consumer_goods_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_consumer_goods_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		add_resource = { consumer_goods = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_consumer_goods_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		add_resource = { consumer_goods = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_consumer_goods_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		add_resource = { consumer_goods = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_consumer_goods_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		add_resource = { consumer_goods = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_consumer_goods_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		add_resource = { consumer_goods = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_consumer_goods_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = no
+		}
+		add_resource = { consumer_goods = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.104 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# biomass grants.
+country_event = {
+	id = tcte_resources.105
+	title = tcte_resource_biomass_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_biomass_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		add_resource = { biomass = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_biomass_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		add_resource = { biomass = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_biomass_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		add_resource = { biomass = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_biomass_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		add_resource = { biomass = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_biomass_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		add_resource = { biomass = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_biomass_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			is_wilderness_empire = yes
+		}
+		add_resource = { biomass = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.105 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# alloys grants.
+country_event = {
+	id = tcte_resources.106
+	title = tcte_resource_alloys_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_alloys_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { alloys = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_alloys_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { alloys = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_alloys_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { alloys = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_alloys_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { alloys = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_alloys_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { alloys = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_alloys_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { alloys = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.106 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# trade grants.
+country_event = {
+	id = tcte_resources.107
+	title = tcte_resource_trade_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_trade_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { trade = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_trade_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { trade = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_trade_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { trade = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_trade_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { trade = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_trade_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { trade = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_trade_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { trade = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.107 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.1 } }
+	}
+}
+
+# volatile_motes grants.
+country_event = {
+	id = tcte_resources.108
+	title = tcte_resource_volatile_motes_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_volatile_motes_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { volatile_motes = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_volatile_motes_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { volatile_motes = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_volatile_motes_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { volatile_motes = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_volatile_motes_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { volatile_motes = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_volatile_motes_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { volatile_motes = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_volatile_motes_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { volatile_motes = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.108 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# exotic_gases grants.
+country_event = {
+	id = tcte_resources.109
+	title = tcte_resource_exotic_gases_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_exotic_gases_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { exotic_gases = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_exotic_gases_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { exotic_gases = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_exotic_gases_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { exotic_gases = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_exotic_gases_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { exotic_gases = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_exotic_gases_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { exotic_gases = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_exotic_gases_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { exotic_gases = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.109 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# rare_crystals grants.
+country_event = {
+	id = tcte_resources.110
+	title = tcte_resource_rare_crystals_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_rare_crystals_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { rare_crystals = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_rare_crystals_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { rare_crystals = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_rare_crystals_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { rare_crystals = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_rare_crystals_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { rare_crystals = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_rare_crystals_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { rare_crystals = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_rare_crystals_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { rare_crystals = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.110 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# sr_living_metal grants.
+country_event = {
+	id = tcte_resources.111
+	title = tcte_resource_sr_living_metal_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_sr_living_metal_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_living_metal = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_sr_living_metal_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_living_metal = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_sr_living_metal_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_living_metal = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_sr_living_metal_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_living_metal = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_sr_living_metal_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_living_metal = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_sr_living_metal_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_living_metal = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.111 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# sr_zro grants.
+country_event = {
+	id = tcte_resources.112
+	title = tcte_resource_sr_zro_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_sr_zro_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_zro = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_sr_zro_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_zro = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_sr_zro_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_zro = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_sr_zro_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_zro = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_sr_zro_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_zro = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_sr_zro_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_zro = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.112 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# sr_dark_matter grants.
+country_event = {
+	id = tcte_resources.113
+	title = tcte_resource_sr_dark_matter_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_sr_dark_matter_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_dark_matter = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_sr_dark_matter_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_dark_matter = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_sr_dark_matter_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_dark_matter = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_sr_dark_matter_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_dark_matter = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_sr_dark_matter_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_dark_matter = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_sr_dark_matter_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { sr_dark_matter = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.113 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# nanites grants.
+country_event = {
+	id = tcte_resources.114
+	title = tcte_resource_nanites_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_nanites_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { nanites = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_nanites_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { nanites = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_nanites_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { nanites = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_nanites_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { nanites = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_nanites_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { nanites = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_nanites_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { nanites = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.114 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.2 } }
+	}
+}
+
+# influence grants.
+country_event = {
+	id = tcte_resources.115
+	title = tcte_resource_influence_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_influence_50
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { influence = 50 }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_influence_100
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { influence = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_influence_200
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { influence = 200 }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_influence_300
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { influence = 300 }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_influence_500
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { influence = 500 }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_influence_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { influence = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.115 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.3 } }
+	}
+}
+
+# unity grants.
+country_event = {
+	id = tcte_resources.116
+	title = tcte_resource_unity_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_unity_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { unity = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_unity_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { unity = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_unity_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { unity = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_unity_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { unity = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_unity_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { unity = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_unity_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { unity = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.116 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.3 } }
+	}
+}
+
+# physics_research grants.
+country_event = {
+	id = tcte_resources.117
+	title = tcte_resource_physics_research_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_physics_research_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { physics_research = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_physics_research_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { physics_research = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_physics_research_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { physics_research = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_physics_research_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { physics_research = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_physics_research_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { physics_research = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_physics_research_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { physics_research = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.117 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.4 } }
+	}
+}
+
+# society_research grants.
+country_event = {
+	id = tcte_resources.118
+	title = tcte_resource_society_research_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_society_research_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { society_research = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_society_research_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { society_research = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_society_research_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { society_research = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_society_research_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { society_research = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_society_research_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { society_research = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_society_research_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { society_research = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.118 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.4 } }
+	}
+}
+
+# engineering_research grants.
+country_event = {
+	id = tcte_resources.119
+	title = tcte_resource_engineering_research_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_engineering_research_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { engineering_research = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_engineering_research_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { engineering_research = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_engineering_research_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { engineering_research = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_engineering_research_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { engineering_research = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_engineering_research_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { engineering_research = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_engineering_research_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		add_resource = { engineering_research = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.119 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.4 } }
+	}
+}
+
+# minor_artifacts grants.
+country_event = {
+	id = tcte_resources.120
+	title = tcte_resource_minor_artifacts_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_minor_artifacts_100
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		add_resource = { minor_artifacts = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_minor_artifacts_250
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		add_resource = { minor_artifacts = 250 }
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_minor_artifacts_500
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		add_resource = { minor_artifacts = 500 }
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_minor_artifacts_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		add_resource = { minor_artifacts = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_minor_artifacts_1500
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		add_resource = { minor_artifacts = 1500 }
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_minor_artifacts_2000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ancrel = yes
+		}
+		add_resource = { minor_artifacts = 2000 }
+		hidden_effect = { country_event = { id = tcte_resources.120 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.5 } }
+	}
+}
+
+# astral_threads grants.
+country_event = {
+	id = tcte_resources.121
+	title = tcte_resource_astral_threads_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_astral_threads_25
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		add_resource = { astral_threads = 25 }
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_astral_threads_50
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		add_resource = { astral_threads = 50 }
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_astral_threads_100
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		add_resource = { astral_threads = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_astral_threads_200
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		add_resource = { astral_threads = 200 }
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_astral_threads_300
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		add_resource = { astral_threads = 300 }
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_astral_threads_500
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_astral_planes_dlc = yes
+		}
+		add_resource = { astral_threads = 500 }
+		hidden_effect = { country_event = { id = tcte_resources.121 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.5 } }
+	}
+}
+
+# menace grants.
+country_event = {
+	id = tcte_resources.122
+	title = tcte_resource_menace_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_menace_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		add_resource = { menace = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_menace_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		add_resource = { menace = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_menace_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		add_resource = { menace = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_menace_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		add_resource = { menace = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_menace_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		add_resource = { menace = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_menace_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_become_the_crisis
+		}
+		add_resource = { menace = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.122 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+}
+
+# advanced_logic grants.
+country_event = {
+	id = tcte_resources.123
+	title = tcte_resource_advanced_logic_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_advanced_logic_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		add_resource = { advanced_logic = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_advanced_logic_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		add_resource = { advanced_logic = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_advanced_logic_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		add_resource = { advanced_logic = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_advanced_logic_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		add_resource = { advanced_logic = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_advanced_logic_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		add_resource = { advanced_logic = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_advanced_logic_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_cosmogenesis
+		}
+		add_resource = { advanced_logic = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.123 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+}
+
+# feral_insight grants.
+country_event = {
+	id = tcte_resources.124
+	title = tcte_resource_feral_insight_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_feral_insight_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		add_resource = { feral_insight = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_feral_insight_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		add_resource = { feral_insight = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_feral_insight_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		add_resource = { feral_insight = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_feral_insight_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		add_resource = { feral_insight = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_feral_insight_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		add_resource = { feral_insight = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_feral_insight_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_behemoths
+		}
+		add_resource = { feral_insight = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.124 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+}
+
+# entropy_crystals grants.
+country_event = {
+	id = tcte_resources.125
+	title = tcte_resource_entropy_crystals_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_entropy_crystals_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		add_resource = { entropy_crystals = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_entropy_crystals_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		add_resource = { entropy_crystals = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_entropy_crystals_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		add_resource = { entropy_crystals = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_entropy_crystals_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		add_resource = { entropy_crystals = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_entropy_crystals_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		add_resource = { entropy_crystals = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_entropy_crystals_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_galactic_hyperthermia
+		}
+		add_resource = { entropy_crystals = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.125 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+}
+
+# integrity grants.
+country_event = {
+	id = tcte_resources.126
+	title = tcte_resource_integrity_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_integrity_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		add_resource = { integrity = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_integrity_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		add_resource = { integrity = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_integrity_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		add_resource = { integrity = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_integrity_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		add_resource = { integrity = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_integrity_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		add_resource = { integrity = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_integrity_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_defender_of_the_galaxy_nomads
+		}
+		add_resource = { integrity = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+}

@@ -1,0 +1,126 @@
+tass_policy_cheat_federation = {
+	category = tass_cheat_diplomacy
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_federation_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_federation_1"
+		modifier = {
+			federation_experience_add = 10
+			cohesion_add = 5
+			cohesion_ethics_penalty_mult = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_federation_2"
+		modifier = {
+			federation_experience_add = 20
+			cohesion_add = 10
+			cohesion_ethics_penalty_mult = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_federation_3"
+		modifier = {
+			federation_experience_add = 50
+			cohesion_add = 25
+			cohesion_ethics_penalty_mult = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_federation_4"
+		modifier = {
+			federation_experience_add = 100
+			cohesion_add = 50
+			cohesion_ethics_penalty_mult = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_federation_regular_5"
+		modifier = {
+			federation_experience_add = 200
+			cohesion_add = 100
+			cohesion_ethics_penalty_mult = -2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_federation_regular_6"
+		modifier = {
+			federation_experience_add = 400
+			cohesion_add = 200
+			cohesion_ethics_penalty_mult = -4
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_federation_regular_7"
+		modifier = {
+			federation_experience_add = 800
+			cohesion_add = 400
+			cohesion_ethics_penalty_mult = -8
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_federation_regular_8"
+		modifier = {
+			federation_experience_add = 1600
+			cohesion_add = 800
+			cohesion_ethics_penalty_mult = -16
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_federation_regular_9"
+		modifier = {
+			federation_experience_add = 3200
+			cohesion_add = 1600
+			cohesion_ethics_penalty_mult = -32
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_federation_regular_10"
+		modifier = {
+			federation_experience_add = 6400
+			cohesion_add = 3200
+			cohesion_ethics_penalty_mult = -64
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

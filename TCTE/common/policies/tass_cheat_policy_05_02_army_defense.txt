@@ -1,0 +1,116 @@
+tass_policy_cheat_army_defense = {
+	category = tass_cheat_army
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_army_defense_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_army_defense_1"
+		modifier = {
+			army_damage_taken_mult = -0.25
+			army_morale_damage_taken_mult = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_army_defense_2"
+		modifier = {
+			army_damage_taken_mult = -0.5
+			army_morale_damage_taken_mult = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_army_defense_3"
+		modifier = {
+			army_damage_taken_mult = -0.75
+			army_morale_damage_taken_mult = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_army_defense_4"
+		modifier = {
+			army_damage_taken_mult = -1
+			army_morale_damage_taken_mult = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_army_defense_5"
+		modifier = {
+			army_damage_taken_mult = -10
+			army_morale_damage_taken_mult = -10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_army_defense_regular_6"
+		modifier = {
+			army_damage_taken_mult = -20
+			army_morale_damage_taken_mult = -20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_army_defense_regular_7"
+		modifier = {
+			army_damage_taken_mult = -40
+			army_morale_damage_taken_mult = -40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_army_defense_regular_8"
+		modifier = {
+			army_damage_taken_mult = -80
+			army_morale_damage_taken_mult = -80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_army_defense_regular_9"
+		modifier = {
+			army_damage_taken_mult = -160
+			army_morale_damage_taken_mult = -160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_army_defense_regular_10"
+		modifier = {
+			army_damage_taken_mult = -320
+			army_morale_damage_taken_mult = -320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

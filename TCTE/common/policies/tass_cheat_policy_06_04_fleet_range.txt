@@ -1,0 +1,116 @@
+tass_policy_cheat_fleet_range = {
+	category = tass_cheat_fleet
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_fleet_range_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_range_1"
+		modifier = {
+			ship_weapon_range_mult = 0.5
+			ship_engagement_range_mult = 0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_range_2"
+		modifier = {
+			ship_weapon_range_mult = 1
+			ship_engagement_range_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_range_3"
+		modifier = {
+			ship_weapon_range_mult = 2.5
+			ship_engagement_range_mult = 2.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_range_4"
+		modifier = {
+			ship_weapon_range_mult = 5
+			ship_engagement_range_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_range_5"
+		modifier = {
+			ship_weapon_range_mult = 50
+			ship_engagement_range_mult = 50
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_range_regular_6"
+		modifier = {
+			ship_weapon_range_mult = 100
+			ship_engagement_range_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_range_regular_7"
+		modifier = {
+			ship_weapon_range_mult = 200
+			ship_engagement_range_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_range_regular_8"
+		modifier = {
+			ship_weapon_range_mult = 400
+			ship_engagement_range_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_range_regular_9"
+		modifier = {
+			ship_weapon_range_mult = 800
+			ship_engagement_range_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_range_regular_10"
+		modifier = {
+			ship_weapon_range_mult = 1600
+			ship_engagement_range_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

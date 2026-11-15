@@ -1,0 +1,256 @@
+tass_policy_cheat_all_upkeep = {
+	category = tass_cheat_resources
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_all_upkeep_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_all_upkeep_1"
+		modifier = {
+			planet_pops_upkeep_mult = -0.25
+			planet_jobs_upkeep_mult = -0.25
+			leaders_upkeep_mult = -0.25
+			armies_upkeep_mult = -0.25
+			planet_structures_upkeep_mult = -0.25
+			ships_upkeep_mult = -0.25
+			ships_logistics_mult = -0.25
+			space_fauna_ship_upkeep_mult = -0.25
+			starbases_upkeep_mult = -0.25
+			stations_upkeep_mult = -0.25
+			megastructures_upkeep_mult = -0.25
+			ship_military_station_small_upkeep_mult = -0.25
+			edicts_upkeep_mult = -0.25
+			diplomacy_upkeep_mult = -0.25
+			operations_upkeep_mult = -0.25
+			starbase_waystations_modules_upkeep_mult = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_all_upkeep_2"
+		modifier = {
+			planet_pops_upkeep_mult = -0.5
+			planet_jobs_upkeep_mult = -0.5
+			leaders_upkeep_mult = -0.5
+			armies_upkeep_mult = -0.5
+			planet_structures_upkeep_mult = -0.5
+			ships_upkeep_mult = -0.5
+			ships_logistics_mult = -0.5
+			space_fauna_ship_upkeep_mult = -0.5
+			starbases_upkeep_mult = -0.5
+			stations_upkeep_mult = -0.5
+			megastructures_upkeep_mult = -0.5
+			ship_military_station_small_upkeep_mult = -0.5
+			edicts_upkeep_mult = -0.5
+			diplomacy_upkeep_mult = -0.5
+			operations_upkeep_mult = -0.5
+			starbase_waystations_modules_upkeep_mult = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_all_upkeep_3"
+		modifier = {
+			planet_pops_upkeep_mult = -0.75
+			planet_jobs_upkeep_mult = -0.75
+			leaders_upkeep_mult = -0.75
+			armies_upkeep_mult = -0.75
+			planet_structures_upkeep_mult = -0.75
+			ships_upkeep_mult = -0.75
+			ships_logistics_mult = -0.75
+			space_fauna_ship_upkeep_mult = -0.75
+			starbases_upkeep_mult = -0.75
+			stations_upkeep_mult = -0.75
+			megastructures_upkeep_mult = -0.75
+			ship_military_station_small_upkeep_mult = -0.75
+			edicts_upkeep_mult = -0.75
+			diplomacy_upkeep_mult = -0.75
+			operations_upkeep_mult = -0.75
+			starbase_waystations_modules_upkeep_mult = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_all_upkeep_4"
+		modifier = {
+			planet_pops_upkeep_mult = -1
+			planet_jobs_upkeep_mult = -1
+			leaders_upkeep_mult = -1
+			armies_upkeep_mult = -1
+			planet_structures_upkeep_mult = -1
+			ships_upkeep_mult = -1
+			ships_logistics_mult = -1
+			space_fauna_ship_upkeep_mult = -1
+			starbases_upkeep_mult = -1
+			stations_upkeep_mult = -1
+			megastructures_upkeep_mult = -1
+			ship_military_station_small_upkeep_mult = -1
+			edicts_upkeep_mult = -1
+			diplomacy_upkeep_mult = -1
+			operations_upkeep_mult = -1
+			starbase_waystations_modules_upkeep_mult = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_all_upkeep_5"
+		modifier = {
+			planet_pops_upkeep_mult = -10
+			planet_jobs_upkeep_mult = -10
+			leaders_upkeep_mult = -10
+			armies_upkeep_mult = -10
+			planet_structures_upkeep_mult = -10
+			ships_upkeep_mult = -10
+			ships_logistics_mult = -10
+			space_fauna_ship_upkeep_mult = -10
+			starbases_upkeep_mult = -10
+			stations_upkeep_mult = -10
+			megastructures_upkeep_mult = -10
+			ship_military_station_small_upkeep_mult = -10
+			edicts_upkeep_mult = -10
+			diplomacy_upkeep_mult = -10
+			operations_upkeep_mult = -10
+			starbase_waystations_modules_upkeep_mult = -10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_all_upkeep_regular_6"
+		modifier = {
+			planet_pops_upkeep_mult = -20
+			planet_jobs_upkeep_mult = -20
+			leaders_upkeep_mult = -20
+			armies_upkeep_mult = -20
+			planet_structures_upkeep_mult = -20
+			ships_upkeep_mult = -20
+			ships_logistics_mult = -20
+			space_fauna_ship_upkeep_mult = -20
+			starbases_upkeep_mult = -20
+			stations_upkeep_mult = -20
+			megastructures_upkeep_mult = -20
+			ship_military_station_small_upkeep_mult = -20
+			edicts_upkeep_mult = -20
+			diplomacy_upkeep_mult = -20
+			operations_upkeep_mult = -20
+			starbase_waystations_modules_upkeep_mult = -20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_all_upkeep_regular_7"
+		modifier = {
+			planet_pops_upkeep_mult = -40
+			planet_jobs_upkeep_mult = -40
+			leaders_upkeep_mult = -40
+			armies_upkeep_mult = -40
+			planet_structures_upkeep_mult = -40
+			ships_upkeep_mult = -40
+			ships_logistics_mult = -40
+			space_fauna_ship_upkeep_mult = -40
+			starbases_upkeep_mult = -40
+			stations_upkeep_mult = -40
+			megastructures_upkeep_mult = -40
+			ship_military_station_small_upkeep_mult = -40
+			edicts_upkeep_mult = -40
+			diplomacy_upkeep_mult = -40
+			operations_upkeep_mult = -40
+			starbase_waystations_modules_upkeep_mult = -40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_all_upkeep_regular_8"
+		modifier = {
+			planet_pops_upkeep_mult = -80
+			planet_jobs_upkeep_mult = -80
+			leaders_upkeep_mult = -80
+			armies_upkeep_mult = -80
+			planet_structures_upkeep_mult = -80
+			ships_upkeep_mult = -80
+			ships_logistics_mult = -80
+			space_fauna_ship_upkeep_mult = -80
+			starbases_upkeep_mult = -80
+			stations_upkeep_mult = -80
+			megastructures_upkeep_mult = -80
+			ship_military_station_small_upkeep_mult = -80
+			edicts_upkeep_mult = -80
+			diplomacy_upkeep_mult = -80
+			operations_upkeep_mult = -80
+			starbase_waystations_modules_upkeep_mult = -80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_all_upkeep_regular_9"
+		modifier = {
+			planet_pops_upkeep_mult = -160
+			planet_jobs_upkeep_mult = -160
+			leaders_upkeep_mult = -160
+			armies_upkeep_mult = -160
+			planet_structures_upkeep_mult = -160
+			ships_upkeep_mult = -160
+			ships_logistics_mult = -160
+			space_fauna_ship_upkeep_mult = -160
+			starbases_upkeep_mult = -160
+			stations_upkeep_mult = -160
+			megastructures_upkeep_mult = -160
+			ship_military_station_small_upkeep_mult = -160
+			edicts_upkeep_mult = -160
+			diplomacy_upkeep_mult = -160
+			operations_upkeep_mult = -160
+			starbase_waystations_modules_upkeep_mult = -160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_all_upkeep_regular_10"
+		modifier = {
+			planet_pops_upkeep_mult = -320
+			planet_jobs_upkeep_mult = -320
+			leaders_upkeep_mult = -320
+			armies_upkeep_mult = -320
+			planet_structures_upkeep_mult = -320
+			ships_upkeep_mult = -320
+			ships_logistics_mult = -320
+			space_fauna_ship_upkeep_mult = -320
+			starbases_upkeep_mult = -320
+			stations_upkeep_mult = -320
+			megastructures_upkeep_mult = -320
+			ship_military_station_small_upkeep_mult = -320
+			edicts_upkeep_mult = -320
+			diplomacy_upkeep_mult = -320
+			operations_upkeep_mult = -320
+			starbase_waystations_modules_upkeep_mult = -320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

@@ -1,0 +1,126 @@
+tass_policy_cheat_intel = {
+	category = tass_cheat_espionage
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_intel_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_intel_1"
+		modifier = {
+			intel_gain_speed = 1
+			add_base_country_intel = 10
+			intel_reconnaissance_level_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_intel_2"
+		modifier = {
+			intel_gain_speed = 2
+			add_base_country_intel = 20
+			intel_reconnaissance_level_add = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_intel_3"
+		modifier = {
+			intel_gain_speed = 5
+			add_base_country_intel = 50
+			intel_reconnaissance_level_add = 50
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_intel_4"
+		modifier = {
+			intel_gain_speed = 10
+			add_base_country_intel = 100
+			intel_reconnaissance_level_add = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_intel_regular_5"
+		modifier = {
+			intel_gain_speed = 20
+			add_base_country_intel = 200
+			intel_reconnaissance_level_add = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_intel_regular_6"
+		modifier = {
+			intel_gain_speed = 40
+			add_base_country_intel = 400
+			intel_reconnaissance_level_add = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_intel_regular_7"
+		modifier = {
+			intel_gain_speed = 80
+			add_base_country_intel = 800
+			intel_reconnaissance_level_add = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_intel_regular_8"
+		modifier = {
+			intel_gain_speed = 160
+			add_base_country_intel = 1600
+			intel_reconnaissance_level_add = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_intel_regular_9"
+		modifier = {
+			intel_gain_speed = 320
+			add_base_country_intel = 3200
+			intel_reconnaissance_level_add = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_intel_regular_10"
+		modifier = {
+			intel_gain_speed = 640
+			add_base_country_intel = 6400
+			intel_reconnaissance_level_add = 6400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

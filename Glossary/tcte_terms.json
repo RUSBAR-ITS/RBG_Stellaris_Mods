@@ -1,0 +1,1048 @@
+{
+  "terms": [
+    {
+      "english": "The Shroud",
+      "russian": "Покров",
+      "sources": [
+        {
+          "key": "THE_SHROUD_TITLE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/shroud_l_english.yml",
+          "english_line": 3442,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/shroud_l_russian.yml",
+          "russian_line": 3442,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Attunement",
+      "russian": "Резонанс",
+      "sources": [
+        {
+          "key": "concept_attunement",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/civic_and_origin_concepts_l_english.yml",
+          "english_line": 253,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/civic_and_origin_concepts_l_russian.yml",
+          "russian_line": 253,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Arkship",
+      "russian": "Корабль-ковчег",
+      "sources": [
+        {
+          "key": "trait_pc_ark_preference_short",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nomads_1_l_english.yml",
+          "english_line": 62,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/nomads_1_l_russian.yml",
+          "russian_line": 62,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Waystation",
+      "russian": "Маршрутная станция",
+      "sources": [
+        {
+          "key": "starbase_waystation_1",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nomads_1_l_english.yml",
+          "english_line": 2083,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/nomads_1_l_russian.yml",
+          "russian_line": 2083,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Pops",
+      "russian": "Поселения",
+      "sources": [
+        {
+          "key": "concept_pops",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 316,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 316,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Decisions",
+      "russian": "Решения",
+      "sources": [
+        {
+          "key": "DECISIONS_TITLE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/megacorp_l_english.yml",
+          "english_line": 489,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/megacorp_l_russian.yml",
+          "russian_line": 489,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Edicts",
+      "russian": "Указы",
+      "sources": [
+        {
+          "key": "EDICTS",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_3_l_english.yml",
+          "english_line": 1446,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_3_l_russian.yml",
+          "russian_line": 1446,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Policies",
+      "russian": "Политика",
+      "sources": [
+        {
+          "key": "POLICIES",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_3_l_english.yml",
+          "english_line": 1448,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_3_l_russian.yml",
+          "russian_line": 1448,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Empire Size",
+      "russian": "Размер государства",
+      "sources": [
+        {
+          "key": "concept_empire_size",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 497,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 497,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Fleet Command Limit",
+      "russian": "Предел управления флотилии",
+      "sources": [
+        {
+          "key": "MOD_COMMAND_LIMIT_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 568,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 568,
+          "priority": 2
+        },
+        {
+          "key": "MOD_COMMAND_LIMIT_MULT",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 569,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 569,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Naval Capacity",
+      "russian": "Вместимость флота",
+      "sources": [
+        {
+          "key": "NAVY_SIZE_TITLE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 1434,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 1434,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Research Alternatives",
+      "russian": "Альтернативные исследования",
+      "sources": [
+        {
+          "key": "MOD_COUNTRY_NUM_TECH_ALTERNATIVES_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 76,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 76,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Habitability",
+      "russian": "Пригодность",
+      "sources": [
+        {
+          "key": "HABITABILITY",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 856,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 856,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Gestalt Consciousness",
+      "russian": "Гештальт-сознание",
+      "sources": [
+        {
+          "key": "ethic_gestalt_consciousness",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 5326,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 5326,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Energy Credits",
+      "russian": "Энергокредиты",
+      "sources": [
+        {
+          "key": "energy",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4256,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4256,
+          "priority": 2
+        },
+        {
+          "key": "concept_energy",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 141,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 141,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Minerals",
+      "russian": "Минералы",
+      "sources": [
+        {
+          "key": "minerals",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4265,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4265,
+          "priority": 2
+        },
+        {
+          "key": "concept_minerals",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 274,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 274,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Food",
+      "russian": "Пища",
+      "sources": [
+        {
+          "key": "food",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4262,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4262,
+          "priority": 2
+        },
+        {
+          "key": "concept_food",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 194,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 194,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Alloys",
+      "russian": "Сплавы",
+      "sources": [
+        {
+          "key": "alloys",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4360,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4360,
+          "priority": 2
+        },
+        {
+          "key": "concept_alloys",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 58,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 58,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Consumer Goods",
+      "russian": "Товары массового спроса",
+      "sources": [
+        {
+          "key": "consumer_goods",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4280,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4280,
+          "priority": 2
+        },
+        {
+          "key": "concept_consumer_goods",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 104,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 104,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Trade",
+      "russian": "Торговля",
+      "sources": [
+        {
+          "key": "trade",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/megacorp_l_english.yml",
+          "english_line": 581,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/megacorp_l_russian.yml",
+          "russian_line": 581,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Unity",
+      "russian": "Единство",
+      "sources": [
+        {
+          "key": "unity",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4277,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4277,
+          "priority": 2
+        },
+        {
+          "key": "concept_unity",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 502,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 502,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Influence",
+      "russian": "Влияние",
+      "sources": [
+        {
+          "key": "influence",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4259,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4259,
+          "priority": 2
+        },
+        {
+          "key": "concept_influence",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 454,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 454,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Volatile Motes",
+      "russian": "Летучая пыль",
+      "sources": [
+        {
+          "key": "volatile_motes",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4351,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4351,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Exotic Gases",
+      "russian": "Экзотические газы",
+      "sources": [
+        {
+          "key": "exotic_gases",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4354,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4354,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Rare Crystals",
+      "russian": "Редкие кристаллы",
+      "sources": [
+        {
+          "key": "rare_crystals",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4357,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4357,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Living Metal",
+      "russian": "Живой металл",
+      "sources": [
+        {
+          "key": "sr_living_metal",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4367,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4367,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Dark Matter",
+      "russian": "Тёмная материя",
+      "sources": [
+        {
+          "key": "sr_dark_matter",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4370,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4370,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Zro",
+      "russian": "Зро",
+      "sources": [
+        {
+          "key": "sr_zro",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4365,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4365,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Nanites",
+      "russian": "Наниты",
+      "sources": [
+        {
+          "key": "nanites",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4377,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4377,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Minor Artifacts",
+      "russian": "Малые артефакты",
+      "sources": [
+        {
+          "key": "minor_artifacts",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/ancient_relics_l_english.yml",
+          "english_line": 8,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/ancient_relics_l_russian.yml",
+          "russian_line": 8,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Astral Threads",
+      "russian": "Астральные нити",
+      "sources": [
+        {
+          "key": "astral_threads",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/astral_planes_l_english.yml",
+          "english_line": 137,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/astral_planes_l_russian.yml",
+          "russian_line": 137,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Menace",
+      "russian": "Опасность",
+      "sources": [
+        {
+          "key": "menace",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nemesis_crisis_l_english.yml",
+          "english_line": 180,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/nemesis_crisis_l_russian.yml",
+          "russian_line": 180,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Advanced Logic",
+      "russian": "Новая логика",
+      "sources": [
+        {
+          "key": "advanced_logic",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/machine_age_l_english.yml",
+          "english_line": 1182,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/machine_age_l_russian.yml",
+          "russian_line": 1182,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Feral Insight",
+      "russian": "Понимание дикости",
+      "sources": [
+        {
+          "key": "feral_insight",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/biogenesis_l_english.yml",
+          "english_line": 2796,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/biogenesis_l_russian.yml",
+          "russian_line": 2796,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Crystallized Entropy",
+      "russian": "Кристаллы энтропии",
+      "sources": [
+        {
+          "key": "entropy_crystals",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/infernals_crisis_l_english.yml",
+          "english_line": 9,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/infernals_crisis_l_russian.yml",
+          "russian_line": 9,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Valor",
+      "russian": "Отвага",
+      "sources": [
+        {
+          "key": "integrity",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/ambitions_l_english.yml",
+          "english_line": 26,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/ambitions_l_russian.yml",
+          "russian_line": 26,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Physics Research",
+      "russian": "Физические исследования",
+      "sources": [
+        {
+          "key": "physics_research",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4268,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4268,
+          "priority": 2
+        },
+        {
+          "key": "concept_physics_research",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 294,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 294,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Society Research",
+      "russian": "Социологические исследования",
+      "sources": [
+        {
+          "key": "society_research",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4271,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4271,
+          "priority": 2
+        },
+        {
+          "key": "concept_society_research",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 299,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 299,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Engineering Research",
+      "russian": "Инженерные исследования",
+      "sources": [
+        {
+          "key": "engineering_research",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4274,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4274,
+          "priority": 2
+        },
+        {
+          "key": "concept_engineering_research",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 304,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 304,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Wilderness",
+      "russian": "Дикое сознание",
+      "sources": [
+        {
+          "key": "origin_wilderness",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/wilderness_l_english.yml",
+          "english_line": 48,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/wilderness_l_russian.yml",
+          "russian_line": 48,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Cybernetic Creed",
+      "russian": "Кибернетический культ",
+      "sources": [
+        {
+          "key": "origin_cybernetic_creed",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/machine_age_l_english.yml",
+          "english_line": 677,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/machine_age_l_russian.yml",
+          "russian_line": 677,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Endbringers",
+      "russian": "Несущие погибель",
+      "sources": [
+        {
+          "key": "origin_endbringers",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/shroud_l_english.yml",
+          "english_line": 5477,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/shroud_l_russian.yml",
+          "russian_line": 5477,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Observation Insights",
+      "russian": "Озарение от наблюдения",
+      "sources": [
+        {
+          "key": "situation_observation_insight",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/first_contact_l_english.yml",
+          "english_line": 2147,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/first_contact_l_russian.yml",
+          "russian_line": 2147,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Build Queue Capacity",
+      "russian": "Вместимость очереди строительства",
+      "sources": [
+        {
+          "key": "MOD_PLANET_BUILDING_CAPACITY_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 484,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 484,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Armor Hardening",
+      "russian": "Закалка брони",
+      "sources": [
+        {
+          "key": "MOD_SHIP_ARMOR_HARDENING_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 317,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 317,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Shield Hardening",
+      "russian": "Усиление щитов",
+      "sources": [
+        {
+          "key": "MOD_SHIP_SHIELD_HARDENING_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 313,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 313,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Operational Reserves",
+      "russian": "Оперативные резервы",
+      "sources": [
+        {
+          "key": "concept_operational_reserves",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nomads_2_l_english.yml",
+          "english_line": 352,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/nomads_2_l_russian.yml",
+          "russian_line": 352,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Sublight Speed",
+      "russian": "Субсветовая скорость",
+      "sources": [
+        {
+          "key": "MOD_SHIP_SPEED_MULT",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/modifiers_1_l_english.yml",
+          "english_line": 321,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/modifiers_1_l_russian.yml",
+          "russian_line": 321,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Amenities",
+      "russian": "Блага",
+      "sources": [
+        {
+          "key": "concept_amenities",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 734,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 734,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Housing",
+      "russian": "Жилье",
+      "sources": [
+        {
+          "key": "concept_housing",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 713,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 713,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Stability",
+      "russian": "Стабильность",
+      "sources": [
+        {
+          "key": "concept_stability",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 728,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 728,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Workforce",
+      "russian": "Рабочая сила",
+      "sources": [
+        {
+          "key": "concept_workforce",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 998,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 998,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Titan",
+      "russian": "Титан",
+      "sources": [
+        {
+          "key": "titan",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 3832,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 3832,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Juggernaut",
+      "russian": "Джаггернаут",
+      "sources": [
+        {
+          "key": "juggernaut",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_l_english.yml",
+          "english_line": 163,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/federations_l_russian.yml",
+          "russian_line": 163,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Colossus",
+      "russian": "Колосс",
+      "sources": [
+        {
+          "key": "colossus",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 3837,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 3837,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Biomass",
+      "russian": "Биомасса",
+      "sources": [
+        {
+          "key": "biomass",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 4283,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 4283,
+          "priority": 2
+        },
+        {
+          "key": "concept_biomass",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 114,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/concepts_l_russian.yml",
+          "russian_line": 114,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Targeted Gene Expressions",
+      "russian": "Воздействие на генную экспрессию",
+      "sources": [
+        {
+          "key": "tech_gene_expressions",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/technology_l_english.yml",
+          "english_line": 865,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/technology_l_russian.yml",
+          "russian_line": 865,
+          "priority": 2
+        },
+        {
+          "key": "tech_gene_expressions",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/technology_l_english.yml",
+          "english_line": 865,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/technology_l_russian.yml",
+          "russian_line": 795,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Biological",
+      "russian": "Биологический",
+      "sources": [
+        {
+          "key": "BIOLOGICAL",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 498,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 498,
+          "priority": 2
+        },
+        {
+          "key": "BIOLOGICAL",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 498,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 450,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Mechanical",
+      "russian": "Механический",
+      "sources": [
+        {
+          "key": "ROBOT",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 496,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 496,
+          "priority": 2
+        },
+        {
+          "key": "ROBOT",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 496,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 448,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Machine",
+      "russian": "Машина",
+      "sources": [
+        {
+          "key": "MACHINE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 499,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 499,
+          "priority": 2
+        },
+        {
+          "key": "MACHINE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 499,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 451,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Envoy",
+      "russian": "Посол",
+      "sources": [
+        {
+          "key": "default_envoy",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_l_english.yml",
+          "english_line": 1856,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/federations_l_russian.yml",
+          "russian_line": 1856,
+          "priority": 2
+        },
+        {
+          "key": "default_envoy",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_l_english.yml",
+          "english_line": 1856,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/federations_l_russian.yml",
+          "russian_line": 1571,
+          "priority": 3
+        },
+        {
+          "key": "envoy",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_anniversary_l_english.yml",
+          "english_line": 2,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/federations_anniversary_l_russian.yml",
+          "russian_line": 2,
+          "priority": 2
+        },
+        {
+          "key": "envoy",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_anniversary_l_english.yml",
+          "english_line": 2,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/federations_anniversary_l_russian.yml",
+          "russian_line": 2,
+          "priority": 3
+        },
+        {
+          "key": "envoy_costs",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_l_english.yml",
+          "english_line": 346,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/federations_l_russian.yml",
+          "russian_line": 346,
+          "priority": 2
+        },
+        {
+          "key": "envoy_costs",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/federations_l_english.yml",
+          "english_line": 346,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/federations_l_russian.yml",
+          "russian_line": 300,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Envoy Capacity",
+      "russian": "Лимит послов",
+      "sources": [
+        {
+          "key": "MOD_COUNTRY_ENVOYS_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/megacorp_l_english.yml",
+          "english_line": 2277,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/megacorp_l_russian.yml",
+          "russian_line": 2277,
+          "priority": 2
+        },
+        {
+          "key": "MOD_COUNTRY_ENVOYS_ADD",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/megacorp_l_english.yml",
+          "english_line": 2277,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/megacorp_l_russian.yml",
+          "russian_line": 2074,
+          "priority": 3
+        }
+      ]
+    }
+  ]
+}

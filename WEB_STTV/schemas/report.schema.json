@@ -1,0 +1,151 @@
+{
+  "type": "object",
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "status": {
+      "enum": [
+        "success",
+        "failed"
+      ]
+    },
+    "counts": {
+      "type": "object",
+      "properties": {
+        "files": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "technologies": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "variants": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "errors": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warnings": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "files",
+        "technologies",
+        "variants",
+        "errors",
+        "warnings"
+      ],
+      "additionalProperties": false
+    },
+    "database_written": {
+      "type": "boolean"
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "enum": [
+              "error",
+              "warning"
+            ]
+          },
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "stage": {
+            "type": "string",
+            "minLength": 1
+          },
+          "message": {
+            "type": "string"
+          },
+          "source": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "line": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "definition_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "field_path": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "severity",
+          "code",
+          "stage",
+          "message",
+          "source",
+          "file",
+          "line",
+          "definition_id",
+          "field_path"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "format_version",
+    "status",
+    "counts",
+    "database_written",
+    "diagnostics"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

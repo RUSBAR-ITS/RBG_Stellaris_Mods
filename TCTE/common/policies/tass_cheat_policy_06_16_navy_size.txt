@@ -1,0 +1,116 @@
+tass_policy_cheat_navy_size = {
+	category = tass_cheat_fleet
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_navy_size_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_navy_size_1"
+		modifier = {
+			country_naval_cap_mult = 1
+			command_limit_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_navy_size_2"
+		modifier = {
+			country_naval_cap_mult = 2
+			command_limit_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_navy_size_3"
+		modifier = {
+			country_naval_cap_mult = 5
+			command_limit_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_navy_size_4"
+		modifier = {
+			country_naval_cap_mult = 10
+			command_limit_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_navy_size_5"
+		modifier = {
+			country_naval_cap_mult = 100
+			command_limit_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_navy_size_regular_6"
+		modifier = {
+			country_naval_cap_mult = 200
+			command_limit_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_navy_size_regular_7"
+		modifier = {
+			country_naval_cap_mult = 400
+			command_limit_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_navy_size_regular_8"
+		modifier = {
+			country_naval_cap_mult = 800
+			command_limit_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_navy_size_regular_9"
+		modifier = {
+			country_naval_cap_mult = 1600
+			command_limit_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_navy_size_regular_10"
+		modifier = {
+			country_naval_cap_mult = 3200
+			command_limit_mult = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

@@ -1,0 +1,116 @@
+tass_policy_cheat_planet_amenities = {
+	category = tass_cheat_colony
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_planet_amenities_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_planet_amenities_1"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_planet_amenities_2"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_planet_amenities_3"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_planet_amenities_4"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_planet_amenities_5"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_planet_amenities_regular_6"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_planet_amenities_regular_7"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_planet_amenities_regular_8"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_planet_amenities_regular_9"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_planet_amenities_regular_10"
+		potential = { }
+		modifier = {
+			pop_amenities_usage_add = -320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

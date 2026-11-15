@@ -1,0 +1,166 @@
+tass_policy_cheat_military_construction = {
+	category = tass_cheat_construction
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_military_construction_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_military_construction_1"
+		modifier = {
+			planet_army_build_speed_mult = 1
+			starbase_shipyard_build_speed_mult = 1
+			starbase_upgrade_speed_mult = 1
+			starbase_building_build_speed_mult = 1
+			starbase_module_build_speed_mult = 1
+			shipclass_military_station_build_speed_mult = 1
+			shipclass_starbase_build_speed_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_military_construction_2"
+		modifier = {
+			planet_army_build_speed_mult = 2
+			starbase_shipyard_build_speed_mult = 2
+			starbase_upgrade_speed_mult = 2
+			starbase_building_build_speed_mult = 2
+			starbase_module_build_speed_mult = 2
+			shipclass_military_station_build_speed_mult = 2
+			shipclass_starbase_build_speed_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_military_construction_3"
+		modifier = {
+			planet_army_build_speed_mult = 5
+			starbase_shipyard_build_speed_mult = 5
+			starbase_upgrade_speed_mult = 5
+			starbase_building_build_speed_mult = 5
+			starbase_module_build_speed_mult = 5
+			shipclass_military_station_build_speed_mult = 5
+			shipclass_starbase_build_speed_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_military_construction_4"
+		modifier = {
+			planet_army_build_speed_mult = 10
+			starbase_shipyard_build_speed_mult = 10
+			starbase_upgrade_speed_mult = 10
+			starbase_building_build_speed_mult = 10
+			starbase_module_build_speed_mult = 10
+			shipclass_military_station_build_speed_mult = 10
+			shipclass_starbase_build_speed_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_military_construction_5"
+		modifier = {
+			planet_army_build_speed_mult = 100
+			starbase_shipyard_build_speed_mult = 100
+			starbase_upgrade_speed_mult = 100
+			starbase_building_build_speed_mult = 100
+			starbase_module_build_speed_mult = 100
+			shipclass_military_station_build_speed_mult = 100
+			shipclass_starbase_build_speed_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_military_construction_regular_6"
+		modifier = {
+			planet_army_build_speed_mult = 200
+			starbase_shipyard_build_speed_mult = 200
+			starbase_upgrade_speed_mult = 200
+			starbase_building_build_speed_mult = 200
+			starbase_module_build_speed_mult = 200
+			shipclass_military_station_build_speed_mult = 200
+			shipclass_starbase_build_speed_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_military_construction_regular_7"
+		modifier = {
+			planet_army_build_speed_mult = 400
+			starbase_shipyard_build_speed_mult = 400
+			starbase_upgrade_speed_mult = 400
+			starbase_building_build_speed_mult = 400
+			starbase_module_build_speed_mult = 400
+			shipclass_military_station_build_speed_mult = 400
+			shipclass_starbase_build_speed_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_military_construction_regular_8"
+		modifier = {
+			planet_army_build_speed_mult = 800
+			starbase_shipyard_build_speed_mult = 800
+			starbase_upgrade_speed_mult = 800
+			starbase_building_build_speed_mult = 800
+			starbase_module_build_speed_mult = 800
+			shipclass_military_station_build_speed_mult = 800
+			shipclass_starbase_build_speed_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_military_construction_regular_9"
+		modifier = {
+			planet_army_build_speed_mult = 1600
+			starbase_shipyard_build_speed_mult = 1600
+			starbase_upgrade_speed_mult = 1600
+			starbase_building_build_speed_mult = 1600
+			starbase_module_build_speed_mult = 1600
+			shipclass_military_station_build_speed_mult = 1600
+			shipclass_starbase_build_speed_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_military_construction_regular_10"
+		modifier = {
+			planet_army_build_speed_mult = 3200
+			starbase_shipyard_build_speed_mult = 3200
+			starbase_upgrade_speed_mult = 3200
+			starbase_building_build_speed_mult = 3200
+			starbase_module_build_speed_mult = 3200
+			shipclass_military_station_build_speed_mult = 3200
+			shipclass_starbase_build_speed_mult = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

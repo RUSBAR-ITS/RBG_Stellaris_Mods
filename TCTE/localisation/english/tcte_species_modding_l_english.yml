@@ -1,0 +1,4 @@
+﻿l_english:
+ tcte_species_modding_enable_tooltip:0 "Adds §G100§! trait points and §G30§! trait picks for the following archetypes: $BIOLOGICAL$, $ROBOT$, $MACHINE$.\nWith §Y$tech_gene_expressions$§! researched, also lets the player remove beneficial genetic traits that use the general removal condition."
+ tcte_species_modding_remove:0 "Remove Advanced Species Modification"
+ tcte_species_modding_remove_tooltip:0 "Removes the §G100§! trait point and §G30§! trait pick bonuses and the additional permission to remove beneficial genetic traits. Normal permissions granted by traditions remain available."

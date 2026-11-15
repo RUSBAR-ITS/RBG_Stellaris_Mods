@@ -1,0 +1,8 @@
+﻿l_russian:
+ ui_tech_ascension_theory_repeatable: "$tech_ascension_theory$ (повторяющаяся)"
+ ui_overhaul_qhd_ascension.10.name: "UI Overhaul Dynamic - Повторяющаяся технология вознесения"
+ ui_overhaul_qhd_ascension.10.desc: "Хотите включить повторяющуюся технологию, открывающую ячейки бонусов за стремление, из мода §HUI Overhaul Dynamic - Ascension Slots§!? Если да, выберите желаемое количество. Это изменение затронет всех игроков, включая ИИ. В указанное число входит ячейка, открываемая технологией вознесения в оригинальной Stellaris.\nСейчас для технологии установлено значение §H[global_event_country.uiod_max_ascension_perk_slots]§!.\nКоличество категорий традиций из дополнительного мода UIOD: §H[global_event_country.uiod_max_tradition_categories]§!.\nЕсли вы увеличиваете количество категорий традиций, некоторые варианты будут недоступны, чтобы общее количество не превысило 100."
+ ui_overhaul_qhd_ascension.10.no: "Я не хочу использовать эту технологию"
+ ui_overhaul_qhd_ascension.50.name: "UI Overhaul Dynamic - Информация о бонусах за стремление"
+ ui_overhaul_qhd_ascension.50.desc: "Текущее количество: [This.uiod_current_ascension_perk_slots]\nОбщее количество (для всей игры): [global_event_country.uiod_max_ascension_perk_slots]\nКатегории традиций: [global_event_country.uiod_max_tradition_categories]"
+ ui_overhaul_qhd_ascension.50.a: "Играем!"

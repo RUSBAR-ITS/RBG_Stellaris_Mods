@@ -1,0 +1,126 @@
+tass_policy_cheat_governing_ethic = {
+	category = tass_cheat_country
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_governing_ethic_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_governing_ethic_1"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 0.5
+			pop_ethics_shift_speed_mult = 0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_governing_ethic_2"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 1
+			pop_ethics_shift_speed_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_governing_ethic_3"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 2.5
+			pop_ethics_shift_speed_mult = 2.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_governing_ethic_4"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 5
+			pop_ethics_shift_speed_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_governing_ethic_regular_5"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 10
+			pop_ethics_shift_speed_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_governing_ethic_regular_6"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 20
+			pop_ethics_shift_speed_mult = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_governing_ethic_regular_7"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 40
+			pop_ethics_shift_speed_mult = 40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_governing_ethic_regular_8"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 80
+			pop_ethics_shift_speed_mult = 80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_governing_ethic_regular_9"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 160
+			pop_ethics_shift_speed_mult = 160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_governing_ethic_regular_10"
+		valid = { is_gestalt = no }
+		modifier = {
+			pop_government_ethic_attraction = 320
+			pop_ethics_shift_speed_mult = 320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

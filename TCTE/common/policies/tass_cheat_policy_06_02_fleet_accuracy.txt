@@ -1,0 +1,116 @@
+tass_policy_cheat_fleet_accuracy = {
+	category = tass_cheat_fleet
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_fleet_accuracy_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_accuracy_1"
+		modifier = {
+			ship_accuracy_mult = 0.5
+			ship_tracking_mult = 0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_accuracy_2"
+		modifier = {
+			ship_accuracy_mult = 1
+			ship_tracking_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_accuracy_3"
+		modifier = {
+			ship_accuracy_mult = 2.5
+			ship_tracking_mult = 2.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_accuracy_4"
+		modifier = {
+			ship_accuracy_mult = 5
+			ship_tracking_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_accuracy_5"
+		modifier = {
+			ship_accuracy_mult = 50
+			ship_tracking_mult = 50
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_accuracy_regular_6"
+		modifier = {
+			ship_accuracy_mult = 100
+			ship_tracking_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_accuracy_regular_7"
+		modifier = {
+			ship_accuracy_mult = 200
+			ship_tracking_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_accuracy_regular_8"
+		modifier = {
+			ship_accuracy_mult = 400
+			ship_tracking_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_accuracy_regular_9"
+		modifier = {
+			ship_accuracy_mult = 800
+			ship_tracking_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_accuracy_regular_10"
+		modifier = {
+			ship_accuracy_mult = 1600
+			ship_tracking_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

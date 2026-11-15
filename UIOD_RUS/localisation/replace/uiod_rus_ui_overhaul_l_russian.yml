@@ -1,0 +1,13 @@
+﻿l_russian:
+ UI_OVERHAUL_BETA: "$UI_OVERHAUL_VERSION$ Открытая бета-версия"
+ UI_OVERHAUL_INFO: "Открывает окно информации о моде"
+ UI_OVERHAUL_STEAM: "Мастерская Steam"
+ UI_OVERHAUL_DISCORD: "Сервер Discord"
+ UI_OVERHAUL_DISCORD_TOOLTIP: "Открывает сервер мода в Discord"
+ UI_OVERHAUL_TEXT_TOP: "Этот мод обновлён для версии §H$UI_OVERHAUL_VERSION$§! Stellaris. Он должен работать с последующими исправлениями этой версии, если не указано иное."
+ UI_OVERHAUL_TEXT_CENTER: "Об ошибках, замечаниях и вопросах можно сообщить на моём сервере Discord. Я открыт для предложений по изменению пользовательского интерфейса."
+ UI_OVERHAUL_TEXT_BOTTOM: "Если вы используете §HGigastructural Engineering§!, обязательно установите патч совместимости, иначе вы не сможете использовать EHOF.\nПатч можно найти на странице мода в Мастерской Steam."
+ UI_OVERHAUL_TECHTREE_TOOLTIP_DELAYED: "Это дерево технологий не связано с §HParadox Interactive§!, не одобрено компанией и не является её официальным проектом.\nЭто любительский проект, который поддерживает §HXelnath§! на GitHub."
+ UIO_MOVE_TO_TOP: "§HВ начало§!\nПереместить в самое начало списка"
+ UIO_MOVE_TO_BOTTOM: "§HВ конец§!\nПереместить в самый конец списка"
+ UIO_MOVEABLE_WINDOW: "§HЭто окно можно перемещать§!\nНажмите и удерживайте левую кнопку мыши £mouse1£, чтобы переместить его."

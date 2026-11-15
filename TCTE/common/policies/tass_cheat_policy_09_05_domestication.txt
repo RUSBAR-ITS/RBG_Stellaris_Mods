@@ -1,0 +1,176 @@
+tass_policy_cheat_domestication = {
+	category = tass_cheat_technique
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_domestication_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_domestication_1"
+		modifier = {
+			country_capture_chance_add = 1
+			country_capture_amount_add = 5
+			gravity_snare_cooldown_mult = -0.25
+			country_vivarium_max_capacity_mult = 1
+			space_fauna_monthly_increased_breeding_chance_add = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_domestication_2"
+		modifier = {
+			country_capture_chance_add = 2
+			country_capture_amount_add = 10
+			gravity_snare_cooldown_mult = -0.5
+			country_vivarium_max_capacity_mult = 2
+			space_fauna_monthly_increased_breeding_chance_add = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_domestication_3"
+		modifier = {
+			country_capture_chance_add = 5
+			country_capture_amount_add = 25
+			gravity_snare_cooldown_mult = -0.75
+			country_vivarium_max_capacity_mult = 5
+			space_fauna_monthly_increased_breeding_chance_add = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_domestication_4"
+		modifier = {
+			country_capture_chance_add = 10
+			country_capture_amount_add = 50
+			gravity_snare_cooldown_mult = -1
+			country_vivarium_max_capacity_mult = 10
+			space_fauna_monthly_increased_breeding_chance_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_domestication_regular_5"
+		modifier = {
+			country_capture_chance_add = 20
+			country_capture_amount_add = 100
+			gravity_snare_cooldown_mult = -2
+			country_vivarium_max_capacity_mult = 20
+			space_fauna_monthly_increased_breeding_chance_add = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_domestication_regular_6"
+		modifier = {
+			country_capture_chance_add = 40
+			country_capture_amount_add = 200
+			gravity_snare_cooldown_mult = -4
+			country_vivarium_max_capacity_mult = 40
+			space_fauna_monthly_increased_breeding_chance_add = 40
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_domestication_regular_7"
+		modifier = {
+			country_capture_chance_add = 80
+			country_capture_amount_add = 400
+			gravity_snare_cooldown_mult = -8
+			country_vivarium_max_capacity_mult = 80
+			space_fauna_monthly_increased_breeding_chance_add = 80
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_domestication_regular_8"
+		modifier = {
+			country_capture_chance_add = 160
+			country_capture_amount_add = 800
+			gravity_snare_cooldown_mult = -16
+			country_vivarium_max_capacity_mult = 160
+			space_fauna_monthly_increased_breeding_chance_add = 160
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_domestication_regular_9"
+		modifier = {
+			country_capture_chance_add = 320
+			country_capture_amount_add = 1600
+			gravity_snare_cooldown_mult = -32
+			country_vivarium_max_capacity_mult = 320
+			space_fauna_monthly_increased_breeding_chance_add = 320
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+	option = {
+		name = "tcte_policy_domestication_regular_10"
+		modifier = {
+			country_capture_chance_add = 640
+			country_capture_amount_add = 3200
+			gravity_snare_cooldown_mult = -64
+			country_vivarium_max_capacity_mult = 640
+			space_fauna_monthly_increased_breeding_chance_add = 640
+		}
+		ai_weight = {
+			weight = 0
+		}
+		valid = {
+			has_grand_archive_dlc = yes
+		}
+	}
+}

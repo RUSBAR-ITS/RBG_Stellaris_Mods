@@ -1,0 +1,116 @@
+tass_policy_cheat_edict_efficiency = {
+	category = tass_cheat_country
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_edict_efficiency_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_edict_efficiency_1"
+		modifier = {
+			country_edict_fund_mult = 1
+			edict_length_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_edict_efficiency_2"
+		modifier = {
+			country_edict_fund_mult = 2
+			edict_length_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_edict_efficiency_3"
+		modifier = {
+			country_edict_fund_mult = 5
+			edict_length_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_edict_efficiency_4"
+		modifier = {
+			country_edict_fund_mult = 10
+			edict_length_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_edict_efficiency_regular_5"
+		modifier = {
+			country_edict_fund_mult = 20
+			edict_length_mult = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_edict_efficiency_regular_6"
+		modifier = {
+			country_edict_fund_mult = 40
+			edict_length_mult = 40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_edict_efficiency_regular_7"
+		modifier = {
+			country_edict_fund_mult = 80
+			edict_length_mult = 80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_edict_efficiency_regular_8"
+		modifier = {
+			country_edict_fund_mult = 160
+			edict_length_mult = 160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_edict_efficiency_regular_9"
+		modifier = {
+			country_edict_fund_mult = 320
+			edict_length_mult = 320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_edict_efficiency_regular_10"
+		modifier = {
+			country_edict_fund_mult = 640
+			edict_length_mult = 640
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

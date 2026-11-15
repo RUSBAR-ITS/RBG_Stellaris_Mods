@@ -1,0 +1,106 @@
+tass_policy_cheat_research_speed = {
+	category = tass_cheat_construction
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_research_speed_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_research_speed_1"
+		modifier = {
+			all_technology_research_speed = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_research_speed_2"
+		modifier = {
+			all_technology_research_speed = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_research_speed_3"
+		modifier = {
+			all_technology_research_speed = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_research_speed_4"
+		modifier = {
+			all_technology_research_speed = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_research_speed_5"
+		modifier = {
+			all_technology_research_speed = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_research_speed_regular_6"
+		modifier = {
+			all_technology_research_speed = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_research_speed_regular_7"
+		modifier = {
+			all_technology_research_speed = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_research_speed_regular_8"
+		modifier = {
+			all_technology_research_speed = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_research_speed_regular_9"
+		modifier = {
+			all_technology_research_speed = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_research_speed_regular_10"
+		modifier = {
+			all_technology_research_speed = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

@@ -1,0 +1,12 @@
+tcte_tech_extra_envoys = {
+	area = society
+	category = { statecraft }
+	tier = 1
+	cost = 1000
+	cost_per_level = 0
+	levels = -1
+	weight = 0
+	is_reverse_engineerable = no
+	icon = "tech_collective_self"
+	modifier = { envoys_add = 5 }
+}

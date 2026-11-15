@@ -1,0 +1,27 @@
+# Scope: this = species, from = modifying country.
+can_remove_beneficial_genetic_traits = {
+	hidden_trigger = { exists = from }
+	from = {
+		OR = {
+			AND = {
+				is_ai = no
+				has_technology = tech_gene_expressions
+				has_modifier = modifier_tass_extra_species_modding
+			}
+			AND = {
+				if = {
+					limit = {
+						OR = {
+							has_biogenesis_dlc = no
+							has_tradition = tr_genetics_adopt
+						}
+					}
+					has_tradition = tr_genetics_resequencing
+				}
+				else = {
+					has_tradition = tr_purity_genotype_regeneration
+				}
+			}
+		}
+	}
+}

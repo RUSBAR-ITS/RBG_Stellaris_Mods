@@ -1,0 +1,196 @@
+tass_policy_cheat_exploration = {
+	category = tass_cheat_technique
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_exploration_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_exploration_1"
+		modifier = {
+			science_ship_survey_speed = 1
+			ship_anomaly_fail_risk = -0.25
+			ship_anomaly_research_speed_mult = 1
+			ship_anomaly_generation_chance_mult = 1
+			find_arc_site_on_survey_chance_mult = 1
+			ship_archaeological_site_excavation_speed_mult = 1
+			ship_archaeological_site_clues_add = 1
+			country_astral_rift_speed_mult = 1
+			country_astral_rift_fail_mult = -0.25
+			ship_astral_rift_clues_add = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_exploration_2"
+		modifier = {
+			science_ship_survey_speed = 2
+			ship_anomaly_fail_risk = -0.5
+			ship_anomaly_research_speed_mult = 2
+			ship_anomaly_generation_chance_mult = 2
+			find_arc_site_on_survey_chance_mult = 2
+			ship_archaeological_site_excavation_speed_mult = 2
+			ship_archaeological_site_clues_add = 2
+			country_astral_rift_speed_mult = 2
+			country_astral_rift_fail_mult = -0.5
+			ship_astral_rift_clues_add = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_exploration_3"
+		modifier = {
+			science_ship_survey_speed = 5
+			ship_anomaly_fail_risk = -0.75
+			ship_anomaly_research_speed_mult = 5
+			ship_anomaly_generation_chance_mult = 5
+			find_arc_site_on_survey_chance_mult = 5
+			ship_archaeological_site_excavation_speed_mult = 5
+			ship_archaeological_site_clues_add = 5
+			country_astral_rift_speed_mult = 5
+			country_astral_rift_fail_mult = -0.75
+			ship_astral_rift_clues_add = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_exploration_4"
+		modifier = {
+			science_ship_survey_speed = 10
+			ship_anomaly_fail_risk = -1
+			ship_anomaly_research_speed_mult = 10
+			ship_anomaly_generation_chance_mult = 10
+			find_arc_site_on_survey_chance_mult = 10
+			ship_archaeological_site_excavation_speed_mult = 10
+			ship_archaeological_site_clues_add = 10
+			country_astral_rift_speed_mult = 10
+			country_astral_rift_fail_mult = -1
+			ship_astral_rift_clues_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_exploration_regular_5"
+		modifier = {
+			science_ship_survey_speed = 20
+			ship_anomaly_fail_risk = -2
+			ship_anomaly_research_speed_mult = 20
+			ship_anomaly_generation_chance_mult = 20
+			find_arc_site_on_survey_chance_mult = 20
+			ship_archaeological_site_excavation_speed_mult = 20
+			ship_archaeological_site_clues_add = 20
+			country_astral_rift_speed_mult = 20
+			country_astral_rift_fail_mult = -2
+			ship_astral_rift_clues_add = 20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_exploration_regular_6"
+		modifier = {
+			science_ship_survey_speed = 40
+			ship_anomaly_fail_risk = -4
+			ship_anomaly_research_speed_mult = 40
+			ship_anomaly_generation_chance_mult = 40
+			find_arc_site_on_survey_chance_mult = 40
+			ship_archaeological_site_excavation_speed_mult = 40
+			ship_archaeological_site_clues_add = 40
+			country_astral_rift_speed_mult = 40
+			country_astral_rift_fail_mult = -4
+			ship_astral_rift_clues_add = 40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_exploration_regular_7"
+		modifier = {
+			science_ship_survey_speed = 80
+			ship_anomaly_fail_risk = -8
+			ship_anomaly_research_speed_mult = 80
+			ship_anomaly_generation_chance_mult = 80
+			find_arc_site_on_survey_chance_mult = 80
+			ship_archaeological_site_excavation_speed_mult = 80
+			ship_archaeological_site_clues_add = 80
+			country_astral_rift_speed_mult = 80
+			country_astral_rift_fail_mult = -8
+			ship_astral_rift_clues_add = 80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_exploration_regular_8"
+		modifier = {
+			science_ship_survey_speed = 160
+			ship_anomaly_fail_risk = -16
+			ship_anomaly_research_speed_mult = 160
+			ship_anomaly_generation_chance_mult = 160
+			find_arc_site_on_survey_chance_mult = 160
+			ship_archaeological_site_excavation_speed_mult = 160
+			ship_archaeological_site_clues_add = 160
+			country_astral_rift_speed_mult = 160
+			country_astral_rift_fail_mult = -16
+			ship_astral_rift_clues_add = 160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_exploration_regular_9"
+		modifier = {
+			science_ship_survey_speed = 320
+			ship_anomaly_fail_risk = -32
+			ship_anomaly_research_speed_mult = 320
+			ship_anomaly_generation_chance_mult = 320
+			find_arc_site_on_survey_chance_mult = 320
+			ship_archaeological_site_excavation_speed_mult = 320
+			ship_archaeological_site_clues_add = 320
+			country_astral_rift_speed_mult = 320
+			country_astral_rift_fail_mult = -32
+			ship_astral_rift_clues_add = 320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_exploration_regular_10"
+		modifier = {
+			science_ship_survey_speed = 640
+			ship_anomaly_fail_risk = -64
+			ship_anomaly_research_speed_mult = 640
+			ship_anomaly_generation_chance_mult = 640
+			find_arc_site_on_survey_chance_mult = 640
+			ship_archaeological_site_excavation_speed_mult = 640
+			ship_archaeological_site_clues_add = 640
+			country_astral_rift_speed_mult = 640
+			country_astral_rift_fail_mult = -64
+			ship_astral_rift_clues_add = 640
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

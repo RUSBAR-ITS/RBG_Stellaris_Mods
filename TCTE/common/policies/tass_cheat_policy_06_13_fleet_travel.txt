@@ -1,0 +1,146 @@
+tass_policy_cheat_fleet_travel = {
+	category = tass_cheat_fleet
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_fleet_travel_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_travel_1"
+		modifier = {
+			ship_windup_mult = -0.25
+			ship_winddown_mult = -0.25
+			ship_jumpdrive_cooldown_mult = -0.25
+			ship_ftl_jumpdrive_range_mult = 1
+			fleet_mia_time_mult = -0.25
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_travel_2"
+		modifier = {
+			ship_windup_mult = -0.5
+			ship_winddown_mult = -0.5
+			ship_jumpdrive_cooldown_mult = -0.5
+			ship_ftl_jumpdrive_range_mult = 2
+			fleet_mia_time_mult = -0.5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_travel_3"
+		modifier = {
+			ship_windup_mult = -0.75
+			ship_winddown_mult = -0.75
+			ship_jumpdrive_cooldown_mult = -0.75
+			ship_ftl_jumpdrive_range_mult = 5
+			fleet_mia_time_mult = -0.75
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_travel_4"
+		modifier = {
+			ship_windup_mult = -1
+			ship_winddown_mult = -1
+			ship_jumpdrive_cooldown_mult = -1
+			ship_ftl_jumpdrive_range_mult = 10
+			fleet_mia_time_mult = -1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_fleet_travel_5"
+		modifier = {
+			ship_windup_mult = -10
+			ship_winddown_mult = -10
+			ship_jumpdrive_cooldown_mult = -10
+			ship_ftl_jumpdrive_range_mult = 100
+			fleet_mia_time_mult = -10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_travel_regular_6"
+		modifier = {
+			ship_windup_mult = -20
+			ship_winddown_mult = -20
+			ship_jumpdrive_cooldown_mult = -20
+			ship_ftl_jumpdrive_range_mult = 200
+			fleet_mia_time_mult = -20
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_travel_regular_7"
+		modifier = {
+			ship_windup_mult = -40
+			ship_winddown_mult = -40
+			ship_jumpdrive_cooldown_mult = -40
+			ship_ftl_jumpdrive_range_mult = 400
+			fleet_mia_time_mult = -40
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_travel_regular_8"
+		modifier = {
+			ship_windup_mult = -80
+			ship_winddown_mult = -80
+			ship_jumpdrive_cooldown_mult = -80
+			ship_ftl_jumpdrive_range_mult = 800
+			fleet_mia_time_mult = -80
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_travel_regular_9"
+		modifier = {
+			ship_windup_mult = -160
+			ship_winddown_mult = -160
+			ship_jumpdrive_cooldown_mult = -160
+			ship_ftl_jumpdrive_range_mult = 1600
+			fleet_mia_time_mult = -160
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_fleet_travel_regular_10"
+		modifier = {
+			ship_windup_mult = -320
+			ship_winddown_mult = -320
+			ship_jumpdrive_cooldown_mult = -320
+			ship_ftl_jumpdrive_range_mult = 3200
+			fleet_mia_time_mult = -320
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

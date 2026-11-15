@@ -1,0 +1,196 @@
+tass_policy_cheat_influence = {
+	category = tass_cheat_resources
+	potential = {
+		is_ai = no
+	}
+	allow = {}
+	option = {
+		name = "tass_policy_cheat_influence_0"
+		ai_weight = {
+			weight = 1000
+		}
+		valid = {}
+		policy_flags = {}
+		on_enabled = {}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_1"
+		modifier = {
+			country_influence_produces_mult = 1
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_2"
+		modifier = {
+			country_influence_produces_mult = 2
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_3"
+		modifier = {
+			country_influence_produces_mult = 5
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_4"
+		modifier = {
+			country_influence_produces_mult = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_5"
+		modifier = {
+			country_influence_produces_mult = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_regular_6"
+		modifier = {
+			country_influence_produces_mult = 200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_regular_7"
+		modifier = {
+			country_influence_produces_mult = 400
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_regular_8"
+		modifier = {
+			country_influence_produces_mult = 800
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_regular_9"
+		modifier = {
+			country_influence_produces_mult = 1600
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_regular_10"
+		modifier = {
+			country_influence_produces_mult = 3200
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_6"
+		modifier = {
+			country_base_influence_produces_add = 10
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_7"
+		modifier = {
+			country_base_influence_produces_add = 100
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tass_policy_cheat_influence_8"
+		modifier = {
+			country_base_influence_produces_add = 1000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_4"
+		modifier = {
+			country_base_influence_produces_add = 2000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_5"
+		modifier = {
+			country_base_influence_produces_add = 4000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_6"
+		modifier = {
+			country_base_influence_produces_add = 8000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_7"
+		modifier = {
+			country_base_influence_produces_add = 16000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_8"
+		modifier = {
+			country_base_influence_produces_add = 32000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_9"
+		modifier = {
+			country_base_influence_produces_add = 64000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+	option = {
+		name = "tcte_policy_influence_monthly_10"
+		modifier = {
+			country_base_influence_produces_add = 128000
+		}
+		ai_weight = {
+			weight = 0
+		}
+	}
+}

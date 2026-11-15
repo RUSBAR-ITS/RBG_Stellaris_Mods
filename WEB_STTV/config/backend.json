@@ -1,0 +1,50 @@
+{
+  "definitions": {
+    "technologies": {
+      "variable": "TECH_PATH",
+      "subdirectory": "",
+      "pattern": "*.txt",
+      "recursive": false,
+      "encoding": "utf-8-sig"
+    },
+    "categories": {
+      "variable": "TECH_PATH",
+      "subdirectory": "category",
+      "pattern": "*.txt",
+      "recursive": false,
+      "encoding": "utf-8-sig"
+    },
+    "tiers": {
+      "variable": "TECH_PATH",
+      "subdirectory": "tier",
+      "pattern": "*.txt",
+      "recursive": false,
+      "encoding": "utf-8-sig"
+    }
+  },
+  "localization": {
+    "pattern": "*.yml",
+    "recursive": true,
+    "encoding": "utf-8-sig",
+    "languages": {
+      "ru": {
+        "header": "l_russian",
+        "sources": [
+          "RU_LOC_TIER_1",
+          "RU_LOC_TIER_2",
+          "RU_LOC_TIER_3"
+        ]
+      },
+      "en": {
+        "header": "l_english",
+        "sources": [
+          "EN_LOC_TIER_1"
+        ]
+      }
+    }
+  },
+  "outputs": {
+    "database": "database.json",
+    "report": "reports/build_report.json"
+  }
+}
