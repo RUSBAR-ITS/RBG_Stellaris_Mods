@@ -1,37 +1,29 @@
 {
-  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
   "properties": {
-    "format_version": {
-      "const": 1
-    },
-    "status": {
-      "enum": [
-        "success",
-        "failed"
-      ]
-    },
     "counts": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
+        "errors": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "files": {
-          "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "type": "integer"
         },
         "technologies": {
-          "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "type": "integer"
         },
         "variants": {
-          "type": "integer",
-          "minimum": 0
-        },
-        "errors": {
-          "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "type": "integer"
         },
         "warnings": {
-          "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "type": "integer"
         }
       },
       "required": [
@@ -41,71 +33,24 @@
         "errors",
         "warnings"
       ],
-      "additionalProperties": false
+      "type": "object"
     },
     "database_written": {
       "type": "boolean"
     },
     "diagnostics": {
-      "type": "array",
       "items": {
-        "type": "object",
+        "additionalProperties": false,
         "properties": {
-          "severity": {
-            "enum": [
-              "error",
-              "warning"
-            ]
-          },
           "code": {
-            "type": "string",
-            "minLength": 1
-          },
-          "stage": {
-            "type": "string",
-            "minLength": 1
-          },
-          "message": {
+            "minLength": 1,
             "type": "string"
-          },
-          "source": {
-            "anyOf": [
-              {
-                "type": "string",
-                "minLength": 1
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "file": {
-            "anyOf": [
-              {
-                "type": "string",
-                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "line": {
-            "anyOf": [
-              {
-                "type": "integer",
-                "minimum": 1
-              },
-              {
-                "type": "null"
-              }
-            ]
           },
           "definition_id": {
             "anyOf": [
               {
-                "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "type": "string"
               },
               {
                 "type": "null"
@@ -115,13 +60,59 @@
           "field_path": {
             "anyOf": [
               {
-                "type": "string",
-                "minLength": 1
+                "minLength": 1,
+                "type": "string"
               },
               {
                 "type": "null"
               }
             ]
+          },
+          "file": {
+            "anyOf": [
+              {
+                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "line": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warning"
+            ]
+          },
+          "source": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stage": {
+            "minLength": 1,
+            "type": "string"
           }
         },
         "required": [
@@ -135,8 +126,24 @@
           "definition_id",
           "field_path"
         ],
-        "additionalProperties": false
-      }
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "generation_report_written": {
+      "type": "boolean"
+    },
+    "registry_written": {
+      "type": "boolean"
+    },
+    "status": {
+      "enum": [
+        "success",
+        "failed"
+      ]
     }
   },
   "required": [
@@ -144,8 +151,9 @@
     "status",
     "counts",
     "database_written",
+    "registry_written",
+    "generation_report_written",
     "diagnostics"
   ],
-  "additionalProperties": false,
-  "$schema": "https://json-schema.org/draft/2020-12/schema"
+  "type": "object"
 }

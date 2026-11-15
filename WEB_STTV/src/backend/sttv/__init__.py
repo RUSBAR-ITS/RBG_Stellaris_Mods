@@ -1,1 +1,1 @@
-"""Stage-one Stellaris technology database builder."""
+"""Stellaris technology database building, rule profiles, and source analysis."""

@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "bare_values": true,
+  "anonymous_blocks": true,
+  "mixed_blocks": true,
+  "tagged_blocks": [
+    "rgb",
+    "hsv"
+  ],
+  "parameters": {
+    "open": "$",
+    "close": "$",
+    "default_separator": "|"
+  },
+  "formulas": [
+    {
+      "open": "@[",
+      "close": "]"
+    },
+    {
+      "open": "@\\[",
+      "close": "]"
+    }
+  ],
+  "conditional": {
+    "open": "[[",
+    "header_close": "]",
+    "body_close": "]",
+    "negation": "!"
+  }
+}

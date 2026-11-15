@@ -1,56 +1,28 @@
 {
-  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
   "properties": {
     "definitions": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "technologies": {
-          "type": "object",
-          "properties": {
-            "variable": {
-              "const": "TECH_PATH"
-            },
-            "subdirectory": {
-              "type": "string"
-            },
-            "pattern": {
-              "type": "string",
-              "minLength": 1
-            },
-            "recursive": {
-              "type": "boolean"
-            },
-            "encoding": {
-              "const": "utf-8-sig"
-            }
-          },
-          "required": [
-            "variable",
-            "subdirectory",
-            "pattern",
-            "recursive",
-            "encoding"
-          ],
-          "additionalProperties": false
-        },
         "categories": {
-          "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "variable": {
-              "const": "TECH_PATH"
-            },
-            "subdirectory": {
-              "type": "string"
+            "encoding": {
+              "const": "utf-8-sig"
             },
             "pattern": {
-              "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "type": "string"
             },
             "recursive": {
               "type": "boolean"
             },
-            "encoding": {
-              "const": "utf-8-sig"
+            "subdirectory": {
+              "type": "string"
+            },
+            "variable": {
+              "const": "TECH_PATH"
             }
           },
           "required": [
@@ -60,26 +32,55 @@
             "recursive",
             "encoding"
           ],
-          "additionalProperties": false
+          "type": "object"
+        },
+        "technologies": {
+          "additionalProperties": false,
+          "properties": {
+            "encoding": {
+              "const": "utf-8-sig"
+            },
+            "pattern": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "recursive": {
+              "type": "boolean"
+            },
+            "subdirectory": {
+              "type": "string"
+            },
+            "variable": {
+              "const": "TECH_PATH"
+            }
+          },
+          "required": [
+            "variable",
+            "subdirectory",
+            "pattern",
+            "recursive",
+            "encoding"
+          ],
+          "type": "object"
         },
         "tiers": {
-          "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "variable": {
-              "const": "TECH_PATH"
-            },
-            "subdirectory": {
-              "type": "string"
+            "encoding": {
+              "const": "utf-8-sig"
             },
             "pattern": {
-              "type": "string",
-              "minLength": 1
+              "minLength": 1,
+              "type": "string"
             },
             "recursive": {
               "type": "boolean"
             },
-            "encoding": {
-              "const": "utf-8-sig"
+            "subdirectory": {
+              "type": "string"
+            },
+            "variable": {
+              "const": "TECH_PATH"
             }
           },
           "required": [
@@ -89,7 +90,7 @@
             "recursive",
             "encoding"
           ],
-          "additionalProperties": false
+          "type": "object"
         }
       },
       "required": [
@@ -97,61 +98,31 @@
         "categories",
         "tiers"
       ],
-      "additionalProperties": false
+      "type": "object"
     },
     "localization": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "pattern": {
-          "type": "string",
-          "minLength": 1
-        },
-        "recursive": {
-          "type": "boolean"
-        },
         "encoding": {
           "const": "utf-8-sig"
         },
         "languages": {
-          "type": "object",
+          "additionalProperties": false,
           "properties": {
-            "ru": {
-              "type": "object",
-              "properties": {
-                "header": {
-                  "type": "string",
-                  "minLength": 1
-                },
-                "sources": {
-                  "type": "array",
-                  "items": {
-                    "type": "string",
-                    "minLength": 1
-                  },
-                  "minItems": 1,
-                  "uniqueItems": true
-                }
-              },
-              "required": [
-                "header",
-                "sources"
-              ],
-              "additionalProperties": false
-            },
             "en": {
-              "type": "object",
+              "additionalProperties": false,
               "properties": {
                 "header": {
-                  "type": "string",
-                  "minLength": 1
+                  "minLength": 1,
+                  "type": "string"
                 },
                 "sources": {
-                  "type": "array",
                   "items": {
-                    "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "type": "string"
                   },
                   "minItems": 1,
+                  "type": "array",
                   "uniqueItems": true
                 }
               },
@@ -159,14 +130,44 @@
                 "header",
                 "sources"
               ],
-              "additionalProperties": false
+              "type": "object"
+            },
+            "ru": {
+              "additionalProperties": false,
+              "properties": {
+                "header": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "sources": {
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "minItems": 1,
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "header",
+                "sources"
+              ],
+              "type": "object"
             }
           },
           "required": [
             "ru",
             "en"
           ],
-          "additionalProperties": false
+          "type": "object"
+        },
+        "pattern": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "recursive": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -175,32 +176,134 @@
         "encoding",
         "languages"
       ],
-      "additionalProperties": false
+      "type": "object"
     },
     "outputs": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
         "database": {
-          "type": "string",
-          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
         },
         "report": {
-          "type": "string",
-          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$"
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
         }
       },
       "required": [
         "database",
         "report"
       ],
-      "additionalProperties": false
+      "type": "object"
+    },
+    "parser": {
+      "additionalProperties": false,
+      "properties": {
+        "constructs": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "lexical": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "lexical",
+        "constructs"
+      ],
+      "type": "object"
+    },
+    "rules": {
+      "additionalProperties": false,
+      "properties": {
+        "game_version": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "profile": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "registry": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        },
+        "report": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "profile",
+        "registry",
+        "report",
+        "game_version"
+      ],
+      "type": "object"
     }
   },
   "required": [
     "definitions",
     "localization",
-    "outputs"
+    "parser",
+    "outputs",
+    "rules"
   ],
-  "additionalProperties": false,
-  "$schema": "https://json-schema.org/draft/2020-12/schema"
+  "type": "object"
 }

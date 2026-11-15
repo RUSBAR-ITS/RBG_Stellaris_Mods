@@ -16,7 +16,11 @@ A local interactive web reference for Stellaris technologies. Its primary view i
 
 ## Status
 
-As of 2026-11-15, the approved [first backend stage](Docs/TZ_EN.md#3-first-backend-stage--database-building) is implemented: a standalone Python builder with a strict JSON model, RU/EN names, validation, and a separate report. Current sources produce 679 technologies and 206 variants; all 885 records have names in both languages. All 29 synthetic checks pass. [Operation, structure, and validation results](Docs/BACKEND_STAGE_1_EN.md).
+Implemented the approved [third stage](Docs/TZ_BACKEND_STAGE_3_EN.md): an independent parser and two compact syntax configurations. All 79 tests pass; 2,235 vanilla files parse successfully and the database matches the baseline byte for byte. Game-command semantic validation is separate from the parser. [Settings, interface, and limitations](Docs/BACKEND_STAGE_3_EN.md).
+
+The approved [second backend stage](Docs/TZ_BACKEND_STAGE_2_EN.md) is implemented: module packages, permanent schema generation, shared field contracts, JSON profiles and a separate analyzer. All 54 tests pass; database bytes match stage one. [Settings, operations and limitations](Docs/BACKEND_STAGE_2_EN.md).
+
+As of 2026-11-15, the approved [first backend stage](Docs/TZ_EN.md#3-first-backend-stage--database-building) is implemented: a standalone Python builder with a strict JSON model, RU/EN names, validation, and a separate report. Current sources produce 679 technologies and 206 variants; all 885 records have names in both languages. First-stage checks are retained. [Operation, structure, and validation results](Docs/BACKEND_STAGE_1_EN.md).
 
 [Technology tree research](Docs/RESEARCH_TECH_TREE_EN.md) of the installed Stellaris v4.5.4 was completed before further design, covering definitions, logical dependencies, tiers, eligibility, variants, and repetition. These findings are not a new approved specification part.
 
@@ -28,8 +32,9 @@ Builder code is in `src/backend/`, and the validated database is at `data/databa
 | --- | --- |
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
-| `config/` | Reading profiles, priorities, and build-output paths |
-| `schemas/` | Strict JSON schemas and the supported-script-command registry |
+| `config/` | Reading, priorities, active profile, analysis sources, output paths, and syntax in `parser/` |
+| `schemas/` | Generated closed application schemas |
+| `profiles/` | Supplied game-rule profiles |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 
@@ -63,6 +68,10 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Project concept](Docs/CONCEPT_EN.md).
 - [Specification: technical foundation, coding principles, and first backend stage](Docs/TZ_EN.md).
 - [First backend stage: operation, modules, diagnostics, and validation](Docs/BACKEND_STAGE_1_EN.md).
+- [Second-stage backend specification: modules, schemas, rule profiles, and analyzer — implemented](Docs/TZ_BACKEND_STAGE_2_EN.md).
+- [Second stage: profiles, analyzer and programmatic operations](Docs/BACKEND_STAGE_2_EN.md).
+- [Third-stage specification: parsing engine and syntax configuration — implemented](Docs/TZ_BACKEND_STAGE_3_EN.md).
+- [Third stage: configurations, nodes, programmatic interface, and validation](Docs/BACKEND_STAGE_3_EN.md).
 - [Stellaris v4.5.4 technology tree research](Docs/RESEARCH_TECH_TREE_EN.md).
 - [Technology object model: fields, types, and nested structures](Docs/TECHNOLOGY_MODEL_EN.md).
 - [Stage-one JSON database model: technology structure and RU/EN names](Docs/DATABASE_MODEL_EN.md).

@@ -1,0 +1,465 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "command_groups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "commands": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "context": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "template": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "context",
+          "template",
+          "commands",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "contexts": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "conditions": {
+            "type": "boolean"
+          },
+          "required": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "conditions",
+          "required"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_:.?/-]+$",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "game_version": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "inline_scripts": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "parameters": {
+            "additionalProperties": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "propertyNames": {
+              "pattern": "^[A-Za-z0-9_:.?/-]+$",
+              "type": "string"
+            },
+            "type": "object"
+          },
+          "scalar": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "scalar",
+          "parameters"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_:.?/-]+$",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "overrides": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "command": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "context": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rule": {
+            "additionalProperties": false,
+            "properties": {
+              "context": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "many": {
+                "type": "boolean"
+              },
+              "operators": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "scope": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "scopes": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "type": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          }
+        },
+        "required": [
+          "context",
+          "command",
+          "rule",
+          "reason",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "profile_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "provenance": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "file": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "game_version": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "observed",
+              "documentation",
+              "unverified"
+            ]
+          },
+          "line": {
+            "anyOf": [
+              {
+                "minimum": 1,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "type": "string"
+          },
+          "record": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "file",
+          "line",
+          "record",
+          "game_version",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "revision": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "root_scope": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scopes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "templates": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "extends": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rule": {
+            "additionalProperties": false,
+            "properties": {
+              "context": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "many": {
+                "type": "boolean"
+              },
+              "operators": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "scope": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "scopes": {
+                "anyOf": [
+                  {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "type": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [],
+            "type": "object"
+          }
+        },
+        "required": [
+          "rule"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_:.?/-]+$",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "value_types": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "boolean",
+              "number",
+              "integer",
+              "identifier",
+              "string",
+              "enum",
+              "block",
+              "inline"
+            ]
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "pattern": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "references": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "values": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "pattern": "^[A-Za-z0-9_:.?/-]+$",
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "format_version",
+    "profile_id",
+    "revision",
+    "game_version",
+    "provenance",
+    "value_types",
+    "scopes",
+    "root_scope",
+    "inline_scripts",
+    "contexts",
+    "templates",
+    "command_groups",
+    "overrides"
+  ],
+  "type": "object"
+}

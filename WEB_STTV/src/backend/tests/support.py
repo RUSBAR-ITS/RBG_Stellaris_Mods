@@ -6,14 +6,34 @@ import json
 import sys
 import tempfile
 import unittest
+from functools import lru_cache
 from pathlib import Path
 
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from sttv.builder import build
-from sttv.json_io import read_json
-from sttv.schema import PRODUCT_ROOT
+from sttv.common.json_io import read_json
+from sttv.common.paths import PRODUCT_ROOT
+
+
+@lru_cache
+def registry():
+    from sttv.rules.compiler import generate_registry, load_profile
+    return generate_registry(load_profile(PRODUCT_ROOT / "profiles/stellaris_4_5_4.json"))
+
+
+@lru_cache
+def syntax():
+    from sttv.script.syntax import load_syntax
+    return load_syntax(PRODUCT_ROOT / "config/parser/lexical.json",
+                       PRODUCT_ROOT / "config/parser/constructs.json")
+
+
+def parse_entries(text):
+    from sttv.script.parser import parse_text
+    from sttv.script.serialization import data_entries
+    return data_entries(parse_text(text, syntax()))
 
 
 class BuildFixture(unittest.TestCase):

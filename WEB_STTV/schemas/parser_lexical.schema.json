@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allow_initial_bom": {
+      "type": "boolean"
+    },
+    "block": {
+      "additionalProperties": false,
+      "properties": {
+        "close": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "open": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "open",
+        "close"
+      ],
+      "type": "object"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "line_comment": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "operators": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "string": {
+      "additionalProperties": false,
+      "properties": {
+        "escape": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "multiline": {
+          "type": "boolean"
+        },
+        "quote": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "quote",
+        "escape",
+        "multiline"
+      ],
+      "type": "object"
+    },
+    "whitespace": {
+      "items": {
+        "maxLength": 1,
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format_version",
+    "allow_initial_bom",
+    "whitespace",
+    "line_comment",
+    "string",
+    "operators",
+    "block"
+  ],
+  "type": "object"
+}

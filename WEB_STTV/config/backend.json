@@ -1,32 +1,36 @@
 {
   "definitions": {
-    "technologies": {
-      "variable": "TECH_PATH",
-      "subdirectory": "",
-      "pattern": "*.txt",
-      "recursive": false,
-      "encoding": "utf-8-sig"
-    },
     "categories": {
-      "variable": "TECH_PATH",
-      "subdirectory": "category",
+      "encoding": "utf-8-sig",
       "pattern": "*.txt",
       "recursive": false,
-      "encoding": "utf-8-sig"
+      "subdirectory": "category",
+      "variable": "TECH_PATH"
+    },
+    "technologies": {
+      "encoding": "utf-8-sig",
+      "pattern": "*.txt",
+      "recursive": false,
+      "subdirectory": "",
+      "variable": "TECH_PATH"
     },
     "tiers": {
-      "variable": "TECH_PATH",
-      "subdirectory": "tier",
+      "encoding": "utf-8-sig",
       "pattern": "*.txt",
       "recursive": false,
-      "encoding": "utf-8-sig"
+      "subdirectory": "tier",
+      "variable": "TECH_PATH"
     }
   },
   "localization": {
-    "pattern": "*.yml",
-    "recursive": true,
     "encoding": "utf-8-sig",
     "languages": {
+      "en": {
+        "header": "l_english",
+        "sources": [
+          "EN_LOC_TIER_1"
+        ]
+      },
       "ru": {
         "header": "l_russian",
         "sources": [
@@ -34,17 +38,32 @@
           "RU_LOC_TIER_2",
           "RU_LOC_TIER_3"
         ]
-      },
-      "en": {
-        "header": "l_english",
-        "sources": [
-          "EN_LOC_TIER_1"
-        ]
       }
-    }
+    },
+    "pattern": "*.yml",
+    "recursive": true
   },
   "outputs": {
     "database": "database.json",
     "report": "reports/build_report.json"
+  },
+  "rules": {
+    "game_version": "4.5.4",
+    "profile": {
+      "base": "product",
+      "path": "profiles/stellaris_4_5_4.json"
+    },
+    "registry": "rules/script_rules.json",
+    "report": "reports/generation_report.json"
+  },
+  "parser": {
+    "lexical": {
+      "base": "product",
+      "path": "config/parser/lexical.json"
+    },
+    "constructs": {
+      "base": "product",
+      "path": "config/parser/constructs.json"
+    }
   }
 }

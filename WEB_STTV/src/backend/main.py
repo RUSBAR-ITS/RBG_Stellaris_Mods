@@ -1,4 +1,4 @@
-"""Command-line entry point for the first backend stage."""
+"""Command-line entry point for database building with an explicit rule profile."""
 
 import argparse
 import json
@@ -8,7 +8,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 
 from sttv.builder import build
-from sttv.schema import PRODUCT_ROOT
+from sttv.common.paths import PRODUCT_ROOT
 
 
 def main():

@@ -55,7 +55,7 @@ Default configuration and relative `WORK_DIR` values are based on the product di
 
 The CLI returns **0** on success and **1** on build failure. It prints the complete JSON report to stdout on success and stderr on failure. Invalid command-line arguments are handled by `argparse` with exit code 2.
 
-The future service integration entry point is `sttv.builder.build(variables_path, config_path)`: two configuration paths in, a report dictionary out. It does not depend on the CLI or UI. To validate a completed database without sources, use `sttv.validation.validate_database(database)`; it returns without a value on success and raises `BuildError` for a model violation.
+The future service integration entry point is `sttv.builder.build(variables_path, config_path)`: two configuration paths in, a report dictionary out. It does not depend on the CLI or UI. To validate a completed database without sources, use `sttv.database.validation.validate_database(database, registry)`; it returns without a value on success and raises `BuildError` for a model violation.
 
 ## Settings and outputs
 
@@ -66,9 +66,9 @@ The future service integration entry point is `sttv.builder.build(variables_path
 | [schemas/database.schema.json](../schemas/database.schema.json) | Closed database schema, format 1 |
 | [schemas/backend.schema.json](../schemas/backend.schema.json) | Closed build-configuration schema |
 | [schemas/report.schema.json](../schemas/report.schema.json) | Closed report schema |
-| [schemas/script_rules.json](../schemas/script_rules.json) | Declared contexts, commands, arguments, operators, and scopes |
+| [profiles/stellaris_4_5_4.json](../profiles/stellaris_4_5_4.json) | Declared contexts, commands, arguments, operators, and scopes |
 
-Current outputs are `data/database.json` and `data/reports/build_report.json`. Their relative names are configured under `outputs`; `WORK_DIR` determines their absolute location.
+Primary outputs are `data/database.json` and `data/reports/build_report.json`. Stage two also writes `data/rules/script_rules.json` and `data/reports/generation_report.json`; their names are configured under `rules`. Their relative names are configured under `outputs`; `WORK_DIR` determines their absolute location.
 
 `TECH_PATH` resolves within `STELLARIS_ROOT`. Relative localization directories also resolve against the game root. Global-variable substitution does not execute code; unknown names and cycles are rejected. An unavailable configured source is an error, while a missing individual translation is a warning.
 
@@ -80,24 +80,24 @@ The root `.gitignore` excludes `data/`. An alternative working directory require
 
 | Modules in `src/backend/sttv/` | Responsibility |
 | --- | --- |
-| `settings.py`, `sources.py` | Configuration, path resolution, reproducible file selection and reading |
-| `parser.py` | Script syntax, strings, operators, repetitions, nesting |
-| `contracts.py`, `conversion.py`, `definitions.py`, `variables.py` | Closed field contracts, record and local-variable conversion |
-| `script_rules.py` | Nested-command validation against an explicit registry |
-| `localization.py` | Names by key and priority, retaining source markup |
-| `schema.py`, `validation.py` | JSON Schema, contextual validation, references and prerequisite graph |
-| `json_io.py`, `storage.py`, `report.py` | Strict JSON, writing, output replacement, diagnostics |
+| `sources/settings.py`, `sources/files.py` | Configuration, path resolution, reproducible file selection and reading |
+| `script/parser.py` | Structural parsing; tokenization and configuration are separate [stage-three modules](BACKEND_STAGE_3_EN.md) |
+| `technologies/`, `script/variables.py` | Closed field contracts, record and local-variable conversion |
+| `script/rules.py`, `rules/` | Nested-command validation against an explicit registry |
+| `localization/names.py` | Names by key and priority, retaining source markup |
+| `common/schema.py`, `database/validation.py` | JSON Schema, contextual validation, references and prerequisite graph |
+| `common/`, `database/storage.py` | Strict JSON, writing, output replacement, diagnostics |
 | `builder.py` | Build-stage orchestration |
 
 `main.py` contains only the command-line entry point. Shared reading, serialization, validation, and path-resolution logic lives in separate functions.
 
-The script registry is explicitly declared rather than expanded automatically from encountered words. It covers researched constructs in the current sources, including scope changes, numeric references, and parameters of known inline inclusions. External script bodies are neither read nor executed. Unknown commands, invalid arguments, operators, or scopes cause failure.
+The working registry is generated from an explicitly selected JSON profile, without automatic expansion from encountered words. It covers researched constructs in the current sources, including scope changes, numeric references, and parameters of known inline inclusions. The builder neither reads nor executes external script bodies; the separate analyzer is documented in the [second-stage guide](BACKEND_STAGE_2_EN.md). Unknown commands, invalid arguments, operators, or scopes cause failure.
 
 Eligibility conditions, weights, and `technology_swap` remain separate from `prerequisites`. Variants are nested within the base technology. Repeated values retain their source lines; numeric references resolve only through unambiguous local definitions in the same file. External values remain `resolved: null`.
 
 ## Diagnostics and persistence
 
-The report contains status, file and record counts, errors, warnings, and `database_written`. Diagnostics have a stable code, stage, message, and available source coordinates. The report is not embedded in the database.
+The report contains status, file and record counts, errors, warnings, and `database_written`, `registry_written`, `generation_report_written`. Diagnostics have a stable code, stage, message, and available source coordinates. The report is not embedded in the database.
 
 | Situation | Result |
 | --- | --- |
@@ -122,7 +122,7 @@ Run synthetic checks from `WEB_STTV`:
 
 All test fixtures and outputs use `data/tests/`; these tests do not require the game.
 
-Validation results on 2026-11-15 with installed Stellaris v4.5.4:
+Historical first-stage results on 2026-11-15; the current 79 tests and vanilla corpus audit are documented in the [third-stage guide](BACKEND_STAGE_3_EN.md):
 
 | Check | Result |
 | --- | --- |

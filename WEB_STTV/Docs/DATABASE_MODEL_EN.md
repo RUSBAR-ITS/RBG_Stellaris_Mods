@@ -51,7 +51,7 @@ An unknown field, unsupported nested construct, or invalid type goes into a **se
 
 A build with these errors is unsuccessful and must not replace the working database with partial output. The construct must first be investigated and the model and its handling refined. This differs from an explicitly supported unresolved reference: for example, the known `VariableValue` form with `resolved: null` is allowed under this stage's rules.
 
-These restrictions are implemented through a [machine-readable JSON schema](../schemas/database.schema.json) and contextual builder validation. Supported nested commands and their arguments are explicitly listed in the [rule registry](../schemas/script_rules.json); the general `ScriptBlock` shape does not define that set by itself. Operation and implementation structure are described in the [first-stage guide](BACKEND_STAGE_1_EN.md).
+These restrictions are implemented through a [machine-readable JSON schema](../schemas/database.schema.json) and contextual builder validation. Supported nested commands and their arguments are explicitly listed in the [rule profile](../profiles/stellaris_4_5_4.json), from which the working registry is generated; the general `ScriptBlock` shape does not define that set by itself. Operation and implementation structure are described in the [first-stage guide](BACKEND_STAGE_1_EN.md); profiles and generation are covered in the [second-stage guide](BACKEND_STAGE_2_EN.md).
 
 ## Database root object
 

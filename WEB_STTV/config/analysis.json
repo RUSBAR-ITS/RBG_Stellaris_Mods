@@ -1,0 +1,7 @@
+{
+  "excerpt_length": 160,
+  "format_version": 1,
+  "max_examples": 5,
+  "output": "reports/analysis_report.json",
+  "sources": []
+}

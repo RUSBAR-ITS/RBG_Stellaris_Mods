@@ -1,0 +1,28 @@
+{
+  "format_version": 1,
+  "allow_initial_bom": true,
+  "whitespace": [
+    " ",
+    "\t",
+    "\r",
+    "\n"
+  ],
+  "line_comment": "#",
+  "string": {
+    "quote": "\"",
+    "escape": "\\",
+    "multiline": true
+  },
+  "operators": [
+    "=",
+    "<",
+    ">",
+    "<=",
+    ">=",
+    "!="
+  ],
+  "block": {
+    "open": "{",
+    "close": "}"
+  }
+}
