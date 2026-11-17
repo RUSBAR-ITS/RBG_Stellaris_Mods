@@ -1,0 +1,43 @@
+# Stellaris Technological Tree View — UI element list
+
+## Contents
+
+- [Basic elements](#basic-elements)
+- [Composite elements](#composite-elements)
+- [Regions and layout structure](#regions-and-layout-structure)
+- [Scrolling](#scrolling)
+- [Views](#views)
+
+## Basic elements
+
+- [Text](elements/TZ_TEXT_EN.md).
+- [Icon](elements/TZ_ICON_EN.md).
+- [Button](elements/TZ_BUTTON_EN.md).
+- [Selection control](elements/TZ_SELECT_EN.md).
+
+## Composite elements
+
+- [Language selector](elements/TZ_LANGUAGE_SELECTOR_EN.md).
+- [Day/night theme button](elements/TZ_THEME_TOGGLE_EN.md).
+- [Menu collapse/expand button](elements/TZ_MENU_TOGGLE_EN.md).
+- [Technology card](elements/TZ_TECHNOLOGY_CARD_EN.md).
+- [Tooltip](elements/TZ_TOOLTIP_EN.md).
+- [Status panel](elements/TZ_STATUS_PANEL_EN.md).
+
+## Regions and layout structure
+
+- [Menu panel](elements/TZ_MENU_PANEL_EN.md).
+- [Bottom menu button group](elements/TZ_MENU_BUTTON_GROUP_EN.md).
+- [Technology viewport](elements/TZ_TECHNOLOGY_VIEWPORT_EN.md).
+- [Technology field](elements/TZ_TECHNOLOGY_FIELD_EN.md).
+- [Research area region](elements/TZ_RESEARCH_AREA_EN.md).
+- [Technology tier column](elements/TZ_TIER_COLUMN_EN.md).
+
+## Scrolling
+
+- [Horizontal scrollbar](elements/TZ_SCROLLBAR_EN.md).
+- [Vertical scrollbar](elements/TZ_SCROLLBAR_EN.md).
+
+## Views
+
+- [Main window](elements/TZ_MAIN_WINDOW_EN.md).

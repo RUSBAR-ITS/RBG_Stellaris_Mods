@@ -4,6 +4,7 @@
 
 - [Project](#project)
 - [Status](#status)
+- [Running the frontend](#running-the-frontend)
 - [Directory structure](#directory-structure)
 - [Global variables](#global-variables)
 - [Documents](#documents)
@@ -12,7 +13,7 @@
 
 **Stellaris Technological Tree View**, project directory: `WEB_STTV`.
 
-A local interactive web reference for Stellaris technologies. Its primary view is a dependency tree made of technology cards with vanilla images. Data is collected from user-selected sources and transformed into the reference application's internal database. The intended distribution is portable on Windows and requires no separate web-server installation.
+A local interactive web reference for Stellaris technologies. The first interface displays cards by research area and tier, names and descriptions in tooltips, and manual variants. Vanilla images belong to later stages. Data is collected from user-selected sources and transformed into the reference application's internal database. The intended distribution is portable on Windows and requires no separate web-server installation.
 
 ## Status
 
@@ -26,7 +27,13 @@ All 184 tests passed, including 30 new checks. Rebuilt 35 files, preserving 82,2
 
 The stage-nine full audit had 1,466 successful inputs, two documentation exclusions, and 21 failing files. Causes and limitations remain in [its guide](Docs/BACKEND_STAGE_9_EN.md); reports and lists are under `data/stage9/`. Localization did not repeat a full-game traversal. Guides for stages 1–9 are historical.
 
-Code is in `src/backend/`. The UI, HTTP service, images, and portable distribution are not implemented yet; no software release version is assigned. TypeScript, HTML/CSS, and PyInstaller in `onedir` mode are agreed for subsequent stages.
+The backend is in `src/backend/`. The first frontend, version `0.0.1`, is implemented in `src/frontend/` using React, TypeScript, plain CSS, Vite, and prepared database processing in a Web Worker. It includes RU/EN, two themes, variants, scrolling, opening states, and diagnostic reports. Connecting lines are not drawn yet. The build, 16 unit scenarios, and 10 browser scenarios were checked; the [guide](Docs/frontend/FRONTEND_STAGE_1_EN.md) describes results and limitations. A Python service, images, and portable packaging remain future stages; PyInstaller `onedir` is agreed for portable distribution.
+
+## Running the frontend
+
+From `WEB_STTV` with Node.js 24 installed: `npm ci`, then `npm run dev`. The address is `http://127.0.0.1:5173/`. This computer also has a local Node.js copy under `data/`; the exact command without a system installation is in the [guide](Docs/frontend/FRONTEND_STAGE_1_EN.md#running).
+
+Click Open database and select `data/stage10/database.json`. Startup and page refresh neither invoke the generator nor automatically open a database. State does not persist between sessions.
 
 ## Directory structure
 
@@ -38,6 +45,7 @@ Code is in `src/backend/`. The UI, HTTP service, images, and portable distributi
 | `schemas/` | Thirteen generated configuration, database, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
+| `Docs/frontend/` | Interface concept and subsequent frontend documentation |
 
 `WORK_DIR` configures the working folder. Relative values are resolved against the `WEB_STTV`/product directory; absolute paths inside the repository are also allowed. Changing the setting does not move existing data. The root `.gitignore` includes `/WEB_STTV/data/`; a different working folder is ignored separately when needed. The setting is applied on each builder invocation.
 
@@ -75,6 +83,18 @@ Absolute source roots belong to the current environment. Game and localization d
 
 ## Documents
 
+- [First frontend: running, implementation, and checks](Docs/frontend/FRONTEND_STAGE_1_EN.md).
+
+- [Initial interface: window layout, simple design, and UI kit — concept](Docs/frontend/CONCEPT_EN.md).
+- [Initial interface UI element list](Docs/frontend/UI_ELEMENTS_EN.md).
+- [Frontend technology stack specification: React, TypeScript, CSS, and Vite](Docs/frontend/TZ_TECH_STACK_EN.md).
+- [Frontend structure specification: code, UI kit, configuration, and assets](Docs/frontend/TZ_STRUCTURE_EN.md).
+- [Worker protocol specification: database opening, stages, result, errors, and cancellation](Docs/frontend/TZ_WORKER_PROTOCOL_EN.md).
+- [Worker result specification: ready container, catalog, and representation identity — partial model](Docs/frontend/TZ_WORKER_RESULT_EN.md).
+- [Technology requirements specification: prerequisites tree, counting, and links](Docs/frontend/TZ_TECHNOLOGY_REQUIREMENTS_EN.md).
+- [Localization index record specification: states, provenance, and errors](Docs/frontend/TZ_LOCALIZATION_INDEX_EN.md).
+- [Diagnostics specification: shared record, codes, and error response](Docs/frontend/TZ_DIAGNOSTICS_EN.md).
+- [Diagnostic report saving specification: menu action and current attempt JSON](Docs/frontend/TZ_DIAGNOSTIC_REPORT_EN.md).
 - [Stage ten: localization invocation, database format, and verification](Docs/BACKEND_STAGE_10_EN.md).
 - [Stage ten specification: RU/EN names and descriptions in the database — implemented](Docs/TZ_BACKEND_STAGE_10_EN.md).
 - [Stage nine specification: script value expansion — implemented](Docs/TZ_BACKEND_STAGE_9_EN.md).

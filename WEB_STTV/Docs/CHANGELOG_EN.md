@@ -2,6 +2,52 @@
 
 ## Contents
 
+- [2026-11-17 — first frontend implementation](#2026-11-17--first-frontend-implementation)
+- [2026-11-17 — localized diagnostic messages](#2026-11-17--localized-diagnostic-messages)
+- [2026-11-17 — diagnostic technical detail contents](#2026-11-17--diagnostic-technical-detail-contents)
+- [2026-11-17 — backend and frontend validation responsibilities](#2026-11-17--backend-and-frontend-validation-responsibilities)
+- [2026-11-17 — diagnostic report saving](#2026-11-17--diagnostic-report-saving)
+- [2026-11-17 — diagnostics and error response](#2026-11-17--diagnostics-and-error-response)
+- [2026-11-17 — localization index records and data errors](#2026-11-17--localization-index-records-and-data-errors)
+- [2026-11-16 — technology requirement tree and links](#2026-11-16--technology-requirement-tree-and-links)
+- [2026-11-16 — ready container and technology catalog model](#2026-11-16--ready-container-and-technology-catalog-model)
+- [2026-11-16 — Worker protocol for database opening](#2026-11-16--worker-protocol-for-database-opening)
+- [2026-11-16 — frontend structure and resource locations](#2026-11-16--frontend-structure-and-resource-locations)
+- [2026-11-16 — frontend technology stack](#2026-11-16--frontend-technology-stack)
+- [2026-11-16 — status panel and database actions in the menu](#2026-11-16--status-panel-and-database-actions-in-the-menu)
+- [2026-11-16 — loading states, cancellation, and database replacement](#2026-11-16--loading-states-cancellation-and-database-replacement)
+- [2026-11-16 — prepared database reading and adapter in a Web Worker](#2026-11-16--prepared-database-reading-and-adapter-in-a-web-worker)
+- [2026-11-16 — explicit database opening and initial interface startup](#2026-11-16--explicit-database-opening-and-initial-interface-startup)
+- [2026-11-16 — database adapter specification for the interface](#2026-11-16--database-adapter-specification-for-the-interface)
+- [2026-11-16 — shared localized string lookup specification](#2026-11-16--shared-localized-string-lookup-specification)
+- [2026-11-16 — agreed interface palettes and typography](#2026-11-16--agreed-interface-palettes-and-typography)
+- [2026-11-16 — color and typography dictionary specification](#2026-11-16--color-and-typography-dictionary-specification)
+- [2026-11-16 — main window specification](#2026-11-16--main-window-specification)
+- [2026-11-16 — scrollbar specification](#2026-11-16--scrollbar-specification)
+- [2026-11-16 — technology tier column specification](#2026-11-16--technology-tier-column-specification)
+- [2026-11-16 — research area region specification](#2026-11-16--research-area-region-specification)
+- [2026-11-16 — technology field specification and predecessor grouping](#2026-11-16--technology-field-specification-and-predecessor-grouping)
+- [2026-11-16 — technology variant list interaction](#2026-11-16--technology-variant-list-interaction)
+- [2026-11-16 — labels for technology variants with identical titles](#2026-11-16--labels-for-technology-variants-with-identical-titles)
+- [2026-11-16 — manual variants and technology layout refinement](#2026-11-16--manual-variants-and-technology-layout-refinement)
+- [2026-11-16 — technology viewport specification](#2026-11-16--technology-viewport-specification)
+- [2026-11-16 — bottom menu button group specification](#2026-11-16--bottom-menu-button-group-specification)
+- [2026-11-16 — menu panel specification](#2026-11-16--menu-panel-specification)
+- [2026-11-16 — technology card specification and tooltip heading](#2026-11-16--technology-card-specification-and-tooltip-heading)
+- [2026-11-16 — menu collapse button specification](#2026-11-16--menu-collapse-button-specification)
+- [2026-11-16 — localized string lookup configuration](#2026-11-16--localized-string-lookup-configuration)
+- [2026-11-16 — interface text sources](#2026-11-16--interface-text-sources)
+- [2026-11-16 — theme toggle and string identifiers](#2026-11-16--theme-toggle-and-string-identifiers)
+- [2026-11-16 — Language selector specification](#2026-11-16--language-selector-specification)
+- [2026-11-16 — separate persistence design](#2026-11-16--separate-persistence-design)
+- [2026-11-16 — Selection control specification](#2026-11-16--selection-control-specification)
+- [2026-11-16 — Button and Tooltip specifications](#2026-11-16--button-and-tooltip-specifications)
+- [2026-11-16 — shared button and tooltip](#2026-11-16--shared-button-and-tooltip)
+- [2026-11-16 — Icon element specification](#2026-11-16--icon-element-specification)
+- [2026-11-16 — Text element specification](#2026-11-16--text-element-specification)
+- [2026-11-16 — UI element list](#2026-11-16--ui-element-list)
+- [2026-11-16 — interface styling dictionary](#2026-11-16--interface-styling-dictionary)
+- [2026-11-16 — initial interface concept](#2026-11-16--initial-interface-concept)
 - [2026-11-16 — implemented localization in the database](#2026-11-16--implemented-localization-in-the-database)
 - [2026-11-16 — localization in the database specification](#2026-11-16--localization-in-the-database-specification)
 - [2026-11-15 — script value expansion implementation](#2026-11-15--script-value-expansion-implementation)
@@ -50,6 +96,292 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-17 — first frontend implementation
+
+- Implemented frontend `0.0.1` with React/TypeScript/Vite: UI components, research-area/tier card field, menu, and status panel. Under user clarification, cards do not draw connecting lines yet.
+- Added explicit prepared JSON opening, Worker processing, a compact catalog with requirements/links, cancellation/retry, stale-reply protection, and report saving. Startup and refresh never invoke the generator.
+- Connected shared source/language/ID localization lookup, the RU/EN index with provenance, warnings, and blocking conflicts. Cards display names, tooltips display names/descriptions, and game strings remain literal.
+- Implemented manual variants, localized suffixes for matching titles, movement between areas, two themes, menu collapse, keyboard control, and both scrollbars. Oversized tooltips scroll through the wheel over their card.
+- Added interface configuration and styling dictionaries; Inter and SVG icons are local. Added npm configuration, lock file, and ignore rules for dependencies/Sites working data. Node.js and the test browser were prepared only under `data/`.
+- Additionally agreed: negative technology requirements stop opening with diagnostics until their counting/layout rules are designed.
+- Checked the production build, 16 unit scenarios, and 10 browser scenarios. Real database result: 679 technologies, 206 variants, 615 links, 3,400 string addresses; main-thread catalog size is 2,308,044 bytes without errors or warnings. Screenshots of both themes, a tooltip, and the variant list were visually reviewed.
+- Added the bilingual [first frontend guide](frontend/FRONTEND_STAGE_1_EN.md), updated README and the relevant specifications. Game sources and databases were not changed; persistence and portable packaging are outside this stage.
+
+## 2026-11-17 — localized diagnostic messages
+
+- Recorded agreed RU/EN texts and `sttv_diagnostic_<code>` IDs for all seven current codes in the diagnostics specification. Strings use the `builtin` source and empty `params`.
+- Code-to-ID mapping resides in diagnostic configuration; translations remain in separate localization files. The missing-translation warning remains in diagnostics and does not replace the successful-load message with the technology count.
+- Updated both languages of the diagnostics, status panel, and frontend structure specifications. Only documentation changed; product implementation, configuration, and localization files were not created.
+
+## 2026-11-17 — diagnostic technical detail contents
+
+- Documented agreed `details` contents for all seven current codes; specific paths, IDs, and technical causes are retained in report details.
+- Conflicting text provenance reuses the existing `origins` structure associated with each text. All current codes supply `params: {}`; short messages are selected by code without substitutions.
+- Updated both languages of the diagnostics, database opening, Worker protocol and result, localization, localization index, and report saving specifications. Product code and data were not changed.
+
+## 2026-11-17 — backend and frontend validation responsibilities
+
+- The database opening specification assigns validation of the produced database to the backend. The frontend retains file-reading and JSON handling, format and version checking, and diagnostics for the adapter's own transformations.
+- Aligned the adapter, diagnostics, and Worker result specifications: a repeated schema traversal of the complete database is not required; `invalid_database` refers to inability to perform a transformation, while a shared localization index conflict remains a preparation error.
+- Updated both documentation languages and contents. Product code and data were not changed.
+
+## 2026-11-17 — diagnostic report saving
+
+- Added the bilingual [report saving specification](frontend/TZ_DIAGNOSTIC_REPORT_EN.md): manual JSON export of the current completed attempt for external viewing, eight report fields, and `ready`/`empty`/`error` outcomes.
+- Added Save report to menu requirements for Ready, Empty catalog, and Error, including success without warnings. It uses the existing Button and is hidden before opening and during loading. An integrated diagnostic viewer, history, and automatic logging are deferred.
+- Synchronized diagnostics, database opening, the Worker protocol, structure, menu, status panel, concept, and README. Only documentation changed; code, the database, and backend reports were not modified.
+
+## 2026-11-17 — diagnostics and error response
+
+- Added the bilingual [diagnostics specification](frontend/TZ_DIAGNOSTICS_EN.md): shared `severity`, `code`, `phase`, `params`, and `details` record and seven initial codes.
+- Defined an `error` response with one blocking cause and accumulated warnings; `ready.data.diagnostics` contains only warnings. Received diagnostics remain in the main thread after Worker termination, and a Worker failure becomes `worker_failed`.
+- Synchronized the Worker protocol and result, database opening, localization and its index, status panel, concept, and README. Only documentation changed; exact nested detail schemas, viewing, and report saving remain separate tasks.
+
+## 2026-11-17 — localization index records and data errors
+
+- Added the bilingual [localization index record specification](frontend/TZ_LOCALIZATION_INDEX_EN.md): `status`, `text`, `origins`, translation provenance, inheritance, and a shared format for database and built-in strings.
+- Established `resolved`/`missing` states, identical-text merging, and handling of `null` and empty strings. Differing texts under one ID and language block data preparation and require manual investigation; the `conflict` state and substituting a marker for this error are excluded.
+- Synchronized the localization, Text element, Worker result and protocol, adapter, and database opening specifications, concept, and README. Only documentation changed; code and the database were not modified.
+
+## 2026-11-16 — technology requirement tree and links
+
+- Added the bilingual [technology requirements specification](frontend/TZ_TECHNOLOGY_REQUIREMENTS_EN.md): `technology`/`group` nodes, an `AND` root, nesting preservation, and counting for mandatory requirements and `AND`/`OR` alternatives.
+- Defined `from`/`to` links with `requirementPaths`, one entry per ID pair, and preservation of all occurrences through derived-tree paths. The structure supports five known operators; counting and layout for `NOT`, `NAND`, and `NOR` remain subject to separate agreement.
+- Synchronized result, adapter, protocol, database opening, and technology field specifications, the concept, and README. Only documentation changed; the source database and code were not modified.
+
+## 2026-11-16 — ready container and technology catalog model
+
+- Added the bilingual [Worker result specification](frontend/TZ_WORKER_RESULT_EN.md): `data.technologies`, `links`, `localization.ru/en`, and `diagnostics`; defined technology fields, including derived `prerequisiteIds` and `requirementCount`.
+- Established `base` and `swap:N` representation IDs, matching `variantNumber`, string `sourceRef` paths within the current database, and connection of the localization index as source `database`.
+- Synchronized adapter, protocol, and database opening specifications, the concept, and README. Marked the model as partial: requirement nodes, link entries, localization records, and diagnostics still require agreement. Only documentation changed; code and the database were not modified.
+
+## 2026-11-16 — Worker protocol for database opening
+
+- Added the bilingual [Worker protocol specification](frontend/TZ_WORKER_PROTOCOL_EN.md): `open_database`, `progress`, `ready`, `error`, shared `type` and `operationId` fields, three processing stages, and publication of the complete prepared result.
+- Established response relevance checks by operation number and Worker, cancellation through `terminate()` without acknowledgement, new numbers for retry and replacement, empty-catalog and error distinction, and message localization through stage identifiers and error codes.
+- Updated database opening, technology stack, and structure specifications, the concept, and README. The nested `ready` format, detailed diagnostics, and result types remain the next step. Only documentation changed; protocol implementation and checks have not been performed yet.
+
+## 2026-11-16 — frontend structure and resource locations
+
+- Added the bilingual [frontend structure specification](frontend/TZ_STRUCTURE_EN.md): responsibilities of `app/`, `ui/`, `views/`, `data/`, `workers/`, `localization/`, `locales/`, `styles/`, and `assets/`; UI kit categories follow the existing catalog.
+- Established component-adjacent CSS, the shared dictionary in `styles/`, configurations in `config/frontend/`, separation of the localization mechanism from translation files, and separation of processing code from the database working directory.
+- Clarified data processing and Worker communication boundaries. Updated the concept, technology stack, localization, and styling specifications, and README links. Only documentation changed; no implementation directories, code, or dependencies were added.
+
+## 2026-11-16 — frontend technology stack
+
+- Added the bilingual [technology stack specification](frontend/TZ_TECH_STACK_EN.md): React, TypeScript, plain CSS, and Vite; current-session state uses React's built-in facilities.
+- Established independent database processing modules in the Worker, component responsibilities, separate TypeScript type checking, and future development and build acceptance criteria.
+- Updated the interface concept, database opening specification, general specification, and README. The `src/frontend/` structure and exact interfaces remain the next design step. Only documentation changed; no code or dependencies were added.
+
+## 2026-11-16 — status panel and database actions in the menu
+
+- Added the bilingual [Status panel specification](frontend/elements/TZ_STATUS_PANEL_EN.md) and its UI element list entry. The panel remains visible across the full window width at the bottom, occupies its own space, and uses shared Text and its own styling dictionary variables.
+- Open database, Cancel, and Retry actions reside in the menu above language selection and appear according to current state; collapsing the menu hides them. Bottom menu buttons retain their responsibilities.
+- Moved messages from the workspace to the status panel; the field appears only in Ready. The ready message receives the actual base technology count. The menu and viewport sit above the panel without scrollbar overlap.
+- Synchronized the concept, database opening, menu, main window, viewport, and styling dictionary specifications. Only documentation changed; interface implementation and checks have not been performed yet.
+
+## 2026-11-16 — loading states, cancellation, and database replacement
+
+- The [database opening specification](frontend/TZ_DATABASE_OPENING_EN.md#interface-states) now establishes five states, stage display without percentages, and complete data publication after success. Language, theme, and menu collapse remain available during processing.
+- Distinguished file-dialog cancellation from active-load cancellation. Described Worker termination, stale-result rejection, replacement without retaining or automatically restoring the previous tree, and resetting representations and scrolling while preserving shared interface settings.
+- Described blocking errors, nonblocking missing localization strings, and explicit retry for the same file. Extended acceptance criteria and synchronized the concept and main-window, adapter, and localization specifications in both languages. Only documentation changed; behavior checks will follow implementation.
+
+## 2026-11-16 — prepared database reading and adapter in a Web Worker
+
+- Extended the [database opening specification](frontend/TZ_DATABASE_OPENING_EN.md): the browser's standard dialog, File API, JSON reading, and a TypeScript adapter in a Web Worker. Viewing a prepared database does not require a Python service.
+- The complete tree stays in the Worker; the interface receives the catalog, requirements and links, and the RU/EN index. Recorded Worker-side `sourceRef` resolution and separation of processing modules from file reading, the DOM, and messaging.
+- Added processing-boundary checks and measurements of opening time, memory, and responsiveness with the actual database to acceptance criteria. Synchronized the adapter, localization, main-window specifications, concept, and general distribution section. Only documentation changed; implementation and measurements were not performed.
+
+## 2026-11-16 — explicit database opening and initial interface startup
+
+- Added the bilingual [startup and database opening specification](frontend/TZ_DATABASE_OPENING_EN.md): startup and page refresh load the interface, and the user explicitly selects a prepared JSON through Open database.
+- In-memory catalog, requirement, and localization-index preparation is separated from database generation and enrichment. Game-source reading, automatic file opening, and a database update button are outside the first stage.
+- Portable packaging is deferred; whether viewing needs a Python service and where the adapter executes remain open decisions. Synchronized the interface concept, adapter and main-window specifications, and the general distribution section. Only documentation changed.
+
+## 2026-11-16 — database adapter specification for the interface
+
+- Added the bilingual [Database adapter specification](frontend/TZ_DATABASE_ADAPTER_EN.md): an in-memory catalog keyed by base IDs, tier, technology requirement trees, representations, and source-node references. Defined effective representation areas, string IDs, and variant numbering without merging identically named blocks.
+- Separated extraction, shared predecessor and requirement-count calculation, localization, layout, and user state. `prerequisites` logic is preserved; matching variants across database builds remains a state-persistence responsibility.
+- Synchronized links and wording in the concept, Card, and Technology field specifications in RU/EN; added acceptance criteria. Only documentation changed; the source database and code were not modified.
+
+## 2026-11-16 — shared localized string lookup specification
+
+- Added the bilingual [Frontend localization specification](frontend/TZ_LOCALIZATION_EN.md): source, ID, and system language; RU/EN JSON dictionaries; configuration for two readers; and a shared in-memory index. Database lookup uses `requested_key` as the ID and `text` as content.
+- Defined merging identical duplicates while preserving provenance, conflict diagnostics, missing-string markers, the distinction between empty text and `null`, no automatic language substitution, and built-in template parameters.
+- As requested by the user, game markup is not processed: `text` is displayed as stored. Synchronized the concept, Text specification, and acceptance criteria in RU/EN. Only documentation changed; mechanism code and the database were not modified.
+
+## 2026-11-16 — agreed interface palettes and typography
+
+- The [Styling dictionary specification](frontend/TZ_STYLING_DICTIONARY_EN.md) now records nine color assignments per theme: neutral backgrounds, text, borders, and a muted green accent. Research areas are distinguished by headings.
+- Selected Inter with local loading from the portable distribution and an included license. Added sizes, line heights, and weights for six text roles, identical across day and night themes.
+- Synchronized RU/EN, the concept, and acceptance criteria. Values were compared with the agreed sample; the minimum calculated text contrast on the listed backgrounds is 4.97:1 by day and 4.65:1 by night. Changes cover documentation; the product interface and CSS dictionary were not implemented.
+
+## 2026-11-16 — color and typography dictionary specification
+
+- Added the bilingual [Styling dictionary specification](frontend/TZ_STYLING_DICTIONARY_EN.md): separate CSS files, shared and element-owned variables, a complete value set in day and night themes, assignments only for agreed states, and reuse of matching values through explicit references.
+- Defined identical role typography across both themes, Cyrillic and Latin support, and separation of shared definitions, theme values, and small element assignment files. The concrete palette, font, and sizes remain for the next discussion.
+- Synchronized the concept and Text specification in RU/EN and added acceptance criteria. Only documentation changed; the CSS dictionary and interface were not implemented.
+
+## 2026-11-16 — main window specification
+
+- Added the bilingual [Main window specification](frontend/elements/TZ_MAIN_WINDOW_EN.md): UI kit composition, left menu and right viewport, available height, visible-portion changes while retaining field geometry, and independent menu and technology scrolling.
+- Defined initial language, theme, menu, technology representations, and viewing position, precedence of supplied restored state, and separate persistence design. Described overlays above content within window bounds and shared language and theme updates.
+- Synchronized the concept, Selection control and viewport specifications; added acceptance criteria and the final element link in the reference. All 18 current elements have specification links. Only RU/EN documentation changed; the interface was not implemented.
+
+## 2026-11-16 — scrollbar specification
+
+- Added the bilingual shared [Horizontal and vertical scrollbar specification](frontend/elements/TZ_SCROLLBAR_EN.md): track and thumb, overflow visibility, non-overlapping placement, configurable thickness, and proportional thumb size with a minimum length.
+- Defined dragging, track-click scrolling, wheel and `Shift` + wheel, focus through `Tab`, axis arrow keys, and `Home` / `End`. Described container-supplied dimensions and offsets, change notifications, and styling states without geometry changes.
+- Updated the viewport specification, concept, acceptance criteria, and both UI element reference links in RU/EN. Only documentation changed; the interface was not implemented.
+
+## 2026-11-16 — technology tier column specification
+
+- Added the bilingual [Technology tier column specification](frontend/elements/TZ_TIER_COLUMN_EN.md): card order supplied by the field, localized “Уровень N” / “Level N” headings in each area, shared width, aligned headings and list starts, configurable gaps, and content-based height.
+- Defined retention of an empty column's heading, width, and position, shared scrolling of the heading and cards, and dedicated styling variables. Added acceptance criteria, including a column becoming empty after moving a card on variant selection.
+- Synchronized the research area and field specifications, concept, and UI element reference links in RU/EN. Only documentation changed; the interface was not implemented.
+
+## 2026-11-16 — research area region specification
+
+- Added the bilingual [Research area region specification](frontend/elements/TZ_RESEARCH_AREA_EN.md): a container with a localized heading and columns ordered by the field, a shared grid, field width, and height based on the tallest column together with the heading and spacing.
+- Defined heading alignment to the `Level-0` edge, built-in RU/EN titles, configurable gaps between regions, shared scrolling of the heading and contents, and dedicated styling dictionary variables. Added acceptance criteria.
+- Synchronized the field specification, concept, and UI element reference links in RU/EN. Only documentation changed; the interface was not implemented.
+
+## 2026-11-16 — technology field specification and predecessor grouping
+
+- Added the bilingual [Technology field specification](frontend/elements/TZ_TECHNOLOGY_FIELD_EN.md): research areas, `tier` columns, counting technology requirements only, vertical order, geometry, and moving a card when a selected variant changes its research area.
+- Defined consecutive placement for technologies with identical immediate predecessor sets and equal requirement counts, with stable base-ID ordering within a group and dependency precedence retained. Distinguished requirement count from predecessor sets, including `OR` alternatives.
+- Updated the concept, UI element list links, and acceptance criteria. Ordering between distinct groups, their placement across columns, and connecting lines remain further design topics. Only RU/EN documentation changed.
+
+## 2026-11-16 — technology variant list interaction
+
+- Defined the shared UI kit dropdown in the [card specification](frontend/elements/TZ_TECHNOLOGY_CARD_EN.md#variant-list-interaction): base version first, variants in database order, current selection marked; confirmation applies the variant and closes the list, while clicking outside or pressing `Escape` closes it without changing the selection.
+- Agreed opening with `Enter` / `Space`, arrow key navigation without applying a variant before confirmation, and tooltip suppression while the list is open. Extended card states and acceptance criteria.
+- Synchronized the shared Selection control specification and interface concept in RU/EN. Only documentation changed; the interface was not implemented.
+
+## 2026-11-16 — labels for technology variants with identical titles
+
+- Agreed “(Вариант N)” / “(Variant N)” suffixes for matching variant titles in the selection list in the [Technology card specification](frontend/elements/TZ_TECHNOLOGY_CARD_EN.md#variant-labels); the base version retains its title without a suffix.
+- Defined numbering by `technology_swap` block order, language-independent numbers, built-in localization for the template, and preservation of original database strings. Extended acceptance criteria and synchronized the concept in RU/EN. Only documentation changed.
+
+## 2026-11-16 — manual variants and technology layout refinement
+
+- Added manual selection of the base version and `technology_swap` separately for each technology to the bilingual [Technology card specification](frontend/elements/TZ_TECHNOLOGY_CARD_EN.md): name and tooltip updates, retained base ID and links, and movement between research areas when a variant overrides the area.
+- Described selection data and state, distinguishing blocks with identical titles, prepared database localization, and checks after implementation. List presentation, distinguishing labels, and interaction details remain subject to agreement.
+- Synchronized the concept with the discussion: Physics, Society, and Engineering from top to bottom, clouds of related cards, vertical placement within columns, predecessor precedence, and sorting by technology requirements only with `OR` handling.
+- Replaced the technology chain row with a research area region in the UI element list; manual family grouping and the proximity algorithm remain further design topics. Only RU/EN documentation changed; code and the database were not modified.
+
+## 2026-11-16 — technology viewport specification
+
+- Added the bilingual [Technology viewport specification](frontend/elements/TZ_TECHNOLOGY_VIEWPORT_EN.md): dimensions to the right of the menu, independent scrolling on two axes, field left alignment, and an initial position at the upper left corner.
+- Specified retaining valid offsets when language, theme, window dimensions, or menu state change; offsets outside new ranges are clamped on the corresponding axis. Persistence across launches remains a separate discussion within the shared state mechanism.
+- Described background styling through the dictionary for both themes and checks after implementation. The shared Tooltip specification now covers display over the scrollable field without container clipping or affecting scrolling.
+- Updated the concept and UI element list links in RU/EN. Only documentation changed; interface implementation has not started yet.
+
+## 2026-11-16 — bottom menu button group specification
+
+- Added the bilingual [Bottom menu button group specification](frontend/elements/TZ_MENU_BUTTON_GROUP_EN.md): one row at the bottom right, identical button dimensions, configurable gap and padding.
+- Specified collapsing without reserving space for the hidden theme button while retaining menu button size and group height; state and actions remain with the panel, application, and corresponding components.
+- Clarified the shared Tooltip specification: bottom button hints may extend beyond group and panel boundaries without clipping while staying within visible window bounds.
+- Updated the concept, Menu panel specification, and UI element list links in RU/EN; described checks after implementation. Only documentation changed; interface implementation has not started yet.
+
+## 2026-11-16 — menu panel specification
+
+- Added the bilingual [Menu panel specification](frontend/elements/TZ_MENU_PANEL_EN.md): main content with language selection at the top and a separate bottom group of collapse and theme buttons.
+- Specified vertical scrolling for main content only, independent of technologies; the bottom group remains available at the bottom of the panel.
+- Described expanded and collapsed dimensions, retaining active settings when collapsing, application state integration, styling, and checks after implementation. Detailed bottom group layout remains a separate specification.
+- Updated the concept and UI element list links in RU/EN. Only documentation changed; interface implementation has not started yet.
+
+## 2026-11-16 — technology card specification and tooltip heading
+
+- Added the bilingual [Technology card specification](frontend/elements/TZ_TECHNOLOGY_CARD_EN.md): uniform configured dimensions, a centered name limited to two lines with overflow ellipsis, the database source, and localization by string IDs.
+- Specified a tooltip with the full name and description when any part of the card is hovered. Shared [Tooltip](frontend/elements/TZ_TOOLTIP_EN.md) now supports an optional heading above the body; both parts use shared Text with their respective styling roles.
+- Described default and hover card states, dictionary styling for both themes, position assignment by the technology field, and checks after implementation.
+- Updated the concept and UI element list links in RU/EN. These are documentation changes; interface implementation has not started yet.
+
+## 2026-11-16 — menu collapse button specification
+
+- Added the bilingual [Menu collapse/expand button specification](frontend/elements/TZ_MENU_TOGGLE_EN.md): a shared button with an icon and tooltip, action-dependent arrows, built-in localized strings, and mouse and keyboard operation.
+- Recorded stable button size and bottom placement, the narrow collapsed panel, hiding settings while retaining their values, and workspace expansion without extra space before `Level-0`.
+- The agreed initial state is an expanded menu; persistence is included in the future shared application mechanism.
+- Updated the concept and UI element list links in both languages. Interface implementation has not started yet.
+
+## 2026-11-16 — localized string lookup configuration
+
+- The [Text specification](frontend/elements/TZ_TEXT_EN.md) now defines three values for shared lookup: source, string ID, and language provided by the system from application state.
+- Recorded the choice of separate source configurations: record locations, language branch or file selection, ID matching, and resulting text retrieval. Consumers do not supply an additional `name` / `description` parameter.
+- Clarified the need to describe lookup within current nested database records; the concrete configuration format and handling multiple matches remain implementation design topics.
+- Updated the interface concept and Language selector specification in RU/EN. Code, product configuration files, and database structure were not changed.
+
+## 2026-11-16 — interface text sources
+
+- The [Text specification](frontend/elements/TZ_TEXT_EN.md) now defines two string lookup parameters: source and identifier. Built-in localized interface files are the default; the application database is selected explicitly and supplies `text` from object localization.
+- Clarified identifier resolution within the source, language updates, and the distinction between the display source and the database translation provenance field `source`.
+- Updated both language versions of the concept and related Button, Tooltip, Selection control, Language selector, and Theme toggle specifications. Database string addressing remains an implementation design topic.
+- Only documentation changed; database structure and code were not modified.
+
+## 2026-11-16 — theme toggle and string identifiers
+
+- Added the bilingual [Theme toggle specification](frontend/elements/TZ_THEME_TOGGLE_EN.md): an icon button with a tooltip, sun/moon actions, menu placement, application throughout the interface, and the night theme on first launch.
+- The [Text specification](frontend/elements/TZ_TEXT_EN.md) now requires string identifiers and text lookup from separate localized files using the language setting through a shared mechanism.
+- Aligned related Button, Tooltip, Selection control, and Language selector requirements; option values are separate from label identifiers. File format and connecting database technology text remain implementation design topics.
+- Updated concepts and UI element list links. These are documentation changes; interface implementation and shared state persistence have not started yet.
+
+## 2026-11-16 — Language selector specification
+
+- Added `Docs/frontend/elements/TZ_LANGUAGE_SELECTOR_RU.md` and `TZ_LANGUAGE_SELECTOR_EN.md`: setting label, RU/EN dropdown, and immediate language changes for the interface, names, and descriptions using prepared database localization.
+- Recorded Russian on the first launch and retention of the active selection when the menu collapses. Persistent storage and restoration remain a dependency on the separately designed shared mechanism, without choosing a storage format.
+- Added links from the UI element list and base dropdown specification; updated both concepts in RU/EN. Described future checks; the element has not been implemented yet.
+
+## 2026-11-16 — separate persistence design
+
+- Recorded separate design work in the frontend concept for a shared mechanism to persist and restore many settings and items of application state between launches.
+- UI elements report changes to the application layer; storage format and writing mechanism remain open decisions for a separate specification. Updated both language versions and contents lists.
+
+## 2026-11-16 — Selection control specification
+
+- Added `Docs/frontend/elements/TZ_SELECT_RU.md` and `TZ_SELECT_EN.md`: a dropdown with one selected option, externally supplied values and labels, selection reporting to the consumer, and mouse and keyboard interaction.
+- Recorded dictionary-based styling states and future acceptance criteria. Added links from the UI element list and concept; the element has not been implemented yet.
+
+## 2026-11-16 — Button and Tooltip specifications
+
+- Added separate bilingual specifications `Docs/frontend/elements/TZ_BUTTON_*` and `TZ_TOOLTIP_*` with the current agreed requirements and future acceptance criteria. Extensions remain for subsequent discussion.
+- Button uses optional text, icon, and tooltip; documented states, border visibility without content shifts, whole-area mouse and keyboard activation, an accessible name, and distinguishable focus.
+- Shared Tooltip binds to an anchor, uses Text, and overlays the interface within visible boundaries. Buttons show it on hover or keyboard focus and hide it when both conditions are absent.
+- Updated links in the UI element list and concept in both languages. Component implementation has not started yet.
+
+## 2026-11-16 — shared button and tooltip
+
+- Renamed Icon button to Button and Technology description tooltip to the shared Tooltip in the UI element list. The list still contains 18 elements without their requirements.
+- Clarified the concept: button text and icon are optional, the border can be hidden, and buttons and cards use the shared Tooltip element. Their future specifications must reference its separate specification.
+- Updated both language versions. Detailed Button and Tooltip specifications remain under discussion.
+
+## 2026-11-16 — Icon element specification
+
+- Created `Docs/frontend/elements/TZ_ICON_RU.md` and `TZ_ICON_EN.md`: shared-set symbol selection, size and placement controlled by the consuming component, preserved proportions, and dictionary colors based on theme and parent state.
+- Recorded the absence of an independent click action and described future acceptance criteria. Added links from the UI element list and concept; the element has not been implemented yet.
+
+## 2026-11-16 — Text element specification
+
+- Created `Docs/frontend/elements/TZ_TEXT_RU.md` and `TZ_TEXT_EN.md` with agreed requirements for content, styling roles, parent states, placement, and two text overflow modes.
+- Described future acceptance criteria. The UI element reference remains a list; its Text entry and the concept now link to the separate specification. The element has not been implemented yet.
+
+## 2026-11-16 — UI element list
+
+- Added a bilingual list of 18 current interface elements under `Docs/frontend/`: basic elements, composite elements, regions and layout structure, scrolling, and the main view.
+- The reference contains only the list; element requirements will be documented separately. Added links from the concept and README.
+
+## 2026-11-16 — interface styling dictionary
+
+- Extended the frontend concept with a separate color and typography dictionary: UI elements use named variables by role and state, with values assigned centrally for day and night themes.
+- Optional shared variables cover reused values. Example names are preliminary; the dictionary format and concrete values will be defined in the specification.
+- Updated both language versions and their contents lists; this is an interface design change.
+
+## 2026-11-16 — initial interface concept
+
+- Created `Docs/frontend/` with a bilingual concept: window layout, independent scrolling, menu collapse to a narrow strip, left-aligned `Level-0`, chain rows, and `tier` columns.
+- Recorded name-only cards with description tooltips, minimal design, and atomic composition of views from UI kit elements. The menu provides RU/EN selection and a day/night theme button to the right of the collapse button; settings are hidden when collapsed.
+- Updated the overall concept and README navigation in both languages. Frontend implementation and a separate specification remain subsequent actions; application code and the database are unchanged.
 
 ## 2026-11-16 — implemented localization in the database
 

@@ -1,0 +1,9 @@
+.sttv-scrollbar { position: relative; background: var(--sttv-scrollbar-track); touch-action: none; }
+.sttv-scrollbar[data-orientation='vertical'] { grid-row: 1; grid-column: 2; }
+.sttv-scrollbar[data-orientation='horizontal'] { grid-row: 2; grid-column: 1; }
+.sttv-scrollbar:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-scrollbar-focus); outline-offset: -2px; }
+.sttv-scrollbar-thumb { position: absolute; background: var(--sttv-scrollbar-thumb); border-radius: var(--sttv-radius); }
+.sttv-scrollbar[data-orientation='vertical'] .sttv-scrollbar-thumb { width: 100%; }
+.sttv-scrollbar[data-orientation='horizontal'] .sttv-scrollbar-thumb { height: 100%; }
+.sttv-scrollbar-thumb:hover { background: var(--sttv-scrollbar-thumb-hover); }
+.sttv-scrollbar[data-dragging='true'] .sttv-scrollbar-thumb { background: var(--sttv-scrollbar-thumb-drag); }

@@ -1,0 +1,8 @@
+.sttv-tooltip {
+  position: fixed; z-index: 40; padding: calc(var(--sttv-control-padding) * 1.5);
+  width: max-content; max-width: min(var(--sttv-tooltip-max-width), calc(100vw - 2 * var(--sttv-overlay-margin)));
+  max-height: calc(100vh - 2 * var(--sttv-overlay-margin)); overflow: auto;
+  border: var(--sttv-border-width) solid var(--sttv-tooltip-border); border-radius: var(--sttv-radius);
+  background: var(--sttv-tooltip-background); pointer-events: none;
+}
+.sttv-tooltip-heading { margin-bottom: var(--sttv-control-padding); }

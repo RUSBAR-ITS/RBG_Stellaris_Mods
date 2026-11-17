@@ -1,0 +1,53 @@
+import { test, expect } from '@playwright/test';
+import { sttvEnglish, sttvUpload, sttvOffset, en } from './helpers';
+import { sttvDatabase, sttvTechnology, sttvVariant, sttvLogical, sttvScalar } from '../fixtures';
+
+test('oversized literal descriptions remain reachable without scrolling the field', async ({ page }) => {
+  await page.setViewportSize({ width: 900, height: 500 });
+  await page.goto('/'); await sttvEnglish(page);
+  const technology = sttvTechnology('tech_long');
+  const description = '§GRaw $key$ [Scope.Name] <b>literal</b>§! '.repeat(160);
+  technology.enrichments.localization.en.description.text = description;
+  await sttvUpload(page, sttvDatabase([technology]));
+  const card = page.locator('[data-technology-id="tech_long"]');
+  await card.hover();
+  const tooltip = page.getByRole('tooltip');
+  await expect(tooltip).toContainText(description);
+  await expect(tooltip.locator('b')).toHaveCount(0);
+  const rect = (await tooltip.boundingBox())!;
+  expect(rect.x).toBeGreaterThanOrEqual(8); expect(rect.y).toBeGreaterThanOrEqual(8);
+  expect(rect.x + rect.width).toBeLessThanOrEqual(892);
+  expect(rect.y + rect.height).toBeLessThanOrEqual(492);
+  const before = await sttvOffset(page);
+  await page.mouse.wheel(0, 300);
+  await expect.poll(() => tooltip.evaluate(element => element.scrollTop)).toBeGreaterThan(0);
+  expect(await sttvOffset(page)).toEqual(before);
+  await page.mouse.move(10, 10); await expect(tooltip).toHaveCount(0);
+});
+test('keyboard selection changes only after confirmation and returns to the trigger', async ({ page }) => {
+  await page.goto('/'); await sttvEnglish(page);
+  const technology = sttvTechnology('tech_base');
+  technology.value!.items!.push(sttvVariant('tech_alternate'));
+  await sttvUpload(page, sttvDatabase([technology]));
+  const card = page.locator('[data-technology-id="tech_base"]');
+  const trigger = card.locator('button');
+  await trigger.focus(); await page.keyboard.press('ArrowDown');
+  await page.keyboard.press('End');
+  await expect(card).toContainText('tech_base');
+  await expect(page.getByRole('option').first()).toHaveAttribute('aria-selected', 'true');
+  await page.keyboard.press('Enter'); await expect(card).toContainText('tech_alternate');
+  await expect(trigger).toBeFocused();
+  await trigger.click(); await page.keyboard.press('Home'); await page.keyboard.press('Escape');
+  await expect(card).toContainText('tech_alternate');
+  await page.getByRole('button', { name: en.sttv_day_theme, exact: true }).focus();
+  await expect(page.getByRole('tooltip', { name: en.sttv_day_theme, exact: true })).toBeVisible();
+});
+test('negative requirements and unsupported formats produce diagnostic errors', async ({ page }) => {
+  await page.goto('/'); await sttvEnglish(page);
+  await sttvUpload(page, { format: 'other', format_version: 7 });
+  await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_unsupported_database);
+  const negative = sttvTechnology('a', 0, 'physics', [sttvLogical('NOT', [sttvScalar('b')])]);
+  await sttvUpload(page, sttvDatabase([negative, sttvTechnology('b')]));
+  await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_invalid_database);
+  await expect(page.locator('[data-technology-id]')).toHaveCount(0);
+});

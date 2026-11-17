@@ -1,0 +1,12 @@
+{
+  "format": "sttv.parse_database",
+  "formatVersion": 4,
+  "technologyDirectory": "common/technology",
+  "areas": ["physics", "society", "engineering"],
+  "fields": {
+    "area": "area",
+    "tier": "tier",
+    "prerequisites": "prerequisites",
+    "variant": "technology_swap"
+  }
+}

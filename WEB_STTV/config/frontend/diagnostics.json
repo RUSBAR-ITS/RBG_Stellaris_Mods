@@ -1,0 +1,12 @@
+{
+  "source": "builtin",
+  "messages": {
+    "file_read_failed": "sttv_diagnostic_file_read_failed",
+    "invalid_json": "sttv_diagnostic_invalid_json",
+    "unsupported_database": "sttv_diagnostic_unsupported_database",
+    "invalid_database": "sttv_diagnostic_invalid_database",
+    "missing_localization": "sttv_diagnostic_missing_localization",
+    "localization_conflict": "sttv_diagnostic_localization_conflict",
+    "worker_failed": "sttv_diagnostic_worker_failed"
+  }
+}

@@ -28,9 +28,9 @@ The [previous database model](DATABASE_MODEL_EN.md) and [stage-five guide](BACKE
 
 The reference application helps users explore Stellaris technologies and their relationships using data from a selected game installation.
 
-The primary view is an interactive dependency tree made of technology cards. Cards use the corresponding vanilla images. The tree is built from the internal database derived from game data and updated after the database is rebuilt.
+The primary view is an interactive technology card field using the internal database derived from game data. The agreed [initial interface layout](frontend/CONCEPT_EN.md) describes technology chain rows, `tier` columns, a collapsible menu panel, RU/EN selection, and day/night themes. A card currently contains only its name; hovering shows its description in a tooltip. Vanilla images from the original concept belong to later stages.
 
-The exact card content, presentation of details, branch layout, and controls remain to be discussed. A separate catalog view, search, and filters have not been defined yet.
+The initial design is deliberately simple; views are assembled from reusable UI kit elements following atomic design principles. Frontend documentation resides in `Docs/frontend/`. Chain identification, link presentation, a separate catalog view, search, and filters require further discussion.
 
 ## Local launch and portability
 
@@ -127,8 +127,8 @@ Reading, parsing, or saving failures must not replace the working database with 
 
 The following topics remain for further discussion:
 
-- Technology card content and details, tree navigation, search, and filters.
-- Interface languages and presentation of missing text; retrieving RU/EN names and descriptions is agreed for the first enrichment.
+- Technology chain identification, layout ambiguities, link presentation, search, and filters; the initial window layout and card content are described in the frontend concept.
+- A separate shared settings and state persistence mechanism and presentation of missing text; [RU/EN selection](frontend/elements/TZ_LANGUAGE_SELECTOR_EN.md), the [Theme toggle](frontend/elements/TZ_THEME_TOGGLE_EN.md), and Russian with the night theme on the first launch are agreed.
 - Presentation of availability conditions, conditional technology variants, and links to other game objects.
 - Handling mods, DLC, and multiple source sets.
 - Subsequent enrichment actions and possible reference-specific database cleanup; localization is already selected for storage beside objects in the same database.

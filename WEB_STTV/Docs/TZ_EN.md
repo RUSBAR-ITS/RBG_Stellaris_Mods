@@ -69,6 +69,8 @@ The main programming languages are **Python and TypeScript**. HTML and CSS provi
 
 ### 1.2. Responsibility boundaries
 
+The initial interface tool selection is refined in the [separate technology stack specification](frontend/TZ_TECH_STACK_EN.md): React and TypeScript, plain CSS, Vite, React's built-in state facilities, and independent database processing modules in a Web Worker.
+
 The three processes from the concept remain separate: reading source information, transformation into the database, and presentation. Reading and transformation are distinct Python stages passing data in memory. No source copy or persistent intermediate snapshot is created. A future local service will connect the builder to the user interface.
 
 Python reads game sources and produces the prepared semantic model of technologies: definitions, relationships, prepared text, and provenance. Parsing game-file syntax belongs to this part; JSON describes prepared data and is not an assumption about the format of original game scripts.
@@ -86,6 +88,8 @@ TypeScript type checking does not replace validation of loaded JSON contents. Th
 The Python side uses the standard `json` module for reading and writing JSON. The first database is one JSON file following the [data model](DATABASE_MODEL_EN.md); diagnostics are stored in a separate report. There is no persistent intermediate snapshot. Image preparation belongs to later stages. [Python documentation](https://docs.python.org/3/library/json.html).
 
 ### 1.4. Launch and portable distribution
+
+This section describes the future user distribution. Portable packaging is deferred for the first frontend stage: the interface is tested from the development environment, and a prepared database is opened only through explicit user action under the [startup and database opening specification](frontend/TZ_DATABASE_OPENING_EN.md). File API reading and the TypeScript adapter run in a browser Web Worker; viewing does not require a Python service. Database generation and enrichment remain separate Python processes, independent of interface startup and page refresh.
 
 The target platform is Windows. The user extracts the application directory and runs its `.exe`. The executable starts the local Python service and opens the prepared web interface in a browser.
 
@@ -109,15 +113,15 @@ These are planned checks for the complete product. JSON reading, writing, and sc
 
 ### 1.6. Decisions for subsequent parts
 
-- The interface framework and graph rendering and layout library.
+- Further tools for displaying and laying out links; React and Vite for the initial interface are already selected in a separate specification.
 - Card design, technology details, navigation, and other interface features.
 - The local service library, data exchange commands, and processing progress presentation.
 - Image preparation tools and further source expansion.
 - Future interface message formats and database model extensions after the first stage.
-- Specific Python, TypeScript, PyInstaller, and dependency versions; interface build tools.
+- Specific Python, React, TypeScript, Vite, PyInstaller, and dependency versions; interface build configuration.
 - Supported Windows versions and architectures, browsers, and local service lifecycle.
 
-Selecting these components and details remains a separate discussion stage. This first part does not automatically select an interface framework or graph library.
+Remaining components and details are discussed separately. Agreed initial interface decisions are refined by documents under `Docs/frontend/`.
 
 ## 2. Project structure and coding principles
 

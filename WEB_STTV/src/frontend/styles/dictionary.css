@@ -1,0 +1,48 @@
+@font-face {
+  font-family: Inter;
+  src: url('../assets/fonts/Inter.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+:root {
+  --sttv-font-family: Inter, sans-serif;
+  --sttv-type-card: 500 15px/20px var(--sttv-font-family);
+  --sttv-type-tooltip: 400 15px/22px var(--sttv-font-family);
+  --sttv-type-tooltip-heading: 600 16px/22px var(--sttv-font-family);
+  --sttv-type-area: 600 18px/24px var(--sttv-font-family);
+  --sttv-type-tier: 500 13px/18px var(--sttv-font-family);
+  --sttv-type-control: 500 14px/20px var(--sttv-font-family);
+  --sttv-type-body: 400 14px/20px var(--sttv-font-family);
+  --sttv-type-status: 400 13px/18px var(--sttv-font-family);
+  --sttv-hidden-border: transparent;
+  --sttv-border-width: 1px;
+  --sttv-focus-width: 2px;
+  --sttv-radius: 3px;
+  --sttv-control-padding: 8px;
+  --sttv-icon-size: 18px;
+  --sttv-icon-stroke: 1.8;
+}
+:root, :root[data-theme='night'] {
+  color-scheme: dark;
+  --sttv-field-background: #151B20;
+  --sttv-menu-background: #1C252C;
+  --sttv-surface-background: #263139;
+  --sttv-hover-background: #303F47;
+  --sttv-pressed-background: #374C52;
+  --sttv-text-primary: #E6EDF2;
+  --sttv-text-secondary: #ADBCC6;
+  --sttv-border: #6F828E;
+  --sttv-accent: #79CEAA;
+}
+:root[data-theme='day'] {
+  color-scheme: light;
+  --sttv-field-background: #F3F5F7;
+  --sttv-menu-background: #E8EDF0;
+  --sttv-surface-background: #FFFFFF;
+  --sttv-hover-background: #E6F2EE;
+  --sttv-pressed-background: #D3E8DF;
+  --sttv-text-primary: #202A32;
+  --sttv-text-secondary: #53616D;
+  --sttv-border: #73828E;
+  --sttv-accent: #176B50;
+}

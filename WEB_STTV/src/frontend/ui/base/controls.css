@@ -1,0 +1,13 @@
+.sttv-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sttv-control-padding);
+  min-width: var(--sttv-button-size); min-height: var(--sttv-button-size); padding: var(--sttv-control-padding);
+  border: var(--sttv-border-width) solid var(--sttv-button-border); border-radius: var(--sttv-radius);
+  background: var(--sttv-button-background); color: var(--sttv-button-color); font: var(--sttv-button-font);
+}
+.sttv-button[data-border='hover'], .sttv-button[data-border='never'] { border-color: var(--sttv-button-border-hidden); }
+.sttv-button:hover { background: var(--sttv-button-background-hover); border-color: var(--sttv-button-border-hover); }
+.sttv-button[data-border='never']:hover { border-color: var(--sttv-button-border-hidden); }
+.sttv-button:active { background: var(--sttv-button-background-pressed); }
+.sttv-button:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-button-focus); outline-offset: 1px; }
+.sttv-icon { width: var(--sttv-icon-size); height: var(--sttv-icon-size); flex: none; color: var(--sttv-icon-color); }
+.sttv-icon path { fill: var(--sttv-icon-fill); stroke: currentColor; stroke-width: var(--sttv-icon-stroke); stroke-linecap: round; stroke-linejoin: round; }

@@ -1,0 +1,8 @@
+{
+  "languages": ["ru", "en"],
+  "defaultSource": "builtin",
+  "sources": {
+    "builtin": { "reader": "strings", "path": [] },
+    "database": { "reader": "records", "path": ["localization"] }
+  }
+}

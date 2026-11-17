@@ -1,0 +1,5 @@
+.sttv-status-panel {
+  min-width: 0; display: flex; align-items: center; padding: 0 var(--sttv-control-padding);
+  border-top: var(--sttv-border-width) solid var(--sttv-status-border); background: var(--sttv-status-background);
+}
+.sttv-status-panel .sttv-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
