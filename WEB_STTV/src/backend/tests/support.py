@@ -59,7 +59,9 @@ class BuildFixture(unittest.TestCase):
         (self.static / 'base.txt').write_text('@external = 2', encoding='utf-8')
         for name in ("", "category", "tier"):
             (self.tech / name).mkdir(parents=True, exist_ok=True)
-        self.options = copy.deepcopy(read_json(PRODUCT_ROOT / "config/backend.json"))
+        from sttv.database_sets.configuration import build_options
+        self.options = copy.deepcopy(build_options(read_json(PRODUCT_ROOT / "config/backend.json"), "technologies"))
+        self.options["outputs"] = {"database": "database.json", "report": "build_report.json"}
         self.variables = {
             "WORK_DIR": str(self.root / "work"),
             "STELLARIS_ROOT": str(self.game),
@@ -101,7 +103,7 @@ tech_b = {
         for path, value in ((self.variable_file, self.variables),
                             (self.config_file, self.options)):
             path.write_text(json.dumps(value), encoding="utf-8")
-        return build(self.variable_file, self.config_file)
+        return build(self.variable_file, self.config_file, library_mode='rebuild')
 
     def database_path(self):
         return Path(self.variables["WORK_DIR"]) / self.options["outputs"]["database"]

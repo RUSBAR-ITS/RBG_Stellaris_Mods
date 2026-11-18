@@ -50,9 +50,9 @@ def digest(path):
     return sha256(path.read_bytes()).hexdigest()
 
 
-def audit():
+def audit(*, library_mode):
     variables = PRODUCT_ROOT / 'global_variables.json'
-    original = load_settings(variables, PRODUCT_ROOT / 'config/backend.json')
+    original = load_settings(variables, PRODUCT_ROOT / 'config/backend.json', dataset='technologies')
     folder = output_path(original.work, 'stage9', original.protected)
     folder.mkdir(parents=True, exist_ok=True)
     options = original.options
@@ -64,29 +64,32 @@ def audit():
     before = {str(path): digest(path) for path, _ in selected}
     previous = {str(path): digest(path) for path in (original.database, original.report) if path.exists()}
     started = perf_counter()
-    first = build(variables, config)
+    first = build(variables, config, library_mode=library_mode)
     print(json.dumps({'first_build': first['status'], 'counts': first['counts'],
                       'diagnostics': first['diagnostics'][:8]}), flush=True)
     assert first['status'] == 'success', first
     build_seconds = perf_counter() - started
     database = read_database(settings.database)
-    context = expansion_context(settings)
-    nodes, substitutions = 0, 0
-    shared = shared_values(settings, first['static_variable_sources'])
-    assert len(selected) == len(database['documents'])
-    for (path, encoding), saved in zip(selected, database['documents']):
-        relative = path.relative_to(settings.game).as_posix()
-        assert saved['source'] == {'root': 'STELLARIS_ROOT', 'file': relative}
-        parsed = parse_text(path.read_text(encoding=encoding), settings.syntax, relative, expansion=context)
-        expected, changed = expected_items(parsed, shared)
-        nodes += compare(expected, saved['items'])
-        substitutions += changed
-        compare(parsed.metadata, saved['metadata'])
-    assert nodes == first['counts']['nodes']
-    assert substitutions == first['counts']['static_variables']['substituted']
-    value_check = verify_surroundings(settings, selected, database)
+    from sttv.libraries.operation import library_operation
+    with library_operation(settings, "reuse") as snapshot:
+        context = expansion_context(settings)
+        nodes, substitutions = 0, 0
+        shared = shared_values(settings, first['static_variable_sources'])
+        assert len(selected) == len(database['documents'])
+        for (path, encoding), saved in zip(selected, database['documents']):
+            relative = path.relative_to(settings.game).as_posix()
+            assert saved['source'] == {'root': 'STELLARIS_ROOT', 'file': relative}
+            parsed = parse_text(path.read_text(encoding=encoding), settings.syntax, relative, expansion=context)
+            expected, changed = expected_items(parsed, shared)
+            nodes += compare(expected, saved['items'])
+            substitutions += changed
+            compare(parsed.metadata, saved['metadata'])
+        assert nodes == first['counts']['nodes']
+        assert substitutions == first['counts']['static_variables']['substituted']
+        value_check = verify_surroundings(settings, selected, database)
+        snapshot.inventory.verify()
     initial = digest(settings.database)
-    second = build(variables, config)
+    second = build(variables, config, library_mode=library_mode)
     assert second['status'] == 'success', second
     assert digest(settings.database) == initial
     assert all(digest(Path(path)) == value for path, value in before.items())
@@ -106,4 +109,8 @@ def audit():
 
 
 if __name__ == '__main__':
-    audit()
+    import argparse
+    from sttv.libraries.operation import add_mode_arguments
+    parser = argparse.ArgumentParser()
+    add_mode_arguments(parser)
+    audit(library_mode=parser.parse_args().library_mode)

@@ -24,8 +24,16 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def audit():
-    settings = load_settings(PRODUCT_ROOT / 'global_variables.json', PRODUCT_ROOT / 'config/backend.json')
+def audit(*, library_mode):
+    settings = load_settings(PRODUCT_ROOT / 'global_variables.json', PRODUCT_ROOT / 'config/backend.json', dataset='technologies')
+    from sttv.libraries.operation import library_operation
+    with library_operation(settings, library_mode) as snapshot:
+        result = audit_prepared(settings)
+        snapshot.inventory.verify()
+        return result
+
+
+def audit_prepared(settings):
     check_sources(settings)
     files = sorted(path for folder in ('common', 'events')
                    for path in (settings.game / folder).rglob('*.txt') if path.is_file())
@@ -104,4 +112,8 @@ def audit():
 
 
 if __name__ == '__main__':
-    raise SystemExit(audit())
+    import argparse
+    from sttv.libraries.operation import add_mode_arguments
+    parser = argparse.ArgumentParser()
+    add_mode_arguments(parser)
+    raise SystemExit(audit(library_mode=parser.parse_args().library_mode))

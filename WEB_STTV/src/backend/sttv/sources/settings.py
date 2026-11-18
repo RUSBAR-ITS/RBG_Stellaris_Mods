@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from pathlib import Path
+from os.path import relpath
 
 from sttv.common.errors import BuildError
 from sttv.common.variables import expand_variables, substitute
@@ -35,24 +36,36 @@ class Settings:
     scripted_options: dict
     script_values_directory: Path
     value_options: dict
+    source_exceptions: dict
+    source_exceptions_file: str
+    libraries: dict
+    parallel: dict
 
 
-def load_settings(variables_path, config_path):
+def load_settings(variables_path, config_path, options=None, dataset=None):
     values = expand_variables(read_json(variables_path))
-    options = read_json(config_path)
+    options = options if options is not None else read_json(config_path)
+    if 'datasets' in options:
+        from sttv.database_sets.configuration import build_options
+        if dataset is None:
+            raise BuildError('missing_dataset', 'Choose a dataset or use the database-set coordinator')
+        options = build_options(options, dataset)
     validate_schema(options, "backend.schema.json")
-    required = {"WORK_DIR", "STELLARIS_ROOT", "INLINE_SCRIPTS_DIR", "SCRIPTED_EFFECTS_DIR",
-                "SCRIPTED_VARIABLES_DIR", "SCRIPTED_TRIGGERS_DIR", "SCRIPT_VALUES_DIR"}
+    required = {"WORK_DIR", "STELLARIS_ROOT"}
     required.update(spec["variable"] for spec in options["sources"])
     missing = required - values.keys()
     if missing:
         raise BuildError("missing_variable", f"Missing variables: {sorted(missing)}")
     game = path_from(values["STELLARIS_ROOT"], PRODUCT_ROOT)
-    inline_directory = path_from(values["INLINE_SCRIPTS_DIR"], game)
-    scripted_effects_directory = path_from(values["SCRIPTED_EFFECTS_DIR"], game)
-    scripted_variables_directory = path_from(values["SCRIPTED_VARIABLES_DIR"], game)
-    scripted_triggers_directory = path_from(values['SCRIPTED_TRIGGERS_DIR'], game)
-    script_values_directory = path_from(values['SCRIPT_VALUES_DIR'], game)
+    work = path_from(values["WORK_DIR"], PRODUCT_ROOT)
+    from sttv.libraries.configuration import load, destinations
+    libraries_path, libraries = load(options['libraries'], values, work, game)
+    directories_by_kind = {row['kind']: row['directory'] for row in libraries['libraries']}
+    inline_directory = directories_by_kind['inline_script']
+    scripted_effects_directory = directories_by_kind['scripted_effect']
+    scripted_triggers_directory = directories_by_kind['scripted_trigger']
+    script_values_directory = directories_by_kind['script_value']
+    scripted_variables_directory = directories_by_kind['static_variables']
     sources = [{**spec, "directory": path_from(values[spec["variable"]], game)}
                for spec in options["sources"]]
     directories = [script_values_directory, inline_directory, scripted_effects_directory, scripted_variables_directory, scripted_triggers_directory,
@@ -68,7 +81,7 @@ def load_settings(variables_path, config_path):
             or protected(work, roots) or any(root.is_relative_to(work) for root in roots)):
         raise BuildError("unsafe_output", "WORK_DIR must remain in the repository, separate from protected inputs")
     paths = [output_path(work, options["outputs"][key], roots) for key in ("database", "report")]
-    config_files = [Path(variables_path).resolve(), Path(config_path).resolve()]
+    config_files = [Path(variables_path).resolve(), Path(config_path).resolve(), libraries_path]
     parser_paths = [selected_path(options["parser"][key], work)
                     for key in ("lexical", "constructs", "logical_operators")]
     inline_config = selected_path(options["parser"]["inline_scripts"], work)
@@ -76,9 +89,18 @@ def load_settings(variables_path, config_path):
     static_config = selected_path(options["parser"]["static_variables"], work)
     scripted_config = selected_path(options['parser']['scripted_calls'], work)
     value_config = selected_path(options['parser']['script_values'], work)
+    corrections_config = selected_path(options['parser']['source_exceptions'], work)
+    config_files.append(corrections_config)
     config_files.append(value_config)
     config_files.extend([*parser_paths, inline_config, exceptions_config, static_config, scripted_config])
     distinct_paths([*paths, *config_files])
+    destinations(libraries, work, roots, [*paths, *config_files])
+    from sttv.parallel.settings import load as load_parallel
+    library_paths = [output_path(work, row['output'], roots) for row in libraries['libraries']]
+    library_paths.extend(output_path(work, libraries[key], roots) for key in ('manifest', 'report'))
+    parallel_path, parallel = load_parallel(options['parallel'], work, roots,
+                                           [*paths, *config_files, *library_paths])
+    config_files.append(parallel_path)
     inline_options = read_json(inline_config)
     validate_schema(inline_options, "parser_inline_scripts.schema.json")
     parser_exceptions = read_json(exceptions_config)
@@ -90,10 +112,13 @@ def load_settings(variables_path, config_path):
     from sttv.script.values.references import validate_options
     value_options = read_json(value_config)
     validate_options(value_options, syntax)
+    source_exceptions = read_json(corrections_config)
+    validate_schema(source_exceptions, 'parser_source_exceptions.schema.json')
     return Settings(values, options, work, game, sources, *paths, roots, config_files,
                     syntax, inline_directory, inline_options, scripted_effects_directory,
                     scripted_variables_directory, parser_exceptions, static_rules,
-                    scripted_triggers_directory, scripted_options, script_values_directory, value_options)
+                    scripted_triggers_directory, scripted_options, script_values_directory, value_options,
+                    source_exceptions, Path(relpath(corrections_config, PRODUCT_ROOT)).as_posix(), libraries, parallel)
 
 
 def check_sources(settings):

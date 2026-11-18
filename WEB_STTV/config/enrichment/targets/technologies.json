@@ -1,0 +1,15 @@
+{
+  "selection": {
+    "variable": "TECH_PATH",
+    "pattern": "*.txt",
+    "recursive": false
+  },
+  "keys": {
+    "variant": "technology_swap",
+    "name": "name",
+    "description_suffix": "_desc",
+    "description_field": null,
+    "text_field": "text",
+    "fallback_field": null
+  }
+}

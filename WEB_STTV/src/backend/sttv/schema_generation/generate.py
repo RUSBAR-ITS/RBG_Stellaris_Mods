@@ -7,12 +7,23 @@ from sttv.common.errors import BuildError
 from sttv.common.persistence import save_json
 from . import configuration, database, reports, syntax, inline, static_variables, scripted, values
 from .helpers import document
-from . import localization, localization_report
+from . import localization, localization_report, database_sets, source_exceptions
+from . import libraries, parallel
 
 
 def declarations():
     return {
+        'parallel.schema.json': parallel.configuration(),
+        'libraries.schema.json': libraries.configuration(),
+        'library.schema.json': libraries.artifact(),
+        'library_manifest.schema.json': libraries.manifest(),
+        'library_report.schema.json': libraries.report(),
+        "datasets.schema.json": database_sets.registry(),
+        "parser_source_exceptions.schema.json": source_exceptions.configuration(),
+        "database_set.schema.json": database_sets.configuration(),
+        "database_set_report.schema.json": database_sets.report(),
         "localization.schema.json": localization.configuration(),
+        "localization_target.schema.json": localization.target(),
         "localization_report.schema.json": localization_report.schema(),
         "parser_script_values.schema.json": values.configuration(),
         "parser_scripted_calls.schema.json": scripted.configuration(),

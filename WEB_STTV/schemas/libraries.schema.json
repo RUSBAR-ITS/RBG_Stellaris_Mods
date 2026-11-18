@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "libraries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "inline_script",
+              "scripted_effect",
+              "scripted_trigger",
+              "script_value",
+              "static_variables"
+            ]
+          },
+          "output": {
+            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+            "type": "string"
+          },
+          "source": {
+            "additionalProperties": false,
+            "properties": {
+              "encoding": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "pattern": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "recursive": {
+                "type": "boolean"
+              },
+              "variable": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "variable",
+              "pattern",
+              "recursive",
+              "encoding"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "source",
+          "output"
+        ],
+        "type": "object"
+      },
+      "maxItems": 5,
+      "minItems": 5,
+      "type": "array"
+    },
+    "manifest": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "report": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "libraries",
+    "manifest",
+    "report"
+  ],
+  "type": "object"
+}

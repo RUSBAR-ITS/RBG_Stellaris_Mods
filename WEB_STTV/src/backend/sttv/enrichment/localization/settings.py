@@ -7,7 +7,8 @@ from pathlib import Path
 
 from sttv.common.errors import BuildError
 from sttv.common.paths import (PRODUCT_ROOT, PRODUCT_DIRECTORIES, REPOSITORY_ROOT,
-                               distinct_paths, output_path, path_from, protected)
+                               distinct_paths, output_path, path_from, protected, selected_path)
+from sttv.common.datasets import REGISTRY_PATH
 from sttv.common.schema import validate_schema
 from sttv.common.variables import expand_variables
 
@@ -22,10 +23,19 @@ class Settings:
     sources: dict
 
 
-def load_settings(variables_path, config_path, snapshot):
+def load_settings(variables_path, config_path, snapshot, kind='technologies', database=None, report_path=None):
     variables = expand_variables(snapshot.json(variables_path, "configuration"))
     options = snapshot.json(config_path, "configuration")
     validate_schema(options, "localization.schema.json")
+    work = path_from(variables['WORK_DIR'], PRODUCT_ROOT)
+    target_path = selected_path(options['targets'][kind], work)
+    target = snapshot.json(target_path, 'configuration')
+    snapshot.json(REGISTRY_PATH, 'configuration')
+    validate_schema(target, 'localization_target.schema.json')
+    options = {**options, **target, 'kind': kind,
+               'database': database or options.get('database', 'database.json'),
+               'report': report_path or options.get('report', 'reports/localization_report.json')}
+    options.pop('targets')
     required = {"WORK_DIR", "STELLARIS_ROOT", options["selection"]["variable"]}
     required.update(tier for spec in options["languages"].values() for tier in spec["sources"])
     if required - variables.keys():
@@ -36,7 +46,7 @@ def load_settings(variables_path, config_path, snapshot):
         raise BuildError("unsafe_source", "Technology selection must stay inside STELLARIS_ROOT")
     sources = {language: [(tier, path_from(variables[tier], game)) for tier in spec["sources"]]
                for language, spec in options["languages"].items()}
-    config_files = [Path(variables_path).resolve(), Path(config_path).resolve()]
+    config_files = [Path(variables_path).resolve(), Path(config_path).resolve(), target_path, REGISTRY_PATH]
     roots = [game, REPOSITORY_ROOT / ".git", *config_files,
              *(directory for tiers in sources.values() for _, directory in tiers),
              *(PRODUCT_ROOT / name for name in PRODUCT_DIRECTORIES)]

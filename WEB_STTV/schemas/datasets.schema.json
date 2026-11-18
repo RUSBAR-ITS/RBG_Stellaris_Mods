@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "datasets": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "directory": {
+            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+            "type": "string"
+          },
+          "idField": {
+            "anyOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "identity": {
+            "enum": [
+              "key",
+              "field",
+              "anonymous",
+              "fragments"
+            ]
+          },
+          "labelId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "recursive": {
+            "type": "boolean"
+          },
+          "rootTypes": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "labelId",
+          "directory",
+          "recursive",
+          "rootTypes",
+          "identity",
+          "idField"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z_]*$",
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "format_version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "format_version",
+    "datasets"
+  ],
+  "type": "object"
+}

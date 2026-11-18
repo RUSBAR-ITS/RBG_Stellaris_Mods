@@ -1,0 +1,16 @@
+{
+  "selection": {
+    "variable": "STARBASE_LEVELS_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": null,
+    "description_field": null,
+    "text_field": "text",
+    "fallback_field": null,
+    "name_field": "ship_size"
+  }
+}

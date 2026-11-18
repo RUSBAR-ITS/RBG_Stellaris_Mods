@@ -1,0 +1,1259 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "datasets": {
+      "additionalProperties": false,
+      "properties": {
+        "buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "components": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "deposits": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "economic_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "events": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "megastructures": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "on_actions": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "pop_jobs": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "scripted_actions": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "ship_sizes": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "starbase_buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "starbase_levels": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "starbase_modules": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "technologies": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        "terraform": {
+          "additionalProperties": false,
+          "properties": {
+            "outputs": {
+              "additionalProperties": false,
+              "properties": {
+                "database": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "localization_report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                },
+                "report": {
+                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                  "type": "string"
+                }
+              },
+              "required": [
+                "database",
+                "report",
+                "localization_report"
+              ],
+              "type": "object"
+            },
+            "sources": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "encoding": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "pattern": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "recursive": {
+                    "type": "boolean"
+                  },
+                  "variable": {
+                    "pattern": "^[A-Z][A-Z0-9_]*$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "variable",
+                  "pattern",
+                  "recursive",
+                  "encoding"
+                ],
+                "type": "object"
+              },
+              "minItems": 1,
+              "type": "array"
+            }
+          },
+          "required": [
+            "sources",
+            "outputs"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "technologies",
+        "components",
+        "buildings",
+        "megastructures",
+        "ship_sizes",
+        "starbase_levels",
+        "starbase_modules",
+        "starbase_buildings",
+        "terraform",
+        "deposits",
+        "pop_jobs",
+        "economic_categories",
+        "scripted_actions",
+        "on_actions",
+        "events"
+      ],
+      "type": "object"
+    },
+    "libraries": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "localization": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "parallel": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "parser": {
+      "additionalProperties": false,
+      "properties": {
+        "constructs": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "exceptions": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "inline_scripts": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "lexical": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "logical_operators": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "script_values": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "scripted_calls": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "source_exceptions": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "static_variables": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "lexical",
+        "constructs",
+        "logical_operators",
+        "inline_scripts",
+        "exceptions",
+        "static_variables",
+        "scripted_calls",
+        "script_values",
+        "source_exceptions"
+      ],
+      "type": "object"
+    },
+    "report": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "parser",
+    "libraries",
+    "parallel",
+    "datasets",
+    "localization",
+    "report"
+  ],
+  "type": "object"
+}

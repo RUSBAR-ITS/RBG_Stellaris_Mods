@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "keys": {
+      "additionalProperties": false,
+      "properties": {
+        "child_text_fields": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "field": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "role": {
+                "enum": [
+                  "name",
+                  "description"
+                ]
+              }
+            },
+            "required": [
+              "field",
+              "role"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "description_excluded": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "description_field": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "description_nodes": {
+          "type": "boolean"
+        },
+        "description_suffix": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "endpoint_description_suffix": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "endpoint_fields": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "fallback_field": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name_field": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name_prefix": {
+          "type": "string"
+        },
+        "omit_name": {
+          "type": "boolean"
+        },
+        "text_field": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "variant",
+        "name",
+        "description_suffix",
+        "description_field",
+        "text_field",
+        "fallback_field"
+      ],
+      "type": "object"
+    },
+    "selection": {
+      "additionalProperties": false,
+      "properties": {
+        "pattern": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "recursive": {
+          "type": "boolean"
+        },
+        "variable": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "variable",
+        "pattern",
+        "recursive"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "selection",
+    "keys"
+  ],
+  "type": "object"
+}

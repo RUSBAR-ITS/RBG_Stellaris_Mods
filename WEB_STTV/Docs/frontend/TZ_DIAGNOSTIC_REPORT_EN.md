@@ -13,6 +13,8 @@
 
 ## Status and scope
 
+As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
+
 This document records saving a JSON report for the current database opening attempt, agreed by the user on 2026-11-17. At the initial stage, details are viewed in an external editor such as VS Code; an integrated diagnostic viewer is deferred.
 
 The basis is the [diagnostics specification](TZ_DIAGNOSTICS_EN.md), [database opening](TZ_DATABASE_OPENING_EN.md), and [menu panel](elements/TZ_MENU_PANEL_EN.md). This is a user-requested export of information already available in the main thread. This iteration produces documentation; code, the database, and backend reports are unchanged.

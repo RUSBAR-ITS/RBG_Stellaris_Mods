@@ -18,6 +18,8 @@
 
 ## Status and scope
 
+As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
+
 This document records the agreed interface startup and existing database opening behavior. The frontend uses a prepared JSON file containing parsed results and localization. Database creation and updates remain separate backend processes.
 
 The first stage uses browser File API access to the selected file and a TypeScript adapter running in a Web Worker. Python is used by separate database creation and enrichment processes; viewing a prepared file does not require a Python service. React, TypeScript, and Vite are established by the [technology stack specification](TZ_TECH_STACK_EN.md); exact program interfaces remain to be defined.

@@ -16,25 +16,33 @@ CHILDREN = {"scalar": (), "formula": (), "block": ("items",),
             "logical_operation": ("name", "body"), "scripted_trigger_test": ("value", "body"), "script_value": ("body",)}
 
 
-def encode(value):
+def encode(value, identifier_offsets=None):
     if isinstance(value, Located):
         kind = KINDS.get(type(value))
         if kind is None:
             raise BuildError("unsupported_node", f"Cannot persist {type(value).__name__}")
-        return {"kind": kind, **{field.name: encode(getattr(value, field.name))
+        return {"kind": kind, **{field.name: encode(getattr(value, field.name), identifier_offsets)
                                  for field in fields(value) if field.name != 'environment'}}
     if is_dataclass(value):
-        return {field.name: encode(getattr(value, field.name)) for field in fields(value)}
+        return {field.name: encode(getattr(value, field.name), identifier_offsets) for field in fields(value)}
     if isinstance(value, (tuple, list)):
-        return [encode(item) for item in value]
+        return [encode(item, identifier_offsets) for item in value]
     if isinstance(value, dict):
-        return {key: encode(item) for key, item in value.items()}
+        result = {key: encode(item, identifier_offsets) for key, item in value.items()}
+        if identifier_offsets:
+            for key in ('id', 'parent_id', 'expansion_id', 'call_id'):
+                item = result.get(key)
+                if isinstance(item, str):
+                    prefix, _, number = item.rpartition('_')
+                    if prefix in identifier_offsets and number.isdecimal():
+                        result[key] = f'{prefix}_{int(number) + identifier_offsets[prefix]}'
+        return result
     return value
 
 
-def serialize_document(document):
+def serialize_document(document, identifier_offsets=None):
     return {"source": {"root": document.source.root, "file": document.source.file or "<text>"},
-            "items": encode(document.items), "metadata": encode(document.metadata)}
+            "items": encode(document.items, identifier_offsets), "metadata": encode(document.metadata, identifier_offsets)}
 
 
 def walk_nodes(items):

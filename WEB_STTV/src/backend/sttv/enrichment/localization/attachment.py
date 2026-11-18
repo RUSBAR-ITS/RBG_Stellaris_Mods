@@ -4,6 +4,7 @@ from copy import deepcopy
 
 from sttv.common.errors import BuildError
 from sttv.script.serialization import walk_nodes
+from sttv.common.datasets import KINDS
 from .report import count_field, diagnostic, failure
 
 
@@ -17,11 +18,14 @@ def remove_previous(database):
 
 
 def localize_field(target, language, field, settings, resolver):
-    suffix = settings.options["keys"]["description_suffix"] if field == "description" else ""
-    key = target.key + suffix
+    key = target.field_keys[field]
     result = {"requested_key": key, "key": None, "raw": None, "text": None,
               "source": None, "inherited_from": None, "unresolved_references": []}
     resolved = resolver.resolve(language, key)
+    if resolved is None and field == 'description' and target.fallback:
+        resolved = resolver.resolve(language, target.fallback[0])
+        if resolved is not None:
+            result['fallback'] = {'kind': 'component_set', 'source_ref': target.fallback[1]}
     chains = resolved["unresolved_chains"] if resolved else []
     if (resolved is None and field == "description" and target.parent is not None
             and settings.options["inherit_description"]):
@@ -35,18 +39,18 @@ def localize_field(target, language, field, settings, resolver):
     return result, chains
 
 
-def attach(database, targets, settings, resolver, report):
-    remove_previous(database)
-    report["counts"]["technologies"] = sum(target.parent is None for target in targets)
-    report["counts"]["variants"] = sum(target.parent is not None for target in targets)
+def attach(database, targets, settings, resolver, report, *, fresh=False):
+    if not fresh:
+        remove_previous(database)
+    for kind in (*KINDS, 'variants', 'descriptions'):
+        report['counts'][kind] += sum(target.kind == kind for target in targets)
     for target in targets:
         localized = {}
         for language in settings.options["languages"]:
             localized[language] = {}
-            for field in ("name", "description"):
+            for field in target.field_keys:
                 context = {"node": target.path, "language": language, "field": field,
-                    "requested_key": target.key + (settings.options["keys"]["description_suffix"]
-                                                     if field == "description" else "")}
+                    "requested_key": target.field_keys[field]}
                 try:
                     value, chains = localize_field(target, language, field, settings, resolver)
                 except BuildError as exc:

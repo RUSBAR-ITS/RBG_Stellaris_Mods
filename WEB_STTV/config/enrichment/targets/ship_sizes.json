@@ -1,0 +1,15 @@
+{
+  "selection": {
+    "variable": "SHIP_SIZES_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": null,
+    "description_field": "desc",
+    "text_field": "text",
+    "fallback_field": null
+  }
+}

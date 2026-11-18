@@ -1,7 +1,8 @@
 """Structural node contracts; game field names are unrestricted strings."""
 
-from .helpers import BOOL, NULL, STRING, TEXT, array, obj, ref, union
+from .helpers import BOOL, HASH, NULL, STRING, TEXT, array, obj, ref, union
 from . import inline, localization
+from sttv.common.datasets import KINDS
 
 
 def node(kind, properties):
@@ -38,7 +39,9 @@ def definitions():
 
 
 def schema():
-    result = obj({"format": {"const": "sttv.parse_database"}, "format_version": {"const": 4},
+    result = obj({"format": {"const": "sttv.parse_database"}, "format_version": {"const": 6},
                   "documents": array(ref("document"), minItems=1)})
+    result['properties']['dataset'] = obj({'kind': {'enum': list(KINDS)},
+                                            'set_id': HASH})
     result["$defs"] = definitions()
     return result

@@ -3,17 +3,18 @@ import { sttvItems, sttvScalar } from './syntax';
 import type { SttvGroup, SttvLink, SttvOperator, SttvRequirement } from './model';
 import { sttvInvalid } from '../workers/diagnostics';
 
-function sttvReadRequirement(node: SttvNode, path: string): SttvRequirement {
+function sttvReadRequirement(node: SttvNode, path: string, allowNegative: boolean): SttvRequirement {
   if (node.kind === 'scalar') return { kind: 'technology', technologyId: sttvScalar(node, path) };
   if (node.kind === 'logical_operation') {
     const operator = node.operator as SttvOperator;
     if (!['AND', 'OR', 'NOT', 'NAND', 'NOR'].includes(operator)) throw sttvInvalid(path, 'Unknown logical operator.');
-    if (['NOT', 'NAND', 'NOR'].includes(operator)) {
+    if (!allowNegative && ['NOT', 'NAND', 'NOR'].includes(operator)) {
       throw sttvInvalid(path, `Counting and layout for ${operator} require a separate agreed rule.`);
     }
     const children = node.body?.kind === 'block' ? sttvItems(node.body, path) : [node.body!];
     return { kind: 'group', operator,
-      items: children.map((item, i) => sttvReadRequirement(item, `${path}/body/items/${i}`)) };
+      items: children.map((item, i) => sttvReadRequirement(item,
+        node.body?.kind === 'block' ? `${path}/body/items/${i}` : `${path}/body`, allowNegative)) };
   }
   throw sttvInvalid(path, 'Unsupported technology requirement shape.');
 }
@@ -26,9 +27,13 @@ export function sttvRequirementCount(node: SttvRequirement): number {
   return node.operator === 'OR' ? 1 : counts.reduce((sum, count) => sum + count, 0);
 }
 export function sttvRequirements(value: SttvNode | undefined, sourceRef: string, id: string) {
+  const result = sttvReadRequirements(value, sourceRef, id);
+  return { ...result, requirementCount: sttvRequirementCount(result.prerequisites) };
+}
+export function sttvReadRequirements(value: SttvNode | undefined, sourceRef: string, id: string, allowNegative = false) {
   const items = value ? sttvItems(value, sourceRef) : [];
   const prerequisites: SttvGroup = { kind: 'group', operator: 'AND',
-    items: items.map((node, i) => sttvReadRequirement(node, `${sourceRef}/items/${i}`)) };
+    items: items.map((node, i) => sttvReadRequirement(node, `${sourceRef}/items/${i}`, allowNegative)) };
   const byId = new Map<string, SttvLink>();
   function visit(node: SttvRequirement, path: number[]) {
     if (node.kind === 'group') node.items.forEach((child, i) => visit(child, [...path, i]));
@@ -40,5 +45,5 @@ export function sttvRequirements(value: SttvNode | undefined, sourceRef: string,
   }
   visit(prerequisites, []);
   return { prerequisites, prerequisiteIds: [...byId.keys()],
-    requirementCount: sttvRequirementCount(prerequisites), links: [...byId.values()] };
+    links: [...byId.values()] };
 }

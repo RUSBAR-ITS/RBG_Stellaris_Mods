@@ -1,0 +1,22 @@
+{
+  "selection": {
+    "variable": "SCRIPTED_ACTIONS_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": null,
+    "description_field": "tooltip",
+    "text_field": "text",
+    "fallback_field": null,
+    "name_field": "context_menu_name",
+    "child_text_fields": [
+      {
+        "field": "activity_key",
+        "role": "name"
+      }
+    ]
+  }
+}

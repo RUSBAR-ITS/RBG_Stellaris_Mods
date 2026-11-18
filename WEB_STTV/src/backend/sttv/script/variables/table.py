@@ -32,6 +32,11 @@ class Table:
     def resolve(self, name, site):
         if name in self.resolved:
             return self.resolved[name]
+        if name not in self.declarations and name in self.shared:
+            result = self.shared[name]
+            if len(result.chain) - 1 > self.rules.options['max_reference_depth']:
+                fail('static_variable_depth', 'Reference depth exceeded: ' + ' -> '.join(result.chain), site)
+            return result
         current, seen, chain = name, set(), []
         while True:
             declaration = self.declarations.get(current)
@@ -61,3 +66,15 @@ class Table:
         for name, node in self.declarations.items():
             self.resolve(name, node.value)
         return self.resolved
+
+    def signature(self, name):
+        """Identify every declaration in an already resolved reference chain."""
+        origins = []
+        while name in self.declarations:
+            declaration = self.declarations[name]
+            origins.append(declaration.key.origin)
+            name = self.rules.reference(declaration.value)
+            if name is None:
+                return origins
+        resolved = self.shared[name]
+        return [*origins, resolved.value.origin, resolved.chain]

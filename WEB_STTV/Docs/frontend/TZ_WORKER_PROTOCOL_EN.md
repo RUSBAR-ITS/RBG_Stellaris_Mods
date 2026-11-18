@@ -16,6 +16,8 @@
 
 ## Status and scope
 
+As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
+
 This document records the agreed protocol for opening a prepared database between the application and a Web Worker. It refines the [database opening specification](TZ_DATABASE_OPENING_EN.md): messages, operation identification, stale response filtering, and cancellation. Code is not implemented in this iteration.
 
 There is one command, `open_database`, and three response types: `progress`, `ready`, and `error`. The [Worker result specification](TZ_WORKER_RESULT_EN.md) establishes the `ready` container, technology fields, representation IDs, and string `sourceRef` values; the [technology requirements specification](TZ_TECHNOLOGY_REQUIREMENTS_EN.md) defines the tree and links. Localization records are defined in the [index specification](TZ_LOCALIZATION_INDEX_EN.md); diagnostic records and the nested `error` response are defined in a [separate specification](TZ_DIAGNOSTICS_EN.md). The complete database tree stays in the Worker.

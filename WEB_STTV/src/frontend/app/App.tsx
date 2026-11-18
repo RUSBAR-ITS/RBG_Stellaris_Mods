@@ -37,12 +37,12 @@ export function SttvApp() {
       </>}
   </>;
   return <SttvLocalizationProvider language={language} data={opening.data}>
-    <input type="file" accept=".json,application/json" hidden ref={input} onChange={event => {
-      const file = event.currentTarget.files?.[0];
+    <input type="file" multiple accept=".json,application/json" hidden ref={input} onChange={event => {
+      const files = Array.from(event.currentTarget.files ?? []);
       event.currentTarget.value = '';
-      if (file) controller.open(file);
+      if (files.length) controller.open(files);
     }} />
-    <SttvMainWindow status={exportFailed ? { id: 'sttv_export_failed' } : sttvStatusMessage(opening)}
+    <SttvMainWindow status={exportFailed ? { id: 'sttv_export_failed' } : sttvStatusMessage(opening, language)}
       menu={<SttvMenuPanel expanded={expanded} actions={actions}
         settings={<SttvLanguageSelector value={language} onChange={setLanguage} />}
         buttons={<>

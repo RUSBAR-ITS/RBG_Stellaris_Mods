@@ -76,7 +76,7 @@ class InlineExceptionTests(BuildFixture):
 
         with patch.object(Path, 'resolve', resolve), patch.object(Path, 'read_bytes') as read:
             with self.assertRaises(BuildError) as error:
-                loader.read('allowed')
+                loader.identity('allowed')
             self.assertEqual(error.exception.code, 'invalid_inline_path')
             read.assert_not_called()
 

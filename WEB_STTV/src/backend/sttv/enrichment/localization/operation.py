@@ -5,6 +5,7 @@ from pathlib import Path
 from time import perf_counter
 
 from sttv.common.paths import PRODUCT_ROOT
+from sttv.common.schema import schema_operation
 from sttv.common.persistence import prepare_json, save_json
 from sttv.database.validation import validate_database
 from .attachment import attach
@@ -16,6 +17,7 @@ from .settings import load_settings
 from .snapshot import Snapshot, digest
 
 
+@schema_operation
 def enrich_localization(variables_path=None, config_path=None):
     variables_path = Path(variables_path) if variables_path else PRODUCT_ROOT / "global_variables.json"
     config_path = Path(config_path) if config_path else PRODUCT_ROOT / "config/enrichment/localization.json"
@@ -27,10 +29,13 @@ def enrich_localization(variables_path=None, config_path=None):
         report["settings"] = settings.options
         stage = "database"
         database = snapshot.json(settings.database, "database")
+        if 'dataset' in database:
+            from sttv.common.errors import BuildError
+            raise BuildError('set_member', 'Rebuild the database set; individual enrichment would invalidate set membership')
         report["database_before"] = snapshot.entries[settings.database]
         validate_database(database)
         stage = "selection"
-        targets = select_targets(database, settings)
+        targets = select_targets(database, settings, report['counts'])
         stage = "sources"
         index = LocalizationIndex(settings, snapshot, report)
         stage = "enrichment"

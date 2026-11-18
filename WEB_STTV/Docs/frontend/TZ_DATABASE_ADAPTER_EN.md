@@ -16,6 +16,8 @@
 
 ## Status and purpose
 
+As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
+
 This document records the interface data model and adapter responsibilities agreed by the user on 2026-11-16. The adapter has not been implemented yet.
 
 The basis is the [interface concept](CONCEPT_EN.md), [Technology field specification](elements/TZ_TECHNOLOGY_FIELD_EN.md), [Card specification](elements/TZ_TECHNOLOGY_CARD_EN.md), and [Shared localization specification](TZ_LOCALIZATION_EN.md).

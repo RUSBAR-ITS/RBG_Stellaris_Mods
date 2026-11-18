@@ -7,33 +7,10 @@
       "type": "string"
     },
     "format_version": {
-      "const": 1
+      "const": 3
     },
     "inherit_description": {
       "type": "boolean"
-    },
-    "keys": {
-      "additionalProperties": false,
-      "properties": {
-        "description_suffix": {
-          "minLength": 1,
-          "type": "string"
-        },
-        "name": {
-          "minLength": 1,
-          "type": "string"
-        },
-        "variant": {
-          "minLength": 1,
-          "type": "string"
-        }
-      },
-      "required": [
-        "variant",
-        "name",
-        "description_suffix"
-      ],
-      "type": "object"
     },
     "languages": {
       "additionalProperties": false,
@@ -146,35 +123,333 @@
       "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
       "type": "string"
     },
-    "selection": {
+    "targets": {
       "additionalProperties": false,
       "properties": {
-        "pattern": {
-          "minLength": 1,
-          "type": "string"
+        "buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
         },
-        "recursive": {
-          "type": "boolean"
+        "components": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
         },
-        "variable": {
-          "minLength": 1,
-          "type": "string"
+        "deposits": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "economic_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "events": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "megastructures": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "on_actions": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "pop_jobs": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "scripted_actions": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "ship_sizes": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "starbase_buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "starbase_levels": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "starbase_modules": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "technologies": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "terraform": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
         }
       },
       "required": [
-        "variable",
-        "pattern",
-        "recursive"
+        "technologies",
+        "components",
+        "buildings",
+        "megastructures",
+        "ship_sizes",
+        "starbase_levels",
+        "starbase_modules",
+        "starbase_buildings",
+        "terraform",
+        "deposits",
+        "pop_jobs",
+        "economic_categories",
+        "scripted_actions",
+        "on_actions",
+        "events"
       ],
       "type": "object"
     }
   },
   "required": [
     "format_version",
-    "database",
-    "report",
-    "selection",
-    "keys",
+    "targets",
     "languages",
     "reading",
     "references",

@@ -20,11 +20,13 @@ class Expansion(Coordinator):
                                       raw=source.original_text(node.value_span.start, node.value_span.end)),
                       arguments=arguments, directives=[])
         self.identify(frame, ('inline_script', identity), relative, 'inline_cycle')
-        template = copy(self.templates.read(path.text))
+        from ..prepared import prepare
+        template = copy(prepare(self.templates.read(path.text), syntax))
         template.environment = source.environment_at(node.span.start, node.span.end)
         expanded, used = substitute(template, bindings, syntax, self.options,
                                     None if self.preparing else record['id'],
-                                    lambda text: self.control(text, syntax), self.parameter_counts)
+                                    lambda text: self.control(text, syntax), self.parameter_counts,
+                                    self.missing_parameter(record, self.options))
         document = parse_source(expanded, syntax)
         self.account(document.items)
         self.remember(document)

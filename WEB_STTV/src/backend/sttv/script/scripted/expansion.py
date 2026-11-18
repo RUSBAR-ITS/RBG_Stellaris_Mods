@@ -46,10 +46,11 @@ def expand_named(context, definition, node, source, syntax, record):
                               span=asdict(definition.node.span)),
                   invocation=dict(operator=node.operator, form=form, raw=raw),
                   arguments=arguments, directives=[])
-    if definition.kind == 'scripted_effect' and (form == 'test' or form == 'boolean' and value.casefold() != 'yes'):
-        source.fail('unsupported_scripted_call', 'Effects require yes or an argument block', node.span.start)
+    if definition.kind == 'scripted_effect' and form == 'test':
+        source.fail('unsupported_scripted_call', 'Effects require a boolean or an argument block', node.span.start)
     expanded, used = substitute(definition.source, bindings, syntax, options, record['id'],
-                                lambda text: context.control(text, syntax), context.parameter_counts)
+                                lambda text: context.control(text, syntax), context.parameter_counts,
+                                context.missing_parameter(record, options))
     document = parse_source(expanded, syntax)
     context.account(document.items)
     context.remember(document)

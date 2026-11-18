@@ -1,0 +1,62 @@
+{
+  "format_version": 1,
+  "libraries": [
+    {
+      "id": "inline_scripts",
+      "kind": "inline_script",
+      "source": {
+        "variable": "INLINE_SCRIPTS_DIR",
+        "pattern": "*.txt",
+        "recursive": true,
+        "encoding": "utf-8-sig"
+      },
+      "output": "libraries/inline_scripts.json"
+    },
+    {
+      "id": "scripted_effects",
+      "kind": "scripted_effect",
+      "source": {
+        "variable": "SCRIPTED_EFFECTS_DIR",
+        "pattern": "*.txt",
+        "recursive": true,
+        "encoding": "utf-8-sig"
+      },
+      "output": "libraries/scripted_effects.json"
+    },
+    {
+      "id": "scripted_triggers",
+      "kind": "scripted_trigger",
+      "source": {
+        "variable": "SCRIPTED_TRIGGERS_DIR",
+        "pattern": "*.txt",
+        "recursive": true,
+        "encoding": "utf-8-sig"
+      },
+      "output": "libraries/scripted_triggers.json"
+    },
+    {
+      "id": "script_values",
+      "kind": "script_value",
+      "source": {
+        "variable": "SCRIPT_VALUES_DIR",
+        "pattern": "*.txt",
+        "recursive": true,
+        "encoding": "utf-8-sig"
+      },
+      "output": "libraries/script_values.json"
+    },
+    {
+      "id": "scripted_variables",
+      "kind": "static_variables",
+      "source": {
+        "variable": "SCRIPTED_VARIABLES_DIR",
+        "pattern": "*.txt",
+        "recursive": true,
+        "encoding": "utf-8-sig"
+      },
+      "output": "libraries/scripted_variables.json"
+    }
+  ],
+  "manifest": "libraries/manifest.json",
+  "report": "reports/libraries.json"
+}

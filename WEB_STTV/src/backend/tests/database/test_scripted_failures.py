@@ -52,7 +52,7 @@ class ScriptedFailureTests(BuildFixture):
         self.assertEqual(self.run_build()['status'], 'success')
         before = self.database_path().read_bytes()
         self.effect('give={value=$REQUIRED$}')
-        for caller, code in [('give=no', 'unsupported_scripted_call'),
+        for caller, code in [('give=7', 'unsupported_scripted_call'),
                              ('give=yes', 'missing_inline_parameter'),
                              ('give={REQUIRED=1 REQUIRED=2}', 'duplicate_scripted_argument'),
                              ('give={REQUIRED=@absent}', 'unknown_static_variable')]:

@@ -6,17 +6,20 @@ from pathlib import PurePosixPath
 from sttv.common.errors import BuildError
 from .nodes import Assignment, Block, InlineInvocation, Located, Scalar
 from .traversal import sequences
+from .metrics import measured_application
 
 
 class Coordinator:
-    def __init__(self, templates, options, report=None, library=None, variables=None):
+    def __init__(self, templates, options, report=None, library=None, variables=None, exceptions=None):
         self.templates, self.options, self.report = templates, options, report
         self.library, self.variables = library, variables
+        self.exceptions = exceptions
         self.records, self.stack, self.warnings, self.sources = [], [], [], {}
         self.counts = dict(encountered=0, expanded=0, failed=0, template_files=0, max_depth=0)
         self.parameter_counts = dict(defaults=0, retained_fragments=0, discarded_fragments=0)
         self.max_depth, self.created, self.preparing, self.root_only = 0, 0, False, False
 
+    @measured_application
     def expand(self, document, syntax, root_only=False):
         self.records, self.stack, self.sources, self.created = [], [], {}, 0
         self.root_source = document.source.origin(0, 0)
@@ -25,7 +28,7 @@ class Coordinator:
             if not root_only and self.variables and any(isinstance(n, InlineInvocation) for n in document.items):
                 from .parser import parse_source
                 prepared = parse_source(document.source, syntax)
-                preparer = type(self)(self.templates, self.options, variables=self.variables)
+                preparer = type(self)(self.templates, self.options, variables=self.variables, exceptions=self.exceptions)
                 preparer.preparing = True
                 preparer.expand(prepared, syntax, root_only=True)
                 table = prepared.source.environment
@@ -96,6 +99,9 @@ class Coordinator:
     def control(self, source, syntax):
         return self.variables.control(source, syntax) if self.variables else source.text
 
+    def missing_parameter(self, record, options):
+        return self.exceptions.missing(self, record, options) if self.exceptions else None
+
     def remember(self, document):
         for _, items in sequences(document.items):
             self.sources.update((id(node), document.source) for node in items)
@@ -128,6 +134,10 @@ class Coordinator:
 
     def call(self, node, source, syntax, definition=None, definition_root=False, payload=None):
         from .calls import call
+        from .metrics import ACTIVE
+        metrics = ACTIVE.get()
+        if metrics:
+            metrics.count('plan_uses')
         return call(self, node, source, syntax, definition, definition_root, payload)
 
     def identify(self, frame, identity, target, code):

@@ -2,6 +2,8 @@
 
 from dataclasses import fields, replace
 
+from sttv.common.errors import BuildError
+
 from ..nodes import Located, Scalar
 from .rules import fail
 from .table import Table
@@ -46,8 +48,20 @@ class Processor:
 
     def resolve(self, node, name, fallback):
         table = node.environment or fallback
-        if isinstance(table, tuple) or table is None:
+        if table is None:
             fail('ambiguous_static_environment', 'Cannot identify static reference environment', node)
+        if isinstance(table, tuple):
+            results, signatures, errors = [], [], []
+            for index, environment in enumerate(table):
+                try:
+                    results.append(environment.resolve(name, node).value)
+                    signatures.append(environment.signature(name))
+                except BuildError as exc:
+                    errors.append(f'Environment {index}: {exc}')
+            if errors or not signatures or any(value != signatures[0] for value in signatures[1:]):
+                detail = '; '.join(errors) or 'Different declaration origins in retained environments'
+                fail('ambiguous_static_environment', f'{name}: {detail}', node)
+            return results[0]
         return table.resolve(name, node).value
 
     def visit(self, node, table, role='value'):

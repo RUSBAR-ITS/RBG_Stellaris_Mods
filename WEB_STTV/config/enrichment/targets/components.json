@@ -1,0 +1,15 @@
+{
+  "selection": {
+    "variable": "COMPONENTS_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": "_DESC",
+    "description_field": null,
+    "text_field": "text",
+    "fallback_field": "component_set"
+  }
+}

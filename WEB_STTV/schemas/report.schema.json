@@ -69,7 +69,8 @@
           "enum": [
             "STELLARIS_ROOT",
             "TECH_PATH",
-            "INLINE_SCRIPTS_DIR"
+            "INLINE_SCRIPTS_DIR",
+            "PRODUCT_ROOT"
           ]
         },
         "span": {
@@ -349,6 +350,17 @@
           "minimum": 0,
           "type": "integer"
         },
+        "source_exceptions": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
         "static_variables": {
           "additionalProperties": false,
           "properties": {
@@ -398,6 +410,7 @@
         "static_variables",
         "scripted_calls",
         "parameters",
+        "source_exceptions",
         "max_call_depth"
       ],
       "type": "object"
@@ -588,6 +601,271 @@
       },
       "type": "object"
     },
+    "performance": {
+      "additionalProperties": false,
+      "properties": {
+        "documents": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "nodes": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "seconds": {
+                "minimum": 0,
+                "type": "number"
+              },
+              "source": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "success",
+                  "failed"
+                ]
+              }
+            },
+            "required": [
+              "source",
+              "nodes",
+              "status",
+              "seconds"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "parallel": {
+          "additionalProperties": false,
+          "properties": {
+            "configured_workers": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "identity_algorithm": {
+              "const": "sttv.document_hashes.v1"
+            },
+            "jobs": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "bytes": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "content_hash": {
+                    "anyOf": [
+                      {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "index": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "pid": {
+                    "anyOf": [
+                      {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "seconds": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "shard_hash": {
+                    "anyOf": [
+                      {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "source": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "status": {
+                    "enum": [
+                      "success",
+                      "failed",
+                      "cancelled",
+                      "not_started"
+                    ]
+                  }
+                },
+                "required": [
+                  "index",
+                  "source",
+                  "status",
+                  "pid",
+                  "seconds",
+                  "bytes",
+                  "content_hash",
+                  "shard_hash"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "memory": {
+              "additionalProperties": false,
+              "properties": {
+                "coordinator_peak_bytes": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "errors": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "interval_seconds": {
+                  "minimum": 0,
+                  "type": "number"
+                },
+                "method": {
+                  "enum": [
+                    "windows_working_set_sample",
+                    "unavailable"
+                  ]
+                },
+                "samples": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "temporary_peak_bytes": {
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "tree_peak_bytes": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "method",
+                "interval_seconds",
+                "samples",
+                "coordinator_peak_bytes",
+                "tree_peak_bytes",
+                "temporary_peak_bytes",
+                "errors"
+              ],
+              "type": "object"
+            },
+            "used_workers": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "workers": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "bytes": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "counts": {
+                    "additionalProperties": {
+                      "minimum": 0,
+                      "type": "integer"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "pid": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "rule_seconds": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "seconds": {
+                    "minimum": 0,
+                    "type": "number"
+                  },
+                  "timings": {
+                    "additionalProperties": {
+                      "minimum": 0,
+                      "type": "number"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "pid",
+                  "seconds",
+                  "rule_seconds",
+                  "bytes",
+                  "counts",
+                  "timings"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "configured_workers",
+            "used_workers",
+            "identity_algorithm",
+            "jobs",
+            "workers",
+            "memory"
+          ],
+          "type": "object"
+        },
+        "rule_preparations": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timings": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "validated_documents": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "timings",
+        "rule_preparations",
+        "validated_documents",
+        "documents"
+      ],
+      "type": "object"
+    },
     "script_value_sources": {
       "additionalProperties": {
         "pattern": "^[a-f0-9]{64}$",
@@ -620,6 +898,88 @@
         "type": "string"
       },
       "type": "object"
+    },
+    "source_exceptions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "after": {
+            "type": "string"
+          },
+          "before": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "call_chain": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "call_site": {
+                  "$ref": "#/$defs/origin"
+                },
+                "id": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "kind": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "template": {
+                  "anyOf": [
+                    {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "template",
+                "call_site"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "provenance": {
+            "$ref": "#/$defs/origin"
+          },
+          "root_source": {
+            "$ref": "#/$defs/origin"
+          },
+          "rule_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value_source": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_id",
+          "root_source",
+          "provenance",
+          "call_chain",
+          "before",
+          "after",
+          "value_source"
+        ],
+        "type": "object"
+      },
+      "type": "array"
     },
     "sources": {
       "additionalProperties": {
@@ -661,8 +1021,10 @@
     "scripted_trigger_sources",
     "script_value_sources",
     "library_fields",
+    "source_exceptions",
     "database_written",
-    "diagnostics"
+    "diagnostics",
+    "performance"
   ],
   "type": "object"
 }

@@ -17,6 +17,8 @@ The first frontend implements the agreed documents in the [element index](UI_ELE
 
 It displays name cards with title-and-description tooltips, RU/EN, day/night themes, manual variants, research areas, and tier columns. As requested, connecting lines are not drawn yet; the prepared catalog retains the requirement tree and links. It includes a collapsible menu, separate status panel, cancellation, retry after failure, and diagnostic report saving.
 
+Historical first-stage guide. The current frontend opens three version-five databases as one set; current paths and commands are in the [stage-two guide](FRONTEND_STAGE_2_EN.md).
+
 ## Running
 
 Run commands from `WEB_STTV`. A regular development environment needs Node.js 24 and the dependencies in `package-lock.json`:

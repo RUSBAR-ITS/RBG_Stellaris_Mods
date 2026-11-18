@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "staging_directory": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "workers": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "format_version",
+    "workers",
+    "staging_directory"
+  ],
+  "type": "object"
+}

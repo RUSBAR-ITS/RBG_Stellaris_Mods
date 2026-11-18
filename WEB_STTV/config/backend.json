@@ -1,12 +1,8 @@
 {
-  "sources": [
-    {
-      "variable": "TECH_PATH",
-      "pattern": "*.txt",
-      "recursive": true,
-      "encoding": "utf-8-sig"
-    }
-  ],
+  "parallel": {
+    "base": "product",
+    "path": "config/parallel.json"
+  },
   "parser": {
     "scripted_calls": {
       "base": "product",
@@ -39,10 +35,246 @@
     "script_values": {
       "base": "product",
       "path": "config/parser/script_values.json"
+    },
+    "source_exceptions": {
+      "base": "product",
+      "path": "config/parser/source_exceptions.json"
     }
   },
-  "outputs": {
-    "database": "database.json",
-    "report": "reports/build_report.json"
+  "datasets": {
+    "technologies": {
+      "sources": [
+        {
+          "variable": "TECH_PATH",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/technologies.json",
+        "report": "reports/technologies_build.json",
+        "localization_report": "reports/technologies_localization.json"
+      }
+    },
+    "components": {
+      "sources": [
+        {
+          "variable": "COMPONENTS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/components.json",
+        "report": "reports/components_build.json",
+        "localization_report": "reports/components_localization.json"
+      }
+    },
+    "buildings": {
+      "sources": [
+        {
+          "variable": "BUILDINGS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/buildings.json",
+        "report": "reports/buildings_build.json",
+        "localization_report": "reports/buildings_localization.json"
+      }
+    },
+    "megastructures": {
+      "sources": [
+        {
+          "variable": "MEGASTRUCTURES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/megastructures.json",
+        "report": "reports/megastructures_build.json",
+        "localization_report": "reports/megastructures_localization.json"
+      }
+    },
+    "ship_sizes": {
+      "sources": [
+        {
+          "variable": "SHIP_SIZES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/ship_sizes.json",
+        "report": "reports/ship_sizes_build.json",
+        "localization_report": "reports/ship_sizes_localization.json"
+      }
+    },
+    "starbase_levels": {
+      "sources": [
+        {
+          "variable": "STARBASE_LEVELS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/starbase_levels.json",
+        "report": "reports/starbase_levels_build.json",
+        "localization_report": "reports/starbase_levels_localization.json"
+      }
+    },
+    "starbase_modules": {
+      "sources": [
+        {
+          "variable": "STARBASE_MODULES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/starbase_modules.json",
+        "report": "reports/starbase_modules_build.json",
+        "localization_report": "reports/starbase_modules_localization.json"
+      }
+    },
+    "starbase_buildings": {
+      "sources": [
+        {
+          "variable": "STARBASE_BUILDINGS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/starbase_buildings.json",
+        "report": "reports/starbase_buildings_build.json",
+        "localization_report": "reports/starbase_buildings_localization.json"
+      }
+    },
+    "terraform": {
+      "sources": [
+        {
+          "variable": "TERRAFORM_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/terraform.json",
+        "report": "reports/terraform_build.json",
+        "localization_report": "reports/terraform_localization.json"
+      }
+    },
+    "deposits": {
+      "sources": [
+        {
+          "variable": "DEPOSITS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/deposits.json",
+        "report": "reports/deposits_build.json",
+        "localization_report": "reports/deposits_localization.json"
+      }
+    },
+    "pop_jobs": {
+      "sources": [
+        {
+          "variable": "POP_JOBS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/pop_jobs.json",
+        "report": "reports/pop_jobs_build.json",
+        "localization_report": "reports/pop_jobs_localization.json"
+      }
+    },
+    "economic_categories": {
+      "sources": [
+        {
+          "variable": "ECONOMIC_CATEGORIES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/economic_categories.json",
+        "report": "reports/economic_categories_build.json",
+        "localization_report": "reports/economic_categories_localization.json"
+      }
+    },
+    "scripted_actions": {
+      "sources": [
+        {
+          "variable": "SCRIPTED_ACTIONS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/scripted_actions.json",
+        "report": "reports/scripted_actions_build.json",
+        "localization_report": "reports/scripted_actions_localization.json"
+      }
+    },
+    "on_actions": {
+      "sources": [
+        {
+          "variable": "ON_ACTIONS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/on_actions.json",
+        "report": "reports/on_actions_build.json",
+        "localization_report": "reports/on_actions_localization.json"
+      }
+    },
+    "events": {
+      "sources": [
+        {
+          "variable": "EVENTS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "database": "databases/events.json",
+        "report": "reports/events_build.json",
+        "localization_report": "reports/events_localization.json"
+      }
+    }
+  },
+  "localization": {
+    "base": "product",
+    "path": "config/enrichment/localization.json"
+  },
+  "report": "reports/database_set.json",
+  "libraries": {
+    "base": "product",
+    "path": "config/libraries.json"
   }
 }

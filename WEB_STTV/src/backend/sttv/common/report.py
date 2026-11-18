@@ -1,5 +1,6 @@
 """Build diagnostics, separate from application database data."""
 
+from .timing import performance
 
 class Report:
     def __init__(self):
@@ -9,6 +10,7 @@ class Report:
             "counts": {"selected_files": 0, "parsed_files": 0, "failed_files": 0, "nodes": 0,
                        "errors": 0, "warnings": 0,
                        'max_call_depth': 0,
+                       'source_exceptions': {},
                        'parameters': dict(defaults=0, retained_fragments=0, discarded_fragments=0),
                        'scripted_calls': {kind: dict(files=0, definitions=0, local_definitions=0,
                             encountered=0, expanded=0, failed=0, tests=0)
@@ -23,8 +25,10 @@ class Report:
             'scripted_trigger_sources': {},
             'script_value_sources': {},
             'library_fields': {},
+            'source_exceptions': [],
             "diagnostics": [],
             "database_written": False,
+            'performance': performance(),
         }
 
     def add(self, severity, code, stage, message, **location):

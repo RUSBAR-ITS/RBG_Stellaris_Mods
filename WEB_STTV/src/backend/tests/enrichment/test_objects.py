@@ -61,15 +61,16 @@ class ObjectTests(LocalizationFixture):
                 self.write_database()
                 self.assert_failure("invalid_target")
 
-    def test_refresh_removes_stale_results_and_no_match_is_an_error(self):
+    def test_refresh_removes_stale_results_and_zero_targets_are_valid(self):
         self.documents.insert(1, ("common/technology/other.txt", 'other = {}'))
         self.write_database()
         self.assert_success(self.run_operation())
-        self.options["selection"]["pattern"] = "base.txt"
+        self.target_options["selection"]["pattern"] = "base.txt"
         self.assert_success(self.run_operation())
         self.assertNotIn("enrichments", read_json(self.database_path)["documents"][1]["items"][0])
-        self.options["selection"]["pattern"] = "missing.txt"
-        self.assert_failure("no_localization_targets")
+        self.target_options["selection"]["pattern"] = "missing.txt"
+        self.assert_success(self.run_operation())
+        self.assertEqual(read_json(self.database_path), self.original)
 
     def test_original_fields_history_and_frequency_are_unchanged(self):
         def frequencies(db):

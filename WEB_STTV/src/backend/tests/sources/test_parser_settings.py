@@ -31,7 +31,7 @@ class ParserSettingsTests(BuildFixture):
         self.select_work_configs()
         self.assertEqual(self.run_build()['status'], 'success')
         result = subprocess.run([sys.executable, '-B', str(PRODUCT_ROOT / 'src/backend/main.py'),
-                                 '--variables', str(self.variable_file), '--config', str(self.config_file)],
+                                 '--reuse-libraries', '--variables', str(self.variable_file), '--config', str(self.config_file)],
                                 cwd=self.root, capture_output=True, encoding='utf-8')
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(baseline, self.database_path().read_bytes())

@@ -1,8 +1,7 @@
 {
   "format_version": 1,
   "path_field": "script",
-  "parameter_case_sensitive": true,
+  "parameter_case_sensitive": false,
   "extension": ".txt",
-  "encoding": "utf-8-sig",
   "max_depth": 64
 }

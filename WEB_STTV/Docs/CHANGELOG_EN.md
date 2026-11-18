@@ -2,6 +2,32 @@
 
 ## Contents
 
+- [2026-11-18 — parallel file processing implementation](#2026-11-18--parallel-file-processing-implementation)
+- [2026-11-18 — parallel file processing draft](#2026-11-18--parallel-file-processing-draft)
+- [2026-11-18 — reusable element libraries implemented](#2026-11-18--reusable-element-libraries-implemented)
+- [2026-11-18 — reusable element library draft](#2026-11-18--reusable-element-library-draft)
+- [2026-11-18 — validation and build optimization implemented](#2026-11-18--validation-and-build-optimization-implemented)
+- [2026-11-18 — validation and build optimization draft](#2026-11-18--validation-and-build-optimization-draft)
+- [2026-11-18 — fifteen databases and streaming reads](#2026-11-18--fifteen-databases-and-streaming-reads)
+- [2026-11-18 — conditional import exceptions](#2026-11-18--conditional-import-exceptions)
+- [2026-11-18 — confirming seven stage 12 blockers](#2026-11-18--confirming-seven-stage-12-blockers)
+- [2026-11-18 — draft extension to 15 databases](#2026-11-18--draft-extension-to-15-databases)
+- [2026-11-18 — alloy production branch and ordering within a branch](#2026-11-18--alloy-production-branch-and-ordering-within-a-branch)
+- [2026-11-18 — anchor clarification and placement between prerequisites](#2026-11-18--anchor-clarification-and-placement-between-prerequisites)
+- [2026-11-18 — reviewing proposed continuations for nine technologies](#2026-11-18--reviewing-proposed-continuations-for-nine-technologies)
+- [2026-11-18 — extended chain rules reanalysis](#2026-11-18--extended-chain-rules-reanalysis)
+- [2026-11-18 — removed repeatable technology area restriction](#2026-11-18--removed-repeatable-technology-area-restriction)
+- [2026-11-18 — infinitely repeatable technology placement](#2026-11-18--infinitely-repeatable-technology-placement)
+- [2026-11-18 — standard empire path in reference mode](#2026-11-18--standard-empire-path-in-reference-mode)
+- [2026-11-18 — selection procedure and functional continuations](#2026-11-18--selection-procedure-and-functional-continuations)
+- [2026-11-18 — ID priority for technology chain selection](#2026-11-18--id-priority-for-technology-chain-selection)
+- [2026-11-17 — database set implementation and interface 0.0.2](#2026-11-17--database-set-implementation-and-interface-002)
+- [2026-11-17 — specifications for a three-database localized set](#2026-11-17--specifications-for-a-three-database-localized-set)
+- [2026-11-17 — mandatory prerequisites and additional databases](#2026-11-17--mandatory-prerequisites-and-additional-databases)
+- [2026-11-17 — analysis of 39 ambiguous continuations](#2026-11-17--analysis-of-39-ambiguous-continuations)
+- [2026-11-17 — initial tree layout rules](#2026-11-17--initial-tree-layout-rules)
+- [2026-11-17 — chain rules document and starting technologies](#2026-11-17--chain-rules-document-and-starting-technologies)
+- [2026-11-17 — technology chain research](#2026-11-17--technology-chain-research)
 - [2026-11-17 — first frontend implementation](#2026-11-17--first-frontend-implementation)
 - [2026-11-17 — localized diagnostic messages](#2026-11-17--localized-diagnostic-messages)
 - [2026-11-17 — diagnostic technical detail contents](#2026-11-17--diagnostic-technical-detail-contents)
@@ -96,6 +122,192 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-18 — parallel file processing implementation
+
+- Added a shared pool of separate Windows processes for files of one database, reused across fifteen sequential database builds. `config/parallel.json` controls worker count (`10` by default) and intermediate storage; added the 23rd generated schema.
+- Workers load libraries and prepare rules once, reuse localization tables and resolved texts, and isolate variables, history and job statistics. Cumulative call numbering is preserved through coordinator-assigned offsets.
+- Documents are validated and written separately. The coordinator checks completeness, duplicates and checksums, then streams JSON together in original order without reparsing. This shared mechanism replaces the former sequential writer; `workers=1` uses the same path.
+- Introduced `sttv.document_hashes.v1`; `set_id` changes while game-document format remains version `6`. Added job, initialization, phase, memory and temporary-file measurements, worker-failure handling and cancellation with cleanup restricted to operation-owned files.
+- All 240 backend tests and 33 frontend checks passed without skips. Three complete builds (`1/reuse`, `10/reuse`, `10/rebuild`) are byte-identical and preserve stage 14 content except for the new `set_id`; game counters, diagnostics and hashes of 1612 reference inputs match. Each of the 450 documents was validated once.
+- Complete `reuse` time fell from 34:44 to 8:20 (4.17 times faster); ten-worker `rebuild` took 8:31. Process-tree peak memory increased from 4.09 to 21.34 GiB. The fixed sample's three-pass median fell from 20.516 to 8.225 s, with all six outputs identical. Measurement conditions and limits are recorded in the [stage 15 guide](BACKEND_STAGE_15_EN.md).
+- Updated bilingual specifications, guide and README. Game sources and the frontend were not modified.
+
+## 2026-11-18 — parallel file processing draft
+
+- Prepared the bilingual [stage 15 specification](TZ_BACKEND_STAGE_15_EN.md): ten workers within the current database and pool reuse across fifteen sequentially built members.
+- Defined configuration, worker loading of prepared libraries, independent document contexts, validation before writing and streaming intermediate JSON merging in fixed order.
+- Specified cross-document checks, revised `content_hash` derived from document hashes, implications for `set_id`, failure handling, measurements and `1`/`10` comparison.
+- Updated shared specification and README links and status. Code, configurations and schemas are unchanged; the new specification awaits approval.
+
+## 2026-11-18 — reusable element libraries implemented
+
+- Implemented five persistent libraries, a shared manifest, content/rule freshness verification and explicit `--rebuild-libraries` and `--reuse-libraries` modes.
+- Library contents, sources, reading options and destinations are configured in `config/libraries.json`; duplicate parser settings were removed. Added four generated schemas.
+- Prepared tokens, parameters and constant trees are reused during expansion. Invocation state and results remain independent; one snapshot serves the complete dataset set and analytical operations.
+- Added persistence, integrity, freshness, mode, ownership and context-isolation checks. Checked 231 unique backend tests; 33 frontend checks passed without skips, as did an analytical invocation using saved libraries.
+- Both modes built fifteen databases byte-identical to stage 13: 450 documents and 11,762,739,507 bytes. The `set_id`, hashes of 1,612 game/localization inputs, logical counters and statuses were preserved.
+- Full builds took 29.4 minutes in `rebuild` and 33.9 minutes in `reuse`, versus the 34.4-minute reference; peak memory was 2.04 and 2.50 GiB versus 1.65 GiB. Library JSON totals approximately 511 MiB. `reuse` loaded five artifacts without plan preparation; one snapshot served all fifteen databases. Mode timing differences and measurement limits are recorded in the guide.
+- Commands, architecture and results are in the [stage 14 guide](BACKEND_STAGE_14_EN.md). Game sources and the interface were not modified.
+
+## 2026-11-18 — reusable element library draft
+
+- Prepared the bilingual [stage 14 draft](TZ_BACKEND_STAGE_14_EN.md) for inline templates, effects, triggers, script values and supporting shared static definitions. The snapshot persists as JSON and serves every dataset in one operation.
+- Specified separate library/address configuration and explicit mutually exclusive `--rebuild-libraries` / `--reuse-libraries` switches. Failed reuse never triggers a hidden rebuild; source, configuration, version and artifact-integrity checks are required.
+- Described immutable plans, separate call state, parameters and conditional fragments, nesting, provenance, validation and measurements. Multiprocessing remains a later stage; the fifteen user-facing databases retain their format.
+- Updated links and status in RU/EN README and the shared specification. Only documents changed; code, configurations and databases were not modified. The draft awaits approval.
+
+## 2026-11-18 — validation and build optimization implemented
+
+- Implemented approved stage 13: checks prepared from the active schema once per operation, direct `kind` dispatch and a shared traversal of structure, provenance and localization. Unknown schema constraints are rejected; no game command registry is introduced.
+- Single and set builds now process, localize, validate and write documents individually. Real addresses, cross-document duplicate indexes, cumulative counts and canonical hashes are preserved. Removed repeated complete audits and rereading unchanged temporary databases.
+- Added phase, rule preparation and document validation measurements to reports and their schemas. Initial write failure cleans the temporary file; validation diagnostics include the source file. A single-build report is saved once after measuring database publication, with truthful `database_written` on failure.
+- Complete build: 2061.189 s instead of 5490.835 s, a 2.66× speedup, with peak process working set of 1.65 GiB. All fifteen databases, the shared `set_id` and 1625 inputs match the control; 450 documents were validated once. Six control examples show 2.50–6.08× faster validation using medians of three runs.
+- Passed 213 backend tests, 33 frontend checks and a real browser opening of fifteen files: 679 cards, language and theme changes, tooltip and variants. Source warnings are retained. Detailed results and limitations are in the [stage 13 guide](BACKEND_STAGE_13_EN.md); acceptance artifacts reside under `data/stage13/`.
+- Updated README, specification status and the bilingual guide. Database format, game sources and interface behavior were not changed.
+
+## 2026-11-18 — validation and build optimization draft
+
+- Prepared the RU/EN [stage 13 specification draft](TZ_BACKEND_STAGE_13_EN.md): direct `kind` dispatch, one rule source prepared once, a shared traversal and document processing. Status: discussion and approval.
+- Complete validation of finished documents remains part of builds; repeated validation of unchanged output after writing is removed. Specified preservation of checks, addresses, cross-document duplicate detection, hashes and formatted JSON, together with publication failure behavior.
+- Defined measurements, schema-oracle comparisons, negative tests and a fifteen-database acceptance build. MongoDB, parallel execution and game-data changes are excluded.
+- Updated README links and shared specification status, including completed stage 12. Product code, configurations and published databases were not changed; speedup has not yet been measured.
+
+## 2026-11-18 — fifteen databases and streaming reads
+
+- Implemented the shared registry of fifteen roles, twelve additional sources and separate localization configurations. Database version is now 6; JSON uses LF newlines and two-space indentation.
+- Preserved all terraforming transitions, handler fragments and conditional event descriptions; added event IDs and compact catalogs for new roles.
+- Connected scoped import exceptions, case-insensitive parameters, structural expansion of effects with `no`, and common static declarations in mixed environments. Every exception application is reported.
+- Frontend 0.0.3 opens fifteen files as one set. After confirming the `File.text()` limit, the user approved streaming JSON: two passes, document adaptation, released trees and deferred cross-reference checks.
+- Updated schemas, RU/EN messages, guides, tests and diagnostics. All 203 Python checks, 31 controlled frontend tests, two real-data tests and browser scenarios passed, including opening the complete set. Game files were unchanged; new sorting rules are not enabled.
+- Published fifteen databases: 450 documents, 15,599 definitions, 22,345 localization targets and 10.95 GiB. Building took 91.5 minutes; opening in Chromium took 264.60 seconds with no page errors. All 679 cards, languages, themes, tooltips and variants were verified. The index retains 214 missing-localization warnings; stage guides contain detailed reports and limitations.
+
+## 2026-11-18 — conditional import exceptions
+
+- Prepared `config/parser/source_exceptions.json`: a narrowly matched trailing separator removal, binding `RELIC` to `SELECTED_RELIC` for two events, and temporary `RANDOM = 0` in nomad calls. Three rules are restricted to four root sources and explicit conditions.
+- The [bilingual addendum](SOURCE_IMPORT_EXCEPTIONS_EN.md) and stage 12 specification record the agreed case-insensitive parameters, exception integration and mandatory application reporting. Proposals for `effect = no` and mixed static environments are described separately.
+- Traced the `effect = no` restriction to the stage 8 specification and expander, independently of the removed command registry. The new rules file is not wired yet; product code, active settings and published databases are unchanged.
+
+## 2026-11-18 — confirming seven stage 12 blockers
+
+- Rechecked seven complete files from the historical list with the current parser: all seven reproduced previous errors representing six causes. Results, call chains and the reproduction script reside in `data/stage12/problem_recheck/`.
+- Three separate Shroud trigger calls confirmed a resolver limitation: two environments resolve globals identically to 1500/3000/5000, but their tuple is rejected before lookup.
+- Added a [bilingual research report](RESEARCH_STAGE_12_BLOCKERS_EN.md) and updated the stage 12 obstacle section. Distinguished source discrepancies, parser limitations and unverified engine behavior.
+- Hashes confirmed unchanged consumed inputs, backend code, configuration and published databases. No fixes or stage 12 implementation were performed; each file stopped at its first error.
+
+## 2026-11-18 — draft extension to 15 databases
+
+- Drafted RU/EN [backend stage 12](TZ_BACKEND_STAGE_12_EN.md) and [frontend stage 3](frontend/TZ_FRONTEND_STAGE_3_EN.md): 12 new databases, localization and opening the shared 15-file set. Status: awaiting approval.
+- Specified source variables, distinct identity/text rules, repeated terraforming transitions, technical handlers and event descriptions.
+- Included the user's multiline, two-space-indented JSON requirement; separated canonical hashing from output formatting.
+- Parsed 332 TXT files initially without call expansion; no syntax errors were found. Results reside in `data/stage12/specification_research/source_inventory.json`. Seven expansion errors from the historical report are listed for rechecking, without claiming they were fixed.
+- Updated README and general specification links. Product code, configuration and published databases were not changed in this iteration.
+
+## 2026-11-18 — alloy production branch and ordering within a branch
+
+- With user agreement, changed the Ceramo-Metal Alloys anchor to Holographic Casts and recorded the display chain Holographic Casts → Ceramo-Metal Alloys → Armor Hardening while preserving all other game requirements.
+- Clarified R-05/L-04: vertical predecessor/continuation ordering applies within one branch, rather than to every cross-branch link. Volcanic Terraforming between two branches is no longer described as a specific exception.
+- Aligned related wording in both chain documents. Historical reports remain snapshots of previous research runs; product code was unchanged.
+
+## 2026-11-18 — anchor clarification and placement between prerequisites
+
+- Recorded Ceramo-Metal Alloys as the Armor Hardening anchor, matching special availability for Metacognitive Faith, and candidate seniority for Cross-Model Standardization.
+- Following the user's explicit clarification, Volcanic Terraforming is placed vertically between its prerequisites; R-05/L-04 now include this exception while preserving game dependencies.
+- Confirmed `ship_armor_hardening_add` in both the Armor Hardening component and an armor component reached through a Ceramo-Metal Alloys predecessor in the component database. Recorded indirect functional selection as a hypothesis distinct from the agreed anchor choice.
+- Updated RU/EN documentation and saved `data/chain_analysis/armor_function_evidence.json`. Confirmed two candidates for each of the nine previous ambiguities, while original sets contain up to five. Production sorting was unchanged.
+
+## 2026-11-18 — reviewing proposed continuations for nine technologies
+
+- Recorded seven user-proposed anchors and two conditional placements below multiple predecessors; inspected game definitions and five branch pairs against the database graph.
+- Distinguished sequential chains, common ancestors and converging branches. Confirmed no sequential dependency between Armor Hardening candidates or Volcanic Terraforming candidates; described the separate constraint of placement below both prerequisites.
+- Clarified the federation exception for religious technology access, the production effect of Ceramo-Metal Alloys, and the robotics functions of both Cross-Model Standardization candidates.
+- Updated the bilingual chain document and saved `data/chain_analysis/nine_case_review.json`. Preferences are not presented as completed general criteria; production sorting and the earlier report were unchanged.
+
+## 2026-11-18 — extended chain rules reanalysis
+
+- Rechecked 679 technologies in the current three-database set, including 89 with multiple prerequisites. Confirmed that the published set matches `data/stage11/browser_set`.
+- Recorded the user-confirmed standard empire profile for the run; unknown conditions do not exclude candidates. Added research checks for L-11 and L-13 with early termination at one candidate and preservation on empty filter results.
+- Twelve cases remain without a general automatic choice, or nine after incorporating three previously agreed functional continuations. The new filters resolved four of the previous thirteen; L-12 moves nineteen technologies to column 6.
+- Saved reproducible scripts and a step-by-step JSON report in `data/chain_analysis/`; passed 27 checks and examined criterion order sensitivity. Updated both language versions of the chain document; product code and databases were unchanged.
+
+## 2026-11-18 — removed repeatable technology area restriction
+
+- Following the user's clarification, L-12 requires any technology prerequisite, without matching research areas. The `levels = -1` and `tier = 5` conditions remain.
+- The number of technologies for column 6 increased from 17 to 19, now including both strike craft repeatables. Their area remains society and their prerequisite remains in engineering. L-13, selecting the highest-tier candidate, is unchanged.
+- Updated RU/EN and contents; sorting code and databases are unchanged.
+
+## 2026-11-18 — infinitely repeatable technology placement
+
+- Added L-12/L-13: move infinitely repeatable game-tier-5 technologies with a prerequisite in their own area to display column 6, and prefer the highest game-tier candidate when selection is ambiguous. Clarified the exception to matching display columns with game tiers; original fields and dependencies are preserved.
+- Under the initial rule, 17 of 21 infinitely repeatable technologies met the move condition. Recorded four exceptions, including two strike craft technologies with a prerequisite in another area. For both explosive weapon repeatables, the higher of the two prerequisites is tier-4 `tech_swarmer_missiles_2`.
+- Updated both document languages and contents. These are design changes; sorting code, databases and the previous full analysis report are unchanged.
+
+## 2026-11-18 — standard empire path in reference mode
+
+- Added chain rule L-11: resolve ambiguity in reference mode by excluding candidates that require nonstandard empire types and preferring the standard empire's path.
+- Recorded the Juggernaut example, preservation of original requirements, the general empty-result skip procedure, and future tree recalculation based on a user-defined empire. The full parameter set and exact filter precedence remain design questions.
+- Updated both language versions and their contents. Code, databases and previous numerical analysis results are unchanged.
+
+## 2026-11-18 — selection procedure and functional continuations
+
+- Explicitly recorded stopping at one candidate, skipping rules with empty results and never restoring previously eliminated candidates in the chain document.
+- Recorded three desired anchors: arkship construction for civilian arkships, the detection array for dark matter detection, and UV lasers for the Stellar Cannon. Documented supporting vanilla code relationships and proposed a final selection group based on direct relationships and the function of unlocked objects.
+- Identified the additional sources required for automation; functional classification is still being designed, and production sorting and database coverage are unchanged. The research script now explicitly skips evaluating subsequent criteria after reaching one candidate; previous numerical results are preserved.
+
+## 2026-11-18 — ID priority for technology chain selection
+
+- Recorded the chain-selection order: equal IDs after removing digits → research area → category → previously agreed mandatory-prerequisite priority. All game dependencies remain intact.
+- Checked the published three-database set through current adapters: 679 base technologies, including 89 with multiple prerequisites. The first three criteria leave 22 ambiguities; mandatory status leaves 19; additionally using explicit object upgrades leaves 16. Within the previous 39 cases, the corresponding remaining counts are 19, 16 and 13.
+- Saved the reproducible analysis, input file hashes and step-by-step decisions in `data/chain_analysis/audit_id_priority.ts` and `id_priority_analysis.json`. Frontend sorting code is unchanged; geometric placement rules were not tested by this analysis.
+
+## 2026-11-17 — database set implementation and interface 0.0.2
+
+- Implemented approved backend stage 11 and frontend stage 2. Added `COMPONENTS_DIR`, `BUILDINGS_DIR`, a shared three-database coordinator, set configuration and generated schemas.
+- Updated database format to version 5: member roles and a deterministic shared `set_id`. All members are prepared and input integrity verified before publication; reports record actual partial writes on failure. Databases use compact JSON without removing data.
+- Extended RU/EN localization to components and buildings: identities from `key`, explicit shared `component_set` descriptions, and separate conditional building descriptions. Individual set-member enrichment is rejected.
+- Interface `0.0.2` opens three files in one action. The Worker retains full trees and returns compact catalogs, qualified references, a shared string index, object requirements, upgrades and technology-continuation evidence.
+- Updated progress, retry and cancellation, RU/EN messages, diagnostic export version 2 and tests. Upgrade evidence does not invent technology prerequisites or change the current card layout.
+- Invocation and validation results: [backend](BACKEND_STAGE_11_EN.md), [frontend](frontend/FRONTEND_STAGE_2_EN.md).
+
+
+## 2026-11-17 — specifications for a three-database localized set
+
+- Prepared separate RU/EN backend-stage-11 and frontend-stage-2 specifications for approval: technologies, components and buildings, full standard expansion, localization and joint opening of three JSON files.
+- Recorded user answers: one selection of a three-file set, with immediate RU/EN names and descriptions for all three databases. Investigated ID shapes, localization suffixes and conditional building descriptions; saved the research inventory under `data/stage11/specification_research/`.
+- Proposed configurable source sets, a shared deterministic content identifier, qualified references, shared component descriptions and retained conditional building descriptions; specified explicit object links and separate evidence of technology continuations.
+- Updated README, main specification and chain-document pointers. A new layout algorithm and build/interface implementation are outside this iteration; runtime configurations and databases were unchanged.
+
+## 2026-11-17 — mandatory prerequisites and additional databases
+
+- Recorded approved rule L-08 in the RU/EN chain document: among area/category candidates, a mandatory prerequisite takes priority over an optional `OR` member; multiple mandatory candidates remain ambiguous.
+- Added the five pairs selected by this rule. Updated the research: including object upgrades and effects, 26 of 39 cases now have a basis for selection, with 13 still ambiguous.
+- Recorded the next scope: separate component and building databases in the backend, with frontend support for three databases. Shared parsing and source addressing are outlined as the basis for a separate specification; code, databases and current sorting were unchanged.
+
+## 2026-11-17 — analysis of 39 ambiguous continuations
+
+- Prepared a bilingual [analysis of all 39 cases](frontend/RESEARCH_AMBIGUOUS_CHAINS_EN.md) with multiple same-area/category prerequisites: examined graph structure, tiers, actual modifiers, eligibility restrictions and logical alternatives without comparing names or ID fragments.
+- Tested independent-branch preservation locally and globally: found unique structural choices in 19 and 18 cases respectively, including a combat-computer counterexample. No new algorithm was approved.
+- Additionally read 83 component and building files; found 60 explicit upgrade witnesses for 16 technologies. Separately checked external changes to capital-productivity effects. Supplemental scan limitations are documented; these data were not added to the current database.
+- Research scripts and JSON extracts are saved in `data/chain_analysis/`; links were added to the rules document. Product code, the source database and game files were unchanged.
+
+## 2026-11-17 — initial tree layout rules
+
+- Added the user's six rules on starting technologies, alphabetical ordering, vertical and horizontal continuation, and empty space beneath branches to the bilingual [chain and sorting document](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md).
+- Recorded the clarification that alphabetical sorting uses the name in the current language, so RU/EN may change the layout. Added preference for a prerequisite matching both `area` and `category`.
+- Checked categories of 679 base technologies and 89 objects with multiple predecessors: 44 have one matching candidate, 39 have several, and 6 have none. Saved examples, open questions and `data/chain_analysis/category_analysis.json`; noted eleven category overrides in variants. The implementation and database were unchanged.
+
+## 2026-11-17 — chain rules document and starting technologies
+
+- Created a bilingual [chain and sorting working document](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md) for collecting rules: baseline requirements, approaches under discussion and open decisions are recorded. No new algorithm was approved or implemented.
+- Prepared a complete bilingual [starting technology list](frontend/STARTING_TECHNOLOGIES_EN.md): 42 unique objects with `start_tech = yes`, five with `no`, `starting_potential` conditions, tiers and source links.
+- Saved the extract to `data/chain_analysis/starting_technologies.json`; all 50 field occurrences were checked against the installed game. Identified four tier-one starting technologies and eleven starting technologies with predecessors. The database, sorting and game files were unchanged.
+
+## 2026-11-17 — technology chain research
+
+- At the user's request, examined all 679 base technologies and 615 links in the prepared database; product code and sorting were unchanged.
+- Identified components, linear fragments, and numeric family candidates; examined branches, additional requirements, alternatives, and tier/area transitions separately.
+- Identified why chains are not aligned: the current layout sorts columns independently. Found 193 same-tier links and 13 transitions toward smaller `tier` values for subsequent design to address.
+- Added bilingual [chain research](frontend/RESEARCH_TECHNOLOGY_CHAINS_EN.md). The research script, complete lists, and independent verification reside in `data/chain_analysis/`; before/after database hashes match.
 
 ## 2026-11-17 — first frontend implementation
 

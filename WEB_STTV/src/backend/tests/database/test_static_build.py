@@ -20,7 +20,9 @@ class StaticBuildTests(BuildFixture):
         self.assertEqual(result['status'], 'success', result)
         self.assertEqual(result['counts']['static_variables']['substituted'], 2)
         settings = load_settings(self.variable_file, self.config_file)
-        context = expansion_context(settings)
+        from sttv.libraries.operation import library_operation
+        with library_operation(settings, 'reuse'):
+            context = expansion_context(settings)
         for document in self.database()['documents']:
             file = document['source']['file']
             if not file.endswith(('base.txt', 'second.txt')) or '/category/' in file or '/tier/' in file:

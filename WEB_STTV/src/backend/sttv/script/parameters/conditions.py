@@ -5,6 +5,9 @@ from ..inlining.text import MappedSource, Piece
 
 
 def select(source, bindings, syntax, options, call_id, control, counters):
+    plan = getattr(source, 'plan', None)
+    if plan is not None and not plan['conditional']:
+        return source, set()
     pieces, stack, used, cursor = [], [True], set(), 0
     spec = syntax.constructs['conditional']
     for token in Lexer(source, syntax).tokens():

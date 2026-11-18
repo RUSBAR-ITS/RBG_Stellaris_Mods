@@ -26,7 +26,7 @@ class ConfigurationTests(BuildFixture):
         self.assertEqual(self.run_build()["status"], "success")
         result = subprocess.run(
             [sys.executable, "-B", str(PRODUCT_ROOT / "src/backend/main.py"),
-             "--variables", str(self.variable_file), "--config", str(self.config_file)],
+             "--reuse-libraries", "--variables", str(self.variable_file), "--config", str(self.config_file)],
             cwd=self.root, capture_output=True, encoding="utf-8")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout)["status"], "success")
@@ -37,7 +37,7 @@ class ConfigurationTests(BuildFixture):
         self.run_build()
         result = subprocess.run(
             [sys.executable, "-B", str(PRODUCT_ROOT / "src/backend/main.py"),
-             "--variables", str(self.variable_file), "--config", str(self.config_file)],
+             "--reuse-libraries", "--variables", str(self.variable_file), "--config", str(self.config_file)],
             cwd=self.root, capture_output=True, encoding="utf-8")
         self.assertEqual(result.returncode, 1)
         self.assertEqual(result.stdout, "")
@@ -70,6 +70,6 @@ class ConfigurationTests(BuildFixture):
         self.options["unexpected"] = True
         self.assertIn("schema_error", self.errors(self.run_build()))
         self.variable_file.write_text('{"WORK_DIR":"one","WORK_DIR":"two"}', encoding="utf-8")
-        result = build(self.variable_file, self.config_file)
+        result = build(self.variable_file, self.config_file, library_mode='rebuild')
         self.assertEqual(result["status"], "failed")
         self.assertFalse(result["database_written"])

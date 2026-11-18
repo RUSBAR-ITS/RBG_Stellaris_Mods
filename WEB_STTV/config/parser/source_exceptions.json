@@ -1,0 +1,64 @@
+{
+  "format_version": 1,
+  "rules": [
+    {
+      "id": "sttv_event_job_amenities_separator",
+      "kind": "script_value_reference",
+      "match": {
+        "root_files": [
+          "common/pop_jobs/06_event_jobs.txt"
+        ],
+        "file": "common/pop_jobs/06_event_jobs.txt",
+        "scalar": "value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult||"
+      },
+      "action": {
+        "replace_scalar": "value:scripted_modifier_mult|MODIFIER|pop_job_amenities_mult|"
+      },
+      "reason": "Remove one extra trailing separator from the confirmed reference during import."
+    },
+    {
+      "id": "sttv_archive_selected_relic",
+      "kind": "missing_parameter",
+      "match": {
+        "root_files": [
+          "events/grand_archive_events.txt",
+          "events/leviathans_events_1.txt"
+        ],
+        "call_kind": "inline_script",
+        "definition_file": "common/inline_scripts/grand_archive/collection/stage_3_reward_option.txt",
+        "reference": "gave_relic_$RELIC$",
+        "missing_parameter": "RELIC",
+        "required_parameters": [
+          "SELECTED_RELIC"
+        ]
+      },
+      "action": {
+        "parameter_from": "SELECTED_RELIC"
+      },
+      "reason": "Bind the missing RELIC parameter to the selected relic already supplied by the caller."
+    },
+    {
+      "id": "sttv_nomads_ethic_random",
+      "kind": "missing_parameter",
+      "match": {
+        "root_files": [
+          "events/nomads_origin_events.txt"
+        ],
+        "call_kind": "scripted_effect",
+        "definition_file": "common/scripted_effects/00_scripted_effects.txt",
+        "call_name": "pop_group_add_ethic_effect",
+        "reference": "$RANDOM$",
+        "missing_parameter": "RANDOM",
+        "required_parameters": [
+          "POP_GROUP",
+          "ETHOS",
+          "PERCENTAGE"
+        ]
+      },
+      "action": {
+        "parameter_literal": "0"
+      },
+      "reason": "Supply the user-approved temporary RANDOM value of zero for the affected nomad calls."
+    }
+  ]
+}

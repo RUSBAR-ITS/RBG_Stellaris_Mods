@@ -118,7 +118,9 @@ class ValueBuildTests(ValueFixture):
         self.setup_values('x={base=2} unused={irrelevant=1}', 'a=value:x b=value:x')
         self.document()
         settings = load_settings(self.variable_file, self.config_file)
-        context = expansion_context(settings)
+        from sttv.libraries.operation import library_operation
+        with library_operation(settings, 'reuse'):
+            context = expansion_context(settings)
         doc = parse_text('a=value:x b=value:x', settings.syntax, 'test.txt', expansion=context)
         statistics = Statistics()
         statistics.consume(doc)

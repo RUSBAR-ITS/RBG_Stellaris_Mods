@@ -19,12 +19,12 @@ test('matching texts merge origins, missing entries can resolve, empty strings a
 });
 test('inheritance retains requested addresses and all original metadata', () => {
   const loc = sttvLocalization('variant');
-  loc.ru.description.key = 'base_desc';
-  loc.ru.description.inherited_from = 'base';
+  loc.ru.description!.key = 'base_desc';
+  loc.ru.description!.inherited_from = 'base';
   const builder = new SttvIndexBuilder();
   builder.add(loc, '/variant');
   assert.equal(builder.index.ru.variant_desc.origins[0].key, 'base_desc');
-  assert.equal(builder.index.ru.variant_desc.origins[0].inheritedFrom, 'base');
+  assert.deepEqual(builder.index.ru.variant_desc.origins[0].inheritedFrom, { database: 'technologies', pointer: 'base' });
 });
 test('conflicting resolved texts block preparation with text-specific evidence', () => {
   const builder = new SttvIndexBuilder();
@@ -40,7 +40,7 @@ test('conflicting resolved texts block preparation with text-specific evidence',
 test('lookup uses explicit source, no language fallback, and preserves game text', () => {
   const builder = new SttvIndexBuilder();
   const loc = sttvLocalization('a', 'Raw $key$ [Scope.Name] §G{name}§!');
-  loc.ru.name.text = null;
+  loc.ru.name!.text = null;
   builder.add(loc, '/a');
   const sources = { builtin: sttvSource('strings', { en: { count: 'Count {n}' } }, []), database: builder.index };
   assert.equal(sttvLookup(sources, 'ru', { id: 'a', source: 'database' }), '⟦a⟧');

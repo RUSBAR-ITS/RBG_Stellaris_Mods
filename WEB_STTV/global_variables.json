@@ -11,5 +11,19 @@
   "RU_LOC_TIER_2": "${WORKSHOP_DIR}/681483874/localisation/russian",
   "RU_LOC_TIER_3": "localisation/russian",
   "EN_LOC_TIER_1": "localisation/english",
-  "SCRIPT_VALUES_DIR": "common/script_values"
+  "SCRIPT_VALUES_DIR": "common/script_values",
+  "COMPONENTS_DIR": "common/component_templates",
+  "BUILDINGS_DIR": "common/buildings",
+  "MEGASTRUCTURES_DIR": "common/megastructures",
+  "SHIP_SIZES_DIR": "common/ship_sizes",
+  "STARBASE_LEVELS_DIR": "common/starbase_levels",
+  "STARBASE_MODULES_DIR": "common/starbase_modules",
+  "STARBASE_BUILDINGS_DIR": "common/starbase_buildings",
+  "TERRAFORM_DIR": "common/terraform",
+  "DEPOSITS_DIR": "common/deposits",
+  "POP_JOBS_DIR": "common/pop_jobs",
+  "ECONOMIC_CATEGORIES_DIR": "common/economic_categories",
+  "SCRIPTED_ACTIONS_DIR": "common/scripted_actions",
+  "ON_ACTIONS_DIR": "common/on_actions",
+  "EVENTS_DIR": "events"
 }

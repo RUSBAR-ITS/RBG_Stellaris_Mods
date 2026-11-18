@@ -29,6 +29,16 @@
 
 ## Document status
 
+Implemented and verified the approved [stage 15 — parallel file processing](TZ_BACKEND_STAGE_15_EN.md): ten workers within one database, validation before intermediate JSON writing, streaming merging and identity derived from document hashes. All three complete builds match; see the [implementation guide](BACKEND_STAGE_15_EN.md).
+
+Implemented [stage 14 — reusable element library](TZ_BACKEND_STAGE_14_EN.md) provides persistent library JSON, configured paths and sources, explicit `--rebuild-libraries` and `--reuse-libraries` modes, freshness verification and prepared template reuse. Both modes passed full acceptance; results are in the [guide](BACKEND_STAGE_14_EN.md). Stage 15 builds on this library mechanism.
+
+Approved and implemented: [stage 13 — validation and build optimization](TZ_BACKEND_STAGE_13_EN.md): direct node-type dispatch, preparing rules once, a shared traversal and document processing. The complete build became 2.66 times faster while all databases remained byte-identical. Results and measurement boundaries are in the [stage 13 guide](BACKEND_STAGE_13_EN.md).
+
+Approved and implemented: [backend stage 12](TZ_BACKEND_STAGE_12_EN.md) and [frontend stage 3](frontend/TZ_FRONTEND_STAGE_3_EN.md): fifteen localized databases, formatted JSON and streaming set opening. Current results are in the [stage 12 guide](BACKEND_STAGE_12_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_3_EN.md).
+
+Approved and implemented: [backend stage 11](TZ_BACKEND_STAGE_11_EN.md) and [frontend stage 2](frontend/TZ_FRONTEND_STAGE_2_EN.md): three localized databases, joint opening and explicit upgrade data. Their historical invocation and formats are in the [backend guide](BACKEND_STAGE_11_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_2_EN.md). Version-four formats and single-file opening below are historical.
+
 The [stage-ten specification — localization in the database](TZ_BACKEND_STAGE_10_EN.md) is approved and implemented. RU/EN names and descriptions reside beside objects in the same database, with static references and variant description inheritance. Current formats, invocation, and verification are in the [stage-ten guide](BACKEND_STAGE_10_EN.md).
 
 The [stage-nine specification — script value expansion](TZ_BACKEND_STAGE_9_EN.md) is approved and implemented. Historical formats, architecture, and results: [stage-nine guide](BACKEND_STAGE_9_EN.md).

@@ -13,8 +13,16 @@ from sttv.sources.expansion import expansion_context
 from sttv.database.history import validate_history
 
 
-def audit():
-    settings = load_settings(PRODUCT_ROOT/'global_variables.json', PRODUCT_ROOT/'config/backend.json')
+def audit(*, library_mode):
+    settings = load_settings(PRODUCT_ROOT/'global_variables.json', PRODUCT_ROOT/'config/backend.json', dataset='technologies')
+    from sttv.libraries.operation import library_operation
+    with library_operation(settings, library_mode) as snapshot:
+        result = audit_prepared(settings)
+        snapshot.inventory.verify()
+        return result
+
+
+def audit_prepared(settings):
     context = expansion_context(settings)
     documents, hashes = [], {}
 
@@ -83,4 +91,8 @@ def audit():
 
 
 if __name__ == '__main__':
-    audit()
+    import argparse
+    from sttv.libraries.operation import add_mode_arguments
+    parser = argparse.ArgumentParser()
+    add_mode_arguments(parser)
+    audit(library_mode=parser.parse_args().library_mode)

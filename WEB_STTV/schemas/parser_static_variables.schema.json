@@ -5,10 +5,6 @@
     "case_sensitive": {
       "type": "boolean"
     },
-    "encoding": {
-      "minLength": 1,
-      "type": "string"
-    },
     "format_version": {
       "const": 1
     },
@@ -20,16 +16,9 @@
       "minLength": 1,
       "type": "string"
     },
-    "pattern": {
-      "minLength": 1,
-      "type": "string"
-    },
     "prefix": {
       "minLength": 1,
       "type": "string"
-    },
-    "recursive": {
-      "type": "boolean"
     }
   },
   "required": [
@@ -37,9 +26,6 @@
     "prefix",
     "name_pattern",
     "case_sensitive",
-    "pattern",
-    "recursive",
-    "encoding",
     "max_reference_depth"
   ],
   "type": "object"

@@ -2,10 +2,6 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
-    "encoding": {
-      "minLength": 1,
-      "type": "string"
-    },
     "extension": {
       "pattern": "^\\.[A-Za-z0-9]+$",
       "type": "string"
@@ -30,7 +26,6 @@
     "path_field",
     "parameter_case_sensitive",
     "extension",
-    "encoding",
     "max_depth"
   ],
   "type": "object"

@@ -45,6 +45,9 @@ def parameter_at(source, start, syntax, limit, strict=True):
 
 
 def parameters(source, start, end, syntax, strict):
+    cached = getattr(source, 'parameter_plan', {}).get((start, end))
+    if cached is not None:
+        return cached
     result, index = [], start
     opener = syntax.constructs["parameters"]["open"]
     while index < end:

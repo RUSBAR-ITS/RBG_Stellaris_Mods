@@ -17,23 +17,21 @@ A local interactive web reference for Stellaris technologies. The first interfac
 
 ## Status
 
-The approved [stage-ten specification — localization in the database](Docs/TZ_BACKEND_STAGE_10_EN.md) is implemented. RU/EN names and descriptions reside beside technologies and variants in `enrichments.localization`. A separate operation expands static references, retains original text and sources, inherits missing descriptions, and safely updates the same database. Game trees and the general-purpose parser are preserved; possible reference-specific database cleanup remains a future stage.
+Implemented and verified [stage 15: parallel file processing](Docs/TZ_BACKEND_STAGE_15_EN.md). The default is ten workers within one database, with intermediate JSON and streaming merging. Configuration, operation and measurement details are in the [stage 15 guide](Docs/BACKEND_STAGE_15_EN.md).
 
-The backend continues to expand inline insertions, named effects, triggers, and calculations, binding parameters and static variables. `script_value` nodes preserve calculation bodies and evaluation scopes; shared history preserves invocation provenance. Game conditions and arithmetic are not evaluated; no command profile is used.
+Implemented [stage 14 — reusable element library](Docs/TZ_BACKEND_STAGE_14_EN.md): persistent JSON, explicit preparation/reuse modes and one snapshot for the entire build. Both modes passed full acceptance; commands and architecture are in the [stage 14 guide](Docs/BACKEND_STAGE_14_EN.md).
 
-The [current guide](Docs/BACKEND_STAGE_10_EN.md) describes operation and limitations. The verified enriched database is `data/stage10/database.json`, its report is `data/stage10/localization_report.json`, and the unenriched baseline is `data/stage10/database_unenriched.json`. Standard and previous outputs are preserved. Database format: `sttv.parse_database`, version 4; build report version: 5; localization report version: 1. Reading requires neither the game nor repeated expansion; older databases must be rebuilt before enrichment.
+The backend builds fifteen localized databases; [frontend `0.0.3`](Docs/frontend/TZ_FRONTEND_STAGE_3_EN.md) remains active. The complete set occupies 10.95 GiB. In stage 15, `reuse` took 34:44 with one worker and 8:20 with ten, a 4.17-fold speedup; ten-worker `rebuild` took 8:31. Process-tree peak memory was 4.09 / 21.34 / 20.92 GiB respectively. All three sets are byte-identical; relative to stage 14, only the shared `set_id` changed. All 240 backend tests and 33 frontend checks passed. Measurement conditions and limits are recorded in the stage 15 guide.
 
-All 184 tests passed, including 30 new checks. Rebuilt 35 files, preserving 82,246 game nodes. Enriched 679 technologies and 206 variants: 885 names and 885 descriptions per language, including 81 inherited variant descriptions. All 3,540 fields, trees, and history were independently compared; repeated execution produces an identical database. No errors or warnings occurred. Database size: 140,937,166 bytes. Verification reports are under `data/stage10/`.
+Database format: `sttv.parse_database`, version `6`, with a shared `dataset.set_id`. JSON is multiline with two-space indentation and readable Unicode. Complete trees, provenance and localization remain in the files. The frontend reads streams and stores compact catalogs. Game conditions are not evaluated; the existing card layout is preserved.
 
-The stage-nine full audit had 1,466 successful inputs, two documentation exclusions, and 21 failing files. Causes and limitations remain in [its guide](Docs/BACKEND_STAGE_9_EN.md); reports and lists are under `data/stage9/`. Localization did not repeat a full-game traversal. Guides for stages 1–9 are historical.
-
-The backend is in `src/backend/`. The first frontend, version `0.0.1`, is implemented in `src/frontend/` using React, TypeScript, plain CSS, Vite, and prepared database processing in a Web Worker. It includes RU/EN, two themes, variants, scrolling, opening states, and diagnostic reports. Connecting lines are not drawn yet. The build, 16 unit scenarios, and 10 browser scenarios were checked; the [guide](Docs/frontend/FRONTEND_STAGE_1_EN.md) describes results and limitations. A Python service, images, and portable packaging remain future stages; PyInstaller `onedir` is agreed for portable distribution.
+See the [backend guide](Docs/BACKEND_STAGE_15_EN.md) and [frontend guide](Docs/frontend/FRONTEND_STAGE_3_EN.md). Historical stages and results remain available. Portable distribution, images and state persistence remain separate tasks.
 
 ## Running the frontend
 
-From `WEB_STTV` with Node.js 24 installed: `npm ci`, then `npm run dev`. The address is `http://127.0.0.1:5173/`. This computer also has a local Node.js copy under `data/`; the exact command without a system installation is in the [guide](Docs/frontend/FRONTEND_STAGE_1_EN.md#running).
+From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer also has a prepared Node.js copy under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_3_EN.md#running-and-selecting-files).
 
-Click Open database and select `data/stage10/database.json`. Startup and page refresh neither invoke the generator nor automatically open a database. State does not persist between sessions.
+Click Open database set and select all fifteen JSON files in `data/databases/` together. Do not select reports from `data/reports/`. Build separately: `$env:PYTHONPATH="src/backend"`, then `python -B -m sttv.database_sets --rebuild-libraries`. Startup and refresh neither invoke generation nor automatically open databases.
 
 ## Directory structure
 
@@ -41,8 +39,8 @@ Click Open database and select `data/stage10/database.json`. Startup and page re
 | --- | --- |
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
-| `config/` | Sources, output paths, eight parser configurations, and a separate localization configuration |
-| `schemas/` | Thirteen generated configuration, database, and report schemas |
+| `config/` | Sources, output paths, parser, library and localization configurations |
+| `schemas/` | Twenty-three generated configuration, database, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 | `Docs/frontend/` | Interface concept and subsequent frontend documentation |
@@ -60,6 +58,8 @@ The shared [global_variables.json](global_variables.json) file stores project va
 | `WORK_DIR` | Product and validation working folder, relative to the project directory by default | `data` |
 | `STELLARIS_ROOT` | Absolute path to the installed game root | `E:/SteamLibrary/steamapps/common/Stellaris` |
 | `TECH_PATH` | Path to the technology directory relative to `STELLARIS_ROOT` | `common/technology` |
+| `COMPONENTS_DIR` | Component directory relative to `STELLARIS_ROOT` | `common/component_templates` |
+| `BUILDINGS_DIR` | Building directory relative to `STELLARIS_ROOT` | `common/buildings` |
 | `INLINE_SCRIPTS_DIR` | Directory containing `inline_script` templates, relative to `STELLARIS_ROOT` | `common/inline_scripts` |
 | `SCRIPTED_EFFECTS_DIR` | Named-effect library relative to `STELLARIS_ROOT`, excluded from independent traversal | `common/scripted_effects` |
 | `SCRIPTED_TRIGGERS_DIR` | Named-trigger library relative to `STELLARIS_ROOT`, indexed separately and excluded from independent traversal | `common/scripted_triggers` |
@@ -73,15 +73,29 @@ The shared [global_variables.json](global_variables.json) file stores project va
 
 `TECH_PATH`, `INLINE_SCRIPTS_DIR`, `SCRIPTED_EFFECTS_DIR`, `SCRIPTED_TRIGGERS_DIR`, `SCRIPTED_VARIABLES_DIR`, `SCRIPT_VALUES_DIR`, `RU_LOC_TIER_3`, and `EN_LOC_TIER_1` are relative to `STELLARIS_ROOT`. `${WORKSHOP_DIR}` in the other two paths denotes substitution of the variable with that name. This is a configuration-file convention: JSON stores ordinary strings and does not perform substitution itself. Paths use forward slashes `/`, consistent with the previously defined variables.
 
-`INLINE_SCRIPTS_DIR` is used for inclusion expansion. For example, `script = technologies/rare_technologies_weight_modifiers` refers to `STELLARIS_ROOT/INLINE_SCRIPTS_DIR/technologies/rare_technologies_weight_modifiers.txt`. The directory is read-only; templates are loaded through reached calls, including nested ones.
+`INLINE_SCRIPTS_DIR` is used for inclusion expansion. For example, `script = technologies/rare_technologies_weight_modifiers` refers to `STELLARIS_ROOT/INLINE_SCRIPTS_DIR/technologies/rare_technologies_weight_modifiers.txt`. The directory is read-only. Templates selected by configuration are prepared into a shared library; reached calls, including nested ones, use its prepared plans.
 
 Nested calls, argument substitution, and invocation history are implemented. Metadata is excluded from analytical traversal; the current representation is described in the [stage-nine guide](Docs/BACKEND_STAGE_9_EN.md).
 
 During enrichment, Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
 
-Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads settings, expands inline calls, named effects, triggers, and script values, and substitutes static variables. It does not require localization directories; names and descriptions are added by a separate operation on a completed database.
+Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads settings, expands inline calls, named effects, triggers, and script values, and substitutes static variables. The general tree builder does not require localization; the set coordinator then enriches all fifteen trees and publishes them together.
 
 ## Documents
+
+- [Stage 15: parallel file processing and database merging](Docs/TZ_BACKEND_STAGE_15_EN.md).
+- [Stage 15 implementation guide](Docs/BACKEND_STAGE_15_EN.md).
+- [Stage 14: preparing and reusing libraries](Docs/TZ_BACKEND_STAGE_14_EN.md).
+- [Stage 13: optimized validation, measurements and acceptance](Docs/BACKEND_STAGE_13_EN.md).
+- [Approved stage 13 specification: validation and build optimization](Docs/TZ_BACKEND_STAGE_13_EN.md).
+
+- [Stage 12: building and verifying fifteen databases](Docs/BACKEND_STAGE_12_EN.md).
+- [Frontend 0.0.3: streaming set opening](Docs/frontend/FRONTEND_STAGE_3_EN.md).
+
+- [Stage 12 specification: extended database set](Docs/TZ_BACKEND_STAGE_12_EN.md).
+- [Frontend stage 3 specification: opening 15 databases](Docs/frontend/TZ_FRONTEND_STAGE_3_EN.md).
+- [Stage 11: building three localized databases](Docs/BACKEND_STAGE_11_EN.md).
+- [Frontend stage 2: set opening and upgrade data](Docs/frontend/FRONTEND_STAGE_2_EN.md).
 
 - [First frontend: running, implementation, and checks](Docs/frontend/FRONTEND_STAGE_1_EN.md).
 
@@ -97,6 +111,8 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Diagnostic report saving specification: menu action and current attempt JSON](Docs/frontend/TZ_DIAGNOSTIC_REPORT_EN.md).
 - [Stage ten: localization invocation, database format, and verification](Docs/BACKEND_STAGE_10_EN.md).
 - [Stage ten specification: RU/EN names and descriptions in the database — implemented](Docs/TZ_BACKEND_STAGE_10_EN.md).
+- [Backend stage 11 specification: three localized databases — draft for approval](Docs/TZ_BACKEND_STAGE_11_EN.md).
+- [Frontend stage 2 specification: three-database set opening and object links — draft for approval](Docs/frontend/TZ_FRONTEND_STAGE_2_EN.md).
 - [Stage nine specification: script value expansion — implemented](Docs/TZ_BACKEND_STAGE_9_EN.md).
 - [Stage eight specification: effect and trigger expansion — implemented](Docs/TZ_BACKEND_STAGE_8_EN.md).
 - [Language construct catalog](language/README_EN.md).

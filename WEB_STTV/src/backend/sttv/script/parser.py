@@ -134,6 +134,17 @@ class Parser:
 
 
 def parse_source(source, syntax, specials=True):
+    from .metrics import ACTIVE
+    from time import perf_counter
+    metrics, start = ACTIVE.get(), perf_counter()
+    plan = getattr(source, 'plan', None)
+    if specials and plan is not None and plan['items'] is not None:
+        if metrics:
+            metrics.count('constant_instantiations')
+        return Document(source, [], [locate(item, source) for item in plan['items']], {'expansions': []})
+    dynamic = source.call_id is not None
+    if metrics:
+        metrics.count('dynamic_parses' if dynamic else 'source_parses')
     parser = Parser(source, syntax, specials)
     try:
         items, _ = parser.sequence()
@@ -141,6 +152,9 @@ def parse_source(source, syntax, specials=True):
         token = parser.peek()
         source.fail("nesting_depth", "Nesting exceeds parser capacity",
                     token.span.start if token else len(source.text))
+    finally:
+        if metrics and dynamic:
+            metrics.seconds('dynamic_parsing', perf_counter() - start)
     return Document(source, parser.tokens, [locate(item, source) for item in items],
                     {"expansions": []})
 

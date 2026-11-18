@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "counts": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "diagnostics": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "message": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "format": {
+      "const": "sttv.library_report"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "library_set_id": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mode": {
+      "enum": [
+        "rebuild",
+        "reuse"
+      ]
+    },
+    "status": {
+      "enum": [
+        "running",
+        "success",
+        "failed"
+      ]
+    },
+    "timings": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "mode",
+    "status",
+    "library_set_id",
+    "counts",
+    "timings",
+    "diagnostics",
+    "bytes"
+  ],
+  "type": "object"
+}

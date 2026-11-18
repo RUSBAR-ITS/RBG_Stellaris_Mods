@@ -6,13 +6,14 @@ from sttv.script.inline import Expansion, FileTemplates
 def expansion_context(settings, report=None, variables=None):
     from sttv.common.report import Report
     from .static_variables import variable_processor
-    from .scripted import load_library
+    from sttv.libraries.operation import current
+    from sttv.script.source_exceptions import SourceExceptions
     report = report if report is not None else Report()
     variables = variables or variable_processor(settings, report)
-    templates = FileTemplates(settings.inline_directory, settings.inline_options,
-                              settings.parser_exceptions['inline_script_files'])
-    library = load_library(settings, report, variables, templates)
-    return Expansion(templates, settings.inline_options, report, library, variables)
+    templates, library = current(settings).context(settings, report)
+    corrections = SourceExceptions(settings.source_exceptions, report, settings.source_exceptions_file,
+                                    settings.inline_directory.relative_to(settings.game).as_posix())
+    return Expansion(templates, settings.inline_options, report, library, variables, corrections)
 
 
 def source_exclusion(path, settings):

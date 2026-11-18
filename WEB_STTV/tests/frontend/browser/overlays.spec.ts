@@ -7,7 +7,7 @@ test('oversized literal descriptions remain reachable without scrolling the fiel
   await page.goto('/'); await sttvEnglish(page);
   const technology = sttvTechnology('tech_long');
   const description = '§GRaw $key$ [Scope.Name] <b>literal</b>§! '.repeat(160);
-  technology.enrichments.localization.en.description.text = description;
+  technology.enrichments.localization.en.description!.text = description;
   await sttvUpload(page, sttvDatabase([technology]));
   const card = page.locator('[data-technology-id="tech_long"]');
   await card.hover();
@@ -45,7 +45,7 @@ test('keyboard selection changes only after confirmation and returns to the trig
 test('negative requirements and unsupported formats produce diagnostic errors', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
   await sttvUpload(page, { format: 'other', format_version: 7 });
-  await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_unsupported_database);
+  await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_invalid_database_set);
   const negative = sttvTechnology('a', 0, 'physics', [sttvLogical('NOT', [sttvScalar('b')])]);
   await sttvUpload(page, sttvDatabase([negative, sttvTechnology('b')]));
   await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_invalid_database);

@@ -1,4 +1,4 @@
-"""Read referenced templates only; cache bytes within one operation."""
+"""Resolve allowed inline paths and provide isolated in-memory test templates."""
 
 from hashlib import sha256
 from pathlib import Path, PurePosixPath
@@ -37,7 +37,7 @@ def exception_files(entries):
 class FileTemplates:
     def __init__(self, directory, options, exceptions=None):
         self.directory = Path(directory).resolve()
-        self.options, self.cache, self.manifest = options, {}, {}
+        self.options = options
         self.exceptions = exception_files(exceptions or {})
 
     def identity(self, name):
@@ -49,27 +49,12 @@ class FileTemplates:
             raise BuildError("invalid_inline_path", f"Template escapes source root: {name}")
         return str(path).casefold(), relative, path
 
-    def read(self, name):
-        key, relative, path = self.identity(name)
-        if key not in self.cache:
-            try:
-                raw = path.read_bytes()
-            except FileNotFoundError as exc:
-                raise BuildError("missing_inline_template", f"Missing template: {relative}") from exc
-            except OSError as exc:
-                raise BuildError("inline_read_error", str(exc)) from exc
-            self.manifest[relative] = sha256(raw).hexdigest()
-            try:
-                text = raw.decode(self.options["encoding"])
-            except (UnicodeError, LookupError) as exc:
-                raise BuildError("inline_encoding", f"{relative}: {exc}") from exc
-            self.cache[key] = Source(text, relative, "INLINE_SCRIPTS_DIR")
-        return self.cache[key]
 
 
 class MemoryTemplates:
     def __init__(self, templates, options):
         self.templates, self.options = templates, options
+        self.sources = {}
         self.manifest = {}
 
     def identity(self, name):
@@ -82,4 +67,6 @@ class MemoryTemplates:
             raise BuildError("missing_inline_template", f"Missing template: {relative}")
         text = self.templates[relative]
         self.manifest[relative] = sha256(text.encode("utf-8")).hexdigest()
-        return Source(text, relative, "INLINE_SCRIPTS_DIR")
+        if relative not in self.sources:
+            self.sources[relative] = Source(text, relative, "INLINE_SCRIPTS_DIR")
+        return self.sources[relative]

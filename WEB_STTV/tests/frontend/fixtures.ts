@@ -1,6 +1,7 @@
 import type { SttvDatabase, SttvNode } from '../../src/frontend/data/syntax';
-import type { SttvArea } from '../../src/frontend/data/model';
+import type { SttvArea, SttvDatabaseKind } from '../../src/frontend/data/model';
 import type { SttvStoredLocalization } from '../../src/frontend/localization/model';
+import { sttvDatabaseKinds, sttvDatasets } from '../../src/frontend/data/registry';
 
 export const sttvScalar = (text: string): SttvNode => ({ kind: 'scalar', text });
 export const sttvBlock = (items: SttvNode[]): SttvNode => ({ kind: 'block', items });
@@ -25,8 +26,20 @@ export function sttvVariant(id: string, area?: SttvArea, text = id): SttvNode {
     enrichments: { localization: sttvLocalization(id, text) } };
 }
 export function sttvDatabase(items: SttvNode[]): SttvDatabase {
-  return { format: 'sttv.parse_database', format_version: 4,
+  return { format: 'sttv.parse_database', format_version: 6,
     documents: [{ source: { file: 'common/technology/example.txt', root: 'STELLARIS_ROOT' }, items }] };
+}
+export function sttvDataset(kind: SttvDatabaseKind, items: SttvNode[] = []): SttvDatabase {
+  const directory = sttvDatasets[kind].directory;
+  return { ...sttvDatabase(items), dataset: { kind, set_id: 'a'.repeat(64) },
+    documents: [{ source: { file: `${directory}/example.txt`, root: 'STELLARIS_ROOT' }, items }] };
+}
+export function sttvSet(technology: SttvDatabase = sttvDatabase([])) {
+  return sttvDatabaseKinds.map(kind => kind === 'technologies'
+    ? { ...technology, dataset: { kind, set_id: 'a'.repeat(64) } } : sttvDataset(kind));
+}
+export function sttvSetFiles(databases = sttvSet()) {
+  return databases.map((db, i) => ({ name: `input-${i}.json`, size: JSON.stringify(db).length }));
 }
 export function sttvBrowserDatabase() {
   const base = sttvTechnology('tech_example');

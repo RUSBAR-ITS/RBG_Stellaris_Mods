@@ -58,5 +58,7 @@ class Index:
             source = getattr(document, 'node_sources', {}).get(id(node), document.source)
             body = slice_source(source, node.value.span.start + width, node.value.span.end - width)
             body.environment = document.source.environment
+            from ..prepared import prepare
+            prepare(body, syntax)
             entries[key] = Definition(name, kind, body, node)
             counts['definitions'] += 1

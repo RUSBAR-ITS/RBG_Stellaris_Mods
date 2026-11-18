@@ -1,0 +1,28 @@
+{
+  "selection": {
+    "variable": "EVENTS_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": null,
+    "description_field": "desc",
+    "text_field": "text",
+    "fallback_field": null,
+    "omit_name": true,
+    "description_nodes": true,
+    "child_text_fields": [
+      {
+        "field": "title",
+        "role": "name"
+      }
+    ],
+    "description_excluded": [
+      "trigger",
+      "limit",
+      "exclusive_trigger"
+    ]
+  }
+}

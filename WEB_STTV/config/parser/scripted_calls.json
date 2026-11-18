@@ -1,13 +1,28 @@
 {
   "format_version": 1,
-  "pattern": "*.txt",
-  "recursive": true,
-  "encoding": "utf-8-sig",
   "name_case_sensitive": false,
-  "parameter_case_sensitive": true,
+  "parameter_case_sensitive": false,
   "max_call_depth": 64,
   "max_expanded_nodes": 1000000,
-  "root_definition_files": ["common/game_rules/*.txt"],
-  "file_fields": ["namespace"],
-  "definition_directives": ["optimize_memory"]
+  "root_definition_files": [
+    "common/game_rules/*.txt",
+    "common/megastructures/*.txt",
+    "common/ship_sizes/*.txt",
+    "common/starbase_levels/*.txt",
+    "common/starbase_modules/*.txt",
+    "common/starbase_buildings/*.txt",
+    "common/terraform/*.txt",
+    "common/deposits/*.txt",
+    "common/pop_jobs/*.txt",
+    "common/economic_categories/*.txt",
+    "common/scripted_actions/*.txt",
+    "common/on_actions/*.txt",
+    "events/*.txt"
+  ],
+  "file_fields": [
+    "namespace"
+  ],
+  "definition_directives": [
+    "optimize_memory"
+  ]
 }

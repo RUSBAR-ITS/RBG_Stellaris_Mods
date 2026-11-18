@@ -15,7 +15,14 @@ export interface SttvNode {
 export interface SttvDatabase {
   format: string;
   format_version: number;
+  dataset?: { kind: string; set_id: string };
   documents: { source: { file: string; root: string }; items: SttvNode[] }[];
+}
+export function sttvDocument(document: SttvDatabase['documents'][number], path: string) {
+  if (typeof document?.source?.file !== 'string' || !Array.isArray(document?.items)) {
+    throw sttvInvalid(path, 'Source filename and document items are required.');
+  }
+  return document.source.file.replaceAll('\\', '/');
 }
 export function sttvItems(node: SttvNode | undefined, path: string): SttvNode[] {
   if (node?.kind !== 'block' || !Array.isArray(node.items)) {

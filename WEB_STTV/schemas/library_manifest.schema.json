@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "inline_script",
+              "scripted_effect",
+              "scripted_trigger",
+              "script_value",
+              "static_variables"
+            ]
+          },
+          "path": {
+            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "path",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "configuration": {
+      "additionalProperties": false,
+      "properties": {
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sha256"
+      ],
+      "type": "object"
+    },
+    "format": {
+      "const": "sttv.library_manifest"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "input_fingerprint": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "library_set_id": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "preparation_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "kinds": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "relative": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "relative",
+          "sha256",
+          "kinds"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "preparation_version",
+    "library_set_id",
+    "input_fingerprint",
+    "sources",
+    "configuration",
+    "artifacts"
+  ],
+  "type": "object"
+}

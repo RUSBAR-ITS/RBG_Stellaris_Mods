@@ -12,10 +12,16 @@ from sttv.common.schema import validate_schema
 class StaticLibraryTests(BuildFixture):
     def configure(self, **changes):
         config = json.loads((PRODUCT_ROOT / 'config/parser/static_variables.json').read_text(encoding='utf-8'))
+        reading = {key: changes.pop(key) for key in ('pattern', 'recursive', 'encoding') if key in changes}
         config.update(changes)
         work = Path(self.variables['WORK_DIR'])
         work.mkdir(parents=True, exist_ok=True)
-        file = work / 'static.json'
+        if reading:
+            libraries = json.loads((PRODUCT_ROOT / 'config/libraries.json').read_text(encoding='utf-8'))
+            next(row for row in libraries['libraries'] if row['kind'] == 'static_variables')['source'].update(reading)
+            (work / 'libraries_config.json').write_text(json.dumps(libraries), encoding='utf-8')
+            self.options['libraries'] = {'base': 'work', 'path': 'libraries_config.json'}
+        file = work / 'static.json' 
         file.write_text(json.dumps(config), encoding='utf-8')
         self.options['parser']['static_variables'] = {'base': 'work', 'path': 'static.json'}
         return file

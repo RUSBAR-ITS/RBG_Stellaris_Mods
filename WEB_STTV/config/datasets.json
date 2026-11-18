@@ -1,0 +1,151 @@
+{
+  "format_version": 1,
+  "datasets": {
+    "technologies": {
+      "labelId": "sttv.dataset.technologies",
+      "directory": "common/technology",
+      "recursive": false,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "components": {
+      "labelId": "sttv.dataset.components",
+      "directory": "common/component_templates",
+      "recursive": true,
+      "rootTypes": [
+        "weapon_component_template",
+        "utility_component_template",
+        "strike_craft_component_template"
+      ],
+      "identity": "field",
+      "idField": "key"
+    },
+    "buildings": {
+      "labelId": "sttv.dataset.buildings",
+      "directory": "common/buildings",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "megastructures": {
+      "labelId": "sttv.dataset.megastructures",
+      "directory": "common/megastructures",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "ship_sizes": {
+      "labelId": "sttv.dataset.ship_sizes",
+      "directory": "common/ship_sizes",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "starbase_levels": {
+      "labelId": "sttv.dataset.starbase_levels",
+      "directory": "common/starbase_levels",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "starbase_modules": {
+      "labelId": "sttv.dataset.starbase_modules",
+      "directory": "common/starbase_modules",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "starbase_buildings": {
+      "labelId": "sttv.dataset.starbase_buildings",
+      "directory": "common/starbase_buildings",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "terraform": {
+      "labelId": "sttv.dataset.terraform",
+      "directory": "common/terraform",
+      "recursive": true,
+      "rootTypes": [
+        "terraform_link"
+      ],
+      "identity": "anonymous",
+      "idField": null
+    },
+    "deposits": {
+      "labelId": "sttv.dataset.deposits",
+      "directory": "common/deposits",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "pop_jobs": {
+      "labelId": "sttv.dataset.pop_jobs",
+      "directory": "common/pop_jobs",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "economic_categories": {
+      "labelId": "sttv.dataset.economic_categories",
+      "directory": "common/economic_categories",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "scripted_actions": {
+      "labelId": "sttv.dataset.scripted_actions",
+      "directory": "common/scripted_actions",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "on_actions": {
+      "labelId": "sttv.dataset.on_actions",
+      "directory": "common/on_actions",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "fragments",
+      "idField": null
+    },
+    "events": {
+      "labelId": "sttv.dataset.events",
+      "directory": "events",
+      "recursive": true,
+      "rootTypes": [
+        "agreement_event",
+        "astral_rift_event",
+        "bypass_event",
+        "carrier_event",
+        "colony_event",
+        "country_event",
+        "espionage_operation_event",
+        "event",
+        "first_contact_event",
+        "fleet_event",
+        "leader_event",
+        "observer_event",
+        "planet_event",
+        "pop_faction_event",
+        "pop_group_event",
+        "ship_event",
+        "situation_event",
+        "starbase_event",
+        "system_event"
+      ],
+      "identity": "field",
+      "idField": "id"
+    }
+  }
+}

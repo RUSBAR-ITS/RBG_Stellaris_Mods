@@ -19,6 +19,8 @@ class Lexer:
         self.whitespace = set(lex["whitespace"])
         self.parameter = forms["parameters"]["open"]
         self.index = 0
+        from .metrics import ACTIVE
+        self.metrics = ACTIVE.get()
 
     def marker(self, index):
         return next((pair for pair in self.markers if self.source.text.startswith(pair[0], index)), None)
@@ -29,6 +31,13 @@ class Lexer:
 
     def next_token(self, opaque=False):
         text, index = self.source.text, self.index
+        cached = getattr(self.source, 'lexical_plan', {}).get(index)
+        if cached and (not opaque or cached[0] in ('space', 'comment', 'bom')):
+            kind, end = cached
+            self.index = end
+            if self.metrics:
+                self.metrics.count('replayed_tokens')
+            return Token(kind, text[index:end], self.source.span(index, end))
         if index < len(text):
             start, kind = index, "atom"
             if index == 0 and text[index] == "\ufeff":
@@ -68,5 +77,7 @@ class Lexer:
                     else:
                         index += 1
             self.index = index
+            if self.metrics:
+                self.metrics.count('lexed_tokens')
             return Token(kind, text[start:index], self.source.span(start, index))
         return None

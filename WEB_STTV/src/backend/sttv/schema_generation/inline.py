@@ -8,7 +8,7 @@ def configuration():
                 "path_field": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
                 "parameter_case_sensitive": BOOL,
                 "extension": {"type": "string", "pattern": "^\\.[A-Za-z0-9]+$"},
-                "encoding": TEXT, "max_depth": {"type": "integer", "minimum": 1}})
+                "max_depth": {"type": "integer", "minimum": 1}})
 
 
 def counts():
@@ -22,7 +22,7 @@ def exceptions():
 
 
 def location():
-    return obj({"root": {"enum": ["STELLARIS_ROOT", "TECH_PATH", "INLINE_SCRIPTS_DIR"]},
+    return obj({"root": {"enum": ["STELLARIS_ROOT", "TECH_PATH", "INLINE_SCRIPTS_DIR", "PRODUCT_ROOT"]},
                 "file": RELATIVE, "line": LINE, "column": LINE,
                 "expansion_id": union(TEXT, NULL)})
 

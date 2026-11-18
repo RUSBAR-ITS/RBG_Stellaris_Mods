@@ -39,6 +39,9 @@ def reference_source(context, node, source, syntax):
 
 def expand_value(context, node, payload, syntax, record, frame):
     library = context.library
+    original = payload.text
+    if context.exceptions:
+        payload = context.exceptions.reference(context, payload)
     name, scope, arguments, bindings = invocation(payload, syntax, library.value_options, library.options)
     key = library.key(name)
     context.identify(frame, ('script_value', key), name, 'scripted_cycle')
@@ -47,10 +50,11 @@ def expand_value(context, node, payload, syntax, record, frame):
         fail('unknown_script_value', f'Unknown script value: {name}', node)
     record.update(target=dict(name=definition.name, file=definition.node.origin['file'],
                               span=asdict(definition.node.span)),
-                  invocation=dict(operator=None, form='arguments' if arguments else 'reference', raw=payload.text),
+                  invocation=dict(operator=None, form='arguments' if arguments else 'reference', raw=original),
                   arguments=arguments, directives=[])
     expanded, used = substitute(definition.source, bindings, syntax, library.options, record['id'],
-                                lambda text: context.control(text, syntax), context.parameter_counts)
+                                lambda text: context.control(text, syntax), context.parameter_counts,
+                                context.missing_parameter(record, library.options))
     document = parse_source(expanded, syntax)
     context.account(document.items)
     context.remember(document)

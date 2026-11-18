@@ -19,7 +19,7 @@ def fixture(text, templates=None):
     options = read_json(PRODUCT_ROOT / "config/parser/inline_scripts.json")
     context = Expansion(MemoryTemplates(templates or {}, options), options)
     document = parse_text(text, syntax(), "fixture.txt", expansion=context)
-    return {"format": "sttv.parse_database", "format_version": 4,
+    return {"format": "sttv.parse_database", "format_version": 6,
             "documents": [serialize_document(document)]}, document
 
 

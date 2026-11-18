@@ -6,11 +6,15 @@ from ..parameters.conditions import select
 from .text import MappedSource, Piece
 
 
-def substitute(source, bindings, syntax, options, call_id, control=None, counters=None):
+def substitute(source, bindings, syntax, options, call_id, control=None, counters=None, missing=None):
     counters = counters if counters is not None else dict(defaults=0, retained_fragments=0, discarded_fragments=0)
     source, used = select(source, bindings, syntax, options, call_id,
                           control or (lambda argument: argument.text), counters)
+    plan = getattr(source, 'plan', None)
+    if plan is not None and not plan['parameter_count']:
+        return MappedSource([Piece(source.text, source, 0, len(source.text))], source, call_id), used
     pieces, cursor = [], 0
+    bindings = dict(bindings)
     for token in Lexer(source, syntax).tokens():
         if token.kind in ("comment", "bom"):
             continue
@@ -18,6 +22,11 @@ def substitute(source, bindings, syntax, options, call_id, control=None, counter
             name = parameter.name if options["parameter_case_sensitive"] else parameter.name.casefold()
             start, end = parameter.span.start, parameter.span.end
             pieces.append(Piece(source.text[cursor:start], source, cursor, start))
+            if name not in bindings and parameter.default is None and missing is not None:
+                correction = missing(parameter, token, source, bindings)
+                if correction is not None:
+                    bindings[name], dependencies = correction
+                    used.update(dependencies)
             if name in bindings:
                 argument = bindings[name]
                 pieces.append(Piece(argument.text, source, start, end, argument))

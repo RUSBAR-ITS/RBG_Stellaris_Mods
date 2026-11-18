@@ -50,14 +50,14 @@ test('layout orders by requirement count then predecessor set and stable ID', ()
   const catalog = sttvAdaptDatabase(sttvDatabase(items));
   assert.deepEqual(sttvLayout(catalog.technologies, {}).areas[0].columns[1].ids, ['c', 'd', 'b']);
 });
-test('real stage 10 database produces the agreed catalog without input mutation', () => {
-  const db = JSON.parse(readFileSync('data/stage10/database.json', 'utf8'));
+test('real technology set member database produces the agreed catalog without input mutation', { skip: !process.env.STTV_DATABASE_DIR }, () => {
+  const db = JSON.parse(readFileSync(`${process.env.STTV_DATABASE_DIR ?? 'data/databases'}/technologies.json`, 'utf8'));
   const catalog = sttvAdaptDatabase(db);
   assert.equal(Object.keys(catalog.technologies).length, 679);
   assert.equal(Object.values(catalog.technologies).reduce((n, t) => n + t.representations.length - 1, 0), 206);
   assert.equal(catalog.technologies.tech_titans.requirementCount, 1);
   assert.deepEqual(catalog.technologies.tech_titans.prerequisiteIds, ['tech_battleships', 'tech_stinger_growth_2']);
-  assert.equal(catalog.technologies.tech_titans.sourceRef, '/documents/7/items/5');
+  assert.deepEqual(catalog.technologies.tech_titans.sourceRef, { database: 'technologies', pointer: '/documents/7/items/5' });
   assert.equal(catalog.diagnostics.length, 0);
   const serialized = JSON.stringify(catalog);
   assert.equal(serialized.includes('"documents"'), false);

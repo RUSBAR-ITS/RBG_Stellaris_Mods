@@ -24,6 +24,9 @@ class MappedSource(Source):
         for piece in pieces:
             self.starts.append(offset)
             offset += len(piece.text)
+        if any(getattr(piece.source, 'lexical_plan', None) for piece in pieces):
+            from ..prepared import mapped_plan
+            mapped_plan(self, pieces)
 
     def environment_at(self, start, end):
         environments = []

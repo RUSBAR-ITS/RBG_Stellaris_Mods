@@ -1,15 +1,15 @@
-"""Validate and reread JSON before replacing one output file."""
+"""Validate prepared JSON once before replacing one output file."""
 
 import os
+import json
 import tempfile
 from pathlib import Path
 
-from .json_io import json_text, read_json
 from .errors import BuildError
 from .schema import validate_schema
 
 
-def prepare_json(path, value, schema=None, validator=None):
+def prepare_json(path, value, schema=None, validator=None, compact=False):
     check = validator if validator is not None else lambda data: validate_schema(data, schema)
     check(value)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -19,10 +19,15 @@ def prepare_json(path, value, schema=None, validator=None):
                                          prefix=path.name + ".", suffix=".tmp",
                                          dir=path.parent, delete=False) as handle:
             temporary = Path(handle.name)
-            handle.write(json_text(value))
+            if compact:
+                json.dump(value, handle, ensure_ascii=False, sort_keys=True,
+                          separators=(',', ':'), allow_nan=False)
+                handle.write('\n')
+            else:
+                json.dump(value, handle, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False)
+                handle.write('\n')
             handle.flush()
             os.fsync(handle.fileno())
-        check(read_json(temporary))
         return temporary
     except BaseException:
         if temporary is not None:

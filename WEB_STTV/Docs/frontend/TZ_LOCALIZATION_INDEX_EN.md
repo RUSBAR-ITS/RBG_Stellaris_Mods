@@ -14,6 +14,8 @@
 
 ## Status and scope
 
+As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
+
 This document records the localization index record format agreed by the user on 2026-11-17. It refines the [shared localization mechanism](TZ_LOCALIZATION_EN.md) and [Worker result](TZ_WORKER_RESULT_EN.md). Contradictory texts are data errors requiring manual investigation; this decision replaces the previous rule of displaying a marker for a conflict.
 
 This iteration produces documentation. It does not implement the frontend, modify the backend, or rebuild the database.

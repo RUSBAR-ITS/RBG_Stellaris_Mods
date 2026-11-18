@@ -1,14 +1,16 @@
 import config from '../../../config/frontend/adapter.json';
-import { sttvFields, sttvField, sttvItems, sttvScalar } from './syntax';
+import { sttvFields, sttvField, sttvItems, sttvScalar, sttvDocument } from './syntax';
 import type { SttvDatabase, SttvNode } from './syntax';
-import type { SttvArea, SttvCatalog, SttvRepresentation } from './model';
+import type { SttvArea, SttvTechnologyCatalog, SttvRepresentation } from './model';
 import { sttvRequirements } from './requirements';
 import { sttvOrderColumn } from './layout';
 import { SttvIndexBuilder } from '../localization/index';
 import { SttvPreparationError, sttvDiagnostic, sttvInvalid } from '../workers/diagnostics';
 import type { SttvDiagnostic } from '../workers/diagnostics';
 
-export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] = []): SttvCatalog {
+export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] = [],
+  strings = new SttvIndexBuilder(), collectWarnings = true,
+  partial?: { catalog: SttvTechnologyCatalog; documentOffset: number }): SttvTechnologyCatalog {
   const db = input as SttvDatabase;
   if (db?.format !== config.format || db?.format_version !== config.formatVersion) {
     throw new SttvPreparationError(sttvDiagnostic('unsupported_database', 'preparing', {
@@ -18,9 +20,8 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
     }));
   }
   if (!Array.isArray(db.documents)) throw sttvInvalid('/documents', 'Cannot enumerate source documents.');
-  const technologies: SttvCatalog['technologies'] = Object.create(null);
-  const links: SttvCatalog['links'] = [];
-  const strings = new SttvIndexBuilder();
+  const technologies: SttvTechnologyCatalog['technologies'] = partial?.catalog.technologies ?? Object.create(null);
+  const links: SttvTechnologyCatalog['links'] = partial?.catalog.links ?? [];
   const field = config.fields;
 
   function area(items: SttvNode[], path: string, inherited?: SttvArea): SttvArea {
@@ -32,19 +33,25 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
   function representation(node: SttvNode, path: string, baseArea: SttvArea, index?: number): SttvRepresentation {
     return { id: index === undefined ? 'base' : `swap:${index}`,
       ...(index === undefined ? {} : { variantNumber: index }),
-      area: area(sttvItems(node.value, path), path, baseArea), sourceRef: path,
+      area: area(sttvItems(node.value, path), path, baseArea), sourceRef: { database: 'technologies', pointer: path },
       ...strings.add(node.enrichments?.localization, path) };
   }
   try {
     db.documents.forEach((document, d) => {
-      const file = document.source.file.replaceAll('\\', '/');
+      d += partial?.documentOffset ?? 0;
+      const file = sttvDocument(document, `/documents/${d}`);
       const directory = file.slice(0, file.lastIndexOf('/'));
       if (directory !== config.technologyDirectory || !file.endsWith('.txt')) return;
       document.items.forEach((node, i) => {
         if (node.kind !== 'assignment' || node.value?.kind !== 'block') return;
         const path = `/documents/${d}/items/${i}`;
         const id = sttvScalar(node.key, path);
-        if (technologies[id]) throw sttvInvalid(path, `Duplicate technology ID: ${id}`);
+        if (!id) throw sttvInvalid(path, 'Technology ID must not be empty.');
+        if (technologies[id]) {
+          const error = sttvInvalid(path, `Duplicate technology ID: ${id}`);
+          error.diagnostic.details.previousSourceRef = technologies[id].sourceRef;
+          throw error;
+        }
         const items = sttvItems(node.value, path);
         const baseArea = area(items, path);
         const tier = Number(sttvScalar(sttvField(items, field.tier, path), path));
@@ -57,12 +64,21 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
         sttvFields(items, field.variant).forEach(({ node: variant, index }, v) => {
           representations.push(representation(variant, `${path}/value/items/${index}`, baseArea, v + 1));
         });
-        technologies[id] = { id, tier, sourceRef: path, representations, ...requirements };
+        technologies[id] = { id, tier, sourceRef: { database: 'technologies', pointer: path }, representations, ...requirements };
         links.push(...edges);
       });
     });
+    const catalog = { technologies, links, localization: strings.index, diagnostics };
+    if (!partial) sttvValidateTechnologies(catalog);
+    return catalog;
+  } finally {
+    if (collectWarnings) diagnostics.push(...strings.warnings());
+  }
+}
+
+export function sttvValidateTechnologies({ technologies, links }: SttvTechnologyCatalog) {
     for (const link of links) {
-      if (!technologies[link.from]) throw sttvInvalid(technologies[link.to].sourceRef,
+      if (!technologies[link.from]) throw sttvInvalid(technologies[link.to].sourceRef.pointer,
         `Unresolved technology requirement: ${link.from}`);
     }
     // Every selectable representation must support the same column ordering operation.
@@ -73,8 +89,4 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
           && item.representations.some(view => view.area === researchArea)));
       }
     }
-    return { technologies, links, localization: strings.index, diagnostics };
-  } finally {
-    diagnostics.push(...strings.warnings());
-  }
 }

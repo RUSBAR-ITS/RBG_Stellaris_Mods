@@ -6,7 +6,7 @@ from sttv.script.scripted.index import Index
 from .files import read_source, source_files
 
 
-def load_library(settings, report, variables, templates):
+def load_library(settings, report, variables, templates, reader=read_source):
     library = Index(settings.scripted_options)
     library.value_options = settings.value_options
     report.data['counts']['scripted_calls'] = library.counts
@@ -18,7 +18,8 @@ def load_library(settings, report, variables, templates):
         ('script_value', settings.script_values_directory, 'script_value_sources'),
     ):
         seen = set()
-        options = settings.scripted_options
+        from sttv.libraries.configuration import reading
+        options = reading(settings, kind)
         for path in source_files(directory, options['pattern'], options['recursive']):
             stat = path.stat()
             identity = (stat.st_dev, stat.st_ino)
@@ -26,7 +27,7 @@ def load_library(settings, report, variables, templates):
                 continue
             seen.add(identity)
             relative = path.relative_to(settings.game).as_posix()
-            text = read_source(path, options['encoding'], report, relative, manifest)
+            text = reader(path, options['encoding'], report, relative, manifest)
             document = parse_text(text, settings.syntax, relative, role='template')
             preparer.expand(document, settings.syntax, root_only=True)
             # Index root insertions with their actual generated source, not caller offsets.

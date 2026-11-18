@@ -17,8 +17,10 @@ def main():
                         default=PRODUCT_ROOT / "global_variables.json")
     parser.add_argument("--config", type=Path,
                         default=PRODUCT_ROOT / "config" / "backend.json")
+    from sttv.libraries.operation import add_mode_arguments
+    add_mode_arguments(parser)
     arguments = parser.parse_args()
-    result = build(arguments.variables, arguments.config)
+    result = build(arguments.variables, arguments.config, library_mode=arguments.library_mode)
     stream = sys.stdout if result["status"] == "success" else sys.stderr
     if hasattr(stream, "reconfigure"):
         stream.reconfigure(encoding="utf-8")

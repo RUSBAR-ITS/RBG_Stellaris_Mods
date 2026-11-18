@@ -14,7 +14,7 @@ class PublicationTests(LocalizationFixture):
         with patch("sttv.enrichment.localization.reader.read_entries", side_effect=AssertionError("Source access")), \
              patch("sttv.sources.settings.load_settings", side_effect=AssertionError("Parser access")):
             database = read_database(self.database_path)
-        self.assertEqual(database["format_version"], 4)
+        self.assertEqual(database["format_version"], 6)
 
     def test_missing_directory_does_not_fall_through(self):
         self.variables["RU_LOC_TIER_1"] = str(self.root / "missing")

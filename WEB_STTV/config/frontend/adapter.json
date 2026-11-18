@@ -1,12 +1,36 @@
 {
   "format": "sttv.parse_database",
-  "formatVersion": 4,
+  "formatVersion": 6,
   "technologyDirectory": "common/technology",
-  "areas": ["physics", "society", "engineering"],
+  "areas": [
+    "physics",
+    "society",
+    "engineering"
+  ],
   "fields": {
     "area": "area",
     "tier": "tier",
     "prerequisites": "prerequisites",
-    "variant": "technology_swap"
+    "variant": "technology_swap",
+    "description": "desc",
+    "trigger": "trigger"
+  },
+  "objects": {
+    "components": {
+      "directory": "common/component_templates",
+      "rootTypes": [
+        "weapon_component_template",
+        "utility_component_template",
+        "strike_craft_component_template"
+      ],
+      "idField": "key",
+      "upgradeField": "upgrades_to"
+    },
+    "buildings": {
+      "directory": "common/buildings",
+      "rootTypes": [],
+      "idField": null,
+      "upgradeField": "upgrades"
+    }
   }
 }

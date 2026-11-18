@@ -1,5 +1,6 @@
 import { expect, type Page } from '@playwright/test';
-import { sttvBrowserDatabase } from '../fixtures';
+import { sttvBrowserDatabase, sttvSet } from '../fixtures';
+import type { SttvDatabase } from '../../../src/frontend/data/syntax';
 import ru from '../../../src/frontend/locales/ru.json' with { type: 'json' };
 import en from '../../../src/frontend/locales/en.json' with { type: 'json' };
 
@@ -10,8 +11,8 @@ export async function sttvEnglish(page: Page) {
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 }
 export async function sttvUpload(page: Page, data: unknown = sttvBrowserDatabase()) {
-  await page.locator('input[type=file]').setInputFiles({ name: 'fixture.json', mimeType: 'application/json',
-    buffer: Buffer.from(JSON.stringify(data)) });
+  await page.locator('input[type=file]').setInputFiles(sttvSet(data as SttvDatabase).map((db, i) =>
+    ({ name: `fixture-${i}.json`, mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(db)) })));
 }
 export async function sttvReady(page: Page) {
   await sttvUpload(page);

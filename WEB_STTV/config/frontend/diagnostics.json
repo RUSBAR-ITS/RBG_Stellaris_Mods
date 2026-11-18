@@ -7,6 +7,7 @@
     "invalid_database": "sttv_diagnostic_invalid_database",
     "missing_localization": "sttv_diagnostic_missing_localization",
     "localization_conflict": "sttv_diagnostic_localization_conflict",
-    "worker_failed": "sttv_diagnostic_worker_failed"
+    "worker_failed": "sttv_diagnostic_worker_failed",
+    "invalid_database_set": "sttv_diagnostic_invalid_database_set"
   }
 }

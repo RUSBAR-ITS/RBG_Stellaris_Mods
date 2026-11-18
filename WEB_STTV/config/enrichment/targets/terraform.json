@@ -1,0 +1,21 @@
+{
+  "selection": {
+    "variable": "TERRAFORM_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": null,
+    "description_field": null,
+    "text_field": "text",
+    "fallback_field": null,
+    "omit_name": true,
+    "endpoint_fields": [
+      "from",
+      "to"
+    ],
+    "endpoint_description_suffix": "_desc"
+  }
+}

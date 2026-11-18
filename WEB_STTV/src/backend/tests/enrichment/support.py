@@ -30,6 +30,9 @@ class LocalizationFixture(unittest.TestCase):
             self.variables[tier] = str(directory)
             self.directories[tier] = directory
         self.options = read_json(PRODUCT_ROOT / "config/enrichment/localization.json")
+        self.target_options = read_json(PRODUCT_ROOT / self.options['targets']['technologies']['path'])
+        self.target_file = self.work / 'targets.json'
+        self.options['targets']['technologies'] = {'base': 'product', 'path': self.target_file.relative_to(PRODUCT_ROOT).as_posix()}
         self.variable_file, self.config_file = self.root / "variables.json", self.root / "localization.json"
         self.database_path = self.work / "database.json"
         self.documents = [("common/technology/base.txt", 'tech_a = { technology_swap = { name = variant_a } } null_void_beam = {}'),
@@ -60,6 +63,7 @@ class LocalizationFixture(unittest.TestCase):
         return path
 
     def run_operation(self):
+        self.target_file.write_text(json_text(self.target_options), encoding='utf-8')
         self.variable_file.write_text(json_text(self.variables), encoding="utf-8")
         self.config_file.write_text(json_text(self.options), encoding="utf-8")
         return enrich_localization(self.variable_file, self.config_file)

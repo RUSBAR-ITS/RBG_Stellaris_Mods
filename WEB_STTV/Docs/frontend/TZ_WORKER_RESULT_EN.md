@@ -13,6 +13,8 @@
 
 ## Status and scope
 
+As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
+
 This document records the agreed `ready` container, technology entry fields, representation identifiers, and string references to original nodes. It refines the [adapter specification](TZ_DATABASE_ADAPTER_EN.md) and [Worker protocol](TZ_WORKER_PROTOCOL_EN.md). Implementation is not performed in this iteration.
 
 The shared diagnostic record and `error` response container are defined in the [diagnostics specification](TZ_DIAGNOSTICS_EN.md); exact per-code detail schemas are still being refined. The localization format is defined in the [index record specification](TZ_LOCALIZATION_INDEX_EN.md). The [technology requirements specification](TZ_TECHNOLOGY_REQUIREMENTS_EN.md) defines `prerequisites` nodes, `links` entries, and counting for `AND`/`OR`; using negation in counting and layout is not agreed yet. Including sections in the container does not approve their internal structure before it is described.

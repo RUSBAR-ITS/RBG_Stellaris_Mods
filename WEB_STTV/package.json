@@ -1,9 +1,11 @@
 {
   "name": "stellaris-technological-tree-view",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=24.0.0" },
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "typecheck": "tsc --noEmit",
@@ -12,7 +14,10 @@
     "test": "tsx --test tests/frontend/*.test.ts",
     "test:browser": "playwright test"
   },
-  "dependencies": { "react": "19.3.1", "react-dom": "19.3.1" },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
   "devDependencies": {
     "@playwright/test": "1.65.1",
     "@types/node": "26.6.6",

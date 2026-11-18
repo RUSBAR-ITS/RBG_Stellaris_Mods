@@ -1,0 +1,2287 @@
+{
+  "$defs": {
+    "value": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/value"
+          },
+          "type": "array"
+        },
+        {
+          "additionalProperties": {
+            "$ref": "#/$defs/value"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        }
+      ]
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "format": {
+      "const": "sttv.prepared_library"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "graph": {
+      "additionalProperties": false,
+      "properties": {
+        "objects": {
+          "items": {
+            "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "call_id": {
+                        "type": "null"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "file": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "plan": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "conditional": {
+                                "type": "boolean"
+                              },
+                              "items": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "items": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "$ref": {
+                                          "minimum": 0,
+                                          "type": "integer"
+                                        }
+                                      },
+                                      "required": [
+                                        "$ref"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  }
+                                ]
+                              },
+                              "parameter_count": {
+                                "minimum": 0,
+                                "type": "integer"
+                              },
+                              "tokens": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "end": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    },
+                                    "kind": {
+                                      "enum": [
+                                        "atom",
+                                        "space",
+                                        "comment",
+                                        "bom",
+                                        "string",
+                                        "open",
+                                        "close",
+                                        "operator",
+                                        "formula",
+                                        "conditional",
+                                        "conditional_close"
+                                      ]
+                                    },
+                                    "parameters": {
+                                      "items": {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "default": {
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "null"
+                                              }
+                                            ]
+                                          },
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "raw": {
+                                            "type": "string"
+                                          },
+                                          "span": {
+                                            "additionalProperties": false,
+                                            "properties": {
+                                              "column": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "end": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "end_column": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "end_line": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "line": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "start": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "start",
+                                              "end",
+                                              "line",
+                                              "column",
+                                              "end_line",
+                                              "end_column"
+                                            ],
+                                            "type": "object"
+                                          }
+                                        },
+                                        "required": [
+                                          "name",
+                                          "default",
+                                          "raw",
+                                          "span"
+                                        ],
+                                        "type": "object"
+                                      },
+                                      "type": "array"
+                                    },
+                                    "start": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "start",
+                                    "end",
+                                    "kind",
+                                    "parameters"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "tokens",
+                              "parameter_count",
+                              "conditional",
+                              "items"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "root": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "file",
+                      "root",
+                      "call_id",
+                      "environment",
+                      "plan"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Source"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "base": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "call_id": {
+                        "type": "null"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "file": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "pieces": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "$ref": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "plan": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "conditional": {
+                                "type": "boolean"
+                              },
+                              "items": {
+                                "anyOf": [
+                                  {
+                                    "type": "null"
+                                  },
+                                  {
+                                    "items": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "$ref": {
+                                          "minimum": 0,
+                                          "type": "integer"
+                                        }
+                                      },
+                                      "required": [
+                                        "$ref"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "type": "array"
+                                  }
+                                ]
+                              },
+                              "parameter_count": {
+                                "minimum": 0,
+                                "type": "integer"
+                              },
+                              "tokens": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "end": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    },
+                                    "kind": {
+                                      "enum": [
+                                        "atom",
+                                        "space",
+                                        "comment",
+                                        "bom",
+                                        "string",
+                                        "open",
+                                        "close",
+                                        "operator",
+                                        "formula",
+                                        "conditional",
+                                        "conditional_close"
+                                      ]
+                                    },
+                                    "parameters": {
+                                      "items": {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "default": {
+                                            "anyOf": [
+                                              {
+                                                "type": "string"
+                                              },
+                                              {
+                                                "type": "null"
+                                              }
+                                            ]
+                                          },
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "raw": {
+                                            "type": "string"
+                                          },
+                                          "span": {
+                                            "additionalProperties": false,
+                                            "properties": {
+                                              "column": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "end": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "end_column": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "end_line": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "line": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              },
+                                              "start": {
+                                                "minimum": 0,
+                                                "type": "integer"
+                                              }
+                                            },
+                                            "required": [
+                                              "start",
+                                              "end",
+                                              "line",
+                                              "column",
+                                              "end_line",
+                                              "end_column"
+                                            ],
+                                            "type": "object"
+                                          }
+                                        },
+                                        "required": [
+                                          "name",
+                                          "default",
+                                          "raw",
+                                          "span"
+                                        ],
+                                        "type": "object"
+                                      },
+                                      "type": "array"
+                                    },
+                                    "start": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "start",
+                                    "end",
+                                    "kind",
+                                    "parameters"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "tokens",
+                              "parameter_count",
+                              "conditional",
+                              "items"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "root": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "file",
+                      "root",
+                      "call_id",
+                      "environment",
+                      "plan",
+                      "pieces",
+                      "base"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "MappedSource"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "declarations": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "$ref": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ],
+                          "type": "object"
+                        },
+                        "propertyNames": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "resolved": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "$ref": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ],
+                          "type": "object"
+                        },
+                        "propertyNames": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "shared": {
+                        "additionalProperties": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "$ref": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ],
+                          "type": "object"
+                        },
+                        "propertyNames": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "shared",
+                      "declarations",
+                      "resolved"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Table"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "argument": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "end": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "source": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "start": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "source",
+                      "start",
+                      "end",
+                      "argument"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Piece"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "scripted_effect",
+                          "scripted_trigger",
+                          "script_value"
+                        ]
+                      },
+                      "name": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "node": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "source": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "kind",
+                      "source",
+                      "node"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Definition"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "chain": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$tuple": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "$tuple"
+                        ],
+                        "type": "object"
+                      },
+                      "value": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "value",
+                      "chain"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Resolved"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "column": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "end": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "end_column": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "end_line": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "line": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "start": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "start",
+                      "end",
+                      "line",
+                      "column",
+                      "end_line",
+                      "end_column"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Span"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "kind": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "raw": {
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "raw",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Token"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "default": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "name": {
+                        "type": "string"
+                      },
+                      "raw": {
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "default",
+                      "raw",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Parameter"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "parameters": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$tuple": {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "$ref": {
+                                  "minimum": 0,
+                                  "type": "integer"
+                                }
+                              },
+                              "required": [
+                                "$ref"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        "required": [
+                          "$tuple"
+                        ],
+                        "type": "object"
+                      },
+                      "quoted": {
+                        "type": "boolean"
+                      },
+                      "raw": {
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "raw",
+                      "text",
+                      "quoted",
+                      "parameters",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Scalar"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "body": {
+                        "type": "string"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "opener": {
+                        "type": "string"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "raw": {
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "raw",
+                      "opener",
+                      "body",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Formula"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "items": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "$ref": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "items",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Block"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "body": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "scope": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "scope",
+                      "body",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "ScriptValue"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "block": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "tag": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "tag",
+                      "block",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "TaggedBlock"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "items": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "$ref": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "$ref"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "negated": {
+                        "type": "boolean"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "parameter",
+                      "negated",
+                      "items",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Conditional"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "key": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "value": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "key",
+                      "operator",
+                      "value",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "Assignment"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "assignment_operator": {
+                        "type": "string"
+                      },
+                      "body": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "name": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "operator",
+                      "name",
+                      "assignment_operator",
+                      "body",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "LogicalOperation"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "form": {
+                        "type": "string"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "raw": {
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "value_span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "raw",
+                      "form",
+                      "span",
+                      "value_span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "InlineInvocation"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "fields": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "body": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "environment": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$ref": {
+                                "minimum": 0,
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "$ref"
+                            ],
+                            "type": "object"
+                          },
+                          {
+                            "additionalProperties": false,
+                            "properties": {
+                              "$tuple": {
+                                "items": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "$ref": {
+                                      "minimum": 0,
+                                      "type": "integer"
+                                    }
+                                  },
+                                  "required": [
+                                    "$ref"
+                                  ],
+                                  "type": "object"
+                                },
+                                "type": "array"
+                              }
+                            },
+                            "required": [
+                              "$tuple"
+                            ],
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "operator": {
+                        "type": "string"
+                      },
+                      "origin": {
+                        "anyOf": [
+                          {
+                            "type": "null"
+                          },
+                          {
+                            "additionalProperties": {
+                              "$ref": "#/$defs/value"
+                            },
+                            "propertyNames": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "type": "object"
+                          }
+                        ]
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      },
+                      "value": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "$ref": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "$ref"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "origin",
+                      "environment",
+                      "operator",
+                      "value",
+                      "body",
+                      "span"
+                    ],
+                    "type": "object"
+                  },
+                  "type": {
+                    "const": "ScriptedTriggerTest"
+                  }
+                },
+                "required": [
+                  "type",
+                  "fields"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        "root": {
+          "$ref": "#/$defs/value"
+        }
+      },
+      "required": [
+        "root",
+        "objects"
+      ],
+      "type": "object"
+    },
+    "kind": {
+      "enum": [
+        "inline_script",
+        "scripted_effect",
+        "scripted_trigger",
+        "script_value",
+        "static_variables"
+      ]
+    },
+    "preparation_version": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "preparation_version",
+    "kind",
+    "graph"
+  ],
+  "type": "object"
+}

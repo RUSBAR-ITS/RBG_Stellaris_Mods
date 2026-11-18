@@ -11,10 +11,28 @@
               "properties": {
                 "en": {
                   "additionalProperties": false,
+                  "minProperties": 1,
                   "properties": {
                     "description": {
                       "additionalProperties": false,
                       "properties": {
+                        "fallback": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "kind": {
+                              "const": "component_set"
+                            },
+                            "source_ref": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "source_ref"
+                          ],
+                          "type": "object"
+                        },
                         "inherited_from": {
                           "anyOf": [
                             {
@@ -114,6 +132,23 @@
                     "name": {
                       "additionalProperties": false,
                       "properties": {
+                        "fallback": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "kind": {
+                              "const": "component_set"
+                            },
+                            "source_ref": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "source_ref"
+                          ],
+                          "type": "object"
+                        },
                         "inherited_from": {
                           "anyOf": [
                             {
@@ -211,18 +246,33 @@
                       "type": "object"
                     }
                   },
-                  "required": [
-                    "name",
-                    "description"
-                  ],
+                  "required": [],
                   "type": "object"
                 },
                 "ru": {
                   "additionalProperties": false,
+                  "minProperties": 1,
                   "properties": {
                     "description": {
                       "additionalProperties": false,
                       "properties": {
+                        "fallback": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "kind": {
+                              "const": "component_set"
+                            },
+                            "source_ref": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "source_ref"
+                          ],
+                          "type": "object"
+                        },
                         "inherited_from": {
                           "anyOf": [
                             {
@@ -322,6 +372,23 @@
                     "name": {
                       "additionalProperties": false,
                       "properties": {
+                        "fallback": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "kind": {
+                              "const": "component_set"
+                            },
+                            "source_ref": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "source_ref"
+                          ],
+                          "type": "object"
+                        },
                         "inherited_from": {
                           "anyOf": [
                             {
@@ -419,10 +486,7 @@
                       "type": "object"
                     }
                   },
-                  "required": [
-                    "name",
-                    "description"
-                  ],
+                  "required": [],
                   "type": "object"
                 }
               },
@@ -1642,7 +1706,8 @@
           "enum": [
             "STELLARIS_ROOT",
             "TECH_PATH",
-            "INLINE_SCRIPTS_DIR"
+            "INLINE_SCRIPTS_DIR",
+            "PRODUCT_ROOT"
           ]
         },
         "span": {
@@ -2049,6 +2114,39 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "dataset": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "technologies",
+            "components",
+            "buildings",
+            "megastructures",
+            "ship_sizes",
+            "starbase_levels",
+            "starbase_modules",
+            "starbase_buildings",
+            "terraform",
+            "deposits",
+            "pop_jobs",
+            "economic_categories",
+            "scripted_actions",
+            "on_actions",
+            "events"
+          ]
+        },
+        "set_id": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "set_id"
+      ],
+      "type": "object"
+    },
     "documents": {
       "items": {
         "$ref": "#/$defs/document"
@@ -2060,7 +2158,7 @@
       "const": "sttv.parse_database"
     },
     "format_version": {
-      "const": 4
+      "const": 6
     }
   },
   "required": [

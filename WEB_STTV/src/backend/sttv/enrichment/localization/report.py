@@ -1,12 +1,14 @@
 """Localized-field diagnostics and reproducible provenance inventories."""
 
+from sttv.common.datasets import KINDS
+
 
 def new_report():
-    return {"format": "sttv.localization_report", "format_version": 1,
+    return {"format": "sttv.localization_report", "format_version": 2,
             "status": "running", "database_written": False,
             "paths": {"database": None, "report": None},
             "database_before": None, "database_after": None, "settings": None,
-            "inputs": [], "counts": {"technologies": 0, "variants": 0, "languages": {}},
+            "inputs": [], "counts": {**dict.fromkeys((*KINDS, 'variants', 'descriptions', 'objects', 'targets'), 0), 'languages': {}},
             "duplicates": [], "selected_sources": [], "diagnostics": [], "seconds": 0.0}
 
 

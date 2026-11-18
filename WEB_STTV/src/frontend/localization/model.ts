@@ -1,10 +1,11 @@
 export type SttvLanguage = 'ru' | 'en';
 export interface SttvOrigin {
-  recordRef: string;
+  recordRef: SttvNodeRef;
   key: string | null;
   raw: string | null;
   source: { tier: string; file: string; line: number } | null;
-  inheritedFrom: string | null;
+  inheritedFrom: SttvNodeRef | null;
+  fallback?: { kind: 'component_set'; sourceRef: SttvNodeRef };
   unresolvedReferences: string[];
 }
 export interface SttvLocalizedRecord {
@@ -21,12 +22,14 @@ export interface SttvStoredString {
   source: SttvOrigin['source'];
   inherited_from: string | null;
   unresolved_references: string[];
+  fallback?: { kind: 'component_set'; source_ref: string };
 }
 export type SttvStoredLocalization = Record<SttvLanguage,
-  { name: SttvStoredString; description: SttvStoredString }>;
+  { name?: SttvStoredString; description?: SttvStoredString }>;
 export interface SttvTextRef {
   id: string;
   source?: 'builtin' | 'database';
   params?: Record<string, string | number>;
   suffix?: SttvTextRef;
 }
+import type { SttvNodeRef } from '../data/model';
