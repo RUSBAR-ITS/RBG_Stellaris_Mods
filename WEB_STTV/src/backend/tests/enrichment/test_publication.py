@@ -13,15 +13,15 @@ class PublicationTests(LocalizationFixture):
         self.assert_success(self.run_operation())
         with patch("sttv.enrichment.localization.reader.read_entries", side_effect=AssertionError("Source access")), \
              patch("sttv.sources.settings.load_settings", side_effect=AssertionError("Parser access")):
-            database = read_database(self.database_path)
-        self.assertEqual(database["format_version"], 6)
+            database = self.read_db()["documents"][0]
+        self.assertEqual(database["format_version"], 1)
 
     def test_missing_directory_does_not_fall_through(self):
         self.variables["RU_LOC_TIER_1"] = str(self.root / "missing")
         self.assert_failure("source_unavailable")
 
     def test_output_and_input_collisions_are_rejected(self):
-        self.options["report"] = "database.json"
+        self.options["report"] = "database_set/manifest.json"
         self.assert_failure("output_collision")
         self.options["report"] = "../outside.json"
         self.assert_failure("schema_error")
@@ -53,7 +53,7 @@ class PublicationTests(LocalizationFixture):
             self.assert_failure("input_changed")
 
     def test_failure_before_replacement_preserves_database(self):
-        with patch("sttv.enrichment.localization.operation.prepare_json", side_effect=OSError("Disk full")):
+        with patch("sttv.enrichment.localization.operation.write_document", side_effect=OSError("Disk full")):
             report = self.assert_failure("localization_error")
         validate_schema(report, "localization_report.schema.json")
 

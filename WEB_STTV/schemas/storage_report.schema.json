@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "coverage": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "format": {
+      "const": "sttv.storage_report"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "manifest": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "snapshot_revision": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "success",
+        "failed"
+      ]
+    },
+    "timings": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "status",
+    "manifest",
+    "snapshot_revision",
+    "coverage",
+    "timings",
+    "diagnostics",
+    "published"
+  ],
+  "type": "object"
+}

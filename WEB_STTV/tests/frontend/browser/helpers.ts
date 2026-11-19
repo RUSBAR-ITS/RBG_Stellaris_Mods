@@ -3,6 +3,9 @@ import { sttvBrowserDatabase, sttvSet } from '../fixtures';
 import type { SttvDatabase } from '../../../src/frontend/data/syntax';
 import ru from '../../../src/frontend/locales/ru.json' with { type: 'json' };
 import en from '../../../src/frontend/locales/en.json' with { type: 'json' };
+import { mkdirSync, mkdtempSync, writeFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { sttvBundle } from '../manifestFixtures';
 
 export { ru, en };
 export async function sttvEnglish(page: Page) {
@@ -11,8 +14,17 @@ export async function sttvEnglish(page: Page) {
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
 }
 export async function sttvUpload(page: Page, data: unknown = sttvBrowserDatabase()) {
-  await page.locator('input[type=file]').setInputFiles(sttvSet(data as SttvDatabase).map((db, i) =>
-    ({ name: `fixture-${i}.json`, mimeType: 'application/json', buffer: Buffer.from(JSON.stringify(db)) })));
+  await sttvUploadEntries(page, sttvBundle(sttvSet(data as SttvDatabase)).entries);
+}
+export async function sttvUploadEntries(page: Page, entries: { path: string; content: string }[]) {
+  const base = resolve('data/frontend-tests/directories'); mkdirSync(base, { recursive: true });
+  const directory = mkdtempSync(resolve(base, 'set-'));
+  for (const entry of entries) {
+    const path = resolve(directory, entry.path);
+    if (!path.startsWith(directory + '/'.replace('/', process.platform === 'win32' ? '\\' : '/'))) throw new Error('Unsafe test path');
+    mkdirSync(dirname(path), { recursive: true }); writeFileSync(path, entry.content);
+  }
+  await page.locator('input[type=file]').setInputFiles(directory);
 }
 export async function sttvReady(page: Page) {
   await sttvUpload(page);

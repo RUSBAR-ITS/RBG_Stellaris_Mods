@@ -1,0 +1,40 @@
+{
+  "format": "sttv.technology_tree_profile",
+  "format_version": 1,
+  "id": "reference_empire",
+  "facts": {
+    "country": {
+      "is_nomadic": {
+        "yes": false,
+        "no": true
+      },
+      "uses_ship_category": {
+        "bio_ship": false
+      },
+      "has_ethic": {
+        "ethic_gestalt_consciousness": false
+      },
+      "has_authority": {
+        "auth_machine_intelligence": false,
+        "auth_hive_mind": false
+      },
+      "exists": {
+        "this": true
+      },
+      "always": {
+        "yes": true,
+        "no": false
+      }
+    },
+    "founder_species": {
+      "is_archetype": {
+        "MACHINE": false,
+        "ROBOT": false
+      },
+      "always": {
+        "yes": true,
+        "no": false
+      }
+    }
+  }
+}

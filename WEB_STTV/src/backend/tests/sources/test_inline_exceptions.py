@@ -92,7 +92,7 @@ class InlineExceptionTests(BuildFixture):
         self.assertEqual(before, self.database_path().read_bytes())
         self.configure({})
         original = self.exception_file.read_bytes()
-        self.options['outputs']['database'] = 'exceptions.json'
+        self.options['outputs']['report'] = 'exceptions.json'
         self.assertIn('output_collision', self.errors(self.run_build()))
         self.assertEqual(self.exception_file.read_bytes(), original)
 

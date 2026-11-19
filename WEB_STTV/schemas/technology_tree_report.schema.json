@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action": {
+      "enum": [
+        "reused",
+        "computed",
+        null
+      ]
+    },
+    "ambiguities": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "bytes": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "combination": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "counts": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "database_written": {
+      "type": "boolean"
+    },
+    "decisions": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "diagnostics": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "details": {
+              "type": "object"
+            },
+            "message": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "file_hashes": {
+      "type": "object"
+    },
+    "format": {
+      "const": "sttv.technology_tree_report"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "memory": {
+      "type": "object"
+    },
+    "paths": {
+      "additionalProperties": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "revisions": {
+      "type": "object"
+    },
+    "rules": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "success",
+        "success_with_warnings",
+        "failed"
+      ]
+    },
+    "timings": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "status",
+    "action",
+    "database_written",
+    "paths",
+    "combination",
+    "rules",
+    "revisions",
+    "counts",
+    "timings",
+    "bytes",
+    "coverage",
+    "decisions",
+    "diagnostics",
+    "ambiguities",
+    "file_hashes",
+    "error"
+  ],
+  "type": "object"
+}

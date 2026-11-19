@@ -2,6 +2,28 @@
 
 ## Contents
 
+- [2026-11-19 — manifests, separate documents and frontend 0.0.4](#2026-11-19--manifests-separate-documents-and-frontend-004)
+- [2026-11-19 — manifest and separate database storage draft](#2026-11-19--manifest-and-separate-database-storage-draft)
+- [2026-11-19 — technology parent and child enrichment implementation](#2026-11-19--technology-parent-and-child-enrichment-implementation)
+- [2026-11-19 — parent and child enrichment specification draft](#2026-11-19--parent-and-child-enrichment-specification-draft)
+- [2026-11-19 — tree relationship enrichment approach](#2026-11-19--tree-relationship-enrichment-approach)
+- [2026-11-19 — preliminary event access analysis](#2026-11-19--preliminary-event-access-analysis)
+- [2026-11-19 — complete analytical predecessor selection pass](#2026-11-19--complete-analytical-predecessor-selection-pass)
+- [2026-11-19 — anti-ship weaponry functional group](#2026-11-19--anti-ship-weaponry-functional-group)
+- [2026-11-19 — functional criterion order comparison and swap](#2026-11-19--functional-criterion-order-comparison-and-swap)
+- [2026-11-19 — planet class change functional group](#2026-11-19--planet-class-change-functional-group)
+- [2026-11-18 — object capacity affinity before empire filtering](#2026-11-18--object-capacity-affinity-before-empire-filtering)
+- [2026-11-18 — production affinity before empire filtering](#2026-11-18--production-affinity-before-empire-filtering)
+- [2026-11-18 — analytical predecessor rule review](#2026-11-18--analytical-predecessor-rule-review)
+- [2026-11-18 — ambiguity log with field snapshot](#2026-11-18--ambiguity-log-with-field-snapshot)
+- [2026-11-18 — indirect functional affinity](#2026-11-18--indirect-functional-affinity)
+- [2026-11-18 — technology functional groups](#2026-11-18--technology-functional-groups)
+- [2026-11-18 — direct functional object relations](#2026-11-18--direct-functional-object-relations)
+- [2026-11-18 — availability condition matching rule](#2026-11-18--availability-condition-matching-rule)
+- [2026-11-18 — direct object upgrade rule](#2026-11-18--direct-object-upgrade-rule)
+
+- [2026-11-18 — construct dictionary for technology analysis](#2026-11-18--construct-dictionary-for-technology-analysis)
+- [2026-11-18 — working data cleanup preparation](#2026-11-18--working-data-cleanup-preparation)
 - [2026-11-18 — parallel file processing implementation](#2026-11-18--parallel-file-processing-implementation)
 - [2026-11-18 — parallel file processing draft](#2026-11-18--parallel-file-processing-draft)
 - [2026-11-18 — reusable element libraries implemented](#2026-11-18--reusable-element-libraries-implemented)
@@ -122,6 +144,143 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-19 — manifests, separate documents and frontend 0.0.4
+
+- Implemented backend stage 17 and frontend stage 4: `config/storage.json`, persistent documents, a manifest indexing all 15 kinds, stable references and separate source/snapshot revisions.
+- Removed monolithic merging and the old file-opening route. Added selective readers, streaming hashing, full audits, bounded projection processes and indexed event selection.
+- Tree enrichment and localization refresh use immutable versions, root locking and atomic manifest switching. Other combinations are preserved; unchanged documents are not rewritten.
+- Frontend 0.0.4 opens a directory and initially reads technologies only. Its internal API supports kind/object/anonymous-root requests with cancellation and retry. Added SHA-256 through `@noble/hashes` 2.4.0, loading states, RU/EN diagnostics and report version 3. Vite ignores the working directory.
+- Updated schemas, tests and bilingual guides. All 450 documents and 679 decisions match the reference; checked 206 variants, three combinations, full audit and 14 browser scenarios. Explicit loading of all kinds retained control catalogs and 60 upgrade witnesses.
+- Build: 387.885 s; first calculation with publication: 41.126 s; later forced calculation: 22.384 s; reuse: 3.697 s; initial loader opening: 2.601 s. Conditions and limits are documented in the [stage 17 guide](BACKEND_STAGE_17_EN.md).
+
+
+## 2026-11-19 — manifest and separate database storage draft
+
+- Prepared bilingual drafts for [backend stage 17](TZ_BACKEND_STAGE_17_EN.md) and [frontend stage 4](frontend/TZ_FRONTEND_STAGE_4_EN.md): one processed JSON per source file, an object-index manifest, separate document addresses and set revisions.
+- Recorded agreed verification on read, separate full audit and explicit frontend directory opening. Proposed publication by manifest replacement, parallel evidence preparation and loading technology data without mandatory reads of other kinds.
+- Specified anonymous objects, `on_actions` fragments, service-reference changes, preservation of localization and combinations, limitations and future tests. Updated README and specification-index links. Only documentation changed; code, configuration, schemas and databases remain unchanged and product tests were not run.
+
+## 2026-11-19 — technology parent and child enrichment implementation
+
+- Implemented the [stage 16 specification](TZ_BACKEND_STAGE_16_EN.md): a standalone Python operation and CLI over 15 prepared databases, 13 separately configured criteria, profiles and combination variants.
+- Parents are recorded on objects and children immediately appended to parents; ambiguities receive diagnostics. Localization, original prerequisites and other combinations are retained.
+- Added separate input/rule/parameter/result revisions, freshness checking, explicit recalculation, destination locking and atomic publication of the technology database only. Related databases are read sequentially; events are retained only through explicit action routes.
+- The generator produces five new schemas; database schema and validation cover enrichment, record placement, reciprocity, cycles and revisions. Added synthetic and actual-data checks, a [guide](BACKEND_STAGE_16_EN.md) and a working database copy.
+- All 679 base decisions and 12 control examples matched the reference: 178 roots, 501 parents, no ambiguities or cycles. Checked 206 variants and three combinations; results and timings reside in `data/stage16`.
+- Frontend, grid, API and event-based technology acquisition remain unchanged. Original game files and the 14 related databases were not modified.
+
+## 2026-11-19 — parent and child enrichment specification draft
+
+- Prepared bilingual [stage 16 specification](TZ_BACKEND_STAGE_16_EN.md): a standalone Python operation and CLI, extensible rules, variant selection, immediate child updates, per-combination results inside the database, revisions and safe publication of only the technology file.
+- Defined acceptance using 679 base technologies, checks for all 206 variants and a proposed diagnostic policy for the 23 variants without explicit `inherit_effects`. The document does not claim a new complete pass or implementation checks have run.
+- Updated the specification index, README and agreed approach. Grid, API and frontend work are excluded from this stage. Code and databases are unchanged; the specification awaits approval.
+
+## 2026-11-19 — tree relationship enrichment approach
+
+- Recorded the [agreed approach](TECHNOLOGY_TREE_ENRICHMENT_EN.md): Python parent calculation using prepared databases with immediate child-list updates, per-object results by combination and separate extensible rule configuration.
+- Covered combination parameters, separate source and enrichment revisions, future frontend invocation and one object per future MongoDB document. Final schemas, API and grid require a specification; MongoDB migration remains deferred.
+- Updated RU/EN documentation; product code, configurations and databases were unchanged.
+
+## 2026-11-19 — preliminary event access analysis
+
+- Following the user's subsequent decision, event analysis was deferred and its findings retained; current work moves to grid design. This decision did not change code or layout rules.
+- Additionally inspected Omega Theory: its own ordinary draw depends on researching two mandatory event-gated prerequisites. Extended the proposal to trace indirect dependencies through the full AND/OR graph rather than only the selected parent; checked example events and the special projects invoking them.
+- A separate [investigation](frontend/CHAIN_EVENT_ACCESS_EN.md) records the task of accounting for technology access through event outcomes. Inspected direct L-Gate activation access, flag-gated L-Gate insight eligibility and psi drive event access coexisting with a technology prerequisite.
+- Described proposed analysis of access, grants and progress, recipient scopes, conditions and alternative routes. Distinguished a test route; event-exclusive acquisition requires further full analysis.
+- Updated the chain rules link and Russian documentation. Code, databases and sorting were unchanged; neither a complete event access pass nor in-game verification was performed.
+
+## 2026-11-19 — complete analytical predecessor selection pass
+
+- Completed a [full pass of all agreed criteria](frontend/CHAIN_RULES_FULL_REVIEW_EN.md) across 679 base technologies: 178 roots and 501 uniquely selected parents, including all 89 multiple-requirement cases. No ambiguities or cycles remain; all 12 acceptance examples match.
+- Five decisions changed from the previous complete pass. Confirmed alloys' production affinity, Mega-Engineering's starbase capacity affinity, and the terraforming, weaponry and mobile combat ship functional groups.
+- Checked input integrity, parents belonging to original requirements, candidate reduction rules and traversal-order independence. Saved research settings, scripts, evidence, traces and an empty ambiguity log with a mode snapshot in `data/chain_analysis/final_review/`.
+- Confirmed 19 repeatable technology moves to display column 6; recorded edge properties for future placement. Updated RU/EN documentation. Product code and published databases remain unchanged; variants and card geometry were not tested.
+
+## 2026-11-19 — anti-ship weaponry functional group
+
+- Recorded the approved [weaponry rule](frontend/CHAIN_WEAPONRY_EN.md): weapon components or a confirmed route from an unlocked object through an action and event to ship damage. Routes and types belong in configuration; conditions and sources are retained.
+- Checked its impact in isolation across 679 base technologies: only Stellar Cannon receives a different functional group result — UV Lasers. The other 678 candidate sets match; the new edge creates no cycle. Mega-Engineering receiving the group does not change its selection.
+- Saved research scripts, report and evidence in `data/chain_analysis/weapon_review/`; updated both language versions of rules and links. Product code and published databases remain unchanged. No complete final pass of all new criteria or variant check was performed.
+
+## 2026-11-19 — functional criterion order comparison and swap
+
+- Performed an [analytical comparison of both orders](frontend/CHAIN_CRITERIA_ORDER_REVIEW_EN.md) across 679 base technologies, recomputing functional evidence and verifying SHA-256 hashes of eight source databases.
+- Only Juggernaut changed its parent from Citadel to Battleships; the other 678 have identical candidate sets after the compared rules. Checked absence of new cycles, prerequisite membership and candidate reduction behavior.
+- A separate check of 128 area/category combinations also found no changes to other technologies; its scope excludes full variant semantics and effect inheritance.
+- Following the user's conditional agreement, placed functional groups before direct relations in RU/EN documents. Research scripts and reports are saved in `data/chain_analysis/order_review/`; product code and databases remain unchanged.
+
+## 2026-11-19 — planet class change functional group
+
+- Added the approved [planet class change group](frontend/CHAIN_FUNCTIONAL_GROUPS_EN.md#planet-class-change) in RU/EN: `terraform_link` type, different `from`/`to` values and technology access requirements in `condition`, retaining their logic.
+- Recorded the expected Terrestrial Sculpting → Volcanic Terraforming chain. Both game requirements and the previously agreed placement between branches are preserved; criterion order remains unchanged.
+- Extended the transition field dictionary and updated the general chain document and contents. Previous totals are marked as a snapshot preceding the new group; product code, databases and the research algorithm remain unchanged.
+
+## 2026-11-18 — object capacity affinity before empire filtering
+
+- Recorded the approved [object capacity affinity criterion](frontend/CHAIN_CAPACITY_AFFINITY_EN.md) in RU/EN: a technology's own bonus is linked to an object using that capacity and the technology unlocking it.
+- Placed the rule after production bonuses, immediately before the empire filter. Recorded configurable field mappings and the expected Citadel → Mega-Engineering chain after the empire profile excludes the nomadic candidate.
+- Aligned the overall order, production criterion document and effects dictionary. Previous totals remain a snapshot preceding both new rules; product code, databases and the research calculation were not changed.
+
+## 2026-11-18 — production affinity before empire filtering
+
+- Recorded the approved [production bonus criterion](frontend/CHAIN_PRODUCTION_AFFINITY_EN.md) in RU/EN: a technology's own modifier is linked to an economic category, jobs and objects unlocked by a candidate.
+- Placed the criterion immediately before the empire filter. Updated the overall order, dictionary links and the Ceramo-Metal Alloys → Holographic Casts example.
+- Documentation changes only; prior totals are marked as a snapshot preceding the new rule. Product code, research calculations and databases were not changed.
+
+## 2026-11-18 — analytical predecessor rule review
+
+- Reviewed 679 base technologies in the current database set. Of 89 technologies with multiple prerequisites, 86 received one candidate; three ambiguities remain and two expected-chain mismatches were identified.
+- Added findings, causes and coverage limits to the [chain research](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md#current-rule-set-review). Separately checked 128 combinations of seven area/category-changing variants for the first four criteria.
+- Saved research calculations, current-data projections, evidence and traces under `data/chain_analysis/current_review/`. Rules, product code and published databases were not changed; no manual parent assignments were introduced.
+
+## 2026-11-18 — ambiguity log with field snapshot
+
+- Recorded the user's clarification in RU/EN: manual predecessor selection is deferred; ambiguous technologies enter a [log with field state and settings](frontend/CHAIN_AMBIGUITIES_EN.md).
+- Defined record contents, candidates and selection traces, and a snapshot of mode, representations, language and effective settings at calculation time. Original context is preserved across later changes and report export.
+- Updated general chain rules. Documentation changes only; logging is not implemented yet, and code, configuration and databases remain unchanged.
+
+## 2026-11-18 — indirect functional affinity
+
+- Recorded the approved [indirect affinity criterion](frontend/CHAIN_INDIRECT_AFFINITY_EN.md) in RU/EN: configurable search through a candidate's original prerequisites with an initial depth of one transition.
+- Defined condition preservation, selection of the candidate itself, the shared filtering procedure and the armor example using a matching modifier. Linked the rule from general rules, functional groups and the effect dictionary.
+- Documentation changes only. Code, configuration, databases and layout remain unchanged.
+
+## 2026-11-18 — technology functional groups
+
+- Recorded the approved [functional group rule](frontend/CHAIN_FUNCTIONAL_GROUPS_EN.md) in RU/EN: definitions through configurable object features, technology group sets and candidate selection by a shared group.
+- Added the checked battleship, juggernaut and citadel example, classification boundaries and links from general chain rules and the effect dictionary.
+- Documentation changes only. Code, configuration, databases and layout remain unchanged.
+
+## 2026-11-18 — direct functional object relations
+
+- Recorded the approved [functional relation criterion through unlocked objects](frontend/CHAIN_DIRECT_RELATIONS_EN.md) in RU/EN: using or enhancing a candidate's object while retaining conditions and sources.
+- Defined exclusion of costs, resource consumption and AI weights, the shared selection procedure and the dark matter detector example. Linked the rule from the dictionary and general rules; marked the former L-10 order as historical and subject to the current design refinements.
+- Documentation changes only. Code, configuration, databases and layout remain unchanged.
+
+## 2026-11-18 — availability condition matching rule
+
+- Recorded the approved [criterion for complete matching of nonempty `potential` blocks](frontend/CHAIN_AVAILABILITY_EN.md) after expansion, retaining condition structure and excluding provenance metadata from comparison.
+- Described selection results, skipping empty results, criterion boundaries and the religious technology example. Linked it from general chain rules and the empire condition dictionary; updated Russian documentation.
+- Code, configuration, databases and current layout remain unchanged.
+
+## 2026-11-18 — direct object upgrade rule
+
+- Recorded the approved predecessor criterion using `upgrades` and `upgrades_to` in a separate bilingual [document](frontend/CHAIN_DIRECT_UPGRADES_EN.md), including subtraction of shared mandatory requirements for comparison only.
+- Defined filtering of remaining candidates, skipping empty results, retaining witnesses without counting them as votes, and boundaries for complex logic. Added examples and links from the general chain document and dictionary.
+- Documentation changes only; code, configuration and databases remain unchanged.
+
+## 2026-11-18 — construct dictionary for technology analysis
+
+- Created a bilingual [dictionary](semantics/README_EN.md) in `Docs/semantics/`: six sections grouped by construct purpose and a shared index.
+- Recorded context, value forms, game meaning, analytical use and sources. Conditional variants, identically named fields, hidden checks and forms of `custom_tooltip` are described separately.
+- Linked the dictionary from README. This is reference documentation for subsequent design; code, configuration, databases and historical `language/keywords/` inventories remain unchanged.
+
+## 2026-11-18 — working data cleanup preparation
+
+- The last successful complete stage 15 run is the reference: checksums of all fifteen files in `data/databases/` match `data/stage15/rebuilt/acceptance.json`.
+- `data/reports/history_cleanup.json` records a plan to remove 2876 historical and temporary files totaling 23.99 GiB. Current databases, reports, libraries, runtime tools, final verification results and chain research used by the frontend test are preserved.
+- Automatic approval rejected both the bulk deletion and a narrower attempt to delete two duplicate build directories with `blocked by policy`. No files were deleted; the plan has status `blocked`. Code and configuration are unchanged.
 
 ## 2026-11-18 — parallel file processing implementation
 

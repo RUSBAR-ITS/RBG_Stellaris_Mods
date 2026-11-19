@@ -16,7 +16,7 @@ def performance():
     worker = obj({'pid': count, 'seconds': seconds, 'rule_seconds': seconds, 'bytes': count,
                   'counts': mapping(count), 'timings': mapping(seconds)})
     return obj({'configured_workers': count, 'used_workers': count,
-                'identity_algorithm': {'const': 'sttv.document_hashes.v1'},
+                'identity_algorithm': {'const': 'sttv.document_source.v1'},
                 'jobs': array(job), 'workers': array(worker),
                 'memory': obj({'method': {'enum': ['windows_working_set_sample', 'unavailable']},
                     'interval_seconds': seconds, 'samples': count, 'coordinator_peak_bytes': count,

@@ -1,4 +1,5 @@
 {
+  "sttv_diagnostic_directory_unsupported": "Этот браузер не поддерживает выбор каталога.",
   "sttv_open_database": "Открыть набор БД",
   "sttv_save_report": "Сохранить отчёт",
   "sttv_retry": "Повторить",
@@ -10,7 +11,7 @@
   "sttv_expand_menu": "Развернуть меню",
   "sttv_day_theme": "Включить дневную тему",
   "sttv_night_theme": "Включить ночную тему",
-  "sttv_no_database": "Откройте набор из 15 файлов БД.",
+  "sttv_no_database": "Откройте каталог набора БД.",
   "sttv_reading": "Чтение файла {index} из {total}…",
   "sttv_parsing": "Разбор файла {index} из {total}…",
   "sttv_preparing": "Подготовка данных: {kind}, файл {index} из {total}…",
@@ -31,7 +32,7 @@
   "sttv_diagnostic_missing_localization": "Для некоторых строк отсутствует перевод.",
   "sttv_diagnostic_localization_conflict": "В БД найдены противоречивые переводы.",
   "sttv_diagnostic_worker_failed": "Не удалось завершить обработку БД.",
-  "sttv_diagnostic_invalid_database_set": "Не удалось открыть набор БД. Выберите все файлы одной сборки.",
+  "sttv_diagnostic_invalid_database_set": "Не удалось открыть набор БД. Выберите каталог с манифестом и документами.",
   "sttv_invalid_database_count": "Требуется файлов: {expected}. Выбрано: {count}.",
   "sttv.dataset.technologies": "Технологии",
   "sttv.dataset.components": "Компоненты",

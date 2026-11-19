@@ -10,7 +10,7 @@ from sttv.common.schema import SchemaSession, _session
 from sttv.common.timing import measure
 from sttv.common.errors import BuildError
 from sttv.database.collection import read_document
-from sttv.database.streaming import write_fragment
+from sttv.storage.writing import write_document
 from sttv.database.validation import database_rules
 from sttv.libraries.operation import ACTIVE
 from sttv.libraries.storage import load
@@ -92,7 +92,7 @@ def execute(job):
                     document, job['local'], job['index'], local, result['identities'],
                     report.data['performance']['timings'])
         stage = 'validation_storage'
-        result['fragment'] = write_fragment(document, Path(job['output']), job['index'], report.data['performance'])
+        result['fragment'] = write_document(document, Path(job['output']), job['kind'], report.data['performance'])
         report.data['counts']['nodes'] += result['fragment']['nodes']
         result['status'] = 'success'
     except Exception as exc:

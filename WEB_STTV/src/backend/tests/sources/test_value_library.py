@@ -58,4 +58,4 @@ class ValueLibraryTests(ValueFixture):
         self.assertEqual(self.database_path().read_bytes(), before)
         self.assertEqual(self.hashes(), before_sources)
         (self.values/'definitions.txt').unlink()
-        self.assertEqual(storage.read_database(self.database_path())['format_version'], 6)
+        self.assertEqual(self.database()['documents'][0]['format_version'], 1)

@@ -1,21 +1,21 @@
 import { test, expect } from '@playwright/test';
 import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
-import { sttvEnglish, sttvUpload, sttvReady, en, ru } from './helpers';
+import { sttvEnglish, sttvUpload, sttvUploadEntries, sttvReady, en, ru } from './helpers';
 import { sttvDatabase, sttvTechnology, sttvSet } from '../fixtures';
 import { sttvDatabaseKinds } from '../../../src/frontend/data/registry';
 
 test('invalid JSON, retry, replacement, empty result, and diagnostic downloads', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  await page.locator('input[type=file]').setInputFiles(sttvSet().map((db, i) => ({ name: i === 0 ? 'broken.json' : `input-${i}.json`, mimeType: 'application/json', buffer: Buffer.from(i === 0 ? '{' : JSON.stringify(db)) })));
+  await sttvUploadEntries(page, [{ path: 'manifest.json', content: '{' }]);
   await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_invalid_json);
   const downloading = page.waitForEvent('download');
   await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
   const download = await downloading;
   const report = JSON.parse(await readFile((await download.path())!, 'utf8'));
   expect(report.error.code).toBe('invalid_json');
-  expect(report.files[0]).toMatchObject({ name: 'broken.json', size: 1 });
-  expect(report.files).toHaveLength(sttvDatabaseKinds.length);
+  expect(report.files[0]).toMatchObject({ name: 'manifest.json', size: 1 });
+  expect(report.files).toHaveLength(1);
   expect(report.result).toBe('error'); expect(report.operationId).toBe(1);
   await page.getByRole('button', { name: en.sttv_retry, exact: true }).click();
   await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_invalid_json);
@@ -67,10 +67,11 @@ test('real database loads in a worker and remains read-only', async ({ page, bro
   const started = performance.now();
   const picking = page.waitForEvent('filechooser');
   await page.getByRole('button', { name: ru.sttv_open_database, exact: true }).click();
-  const paths = [...sttvDatabaseKinds].reverse().map(kind =>
-    resolve(process.env.STTV_DATABASE_DIR ?? 'data/databases', `${kind}.json`));
+  const directory = resolve(process.env.STTV_DATABASE_DIR!);
+  const manifest = JSON.parse(await readFile(resolve(directory, 'manifest.json'), 'utf8'));
+  const paths = Object.values(manifest.datasets).flatMap((dataset: any) => dataset.documents.map((row: any) => resolve(directory, row.path))) as string[];
   const sizes = await Promise.all(paths.map(async path => ({ path, bytes: (await stat(path)).size })));
-  await (await picking).setFiles(paths);
+  await (await picking).setFiles(directory);
   await expect(page.locator('[data-technology-id]')).toHaveCount(679, { timeout: 840_000 });
   const elapsed = performance.now() - started;
   expect(workers).toHaveLength(1); expect(errors).toEqual([]);
@@ -95,5 +96,9 @@ test('real database loads in a worker and remains read-only', async ({ page, bro
     totalBytes: sizes.reduce((total, file) => total + file.bytes, 0), maxFileBytes: Math.max(...sizes.map(file => file.bytes)),
     mainThreadMemory: memory, workerMemory: null,
     technologies: 679, workerCount: workers.length, pageErrors: errors };
-  await writeFile('data/stage12/browser_real_set.json', JSON.stringify(report, null, 2) + '\n');
+  const downloading = page.waitForEvent('download');
+  await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
+  const diagnostic = JSON.parse(await readFile((await (await downloading).path())!, 'utf8'));
+  expect(diagnostic.coverage.documents.filter((row: any) => row.status === 'verified' && row.database !== 'technologies')).toHaveLength(0);
+  await writeFile('data/stage17/browser_real_set.json', JSON.stringify({ ...report, coverage: diagnostic.coverage }, null, 2) + '\n');
 });

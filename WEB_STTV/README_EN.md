@@ -17,21 +17,17 @@ A local interactive web reference for Stellaris technologies. The first interfac
 
 ## Status
 
-Implemented and verified [stage 15: parallel file processing](Docs/TZ_BACKEND_STAGE_15_EN.md). The default is ten workers within one database, with intermediate JSON and streaming merging. Configuration, operation and measurement details are in the [stage 15 guide](Docs/BACKEND_STAGE_15_EN.md).
+Implemented [backend stage 17](Docs/BACKEND_STAGE_17_EN.md) and [frontend 0.0.4](Docs/frontend/FRONTEND_STAGE_4_EN.md): a manifest, 450 persistent documents across 15 kinds, verification on read and selective loading. Indented JSON preserves AST, history and RU/EN localization. Monolithic merging has been removed.
 
-Implemented [stage 14 — reusable element library](Docs/TZ_BACKEND_STAGE_14_EN.md): persistent JSON, explicit preparation/reuse modes and one snapshot for the entire build. Both modes passed full acceptance; commands and architecture are in the [stage 14 guide](Docs/BACKEND_STAGE_14_EN.md).
+Tree enrichment retains 13 criteria: checked 679 base decisions, 206 variants and three combined selections. All 450 documents match the reference after format normalization. Full audit passed. Building took 387.885 s; initial loader opening took 2.601 s, reading only 35 technology documents. Measurement conditions are documented in the guides.
 
-The backend builds fifteen localized databases; [frontend `0.0.3`](Docs/frontend/TZ_FRONTEND_STAGE_3_EN.md) remains active. The complete set occupies 10.95 GiB. In stage 15, `reuse` took 34:44 with one worker and 8:20 with ten, a 4.17-fold speedup; ten-worker `rebuild` took 8:31. Process-tree peak memory was 4.09 / 21.34 / 20.92 GiB respectively. All three sets are byte-identical; relative to stage 14, only the shared `set_id` changed. All 240 backend tests and 33 frontend checks passed. Measurement conditions and limits are recorded in the stage 15 guide.
-
-Database format: `sttv.parse_database`, version `6`, with a shared `dataset.set_id`. JSON is multiline with two-space indentation and readable Unicode. Complete trees, provenance and localization remain in the files. The frontend reads streams and stores compact catalogs. Game conditions are not evaluated; the existing card layout is preserved.
-
-See the [backend guide](Docs/BACKEND_STAGE_15_EN.md) and [frontend guide](Docs/frontend/FRONTEND_STAGE_3_EN.md). Historical stages and results remain available. Portable distribution, images and state persistence remain separate tasks.
+Reusable libraries and explicit preparation/reuse modes remain available. The new grid, sorting, HTTP API and portable distribution remain separate stages.
 
 ## Running the frontend
 
-From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer also has a prepared Node.js copy under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_3_EN.md#running-and-selecting-files).
+From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer has Node.js under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_4_EN.md#starting-and-selecting-a-directory).
 
-Click Open database set and select all fifteen JSON files in `data/databases/` together. Do not select reports from `data/reports/`. Build separately: `$env:PYTHONPATH="src/backend"`, then `python -B -m sttv.database_sets --rebuild-libraries`. Startup and refresh neither invoke generation nor automatically open databases.
+Click “Open database set” and select **`data/stage17/database_set`**. Future builds default to `data/database_set`. Select the root containing `manifest.json`; old 15-file sets are unsupported. Build separately: `$env:PYTHONPATH="src/backend"`, then `python -B -m sttv.database_sets --rebuild-libraries`. Startup and refresh neither build nor automatically open data.
 
 ## Directory structure
 
@@ -40,10 +36,11 @@ Click Open database set and select all fifteen JSON files in `data/databases/` t
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
 | `config/` | Sources, output paths, parser, library and localization configurations |
-| `schemas/` | Twenty-three generated configuration, database, and report schemas |
+| `schemas/` | 32 generated configuration, database, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 | `Docs/frontend/` | Interface concept and subsequent frontend documentation |
+| `Docs/semantics/` | Game construct dictionary for technology and object-relation analysis |
 
 `WORK_DIR` configures the working folder. Relative values are resolved against the `WEB_STTV`/product directory; absolute paths inside the repository are also allowed. Changing the setting does not move existing data. The root `.gitignore` includes `/WEB_STTV/data/`; a different working folder is ignored separately when needed. The setting is applied on each builder invocation.
 
@@ -83,6 +80,15 @@ Absolute source roots belong to the current environment. Game and localization d
 
 ## Documents
 
+- [Backend stage 17](Docs/BACKEND_STAGE_17_EN.md).
+- [Frontend 0.0.4](Docs/frontend/FRONTEND_STAGE_4_EN.md).
+
+- [Stage 17 specification: manifest and separate database documents](Docs/TZ_BACKEND_STAGE_17_EN.md).
+- [Frontend stage 4 specification draft: directory opening and selective reading](Docs/frontend/TZ_FRONTEND_STAGE_4_EN.md).
+- [Stage 16 specification: technology parent and child enrichment](Docs/TZ_BACKEND_STAGE_16_EN.md).
+- [Stage 16: running, combinations and verification results](Docs/BACKEND_STAGE_16_EN.md).
+- [Agreed tree relationship enrichment approach](Docs/TECHNOLOGY_TREE_ENRICHMENT_EN.md).
+- [Construct dictionary for technology analysis](Docs/semantics/README_EN.md).
 - [Stage 15: parallel file processing and database merging](Docs/TZ_BACKEND_STAGE_15_EN.md).
 - [Stage 15 implementation guide](Docs/BACKEND_STAGE_15_EN.md).
 - [Stage 14: preparing and reusing libraries](Docs/TZ_BACKEND_STAGE_14_EN.md).

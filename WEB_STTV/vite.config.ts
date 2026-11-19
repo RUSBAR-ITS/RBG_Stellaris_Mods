@@ -6,5 +6,5 @@ export default defineConfig({
   base: './',
   cacheDir: 'data/frontend-cache/vite',
   build: { outDir: 'data/frontend-build', emptyOutDir: true },
-  server: { port: 5173, strictPort: true },
+  server: { port: 5173, strictPort: true, watch: { ignored: ['**/data/**'] } },
 });

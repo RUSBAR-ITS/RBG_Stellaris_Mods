@@ -1,5 +1,6 @@
 {
   "format_version": 3,
+  "storage": {"base": "product", "path": "config/storage.json"},
   "languages": {
     "ru": {
       "header": "l_russian",

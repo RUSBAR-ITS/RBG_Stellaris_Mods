@@ -96,7 +96,7 @@ class ParallelTests(LibraryFixture):
                 self.configure_workers(workers)
                 with self.assertRaises(BuildError):
                     load_settings(self.variable_file, self.config_file)
-        for directory in ('libraries', '.', '../outside', 'database.json'):
+        for directory in ('libraries', '.', '../outside', 'database_set/manifest.json'):
             with self.subTest(directory=directory):
                 self.configure_workers(10, directory)
                 with self.assertRaises(BuildError):

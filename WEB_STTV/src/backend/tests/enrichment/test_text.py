@@ -65,7 +65,8 @@ class TextTests(LocalizationFixture):
         report = self.assert_failure("localization_cycle")
         error = next(row for row in report["diagnostics"] if row["code"] == "localization_cycle")
         self.assertEqual(error["chain"], ["tech_a", "loop", "tech_a"])
-        self.assertEqual(error["node"], "/documents/0/items/0")
+        self.assertEqual(error["node"]["pointer"], "/items/0")
+        self.assertEqual(error["node"]["database"], "technologies")
 
     def test_depth_and_size_limits(self):
         self.options["references"]["max_depth"] = 1

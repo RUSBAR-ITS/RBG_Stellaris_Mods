@@ -10,7 +10,7 @@ export function sttvStatusMessage(state: SttvOpening, language: SttvLanguage = '
   const kind = state.progress?.kind;
   const dictionary: Record<string, string> = language === 'ru' ? ru : en;
   if (state.status === 'loading') return { id: `sttv_${state.phase ?? 'reading'}`,
-    params: { index: (state.progress?.fileIndex ?? 0) + 1, total: state.files.length,
+    params: { index: (state.progress?.fileIndex ?? 0) + 1, total: state.progress?.total ?? state.files.length,
       kind: kind ? dictionary[sttvDatasets[kind].labelId] : '' } };
   if (state.status === 'error' && state.error?.code === 'invalid_database_set'
     && typeof state.error.details.count === 'number') return { id: 'sttv_invalid_database_count',

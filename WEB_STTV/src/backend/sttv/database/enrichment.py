@@ -8,7 +8,7 @@ def invalid(message, path):
 
 
 def validate_fallback(node, path, name, field):
-    reference = field['fallback']['source_ref']
+    reference = field['fallback']['source_ref']['pointer']
     prefix = path + '/value/items/'
     if (name != 'description' or field['inherited_from'] is not None
             or not reference.startswith(prefix) or not reference[len(prefix):].isdigit()):
@@ -29,7 +29,7 @@ def validate_fallback(node, path, name, field):
         invalid('Shared description key does not match the referenced component set', path)
 
 
-def validate_enrichments(enriched):
+def validate_enrichments(enriched, document):
     for path, node in enriched.items():
         if node['kind'] != 'assignment' or node["operator"] != "=" or node["value"]["kind"] not in ('block', 'scalar'):
             invalid("Localization requires a block or scalar assignment", path)
@@ -38,6 +38,11 @@ def validate_enrichments(enriched):
             invalid('Localized roles differ between languages', path)
         for language, fields in node["enrichments"]["localization"].items():
             for name, field in fields.items():
+                refs = [field['inherited_from'], field.get('fallback', {}).get('source_ref')]
+                for reference in refs:
+                    if reference is not None and (reference['database'] != document.get('database')
+                            or reference['document_id'] != document.get('document_id')):
+                        invalid('Localization reference leaves its document', path)
                 if field['requested_key'] != localized['en' if language == 'ru' else 'ru'][name]['requested_key']:
                     invalid('Requested localization keys differ between languages', path)
                 if field["key"] is None:
@@ -50,7 +55,8 @@ def validate_enrichments(enriched):
                 if 'fallback' in field:
                     validate_fallback(node, path, name, field)
                     continue
-                parent = field["inherited_from"]
+                parent_ref = field["inherited_from"]
+                parent = parent_ref['pointer'] if parent_ref else None
                 if parent is None:
                     if field["key"] != field["requested_key"]:
                         invalid("Direct text must match its requested key", path)

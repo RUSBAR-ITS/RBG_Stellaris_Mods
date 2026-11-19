@@ -21,6 +21,7 @@ def configuration():
     language = obj({"header": TEXT, "sources": array(TEXT, minItems=1, uniqueItems=True)})
     result = obj({
         "format_version": {"const": 3},
+        'storage': selection(),
         'targets': obj({kind: selection() for kind in KINDS}),
         "languages": obj({key: language for key in ("ru", "en")}),
         "reading": obj({"pattern": TEXT, "recursive": BOOL, "encoding": TEXT}),
@@ -28,7 +29,7 @@ def configuration():
                            "key_pattern": TEXT, "max_depth": LINE, "max_characters": LINE}),
         "inherit_description": BOOL,
     })
-    result['properties'].update(database=RELATIVE, report=RELATIVE)
+    result['properties'].update(report=RELATIVE)
     return result
 
 
@@ -38,13 +39,14 @@ def source():
 
 
 def field():
+    from .storage import node_ref
     result = obj({"requested_key": TEXT, "key": union(TEXT, NULL),
                 "raw": union(STRING, NULL), "text": union(STRING, NULL),
                 "source": union(source(), NULL),
-                "inherited_from": union({"type": "string", "pattern": r"^/documents/\d+/items/\d+$"}, NULL),
+                "inherited_from": union(node_ref(), NULL),
                 "unresolved_references": array(TEXT, uniqueItems=True)})
     result['properties']['fallback'] = obj({'kind': {'const': 'component_set'},
-                                            'source_ref': TEXT})
+                                            'source_ref': node_ref()})
     return result
 
 

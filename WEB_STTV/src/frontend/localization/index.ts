@@ -6,8 +6,17 @@ import type { SttvDatabaseKind } from '../data/model';
 import { sttvDatabaseKinds } from '../data/registry';
 
 export class SttvIndexBuilder {
+  documentId = '';
   readonly index: SttvLocalizationIndex = { ru: Object.create(null), en: Object.create(null) };
   private resolvedOrigins = new Map<string, SttvOrigin[]>();
+
+  fork() {
+    const result = new SttvIndexBuilder();
+    Object.assign(result.index, structuredClone(this.index));
+    Object.setPrototypeOf(result.index.ru, null); Object.setPrototypeOf(result.index.en, null);
+    result.resolvedOrigins = structuredClone(this.resolvedOrigins);
+    return result;
+  }
 
   add(localization: SttvStoredLocalization | undefined, path: string,
     database: SttvDatabaseKind = 'technologies', descriptionOnly = false,
@@ -25,10 +34,10 @@ export class SttvIndexBuilder {
         const previousId = field === 'name' ? nameId : descriptionId;
         if (previousId && previousId !== id) throw sttvInvalid(recordRef, 'String IDs differ between languages.');
         if (field === 'name') nameId = id; else descriptionId = id;
-        const origin: SttvOrigin = { recordRef: { database, pointer: recordRef }, key: value.key, raw: value.raw,
-          source: value.source, inheritedFrom: value.inherited_from ? { database, pointer: value.inherited_from } : null,
+        const origin: SttvOrigin = { recordRef: { database, document_id: this.documentId, pointer: recordRef }, key: value.key, raw: value.raw,
+          source: value.source, inheritedFrom: value.inherited_from,
           ...(value.fallback ? { fallback: { kind: value.fallback.kind,
-            sourceRef: { database, pointer: value.fallback.source_ref } } } : {}),
+            sourceRef: value.fallback.source_ref } } : {}),
           unresolvedReferences: value.unresolved_references };
         const existing = this.index[language][id];
         const address = `${language}:${id}`;
@@ -58,6 +67,7 @@ export class SttvIndexBuilder {
     for (const language of config.languages as SttvLanguage[]) {
       for (const record of Object.values(this.index[language])) record.origins.sort((left, right) =>
         sttvDatabaseKinds.indexOf(left.recordRef.database) - sttvDatabaseKinds.indexOf(right.recordRef.database)
+        || left.recordRef.document_id.localeCompare(right.recordRef.document_id)
         || left.recordRef.pointer.localeCompare(right.recordRef.pointer, 'en', { numeric: true }));
     }
   }

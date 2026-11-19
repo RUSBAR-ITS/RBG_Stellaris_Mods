@@ -2,16 +2,16 @@ import type { SttvOpening } from '../workers/controller';
 
 export function sttvBuildReport(state: SttvOpening, now = new Date()) {
   if (!state.files.length || !['ready', 'empty', 'error'].includes(state.status)) throw new Error('No completed attempt.');
-  return { format: 'sttv.frontend_diagnostics', formatVersion: 2, exportedAt: now.toISOString(),
-    operationId: state.operationId, setId: state.data?.setId ?? null,
+  return { format: 'sttv.frontend_diagnostics', formatVersion: 3, exportedAt: now.toISOString(),
+    operationId: state.operationId, root: state.files[0]?.webkitRelativePath?.split('/')[0] || null, setId: state.data?.setId ?? null,
+    snapshotRevision: state.data?.snapshotRevision ?? null, coverage: state.data?.coverage ?? null,
+    datasets: state.data?.datasets ?? [],
     files: state.files.map((file, fileIndex) => {
-      const member = state.members.find(item => item.fileIndex === fileIndex);
-      const dataset = state.data?.datasets.find(item => item.fileIndex === fileIndex);
-      return { name: file.name, size: file.size, fileIndex, kind: dataset?.kind ?? member?.kind ?? null,
-        setId: state.data?.setId ?? member?.setId ?? null };
+      return { name: file.name, path: file.webkitRelativePath, size: file.size, fileIndex };
     }),
     counts: state.data ? { technologies: Object.keys(state.data.technologies).length,
-      components: Object.keys(state.data.components).length, buildings: Object.keys(state.data.buildings).length,
+      components: state.data.datasets.find(d => d.kind === 'components')?.state === 'loaded' ? Object.keys(state.data.components).length : null,
+      buildings: state.data.datasets.find(d => d.kind === 'buildings')?.state === 'loaded' ? Object.keys(state.data.buildings).length : null,
       objectRequirements: state.data.objectRequirements.length, objectUpgrades: state.data.objectUpgrades.length,
       upgradeEvidence: state.data.upgradeEvidence.length } : null,
     result: state.status, error: state.error, diagnostics: state.diagnostics };

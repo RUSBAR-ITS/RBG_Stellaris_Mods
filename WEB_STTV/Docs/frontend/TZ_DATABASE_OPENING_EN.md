@@ -18,6 +18,8 @@
 
 ## Status and scope
 
+**Current opening behavior is specified in [stage 4](TZ_FRONTEND_STAGE_4_EN.md):** the user selects a directory containing a manifest; documents load selectively. See the [guide](FRONTEND_STAGE_4_EN.md) for launch instructions. Single or multiple monolithic file selection below refers to earlier stages.
+
 As of 2026-11-17, this document's single-file and unqualified-reference provisions are superseded by the approved [stage-two specification](TZ_FRONTEND_STAGE_2_EN.md). The current implementation opens three version-five databases as one set and uses `{ database, pointer }` references; other applicable requirements remain in effect.
 
 This document records the agreed interface startup and existing database opening behavior. The frontend uses a prepared JSON file containing parsed results and localization. Database creation and updates remain separate backend processes.

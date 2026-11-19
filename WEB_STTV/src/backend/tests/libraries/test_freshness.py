@@ -48,7 +48,7 @@ class FreshnessTests(LibraryFixture):
         localization = self.game/'localisation'
         localization.mkdir()
         (localization/'unrelated.yml').write_text('l_english:\n key:0 "Changed"', encoding='utf-8')
-        self.options['outputs']['database'] = 'other.json'
+        self.options['outputs']['report'] = 'other.json'
         self.persist()
         snapshot = self.prepare('reuse')
         self.assertEqual(snapshot.report['counts']['prepared_plans'], 0)

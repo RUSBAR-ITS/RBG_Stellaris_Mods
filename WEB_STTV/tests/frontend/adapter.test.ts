@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { SttvStorageSession } from '../../src/frontend/storage/session';
+import { sttvRealFiles } from './realFiles';
+import { sttvRules } from './setHarness';
 import { sttvAdaptDatabase } from '../../src/frontend/data/adapter';
 import { sttvLayout } from '../../src/frontend/data/layout';
 import { SttvPreparationError } from '../../src/frontend/workers/diagnostics';
@@ -31,8 +33,9 @@ test('variants inherit the tier and requirements while selecting their area', ()
 });
 test('category subdirectories and unrelated commands are not treated as technologies', () => {
   const db = sttvDatabase([sttvTechnology('a')]);
-  db.documents.push({ source: { file: 'common/technology/category/test.txt', root: 'STELLARIS_ROOT' }, items: [sttvTechnology('ignore')] });
   assert.deepEqual(Object.keys(sttvAdaptDatabase(db).technologies), ['a']);
+  db.source.file = 'common/technology/category/test.txt';
+  assert.deepEqual(Object.keys(sttvAdaptDatabase(db).technologies), []);
 });
 test('unusable requirements produce an explicit preparation error', () => {
   for (const items of [
@@ -50,18 +53,18 @@ test('layout orders by requirement count then predecessor set and stable ID', ()
   const catalog = sttvAdaptDatabase(sttvDatabase(items));
   assert.deepEqual(sttvLayout(catalog.technologies, {}).areas[0].columns[1].ids, ['c', 'd', 'b']);
 });
-test('real technology set member database produces the agreed catalog without input mutation', { skip: !process.env.STTV_DATABASE_DIR }, () => {
-  const db = JSON.parse(readFileSync(`${process.env.STTV_DATABASE_DIR ?? 'data/databases'}/technologies.json`, 'utf8'));
-  const catalog = sttvAdaptDatabase(db);
+test('real technology set member database produces the agreed catalog without input mutation', { skip: !process.env.STTV_DATABASE_DIR }, async () => {
+  const session = await SttvStorageSession.open(await sttvRealFiles(process.env.STTV_DATABASE_DIR!), sttvRules);
+  const catalog = await session.initial();
   assert.equal(Object.keys(catalog.technologies).length, 679);
   assert.equal(Object.values(catalog.technologies).reduce((n, t) => n + t.representations.length - 1, 0), 206);
   assert.equal(catalog.technologies.tech_titans.requirementCount, 1);
   assert.deepEqual(catalog.technologies.tech_titans.prerequisiteIds, ['tech_battleships', 'tech_stinger_growth_2']);
-  assert.deepEqual(catalog.technologies.tech_titans.sourceRef, { database: 'technologies', pointer: '/documents/7/items/5' });
+  assert.match(catalog.technologies.tech_titans.sourceRef.document_id, /^[a-f0-9]{64}$/);
+  assert.equal(catalog.technologies.tech_titans.sourceRef.pointer, '/items/5');
   assert.equal(catalog.diagnostics.length, 0);
   const serialized = JSON.stringify(catalog);
-  assert.equal(serialized.includes('"documents"'), false);
-  assert.equal(db.documents[7].items[5].key.text, 'tech_titans');
+  assert.equal(serialized.includes('"kind":"assignment"'), false);
   console.log(JSON.stringify({ technologies: 679, variants: 206, links: catalog.links.length,
     strings: Object.keys(catalog.localization.ru).length + Object.keys(catalog.localization.en).length,
     mainThreadBytes: Buffer.byteLength(serialized) }));

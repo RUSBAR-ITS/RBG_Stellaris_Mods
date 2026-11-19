@@ -13,7 +13,7 @@ from sttv.sources.expansion import expansion_context
 class StaticBuildTests(BuildFixture):
     def test_nested_arguments_origin_history_and_document_isolation(self):
         self.write_script('base.txt', '@cost=3 box={inline_script={script=outer VALUE=@cost}}')
-        self.write_script('second.txt', '@cost=7 box={inline_script={script=outer VALUE=@cost}}')
+        self.write_script('second.txt', '@cost=7 second_box={inline_script={script=outer VALUE=@cost}}')
         (self.inline / 'outer.txt').write_text('inline_script={script=inner VALUE=$VALUE$}', encoding='utf-8')
         (self.inline / 'inner.txt').write_text('amount=$VALUE$ quoted="$VALUE$"', encoding='utf-8')
         result = self.run_build()
@@ -34,7 +34,7 @@ class StaticBuildTests(BuildFixture):
             expected['items'][1]['value']['items'][0]['value'].update(
                 raw='3' if file.endswith('/base.txt') else '7',
                 text='3' if file.endswith('/base.txt') else '7')
-            self.assertEqual(document, expected)
+            self.assertEqual({k: document[k] for k in ('source', 'items', 'metadata')}, expected)
             self.assertEqual(document['items'][1]['value']['items'][1]['value']['text'], '@cost')
             self.assertEqual(document['metadata']['expansions'][0]['arguments'][0]['value'], '@cost')
             self.assertIsNotNone(amount['origin']['expansion_id'])

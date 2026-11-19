@@ -4,24 +4,19 @@ import { readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { openAsBlob } from 'node:fs';
 import { sttvReadJson } from '../../src/frontend/data/jsonStream';
-import { SttvSetAdapter } from '../../src/frontend/data/setAdapter';
+import { SttvStorageSession } from '../../src/frontend/storage/session';
+import { sttvRealFiles } from './realFiles';
 import { sttvDatabaseKinds } from '../../src/frontend/data/registry';
 import { sttvRules } from './setHarness';
 
 test('real set preserves catalogs and confirms previously researched upgrade witnesses', { skip: !process.env.STTV_DATABASE_DIR }, async () => {
-  const directory = process.env.STTV_DATABASE_DIR ?? 'data/databases';
-  const kinds = [...sttvDatabaseKinds].reverse();
-  const files = kinds.map(kind => ({ name: `${kind}.json`, size: statSync(join(directory, `${kind}.json`)).size }));
+  const directory = process.env.STTV_DATABASE_DIR!;
   const started = performance.now();
-  const adapter = new SttvSetAdapter(files, sttvRules);
-  for (const [index, file] of files.entries()) {
-    const blob = await openAsBlob(join(directory, file.name));
-    const { metadata, documentCount } = await sttvReadJson(blob);
-    adapter.begin(metadata, index);
-    adapter.metadata.datasets.at(-1)!.documentCount = documentCount;
-    await sttvReadJson(blob, (document, offset) => adapter.document({ ...metadata, documents: [document] }, index, offset));
-  }
-  const catalog = adapter.finish();
+  const session = await SttvStorageSession.open(await sttvRealFiles(directory), sttvRules);
+  const initial = await session.initial();
+  assert.equal(initial.coverage.documents.filter(d => d.status === 'verified' && d.database !== 'technologies').length, 0);
+  const initialSeconds = (performance.now() - started) / 1000;
+  const catalog = await session.load(sttvDatabaseKinds);
   assert.equal(catalog.datasets.length, 15);
   assert.equal(Object.keys(catalog.technologies).length, 679);
   assert.equal(Object.keys(catalog.components).length, 1506);
@@ -38,8 +33,8 @@ test('real set preserves catalogs and confirms previously researched upgrade wit
   assert.ok(afterburners?.witnesses.some(item => item.upgrade.from.id === 'AFTERBURNER_1'));
   assert.ok(catalog.technologies.tech_afterburners_2.prerequisiteIds.includes('tech_thrusters_3'));
   const text = JSON.stringify(catalog);
-  assert.equal(text.includes('"documents"'), false);
-  const report = { technologies: Object.keys(catalog.technologies).length,
+  assert.equal(text.includes('"kind":"assignment"'), false);
+  const report = { initialSeconds, initialCoverage: initial.coverage, fullCoverage: catalog.coverage, technologies: Object.keys(catalog.technologies).length,
     definitions: Object.fromEntries(Object.entries(catalog.definitions).map(([kind, rows]) => [kind, rows.length])),
     components: Object.keys(catalog.components).length, buildings: Object.keys(catalog.buildings).length,
     conditionalDescriptions: Object.values(catalog.buildings).reduce((n, item) => n + item.conditionalDescriptions.length, 0),
@@ -52,7 +47,7 @@ test('real set preserves catalogs and confirms previously researched upgrade wit
     warningsByCode: catalog.diagnostics.reduce((counts, item) => {
       counts[item.code] = (counts[item.code] ?? 0) + 1; return counts;
     }, {} as Record<string, number>) };
-  mkdirSync('data/stage12', { recursive: true });
-  writeFileSync('data/stage12/frontend_catalog_report.json', JSON.stringify(report, null, 2) + '\n');
+  mkdirSync('data/stage17', { recursive: true });
+  writeFileSync('data/stage17/frontend_catalog_report.json', JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));
 });

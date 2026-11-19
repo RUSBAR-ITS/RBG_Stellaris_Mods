@@ -1,5 +1,6 @@
 import { sttvInvalid } from '../workers/diagnostics';
 import type { SttvStoredLocalization } from '../localization/model';
+import type { SttvDatabaseKind } from './model';
 
 // Only the fields consumed by the adapter are described here.
 export interface SttvNode {
@@ -15,10 +16,12 @@ export interface SttvNode {
 export interface SttvDatabase {
   format: string;
   format_version: number;
-  dataset?: { kind: string; set_id: string };
-  documents: { source: { file: string; root: string }; items: SttvNode[] }[];
+  database: SttvDatabaseKind;
+  document_id: string;
+  source: { file: string; root: string };
+  items: SttvNode[];
 }
-export function sttvDocument(document: SttvDatabase['documents'][number], path: string) {
+export function sttvDocument(document: SttvDatabase, path: string) {
   if (typeof document?.source?.file !== 'string' || !Array.isArray(document?.items)) {
     throw sttvInvalid(path, 'Source filename and document items are required.');
   }

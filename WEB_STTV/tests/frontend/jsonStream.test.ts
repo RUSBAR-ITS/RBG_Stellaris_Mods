@@ -1,52 +1,50 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { SttvJsonStream, sttvReadJson } from '../../src/frontend/data/jsonStream';
-import { SttvSetAdapter } from '../../src/frontend/data/setAdapter';
+import { SttvStorageSession } from '../../src/frontend/storage/session';
 import { sttvRules, sttvAdaptSet } from './setHarness';
-import { sttvSet, sttvSetFiles, sttvTechnology, sttvDatabase, sttvScalar } from './fixtures';
-import type { SttvDatabase } from '../../src/frontend/data/syntax';
+import { sttvSet, sttvTechnology, sttvDatabase, sttvScalar } from './fixtures';
+import { sttvFiles, sttvHash } from './manifestFixtures';
+import type { SttvNode } from '../../src/frontend/data/syntax';
+import { sttvDatabaseKinds } from '../../src/frontend/data/registry';
 
-test('streamed documents produce the same catalog with original addresses and late references', async () => {
-  const db = sttvDatabase([sttvTechnology('child', 1, 'physics', [sttvScalar('parent')])]);
-  db.documents.push({ source: { file: 'common/technology/second.txt', root: 'STELLARIS_ROOT' },
-    items: [sttvTechnology('parent')] });
-  const inputs = sttvSet(db).reverse(), files = sttvSetFiles(inputs);
-  const adapter = new SttvSetAdapter(files, sttvRules);
-  for (const [index, input] of inputs.entries()) {
-    const file = new Blob([JSON.stringify(input)]);
-    const { metadata, documentCount } = await sttvReadJson(file);
-    assert.equal(metadata.documents.length, 0);
-    adapter.begin(metadata, index);
-    adapter.metadata.datasets.at(-1)!.documentCount = documentCount;
-    await sttvReadJson(file, (document, offset) => adapter.document({ ...metadata, documents: [document] }, index, offset));
-  }
-  assert.deepEqual(adapter.finish(), sttvAdaptSet(inputs, files));
+test('streamed items produce the same catalogs and preserve late references', async () => {
+  const inputs = sttvSet(sttvDatabase([sttvTechnology('child', 1, 'physics', [sttvScalar('parent')]), sttvTechnology('parent')]));
+  const session = await SttvStorageSession.open(sttvFiles(inputs).reverse(), sttvRules);
+  const streamed = await session.load(sttvDatabaseKinds), direct = sttvAdaptSet(inputs);
+  assert.deepEqual(streamed.technologies, direct.technologies);
+  assert.deepEqual(JSON.parse(JSON.stringify(streamed.localization)), JSON.parse(JSON.stringify(direct.localization)));
+  assert.equal(streamed.coverage.verifiedDocuments, 15);
 });
-test('every character boundary preserves escapes, Unicode, numbers and metadata ordering', () => {
-  const input = { documents: [{ items: [], metadata: { ignored: '\\"\nЖ😀' }, source: { file: 'Ж😀\\"\n.txt', root: 'STELLARIS_ROOT' } }],
-    format: 'sttv.parse_database', format_version: 6, dataset: { kind: 'events', set_id: 'a'.repeat(64) }, ignored: -1.25e-3 };
+test('character boundaries preserve Unicode and discard only unused payload fields', () => {
+  const input = { ...sttvDatabase([sttvTechnology('example')]), metadata: { ignored: '\\"\n\u0416\ud83d\ude00' } };
+  input.source.file = 'common/technology/\u0416\ud83d\ude00.txt';
   const text = JSON.stringify(input);
   for (let boundary = 1; boundary < text.length; boundary++) {
-    const docs: SttvDatabase['documents'] = [], parser = new SttvJsonStream(doc => docs.push(doc));
+    const items: SttvNode[] = [], parser = new SttvJsonStream(item => items.push(item));
     parser.tokens.feed(text.slice(0, boundary)); parser.tokens.feed(text.slice(boundary));
-    assert.equal(parser.finish().format_version, 6);
-    assert.equal(docs[0].source.file, input.documents[0].source.file);
-    assert.equal('metadata' in docs[0], false);
+    const header = parser.finish();
+    assert.equal(header.source.file, input.source.file);
+    assert.equal('metadata' in header, false);
+    assert.deepEqual(JSON.parse(JSON.stringify(items)), input.items);
   }
 });
-test('stream rejects malformed and unfinished JSON even in discarded metadata', () => {
-  for (const text of ['{"documents":[],}', '{"documents":[}', '{"documents":[] "x":1}',
-    '{"documents":[],"x":01}', '{"documents":[],"x":"\\uXX00"}',
-    '{"documents":[],"x":"unfinished', '{"documents":[],"x":true', '{"documents":[]}null']) {
+test('malformed and duplicate JSON fails even inside discarded metadata', () => {
+  for (const text of ['{"items":[],}', '{"items":[}', '{"items":[] "x":1}',
+    '{"items":[],"x":01}', '{"items":[],"x":"\\uXX00"}', '{"items":[],"x":"unfinished',
+    '{"items":[],"x":true', '{"items":[]}null', '{"items":[],"x":{"a":1,"a":2}}']) {
     const parser = new SttvJsonStream();
     assert.throws(() => { for (const char of text) parser.tokens.feed(char); parser.finish(); }, SyntaxError, text);
   }
 });
-test('UTF-8 multibyte sequences split between byte chunks decode correctly', async () => {
-  const bytes = new TextEncoder().encode(JSON.stringify({ documents: [], dataset: { kind: 'Событие😀' } }));
-  const stream = new ReadableStream({ start(controller) {
+test('incremental UTF-8 decoding and hashing share the same single byte pass', async () => {
+  const text = JSON.stringify({ items: [], database: '\u0421\u043e\u0431\u044b\u0442\u0438\u0435\ud83d\ude00' });
+  const bytes = new TextEncoder().encode(text);
+  let reads = 0;
+  const blob = { stream: () => { reads++; return new ReadableStream({ start(controller) {
     for (const byte of bytes) controller.enqueue(new Uint8Array([byte])); controller.close();
-  } });
-  const { metadata } = await sttvReadJson({ stream: () => stream } as Blob);
-  assert.equal(metadata.dataset!.kind, 'Событие😀');
+  } }); } } as Blob;
+  const parsed = await sttvReadJson(blob);
+  assert.equal(parsed.metadata.database, JSON.parse(text).database);
+  assert.equal(parsed.hash, sttvHash(text)); assert.equal(parsed.bytes, bytes.length); assert.equal(reads, 1);
 });

@@ -188,6 +188,9 @@
             "minLength": 1,
             "type": "string"
           },
+          "details": {
+            "type": "object"
+          },
           "field": {
             "anyOf": [
               {
@@ -226,6 +229,44 @@
           },
           "node": {
             "anyOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "database": {
+                    "enum": [
+                      "technologies",
+                      "components",
+                      "buildings",
+                      "megastructures",
+                      "ship_sizes",
+                      "starbase_levels",
+                      "starbase_modules",
+                      "starbase_buildings",
+                      "terraform",
+                      "deposits",
+                      "pop_jobs",
+                      "economic_categories",
+                      "scripted_actions",
+                      "on_actions",
+                      "events"
+                    ]
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/.*)?$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "database",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
               {
                 "minLength": 1,
                 "type": "string"

@@ -11,10 +11,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -25,7 +21,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -75,10 +70,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -89,7 +80,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -139,10 +129,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -153,7 +139,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -203,10 +188,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -217,7 +198,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -267,10 +247,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -281,7 +257,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -331,10 +306,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -345,7 +316,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -395,10 +365,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -409,7 +375,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -459,10 +424,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -473,7 +434,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -523,10 +483,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -537,7 +493,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -587,10 +542,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -601,7 +552,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -651,10 +601,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -665,7 +611,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -715,10 +660,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -729,7 +670,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -779,10 +719,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -793,7 +729,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -843,10 +778,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -857,7 +788,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -907,10 +837,6 @@
             "outputs": {
               "additionalProperties": false,
               "properties": {
-                "database": {
-                  "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-                  "type": "string"
-                },
                 "localization_report": {
                   "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
                   "type": "string"
@@ -921,7 +847,6 @@
                 }
               },
               "required": [
-                "database",
                 "report",
                 "localization_report"
               ],
@@ -1245,6 +1170,26 @@
     "report": {
       "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
       "type": "string"
+    },
+    "storage": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
     }
   },
   "required": [
@@ -1252,6 +1197,7 @@
     "libraries",
     "parallel",
     "datasets",
+    "storage",
     "localization",
     "report"
   ],

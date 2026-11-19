@@ -4,7 +4,7 @@ import type { SttvDiagnostic } from '../workers/diagnostics';
 export type SttvArea = 'physics' | 'society' | 'engineering';
 import type { SttvDatabaseKind } from './registry';
 export type { SttvDatabaseKind } from './registry';
-export interface SttvNodeRef { database: SttvDatabaseKind; pointer: string }
+export interface SttvNodeRef { database: SttvDatabaseKind; document_id: string; pointer: string }
 export interface SttvObjectRef { database: SttvDatabaseKind; id: string }
 export type SttvOperator = 'AND' | 'OR' | 'NOT' | 'NAND' | 'NOR';
 export type SttvRequirement = { kind: 'technology'; technologyId: string } | SttvGroup;
@@ -63,13 +63,16 @@ export interface SttvUpgradeWitness {
 export interface SttvUpgradeEvidence { from: string; to: string; witnesses: SttvUpgradeWitness[] }
 export interface SttvDatasetInfo {
   kind: SttvDatabaseKind;
-  fileIndex: number;
   name: string;
   size: number;
   documentCount: number;
+  objectCount: number;
+  state: 'not_loaded' | 'loading' | 'loaded' | 'failed';
 }
 export interface SttvCatalog extends SttvTechnologyCatalog {
   setId: string;
+  snapshotRevision: string;
+  coverage: import('../storage/model').SttvCoverage;
   datasets: SttvDatasetInfo[];
   components: Record<string, SttvObject>;
   buildings: Record<string, SttvObject>;

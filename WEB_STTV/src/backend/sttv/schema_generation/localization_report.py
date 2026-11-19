@@ -6,12 +6,14 @@ from sttv.common.datasets import KINDS
 
 
 def schema():
+    from .storage import node_ref
     count = {"type": "integer", "minimum": 0}
     diagnostic = obj({"severity": {"enum": ["error", "warning"]}, "code": TEXT,
-        "message": STRING, "stage": TEXT, "node": union(TEXT, NULL),
+        "message": STRING, "stage": TEXT, "node": union(node_ref(), TEXT, NULL),
         "language": union(TEXT, NULL), "field": union(TEXT, NULL),
         "requested_key": union(TEXT, NULL), "source": union(source(), NULL),
         "line": union(LINE, NULL), "chain": array(TEXT)})
+    diagnostic['properties']['details'] = {'type': 'object'}
     return obj({"format": {"const": "sttv.localization_report"}, "format_version": {"const": 2},
         "status": {"enum": ["success", "failed", "running"]}, "database_written": BOOL,
         "paths": obj({"database": union(TEXT, NULL), "report": union(TEXT, NULL)}),

@@ -22,7 +22,14 @@ def diagnostic(report, severity, code, message, stage, **context):
 
 def failure(report, exc, stage, **context):
     details = dict(getattr(exc, "context", {}))
+    known = {'node', 'language', 'field', 'requested_key', 'source', 'line', 'chain'}
+    if 'document_id' in details:
+        known.discard('source')
+    extra = {key: value for key, value in details.items() if key not in known}
+    details = {key: value for key, value in details.items() if key in known}
     details.update(context)
+    if extra:
+        details['details'] = extra
     details.setdefault("line", getattr(exc, "line", None))
     diagnostic(report, "error", getattr(exc, "code", "localization_error"), exc, stage, **details)
 

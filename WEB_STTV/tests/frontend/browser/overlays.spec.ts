@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { sttvEnglish, sttvUpload, sttvOffset, en } from './helpers';
+import { sttvEnglish, sttvUpload, sttvUploadEntries, sttvOffset, en } from './helpers';
 import { sttvDatabase, sttvTechnology, sttvVariant, sttvLogical, sttvScalar } from '../fixtures';
 
 test('oversized literal descriptions remain reachable without scrolling the field', async ({ page }) => {
@@ -44,7 +44,7 @@ test('keyboard selection changes only after confirmation and returns to the trig
 });
 test('negative requirements and unsupported formats produce diagnostic errors', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  await sttvUpload(page, { format: 'other', format_version: 7 });
+  await sttvUploadEntries(page, [{ path: 'manifest.json', content: JSON.stringify({ format: 'other', format_version: 7 }) }]);
   await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_invalid_database_set);
   const negative = sttvTechnology('a', 0, 'physics', [sttvLogical('NOT', [sttvScalar('b')])]);
   await sttvUpload(page, sttvDatabase([negative, sttvTechnology('b')]));

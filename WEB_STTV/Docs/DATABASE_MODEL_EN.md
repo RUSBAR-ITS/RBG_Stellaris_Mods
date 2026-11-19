@@ -23,6 +23,8 @@
 
 ## Status and data scope
 
+**Current storage format — stage 17:** [manifest and separate documents](BACKEND_STAGE_17_EN.md). The model below is first-stage history and does not describe the current schemas.
+
 **Concept change dated 2026-11-15.** The [new direction](CONCEPT_EN.md#internal-data) saves parsing results as JSON and enriches them through separate actions in later stages. The previous model and implemented requirements remain documented below; they do not constrain the new format. The transition is implemented in stage six: [current guide](BACKEND_STAGE_6_EN.md). The stage-one domain model below remains historical; shared development principles still apply.
 
 [Stage five](BACKEND_STAGE_5_EN.md) introduces database version `2`: `inline_script` expands before conversion, call history lives in `metadata.inline_scripts`, and source locations contain a root, path, line, column, and call ID. Database version 1 is no longer supported.

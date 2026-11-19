@@ -26,17 +26,16 @@ export function sttvVariant(id: string, area?: SttvArea, text = id): SttvNode {
     enrichments: { localization: sttvLocalization(id, text) } };
 }
 export function sttvDatabase(items: SttvNode[]): SttvDatabase {
-  return { format: 'sttv.parse_database', format_version: 6,
-    documents: [{ source: { file: 'common/technology/example.txt', root: 'STELLARIS_ROOT' }, items }] };
+  return sttvDataset('technologies', items);
 }
 export function sttvDataset(kind: SttvDatabaseKind, items: SttvNode[] = []): SttvDatabase {
   const directory = sttvDatasets[kind].directory;
-  return { ...sttvDatabase(items), dataset: { kind, set_id: 'a'.repeat(64) },
-    documents: [{ source: { file: `${directory}/example.txt`, root: 'STELLARIS_ROOT' }, items }] };
+  return { format: 'sttv.parse_document', format_version: 1, database: kind,
+    document_id: String(sttvDatabaseKinds.indexOf(kind) + 1).padStart(64, '0'),
+    source: { file: `${directory}/example.txt`, root: 'STELLARIS_ROOT' }, items };
 }
 export function sttvSet(technology: SttvDatabase = sttvDatabase([])) {
-  return sttvDatabaseKinds.map(kind => kind === 'technologies'
-    ? { ...technology, dataset: { kind, set_id: 'a'.repeat(64) } } : sttvDataset(kind));
+  return sttvDatabaseKinds.map(kind => kind === 'technologies' ? technology : sttvDataset(kind));
 }
 export function sttvSetFiles(databases = sttvSet()) {
   return databases.map((db, i) => ({ name: `input-${i}.json`, size: JSON.stringify(db).length }));

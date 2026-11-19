@@ -645,7 +645,7 @@
               "type": "integer"
             },
             "identity_algorithm": {
-              "const": "sttv.document_hashes.v1"
+              "const": "sttv.document_source.v1"
             },
             "jobs": {
               "items": {

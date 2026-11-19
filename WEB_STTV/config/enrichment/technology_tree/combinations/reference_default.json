@@ -1,0 +1,11 @@
+{
+  "format": "sttv.technology_tree_combination",
+  "format_version": 1,
+  "id": "reference_default",
+  "mode": "reference",
+  "profile": {
+    "base": "product",
+    "path": "config/enrichment/technology_tree/profiles/reference_empire.json"
+  },
+  "variants": {}
+}

@@ -52,7 +52,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/technologies.json",
         "report": "reports/technologies_build.json",
         "localization_report": "reports/technologies_localization.json"
       }
@@ -67,7 +66,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/components.json",
         "report": "reports/components_build.json",
         "localization_report": "reports/components_localization.json"
       }
@@ -82,7 +80,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/buildings.json",
         "report": "reports/buildings_build.json",
         "localization_report": "reports/buildings_localization.json"
       }
@@ -97,7 +94,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/megastructures.json",
         "report": "reports/megastructures_build.json",
         "localization_report": "reports/megastructures_localization.json"
       }
@@ -112,7 +108,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/ship_sizes.json",
         "report": "reports/ship_sizes_build.json",
         "localization_report": "reports/ship_sizes_localization.json"
       }
@@ -127,7 +122,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/starbase_levels.json",
         "report": "reports/starbase_levels_build.json",
         "localization_report": "reports/starbase_levels_localization.json"
       }
@@ -142,7 +136,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/starbase_modules.json",
         "report": "reports/starbase_modules_build.json",
         "localization_report": "reports/starbase_modules_localization.json"
       }
@@ -157,7 +150,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/starbase_buildings.json",
         "report": "reports/starbase_buildings_build.json",
         "localization_report": "reports/starbase_buildings_localization.json"
       }
@@ -172,7 +164,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/terraform.json",
         "report": "reports/terraform_build.json",
         "localization_report": "reports/terraform_localization.json"
       }
@@ -187,7 +178,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/deposits.json",
         "report": "reports/deposits_build.json",
         "localization_report": "reports/deposits_localization.json"
       }
@@ -202,7 +192,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/pop_jobs.json",
         "report": "reports/pop_jobs_build.json",
         "localization_report": "reports/pop_jobs_localization.json"
       }
@@ -217,7 +206,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/economic_categories.json",
         "report": "reports/economic_categories_build.json",
         "localization_report": "reports/economic_categories_localization.json"
       }
@@ -232,7 +220,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/scripted_actions.json",
         "report": "reports/scripted_actions_build.json",
         "localization_report": "reports/scripted_actions_localization.json"
       }
@@ -247,7 +234,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/on_actions.json",
         "report": "reports/on_actions_build.json",
         "localization_report": "reports/on_actions_localization.json"
       }
@@ -262,7 +248,6 @@
         }
       ],
       "outputs": {
-        "database": "databases/events.json",
         "report": "reports/events_build.json",
         "localization_report": "reports/events_localization.json"
       }
@@ -276,5 +261,9 @@
   "libraries": {
     "base": "product",
     "path": "config/libraries.json"
+  },
+  "storage": {
+    "base": "product",
+    "path": "config/storage.json"
   }
 }

@@ -61,7 +61,7 @@ class BuildFixture(unittest.TestCase):
             (self.tech / name).mkdir(parents=True, exist_ok=True)
         from sttv.database_sets.configuration import build_options
         self.options = copy.deepcopy(build_options(read_json(PRODUCT_ROOT / "config/backend.json"), "technologies"))
-        self.options["outputs"] = {"database": "database.json", "report": "build_report.json"}
+        self.options["outputs"] = {"report": "build_report.json"}
         self.variables = {
             "WORK_DIR": str(self.root / "work"),
             "STELLARIS_ROOT": str(self.game),
@@ -106,10 +106,11 @@ tech_b = {
         return build(self.variable_file, self.config_file, library_mode='rebuild')
 
     def database_path(self):
-        return Path(self.variables["WORK_DIR"]) / self.options["outputs"]["database"]
+        return Path(self.variables["WORK_DIR"]) / 'database_set/manifest.json'
 
     def database(self):
-        return read_json(self.database_path())
+        from storage.fixtures import documents
+        return {'documents': documents(self.database_path())}
 
     def errors(self, result):
         return [row["code"] for row in result["diagnostics"] if row["severity"] == "error"]

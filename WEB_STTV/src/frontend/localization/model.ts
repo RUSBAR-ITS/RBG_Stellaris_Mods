@@ -20,9 +20,9 @@ export interface SttvStoredString {
   raw: string | null;
   text: string | null;
   source: SttvOrigin['source'];
-  inherited_from: string | null;
+  inherited_from: SttvNodeRef | null;
   unresolved_references: string[];
-  fallback?: { kind: 'component_set'; source_ref: string };
+  fallback?: { kind: 'component_set'; source_ref: SttvNodeRef };
 }
 export type SttvStoredLocalization = Record<SttvLanguage,
   { name?: SttvStoredString; description?: SttvStoredString }>;

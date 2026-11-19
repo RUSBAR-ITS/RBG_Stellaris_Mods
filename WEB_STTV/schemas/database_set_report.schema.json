@@ -527,7 +527,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -1298,7 +1298,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -2069,7 +2069,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -2840,7 +2840,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -3611,7 +3611,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -4382,7 +4382,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -5153,7 +5153,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -5924,7 +5924,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -6695,7 +6695,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -7466,7 +7466,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -8237,7 +8237,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -9008,7 +9008,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -9779,7 +9779,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -10550,7 +10550,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -11321,7 +11321,7 @@
                       "type": "integer"
                     },
                     "identity_algorithm": {
-                      "const": "sttv.document_hashes.v1"
+                      "const": "sttv.document_source.v1"
                     },
                     "jobs": {
                       "items": {
@@ -11715,7 +11715,7 @@
               "type": "integer"
             },
             "identity_algorithm": {
-              "const": "sttv.document_hashes.v1"
+              "const": "sttv.document_source.v1"
             },
             "jobs": {
               "items": {
@@ -11936,11 +11936,25 @@
       ],
       "type": "object"
     },
+    "published": {
+      "type": "boolean"
+    },
     "seconds": {
       "minimum": 0,
       "type": "number"
     },
     "set_id": {
+      "anyOf": [
+        {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "snapshot_revision": {
       "anyOf": [
         {
           "pattern": "^[a-f0-9]{64}$",
@@ -11964,6 +11978,8 @@
     "format_version",
     "status",
     "set_id",
+    "snapshot_revision",
+    "published",
     "datasets",
     "diagnostics",
     "inputs",

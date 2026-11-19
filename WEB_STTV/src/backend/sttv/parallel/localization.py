@@ -11,6 +11,8 @@ from sttv.enrichment.localization.attachment import attach
 from sttv.common.errors import BuildError
 from sttv.common.timing import measure
 from .text_cache import CachedResolver
+from sttv.storage.identity import document_id
+from sttv.storage.references import diagnostics
 
 
 class Localizations:
@@ -40,6 +42,7 @@ class Localizations:
         reference_key = key, digest(settings.options['references'])
         resolver = CachedResolver(index, settings.options['references'], self.texts.setdefault(reference_key, {}))
         attach(container, targets, settings, resolver, report, fresh=True)
+        diagnostics(report, settings.options['kind'], document_id(settings.options['kind'], document['source']))
         report['selected_sources'] = [index.selected[key] for key in sorted(index.selected)]
         if failed(report):
             raise BuildError('member_localization_failed', 'Localization failed; see document diagnostics')

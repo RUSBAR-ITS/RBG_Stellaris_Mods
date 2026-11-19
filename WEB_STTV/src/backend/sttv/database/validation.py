@@ -8,8 +8,8 @@ from sttv.common.schema import current_session, schema_validator
 from .checks.compiler import Compiler
 from .checks.context import DocumentContext
 
-FORMAT = 'sttv.parse_database'
-FORMAT_VERSION = 6
+FORMAT = 'sttv.parse_document'
+FORMAT_VERSION = 1
 
 
 class DatabaseRules:
@@ -18,7 +18,9 @@ class DatabaseRules:
         schema = schema_validator('database.schema.json').schema
         self.compiler = Compiler(schema)
         container = deepcopy(schema)
-        container['properties']['documents'].pop('items', None)
+        for key in ('source', 'items', 'metadata'):
+            container['properties'].pop(key)
+            container['required'].remove(key)
         self.container = self.compiler.prepare(container)
         self.document = self.compiler.prepare(schema['$defs']['document'])
         self.seconds = perf_counter() - start
@@ -37,10 +39,10 @@ class DatabaseValidator:
     def __init__(self):
         self.rules, self.sources, self.count = database_rules(), set(), 0
 
-    def document(self, document, index):
-        context = DocumentContext(document, f'/documents/{index}')
+    def document(self, document, index=0):
+        context = DocumentContext(document, '')
         try:
-            self.rules.document(document, context.prefix, context)
+            self.rules.document({k: document[k] for k in ('source', 'items', 'metadata') if k in document}, context.prefix, context)
             identity = (document['source']['root'], document['source']['file'].casefold())
             if identity in self.sources:
                 raise BuildError('duplicate_source', f'Repeated source document: {identity[1]}', field_path=context.prefix)
@@ -58,11 +60,10 @@ class DatabaseValidator:
         if (not isinstance(database, dict) or database.get('format') != FORMAT
                 or database.get('format_version') != FORMAT_VERSION):
             raise BuildError('incompatible_database', 'Unsupported database format; rebuild from source files')
-        self.rules.container(database, '', None)
+        self.rules.container({k: v for k, v in database.items() if k not in ('source', 'items', 'metadata')}, '', None)
 
 
 def validate_database(database):
     validator = DatabaseValidator()
     validator.container(database)
-    for index, document in enumerate(database['documents']):
-        validator.document(document, index)
+    validator.document(database)

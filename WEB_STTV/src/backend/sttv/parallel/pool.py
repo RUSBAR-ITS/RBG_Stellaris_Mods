@@ -9,9 +9,8 @@ from time import perf_counter
 import shutil
 
 from sttv.common.errors import BuildError
-from sttv.common.timing import measure
 from sttv.sources.files import selected_files
-from sttv.database.streaming import ALGORITHM, merge_fragments
+from sttv.storage.identity import SOURCE_ALGORITHM
 from .results import aggregate
 from .worker import initialize, execute
 from .memory import Monitor
@@ -73,7 +72,7 @@ class Pool:
             raise BuildError('unsafe_output', 'Member staging must remain inside the operation directory')
         directory.mkdir()
         parallel = {'configured_workers': settings.parallel['workers'], 'used_workers': 0,
-                    'identity_algorithm': ALGORITHM, 'jobs': [], 'workers': [], 'memory': self.monitor.data}
+                    'identity_algorithm': SOURCE_ALGORITHM, 'jobs': [], 'workers': [], 'memory': self.monitor.data}
         report.data['performance']['parallel'] = parallel
         jobs = []
         for index, (path, encoding) in enumerate(files):
@@ -146,7 +145,4 @@ class Pool:
             raise BuildError('parallel_document_failed', 'Document processing failed; see document diagnostics')
         if len(results) != len(jobs):
             raise BuildError('parallel_incomplete', 'Not every source produced exactly one result')
-        with measure(report.data['performance']['timings'], 'finalize_documents'):
-            path, checksum = merge_fragments(settings.database, ordered, report.data['performance'])
-        shutil.rmtree(directory)
-        return path, checksum, ordered
+        return ordered

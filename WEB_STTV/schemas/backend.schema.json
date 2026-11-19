@@ -25,17 +25,12 @@
     "outputs": {
       "additionalProperties": false,
       "properties": {
-        "database": {
-          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
-          "type": "string"
-        },
         "report": {
           "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
           "type": "string"
         }
       },
       "required": [
-        "database",
         "report"
       ],
       "type": "object"
@@ -287,11 +282,32 @@
       },
       "minItems": 1,
       "type": "array"
+    },
+    "storage": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
     }
   },
   "required": [
     "libraries",
     "parallel",
+    "storage",
     "sources",
     "parser",
     "outputs"

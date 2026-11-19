@@ -1,4 +1,5 @@
 {
+  "sttv_diagnostic_directory_unsupported": "This browser does not support selecting a directory.",
   "sttv_open_database": "Open database set",
   "sttv_save_report": "Save report",
   "sttv_retry": "Retry",
@@ -10,7 +11,7 @@
   "sttv_expand_menu": "Expand menu",
   "sttv_day_theme": "Switch to day theme",
   "sttv_night_theme": "Switch to night theme",
-  "sttv_no_database": "Open a set of 15 database files.",
+  "sttv_no_database": "Open a database set directory.",
   "sttv_reading": "Reading file {index} of {total}…",
   "sttv_parsing": "Parsing file {index} of {total}…",
   "sttv_preparing": "Preparing data: {kind}, file {index} of {total}?",
@@ -31,7 +32,7 @@
   "sttv_diagnostic_missing_localization": "Some translations are missing.",
   "sttv_diagnostic_localization_conflict": "Conflicting translations found in the database.",
   "sttv_diagnostic_worker_failed": "Could not complete database processing.",
-  "sttv_diagnostic_invalid_database_set": "Could not open the database set. Select all files from the same build.",
+  "sttv_diagnostic_invalid_database_set": "Could not open the database set. Select a directory containing its manifest and documents.",
   "sttv_invalid_database_count": "Files required: {expected}. Selected: {count}.",
   "sttv.dataset.technologies": "Technologies",
   "sttv.dataset.components": "Components",

@@ -26,12 +26,12 @@ export function sttvDefinitionTexts(root: SttvNode, pointer: string, id: string,
     for (const language of ['ru', 'en'] as const) {
       for (const role of roles) {
         if (node.enrichments?.localization?.[language]?.[role]?.requested_key !== expected[role]) {
-          throw sttvInvalid({ database, pointer: path }, `Missing or mismatched ${role} enrichment.`);
+          throw sttvInvalid({ database, document_id: strings.documentId, pointer: path }, `Missing or mismatched ${role} enrichment.`);
         }
       }
     }
     const localized = strings.add(node.enrichments?.localization, path, database, false, roles);
-    texts.push({ sourceRef: { database, pointer: path },
+    texts.push({ sourceRef: { database, document_id: strings.documentId, pointer: path },
       ...(roles.includes('name') ? { nameId: localized.nameId } : {}),
       ...(roles.includes('description') ? { descriptionId: localized.descriptionId } : {}) });
   }
@@ -73,14 +73,14 @@ export function sttvDefinitionTexts(root: SttvNode, pointer: string, id: string,
       add(node, path, { [field.role]: sttvScalar(node.value, path) });
     }
   }
-  const endpoints: Record<string, { id: string; sourceRef: { database: SttvDatabaseKind; pointer: string } }> = {};
+  const endpoints: Record<string, { id: string; sourceRef: { database: SttvDatabaseKind; document_id: string; pointer: string } }> = {};
   for (const field of keys.endpoint_fields ?? []) {
     const values = sttvFields(items, field);
     if (values.length !== 1) throw sttvInvalid(pointer, `Missing or ambiguous endpoint: ${field}`);
     const { node, index } = values[0], path = `${pointer}/value/items/${index}`;
     const key = sttvScalar(node.value, path);
     add(node, path, { name: key, description: key + keys.endpoint_description_suffix });
-    endpoints[field] = { id: key, sourceRef: { database, pointer: path } };
+    endpoints[field] = { id: key, sourceRef: { database, document_id: strings.documentId, pointer: path } };
   }
   return { texts, ...(Object.keys(endpoints).length ? { endpoints } : {}) };
 }

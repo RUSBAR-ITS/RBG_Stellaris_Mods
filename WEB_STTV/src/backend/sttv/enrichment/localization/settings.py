@@ -28,12 +28,18 @@ def load_settings(variables_path, config_path, snapshot, kind='technologies', da
     options = snapshot.json(config_path, "configuration")
     validate_schema(options, "localization.schema.json")
     work = path_from(variables['WORK_DIR'], PRODUCT_ROOT)
+    if database is None:
+        from sttv.storage.settings import load
+        storage = load(variables_path, selected_path(options['storage'], work))
+        for path in storage.config_files:
+            snapshot.json(path, 'configuration')
+        database = storage.manifest.relative_to(work).as_posix()
     target_path = selected_path(options['targets'][kind], work)
     target = snapshot.json(target_path, 'configuration')
     snapshot.json(REGISTRY_PATH, 'configuration')
     validate_schema(target, 'localization_target.schema.json')
     options = {**options, **target, 'kind': kind,
-               'database': database or options.get('database', 'database.json'),
+               'database': database,
                'report': report_path or options.get('report', 'reports/localization_report.json')}
     options.pop('targets')
     required = {"WORK_DIR", "STELLARIS_ROOT", options["selection"]["variable"]}

@@ -6,6 +6,16 @@
 - [Baseline requirements](#baseline-requirements)
 - [Initial tree layout rules](#initial-tree-layout-rules)
 - [Sequential rule application](#sequential-rule-application)
+- [Direct object upgrades](#direct-object-upgrades)
+- [Matching availability conditions](#matching-availability-conditions)
+- [Direct functional object relations](#direct-functional-object-relations)
+- [Functional groups](#functional-groups)
+- [Indirect functional affinity](#indirect-functional-affinity)
+- [Production bonus affinity](#production-bonus-affinity)
+- [Object capacity affinity](#object-capacity-affinity)
+- [Unresolved ambiguities](#unresolved-ambiguities)
+- [Complete analytical pass](#complete-analytical-pass)
+- [Current rule set review](#current-rule-set-review)
 - [Infinitely repeatable technologies](#infinitely-repeatable-technologies)
 - [Standard empire in reference mode](#standard-empire-in-reference-mode)
 - [Final selection by the function of unlocked objects](#final-selection-by-the-function-of-unlocked-objects)
@@ -76,9 +86,96 @@ User clarification dated 2026-11-18:
 3. Apply each rule only to the current candidate set. It cannot restore candidates removed by preceding rules.
 4. If a rule produces a nonempty result, replace the current set with that result.
 5. If the result is empty, skip the rule and preserve the entire previous set. This is not an error or a reason to invent a dependency.
-6. If multiple candidates remain after all rules, preserve the ambiguity for a separate decision; alphabetical ordering does not automatically choose a parent.
+6. If multiple candidates remain after all rules, leave the parent unassigned. Record the ambiguity in a [log with a field state and settings snapshot](CHAIN_AMBIGUITIES_EN.md); alphabetical ordering does not automatically choose a parent. Manual selection is not introduced at this stage.
 
-The functional relationship criteria under L-10 run after every other anchor-selection criterion, including additional evidence if incorporated into the final algorithm. General card placement rules operate separately from this selection.
+General card placement rules operate separately from anchor selection. Criterion order and content are refined in the separate documents below; earlier runs and the initial placement of L-10 last do not establish the final order of the revised algorithm.
+
+The current approved order is digit-stripped ID → area → category → mandatory status → direct upgrades → matching `potential` → **functional groups → direct functional relations** → indirect affinity → production bonus affinity → object capacity affinity → empire filter → seniority by game tier.
+
+The groups/relations swap was accepted after [comparison across the current 679 base technologies](CHAIN_CRITERIA_ORDER_REVIEW_EN.md) on 2026-11-19: only Juggernaut changed, from Citadel to Battleships; the other 678 technologies had equal sets after the compared pair. Other criteria retain their positions. This checks the swap's impact, not a full new pass of every addition or card geometry.
+
+## Direct object upgrades
+
+The approved criterion is described in a [separate document](CHAIN_DIRECT_UPGRADES_EN.md): associating explicit building or component upgrades with technologies, removing shared mandatory requirements for comparison only, and filtering the remaining candidates. Witnesses are not counted as votes. The rule is not yet connected to card placement.
+
+## Matching availability conditions
+
+[Complete structural matching of nonempty `potential` blocks](CHAIN_AVAILABILITY_EN.md) after expansion is approved. This criterion follows direct upgrades and precedes functional affinity. Provenance metadata is not compared; partial matches and weight conditions are excluded. An empty result retains the previous candidate set. The rule is recorded for future implementation.
+
+## Direct functional object relations
+
+The [explicit unlocked-object relation criterion](CHAIN_DIRECT_RELATIONS_EN.md) is approved: the current technology unlocks an object that requires or enhances an object unlocked by a candidate. Conditions, alternatives and negations are retained; costs, resource consumption and AI weights do not provide this evidence. Under the updated order, the rule applies to candidates remaining **after functional groups**.
+
+## Functional groups
+
+[Comparing functions through functional groups](CHAIN_FUNCTIONAL_GROUPS_EN.md) is approved and runs **before direct functional relations**. Groups are derived from unlocked object features using configurable rules without predetermined technology pairs. Candidates sharing at least one confirmed group are retained; an empty result is skipped. The first example is a mobile combat ship identified by speed and combat roles, distinguishing battleships from the citadel when analyzing the juggernaut.
+
+The [“Planet class change” group](CHAIN_FUNCTIONAL_GROUPS_EN.md#planet-class-change) was added on 2026-11-19: a `terraform_link` object with different `from` and `to` values, linked to a technology through `has_technology` in `condition`. It supports the expected Terrestrial Sculpting → Volcanic Terraforming chain; Deep Crust Engineering remains an additional game dependency. Parent selection does not cancel placement between the two branches. Criterion order remains unchanged.
+
+The [“Anti-ship weaponry” group](CHAIN_WEAPONRY_EN.md), approved on 2026-11-19, is established by a weapon component or an explicit route from an unlocked object to an action and event damaging ships. In an isolated comparison across all 679 base technologies, it changes only Stellar Cannon's selection: UV Lasers become the sole candidate before empire filtering and seniority. The other 678 outgoing candidate sets match. The subsequent complete pass of all additions is described below.
+
+## Indirect functional affinity
+
+[Seeking functional evidence through a candidate's prerequisites](CHAIN_INDIRECT_AFFINITY_EN.md) is approved. Initial depth is one backward transition from the candidate through the original requirement graph; depth is configurable. The full graph with its logic is used, not `parent_tech`. A discovered ancestor supports the candidate rather than replacing it. The example relates armor hardening to Ceramo-Metal Alloys through `tech_ship_armor_2`.
+
+## Production bonus affinity
+
+The [technology's own production bonus criterion](CHAIN_PRODUCTION_AFFINITY_EN.md) is approved: modifier → economic category → job → providing object → candidate technology. It runs before object capacity affinity and empire filtering, preserving evidence conditions and the general selection procedure. The reviewed example supports Ceramo-Metal Alloys → Holographic Casts. The rule is recorded for future implementation.
+
+## Object capacity affinity
+
+The [object capacity increase criterion](CHAIN_CAPACITY_AFFINITY_EN.md) is approved: a technology's own modifier → capacity → object using it → candidate unlocking that object. Mappings between modifiers and object fields belong in configuration. The criterion follows production bonuses and runs immediately before the empire filter. For Mega-Engineering, `country_starbase_capacity_add` is linked to `starbase_capacity_used`; after the empire profile excludes the nomadic option, the expected chain is Citadel → Mega-Engineering. Code remains unchanged.
+
+## Unresolved ambiguities
+
+[Logging ambiguous technologies](CHAIN_AMBIGUITIES_EN.md) with candidates, selection traces and field state/settings at calculation time is approved. `parent_tech` remains `null`; display continues as an independent branch at its own tier while retaining game dependencies. Manual assignments and their configuration are deferred. The snapshot must distinguish cases across future field modes.
+
+## Complete analytical pass
+
+The [complete approved sequence pass dated 2026-11-19](CHAIN_RULES_FULL_REVIEW_EN.md) is finished: of 679 base technologies, 178 need no parent and the other 501 have unique parents. All 89 multiple-prerequisite cases are resolved; there are no ambiguities or cycles, and all 12 acceptance examples match. No manual assignments were used.
+
+Five decisions changed from the previous complete pass: Juggernaut, Ceramo-Metal Alloys, Mega-Engineering, Stellar Cannon and Volcanic Terraforming. Results cover base representations and the agreed standard empire profile; variant switching and card coordinates were not checked separately. The algorithm has not yet been integrated into the product.
+
+## Current rule set review
+
+This historical snapshot was produced **before approval of the production bonus and object capacity criteria, planet class change and weaponry groups, and moving groups before direct relations**. Ambiguities and mismatches prompted these additions; the counts below preserve that pass's results. Current results are available in the [complete pass report](CHAIN_RULES_FULL_REVIEW_EN.md).
+
+The research pass dated 2026-11-18 used the published `data/databases/technologies.json`, set `8d7f30af6cc5a9504e6fbb0e2126edae8d18fe9a159f9969e574926ca62b5f01`. This evaluates rules without integrating them into the frontend. Decisions, candidates and selection traces are stored in the [report](../../data/chain_analysis/current_review/report.json); evidence is stored alongside it in `direct_relations.json` and `functional_evidence.json`.
+
+The pass covers every base technology representation and the agreed standard empire profile. Order: digit-stripped ID → area → category → mandatory prerequisite → direct upgrades → matching `potential` → direct functional relations → groups → indirect affinity → empire profile → highest game `tier`. In this pass, the final criterion applies to all remaining ambiguous technologies according to the latest general criterion order, rather than only repeatables.
+
+General functional-analysis ideas are not presented as a complete universal classifier. The pass checks explicit object requirements in access and bonus conditions, the documented mobile combat ship group, and matching signed component `ship_modifier` effects through one technology edge. It introduces no new groups, technology-modifier-to-economic-category traversal, or general action/event traversal. Previously hand-picked technology pairs are not used as selection rules.
+
+| Result | Count |
+| --- | ---: |
+| Technologies | 679 |
+| No technology prerequisites; no parent needed | 178 |
+| One direct prerequisite | 412 |
+| Multiple direct prerequisites | 89 |
+| Of those 89, selection leaves one candidate | 86 |
+| Of those 89, selection leaves multiple candidates | 3 |
+| Known expected-chain mismatches among the 86 unique results | 2 |
+
+A parent is therefore formally selected for 498 of the 501 technologies that have prerequisites. A unique answer does not yet establish the intended chain function.
+
+Three unresolved ambiguities:
+
+| Technology and game tier | Remaining candidates and their tiers | Reason |
+| --- | --- | --- |
+| Ceramo-Metal Alloys, 2 (`tech_advanced_metallurgy_1`) | Holographic Casts, 1 (`tech_alloys_1`); Ceramo-Metal Materials, 1 (`tech_ship_armor_2`) | The `planet_metallurgists_produces_mult` bonus indicates production, but modifier → economic category → job → building traversal is not yet defined as a selection criterion. The technology itself unlocks no object to which the current group can be applied. |
+| Mega-Engineering, 5 (`tech_mega_engineering`) | Battleships, 4 (`tech_battleships`); Citadel, 4 (`tech_starbase_5`) | The functional group criterion does not yet specify how unlocked megastructures relate to the stationary construction branch. Equal tiers do not resolve the choice. |
+| Volcanic Terraforming, 2 (`tech_volcanic_terraforming`) | Terrestrial Sculpting, 2 (`tech_terrestrial_sculpting`); Deep Crust Engineering, 2 (`tech_volcano`) | Two branches converge. Placing the card between them specifies layout but does not select a unique parent. |
+
+Two counterexamples to unique selection:
+
+1. **Juggernaut → Citadel**, despite the previously chosen Battleships continuation. The [`capital_yards` access condition](E:/SteamLibrary/steamapps/common/Stellaris/common/starbase_buildings/00_starbase_buildings.txt:508) includes `tech_juggernaut` as an alternative; the same building [actually checks](E:/SteamLibrary/steamapps/common/Stellaris/common/starbase_buildings/00_starbase_buildings.txt:523) `has_starbase_size >= starbase_citadel`. [That ship size](E:/SteamLibrary/steamapps/common/Stellaris/common/ship_sizes/00_starbases.txt:424) requires `tech_starbase_5`. Under the current wording this is valid conditional evidence for a direct relation, ending selection before the combat ship group. Checked separately, that group selects Battleships. The conflict concerns priority between evidence from the main ship and an accompanying building, rather than missing data.
+2. **Stellar Cannon → Wormhole Stabilization**, despite the previously chosen UV Lasers continuation. Without a concrete weaponry rule, the functional stage does not distinguish the candidates; the last criterion selects tier 3 instead of 2. The weaponry path is supported by sources: [megastructure](E:/SteamLibrary/steamapps/common/Stellaris/common/megastructures/31_dyson_gun.txt:277) → [action](E:/SteamLibrary/steamapps/common/Stellaris/common/scripted_actions/04_dyson_gun.txt:146) → [on_action](E:/SteamLibrary/steamapps/common/Stellaris/common/on_actions/02_component_on_actions.txt:403) → [event](E:/SteamLibrary/steamapps/common/Stellaris/events/nomads_events_1.txt:17274) → effects with [ship damage](E:/SteamLibrary/steamapps/common/Stellaris/common/scripted_effects/nomads_effects.txt:1251). That traversal is not automatically included in the technology prerequisite depth of 1. Until it is formalized, the tier-based result does not confirm the intended chain.
+
+Confirmed expected outcomes include Armor Hardening → Ceramo-Metal Alloys through an ancestor's armor component; Metacognitive Faith → Consecration Fields through matching `potential`; Corps of Engineers → Star Fortress, Subspace Imaging Array → Gravitic Sensors and Cross-Model Standardization → Artificial Specialists through the final tier criterion.
+
+Of 206 variants, seven change area or category. All 128 combinations of those seven switches were checked for the first four criteria: candidate sets change for Titans and Juggernaut. Variant effect inheritance and all functional-evidence combinations were not checked; base-mode outcomes are not claimed as proof for every future mode.
+
+Calculation checks: IDs and prerequisites of all 679 technologies match the previous snapshot; every assigned parent is a direct prerequisite; eliminated candidates do not return; empty results are skipped; selection stops at one candidate; assigned parents contain no cycles. Published database JSON files, configuration and product code were not changed. The three ambiguities and two mismatches remain discussion items; this research does not approve additional criteria or reorder existing rules.
 
 ## Infinitely repeatable technologies
 
@@ -369,6 +466,8 @@ The user approved placing starting technologies at the top under L-01 and accoun
 
 ## References
 
+- [Parent and child technology enrichment](../TECHNOLOGY_TREE_ENRICHMENT_EN.md): agreed Python calculation using prepared databases, separate rule configuration, named combinations and the future object storage model.
+- [Event-based technology access](CHAIN_EVENT_ACCESS_EN.md): the new analytical task, verified examples and proposed handling of event outcomes separately from technology prerequisites.
 - [Analysis of all 39 ambiguous continuations](RESEARCH_AMBIGUOUS_CHAINS_EN.md): evaluating independent branches, explicit component/building upgrades, modifiers and alternatives. Mandatory prerequisite priority is accepted as L-08; the other research proposals do not automatically become approved rules.
 - [Chain research using the current database](RESEARCH_TECHNOLOGY_CHAINS_EN.md).
 - [Starting technologies and conditions](STARTING_TECHNOLOGIES_EN.md).

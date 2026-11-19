@@ -88,10 +88,10 @@ class StaticLibraryTests(BuildFixture):
             self.assertEqual(self.database_path().read_bytes(), previous)
         config = self.configure()
         before = config.read_bytes()
-        self.options['outputs']['database'] = 'static.json'
+        self.options['outputs']['report'] = 'static.json'
         self.assertIn('output_collision', self.errors(self.run_build()))
         self.assertEqual(config.read_bytes(), before)
-        self.options['outputs']['database'] = 'database.json'
+        self.options['outputs']['report'] = 'database.json'
         config.unlink()
         self.assertEqual(self.run_build()['status'], 'failed')
         self.configure()

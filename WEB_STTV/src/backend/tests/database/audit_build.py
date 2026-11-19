@@ -11,7 +11,7 @@ from support import PRODUCT_ROOT
 from sttv.builder import build
 from sttv.common.json_io import json_text
 from sttv.common.paths import output_path
-from sttv.database.storage import read_database
+from sttv.storage import open_set
 from sttv.script.nodes import Located
 from sttv.script.parser import parse_text
 from sttv.sources.expansion import expansion_context
@@ -69,7 +69,7 @@ def audit(*, library_mode):
                       'diagnostics': first['diagnostics'][:8]}), flush=True)
     assert first['status'] == 'success', first
     build_seconds = perf_counter() - started
-    database = read_database(settings.database)
+    database = {'documents': list(open_set(settings.database).iter_documents('technologies'))}
     from sttv.libraries.operation import library_operation
     with library_operation(settings, "reuse") as snapshot:
         context = expansion_context(settings)

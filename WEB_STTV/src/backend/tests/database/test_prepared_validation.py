@@ -14,7 +14,7 @@ from sttv.common.errors import BuildError
 from sttv.common.schema import schema_operation, schema_validator
 from sttv.common.timing import performance
 from sttv.database.checks.compiler import Compiler
-from sttv.database.streaming import write_fragment, merge_fragments, canonical_hash
+from sttv.storage.writing import write_document
 from sttv.database.validation import database_rules, DatabaseValidator
 from sttv.script.serialization import walk_nodes
 
@@ -36,7 +36,7 @@ class PreparedValidationTests(unittest.TestCase):
 
     def test_all_nine_kinds_and_corrupted_fields_match_schema(self):
         db, _ = fixture('bare x=1 f=@[1+2] c=rgb {1 2 3} [[P] AND={a=yes}]')
-        nodes = {node['kind']: copy.deepcopy(node) for _, node in walk_nodes(db['documents'][0]['items'])}
+        nodes = {node['kind']: copy.deepcopy(node) for _, node in walk_nodes(db['items'])}
         base = {key: copy.deepcopy(nodes['scalar'][key]) for key in ('span', 'origin')}
         nodes['script_value'] = dict(base, kind='script_value', scope=None, body=nodes['block'])
         nodes['scripted_trigger_test'] = dict(base, kind='scripted_trigger_test', operator='>',
@@ -44,30 +44,30 @@ class PreparedValidationTests(unittest.TestCase):
         self.assertEqual(len(nodes), 9)
         for kind, node in nodes.items():
             candidate = copy.deepcopy(db)
-            candidate['documents'][0]['items'] = [node]
+            candidate['items'] = [node]
             self.agrees(candidate)
             for key in node:
                 for replacement in (None, True, 1.5, [], {}, 'invalid'):
                     damaged = copy.deepcopy(candidate)
-                    damaged['documents'][0]['items'][0][key] = replacement
+                    damaged['items'][0][key] = replacement
                     with self.subTest(kind=kind, field=key, replacement=replacement):
                         self.agrees(damaged)
                 damaged = copy.deepcopy(candidate)
-                del damaged['documents'][0]['items'][0][key]
+                del damaged['items'][0][key]
                 self.agrees(damaged)
             damaged = copy.deepcopy(candidate)
-            damaged['documents'][0]['items'][0]['extra'] = 1
+            damaged['items'][0]['extra'] = 1
             self.agrees(damaged)
 
     def test_nested_constraints_and_numeric_boolean_distinction(self):
         db, _ = fixture('x=$P|default$')
         for value in (False, 0, 1, 1.0, 1.5, -1, None):
             damaged = copy.deepcopy(db)
-            damaged['documents'][0]['items'][0]['span']['line'] = value
+            damaged['items'][0]['span']['line'] = value
             self.agrees(damaged)
         for source in ('../outside.txt', 'C:/outside.txt', '/absolute', 'valid.txt', ''):
             damaged = copy.deepcopy(db)
-            damaged['documents'][0]['source']['file'] = source
+            damaged['source']['file'] = source
             self.agrees(damaged)
         for values in ([1, True], [1, 1.0], [{'a': True}, {'a': 1}], ['a', 'a']):
             schema = {'type': 'array', 'uniqueItems': True}
@@ -99,77 +99,17 @@ class PreparedValidationTests(unittest.TestCase):
             return database_rules()
         with patch('sttv.common.schema.read_json', side_effect=lambda path: copy.deepcopy(schema)):
             original = prepare()
-            schema['properties']['documents']['maxItems'] = 1
+            schema['properties']['format_version']['const'] = 2
             updated = prepare()
-        container = {'format': 'sttv.parse_database', 'format_version': 6, 'documents': [None, None]}
-        original.container(container, '', None)
+        document, _ = fixture('x=yes')
+        header = {k: v for k, v in document.items() if k not in ('source', 'items', 'metadata')}
+        original.container(header, '', None)
         with self.assertRaises(BuildError):
-            updated.container(container, '', None)
+            updated.container(header, '', None)
 
     def test_each_syntax_node_is_visited_once(self):
         db, _ = fixture('box={inline_script=outer}', {'outer.txt': 'x=yes inner={y=no}'})
-        document = db['documents'][0]
+        document = db
         self.assertEqual(DatabaseValidator().document(document, 0), sum(1 for _ in walk_nodes(document['items'])))
 
 
-class StreamingValidationTests(BuildFixture):
-    def test_initial_write_failure_cleans_temporary_file(self):
-        from sttv.database import streaming
-        db, _ = fixture('x=yes')
-        fragment = write_fragment(db['documents'][0], self.root / 'fragment.json', 0, performance())
-        create = streaming.tempfile.NamedTemporaryFile
-        def failing(*args, **kwargs):
-            handle = create(*args, **kwargs)
-            proxy = Mock(wraps=handle)
-            proxy.name = handle.name
-            proxy.__enter__ = Mock(return_value=proxy)
-            proxy.__exit__ = Mock(side_effect=lambda *args: handle.close())
-            proxy.write.side_effect = OSError('Simulated initial write failure')
-            return proxy
-        with patch.object(streaming.tempfile, 'NamedTemporaryFile', side_effect=failing):
-            with self.assertRaises(OSError):
-                merge_fragments(self.root / 'written.json', [{'index': 0, 'fragment': fragment}], performance())
-        self.assertFalse(list(self.root.glob('written.json.*.tmp')))
-
-    def test_completed_document_is_not_retained(self):
-        class Items(list):
-            pass
-        db, _ = fixture('x=yes')
-        document = db['documents'].pop()
-        document['items'] = Items(document['items'])
-        reference = weakref.ref(document['items'])
-        write_fragment(document, self.root / 'fragment.json', 0, performance())
-        del document
-        self.assertIsNone(reference())
-
-    @schema_operation
-    def test_merge_preserves_formatted_bytes_without_reparsing(self):
-        db, _ = fixture('x=yes data={name="text"} y={}')
-        metrics = performance()
-        fragment = write_fragment(db['documents'][0], self.root / 'fragment.json', 0, metrics)
-        with patch('sttv.common.json_io.read_json', side_effect=AssertionError('No reread')):
-            path, checksum = merge_fragments(self.root / 'written.json',
-                [{'index': 0, 'source': 'fixture.txt', 'fragment': fragment}], metrics)
-        expected = json.dumps(db, ensure_ascii=False, sort_keys=True, indent=2, allow_nan=False) + '\n'
-        self.assertEqual(path.read_bytes(), expected.encode('utf-8'))
-        payload = {key: value for key, value in db.items() if key != 'documents'}
-        payload.update(identity_algorithm='sttv.document_hashes.v1',
-                       documents=[{'index': 0, 'content_hash': canonical_hash(db['documents'][0])}])
-        self.assertEqual(checksum, canonical_hash(payload))
-        self.assertEqual(metrics['validated_documents'], 1)
-        path.unlink()
-
-    def test_corrupt_fragment_and_invalid_document_preserve_destination(self):
-        db, _ = fixture('x=yes')
-        path = self.root / 'published.json'
-        path.write_text('previous', encoding='utf-8')
-        fragment = write_fragment(db['documents'][0], self.root / 'fragment.json', 0, performance())
-        Path(fragment['path']).write_text('{}', encoding='utf-8')
-        with self.assertRaisesRegex(BuildError, 'Damaged fragment'):
-            merge_fragments(path, [{'index': 0, 'source': 'fixture.txt', 'fragment': fragment}], performance())
-        damaged = copy.deepcopy(db['documents'][0])
-        damaged['items'][0]['kind'] = 'unknown'
-        with self.assertRaises(BuildError):
-            write_fragment(damaged, self.root / 'invalid.json', 1, performance())
-        self.assertEqual(path.read_text(encoding='utf-8'), 'previous')
-        self.assertFalse(list(self.root.glob('published.json.*.tmp')))

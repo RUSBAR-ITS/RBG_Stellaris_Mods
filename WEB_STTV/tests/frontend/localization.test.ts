@@ -20,11 +20,11 @@ test('matching texts merge origins, missing entries can resolve, empty strings a
 test('inheritance retains requested addresses and all original metadata', () => {
   const loc = sttvLocalization('variant');
   loc.ru.description!.key = 'base_desc';
-  loc.ru.description!.inherited_from = 'base';
+  loc.ru.description!.inherited_from = { database: 'technologies', document_id: 'a'.repeat(64), pointer: '/items/0' };
   const builder = new SttvIndexBuilder();
   builder.add(loc, '/variant');
   assert.equal(builder.index.ru.variant_desc.origins[0].key, 'base_desc');
-  assert.deepEqual(builder.index.ru.variant_desc.origins[0].inheritedFrom, { database: 'technologies', pointer: 'base' });
+  assert.deepEqual(builder.index.ru.variant_desc.origins[0].inheritedFrom, loc.ru.description!.inherited_from);
 });
 test('conflicting resolved texts block preparation with text-specific evidence', () => {
   const builder = new SttvIndexBuilder();

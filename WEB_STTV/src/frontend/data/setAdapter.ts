@@ -1,94 +1,90 @@
-import type { SttvCatalog, SttvNodeRef, SttvTechnologyCatalog } from './model';
+import type { SttvCatalog, SttvDatabaseKind, SttvTechnologyCatalog, SttvObjectCatalog } from './model';
 import type { SttvDatabase } from './syntax';
-import { SttvSetMetadata } from './setMetadata';
+import type { SttvManifest, SttvCoverage } from '../storage/model';
 import { sttvAdaptDatabase, sttvValidateTechnologies } from './adapter';
 import { sttvAdaptObjects } from './objects';
 import { sttvAdaptDefinitions } from './definitions';
 import { sttvUpgradeEvidence } from './upgradeEvidence';
+import { sttvDatabaseKinds } from './registry';
 import { SttvIndexBuilder } from '../localization/index';
 import { SttvPreparationError, sttvInvalid, type SttvDiagnostic } from '../workers/diagnostics';
 import type { SttvTargetRegistry } from './textTargets';
 
 export class SttvSetAdapter {
-  readonly metadata: SttvSetMetadata;
-  readonly strings = new SttvIndexBuilder();
-  private technologies: SttvTechnologyCatalog | null = null;
-  private components: ReturnType<typeof sttvAdaptObjects> | null = null;
-  private buildings: ReturnType<typeof sttvAdaptObjects> | null = null;
-  private definitions: SttvCatalog['definitions'] = {};
-  private definitionIndex: SttvCatalog['definitionIndex'] = {};
-  constructor(files: { name: string; size: number }[], private rules: SttvTargetRegistry,
-    private diagnostics: SttvDiagnostic[] = []) { this.metadata = new SttvSetMetadata(files); }
-
-  begin(input: unknown, fileIndex: number) {
-    const member = this.metadata.add(input, fileIndex);
-    const database = member.kind;
-    if (database === 'technologies') this.technologies = { technologies: Object.create(null), links: [],
-      localization: this.strings.index, diagnostics: [] };
-    else if (database === 'components' || database === 'buildings') {
-      this[database] = { objects: Object.create(null), requirements: [], upgrades: [] };
-    } else {
-      this.definitions[database] = []; this.definitionIndex[database] = Object.create(null);
-    }
-    return member;
+  strings = new SttvIndexBuilder();
+  technologies: SttvTechnologyCatalog = { technologies: Object.create(null), links: [],
+    localization: this.strings.index, diagnostics: [] };
+  components: SttvObjectCatalog = { objects: Object.create(null), requirements: [], upgrades: [] };
+  buildings: SttvObjectCatalog = { objects: Object.create(null), requirements: [], upgrades: [] };
+  definitions: SttvCatalog['definitions'] = {};
+  definitionIndex: SttvCatalog['definitionIndex'] = {};
+  loadedDocuments = new Set<string>();
+  datasets: SttvCatalog['datasets'];
+  constructor(readonly manifest: SttvManifest, private rules: SttvTargetRegistry,
+    private diagnostics: SttvDiagnostic[] = []) {
+    this.datasets = sttvDatabaseKinds.map(kind => ({ kind, name: kind,
+      size: manifest.datasets[kind].documents.reduce((sum, d) => sum + d.byte_size, 0),
+      documentCount: manifest.datasets[kind].documents.length,
+      objectCount: manifest.datasets[kind].objects.length, state: 'not_loaded' }));
   }
-  document(input: unknown, fileIndex: number, documentOffset: number) {
-    const member = this.metadata.datasets.find(item => item.fileIndex === fileIndex)!;
-    const db = input as SttvDatabase, database = member.kind;
+  fork() {
+    const copy = new SttvSetAdapter(this.manifest, this.rules, [...this.diagnostics]);
+    copy.strings = this.strings.fork();
+    for (const field of ['technologies', 'components', 'buildings', 'definitions', 'definitionIndex', 'datasets'] as const) {
+      Object.assign(copy, { [field]: structuredClone(this[field]) });
+    }
+    copy.technologies.localization = copy.strings.index;
+    for (const dictionary of [copy.technologies.technologies, copy.components.objects, copy.buildings.objects,
+      copy.definitions, copy.definitionIndex, ...Object.values(copy.definitionIndex)]) Object.setPrototypeOf(dictionary, null);
+    copy.loadedDocuments = new Set(this.loadedDocuments);
+    return copy;
+  }
+  document(db: SttvDatabase, itemOffset: number) {
+    const database = db.database;
     try {
       if (database === 'technologies') sttvAdaptDatabase(db, [], this.strings, false,
-        { catalog: this.technologies!, documentOffset });
+        { catalog: this.technologies, itemOffset });
       else if (database === 'components' || database === 'buildings') sttvAdaptObjects(db, database, this.strings,
-        { catalog: this[database]!, documentOffset });
+        { catalog: this[database], itemOffset });
       else {
         const rules = this.rules[database];
-        if (!rules) throw sttvInvalid({ database, pointer: '' }, 'Localization target rules are missing.');
-        sttvAdaptDefinitions(db, database, rules, this.strings, { documentOffset,
+        if (!rules) throw sttvInvalid('', 'Localization target rules are missing.');
+        this.definitions[database] ??= []; this.definitionIndex[database] ??= Object.create(null);
+        sttvAdaptDefinitions(db, database, rules, this.strings, { itemOffset,
           definitions: this.definitions[database]!, index: this.definitionIndex[database]! });
       }
-      return member;
     } catch (error) {
       if (error instanceof SttvPreparationError) {
         const details = error.diagnostic.details;
         if (typeof details.path === 'string') {
-          details.sourceRef ??= { database, pointer: details.path };
+          details.sourceRef ??= { database, document_id: db.document_id, pointer: details.path };
           delete details.path;
         }
-        const source = details.sourceRef as SttvNodeRef | undefined;
-        const indices = source?.pointer.match(/^\/documents\/(\d+)\/items\/(\d+)/);
-        if (source && indices) {
-          const document = db.documents[Number(indices[1]) - documentOffset];
-          details.sourceFile = document?.source.file;
-        }
+        details.sourceFile ??= db.source.file;
       }
       throw error;
     }
   }
-  add(input: unknown, fileIndex: number) {
-    const member = this.begin(input, fileIndex), db = input as SttvDatabase;
-    db.documents.forEach((document, index) => this.document({ ...db, documents: [document] }, fileIndex, index));
-    return member;
+  completed(kind: SttvDatabaseKind, identifier: string) {
+    this.loadedDocuments.add(identifier);
+    if (this.manifest.datasets[kind].documents.every(row => this.loadedDocuments.has(row.document_id))) {
+      this.datasets.find(row => row.kind === kind)!.state = 'loaded';
+    }
   }
-  finish(): SttvCatalog {
-    this.metadata.finish();
-    if (!this.technologies || !this.components || !this.buildings) throw sttvInvalid('', 'Core catalogs are missing.');
-    sttvValidateTechnologies(this.technologies);
+  finish(coverage: SttvCoverage): SttvCatalog {
+    if (this.datasets.find(row => row.kind === 'technologies')!.state === 'loaded') sttvValidateTechnologies(this.technologies);
     this.strings.orderOrigins();
+    const loaded = (kind: SttvDatabaseKind) => this.datasets.find(row => row.kind === kind)!.state === 'loaded';
     const catalog: SttvCatalog = { ...this.technologies,
-      setId: this.metadata.setId, datasets: this.metadata.datasets, diagnostics: this.diagnostics,
+      localization: this.strings.index, setId: this.manifest.set_id, snapshotRevision: this.manifest.snapshot_revision,
+      datasets: this.datasets, diagnostics: [...this.diagnostics, ...this.strings.warnings()], coverage,
       components: this.components.objects, buildings: this.buildings.objects,
-      objectRequirements: [...this.components.requirements, ...this.buildings.requirements],
-      objectUpgrades: [...this.components.upgrades, ...this.buildings.upgrades], upgradeEvidence: [],
+      objectRequirements: [...(loaded('components') ? this.components.requirements : []),
+        ...(loaded('buildings') ? this.buildings.requirements : [])],
+      objectUpgrades: [...(loaded('components') ? this.components.upgrades : []),
+        ...(loaded('buildings') ? this.buildings.upgrades : [])], upgradeEvidence: [],
       definitions: this.definitions, definitionIndex: this.definitionIndex };
-    catalog.upgradeEvidence = sttvUpgradeEvidence(catalog);
-    this.diagnostics.push(...this.strings.warnings());
+    if (loaded('technologies')) catalog.upgradeEvidence = sttvUpgradeEvidence(catalog);
     return catalog;
   }
-}
-
-export function sttvAdaptSet(inputs: unknown[], files: { name: string; size: number }[],
-  rules: SttvTargetRegistry, diagnostics: SttvDiagnostic[] = []): SttvCatalog {
-  const adapter = new SttvSetAdapter(files, rules, diagnostics);
-  inputs.forEach((input, i) => adapter.add(input, i));
-  return adapter.finish();
 }

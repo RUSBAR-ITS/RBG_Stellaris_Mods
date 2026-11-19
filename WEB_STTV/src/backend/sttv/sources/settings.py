@@ -80,8 +80,11 @@ def load_settings(variables_path, config_path, options=None, dataset=None):
     if (work in (REPOSITORY_ROOT, PRODUCT_ROOT) or not work.is_relative_to(REPOSITORY_ROOT)
             or protected(work, roots) or any(root.is_relative_to(work) for root in roots)):
         raise BuildError("unsafe_output", "WORK_DIR must remain in the repository, separate from protected inputs")
-    paths = [output_path(work, options["outputs"][key], roots) for key in ("database", "report")]
-    config_files = [Path(variables_path).resolve(), Path(config_path).resolve(), libraries_path]
+    from sttv.storage.settings import load as load_storage
+    storage = load_storage(variables_path, selected_path(options['storage'], work))
+    paths = [storage.manifest, output_path(work, options['outputs']['report'], roots)]
+    config_files = list(dict.fromkeys([Path(variables_path).resolve(), Path(config_path).resolve(),
+                                    libraries_path, *storage.config_files]))
     parser_paths = [selected_path(options["parser"][key], work)
                     for key in ("lexical", "constructs", "logical_operators")]
     inline_config = selected_path(options["parser"]["inline_scripts"], work)
@@ -100,7 +103,8 @@ def load_settings(variables_path, config_path, options=None, dataset=None):
     library_paths.extend(output_path(work, libraries[key], roots) for key in ('manifest', 'report'))
     parallel_path, parallel = load_parallel(options['parallel'], work, roots,
                                            [*paths, *config_files, *library_paths])
-    config_files.append(parallel_path)
+    if parallel_path not in config_files:
+        config_files.append(parallel_path)
     inline_options = read_json(inline_config)
     validate_schema(inline_options, "parser_inline_scripts.schema.json")
     parser_exceptions = read_json(exceptions_config)

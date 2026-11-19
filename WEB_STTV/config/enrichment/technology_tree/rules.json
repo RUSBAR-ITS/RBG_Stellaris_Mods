@@ -1,0 +1,195 @@
+{
+  "format": "sttv.technology_tree_rules",
+  "format_version": 1,
+  "rules": [
+    {
+      "id": "normalized_id",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "same_area",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "same_category",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "mandatory",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "direct_upgrades",
+      "enabled": true,
+      "parameters": {
+        "mappings": [
+          {
+            "kind": "components",
+            "field": "upgrades_to",
+            "direction": "forward"
+          },
+          {
+            "kind": "buildings",
+            "field": "upgrades",
+            "direction": "forward"
+          }
+        ]
+      }
+    },
+    {
+      "id": "same_potential",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "functional_groups",
+      "enabled": true,
+      "parameters": {
+        "ship": {
+          "group": "mobile_combat_ship",
+          "kind": "ship_sizes",
+          "speed_field": "max_speed",
+          "roles_field": "ship_roles",
+          "roles": [
+            "artillery",
+            "carrier",
+            "gunship"
+          ]
+        },
+        "terraform": {
+          "group": "planet_class_change",
+          "kind": "terraform",
+          "type": "terraform_link",
+          "from_field": "from",
+          "to_field": "to",
+          "condition_field": "condition",
+          "predicate": "has_technology"
+        },
+        "weapon": {
+          "group": "anti_ship_weaponry",
+          "kinds": [
+            "components",
+            "buildings",
+            "ship_sizes",
+            "starbase_buildings",
+            "starbase_modules",
+            "megastructures"
+          ],
+          "component_kind": "components",
+          "component_type": "weapon_component_template",
+          "action_field": "scripted_action",
+          "action_kind": "scripted_actions",
+          "completion_field": "on_completed",
+          "hook_kind": "on_actions",
+          "events_field": "events",
+          "event_kind": "events",
+          "effect_field": "immediate",
+          "damage_command": "damage_ship",
+          "excluded_effect_sections": [
+            "limit",
+            "potential",
+            "allow",
+            "possible",
+            "weight_modifier",
+            "ai_weight"
+          ]
+        }
+      }
+    },
+    {
+      "id": "direct_relations",
+      "enabled": true,
+      "parameters": {
+        "kinds": [
+          "components",
+          "buildings",
+          "ship_sizes",
+          "starbase_buildings",
+          "starbase_modules",
+          "megastructures"
+        ],
+        "sections": [
+          "potential",
+          "allow",
+          "possible",
+          "triggered_station_modifier"
+        ],
+        "relations": {
+          "has_starbase_size": "ship_sizes",
+          "has_starbase_module": "starbase_modules",
+          "has_starbase_building": "starbase_buildings",
+          "has_building": "buildings",
+          "has_megastructure": "megastructures"
+        },
+        "operators": [
+          "=",
+          ">="
+        ],
+        "queue": {
+          "command": "starbase_buildable_is_in_queue_before",
+          "field": "first",
+          "kinds": [
+            "starbase_modules",
+            "starbase_buildings"
+          ]
+        }
+      }
+    },
+    {
+      "id": "indirect_affinity",
+      "enabled": true,
+      "parameters": {
+        "depth": 1,
+        "kind": "components",
+        "modifier_block": "ship_modifier"
+      }
+    },
+    {
+      "id": "production_affinity",
+      "enabled": true,
+      "parameters": {
+        "generation_fields": {
+          "generate_mult_modifiers": "mult",
+          "generate_add_modifiers": "add"
+        },
+        "modifier_pattern": "{category}_produces_{suffix}",
+        "job_modifier_pattern": "job_{job}_add",
+        "provider_kind": "buildings",
+        "provider_blocks": [
+          "planet_modifier",
+          "triggered_planet_modifier"
+        ]
+      }
+    },
+    {
+      "id": "capacity_affinity",
+      "enabled": true,
+      "parameters": {
+        "mappings": [
+          {
+            "modifier": "country_starbase_capacity_add",
+            "kind": "starbase_levels",
+            "usage_field": "starbase_capacity_used",
+            "linked_field": "ship_size",
+            "linked_kind": "ship_sizes"
+          }
+        ]
+      }
+    },
+    {
+      "id": "standard_empire",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "highest_tier",
+      "enabled": true,
+      "parameters": {}
+    }
+  ],
+  "definitions": {}
+}

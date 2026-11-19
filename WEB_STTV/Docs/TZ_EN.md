@@ -29,6 +29,10 @@
 
 ## Document status
 
+Approved and implemented [backend stage 17](TZ_BACKEND_STAGE_17_EN.md) and [frontend stage 4](frontend/TZ_FRONTEND_STAGE_4_EN.md): manifests, separate documents, object indexes, verification on read and full audit. Current instructions are in the [backend guide](BACKEND_STAGE_17_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_4_EN.md). Earlier formats and launch procedures below are historical.
+
+Approved and implemented [stage 16 — technology parent and child enrichment](TZ_BACKEND_STAGE_16_EN.md): a Python operation using prepared databases, 13 configurable criteria, named combinations, variants and separate input/result revisions. All 679 base decisions matched the analytical reference. See the [guide](BACKEND_STAGE_16_EN.md) for running and verification; grid layout and frontend integration remain subsequent stages.
+
 Implemented and verified the approved [stage 15 — parallel file processing](TZ_BACKEND_STAGE_15_EN.md): ten workers within one database, validation before intermediate JSON writing, streaming merging and identity derived from document hashes. All three complete builds match; see the [implementation guide](BACKEND_STAGE_15_EN.md).
 
 Implemented [stage 14 — reusable element library](TZ_BACKEND_STAGE_14_EN.md) provides persistent library JSON, configured paths and sources, explicit `--rebuild-libraries` and `--reuse-libraries` modes, freshness verification and prepared template reuse. Both modes passed full acceptance; results are in the [guide](BACKEND_STAGE_14_EN.md). Stage 15 builds on this library mechanism.

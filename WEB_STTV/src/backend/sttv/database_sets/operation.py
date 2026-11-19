@@ -3,14 +3,17 @@
 from pathlib import Path
 from time import perf_counter
 
-from sttv.common.paths import PRODUCT_ROOT, output_path
+from sttv.common.paths import PRODUCT_ROOT, output_path, selected_path
 from sttv.common.persistence import save_json
 from sttv.common.report import Report
 from sttv.enrichment.localization.report import new_report, failure
 from .configuration import KINDS, configure
 from .inputs import Inputs
 from .member import prepare_member
-from .staging import Staging, canonical_hash
+from sttv.storage.publication import Publication
+from sttv.storage.settings import load as load_storage
+from sttv.storage.manifest import create
+from sttv.storage.identity import source_revision
 from sttv.common.schema import schema_operation
 from sttv.common.timing import performance, measure
 from sttv.database.validation import database_rules
@@ -25,9 +28,10 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
     config = Path(config_path or PRODUCT_ROOT / 'config/backend.json')
     started, stage, current = perf_counter(), 'configuration', None
     report = {'format': 'sttv.database_set_report', 'format_version': 1, 'status': 'running',
-              'set_id': None, 'datasets': {}, 'diagnostics': [], 'inputs': [], 'seconds': 0.0,
+              'set_id': None, 'snapshot_revision': None, 'published': False,
+              'datasets': {}, 'diagnostics': [], 'inputs': [], 'seconds': 0.0,
               'performance': performance()}
-    inputs, staging = Inputs(report), Staging()
+    inputs, members = Inputs(report), {}
     settings, aggregate, builds, localizations = {}, None, {}, {}
     lifetime = ExitStack()
     try:
@@ -38,6 +42,8 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
         inputs.record(variables, 'configuration')
         options = inputs.json(config, 'configuration')
         settings, localization, aggregate = configure(variables, config, options)
+        storage = load_storage(variables, selected_path(options['storage'], settings[KINDS[0]].work))
+        publication = lifetime.enter_context(Publication(storage))
         inputs.record(localization, 'configuration')
         for kind, item in settings.items():
             for path in item.config_files:
@@ -57,25 +63,27 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
         for kind in KINDS:
             stage, current = 'preparation', kind
             member_started = perf_counter()
-            checksum = prepare_member(kind, settings[kind], variables, localization,
-                options['datasets'][kind]['outputs'], builds[kind], localizations[kind], inputs, staging, pool)
-            report['datasets'][kind].update(prepared=True, content_hash=checksum,
+            members[kind] = prepare_member(kind, settings[kind], variables, localization,
+                options['datasets'][kind]['outputs'], builds[kind], localizations[kind], inputs, publication, pool)
+            report['datasets'][kind].update(prepared=True,
+                content_hash=source_revision([r['descriptor'] for r in members[kind]]),
+                bytes=sum(r['descriptor']['byte_size'] for r in members[kind]),
                 seconds=round(perf_counter() - member_started, 3))
         pool.__exit__(None, None, None)
-        report['set_id'] = canonical_hash({kind: member['content_hash'] for kind, member in report['datasets'].items()})
-        stage, current = 'staging', None
-        with measure(report['performance']['timings'], 'publish_header'):
-            staging.identify(report['set_id'], settings)
-        for kind, path in staging.paths.items():
-            report['datasets'][kind]['bytes'] = path.stat().st_size
-        stage = 'input_verification'
-        with measure(report['performance']['timings'], 'verify_inputs'):
-            inputs.verify()
-            snapshot.inventory.verify()
-        lifetime.close()
+        stage, current = 'manifest', None
+        with measure(report['performance']['timings'], 'manifest'):
+            manifest = create(members)
+        report['set_id'] = manifest['set_id']
+        report['snapshot_revision'] = manifest['snapshot_revision']
+        def verify():
+            with measure(report['performance']['timings'], 'verify_inputs'):
+                inputs.verify()
+                snapshot.inventory.verify()
         stage = 'publication'
         with measure(report['performance']['timings'], 'publish'):
-            staging.publish(settings, report)
+            report['published'] = publication.publish(manifest, verify)
+        for member in report['datasets'].values():
+            member['written'] = True
         report['status'] = 'success'
     except Exception as exc:
         report['status'] = 'failed'
@@ -89,7 +97,6 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
                 failure(localizations[current], exc, stage)
                 localizations[current]['status'] = 'failed'
     finally:
-        staging.close()
         try:
             lifetime.close()
         except Exception as exc:

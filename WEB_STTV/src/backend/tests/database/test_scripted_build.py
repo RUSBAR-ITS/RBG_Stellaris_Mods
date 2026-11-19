@@ -122,7 +122,7 @@ class ScriptedBuildTests(BuildFixture):
         rules = self.game / 'common/game_rules'
         rules.mkdir()
         (rules / 'rules.txt').write_text('same={same={ARG=7}} inline_script=definition', encoding='utf-8')
-        (self.inline / 'definition.txt').write_text('same={same={ARG=8}}', encoding='utf-8')
+        (self.inline / 'definition.txt').write_text('second={same={ARG=8}}', encoding='utf-8')
         self.variables['TECH_PATH'] = 'common/game_rules'
         doc, report = self.document()
         self.assertEqual(report['counts']['warnings'], 0)

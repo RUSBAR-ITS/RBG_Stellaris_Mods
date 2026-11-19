@@ -30,7 +30,7 @@ class ConfigurationTests(BuildFixture):
             cwd=self.root, capture_output=True, encoding="utf-8")
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertEqual(json.loads(result.stdout)["status"], "success")
-        self.assertTrue((PRODUCT_ROOT / self.variables["WORK_DIR"] / "database.json").is_file())
+        self.assertTrue((PRODUCT_ROOT / self.variables["WORK_DIR"] / "database_set/manifest.json").is_file())
 
     def test_cli_failure_returns_report_and_nonzero_exit(self):
         self.write_script("base.txt", "tech_a = { unclosed = yes")
@@ -46,18 +46,18 @@ class ConfigurationTests(BuildFixture):
     def test_outputs_cannot_escape_work_or_write_to_sources(self):
         before = self.hashes()
         for filename in ("../escaped.json", str(self.tech / "result.json")):
-            self.options["outputs"]["database"] = filename
+            self.options["outputs"]["report"] = filename
             result = self.run_build()
             self.assertTrue({"unsafe_output", "schema_error"}.intersection(self.errors(result)))
             self.assertFalse(result["database_written"])
-        self.options["outputs"]["database"] = "database.json"
+        self.options["outputs"]["report"] = "database_set/manifest.json"
         self.variables["WORK_DIR"] = str(self.game / "work")
         self.assertIn("unsafe_output", self.errors(self.run_build()))
         self.assertEqual(self.hashes(), before)
         self.assertFalse((self.game / "work").exists())
 
     def test_colliding_outputs_and_unavailable_sources(self):
-        self.options["outputs"]["report"] = "database.json"
+        self.options["outputs"]["report"] = "database_set/manifest.json"
         self.assertIn("output_collision", self.errors(self.run_build()))
         self.options["outputs"]["report"] = "reports/build_report.json"
         self.variables["TECH_PATH"] = "common/missing"

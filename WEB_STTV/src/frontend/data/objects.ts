@@ -7,18 +7,18 @@ import type { SttvIndexBuilder } from '../localization/index';
 import { sttvInvalid } from '../workers/diagnostics';
 
 export function sttvAdaptObjects(db: SttvDatabase, kind: 'components' | 'buildings',
-  strings: SttvIndexBuilder, partial?: { catalog: SttvObjectCatalog; documentOffset: number }): SttvObjectCatalog {
+  strings: SttvIndexBuilder, partial?: { catalog: SttvObjectCatalog; itemOffset: number }): SttvObjectCatalog {
   const { objects, requirements, upgrades }: SttvObjectCatalog = partial?.catalog ?? {
     objects: Object.create(null), requirements: [], upgrades: [] };
   const selection = config.objects[kind], fields = config.fields;
-  const ref = (pointer: string) => ({ database: kind, pointer });
-  db.documents.forEach((document, d) => {
-    d += partial?.documentOffset ?? 0;
-    const file = sttvDocument(document, `/documents/${d}`);
+  const ref = (pointer: string) => ({ database: kind, document_id: db.document_id, pointer });
+  [db].forEach(document => {
+    strings.documentId = db.document_id;
+    const file = sttvDocument(document, '');
     if (!file.startsWith(`${selection.directory}/`) || !file.endsWith('.txt')) return;
     document.items.forEach((node, i) => {
       if (node.kind !== 'assignment' || node.value?.kind !== 'block') return;
-      const pointer = `/documents/${d}/items/${i}`;
+      const pointer = `/items/${i + (partial?.itemOffset ?? 0)}`;
       const root = sttvScalar(node.key, pointer);
       if (selection.rootTypes.length && !(selection.rootTypes as string[]).includes(root)) return;
       const items = sttvItems(node.value, pointer);

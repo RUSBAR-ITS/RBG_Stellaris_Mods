@@ -32,12 +32,15 @@ export function SttvApp() {
       ? <SttvButton label={{ id: 'sttv_cancel' }} onClick={() => controller.cancel()} border="hover" />
       : <>
         {opening.status === 'error' && <SttvButton label={{ id: 'sttv_retry' }} onClick={() => controller.retry()} border="hover" />}
-        <SttvButton label={{ id: 'sttv_open_database' }} onClick={() => input.current?.click()} border="hover" />
+        <SttvButton label={{ id: 'sttv_open_database' }} onClick={() => {
+          if (input.current && 'webkitdirectory' in input.current) input.current.click();
+          else controller.unsupportedDirectory();
+        }} border="hover" />
         {completed && <SttvButton label={{ id: 'sttv_save_report' }} onClick={save} border="hover" />}
       </>}
   </>;
   return <SttvLocalizationProvider language={language} data={opening.data}>
-    <input type="file" multiple accept=".json,application/json" hidden ref={input} onChange={event => {
+    <input type="file" {...{ webkitdirectory: '' }} hidden ref={input} onChange={event => {
       const files = Array.from(event.currentTarget.files ?? []);
       event.currentTarget.value = '';
       if (files.length) controller.open(files);

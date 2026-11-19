@@ -1,6 +1,6 @@
 {
-  "format": "sttv.parse_database",
-  "formatVersion": 6,
+  "format": "sttv.parse_document",
+  "formatVersion": 1,
   "technologyDirectory": "common/technology",
   "areas": [
     "physics",

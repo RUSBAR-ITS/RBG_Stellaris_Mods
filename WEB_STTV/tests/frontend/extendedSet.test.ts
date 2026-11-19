@@ -24,7 +24,7 @@ function sttvInputs() {
   const transition = () => sttvAssignment('terraform_link', sttvBlock([endpoint('from'), endpoint('to')]));
   const terraform = sttvDataset('terraform', [transition(), transition()]);
   const handlers = sttvDataset('on_actions', [sttvAssignment('on_day', sttvBlock([])), sttvAssignment('on_day', sttvBlock([]))]);
-  for (const db of [events, terraform, handlers]) values[sttvDatabaseKinds.indexOf(db.dataset!.kind as SttvDatabaseKind)] = db;
+  for (const db of [events, terraform, handlers]) values[sttvDatabaseKinds.indexOf(db.database as SttvDatabaseKind)] = db;
   return values;
 }
 test('event descriptions, repeated transitions and handler fragments keep their identities', () => {
@@ -39,14 +39,14 @@ test('event descriptions, repeated transitions and handler fragments keep their 
   assert.equal(catalog.definitions.terraform![0].endpoints!.from.id, 'pc_test');
   assert.equal(catalog.definitionIndex.on_actions!.on_day.length, 2);
   assert.equal(catalog.localization.en.pc_test.origins.length, 4);
-  assert.equal(JSON.stringify(catalog).includes('"documents"'), false);
+  assert.equal(JSON.stringify(catalog).includes('"kind":"assignment"'), false);
   const reversed = [...values].reverse(), reordered = sttvAdaptSet(reversed, sttvSetFiles(reversed));
   assert.deepEqual(reordered.localization, catalog.localization);
   assert.deepEqual(reordered.definitions, catalog.definitions);
 });
 test('duplicate event IDs and missing declared texts fail with qualified addresses', () => {
   for (const duplicate of [false, true]) {
-    const values = sttvInputs(), items = values.at(-1)!.documents[0].items;
+    const values = sttvInputs(), items = values.at(-1)!.items;
     if (duplicate) items.push(structuredClone(items[0]));
     else delete items[0].value!.items![1].enrichments;
     assert.throws(() => sttvAdaptSet(values, sttvSetFiles(values)), SttvPreparationError);
@@ -58,7 +58,7 @@ test('metadata rejects wrong counts, duplicate or unknown roles, reports and ver
     if (mode === '14') values.pop();
     if (mode === '16') values.push(values[0]);
     if (mode === 'duplicate') values[14] = values[0];
-    if (mode === 'unknown') values[14].dataset!.kind = 'unknown' as never;
+    if (mode === 'unknown') values[14].database = 'unknown' as never;
     if (mode === 'report') values[14].format = 'sttv.database_set_report';
     if (mode === 'version') values[14].format_version = 5;
     assert.throws(() => sttvAdaptSet(values, sttvSetFiles(values)), SttvPreparationError, mode);

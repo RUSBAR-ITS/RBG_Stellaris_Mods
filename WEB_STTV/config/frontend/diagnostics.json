@@ -1,6 +1,7 @@
 {
   "source": "builtin",
   "messages": {
+    "directory_unsupported": "sttv_diagnostic_directory_unsupported",
     "file_read_failed": "sttv_diagnostic_file_read_failed",
     "invalid_json": "sttv_diagnostic_invalid_json",
     "unsupported_database": "sttv_diagnostic_unsupported_database",

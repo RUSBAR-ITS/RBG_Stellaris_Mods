@@ -19,8 +19,8 @@ def fixture(text, templates=None):
     options = read_json(PRODUCT_ROOT / "config/parser/inline_scripts.json")
     context = Expansion(MemoryTemplates(templates or {}, options), options)
     document = parse_text(text, syntax(), "fixture.txt", expansion=context)
-    return {"format": "sttv.parse_database", "format_version": 6,
-            "documents": [serialize_document(document)]}, document
+    from sttv.storage.writing import prepare
+    return prepare(serialize_document(document), "technologies"), document
 
 
 class ValidationTests(unittest.TestCase):
@@ -31,23 +31,23 @@ class ValidationTests(unittest.TestCase):
         loaded = json.loads(json.dumps(db))
         validate_database(loaded)
         self.assertEqual(loaded, db)
-        self.assertEqual({node["kind"] for _, node in walk_nodes(loaded["documents"][0]["items"])},
+        self.assertEqual({node["kind"] for _, node in walk_nodes(loaded["items"])},
                          {"scalar", "formula", "block", "tagged_block", "conditional", "assignment", "logical_operation"})
-        for encoded, original in zip(loaded["documents"][0]["items"], parsed.items):
+        for encoded, original in zip(loaded["items"], parsed.items):
             def json_form(value):
                 return json.loads(json.dumps(value))
             self.assertEqual({k: v for k, v in encoded.items() if k != "kind" and k not in ("value", "items", "body", "key", "name")},
                          {k: json_form(v) for k, v in asdict(original).items() if k not in ("value", "items", "body", "key", "name", "environment")})
-        parameters = loaded["documents"][0]["items"][4]["value"]["parameters"]
+        parameters = loaded["items"][4]["value"]["parameters"]
         self.assertEqual(parameters[0]["default"], "fallback")
 
     def test_wrong_shapes_unknown_kinds_and_extra_fields_fail(self):
         db, _ = fixture('x=yes')
-        mutations = [lambda d: d["documents"][0]["items"][0].update(kind="unknown"),
-                     lambda d: d["documents"][0]["items"][0]["value"].update(text=True),
-                     lambda d: d["documents"][0]["items"][0].update(unknown="data"),
-                     lambda d: d["documents"][0].update(items={}),
-                     lambda d: d["documents"][0]["items"][0]["key"].update(kind="block")]
+        mutations = [lambda d: d["items"][0].update(kind="unknown"),
+                     lambda d: d["items"][0]["value"].update(text=True),
+                     lambda d: d["items"][0].update(unknown="data"),
+                     lambda d: d.update(items={}),
+                     lambda d: d["items"][0]["key"].update(kind="block")]
         for mutate in mutations:
             damaged = deepcopy(db)
             mutate(damaged)
@@ -58,7 +58,7 @@ class ValidationTests(unittest.TestCase):
         db, _ = fixture('box={ inline_script=outer inline_script=empty }',
                         {'outer.txt': 'a=yes inline_script=inner', 'inner.txt': 'b=no', 'empty.txt': ''})
         validate_database(db)
-        history = db["documents"][0]["metadata"]["expansions"]
+        history = db["metadata"]["expansions"]
         self.assertEqual([c["insertion"]["count"] for c in history], [2, 1, 0])
         self.assertEqual(history[1]["parent_id"], history[0]["id"])
         self.assertEqual(history[0]["insertion"]["container"], "/items/0/value/items")
@@ -71,11 +71,11 @@ class ValidationTests(unittest.TestCase):
                      lambda h: h[1]["insertion"].update(index=0)]
         for mutate in mutations:
             damaged = deepcopy(db)
-            mutate(damaged["documents"][0]["metadata"]["expansions"])
+            mutate(damaged["metadata"]["expansions"])
             with self.subTest(mutation=mutate), self.assertRaises(BuildError):
                 validate_database(damaged)
         damaged = deepcopy(db)
-        damaged["documents"][0]["items"][0]["origin"]["expansion_id"] = "missing"
+        damaged["items"][0]["origin"]["expansion_id"] = "missing"
         with self.assertRaises(BuildError):
             validate_database(damaged)
 

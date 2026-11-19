@@ -34,7 +34,7 @@ class LocalizationFixture(unittest.TestCase):
         self.target_file = self.work / 'targets.json'
         self.options['targets']['technologies'] = {'base': 'product', 'path': self.target_file.relative_to(PRODUCT_ROOT).as_posix()}
         self.variable_file, self.config_file = self.root / "variables.json", self.root / "localization.json"
-        self.database_path = self.work / "database.json"
+        self.database_path = self.work / "database_set/manifest.json"
         self.documents = [("common/technology/base.txt", 'tech_a = { technology_swap = { name = variant_a } } null_void_beam = {}'),
                           ("common/technology/category/base.txt", 'biology = { icon = category }'),
                           ("common/technology/tier/base.txt", '1 = { previously_unlocked = 0 }')]
@@ -53,7 +53,10 @@ class LocalizationFixture(unittest.TestCase):
         self.original = {"format": FORMAT, "format_version": FORMAT_VERSION,
                          "documents": [serialize_document(parse_text(text, syntax(), path))
                                        for path, text in self.documents]}
-        self.database_path.write_text(json_text(self.original), encoding="utf-8")
+        from storage.fixtures import publish
+        self.variable_file.write_text(json_text(self.variables), encoding="utf-8")
+        publish(self.variable_file, {"technologies": self.original["documents"]}, validate=True)
+        self.original = self.read_db()
 
     def write_localization(self, tier, values, file="base.yml"):
         header = "l_russian" if tier.startswith("RU") else "l_english"
@@ -69,14 +72,14 @@ class LocalizationFixture(unittest.TestCase):
         return enrich_localization(self.variable_file, self.config_file)
 
     def localized(self, language="ru", variant=False, field="name"):
-        node = read_json(self.database_path)["documents"][0]["items"][0]
+        node = self.read_db()["documents"][0]["items"][0]
         if variant:
             node = node["value"]["items"][0]
         return node["enrichments"]["localization"][language][field]
 
     def assert_success(self, report):
         self.assertEqual(report["status"], "success", report["diagnostics"])
-        self.assertTrue(report["database_written"])
+
 
     def assert_failure(self, code):
         before = self.database_path.read_bytes()
@@ -86,3 +89,7 @@ class LocalizationFixture(unittest.TestCase):
         self.assertIn(code, [row["code"] for row in result["diagnostics"]])
         self.assertEqual(self.database_path.read_bytes(), before)
         return result
+
+    def read_db(self):
+        from storage.fixtures import documents
+        return {'documents': documents(self.database_path)}

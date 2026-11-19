@@ -17,9 +17,9 @@ def registry():
 def configuration():
     build = build_schema()['properties']
     dataset = obj({'sources': build['sources'], 'outputs': obj({
-        key: RELATIVE for key in ('database', 'report', 'localization_report')})})
+        key: RELATIVE for key in ('report', 'localization_report')})})
     return obj({'parser': build['parser'], 'libraries': selection(), 'parallel': selection(), 'datasets': obj({kind: dataset for kind in KINDS}),
-                'localization': selection(), 'report': RELATIVE})
+                'storage': selection(), 'localization': selection(), 'report': RELATIVE})
 
 
 def report():
@@ -32,6 +32,7 @@ def report():
                   'localization_counts': localization_report.schema()['properties']['counts']})
     return obj({'format': {'const': 'sttv.database_set_report'}, 'format_version': {'const': 1},
                 'status': {'enum': ['running', 'success', 'failed']}, 'set_id': union(HASH, NULL),
+                'snapshot_revision': union(HASH, NULL), 'published': BOOL,
                 'datasets': obj({kind: member for kind in KINDS}, required=[]),
                 'diagnostics': array(obj({'code': TEXT, 'stage': TEXT, 'message': TEXT,
                     'dataset': union({'enum': list(KINDS)}, NULL), 'node': union(TEXT, NULL)})),

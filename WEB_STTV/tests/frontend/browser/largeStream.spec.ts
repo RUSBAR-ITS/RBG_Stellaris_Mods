@@ -17,9 +17,10 @@ test('large formatted JSON streams through the browser without File.text', async
   const result = await page.locator('#large-probe').evaluate(async element => {
     const script = `import {sttvReadJson} from '${location.origin}/src/frontend/data/jsonStream.ts';
       onmessage=async ({data:file})=>{try {
-        const first=await sttvReadJson(file); let count=0, maxItems=0;
-        await sttvReadJson(file, doc=>{count++;maxItems=Math.max(maxItems,doc.items.length)});
-        postMessage({status:'success',count,expected:first.documentCount,maxItems});
+        File.prototype.text=()=>{throw Error('File.text forbidden')};
+        File.prototype.arrayBuffer=()=>{throw Error('File.arrayBuffer forbidden')};
+        let count=0; const first=await sttvReadJson(file, ()=>{count++});
+        postMessage({status:'success',count,expected:first.itemCount,hash:first.hash,bytes:first.bytes});
       } catch(e){postMessage({status:'failed',message:e.message})}}`;
     const url = URL.createObjectURL(new Blob([script], { type: 'text/javascript' }));
     const worker = new Worker(url, { type: 'module' });
@@ -30,21 +31,15 @@ test('large formatted JSON streams through the browser without File.text', async
       });
     } finally { worker.terminate(); URL.revokeObjectURL(url); }
   });
-  writeFileSync('data/stage12/large_stream_probe.json', JSON.stringify({ path, bytes: statSync(path).size,
+  writeFileSync('data/stage17/large_stream_probe.json', JSON.stringify({ path, bytes: statSync(path).size,
     browser: browser.version(), seconds: (performance.now() - started) / 1000, ...result }, null, 2) + '\n');
   expect(result.status).toBe('success'); expect(result.count).toBe(result.expected); expect(result.count).toBeGreaterThan(0);
 });
 
 test('cancel terminates actual large-file streaming without publishing a previous catalog', async ({ page }) => {
-  test.skip(!process.env.STTV_LARGE_FILE, 'Requires an explicitly selected large JSON file');
-  const directory = resolve('data/stage12/browser-fixtures');
-  mkdirSync(directory, { recursive: true });
-  const inputs = sttvSet().filter(db => db.dataset!.kind !== 'components');
-  const files = [resolve(process.env.STTV_LARGE_FILE!), ...inputs.map((db, index) => {
-    const path = `${directory}/${index}.json`; writeFileSync(path, JSON.stringify(db)); return path;
-  })];
+  test.skip(!process.env.STTV_DATABASE_DIR, 'Requires an explicitly selected set directory');
   await page.goto('/'); await sttvEnglish(page); await sttvReady(page);
-  await page.locator('input[type=file]').setInputFiles(files);
+  await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
   await expect(page.getByRole('button', { name: en.sttv_cancel, exact: true })).toBeVisible();
   await page.getByRole('button', { name: en.sttv_cancel, exact: true }).click();
   await expect(page.getByRole('status')).toHaveText(en.sttv_no_database);

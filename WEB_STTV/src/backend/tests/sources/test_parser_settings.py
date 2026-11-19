@@ -53,7 +53,7 @@ class ParserSettingsTests(BuildFixture):
         folder = self.select_work_configs()
         path = folder / 'logical_operators.json'
         before = path.read_bytes()
-        self.options['outputs']['database'] = 'parser/logical_operators.json'
+        self.options['outputs']['report'] = 'parser/logical_operators.json'
         self.assertIn('output_collision', self.errors(self.run_build()))
         self.assertEqual(path.read_bytes(), before)
 
@@ -76,7 +76,7 @@ class ParserSettingsTests(BuildFixture):
         self.initialize()
         folder = self.select_work_configs()
         baseline = (folder / 'lexical.json').read_bytes()
-        self.options['outputs']['database'] = 'parser/lexical.json'
+        self.options['outputs']['report'] = 'parser/lexical.json'
         result = self.run_build()
         self.assertIn('output_collision', self.errors(result))
         self.assertEqual(baseline, (folder / 'lexical.json').read_bytes())

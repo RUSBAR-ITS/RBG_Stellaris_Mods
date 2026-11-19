@@ -1,7 +1,8 @@
 """Structural node contracts; game field names are unrestricted strings."""
 
 from .helpers import BOOL, HASH, NULL, STRING, TEXT, array, obj, ref, union
-from . import inline, localization
+from . import inline, localization, technology_tree
+from .helpers import mapping
 from sttv.common.datasets import KINDS
 
 
@@ -28,6 +29,8 @@ def definitions():
                                        'value': union(ref('scalar'), ref('formula'), ref('script_value')), 'body': ref('block')}),
     }
     nodes["assignment"]["properties"]["enrichments"] = localization.enrichment()
+    nodes['assignment']['properties']['enrichments']['properties']['technology_tree'] = mapping(
+        technology_tree.RESULT, technology_tree.ID)
     # Conditional dispatch avoids exploring every recursive alternative on invalid data.
     dispatch = {"type": "object", "required": ["kind"],
                 "properties": {"kind": {"enum": list(nodes)}},
@@ -39,9 +42,5 @@ def definitions():
 
 
 def schema():
-    result = obj({"format": {"const": "sttv.parse_database"}, "format_version": {"const": 6},
-                  "documents": array(ref("document"), minItems=1)})
-    result['properties']['dataset'] = obj({'kind': {'enum': list(KINDS)},
-                                            'set_id': HASH})
-    result["$defs"] = definitions()
-    return result
+    from .storage import document
+    return document()

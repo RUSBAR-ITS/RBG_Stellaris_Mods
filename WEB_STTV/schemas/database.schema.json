@@ -23,8 +23,42 @@
                               "const": "component_set"
                             },
                             "source_ref": {
-                              "minLength": 1,
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             }
                           },
                           "required": [
@@ -36,8 +70,42 @@
                         "inherited_from": {
                           "anyOf": [
                             {
-                              "pattern": "^/documents/\\d+/items/\\d+$",
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             },
                             {
                               "type": "null"
@@ -139,8 +207,42 @@
                               "const": "component_set"
                             },
                             "source_ref": {
-                              "minLength": 1,
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             }
                           },
                           "required": [
@@ -152,8 +254,42 @@
                         "inherited_from": {
                           "anyOf": [
                             {
-                              "pattern": "^/documents/\\d+/items/\\d+$",
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             },
                             {
                               "type": "null"
@@ -263,8 +399,42 @@
                               "const": "component_set"
                             },
                             "source_ref": {
-                              "minLength": 1,
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             }
                           },
                           "required": [
@@ -276,8 +446,42 @@
                         "inherited_from": {
                           "anyOf": [
                             {
-                              "pattern": "^/documents/\\d+/items/\\d+$",
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             },
                             {
                               "type": "null"
@@ -379,8 +583,42 @@
                               "const": "component_set"
                             },
                             "source_ref": {
-                              "minLength": 1,
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             }
                           },
                           "required": [
@@ -392,8 +630,42 @@
                         "inherited_from": {
                           "anyOf": [
                             {
-                              "pattern": "^/documents/\\d+/items/\\d+$",
-                              "type": "string"
+                              "additionalProperties": false,
+                              "properties": {
+                                "database": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "document_id": {
+                                  "pattern": "^[a-f0-9]{64}$",
+                                  "type": "string"
+                                },
+                                "pointer": {
+                                  "pattern": "^/items/\\d+(?:/.*)?$",
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "database",
+                                "document_id",
+                                "pointer"
+                              ],
+                              "type": "object"
                             },
                             {
                               "type": "null"
@@ -494,6 +766,50 @@
                 "ru",
                 "en"
               ],
+              "type": "object"
+            },
+            "technology_tree": {
+              "additionalProperties": {
+                "additionalProperties": false,
+                "properties": {
+                  "children": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "parent_tech": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "enum": [
+                      "root",
+                      "resolved",
+                      "ambiguous"
+                    ]
+                  }
+                },
+                "required": [
+                  "parent_tech",
+                  "children",
+                  "status"
+                ],
+                "type": "object"
+              },
+              "propertyNames": {
+                "pattern": "^[a-z][a-z0-9_]*$",
+                "type": "string"
+              },
               "type": "object"
             }
           },
@@ -2114,57 +2430,684 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
-    "dataset": {
+    "database": {
+      "enum": [
+        "technologies",
+        "components",
+        "buildings",
+        "megastructures",
+        "ship_sizes",
+        "starbase_levels",
+        "starbase_modules",
+        "starbase_buildings",
+        "terraform",
+        "deposits",
+        "pop_jobs",
+        "economic_categories",
+        "scripted_actions",
+        "on_actions",
+        "events"
+      ]
+    },
+    "document_id": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "format": {
+      "const": "sttv.parse_document"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "items": {
+      "items": {
+        "$ref": "#/$defs/node"
+      },
+      "type": "array"
+    },
+    "metadata": {
       "additionalProperties": false,
       "properties": {
-        "kind": {
-          "enum": [
-            "technologies",
-            "components",
-            "buildings",
-            "megastructures",
-            "ship_sizes",
-            "starbase_levels",
-            "starbase_modules",
-            "starbase_buildings",
-            "terraform",
-            "deposits",
-            "pop_jobs",
-            "economic_categories",
-            "scripted_actions",
-            "on_actions",
-            "events"
-          ]
-        },
-        "set_id": {
-          "pattern": "^[a-f0-9]{64}$",
-          "type": "string"
+        "expansions": {
+          "items": {
+            "additionalProperties": false,
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "inline_script"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "insertion": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "container": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "count": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "index": {
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "container",
+                        "index",
+                        "count"
+                      ],
+                      "type": "object"
+                    },
+                    "invocation": {
+                      "properties": {
+                        "form": {
+                          "enum": [
+                            "reference",
+                            "arguments"
+                          ]
+                        },
+                        "operator": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "file": {
+                          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "file"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "scripted_effect"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "insertion": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "container": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "count": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "index": {
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "container",
+                        "index",
+                        "count"
+                      ],
+                      "type": "object"
+                    },
+                    "invocation": {
+                      "properties": {
+                        "form": {
+                          "enum": [
+                            "boolean",
+                            "arguments"
+                          ]
+                        },
+                        "operator": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "file": {
+                          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                          "type": "string"
+                        },
+                        "name": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "span": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "column": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "end": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "end_column": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "end_line": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "line": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "start": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "start",
+                            "end",
+                            "line",
+                            "column",
+                            "end_line",
+                            "end_column"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "file",
+                        "span"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "scripted_trigger"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "insertion": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "container": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "count": {
+                          "minimum": 0,
+                          "type": "integer"
+                        },
+                        "index": {
+                          "minimum": 0,
+                          "type": "integer"
+                        }
+                      },
+                      "required": [
+                        "container",
+                        "index",
+                        "count"
+                      ],
+                      "type": "object"
+                    },
+                    "invocation": {
+                      "properties": {
+                        "form": {
+                          "enum": [
+                            "boolean",
+                            "arguments",
+                            "test"
+                          ]
+                        },
+                        "operator": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "file": {
+                          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                          "type": "string"
+                        },
+                        "name": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "span": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "column": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "end": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "end_column": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "end_line": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "line": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "start": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "start",
+                            "end",
+                            "line",
+                            "column",
+                            "end_line",
+                            "end_column"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "file",
+                        "span"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "kind": {
+                      "const": "script_value"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "directives": {
+                      "items": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "maxItems": 0,
+                      "type": "array"
+                    },
+                    "insertion": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "node": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "node"
+                      ],
+                      "type": "object"
+                    },
+                    "invocation": {
+                      "properties": {
+                        "form": {
+                          "enum": [
+                            "reference",
+                            "arguments"
+                          ]
+                        },
+                        "operator": {
+                          "type": "null"
+                        }
+                      }
+                    },
+                    "target": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "file": {
+                          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                          "type": "string"
+                        },
+                        "name": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "span": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "column": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "end": {
+                              "minimum": 0,
+                              "type": "integer"
+                            },
+                            "end_column": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "end_line": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "line": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "start": {
+                              "minimum": 0,
+                              "type": "integer"
+                            }
+                          },
+                          "required": [
+                            "start",
+                            "end",
+                            "line",
+                            "column",
+                            "end_line",
+                            "end_column"
+                          ],
+                          "type": "object"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "file",
+                        "span"
+                      ],
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            ],
+            "properties": {
+              "arguments": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "raw": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "raw",
+                    "value"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "call_site": {
+                "$ref": "#/$defs/origin"
+              },
+              "directives": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "insertion": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "container": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "count": {
+                        "minimum": 0,
+                        "type": "integer"
+                      },
+                      "index": {
+                        "minimum": 0,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "container",
+                      "index",
+                      "count"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "node": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "node"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "invocation": {
+                "additionalProperties": false,
+                "properties": {
+                  "form": {
+                    "enum": [
+                      "reference",
+                      "arguments",
+                      "boolean",
+                      "test"
+                    ]
+                  },
+                  "operator": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "raw": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "operator",
+                  "form",
+                  "raw"
+                ],
+                "type": "object"
+              },
+              "kind": {
+                "enum": [
+                  "inline_script",
+                  "scripted_effect",
+                  "scripted_trigger",
+                  "script_value"
+                ]
+              },
+              "parent_id": {
+                "anyOf": [
+                  {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "target": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "name": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "span": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "column": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "end": {
+                            "minimum": 0,
+                            "type": "integer"
+                          },
+                          "end_column": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "end_line": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "line": {
+                            "minimum": 1,
+                            "type": "integer"
+                          },
+                          "start": {
+                            "minimum": 0,
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "start",
+                          "end",
+                          "line",
+                          "column",
+                          "end_line",
+                          "end_column"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "file",
+                      "span"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "parent_id",
+              "kind",
+              "call_site",
+              "target",
+              "invocation",
+              "directives",
+              "arguments",
+              "insertion"
+            ],
+            "type": "object"
+          },
+          "type": "array"
         }
       },
       "required": [
-        "kind",
-        "set_id"
+        "expansions"
       ],
       "type": "object"
     },
-    "documents": {
-      "items": {
-        "$ref": "#/$defs/document"
+    "source": {
+      "additionalProperties": false,
+      "properties": {
+        "file": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        },
+        "root": {
+          "const": "STELLARIS_ROOT"
+        }
       },
-      "minItems": 1,
-      "type": "array"
-    },
-    "format": {
-      "const": "sttv.parse_database"
-    },
-    "format_version": {
-      "const": 6
+      "required": [
+        "root",
+        "file"
+      ],
+      "type": "object"
     }
   },
   "required": [
     "format",
     "format_version",
-    "documents"
+    "database",
+    "document_id",
+    "source",
+    "items",
+    "metadata"
   ],
   "type": "object"
 }

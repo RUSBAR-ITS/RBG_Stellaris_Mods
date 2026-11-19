@@ -1,0 +1,26 @@
+{
+  "format": "sttv.technology_tree_config",
+  "format_version": 1,
+  "dataset_registry": {
+    "base": "product",
+    "path": "config/datasets.json"
+  },
+  "technology_targets": {
+    "base": "product",
+    "path": "config/enrichment/targets/technologies.json"
+  },
+  "rules": {
+    "base": "product",
+    "path": "config/enrichment/technology_tree/rules.json"
+  },
+  "combination": {
+    "base": "product",
+    "path": "config/enrichment/technology_tree/combinations/reference_default.json"
+  },
+  "report": "reports/technology_tree.json",
+  "staging_directory": "staging/technology_tree",
+  "storage": {
+    "base": "product",
+    "path": "config/storage.json"
+  }
+}

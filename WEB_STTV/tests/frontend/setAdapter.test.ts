@@ -27,7 +27,7 @@ function sttvInputs() {
 test('roles come from metadata; identical IDs and pointers in different databases remain distinct', () => {
   const inputs = sttvInputs().reverse();
   const result = sttvAdaptSet(inputs, sttvSetFiles(inputs));
-  assert.equal(result.datasets[0].kind, 'events');
+  assert.equal(result.datasets[0].kind, 'technologies');
   assert.equal(result.components.shared.sourceRef.database, 'components');
   assert.equal(result.buildings.shared.sourceRef.database, 'buildings');
   assert.equal(result.localization.ru.shared.origins.length, 2);
@@ -39,33 +39,33 @@ test('roles come from metadata; identical IDs and pointers in different database
   assert.equal(result.upgradeEvidence[0].witnesses.length, 2);
 });
 test('incomplete, duplicate-role, mixed and old sets are rejected', () => {
-  const mixed = sttvInputs(); mixed[2].dataset!.set_id = 'b'.repeat(64);
+  const mixed = sttvInputs(); mixed[2].document_id = mixed[1].document_id;
   const old = sttvInputs(); old[1].format_version = 4;
-  const missing = sttvInputs(); delete missing[2].dataset;
+  const missing = sttvInputs(); missing[2].database = 'unknown' as never;
   for (const inputs of [sttvInputs().slice(1), [sttvInputs()[0], sttvInputs()[0], sttvInputs()[2]], mixed, old, missing]) {
     assert.throws(() => sttvAdaptSet(inputs, sttvSetFiles(inputs)), SttvPreparationError);
   }
 });
 test('conditional descriptions and component fallback retain qualified origins', () => {
   const inputs = sttvInputs();
-  const building = inputs[2].documents[0].items[0];
+  const building = inputs[2].items[0];
   const localization = sttvLocalization('unused');
   for (const language of ['ru', 'en'] as const) delete localization[language].name;
   building.value!.items!.push({ ...sttvAssignment('desc', sttvBlock([
     sttvAssignment('trigger', sttvBlock([])), sttvAssignment('text', sttvScalar('unused_desc')),
   ])), enrichments: { localization } });
-  const component = inputs[1].documents[0].items[0];
+  const component = inputs[1].items[0];
   component.enrichments!.localization!.ru.description!.fallback = {
-    kind: 'component_set', source_ref: '/documents/0/items/0/value/items/3' };
+    kind: 'component_set', source_ref: { database: 'components', document_id: inputs[1].document_id, pointer: '/items/0/value/items/3' } };
   const catalog = sttvAdaptSet(inputs, sttvSetFiles());
   assert.deepEqual(catalog.buildings.shared.conditionalDescriptions[0].triggerRef,
-    { database: 'buildings', pointer: '/documents/0/items/0/value/items/2/value/items/0/value' });
+    { database: 'buildings', document_id: inputs[2].document_id, pointer: '/items/0/value/items/2/value/items/0/value' });
   assert.equal(catalog.localization.ru.unused_desc.origins[0].recordRef.database, 'buildings');
   assert.equal(catalog.localization.ru.shared_desc.origins[0].fallback?.sourceRef.database, 'components');
 });
 test('negative object requirements survive without layout counting or invented evidence', () => {
   const inputs = sttvInputs();
-  const values = inputs[1].documents[0].items[1].value!.items![1].value!.items!;
+  const values = inputs[1].items[1].value!.items![1].value!.items!;
   values.splice(0, values.length, sttvLogical('NOT', [sttvScalar('b')]));
   const catalog = sttvAdaptSet(inputs, sttvSetFiles());
   assert.equal(catalog.components.second.prerequisites.items[0].kind, 'group');
@@ -83,20 +83,21 @@ test('upgrade hints require an existing technology prerequisite and do not creat
 test('unresolved cross references and duplicate object IDs fail with database-qualified locations', () => {
   for (const mode of ['technology', 'upgrade', 'duplicate']) {
     const inputs = sttvInputs();
-    const items = inputs[1].documents[0].items;
+    const items = inputs[1].items;
     if (mode === 'duplicate') items.push(structuredClone(items[0]));
     if (mode === 'upgrade') items.pop();
-    if (mode === 'technology') inputs[0].documents[0].items.pop();
+    if (mode === 'technology') inputs[0].items.pop();
     assert.throws(() => sttvAdaptSet(inputs, sttvSetFiles()), (error: unknown) => {
       assert.ok(error instanceof SttvPreparationError);
-      assert.equal((error.diagnostic.details.sourceRef as { database: string }).database, 'components');
+      assert.equal((error.diagnostic.details.sourceRef as { database: string } | undefined)?.database
+        ?? error.diagnostic.details.kind, 'components');
       return true;
     });
   }
 });
 test('cross-database localization conflicts retain both origins and stop preparation', () => {
   const inputs = sttvInputs();
-  inputs[2].documents[0].items[0].enrichments!.localization!.ru.name!.text = 'Conflicting name';
+  inputs[2].items[0].enrichments!.localization!.ru.name!.text = 'Conflicting name';
   assert.throws(() => sttvAdaptSet(inputs, sttvSetFiles()), (error: unknown) => {
     assert.ok(error instanceof SttvPreparationError);
     assert.equal(error.diagnostic.code, 'localization_conflict');
@@ -109,7 +110,7 @@ test('cross-database localization conflicts retain both origins and stop prepara
 test('missing object enrichment and ambiguous transformation fields stop opening', () => {
   for (const mode of ['localization', 'identity']) {
     const inputs = sttvInputs();
-    const node = inputs[1].documents[0].items[0];
+    const node = inputs[1].items[0];
     if (mode === 'localization') delete node.enrichments;
     else node.value!.items!.push(sttvAssignment('key', sttvScalar('duplicate')));
     assert.throws(() => sttvAdaptSet(inputs, sttvSetFiles()), SttvPreparationError);

@@ -20,10 +20,10 @@ class ObjectTests(LocalizationFixture):
         value = self.localized(variant=True, field="description")
         self.assertEqual(value["requested_key"], "variant_a_desc")
         self.assertEqual(value["key"], "tech_a_desc")
-        self.assertEqual(value["inherited_from"], "/documents/0/items/0")
+        self.assertEqual(value["inherited_from"], {"database": "technologies", "document_id": self.read_db()["documents"][0]["document_id"], "pointer": "/items/0"})
         self.assertEqual(report["counts"]["technologies"], 2)
         self.assertEqual(report["counts"]["variants"], 1)
-        self.assertNotIn("enrichments", read_json(self.database_path)["documents"][1]["items"][0])
+        self.assertNotIn("enrichments", self.read_db()["documents"][1]["items"][0])
 
     def test_own_description_at_low_tier_beats_parent_at_high_tier(self):
         self.write_localization("RU_LOC_TIER_1", {"tech_a_desc": "High parent"})
@@ -50,7 +50,7 @@ class ObjectTests(LocalizationFixture):
         report = self.run_operation()
         self.assert_success(report)
         self.assertEqual(report["counts"]["variants"], 2)
-        children = read_json(self.database_path)["documents"][0]["items"][0]["value"]["items"]
+        children = self.read_db()["documents"][0]["items"][0]["value"]["items"]
         self.assertEqual(children[0]["enrichments"], children[1]["enrichments"])
         self.assertNotIn("enrichments", children[2])
 
@@ -67,17 +67,17 @@ class ObjectTests(LocalizationFixture):
         self.assert_success(self.run_operation())
         self.target_options["selection"]["pattern"] = "base.txt"
         self.assert_success(self.run_operation())
-        self.assertNotIn("enrichments", read_json(self.database_path)["documents"][1]["items"][0])
+        self.assertNotIn("enrichments", self.read_db()["documents"][1]["items"][0])
         self.target_options["selection"]["pattern"] = "missing.txt"
         self.assert_success(self.run_operation())
-        self.assertEqual(read_json(self.database_path), self.original)
+        self.assertEqual(self.read_db(), self.original)
 
     def test_original_fields_history_and_frequency_are_unchanged(self):
         def frequencies(db):
             return Counter(node["text"] for doc in db["documents"] for _, node in walk_nodes(doc["items"])
                            if node["kind"] == "scalar")
         self.assert_success(self.run_operation())
-        enriched = read_database(self.database_path)
+        enriched = self.read_db()
         self.assertEqual(frequencies(enriched), frequencies(self.original))
         remove_previous(enriched)
         self.assertEqual(enriched, self.original)
@@ -87,12 +87,12 @@ class ObjectTests(LocalizationFixture):
 
     def test_inheritance_corruption_and_old_formats_are_rejected(self):
         self.assert_success(self.run_operation())
-        db = read_json(self.database_path)
+        db = self.read_db()
         value = db["documents"][0]["items"][0]["value"]["items"][0]["enrichments"]["localization"]["ru"]["description"]
         value["text"] = "Corrupted"
         with self.assertRaises(BuildError):
-            validate_database(db)
+            validate_database(db["documents"][0])
         db = copy.deepcopy(self.original)
         db["format_version"] = 3
         self.database_path.write_text(json_text(db), encoding="utf-8")
-        self.assert_failure("incompatible_database")
+        self.assert_failure("schema_error")

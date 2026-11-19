@@ -1,0 +1,3689 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "datasets": {
+      "additionalProperties": false,
+      "properties": {
+        "buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "components": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "deposits": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "economic_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "events": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "megastructures": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "on_actions": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "pop_jobs": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "scripted_actions": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "ship_sizes": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "starbase_buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "starbase_levels": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "starbase_modules": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "technologies": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "terraform": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "technologies",
+        "components",
+        "buildings",
+        "megastructures",
+        "ship_sizes",
+        "starbase_levels",
+        "starbase_modules",
+        "starbase_buildings",
+        "terraform",
+        "deposits",
+        "pop_jobs",
+        "economic_categories",
+        "scripted_actions",
+        "on_actions",
+        "events"
+      ],
+      "type": "object"
+    },
+    "format": {
+      "const": "sttv.database_manifest"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "registry_revision": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "set_id": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "snapshot_revision": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "technology_tree": {
+      "additionalProperties": false,
+      "properties": {
+        "combinations": {
+          "additionalProperties": {
+            "additionalProperties": false,
+            "properties": {
+              "calculation_revision": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "implementation_revision": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "input_revision": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "inputs": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "algorithm": {
+                      "const": "sttv.dataset_sources.v1"
+                    },
+                    "hash": {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    "kind": {
+                      "minLength": 1,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "algorithm",
+                    "hash"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "mode": {
+                "const": "reference"
+              },
+              "parameters": {
+                "additionalProperties": false,
+                "properties": {
+                  "mode": {
+                    "const": "reference"
+                  },
+                  "profile": {
+                    "additionalProperties": {
+                      "additionalProperties": {
+                        "additionalProperties": {
+                          "type": "boolean"
+                        },
+                        "propertyNames": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "type": "object"
+                      },
+                      "propertyNames": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "variants": {
+                    "additionalProperties": {
+                      "pattern": "^(base|swap:[1-9][0-9]*)$",
+                      "type": "string"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "mode",
+                  "profile",
+                  "variants"
+                ],
+                "type": "object"
+              },
+              "parameters_revision": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "result_revision": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "rules_revision": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "rules_snapshot": {
+                "additionalProperties": false,
+                "properties": {
+                  "definitions": {
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {},
+                          "required": [],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "mappings": {
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "direction": {
+                                    "enum": [
+                                      "forward",
+                                      "reverse"
+                                    ]
+                                  },
+                                  "field": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "kind": {
+                                    "enum": [
+                                      "technologies",
+                                      "components",
+                                      "buildings",
+                                      "megastructures",
+                                      "ship_sizes",
+                                      "starbase_levels",
+                                      "starbase_modules",
+                                      "starbase_buildings",
+                                      "terraform",
+                                      "deposits",
+                                      "pop_jobs",
+                                      "economic_categories",
+                                      "scripted_actions",
+                                      "on_actions",
+                                      "events"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "kind",
+                                  "field",
+                                  "direction"
+                                ],
+                                "type": "object"
+                              },
+                              "minItems": 1,
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "mappings"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "kinds": {
+                              "items": {
+                                "enum": [
+                                  "technologies",
+                                  "components",
+                                  "buildings",
+                                  "megastructures",
+                                  "ship_sizes",
+                                  "starbase_levels",
+                                  "starbase_modules",
+                                  "starbase_buildings",
+                                  "terraform",
+                                  "deposits",
+                                  "pop_jobs",
+                                  "economic_categories",
+                                  "scripted_actions",
+                                  "on_actions",
+                                  "events"
+                                ]
+                              },
+                              "type": "array",
+                              "uniqueItems": true
+                            },
+                            "operators": {
+                              "items": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "type": "array",
+                              "uniqueItems": true
+                            },
+                            "queue": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "command": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "kinds": {
+                                  "items": {
+                                    "enum": [
+                                      "technologies",
+                                      "components",
+                                      "buildings",
+                                      "megastructures",
+                                      "ship_sizes",
+                                      "starbase_levels",
+                                      "starbase_modules",
+                                      "starbase_buildings",
+                                      "terraform",
+                                      "deposits",
+                                      "pop_jobs",
+                                      "economic_categories",
+                                      "scripted_actions",
+                                      "on_actions",
+                                      "events"
+                                    ]
+                                  },
+                                  "type": "array",
+                                  "uniqueItems": true
+                                }
+                              },
+                              "required": [
+                                "command",
+                                "field",
+                                "kinds"
+                              ],
+                              "type": "object"
+                            },
+                            "relations": {
+                              "additionalProperties": {
+                                "enum": [
+                                  "technologies",
+                                  "components",
+                                  "buildings",
+                                  "megastructures",
+                                  "ship_sizes",
+                                  "starbase_levels",
+                                  "starbase_modules",
+                                  "starbase_buildings",
+                                  "terraform",
+                                  "deposits",
+                                  "pop_jobs",
+                                  "economic_categories",
+                                  "scripted_actions",
+                                  "on_actions",
+                                  "events"
+                                ]
+                              },
+                              "propertyNames": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "type": "object"
+                            },
+                            "sections": {
+                              "items": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "type": "array",
+                              "uniqueItems": true
+                            }
+                          },
+                          "required": [
+                            "kinds",
+                            "sections",
+                            "relations",
+                            "operators",
+                            "queue"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "depth": {
+                              "minimum": 1,
+                              "type": "integer"
+                            },
+                            "kind": {
+                              "enum": [
+                                "technologies",
+                                "components",
+                                "buildings",
+                                "megastructures",
+                                "ship_sizes",
+                                "starbase_levels",
+                                "starbase_modules",
+                                "starbase_buildings",
+                                "terraform",
+                                "deposits",
+                                "pop_jobs",
+                                "economic_categories",
+                                "scripted_actions",
+                                "on_actions",
+                                "events"
+                              ]
+                            },
+                            "modifier_block": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "depth",
+                            "kind",
+                            "modifier_block"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "generation_fields": {
+                              "additionalProperties": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "propertyNames": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "type": "object"
+                            },
+                            "job_modifier_pattern": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "modifier_pattern": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "provider_blocks": {
+                              "items": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "type": "array",
+                              "uniqueItems": true
+                            },
+                            "provider_kind": {
+                              "enum": [
+                                "technologies",
+                                "components",
+                                "buildings",
+                                "megastructures",
+                                "ship_sizes",
+                                "starbase_levels",
+                                "starbase_modules",
+                                "starbase_buildings",
+                                "terraform",
+                                "deposits",
+                                "pop_jobs",
+                                "economic_categories",
+                                "scripted_actions",
+                                "on_actions",
+                                "events"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "generation_fields",
+                            "modifier_pattern",
+                            "job_modifier_pattern",
+                            "provider_kind",
+                            "provider_blocks"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "mappings": {
+                              "items": {
+                                "additionalProperties": false,
+                                "properties": {
+                                  "kind": {
+                                    "enum": [
+                                      "technologies",
+                                      "components",
+                                      "buildings",
+                                      "megastructures",
+                                      "ship_sizes",
+                                      "starbase_levels",
+                                      "starbase_modules",
+                                      "starbase_buildings",
+                                      "terraform",
+                                      "deposits",
+                                      "pop_jobs",
+                                      "economic_categories",
+                                      "scripted_actions",
+                                      "on_actions",
+                                      "events"
+                                    ]
+                                  },
+                                  "linked_field": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "linked_kind": {
+                                    "enum": [
+                                      "technologies",
+                                      "components",
+                                      "buildings",
+                                      "megastructures",
+                                      "ship_sizes",
+                                      "starbase_levels",
+                                      "starbase_modules",
+                                      "starbase_buildings",
+                                      "terraform",
+                                      "deposits",
+                                      "pop_jobs",
+                                      "economic_categories",
+                                      "scripted_actions",
+                                      "on_actions",
+                                      "events"
+                                    ]
+                                  },
+                                  "modifier": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "usage_field": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": [
+                                  "modifier",
+                                  "kind",
+                                  "usage_field",
+                                  "linked_field",
+                                  "linked_kind"
+                                ],
+                                "type": "object"
+                              },
+                              "minItems": 1,
+                              "type": "array"
+                            }
+                          },
+                          "required": [
+                            "mappings"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "ship": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "group": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "kind": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "roles": {
+                                  "items": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "type": "array",
+                                  "uniqueItems": true
+                                },
+                                "roles_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "speed_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "group",
+                                "kind",
+                                "speed_field",
+                                "roles_field",
+                                "roles"
+                              ],
+                              "type": "object"
+                            },
+                            "terraform": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "condition_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "from_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "group": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "kind": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "predicate": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "to_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "group",
+                                "kind",
+                                "type",
+                                "from_field",
+                                "to_field",
+                                "condition_field",
+                                "predicate"
+                              ],
+                              "type": "object"
+                            },
+                            "weapon": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "action_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "action_kind": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "completion_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "component_kind": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "component_type": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "damage_command": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "effect_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "event_kind": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "events_field": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "excluded_effect_sections": {
+                                  "items": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                  },
+                                  "type": "array",
+                                  "uniqueItems": true
+                                },
+                                "group": {
+                                  "minLength": 1,
+                                  "type": "string"
+                                },
+                                "hook_kind": {
+                                  "enum": [
+                                    "technologies",
+                                    "components",
+                                    "buildings",
+                                    "megastructures",
+                                    "ship_sizes",
+                                    "starbase_levels",
+                                    "starbase_modules",
+                                    "starbase_buildings",
+                                    "terraform",
+                                    "deposits",
+                                    "pop_jobs",
+                                    "economic_categories",
+                                    "scripted_actions",
+                                    "on_actions",
+                                    "events"
+                                  ]
+                                },
+                                "kinds": {
+                                  "items": {
+                                    "enum": [
+                                      "technologies",
+                                      "components",
+                                      "buildings",
+                                      "megastructures",
+                                      "ship_sizes",
+                                      "starbase_levels",
+                                      "starbase_modules",
+                                      "starbase_buildings",
+                                      "terraform",
+                                      "deposits",
+                                      "pop_jobs",
+                                      "economic_categories",
+                                      "scripted_actions",
+                                      "on_actions",
+                                      "events"
+                                    ]
+                                  },
+                                  "type": "array",
+                                  "uniqueItems": true
+                                }
+                              },
+                              "required": [
+                                "group",
+                                "kinds",
+                                "component_kind",
+                                "component_type",
+                                "action_field",
+                                "action_kind",
+                                "completion_field",
+                                "hook_kind",
+                                "events_field",
+                                "event_kind",
+                                "effect_field",
+                                "damage_command",
+                                "excluded_effect_sections"
+                              ],
+                              "type": "object"
+                            }
+                          },
+                          "required": [
+                            "ship",
+                            "terraform",
+                            "weapon"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "format": {
+                    "const": "sttv.technology_tree_rules"
+                  },
+                  "format_version": {
+                    "const": 1
+                  },
+                  "rules": {
+                    "items": {
+                      "anyOf": [
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "normalized_id"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "same_area"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "same_category"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "mandatory"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "same_potential"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "standard_empire"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "highest_tier"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {},
+                                  "required": [],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "direct_upgrades"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "mappings": {
+                                      "items": {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "direction": {
+                                            "enum": [
+                                              "forward",
+                                              "reverse"
+                                            ]
+                                          },
+                                          "field": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                          },
+                                          "kind": {
+                                            "enum": [
+                                              "technologies",
+                                              "components",
+                                              "buildings",
+                                              "megastructures",
+                                              "ship_sizes",
+                                              "starbase_levels",
+                                              "starbase_modules",
+                                              "starbase_buildings",
+                                              "terraform",
+                                              "deposits",
+                                              "pop_jobs",
+                                              "economic_categories",
+                                              "scripted_actions",
+                                              "on_actions",
+                                              "events"
+                                            ]
+                                          }
+                                        },
+                                        "required": [
+                                          "kind",
+                                          "field",
+                                          "direction"
+                                        ],
+                                        "type": "object"
+                                      },
+                                      "minItems": 1,
+                                      "type": "array"
+                                    }
+                                  },
+                                  "required": [
+                                    "mappings"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "direct_relations"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "kinds": {
+                                      "items": {
+                                        "enum": [
+                                          "technologies",
+                                          "components",
+                                          "buildings",
+                                          "megastructures",
+                                          "ship_sizes",
+                                          "starbase_levels",
+                                          "starbase_modules",
+                                          "starbase_buildings",
+                                          "terraform",
+                                          "deposits",
+                                          "pop_jobs",
+                                          "economic_categories",
+                                          "scripted_actions",
+                                          "on_actions",
+                                          "events"
+                                        ]
+                                      },
+                                      "type": "array",
+                                      "uniqueItems": true
+                                    },
+                                    "operators": {
+                                      "items": {
+                                        "minLength": 1,
+                                        "type": "string"
+                                      },
+                                      "type": "array",
+                                      "uniqueItems": true
+                                    },
+                                    "queue": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "command": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "kinds": {
+                                          "items": {
+                                            "enum": [
+                                              "technologies",
+                                              "components",
+                                              "buildings",
+                                              "megastructures",
+                                              "ship_sizes",
+                                              "starbase_levels",
+                                              "starbase_modules",
+                                              "starbase_buildings",
+                                              "terraform",
+                                              "deposits",
+                                              "pop_jobs",
+                                              "economic_categories",
+                                              "scripted_actions",
+                                              "on_actions",
+                                              "events"
+                                            ]
+                                          },
+                                          "type": "array",
+                                          "uniqueItems": true
+                                        }
+                                      },
+                                      "required": [
+                                        "command",
+                                        "field",
+                                        "kinds"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "relations": {
+                                      "additionalProperties": {
+                                        "enum": [
+                                          "technologies",
+                                          "components",
+                                          "buildings",
+                                          "megastructures",
+                                          "ship_sizes",
+                                          "starbase_levels",
+                                          "starbase_modules",
+                                          "starbase_buildings",
+                                          "terraform",
+                                          "deposits",
+                                          "pop_jobs",
+                                          "economic_categories",
+                                          "scripted_actions",
+                                          "on_actions",
+                                          "events"
+                                        ]
+                                      },
+                                      "propertyNames": {
+                                        "minLength": 1,
+                                        "type": "string"
+                                      },
+                                      "type": "object"
+                                    },
+                                    "sections": {
+                                      "items": {
+                                        "minLength": 1,
+                                        "type": "string"
+                                      },
+                                      "type": "array",
+                                      "uniqueItems": true
+                                    }
+                                  },
+                                  "required": [
+                                    "kinds",
+                                    "sections",
+                                    "relations",
+                                    "operators",
+                                    "queue"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "indirect_affinity"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "depth": {
+                                      "minimum": 1,
+                                      "type": "integer"
+                                    },
+                                    "kind": {
+                                      "enum": [
+                                        "technologies",
+                                        "components",
+                                        "buildings",
+                                        "megastructures",
+                                        "ship_sizes",
+                                        "starbase_levels",
+                                        "starbase_modules",
+                                        "starbase_buildings",
+                                        "terraform",
+                                        "deposits",
+                                        "pop_jobs",
+                                        "economic_categories",
+                                        "scripted_actions",
+                                        "on_actions",
+                                        "events"
+                                      ]
+                                    },
+                                    "modifier_block": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "depth",
+                                    "kind",
+                                    "modifier_block"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "production_affinity"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "generation_fields": {
+                                      "additionalProperties": {
+                                        "minLength": 1,
+                                        "type": "string"
+                                      },
+                                      "propertyNames": {
+                                        "minLength": 1,
+                                        "type": "string"
+                                      },
+                                      "type": "object"
+                                    },
+                                    "job_modifier_pattern": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    },
+                                    "modifier_pattern": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    },
+                                    "provider_blocks": {
+                                      "items": {
+                                        "minLength": 1,
+                                        "type": "string"
+                                      },
+                                      "type": "array",
+                                      "uniqueItems": true
+                                    },
+                                    "provider_kind": {
+                                      "enum": [
+                                        "technologies",
+                                        "components",
+                                        "buildings",
+                                        "megastructures",
+                                        "ship_sizes",
+                                        "starbase_levels",
+                                        "starbase_modules",
+                                        "starbase_buildings",
+                                        "terraform",
+                                        "deposits",
+                                        "pop_jobs",
+                                        "economic_categories",
+                                        "scripted_actions",
+                                        "on_actions",
+                                        "events"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "generation_fields",
+                                    "modifier_pattern",
+                                    "job_modifier_pattern",
+                                    "provider_kind",
+                                    "provider_blocks"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "capacity_affinity"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "mappings": {
+                                      "items": {
+                                        "additionalProperties": false,
+                                        "properties": {
+                                          "kind": {
+                                            "enum": [
+                                              "technologies",
+                                              "components",
+                                              "buildings",
+                                              "megastructures",
+                                              "ship_sizes",
+                                              "starbase_levels",
+                                              "starbase_modules",
+                                              "starbase_buildings",
+                                              "terraform",
+                                              "deposits",
+                                              "pop_jobs",
+                                              "economic_categories",
+                                              "scripted_actions",
+                                              "on_actions",
+                                              "events"
+                                            ]
+                                          },
+                                          "linked_field": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                          },
+                                          "linked_kind": {
+                                            "enum": [
+                                              "technologies",
+                                              "components",
+                                              "buildings",
+                                              "megastructures",
+                                              "ship_sizes",
+                                              "starbase_levels",
+                                              "starbase_modules",
+                                              "starbase_buildings",
+                                              "terraform",
+                                              "deposits",
+                                              "pop_jobs",
+                                              "economic_categories",
+                                              "scripted_actions",
+                                              "on_actions",
+                                              "events"
+                                            ]
+                                          },
+                                          "modifier": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                          },
+                                          "usage_field": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "modifier",
+                                          "kind",
+                                          "usage_field",
+                                          "linked_field",
+                                          "linked_kind"
+                                        ],
+                                        "type": "object"
+                                      },
+                                      "minItems": 1,
+                                      "type": "array"
+                                    }
+                                  },
+                                  "required": [
+                                    "mappings"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        },
+                        {
+                          "additionalProperties": false,
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean"
+                            },
+                            "id": {
+                              "const": "functional_groups"
+                            },
+                            "parameters": {
+                              "anyOf": [
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "ship": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "group": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "kind": {
+                                          "enum": [
+                                            "technologies",
+                                            "components",
+                                            "buildings",
+                                            "megastructures",
+                                            "ship_sizes",
+                                            "starbase_levels",
+                                            "starbase_modules",
+                                            "starbase_buildings",
+                                            "terraform",
+                                            "deposits",
+                                            "pop_jobs",
+                                            "economic_categories",
+                                            "scripted_actions",
+                                            "on_actions",
+                                            "events"
+                                          ]
+                                        },
+                                        "roles": {
+                                          "items": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                          },
+                                          "type": "array",
+                                          "uniqueItems": true
+                                        },
+                                        "roles_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "speed_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "group",
+                                        "kind",
+                                        "speed_field",
+                                        "roles_field",
+                                        "roles"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "terraform": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "condition_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "from_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "group": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "kind": {
+                                          "enum": [
+                                            "technologies",
+                                            "components",
+                                            "buildings",
+                                            "megastructures",
+                                            "ship_sizes",
+                                            "starbase_levels",
+                                            "starbase_modules",
+                                            "starbase_buildings",
+                                            "terraform",
+                                            "deposits",
+                                            "pop_jobs",
+                                            "economic_categories",
+                                            "scripted_actions",
+                                            "on_actions",
+                                            "events"
+                                          ]
+                                        },
+                                        "predicate": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "to_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "type": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        }
+                                      },
+                                      "required": [
+                                        "group",
+                                        "kind",
+                                        "type",
+                                        "from_field",
+                                        "to_field",
+                                        "condition_field",
+                                        "predicate"
+                                      ],
+                                      "type": "object"
+                                    },
+                                    "weapon": {
+                                      "additionalProperties": false,
+                                      "properties": {
+                                        "action_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "action_kind": {
+                                          "enum": [
+                                            "technologies",
+                                            "components",
+                                            "buildings",
+                                            "megastructures",
+                                            "ship_sizes",
+                                            "starbase_levels",
+                                            "starbase_modules",
+                                            "starbase_buildings",
+                                            "terraform",
+                                            "deposits",
+                                            "pop_jobs",
+                                            "economic_categories",
+                                            "scripted_actions",
+                                            "on_actions",
+                                            "events"
+                                          ]
+                                        },
+                                        "completion_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "component_kind": {
+                                          "enum": [
+                                            "technologies",
+                                            "components",
+                                            "buildings",
+                                            "megastructures",
+                                            "ship_sizes",
+                                            "starbase_levels",
+                                            "starbase_modules",
+                                            "starbase_buildings",
+                                            "terraform",
+                                            "deposits",
+                                            "pop_jobs",
+                                            "economic_categories",
+                                            "scripted_actions",
+                                            "on_actions",
+                                            "events"
+                                          ]
+                                        },
+                                        "component_type": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "damage_command": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "effect_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "event_kind": {
+                                          "enum": [
+                                            "technologies",
+                                            "components",
+                                            "buildings",
+                                            "megastructures",
+                                            "ship_sizes",
+                                            "starbase_levels",
+                                            "starbase_modules",
+                                            "starbase_buildings",
+                                            "terraform",
+                                            "deposits",
+                                            "pop_jobs",
+                                            "economic_categories",
+                                            "scripted_actions",
+                                            "on_actions",
+                                            "events"
+                                          ]
+                                        },
+                                        "events_field": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "excluded_effect_sections": {
+                                          "items": {
+                                            "minLength": 1,
+                                            "type": "string"
+                                          },
+                                          "type": "array",
+                                          "uniqueItems": true
+                                        },
+                                        "group": {
+                                          "minLength": 1,
+                                          "type": "string"
+                                        },
+                                        "hook_kind": {
+                                          "enum": [
+                                            "technologies",
+                                            "components",
+                                            "buildings",
+                                            "megastructures",
+                                            "ship_sizes",
+                                            "starbase_levels",
+                                            "starbase_modules",
+                                            "starbase_buildings",
+                                            "terraform",
+                                            "deposits",
+                                            "pop_jobs",
+                                            "economic_categories",
+                                            "scripted_actions",
+                                            "on_actions",
+                                            "events"
+                                          ]
+                                        },
+                                        "kinds": {
+                                          "items": {
+                                            "enum": [
+                                              "technologies",
+                                              "components",
+                                              "buildings",
+                                              "megastructures",
+                                              "ship_sizes",
+                                              "starbase_levels",
+                                              "starbase_modules",
+                                              "starbase_buildings",
+                                              "terraform",
+                                              "deposits",
+                                              "pop_jobs",
+                                              "economic_categories",
+                                              "scripted_actions",
+                                              "on_actions",
+                                              "events"
+                                            ]
+                                          },
+                                          "type": "array",
+                                          "uniqueItems": true
+                                        }
+                                      },
+                                      "required": [
+                                        "group",
+                                        "kinds",
+                                        "component_kind",
+                                        "component_type",
+                                        "action_field",
+                                        "action_kind",
+                                        "completion_field",
+                                        "hook_kind",
+                                        "events_field",
+                                        "event_kind",
+                                        "effect_field",
+                                        "damage_command",
+                                        "excluded_effect_sections"
+                                      ],
+                                      "type": "object"
+                                    }
+                                  },
+                                  "required": [
+                                    "ship",
+                                    "terraform",
+                                    "weapon"
+                                  ],
+                                  "type": "object"
+                                },
+                                {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "definition_ref": {
+                                      "minLength": 1,
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "definition_ref"
+                                  ],
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "enabled",
+                            "parameters"
+                          ],
+                          "type": "object"
+                        }
+                      ]
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "format",
+                  "format_version",
+                  "rules",
+                  "definitions"
+                ],
+                "type": "object"
+              },
+              "source_set_id": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "mode",
+              "parameters",
+              "source_set_id",
+              "inputs",
+              "rules_snapshot",
+              "implementation_revision",
+              "input_revision",
+              "rules_revision",
+              "parameters_revision",
+              "calculation_revision",
+              "result_revision"
+            ],
+            "type": "object"
+          },
+          "propertyNames": {
+            "pattern": "^[a-z][a-z0-9_]*$",
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "format_version": {
+          "const": 1
+        }
+      },
+      "required": [
+        "format_version",
+        "combinations"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "set_id",
+    "snapshot_revision",
+    "registry_revision",
+    "datasets"
+  ],
+  "type": "object"
+}

@@ -8,8 +8,8 @@ from sttv.common.datasets import KINDS, REGISTRY, REGISTRY_PATH
 
 def build_options(options, kind):
     dataset = options['datasets'][kind]
-    return {'parser': options['parser'], 'libraries': options['libraries'], 'parallel': options['parallel'], 'sources': dataset['sources'],
-            'outputs': {key: dataset['outputs'][key] for key in ('database', 'report')}}
+    return {**{key: options[key] for key in ('parser', 'libraries', 'parallel', 'storage')},
+            'sources': dataset['sources'], 'outputs': {'report': dataset['outputs']['report']}}
 
 
 def configure(variables_path, config_path, options):
@@ -21,13 +21,13 @@ def configure(variables_path, config_path, options):
     first.config_files.append(REGISTRY_PATH)
     localization = selected_path(options['localization'], first.work)
     aggregate = output_path(first.work, options['report'], first.protected)
-    paths = [aggregate, localization, *first.config_files]
+    paths = [aggregate, localization, first.database, *first.config_files]
     paths.extend(output_path(first.work, row['output'], first.protected)
                  for row in first.libraries['libraries'])
     paths.extend(output_path(first.work, first.libraries[key], first.protected)
                  for key in ('manifest', 'report'))
     for kind, item in settings.items():
-        paths.extend([item.database, item.report, output_path(item.work,
+        paths.extend([item.report, output_path(item.work,
             options['datasets'][kind]['outputs']['localization_report'], item.protected)])
     distinct_paths(paths)
     for item in settings.values():
