@@ -1,0 +1,14 @@
+{
+  "cardClearance": 6,
+  "laneSpacing": 6,
+  "exitLength": 6,
+  "strokeWidth": 1.5,
+  "arrowSize": 6,
+  "junctionRadius": 2,
+  "bridgeWidth": 14,
+  "bridgeHeight": 7,
+  "bridgeClearance": 6,
+  "bridgeSpacing": 6,
+  "bridgeUnderlayWidth": 5,
+  "maxLaneAttempts": 16
+}

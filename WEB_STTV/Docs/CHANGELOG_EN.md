@@ -2,6 +2,24 @@
 
 ## Contents
 
+- [2026-11-19 — field zoom and frontend 0.0.10](#2026-11-19--field-zoom-and-frontend-0010)
+
+- [2026-11-19 — card frame and height, zoom draft](#2026-11-19--card-frame-and-height-zoom-draft)
+
+- [2026-11-19 — game images and frontend 0.0.8](#2026-11-19--game-images-and-frontend-008)
+
+- [2026-11-19 — image and expanded card specifications](#2026-11-19--image-and-expanded-card-specifications)
+
+- [2026-11-19 — bridges and frontend 0.0.7](#2026-11-19--bridges-and-frontend-007)
+
+- [2026-11-19 — simple routes and bridges draft](#2026-11-19--simple-routes-and-bridges-draft)
+
+- [2026-11-19 — tree connections and frontend 0.0.6](#2026-11-19--tree-connections-and-frontend-006)
+
+- [2026-11-19 — tree connection specification draft and gap expansion](#2026-11-19--tree-connection-specification-draft-and-gap-expansion)
+- [2026-11-19 — connection highlighting and bottom exit](#2026-11-19--connection-highlighting-and-bottom-exit)
+- [2026-11-19 — left trunk for a mixed branch](#2026-11-19--left-trunk-for-a-mixed-branch)
+- [2026-11-19 — tree connection element and attachments](#2026-11-19--tree-connection-element-and-attachments)
 - [2026-11-19 — tree grid and frontend 0.0.5](#2026-11-19--tree-grid-and-frontend-005)
 - [2026-11-19 — tree order and grid specification draft](#2026-11-19--tree-order-and-grid-specification-draft)
 - [2026-11-19 — branches with a parent in another area](#2026-11-19--branches-with-a-parent-in-another-area)
@@ -150,6 +168,83 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-19 — field zoom and frontend 0.0.10
+
+- Implemented the approved [field zoom specification](frontend/TZ_FRONTEND_STAGE_9_EN.md); frontend version is 0.0.10. Initial 50% and the available values are configured in `config/frontend/zoom.json`.
+- The setting uses existing UI-kit elements, is localized in RU/EN and is available before database opening. Zoom does not trigger set reads or tree recalculation.
+- Cards, fonts, images and SVG scale together; scroll bounds match the rendered field, preserving its centre with edge clamping. Menus, tooltips and scrollbars retain their size.
+- The setting survives language, theme, menu and set changes within the session; page reload restores initial 50%. Previous tooltips and highlighting close on zoom changes.
+- Build/TypeScript, 65 unit checks and 27 browser checks passed. The standard unit run skipped 3 checks requiring separate inputs; the production browser run skipped 2 development-configuration interception scenarios and 1 separate large monolithic input. The real 679 technologies were checked in RU/EN at 50%, 100% and 150%.
+
+
+## 2026-11-19 — card frame and height, zoom draft
+
+- Frontend updated to 0.0.9. Rarity/danger colours fill the entire frame band; the inner surface retains the research-area colour.
+- Minimum height reduced from 188 to 158 px, preserving full names and the shared measured height required by images/text.
+- Prepared the [field zoom draft](frontend/TZ_FRONTEND_STAGE_9_EN.md): initial 50%, menu control, and unified card/font/connection scaling. Implementation awaits specification approval.
+- Production build with TypeScript and 10 browser checks passed, including the real 679-technology set in RU/EN. Two development-configuration interception scenarios were skipped for the production build.
+
+
+## 2026-11-19 — game images and frontend 0.0.8
+
+Implemented approved backend stage 18 and frontend stage 8. Added resource configuration, standalone DDS→PNG preparation, explicit `--prepare-assets`, deduplication, verified reuse, shared manifest registry and RU/EN categories. Extended schemas and auditing; `presentation` does not alter semantic tree inputs.
+
+Cards now include images, full names, categories, game tier, starting marker, base cost/weight and finite repetitions. Missing numeric rows are hidden; zeros remain visible. Added research colors, rarity/danger frames, shared height measurement, image caching/release and corruption diagnostics. Preserved tooltips, parents, logical positions and bridges. Frontend version: 0.0.8.
+
+Prepared the current set: 679 technologies, 206 variants, 791 PNG images, 13 RU/EN categories. Verified all 885 references, images and preservation of 35 documents; repeat preparation took 12.69 s without rewrites. Passed 23 backend checks, 65 frontend unit checks, a separate real-combination check, 24 browser checks, TypeScript and production build. One large monolithic-file browser test was skipped. Guides: [backend](BACKEND_STAGE_18_EN.md), [interface](frontend/FRONTEND_STAGE_8_EN.md).
+
+## 2026-11-19 — image and expanded card specifications
+
+- Prepared paired RU/EN draft specifications for backend stage 18 and frontend stage 8: PNG copies of game icons, set resource registry, reuse and research category names.
+- Defined full names, game tier, starting marker, base cost/weight, finite repetitions, area colors and dangerous-frame precedence over rare styling.
+- Per the user's clarification, missing cost and weight are hidden with their labels; explicit zero stays visible. Specified content-based common card dimensions and consistent connection geometry.
+- Linked the drafts from the main specification index, card document and UI element list. This is a design iteration; code and the prepared set were unchanged.
+
+## 2026-11-19 — bridges and frontend 0.0.7
+
+- Implemented approved frontend stage 7: simple routes replace A*, perpendicular crossings use a continuous horizontal bridge with a field-colored underlay.
+- Added arc/clearance configuration, crossing and full bridge-bound checks, bend and path-length statistics. Logical card placement and connection coverage are preserved.
+- Following user clarification, children sharing an exit use one corner; branch dots sit at corner vertices without offsets. Bridge highlighting follows the horizontal path without changing layering.
+- Checked 61 synthetic scenarios, four real layouts, TypeScript, production build and 21 browser tests; optional giant JSON was skipped. Maximum real-path bends fell from 24/34 to 3/4. Updated bilingual specifications, guide and links. Databases were not rebuilt.
+
+## 2026-11-19 — simple routes and bridges draft
+
+- Prepared the bilingual [stage 7 specification](frontend/TZ_FRONTEND_STAGE_7_EN.md) from agreed decisions: readable route shape, permitted crossings with horizontal bridges and gap expansion for readability.
+- Documented crossings versus junctions, a continuous upward arc, local underlay, independent highlighting without layer changes, bridge data/configuration, diagnostics and checks on synthetic diagrams and the existing set.
+- Added next-stage status to the connection specification; updated README and general specification links and corrected the general specification's stage 5 link. Historical stage 6 requirements are retained with an explicit note about replacing the crossing prohibition.
+- Documentation only. The consolidated specification awaits approval; implementation, configuration, databases and version `0.0.6` remain unchanged.
+
+## 2026-11-19 — tree connections and frontend 0.0.6
+
+- Implemented the approved [stage 6 specification](frontend/TZ_FRONTEND_STAGE_6_EN.md): orthogonal selected-parent connections within each area, arrows, shared trunks and junctions. Separate modules handle search, gaps, geometry and the UI element.
+- Cards preserve stage 5 logical positions; required gaps expand locally and columns align across areas. Prohibited intersections and card penetration are checked before rendering.
+- Hovering highlights the complete parent path in blue and child paths in orange, including shared sections; sibling branches remain normal. Styling lives in both theme dictionaries; parameters reside in `config/frontend/connections.json`.
+- Reports now include `tree.connections`; routing errors carry combination, language and settings context. Added synthetic and browser checks including the real set: 679 cards, 464/463 connections, RU/EN, both themes and logical positions unchanged from stage 5.
+- Bumped package and lock-file versions to `0.0.6`. Updated bilingual specifications, the [guide](frontend/FRONTEND_STAGE_6_EN.md), README and links. Databases and backend remain unchanged; no database build was launched.
+
+## 2026-11-19 — tree connection specification draft and gap expansion
+
+- Recorded the agreed expansion of required gaps for lines while preserving logical card positions and minimum padding before Level-0.
+- Prepared RU/EN [frontend stage 6 specifications](frontend/TZ_FRONTEND_STAGE_6_EN.md): attachments, shared trunks, routing without crossings, unified field geometry, highlighting, configuration, diagnostics and checks for two prepared combinations.
+- Updated the connection element specification and main specification index. The consolidated draft awaits approval; code, databases and version 0.0.5 remain unchanged.
+
+## 2026-11-19 — connection highlighting and bottom exit
+
+- Added the agreed bottom exit to a left trunk when a connection enters from the left to both connection specification versions; parent exits and child entries may use different sides.
+- Added card hover highlighting: one color for the immediate parent connection and another for immediate child connections. Documented highlighting of shared trunk segments, clearing and separate styling variables.
+- Linked the card specification to the new behavior. Only documentation changed; connection rendering has not yet been implemented.
+
+## 2026-11-19 — left trunk for a mixed branch
+
+- Added the agreed rule to both versions of the [connection specification](frontend/elements/TZ_CONNECTION_EN.md): when a root's left side is free, its own-column children share a left trunk while rightward continuations use its right side.
+- Added a diagram and planned check; occupied-side and leftward-transition cases remain open. Only documentation changed.
+
+## 2026-11-19 — tree connection element and attachments
+
+- Added the [connection element draft specification](frontend/elements/TZ_CONNECTION_EN.md): four attachment points, parent connections within a research area, side trunks for multiple children, and a ban on crossings and merging connections from different parents.
+- Recorded separate attachment, routing and rendering responsibilities, arrows toward children, junction dots and dictionary styling. Trunk side selection and obstacle routing remain open.
+- Added the element to the UI list and updated both language versions. Only documentation changed; code and databases remain unchanged.
 
 ## 2026-11-19 — tree grid and frontend 0.0.5
 

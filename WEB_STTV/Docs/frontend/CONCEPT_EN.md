@@ -17,6 +17,8 @@
 
 ## Status
 
+Current implementation: [frontend 0.0.6](FRONTEND_STAGE_6_EN.md), with tree connections and hover highlighting.
+
 This document records agreed decisions about the window layout and initial interface. The first stage is implemented under the prepared and approved specifications; running instructions and the actual implementation are described in the [guide](FRONTEND_STAGE_1_EN.md).
 
 The [UI element reference](UI_ELEMENTS_EN.md) contains only a categorized list of current elements with links to their specifications. Agreed requirements are recorded in separate document pairs under `Docs/frontend/elements/`; [Text](elements/TZ_TEXT_EN.md), [Icon](elements/TZ_ICON_EN.md), [Button](elements/TZ_BUTTON_EN.md), [Selection control](elements/TZ_SELECT_EN.md), [Language selector](elements/TZ_LANGUAGE_SELECTOR_EN.md), [Theme toggle](elements/TZ_THEME_TOGGLE_EN.md), [Menu collapse/expand button](elements/TZ_MENU_TOGGLE_EN.md), [Technology card](elements/TZ_TECHNOLOGY_CARD_EN.md), [Tooltip](elements/TZ_TOOLTIP_EN.md), [Menu panel](elements/TZ_MENU_PANEL_EN.md), [Bottom menu button group](elements/TZ_MENU_BUTTON_GROUP_EN.md), and [Technology viewport](elements/TZ_TECHNOLOGY_VIEWPORT_EN.md) are described.

@@ -6,6 +6,7 @@ import { sttvRequirements } from './requirements';
 import layoutSettings from '../../../config/frontend/tree_layout.json';
 import { sttvTreeRecord } from './tree/extraction';
 import { SttvIndexBuilder } from '../localization/index';
+import { sttvCardValues, sttvCardRepresentation } from './presentation';
 import { SttvPreparationError, sttvDiagnostic, sttvInvalid } from '../workers/diagnostics';
 import type { SttvDiagnostic } from '../workers/diagnostics';
 
@@ -31,11 +32,11 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
     if (!result || !config.areas.includes(result)) throw sttvInvalid(path, 'Research area is missing or unsupported.');
     return result as SttvArea;
   }
-  function representation(node: SttvNode, path: string, baseArea: SttvArea, index?: number): SttvRepresentation {
+  function representation(node: SttvNode, path: string, baseArea: SttvArea, index?: number, categories?: string[]): SttvRepresentation {
     return { id: index === undefined ? 'base' : `swap:${index}`,
       ...(index === undefined ? {} : { variantNumber: index }),
       area: area(sttvItems(node.value, path), path, baseArea), sourceRef: { database: 'technologies', document_id: db.document_id, pointer: path },
-      ...strings.add(node.enrichments?.localization, path) };
+      ...strings.add(node.enrichments?.localization, path), ...sttvCardRepresentation(node, path, categories) };
   }
   try {
     [db].forEach(document => {
@@ -70,11 +71,12 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
         const { links: edges, ...requirements } = sttvRequirements(requirementValue, requirementPath, id);
         const representations = [representation(node, path, baseArea)];
         sttvFields(items, field.variant).forEach(({ node: variant, index }, v) => {
-          representations.push(representation(variant, `${path}/value/items/${index}`, baseArea, v + 1));
+          representations.push(representation(variant, `${path}/value/items/${index}`, baseArea, v + 1, representations[0].categories));
         });
         const sourceRef = { database: 'technologies' as const, document_id: db.document_id, pointer: path };
         const tree = sttvTreeRecord(node.enrichments?.technology_tree, partial?.combinationId ?? layoutSettings.combination_id, sourceRef);
-        technologies[id] = { id, tier, levels, startTech: startText === 'yes', tree, sourceRef, representations, ...requirements };
+        technologies[id] = { id, tier, levels, startTech: startText === 'yes', tree, sourceRef, representations,
+          ...requirements, ...sttvCardValues(items, path, diagnostics, { technology: id, sourceRef }) };
         links.push(...edges);
       });
     });

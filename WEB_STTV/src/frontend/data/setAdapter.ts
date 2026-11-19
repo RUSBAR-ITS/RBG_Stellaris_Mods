@@ -47,7 +47,7 @@ export class SttvSetAdapter {
   document(db: SttvDatabase, itemOffset: number) {
     const database = db.database;
     try {
-      if (database === 'technologies') sttvAdaptDatabase(db, [], this.strings, false,
+      if (database === 'technologies') sttvAdaptDatabase(db, this.diagnostics, this.strings, false,
         { catalog: this.technologies, itemOffset, combinationId: this.combinationId });
       else if (database === 'components' || database === 'buildings') sttvAdaptObjects(db, database, this.strings,
         { catalog: this[database], itemOffset });

@@ -10,6 +10,8 @@ export type SttvOperator = 'AND' | 'OR' | 'NOT' | 'NAND' | 'NOR';
 export type SttvRequirement = { kind: 'technology'; technologyId: string } | SttvGroup;
 export interface SttvGroup { kind: 'group'; operator: SttvOperator; items: SttvRequirement[] }
 export interface SttvRepresentation {
+  categories: string[];
+  iconAssetId: string | null;
   id: string;
   variantNumber?: number;
   area: SttvArea;
@@ -18,6 +20,10 @@ export interface SttvRepresentation {
   sourceRef: SttvNodeRef;
 }
 export interface SttvTechnology {
+  cost: number | null;
+  weight: number | null;
+  rare: boolean;
+  dangerous: boolean;
   startTech: boolean;
   levels: number | null;
   tree: import('./tree/model').SttvTreeRecord;
@@ -73,6 +79,8 @@ export interface SttvDatasetInfo {
   state: 'not_loaded' | 'loading' | 'loaded' | 'failed';
 }
 export interface SttvCatalog extends SttvTechnologyCatalog {
+  presentation?: import('../storage/assets').SttvPresentation;
+  images?: Record<string, Blob | null>;
   treeCombination: import('./tree/model').SttvTreeCombination;
   setId: string;
   snapshotRevision: string;

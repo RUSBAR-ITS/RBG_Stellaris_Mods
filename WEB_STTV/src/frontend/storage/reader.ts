@@ -10,7 +10,7 @@ export class SttvDocumentReader {
   private states = new Map<string, 'loading' | 'loaded' | 'failed'>();
   bytes = 0;
   seconds = 0;
-  constructor(readonly manifest: SttvManifest, private files: Map<string, File>) {}
+  constructor(readonly manifest: SttvManifest, readonly files: Map<string, File>) {}
 
   resolve(kind: SttvDatabaseKind, id: string): SttvNodeRef[] {
     return this.manifest.datasets[kind].objects.filter(row => row.id === id)

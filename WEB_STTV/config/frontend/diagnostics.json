@@ -1,6 +1,10 @@
 {
   "source": "builtin",
   "messages": {
+    "assets_not_prepared": "sttv_diagnostic_assets_not_prepared",
+    "card_value_invalid": "sttv_diagnostic_card_value_invalid",
+    "image_unavailable": "sttv_diagnostic_image_unavailable",
+    "tree_connections_failed": "sttv_diagnostic_tree_connections_failed",
     "tree_combination_missing": "sttv_diagnostic_tree_combination_missing",
     "tree_combination_stale": "sttv_diagnostic_tree_combination_stale",
     "tree_enrichment_invalid": "sttv_diagnostic_tree_enrichment_invalid",

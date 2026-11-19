@@ -17,6 +17,8 @@
 
 ## Status and purpose
 
+Implemented the [stage 8 redesign](../TZ_FRONTEND_STAGE_8_EN.md): game icon, full name, attributes and area/rarity/danger styling. It replaces the earlier content and size restrictions below. This document retains design history; current behavior and verified scenarios are described in the [0.0.8 guide](../FRONTEND_STAGE_8_EN.md). Interactive variant switching remains deferred.
+
 This document records the technology card requirements agreed by the user on 2026-11-16: the tooltip contains both the name and description, and technology variants are selected manually through a dropdown with mouse and keyboard support. The element has not been implemented yet; remaining details are listed in the final section for further design.
 
 The basis is the [interface concept](../CONCEPT_EN.md) and [UI element list](../UI_ELEMENTS_EN.md). A card represents a technology in the technology field; its visible content in the first stage is limited to the name.
@@ -109,6 +111,8 @@ The research area comes from the selected variant when it specifies one, otherwi
 Persistence of selected variants across launches is considered separately within the [shared state mechanism](../CONCEPT_EN.md#settings-and-state-persistence). The card introduces no persistent storage of its own.
 
 ## States and styling
+
+Addition dated 2026-11-19: hovering over a card also highlights its displayed immediate parent connection in one color and its immediate child connections in another, following the [connection element specification](TZ_CONNECTION_EN.md#highlighting-on-card-hover). Moving the pointer away clears the highlight. Connection highlighting preserves card and route geometry and does not suppress the tooltip. This requirement belongs to the planned connection stage and has not yet been implemented.
 
 Default and hover states are supported, together with keyboard focus for a card offering variant selection. Hover and focus visually highlight the card while retaining its dimensions and assigned position. List option states follow the shared Selection control specification.
 

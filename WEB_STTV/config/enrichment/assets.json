@@ -1,0 +1,20 @@
+{
+  "format_version": 1,
+  "storage": {"base": "product", "path": "config/storage.json"},
+  "localization": {"base": "product", "path": "config/enrichment/localization.json"},
+  "source_root": "STELLARIS_ROOT",
+  "technology_directory": "gfx/interface/icons/technologies",
+  "extension": ".dds",
+  "fields": {"icon": "icon", "variant": "technology_swap", "name": "name", "inherit_icon": "inherit_icon", "category": "category"},
+  "missing_inherit_icon": false,
+  "research_icons": {
+    "physics": "gfx/interface/icons/resources/physics_research.dds",
+    "society": "gfx/interface/icons/resources/society_research.dds",
+    "engineering": "gfx/interface/icons/resources/engineering_research.dds"
+  },
+  "directory": "assets",
+  "conversion": {"format": "PNG", "compress_level": 6},
+  "reuse": true,
+  "category_key": "{id}",
+  "report": "reports/assets.json"
+}

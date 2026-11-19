@@ -16,6 +16,7 @@ export interface SttvObjectEntry {
   pointer: string;
 }
 export interface SttvManifest {
+  presentation?: import('./assets').SttvPresentation;
   technology_tree?: unknown;
   format: 'sttv.database_manifest';
   format_version: 1;

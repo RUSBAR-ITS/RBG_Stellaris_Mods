@@ -1,4 +1,17 @@
 :root {
+  --sttv-card-detail-font: var(--sttv-type-card-detail);
+  --sttv-card-detail-color: var(--sttv-text-primary);
+  --sttv-card-physics-background: var(--sttv-science-physics-surface);
+  --sttv-card-society-background: var(--sttv-science-society-surface);
+  --sttv-card-engineering-background: var(--sttv-science-engineering-surface);
+  --sttv-card-rare-frame: var(--sttv-rarity-rare);
+  --sttv-card-dangerous-frame: var(--sttv-rarity-dangerous);
+  --sttv-card-inner-border: var(--sttv-border);
+  --sttv-card-placeholder-color: var(--sttv-text-secondary);
+  --sttv-connection-bridge-background: var(--sttv-field-background);
+  --sttv-connection-color-default: var(--sttv-border);
+  --sttv-connection-color-parent: var(--sttv-relation-parent);
+  --sttv-connection-color-children: var(--sttv-relation-children);
   --sttv-body-font: var(--sttv-type-body);
   --sttv-body-color: var(--sttv-text-primary);
   --sttv-card-font: var(--sttv-type-card);

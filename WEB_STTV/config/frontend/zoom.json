@@ -1,0 +1,4 @@
+{
+  "initialPercent": 50,
+  "percentages": [50, 75, 100, 125, 150]
+}

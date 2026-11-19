@@ -15,6 +15,7 @@ from sttv.storage.settings import load as load_storage
 from sttv.storage.manifest import create
 from sttv.storage.identity import source_revision
 from sttv.common.schema import schema_operation
+from sttv.common.errors import BuildError
 from sttv.common.timing import performance, measure
 from sttv.database.validation import database_rules
 from contextlib import ExitStack
@@ -23,7 +24,7 @@ from sttv.parallel.pool import Pool
 
 
 @schema_operation
-def build_database_set(variables_path=None, config_path=None, *, library_mode=None):
+def build_database_set(variables_path=None, config_path=None, *, library_mode=None, prepare_images=False):
     variables = Path(variables_path or PRODUCT_ROOT / 'global_variables.json')
     config = Path(config_path or PRODUCT_ROOT / 'config/backend.json')
     started, stage, current = perf_counter(), 'configuration', None
@@ -41,6 +42,8 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
         report['performance']['rule_preparations'] = 1
         inputs.record(variables, 'configuration')
         options = inputs.json(config, 'configuration')
+        if prepare_images and 'assets' not in options:
+            raise BuildError('asset_configuration', 'Explicit resource preparation requires the assets configuration selection')
         settings, localization, aggregate = configure(variables, config, options)
         storage = load_storage(variables, selected_path(options['storage'], settings[KINDS[0]].work))
         publication = lifetime.enter_context(Publication(storage))
@@ -102,6 +105,19 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
         except Exception as exc:
             report['status'] = 'failed'
             report['diagnostics'].append({'code': 'library_report', 'stage': 'report',
+                'message': str(exc), 'dataset': None, 'node': None})
+    if report['status'] == 'success' and prepare_images:
+        try:
+            from sttv.enrichment.assets import prepare_assets
+            assets = prepare_assets(variables, selected_path(options['assets'], settings[KINDS[0]].work),
+                                    storage_path=selected_path(options['storage'], settings[KINDS[0]].work))
+            report['assets'] = {key: assets[key] for key in ('status', 'counts', 'timings', 'diagnostics')}
+            if assets['status'] != 'success':
+                raise BuildError('asset_preparation_failed', 'Resource preparation failed; see the assets report.')
+            report['snapshot_revision'] = assets['after']
+        except Exception as exc:
+            report['status'] = 'failed'
+            report['diagnostics'].append({'code': getattr(exc, 'code', 'asset_preparation_failed'), 'stage': 'assets',
                 'message': str(exc), 'dataset': None, 'node': None})
     report['seconds'] = round(perf_counter() - started, 3)
     report['performance']['validated_documents'] = sum(

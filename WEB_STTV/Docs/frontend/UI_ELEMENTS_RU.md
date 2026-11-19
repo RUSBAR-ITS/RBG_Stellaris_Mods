@@ -12,15 +12,19 @@
 
 - [Текст](elements/TZ_TEXT_RU.md).
 - [Иконка](elements/TZ_ICON_RU.md).
+- [Изображение ресурса набора](TZ_FRONTEND_STAGE_8_RU.md#7-ресурсы-и-ui-элементы).
 - [Кнопка](elements/TZ_BUTTON_RU.md).
 - [Элемент выбора](elements/TZ_SELECT_RU.md).
+- [Связь](elements/TZ_CONNECTION_RU.md).
 
 ## Составные элементы
 
 - [Выбор языка](elements/TZ_LANGUAGE_SELECTOR_RU.md).
+- [Выбор масштаба поля](TZ_FRONTEND_STAGE_9_RU.md#2-управление-и-конфигурация).
 - [Кнопка переключения дневной/ночной темы](elements/TZ_THEME_TOGGLE_RU.md).
 - [Кнопка сворачивания/раскрытия меню](elements/TZ_MENU_TOGGLE_RU.md).
 - [Карточка технологии](elements/TZ_TECHNOLOGY_CARD_RU.md).
+- [Строка характеристик карточки](TZ_FRONTEND_STAGE_8_RU.md#2-состав-карточки).
 - [Тултип](elements/TZ_TOOLTIP_RU.md).
 - [Панель состояния](elements/TZ_STATUS_PANEL_RU.md).
 

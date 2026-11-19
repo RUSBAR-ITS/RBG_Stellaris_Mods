@@ -6,12 +6,16 @@ import { SttvSetAdapter } from '../data/setAdapter';
 import { sttvSetError } from '../data/setMetadata';
 import { sttvOpenDirectory } from './manifest';
 import { SttvDocumentReader } from './reader';
+import { sttvLoadAssets, type SttvCachedImage } from './assets';
+import { SttvPreparationError, sttvDiagnostic } from '../workers/diagnostics';
 
 export class SttvStorageSession {
   private tail: Promise<unknown> = Promise.resolve();
+  private images = new Map<string, SttvCachedImage>();
   private constructor(readonly reader: SttvDocumentReader, private adapter: SttvSetAdapter) {}
   static async open(files: File[], rules: SttvTargetRegistry, combinationId?: string) {
     const { manifest, files: mapped } = await sttvOpenDirectory(files);
+    if (!manifest.presentation) throw new SttvPreparationError(sttvDiagnostic('assets_not_prepared', 'preparing'));
     return new SttvStorageSession(new SttvDocumentReader(manifest, mapped), new SttvSetAdapter(manifest, rules, [], combinationId));
   }
   initial(progress?: (kind: SttvDatabaseKind, identifier: string) => void) {
@@ -56,6 +60,7 @@ export class SttvStorageSession {
       }
       for (const kind of completeKinds) trial.datasets.find(row => row.kind === kind)!.state = 'loaded';
       const catalog = trial.finish(this.reader.coverage());
+      await sttvLoadAssets(catalog, this.reader.manifest.presentation!, this.reader.files, this.images);
       this.adapter = trial;
       return catalog;
     });

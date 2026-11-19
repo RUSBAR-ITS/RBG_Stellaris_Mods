@@ -2,6 +2,7 @@ import type { SttvArea, SttvDatabaseKind } from '../model';
 import type settings from '../../../../config/frontend/tree_layout.json';
 import type { SttvLanguage } from '../../localization/model';
 import type { SttvDiagnostic } from '../../workers/diagnostics';
+import type { SttvAreaConnections, SttvConnectionSummary } from '../connections/model';
 
 export type SttvTreeSettings = typeof settings;
 export interface SttvTreeRecord {
@@ -29,6 +30,7 @@ export interface SttvAreaLayout {
   cards: SttvPlacement[];
   rowCount: number;
   height: number;
+  geometry: SttvAreaConnections;
 }
 export interface SttvLayoutReport {
   combination: SttvTreeCombination;
@@ -40,10 +42,12 @@ export interface SttvLayoutReport {
   width: number;
   height: number;
   seconds: number;
+  connections: SttvConnectionSummary;
 }
 export interface SttvLayout {
   areas: SttvAreaLayout[];
   tiers: number[];
+  columns: number[];
   width: number;
   height: number;
   report: SttvLayoutReport;

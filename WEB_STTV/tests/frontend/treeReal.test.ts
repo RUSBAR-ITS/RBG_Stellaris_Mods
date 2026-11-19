@@ -30,6 +30,11 @@ test('prepared real combinations cover all technologies without rereads, mutatio
         const layout = sttvLayout(data, language, { ...settings, combination_id: combinationId });
         const positions = new Map(layout.areas.flatMap(area => area.cards.map(card => [card.id, { ...card, area: area.area }])));
         assert.equal(positions.size, 679);
+        assert.equal(layout.report.connections.logicalConnections, combinationId === 'reference_default' ? 464 : 463);
+        assert.equal(layout.report.connections.bridges, language === 'ru' ? 19 : 24);
+        assert.equal(layout.report.connections.crossings, layout.report.connections.bridges);
+        assert.ok(layout.report.connections.maxBends <= 4);
+        assert.equal(layout.areas.reduce((sum, area) => sum + area.geometry.routes.length, 0), layout.report.connections.logicalConnections);
         for (const area of layout.areas) {
           assert.equal(new Set(area.cards.map(card => `${card.row}:${card.column}`)).size, area.cards.length);
           for (const card of area.cards) {
@@ -46,6 +51,7 @@ test('prepared real combinations cover all technologies without rereads, mutatio
             assert.ok(layout.areas[0].roots.includes(id));
           }
           const lasers = ['tech_lasers_1', 'tech_lasers_2', 'tech_lasers_3', 'tech_lasers_4', 'tech_lasers_5'];
+          if (language === 'ru') assert.equal(layout.areas[0].geometry.routes.find(r => r.child === 'tech_energy_torpedoes_2')!.points.length, 2);
           assert.equal(new Set(lasers.map(id => positions.get(id)!.row)).size, 1);
           for (const id of ['tech_arkship_exodus_jump', 'tech_mine_dark_matter',
             ...Object.keys(data.technologies).filter(id => id.startsWith('tech_unique_mutation_'))]) {
@@ -65,8 +71,8 @@ test('prepared real combinations cover all technologies without rereads, mutatio
     }
     assert.deepEqual(readFileSync(manifestPath), manifestBytes);
     assert.deepEqual(docs.map(doc => statSync(join(directory, doc.path)).mtimeMs), stats);
-    mkdirSync('data/frontend-stage5', { recursive: true });
-    writeFileSync('data/frontend-stage5/real-layout.json', JSON.stringify(reports, null, 2) + '\n');
+    mkdirSync('data/frontend-stage7', { recursive: true });
+    writeFileSync('data/frontend-stage7/real-layout.json', JSON.stringify(reports, null, 2) + '\n');
     console.log(JSON.stringify(reports.map(({ openingSeconds, layout, statusCounts }) => ({ openingSeconds,
       combination: layout.combination.id, language: layout.language, seconds: layout.seconds,
       areas: layout.areas, crossAreaLinks: layout.hiddenCrossAreaLinks, statusCounts }))));

@@ -16,7 +16,7 @@ export async function sttvEnglish(page: Page) {
 export async function sttvUpload(page: Page, data: unknown = sttvBrowserDatabase()) {
   await sttvUploadEntries(page, sttvBundle(sttvSet(data as SttvDatabase)).entries);
 }
-export async function sttvUploadEntries(page: Page, entries: { path: string; content: string }[]) {
+export async function sttvUploadEntries(page: Page, entries: { path: string; content: string | Uint8Array }[]) {
   const base = resolve('data/frontend-tests/directories'); mkdirSync(base, { recursive: true });
   const directory = mkdtempSync(resolve(base, 'set-'));
   for (const entry of entries) {

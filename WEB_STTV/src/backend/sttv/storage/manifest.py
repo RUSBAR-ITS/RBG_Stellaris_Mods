@@ -57,4 +57,6 @@ def check(manifest):
                 raise BuildError('invalid_object_index', f'Object pointer outside document: {kind}/{row}')
         if dataset['source_revision'] != source_revision(documents):
             raise BuildError('source_revision', f'Invalid source revision: {kind}')
+    from .assets import check_assets
+    check_assets(manifest, paths)
     return manifest

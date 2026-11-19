@@ -17,6 +17,8 @@
 
 ## Статус
 
+Текущая реализация — [фронтенд 0.0.6](FRONTEND_STAGE_6_RU.md) со связями дерева и подсветкой при наведении.
+
 Документ фиксирует согласованные решения по схеме окна и первому интерфейсу. По подготовленным и утверждённым ТЗ реализован первый этап; запуск и фактическое устройство описаны в [руководстве](FRONTEND_STAGE_1_RU.md).
 
 [Справочник UI-элементов](UI_ELEMENTS_RU.md) содержит только список текущих элементов по категориям со ссылками на их ТЗ. Согласованные требования оформляются отдельными парами документов в `Docs/frontend/elements/`; описаны элементы [«Текст»](elements/TZ_TEXT_RU.md), [«Иконка»](elements/TZ_ICON_RU.md), [«Кнопка»](elements/TZ_BUTTON_RU.md), [«Элемент выбора»](elements/TZ_SELECT_RU.md), [«Выбор языка»](elements/TZ_LANGUAGE_SELECTOR_RU.md), [«Переключатель темы»](elements/TZ_THEME_TOGGLE_RU.md), [«Кнопка сворачивания/раскрытия меню»](elements/TZ_MENU_TOGGLE_RU.md), [«Карточка технологии»](elements/TZ_TECHNOLOGY_CARD_RU.md), [«Тултип»](elements/TZ_TOOLTIP_RU.md), [«Панель меню»](elements/TZ_MENU_PANEL_RU.md), [«Нижняя группа кнопок меню»](elements/TZ_MENU_BUTTON_GROUP_RU.md) и [«Рабочая область просмотра технологий»](elements/TZ_TECHNOLOGY_VIEWPORT_RU.md).

@@ -15,6 +15,8 @@ function canonical(v: unknown): string {
 }
 export function sttvBundle(inputs: SttvDatabase[]) {
   const manifest: SttvManifest = { format: 'sttv.database_manifest', format_version: 1,
+    presentation: { format_version: 1, revision: 'd'.repeat(64), files: {}, categories: {},
+      research_icons: { physics: null, society: null, engineering: null } },
     set_id: 'a'.repeat(64), snapshot_revision: 'b'.repeat(64), registry_revision: sttvHash(canonical(registry)),
     datasets: Object.create(null) };
   const entries: { path: string; content: string }[] = [];

@@ -12,15 +12,19 @@
 
 - [Text](elements/TZ_TEXT_EN.md).
 - [Icon](elements/TZ_ICON_EN.md).
+- [Set resource image](TZ_FRONTEND_STAGE_8_EN.md#7-resources-and-ui-elements).
 - [Button](elements/TZ_BUTTON_EN.md).
 - [Selection control](elements/TZ_SELECT_EN.md).
+- [Connection](elements/TZ_CONNECTION_EN.md).
 
 ## Composite elements
 
 - [Language selector](elements/TZ_LANGUAGE_SELECTOR_EN.md).
+- [Field zoom selector](TZ_FRONTEND_STAGE_9_EN.md#2-controls-and-configuration).
 - [Day/night theme button](elements/TZ_THEME_TOGGLE_EN.md).
 - [Menu collapse/expand button](elements/TZ_MENU_TOGGLE_EN.md).
 - [Technology card](elements/TZ_TECHNOLOGY_CARD_EN.md).
+- [Card attribute row](TZ_FRONTEND_STAGE_8_EN.md#2-card-contents).
 - [Tooltip](elements/TZ_TOOLTIP_EN.md).
 - [Status panel](elements/TZ_STATUS_PANEL_EN.md).
 

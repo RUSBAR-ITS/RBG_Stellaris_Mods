@@ -1,0 +1,7 @@
+.sttv-connections { position: absolute; inset: 0; pointer-events: none; overflow: visible; }
+.sttv-connections [data-role='default'] { color: var(--sttv-connection-color-default); }
+.sttv-connections [data-role='parent'] { color: var(--sttv-connection-color-parent); }
+.sttv-connections [data-role='children'] { color: var(--sttv-connection-color-children); }
+.sttv-connection { fill: none; stroke: currentColor; stroke-width: var(--sttv-connection-stroke-width); stroke-linejoin: round; }
+.sttv-connection-arrow, .sttv-connection-junction { fill: currentColor; }
+.sttv-bridge-underlay { fill: none; stroke: var(--sttv-connection-bridge-background); }

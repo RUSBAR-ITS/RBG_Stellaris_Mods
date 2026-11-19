@@ -6,7 +6,8 @@
 }
 :root {
   --sttv-font-family: Inter, sans-serif;
-  --sttv-type-card: 500 15px/20px var(--sttv-font-family);
+  --sttv-type-card: 600 17px/23px var(--sttv-font-family);
+  --sttv-type-card-detail: 400 13px/20px var(--sttv-font-family);
   --sttv-type-tooltip: 400 15px/22px var(--sttv-font-family);
   --sttv-type-tooltip-heading: 600 16px/22px var(--sttv-font-family);
   --sttv-type-area: 600 18px/24px var(--sttv-font-family);
@@ -23,6 +24,11 @@
   --sttv-icon-stroke: 1.8;
 }
 :root, :root[data-theme='night'] {
+  --sttv-science-physics-surface: #17364C;
+  --sttv-science-society-surface: #203E30;
+  --sttv-science-engineering-surface: #443C22;
+  --sttv-rarity-rare: #BE83F5;
+  --sttv-rarity-dangerous: #FF737B;
   color-scheme: dark;
   --sttv-field-background: #151B20;
   --sttv-menu-background: #1C252C;
@@ -33,8 +39,15 @@
   --sttv-text-secondary: #ADBCC6;
   --sttv-border: #6F828E;
   --sttv-accent: #79CEAA;
+  --sttv-relation-parent: #73BFFF;
+  --sttv-relation-children: #F2B366;
 }
 :root[data-theme='day'] {
+  --sttv-science-physics-surface: #DFEEF9;
+  --sttv-science-society-surface: #DFEFE3;
+  --sttv-science-engineering-surface: #FFF1BF;
+  --sttv-rarity-rare: #8C3BC2;
+  --sttv-rarity-dangerous: #C82D3C;
   color-scheme: light;
   --sttv-field-background: #F3F5F7;
   --sttv-menu-background: #E8EDF0;
@@ -45,4 +58,6 @@
   --sttv-text-secondary: #53616D;
   --sttv-border: #73828E;
   --sttv-accent: #176B50;
+  --sttv-relation-parent: #1768A6;
+  --sttv-relation-children: #9B4F0B;
 }

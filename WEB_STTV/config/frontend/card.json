@@ -1,0 +1,10 @@
+{
+  "iconSize": 112,
+  "resourceIconSize": 20,
+  "padding": 14,
+  "gap": 16,
+  "rowGap": 4,
+  "frameWidth": 2,
+  "frameInset": 6,
+  "glowRadius": 6
+}

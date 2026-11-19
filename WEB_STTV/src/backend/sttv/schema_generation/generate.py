@@ -8,11 +8,13 @@ from sttv.common.persistence import save_json
 from . import configuration, database, reports, syntax, inline, static_variables, scripted, values
 from .helpers import document
 from . import localization, localization_report, database_sets, source_exceptions
-from . import libraries, parallel, technology_tree, technology_tree_rules, storage
+from . import libraries, parallel, technology_tree, technology_tree_rules, storage, assets
 
 
 def declarations():
     return {
+        'assets.schema.json': assets.configuration(),
+        'assets_report.schema.json': assets.report(),
         'storage.schema.json': storage.configuration(),
         'database_manifest.schema.json': storage.manifest(),
         'database_document.schema.json': storage.document(),

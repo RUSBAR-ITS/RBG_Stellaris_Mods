@@ -12,7 +12,7 @@ export interface SttvDiagnostic {
 }
 export function sttvDiagnostic(code: SttvDiagnosticCode, phase: SttvPhase | null,
   details: Record<string, unknown> = {}): SttvDiagnostic {
-  return { severity: code === 'missing_localization' || code === 'tree_ambiguous' ? 'warning' : 'error', code,
+  return { severity: ['missing_localization', 'tree_ambiguous', 'card_value_invalid', 'image_unavailable'].includes(code) ? 'warning' : 'error', code,
     phase, params: {}, details };
 }
 export class SttvPreparationError extends Error {

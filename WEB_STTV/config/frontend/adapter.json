@@ -1,4 +1,5 @@
 {
+  "presentation": {"cost": "cost", "factor": "factor", "weight": "weight", "rare": "is_rare", "dangerous": "is_dangerous", "category": "category"},
   "format": "sttv.parse_document",
   "formatVersion": 1,
   "technologyDirectory": "common/technology",

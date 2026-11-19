@@ -1,4 +1,5 @@
 {
+  "assets": {"base": "product", "path": "config/enrichment/assets.json"},
   "parallel": {
     "base": "product",
     "path": "config/parallel.json"

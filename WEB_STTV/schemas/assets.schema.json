@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "category_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "conversion": {
+      "additionalProperties": false,
+      "properties": {
+        "compress_level": {
+          "maximum": 9,
+          "minimum": 0,
+          "type": "integer"
+        },
+        "format": {
+          "const": "PNG"
+        }
+      },
+      "required": [
+        "format",
+        "compress_level"
+      ],
+      "type": "object"
+    },
+    "directory": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "extension": {
+      "const": ".dds"
+    },
+    "fields": {
+      "additionalProperties": false,
+      "properties": {
+        "category": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "icon": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "inherit_icon": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "variant": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "icon",
+        "variant",
+        "name",
+        "inherit_icon",
+        "category"
+      ],
+      "type": "object"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "localization": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "missing_inherit_icon": {
+      "type": "boolean"
+    },
+    "report": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "research_icons": {
+      "additionalProperties": false,
+      "properties": {
+        "engineering": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        },
+        "physics": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        },
+        "society": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "physics",
+        "society",
+        "engineering"
+      ],
+      "type": "object"
+    },
+    "reuse": {
+      "type": "boolean"
+    },
+    "source_root": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "storage": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "technology_directory": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "storage",
+    "localization",
+    "source_root",
+    "technology_directory",
+    "extension",
+    "fields",
+    "missing_inherit_icon",
+    "research_icons",
+    "directory",
+    "conversion",
+    "reuse",
+    "category_key",
+    "report"
+  ],
+  "type": "object"
+}

@@ -2,7 +2,7 @@
 
 from .helpers import HASH, TEXT, NULL, RELATIVE, BOOL, array, obj, union, mapping
 from .configuration import selection
-from . import database, technology_tree
+from . import database, technology_tree, assets
 from sttv.common.datasets import KINDS
 
 COUNT = {'type': 'integer', 'minimum': 0}
@@ -34,6 +34,7 @@ def manifest():
                   'set_id': HASH, 'snapshot_revision': HASH, 'registry_revision': HASH,
                   'datasets': obj({kind: dataset for kind in KINDS})})
     result['properties']['technology_tree'] = technology_tree.metadata()
+    result['properties']['presentation'] = assets.manifest()
     return result
 
 

@@ -37,6 +37,10 @@ def source_hash(document):
     result = dict(document)
     result['items'] = []
     for node in document['items']:
+        children = node.get('value', {}).get('items', [])
+        if any('presentation' in item.get('enrichments', {}) for item in children):
+            node = {**node, 'value': {**node['value'], 'items': [without_presentation(item) for item in children]}}
+        node = without_presentation(node)
         if 'technology_tree' in node.get('enrichments', {}):
             node = dict(node)
             node['enrichments'] = {k: v for k, v in node['enrichments'].items() if k != 'technology_tree'}
@@ -44,6 +48,15 @@ def source_hash(document):
                 del node['enrichments']
         result['items'].append(node)
     return digest({'algorithm': SOURCE_ALGORITHM, 'document': result})
+
+
+def without_presentation(node):
+    if 'presentation' not in node.get('enrichments', {}):
+        return node
+    node = {**node, 'enrichments': {k: v for k, v in node['enrichments'].items() if k != 'presentation'}}
+    if not node['enrichments']:
+        del node['enrichments']
+    return node
 
 
 def source_revision(documents):

@@ -29,9 +29,17 @@
 
 ## Document status
 
-Approved and implemented [frontend stage 5 — tree grid](frontend/TZ_FRONTEND_STAGE_5_EN.md): a prepared parent/child combination, whole-tree placement, starting-root priority, RU/EN sorting and tier transitions. Manual variant changes and backend calls are deferred by the user's decision. Current launch instructions and checks are in the [frontend 0.0.5 guide](frontend/FRONTEND_STAGE_5_EN.md).
+Approved and implemented [frontend stage 9](frontend/TZ_FRONTEND_STAGE_9_EN.md): initial 50%, a 50–150% menu selector, unified card/font/connection scaling, centre preservation and correct scroll bounds. The setting is session-only; menus and tooltips retain their normal size. Startup and validation: [0.0.10 guide](frontend/FRONTEND_STAGE_9_EN.md).
 
-Approved and implemented [backend stage 17](TZ_BACKEND_STAGE_17_EN.md) and [frontend stage 4](frontend/TZ_FRONTEND_STAGE_4_EN.md): manifests, separate documents, object indexes, verification on read and full audit. Current instructions are in the [backend guide](BACKEND_STAGE_17_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_5_EN.md). Earlier formats and launch procedures below are historical.
+Approved and implemented [backend stage 18](TZ_BACKEND_STAGE_18_EN.md) and [frontend stage 8](frontend/TZ_FRONTEND_STAGE_8_EN.md): set PNG resources, RU/EN categories and an expanded card with full names, attributes and area/rarity/danger styling. Missing cost and weight are hidden; numeric zero remains visible. Startup and results: [backend guide](BACKEND_STAGE_18_EN.md) and [0.0.9 guide](frontend/FRONTEND_STAGE_8_EN.md). Subsequent entries describe earlier stages.
+
+Approved and implemented [frontend stage 7](frontend/TZ_FRONTEND_STAGE_7_EN.md): simple routes, horizontal bridges, branch corner dots without offsets and preserved highlighting. Current startup and results are in the [0.0.7 guide](frontend/FRONTEND_STAGE_7_EN.md).
+
+Approved and implemented [frontend stage 6 — tree connections and highlighting](frontend/TZ_FRONTEND_STAGE_6_EN.md): parent lines within a research area, shared trunks, no crossings, local gap expansion and different parent/child connection colors on hover. Launch instructions and checks are in the [frontend 0.0.6 guide](frontend/FRONTEND_STAGE_7_EN.md).
+
+Approved and implemented [frontend stage 5 — tree grid](frontend/TZ_FRONTEND_STAGE_5_EN.md): a prepared parent/child combination, whole-tree placement, starting-root priority, RU/EN sorting and tier transitions. Manual variant changes and backend calls are deferred by the user's decision. Current launch instructions and checks are in the [frontend 0.0.6 guide](frontend/FRONTEND_STAGE_7_EN.md).
+
+Approved and implemented [backend stage 17](TZ_BACKEND_STAGE_17_EN.md) and [frontend stage 4](frontend/TZ_FRONTEND_STAGE_4_EN.md): manifests, separate documents, object indexes, verification on read and full audit. Current instructions are in the [backend guide](BACKEND_STAGE_17_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_7_EN.md). Earlier formats and launch procedures below are historical.
 
 Approved and implemented [stage 16 — technology parent and child enrichment](TZ_BACKEND_STAGE_16_EN.md): a Python operation using prepared databases, 13 configurable criteria, named combinations, variants and separate input/result revisions. All 679 base decisions matched the analytical reference. See the [guide](BACKEND_STAGE_16_EN.md) for running and verification; grid layout and frontend integration remain subsequent stages.
 

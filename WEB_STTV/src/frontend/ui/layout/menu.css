@@ -7,6 +7,7 @@
 .sttv-menu-content { flex: 1; overflow: auto; min-height: 0; padding-bottom: var(--sttv-menu-padding); }
 .sttv-menu-actions { display: flex; flex-direction: column; gap: var(--sttv-control-padding); margin-bottom: calc(3 * var(--sttv-control-padding)); }
 .sttv-menu-actions .sttv-button { justify-content: flex-start; }
-.sttv-language-selector { display: flex; flex-direction: column; gap: var(--sttv-control-padding); }
+.sttv-language-selector, .sttv-zoom-selector { display: flex; flex-direction: column; gap: var(--sttv-control-padding); }
+.sttv-zoom-selector { margin-top: calc(2 * var(--sttv-control-padding)); }
 .sttv-menu-bottom { display: flex; justify-content: flex-end; gap: var(--sttv-control-padding); margin-top: auto; }
 .sttv-menu-bottom .sttv-button { width: var(--sttv-button-size); height: var(--sttv-button-size); }

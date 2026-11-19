@@ -3,11 +3,14 @@ import config from '../../../../config/frontend/interface.json';
 import { SttvScrollbar } from '../scroll/Scrollbar';
 import './viewport.css';
 
-export function SttvTechnologyViewport({ width, height, children }: { width: number; height: number; children: ReactNode }) {
+export function SttvTechnologyViewport({ width: baseWidth, height: baseHeight, scale, children }:
+  { width: number; height: number; scale: number; children: ReactNode }) {
   const container = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const [bounds, setBounds] = useState({ width: 0, height: 0 });
   const [offset, setOffset] = useState({ x: 0, y: 0 });
+  const previous = useRef({ scale, width: 0, height: 0, x: 0, y: 0 });
+  const width = baseWidth * scale, height = baseHeight * scale;
   const bar = config.scrollbarThickness;
   let horizontal = width > bounds.width, vertical = height > bounds.height;
   horizontal = width > bounds.width - (vertical ? bar : 0);
@@ -38,16 +41,29 @@ export function SttvTechnologyViewport({ width, height, children }: { width: num
   useLayoutEffect(() => {
     const element = content.current;
     if (!element) return;
-    element.scrollLeft = Math.min(element.scrollLeft, Math.max(0, width - visibleWidth));
-    element.scrollTop = Math.min(element.scrollTop, Math.max(0, height - visibleHeight));
+    const old = previous.current;
+    const changed = old.scale !== scale;
+    const x = changed ? (old.x + old.width / 2) / old.scale * scale - visibleWidth / 2 : element.scrollLeft;
+    const y = changed ? (old.y + old.height / 2) / old.scale * scale - visibleHeight / 2 : element.scrollTop;
+    element.scrollLeft = Math.max(0, Math.min(x, width - visibleWidth));
+    element.scrollTop = Math.max(0, Math.min(y, height - visibleHeight));
+    previous.current = { scale, width: visibleWidth, height: visibleHeight, x: element.scrollLeft, y: element.scrollTop };
     setOffset({ x: element.scrollLeft, y: element.scrollTop });
-  }, [width, height, visibleWidth, visibleHeight]);
+  }, [scale, width, height, visibleWidth, visibleHeight]);
   return <div ref={container} className="sttv-viewport" style={{
     gridTemplateColumns: `minmax(0, 1fr) ${vertical ? bar : 0}px`,
     gridTemplateRows: `minmax(0, 1fr) ${horizontal ? bar : 0}px`,
   }}>
     <div id="sttv-viewport-content" ref={content} className="sttv-viewport-content"
-      onScroll={event => setOffset({ x: event.currentTarget.scrollLeft, y: event.currentTarget.scrollTop })}>{children}</div>
+      onScroll={event => {
+        const next = { x: event.currentTarget.scrollLeft, y: event.currentTarget.scrollTop };
+        Object.assign(previous.current, next); setOffset(next);
+      }}>
+      <div className="sttv-scaled-bounds" style={{ width, height }}>
+        <div className="sttv-scaled-field" data-scale={scale}
+          style={{ width: baseWidth, height: baseHeight, transform: `scale(${scale})` }}>{children}</div>
+      </div>
+    </div>
     {vertical && <SttvScrollbar orientation="vertical" content={height} viewport={visibleHeight}
       offset={offset.y} onChange={next => { if (content.current) content.current.scrollTop = next; }} />}
     {horizontal && <SttvScrollbar orientation="horizontal" content={width} viewport={visibleWidth}

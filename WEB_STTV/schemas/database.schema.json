@@ -768,6 +768,30 @@
               ],
               "type": "object"
             },
+            "presentation": {
+              "additionalProperties": false,
+              "properties": {
+                "format_version": {
+                  "const": 1
+                },
+                "icon_asset_id": {
+                  "anyOf": [
+                    {
+                      "pattern": "^[a-f0-9]{64}$",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "format_version",
+                "icon_asset_id"
+              ],
+              "type": "object"
+            },
             "technology_tree": {
               "additionalProperties": {
                 "additionalProperties": false,

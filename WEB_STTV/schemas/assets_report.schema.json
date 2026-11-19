@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "after": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "before": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "counts": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "integer"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "coverage": {
+      "type": "object"
+    },
+    "diagnostics": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "duplicates": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "inputs": {
+      "items": {
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "status": {
+      "enum": [
+        "success",
+        "failed"
+      ]
+    },
+    "timings": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "status",
+    "inputs",
+    "duplicates",
+    "diagnostics",
+    "timings",
+    "counts"
+  ],
+  "type": "object"
+}

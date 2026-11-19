@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import config from '../../../config/frontend/interface.json';
 import type { SttvLanguage } from '../localization/model';
 import { SttvLocalizationProvider } from '../localization/context';
@@ -6,26 +6,42 @@ import { SttvMainWindow } from '../views/MainWindow';
 import { SttvMenuPanel } from '../ui/layout/MenuPanel';
 import { SttvButton } from '../ui/base/Button';
 import { SttvLanguageSelector, SttvMenuToggle, SttvThemeToggle } from '../ui/composite/Settings';
+import { SttvZoomSelector, sttvZoomSettings } from '../ui/composite/ZoomSelector';
 import { SttvTechnologyField } from '../ui/layout/TechnologyField';
 import { sttvUseDatabase } from './useDatabase';
 import { sttvStatusMessage } from './status';
 import { sttvDownloadReport } from './report';
 import { sttvPrepareField } from './field';
+import { SttvCardMeasurement } from '../ui/composite/CardMeasurement';
+import { SttvImageProvider } from '../ui/base/ResourceImage';
+import type { SttvCatalog } from '../data/model';
+import { sttvDiagnostic, type SttvDiagnostic } from '../workers/diagnostics';
 
 export function SttvApp() {
   const [language, setLanguage] = useState(config.initialLanguage as SttvLanguage);
   const [theme, setTheme] = useState(config.initialTheme);
   const [expanded, setExpanded] = useState(config.initialMenuExpanded);
+  const [zoom, setZoom] = useState(sttvZoomSettings.initialPercent);
   const [exportFailed, setExportFailed] = useState(false);
   const { opening: loaded, controller } = sttvUseDatabase();
-  const { opening, layout } = useMemo(() => sttvPrepareField(loaded, language), [loaded, language]);
+  const [imageIssues, setImageIssues] = useState<{ operation: number; items: SttvDiagnostic[] }>({ operation: 0, items: [] });
+  const imageUnavailable = useCallback((id: string, reason: string) => setImageIssues(previous => ({
+    operation: loaded.operationId, items: [...(previous.operation === loaded.operationId ? previous.items : []),
+      sttvDiagnostic('image_unavailable', 'preparing', { id, reason })],
+  })), [loaded.operationId]);
+  const [measurement, setMeasurement] = useState<{ data: SttvCatalog | null; language: string; height: number } | null>(null);
+  const measured = measurement?.data === loaded.data && measurement?.language === language;
+  const onMeasure = useCallback((height: number) => setMeasurement({ data: loaded.data, language, height }), [loaded.data, language]);
+  const { opening, layout } = useMemo(() => measured ? sttvPrepareField(loaded, language, measurement!.height)
+    : { opening: loaded, layout: null }, [loaded, language, measured, measurement]);
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
   useEffect(() => { setExportFailed(false); }, [opening.operationId]);
   const completed = ['ready', 'empty', 'error'].includes(opening.status);
   function save() {
-    try { sttvDownloadReport(opening, layout?.report); setExportFailed(false); }
+    try { sttvDownloadReport({ ...opening, diagnostics: [...opening.diagnostics,
+      ...(imageIssues.operation === opening.operationId ? imageIssues.items : [])] }, layout?.report); setExportFailed(false); }
     catch { setExportFailed(true); }
   }
   const actions = <>
@@ -41,6 +57,8 @@ export function SttvApp() {
       </>}
   </>;
   return <SttvLocalizationProvider language={language} data={opening.data}>
+    <SttvImageProvider key={opening.operationId} images={opening.data?.images} onUnavailable={imageUnavailable}>
+    {opening.status === 'ready' && opening.data && !measured && <SttvCardMeasurement data={opening.data} onMeasure={onMeasure} />}
     <input type="file" {...{ webkitdirectory: '' }} hidden ref={input} onChange={event => {
       const files = Array.from(event.currentTarget.files ?? []);
       event.currentTarget.value = '';
@@ -48,13 +66,15 @@ export function SttvApp() {
     }} />
     <SttvMainWindow status={exportFailed ? { id: 'sttv_export_failed' } : sttvStatusMessage(opening, language)}
       menu={<SttvMenuPanel expanded={expanded} actions={actions}
-        settings={<SttvLanguageSelector value={language} onChange={setLanguage} />}
+        settings={<><SttvLanguageSelector value={language} onChange={setLanguage} />
+          <SttvZoomSelector value={zoom} onChange={setZoom} /></>}
         buttons={<>
           <SttvMenuToggle expanded={expanded} onToggle={() => setExpanded(value => !value)} />
           {expanded && <SttvThemeToggle theme={theme} onToggle={() => setTheme(value => value === 'night' ? 'day' : 'night')} />}
         </>} />}>
       {opening.status === 'ready' && opening.data && layout && <SttvTechnologyField key={opening.operationId}
-        data={opening.data} layout={layout} />}
+        data={opening.data} layout={layout} scale={zoom / 100} />}
     </SttvMainWindow>
+    </SttvImageProvider>
   </SttvLocalizationProvider>;
 }

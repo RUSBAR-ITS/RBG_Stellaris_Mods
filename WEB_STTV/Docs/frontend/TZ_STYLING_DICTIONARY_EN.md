@@ -15,7 +15,7 @@
 
 ## Status and purpose
 
-This document records the styling dictionary structure, palettes, and typography agreed by the user on 2026-11-16. The dictionary resides in separate CSS files with named variables used directly by the interface. Implementation of the product's dictionary and interface has not started.
+This document records the styling dictionary structure, palettes, and typography agreed by the user on 2026-11-16. The dictionary resides in separate CSS files with named variables used directly by the interface. The dictionary is implemented; current expanded card dimensions, fonts and palettes are described in the [stage 8 guide](FRONTEND_STAGE_8_EN.md#modules-and-settings). Earlier card values below are historical.
 
 The basis is the [interface concept](CONCEPT_EN.md#color-and-typography-dictionary) and element specifications in the [UI reference](UI_ELEMENTS_EN.md). The dictionary defines colors and typography properties for all current elements and their agreed states.
 

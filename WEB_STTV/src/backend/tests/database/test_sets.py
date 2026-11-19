@@ -46,10 +46,19 @@ class DatabaseSetTests(BuildFixture):
                      'building_a_desc': 'Normal', 'special_desc': 'Conditional'}
             (directory / 'base.yml').write_text(header + ':\n' + '\n'.join(f' {k}:0 "{v}"' for k,v in lines.items()), encoding='utf-8-sig')
 
-    def run_set(self):
+    def run_set(self, **kwargs):
         self.variable_file.write_text(json.dumps(self.variables), encoding='utf-8')
         self.config_file.write_text(json.dumps(self.options), encoding='utf-8')
-        return build_database_set(self.variable_file, self.config_file, library_mode='rebuild')
+        return build_database_set(self.variable_file, self.config_file, library_mode='rebuild', **kwargs)
+
+    def test_explicit_resource_preparation_is_integrated_after_set_publication(self):
+        result = self.run_set(prepare_images=True)
+        self.assertEqual(result['status'], 'success', result['diagnostics'])
+        self.assertEqual(result['assets']['status'], 'success')
+        self.assertGreater(result['assets']['counts']['missing'], 0)
+        manifest = open_set(self.database_path()).manifest
+        self.assertIn('presentation', manifest)
+        self.assertEqual(result['snapshot_revision'], manifest['snapshot_revision'])
 
     def test_full_set_identity_localization_and_reproducibility(self):
         result = self.run_set()

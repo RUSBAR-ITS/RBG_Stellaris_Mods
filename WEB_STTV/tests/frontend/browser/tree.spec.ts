@@ -28,7 +28,7 @@ test('tree geometry follows saved links in DOM order and does not reserve a blan
       || first.y + first.height <= second.y || second.y + second.height <= first.y).toBe(true);
   }
   const field = (await page.locator('.sttv-technology-field').boundingBox())!;
-  expect(positions[0].x - field.x).toBe(12);
+  expect(positions[0].x - field.x).toBe(6);
   await cards.nth(0).focus(); await page.keyboard.press('Tab'); await expect(cards.nth(1)).toBeFocused();
   await page.keyboard.press('Tab'); await expect(cards.nth(2)).toBeFocused();
 });
@@ -66,6 +66,7 @@ test('another prepared combination is opened through its configuration and prese
   await page.goto('/'); await sttvEnglish(page);
   await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
   await expect(page.locator('[data-technology-id]')).toHaveCount(679, { timeout: 60000 });
+  await expect(page.locator('[data-connection-child]')).toHaveCount(463);
   await expect(page.locator('[data-area="society"] [data-technology-id]')).toHaveCount(319);
   await expect(page.locator('[data-area="engineering"] [data-technology-id]')).toHaveCount(192);
   await expect(page.locator('[data-technology-id] button')).toHaveCount(0);
@@ -75,5 +76,6 @@ test('another prepared combination is opened through its configuration and prese
   expect(report.tree.combination.id).toBe('reference_variants');
   expect(report.tree.settings.combination_id).toBe('reference_variants');
   expect(report.tree.hiddenCrossAreaLinks).toBe(38);
+  expect(report.tree.connections.logicalConnections).toBe(463);
   expect(report.coverage.verifiedDocuments).toBe(35);
 });

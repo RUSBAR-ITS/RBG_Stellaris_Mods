@@ -7,6 +7,7 @@ import type { SttvDatabaseKind } from '../data/model';
 import { sttvSetError } from '../data/setMetadata';
 import { sttvReadJson } from '../data/jsonStream';
 import type { SttvManifest } from './model';
+import { sttvCheckPresentation } from './assets';
 
 export function sttvRelative(path: string) {
   if (typeof path !== 'string' || !path || /[:\\]/.test(path)
@@ -65,6 +66,7 @@ export function sttvCheckManifest(input: unknown): SttvManifest {
       addresses.add(address); if (row.id !== null) identities.add(row.id);
     }
   }
+  if (manifest.presentation) sttvCheckPresentation(manifest.presentation, sttvRelative, paths);
   return manifest;
 }
 

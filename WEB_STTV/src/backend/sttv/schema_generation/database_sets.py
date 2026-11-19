@@ -18,8 +18,10 @@ def configuration():
     build = build_schema()['properties']
     dataset = obj({'sources': build['sources'], 'outputs': obj({
         key: RELATIVE for key in ('report', 'localization_report')})})
-    return obj({'parser': build['parser'], 'libraries': selection(), 'parallel': selection(), 'datasets': obj({kind: dataset for kind in KINDS}),
+    result = obj({'parser': build['parser'], 'libraries': selection(), 'parallel': selection(), 'datasets': obj({kind: dataset for kind in KINDS}),
                 'storage': selection(), 'localization': selection(), 'report': RELATIVE})
+    result['properties']['assets'] = selection()
+    return result
 
 
 def report():
@@ -30,7 +32,7 @@ def report():
                   'build_status': status, 'localization_status': status, 'performance': performance.schema(),
                   'build_counts': reports.schema()['properties']['counts'],
                   'localization_counts': localization_report.schema()['properties']['counts']})
-    return obj({'format': {'const': 'sttv.database_set_report'}, 'format_version': {'const': 1},
+    result = obj({'format': {'const': 'sttv.database_set_report'}, 'format_version': {'const': 1},
                 'status': {'enum': ['running', 'success', 'failed']}, 'set_id': union(HASH, NULL),
                 'snapshot_revision': union(HASH, NULL), 'published': BOOL,
                 'datasets': obj({kind: member for kind in KINDS}, required=[]),
@@ -38,3 +40,7 @@ def report():
                     'dataset': union({'enum': list(KINDS)}, NULL), 'node': union(TEXT, NULL)})),
                 'inputs': array(obj({'path': TEXT, 'sha256': HASH, 'kind': TEXT})),
                 'seconds': {'type': 'number', 'minimum': 0}, 'performance': performance.schema()})
+    from .assets import report as assets_report
+    properties = assets_report()['properties']
+    result['properties']['assets'] = obj({key: properties[key] for key in ('status', 'counts', 'timings', 'diagnostics')})
+    return result
