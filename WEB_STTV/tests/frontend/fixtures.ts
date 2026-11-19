@@ -19,7 +19,9 @@ export function sttvTechnology(id: string, tier = 0, area: SttvArea = 'physics',
   return { ...sttvAssignment(id, sttvBlock([
     sttvAssignment('area', sttvScalar(area)), sttvAssignment('tier', sttvScalar(String(tier))),
     sttvAssignment('prerequisites', sttvBlock(requirements)),
-  ])), enrichments: { localization: sttvLocalization(id) } };
+  ])), enrichments: { localization: sttvLocalization(id), technology_tree: {
+    reference_default: { parent_tech: null, children: [] as string[], status: 'root' },
+  } } };
 }
 export function sttvVariant(id: string, area?: SttvArea, text = id): SttvNode {
   return { ...sttvAssignment('technology_swap', sttvBlock(area ? [sttvAssignment('area', sttvScalar(area))] : [])),

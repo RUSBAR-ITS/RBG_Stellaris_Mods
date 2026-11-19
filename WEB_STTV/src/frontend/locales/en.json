@@ -1,4 +1,9 @@
 {
+  "sttv_diagnostic_tree_combination_missing": "The configured technology tree combination is missing or unsupported.",
+  "sttv_diagnostic_tree_combination_stale": "The technology tree combination does not match this database set.",
+  "sttv_diagnostic_tree_enrichment_invalid": "The saved technology tree is incomplete or inconsistent. See the report.",
+  "sttv_diagnostic_tree_layout_failed": "Could not place the technology trees. See the report.",
+  "sttv_diagnostic_tree_ambiguous": "Some technologies have no unique parent; they are displayed as separate trees.",
   "sttv_diagnostic_directory_unsupported": "This browser does not support selecting a directory.",
   "sttv_open_database": "Open database set",
   "sttv_save_report": "Save report",

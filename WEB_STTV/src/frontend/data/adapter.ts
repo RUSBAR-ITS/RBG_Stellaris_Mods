@@ -3,14 +3,15 @@ import { sttvFields, sttvField, sttvItems, sttvScalar, sttvDocument } from './sy
 import type { SttvDatabase, SttvNode } from './syntax';
 import type { SttvArea, SttvTechnologyCatalog, SttvRepresentation } from './model';
 import { sttvRequirements } from './requirements';
-import { sttvOrderColumn } from './layout';
+import layoutSettings from '../../../config/frontend/tree_layout.json';
+import { sttvTreeRecord } from './tree/extraction';
 import { SttvIndexBuilder } from '../localization/index';
 import { SttvPreparationError, sttvDiagnostic, sttvInvalid } from '../workers/diagnostics';
 import type { SttvDiagnostic } from '../workers/diagnostics';
 
 export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] = [],
   strings = new SttvIndexBuilder(), collectWarnings = true,
-  partial?: { catalog: SttvTechnologyCatalog; itemOffset: number }): SttvTechnologyCatalog {
+  partial?: { catalog: SttvTechnologyCatalog; itemOffset: number; combinationId?: string }): SttvTechnologyCatalog {
   const db = input as SttvDatabase;
   if (db?.format !== config.format || db?.format_version !== config.formatVersion) {
     throw new SttvPreparationError(sttvDiagnostic('unsupported_database', 'preparing', {
@@ -56,6 +57,13 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
         const baseArea = area(items, path);
         const tier = Number(sttvScalar(sttvField(items, field.tier, path), path));
         if (!Number.isInteger(tier) || tier < 0) throw sttvInvalid(path, 'Technology tier must be a non-negative integer.');
+        const starts = new Set(sttvFields(items, field.startTech).map(({ node }) => sttvScalar(node.value, path).toLowerCase()));
+        if (starts.size > 1) throw sttvInvalid(path, 'Conflicting starting technology flags.');
+        const startText = starts.values().next().value ?? 'no';
+        if (!['yes', 'no'].includes(startText)) throw sttvInvalid(path, 'Invalid starting technology flag.');
+        const levelValue = sttvField(items, field.levels, path);
+        const levels = levelValue ? Number(sttvScalar(levelValue, path)) : null;
+        if (levels !== null && !Number.isInteger(levels)) throw sttvInvalid(path, 'Invalid technology levels.');
         const requirementValue = sttvField(items, field.prerequisites, path);
         const requirementIndex = sttvFields(items, field.prerequisites)[0]?.index;
         const requirementPath = requirementIndex === undefined ? path : `${path}/value/items/${requirementIndex}/value`;
@@ -64,7 +72,9 @@ export function sttvAdaptDatabase(input: unknown, diagnostics: SttvDiagnostic[] 
         sttvFields(items, field.variant).forEach(({ node: variant, index }, v) => {
           representations.push(representation(variant, `${path}/value/items/${index}`, baseArea, v + 1));
         });
-        technologies[id] = { id, tier, sourceRef: { database: 'technologies', document_id: db.document_id, pointer: path }, representations, ...requirements };
+        const sourceRef = { database: 'technologies' as const, document_id: db.document_id, pointer: path };
+        const tree = sttvTreeRecord(node.enrichments?.technology_tree, partial?.combinationId ?? layoutSettings.combination_id, sourceRef);
+        technologies[id] = { id, tier, levels, startTech: startText === 'yes', tree, sourceRef, representations, ...requirements };
         links.push(...edges);
       });
     });
@@ -80,13 +90,5 @@ export function sttvValidateTechnologies({ technologies, links }: SttvTechnology
     for (const link of links) {
       if (!technologies[link.from]) throw sttvInvalid(technologies[link.to].sourceRef.pointer,
         `Unresolved technology requirement: ${link.from}`);
-    }
-    // Every selectable representation must support the same column ordering operation.
-    const all = Object.values(technologies);
-    for (const tier of new Set(all.map(item => item.tier))) {
-      for (const researchArea of config.areas) {
-        sttvOrderColumn(all.filter(item => item.tier === tier
-          && item.representations.some(view => view.area === researchArea)));
-      }
     }
 }

@@ -4,6 +4,7 @@ import type { SttvDatabase } from '../../src/frontend/data/syntax';
 import type { SttvManifest } from '../../src/frontend/storage/model';
 import { sttvDatabaseKinds, sttvDatasets } from '../../src/frontend/data/registry';
 import { sttvSetError } from '../../src/frontend/data/setMetadata';
+import { sttvCombination } from './treeFixtures';
 
 export const sttvHash = (text: string) => createHash('sha256').update(text).digest('hex');
 function canonical(v: unknown): string {
@@ -18,6 +19,9 @@ export function sttvBundle(inputs: SttvDatabase[]) {
     datasets: Object.create(null) };
   const entries: { path: string; content: string }[] = [];
   for (const kind of sttvDatabaseKinds) manifest.datasets[kind] = { documents: [], objects: [], source_revision: 'c'.repeat(64) };
+  const ids = inputs.filter(db => db.database === 'technologies' && db.source.file.split('/').slice(0, -1).join('/') === 'common/technology')
+    .flatMap(db => db.items.filter(node => node.kind === 'assignment' && node.value?.kind === 'block').map(node => node.key!.text!));
+  manifest.technology_tree = { format_version: 1, combinations: { reference_default: sttvCombination(ids) } };
   for (const db of inputs) {
     if (!sttvDatabaseKinds.includes(db.database)) sttvSetError('Unknown dataset.');
     const dataset = manifest.datasets[db.database], spec = sttvDatasets[db.database];

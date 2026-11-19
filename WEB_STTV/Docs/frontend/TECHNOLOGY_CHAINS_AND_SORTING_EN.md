@@ -4,6 +4,8 @@
 
 - [Purpose and status](#purpose-and-status)
 - [Baseline requirements](#baseline-requirements)
+- [Single tree placement](#single-tree-placement)
+- [Tree order within an area](#tree-order-within-an-area)
 - [Initial tree layout rules](#initial-tree-layout-rules)
 - [Sequential rule application](#sequential-rule-application)
 - [Direct object upgrades](#direct-object-upgrades)
@@ -35,7 +37,9 @@
 
 Working document dated 2026-11-17 for gradually collecting rules for identifying chains, ordering them and positioning cards. New rules are added after discussion with the user; proposals are kept distinct from accepted decisions.
 
-This is not yet the specification for the next implementation. The user has defined the initial tree layout rules; the full algorithm is still being designed. This document does not change the current sorting.
+This is a working decision reference, not an implementation specification. Agreed grid rules are implemented under the [frontend stage 5 specification](TZ_FRONTEND_STAGE_5_EN.md). Actual checks and limitations are in the [frontend 0.0.5 guide](FRONTEND_STAGE_5_EN.md).
+
+Parent selection and child construction were implemented in [stage 16](../BACKEND_STAGE_16_EN.md); combination storage in the manifest and separate documents was implemented in [stage 17](../BACKEND_STAGE_17_EN.md). The grid rules agreed below are not implemented yet; earlier analytical sections retain their historical context.
 
 ## Baseline requirements
 
@@ -53,13 +57,69 @@ Previously agreed requirements to account for during design:
 
 The current first-stage implementation sorts columns by requirement count, predecessor set and ID according to the [previous technology field specification](elements/TZ_TECHNOLOGY_FIELD_EN.md#vertical-order-and-grouping). The new rules below describe the intended replacement. The previous priorities are not automatically carried into the new algorithm; the new alphabetical ordering decision replaces language-independent ordering.
 
+## Single tree placement
+
+Agreed by the user on 2026-11-19. This section covers one tree within one research area; the next section defines the order of multiple trees. Cross-area relationships at this stage follow rule 11.
+
+1. Layout uses the selected combination's stored `parent_tech` and `children`. Ordering children does not select parents again. Stored `children` array order does not itself define visual order.
+2. Display tier determines the column, not tree depth. L-12 still applies to eligible infinitely repeatable technologies.
+3. A continuation at another tier shares the parent's row where possible. Skipped tiers remain empty; alignment does not change the technology's column number.
+4. A same-tier continuation appears below its parent. Cards must not overlap in one cell.
+5. Each child branch reserves space for its descendants. The next branch starts below that region; empty positions are allowed.
+6. The direct continuation for placement is identified by exact equality of child and parent IDs after removing digits `0–9`, preserving all other characters. Its branch is placed first, attempting to retain the parent's row while respecting column assignments and avoiding overlap.
+7. Other child branches appear below in alphabetical order of displayed names in the current language. If no ID matches, alphabetical order determines the first branch. Equal names use stable ID ordering.
+8. Additional technology prerequisites remain in the database but are not displayed in any form at this stage. No lines, badges or additional-dependency lists are introduced. Their presence does not replace `parent_tech` when placing a branch.
+9. Branch order takes priority over packing. If a same-tier direct continuation starts below its parent, a side branch does not move into a vacant cell in the parent's row: it starts below the region occupied by the direct continuation and its descendants.
+10. A transition to a lower display tier within one research area preserves the parent and the child's column. Where possible, the branch starts in the parent's row, even when its first card appears to the left. If placement creates overlap, for example when an ancestor occupies the target cell, move the entire child branch downward until it fits without overlap. Preserve branch order and reserved regions.
+11. If the selected parent belongs to a different research area, place the technology in its own area and column as an independent branch start for layout purposes. Do not display the cross-area parent link or use it to align cards or reserve space across areas. Place its continuations within the area according to the general tree rules. Preserve the original `parent_tech`, `children` and all prerequisites in the data; do not choose another parent for layout. Displaying links to all prerequisites is deferred to later stages.
+
+Agreed example: `A1` has children `A2` and `B1`, with `A2` continuing the main sequence. The vacant cell to the right of `A1` remains empty, and the `B1` branch appears below the `A2` branch:
+
+```text
+Tier 1      Tier 2      Tier 3
+   A1
+   A2           A3          A4
+                B1          B2
+```
+
+Example from stored combination `reference_default`: `tech_lasers_2` has children `tech_lasers_3`, `tech_disruptors_1`, `tech_plasma_1` and `tech_repeatable_weapon_type_energy_fire_rate`. Rule 6 places the `tech_lasers_3` branch first, preserving the visual laser sequence regardless of alphabetical ordering of the other children's names.
+
+Direct continuation is a geometric rule, not a statement about mandatory game requirements. It does not change the logical `prerequisites` structure or add a new parent. The branch-height formula and ordering multiple children with matching digit-stripped IDs are approved and implemented in stage 5. Lower-tier transitions and resolving overlap by moving the branch downward are approved in rule 10, while placement with a cross-area parent follows rule 11.
+
+Agreed example of a lower-tier transition: `A → B → C`, where `A` and `C` are tier 3 and `B` is tier 4. Ancestor `A` occupies the cell to the left of `B`, so the `C` branch starts one row lower; game tiers and parents are preserved:
+
+```text
+Tier 3      Tier 4
+   A            B
+   C
+```
+
+Checking the stored stage 17 base combination found no parent among 679 technologies with multiple children matching its digit-stripped ID. There are 10 links toward a lower display tier: eight within one research area and two across areas; L-12 does not change this count. For example, `tech_mine_dark_matter` (tier 3) has parent `tech_sensors_4` (tier 4). After reviewing all ten definitions, the user confirmed the selected parents and accepted the placement model in rule 10. Nine technologies have a single technology prerequisite; `tech_arkship_exodus_jump` has two mandatory prerequisites joined by `AND`, with `tech_jump_drive_1` selected because its research area matches.
+
+Reference cases for rule 11 are `tech_encryption_1` and `tech_decryption_1`, physics tier 1, whose parent is `tech_colonial_bureaucracy`, society tier 2. Both technologies appear in physics column 1 as the starts of their respective branches with subsequent continuations. The link to Colonial Bureaucracy is not displayed now; the confirmed parent remains in the database. Their relative positions among the other physics trees follow the general tree order agreed below.
+
+Separate markers for technologies with `weight = 0` and special acquisition conditions are deferred to later stages. This does not change current parents or columns or exclude such technologies from the field. Among the ten reviewed cases, five tier-3 `tech_unique_mutation_*` technologies have zero weight; no special markers are introduced for them now.
+
+## Tree order within an area
+
+Agreed by the user on 2026-11-19:
+
+1. Place each tree as a whole. Start the next tree below the lowest descendant of the previous tree; do not fill gaps within another tree.
+2. First place trees whose initial technology has `start_tech = yes`, then all other trees. A starting technology among descendants alone does not move its tree into the first group or detach the card from its branch.
+3. Within each group, sort trees by the initial technology's name in the current language, then by ID for equal names. Changing the language may change this order.
+4. Branch starts with a parent in another area participate in the same order. Having a cross-area parent does not create a separate group.
+
+This clarification replaces the literal requirement that every starting card precede every non-starting card. Priority belongs to the entire tree beginning with a starting technology; its non-starting descendants remain within the tree.
+
+For the first grid stage, the user chose to display a prepared combination from the database. Selected variants come from that combination's parameters; interactive variant changes and calling Python from the browser are deferred to the next stage. Parent selection is not reimplemented in the frontend.
+
 ## Initial tree layout rules
 
 The user defined the initial rules on 2026-11-17 and added further rules on 2026-11-18. Columns correspond to tiers with exception L-12; vertical positions are coordinated across columns: the layout forms a tree and permits empty positions.
 
 | ID | Rule |
 | --- | --- |
-| L-01 | Starting technologies (`start_tech = yes`) appear at the very top of their research area; all others appear below. |
+| L-01 | Following the 2026-11-19 clarification, place whole trees beginning with `start_tech = yes` first, then other trees. Within each group apply L-03 to the initial technology's name; starting cards stay in their branches. |
 | L-02 | If a starting technology has a prerequisite, it appears below that prerequisite. |
 | L-03 | Alphabetical ordering by the displayed name in the current language applies next. Switching RU/EN may change the layout. |
 | L-04 | If a technology continues the same branch and requires another technology in the same tier and research area, it appears directly below it. Requiring a technology from a different branch does not by itself force placement below that technology. |
@@ -446,13 +506,11 @@ Proposal for the analytical approach: identify chain membership separately from 
 
 ## Rules for further discussion
 
-The following decisions remain open:
+Parent selection is implemented in stage 16; the earlier questions here about `OR` alternatives and ambiguity are resolved by the selection and diagnostics described above. Starting-tree priority, other trees, alphabetical order and cross-area placement are agreed in the grid sections.
 
-- How to choose an anchor when ambiguity remains after L-07 and L-08 or there are no matches; how to choose between multiple `OR` alternatives.
-- How placing all starting technologies at the top interacts with aligning their non-starting continuations to the right, and how “below the prerequisite” interacts with placement in an adjacent column.
-- How to allocate space to multiple dependents in one tier, calculate branch heights and apply alphabetical ordering under otherwise equal conditions; how to resolve identical names.
-- How to handle links spanning multiple tiers, crossing research areas or pointing toward a lower `tier`.
-- How manually switching a variant and its category affects anchor selection and branch layout.
+The [frontend stage 5 specification](TZ_FRONTEND_STAGE_5_EN.md) is approved and implemented: integrating a stored combination, calculating rows and branch heights, minimal input checks and acceptance scenarios. Multiple digit-stripped ID matches use the agreed deterministic order.
+
+Interactive variant changes invoking the backend, displaying links to all prerequisites, special-acquisition markers and persisting coordinates between sessions are deferred to later stages.
 
 Existing research provides examples for checking proposals: lasers, reactors, missiles, mining stations, starbases and `tech_akx_worm_1…3`. Equality after removing digits is defined by L-09. An arbitrary shared ID prefix, absence of predecessors or membership in the same connected component has not by itself been accepted as a chain identification rule.
 
@@ -462,7 +520,7 @@ The `start_tech = yes` flag has been inspected; a full [starting technology list
 
 In the current database it appears on 42 technologies: 38 have `tier = 0`, and four have `tier = 1`. Nineteen have `starting_potential`, and eleven have technology predecessors. Thus “starting technology”, “tier zero” and “vertex without predecessors” describe different properties.
 
-The user approved placing starting technologies at the top under L-01 and accounting for their prerequisites under L-02. The flag alone does not imply an absence of predecessors.
+Under the user's 2026-11-19 clarification, L-01 priority applies to an entire tree beginning with a starting technology. A starting descendant stays in its branch. The flag alone does not imply an absence of predecessors.
 
 ## References
 

@@ -1,9 +1,9 @@
 .sttv-card { width: var(--sttv-card-width); height: var(--sttv-card-height); flex: none; }
-.sttv-card-content, .sttv-card-trigger {
+.sttv-card-content {
   display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; text-align: center;
   padding: var(--sttv-control-padding); border: var(--sttv-border-width) solid var(--sttv-card-border);
   border-radius: var(--sttv-radius); background: var(--sttv-card-background);
 }
-.sttv-card-content:hover, .sttv-card-trigger:hover { background: var(--sttv-card-background-hover); border-color: var(--sttv-card-border-hover); }
-.sttv-card-trigger:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-card-focus); outline-offset: 1px; }
+.sttv-card-content:hover { background: var(--sttv-card-background-hover); border-color: var(--sttv-card-border-hover); }
+.sttv-card:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-card-focus); outline-offset: 1px; }
 .sttv-card-title { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }

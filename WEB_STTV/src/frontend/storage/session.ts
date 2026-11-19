@@ -10,9 +10,9 @@ import { SttvDocumentReader } from './reader';
 export class SttvStorageSession {
   private tail: Promise<unknown> = Promise.resolve();
   private constructor(readonly reader: SttvDocumentReader, private adapter: SttvSetAdapter) {}
-  static async open(files: File[], rules: SttvTargetRegistry) {
+  static async open(files: File[], rules: SttvTargetRegistry, combinationId?: string) {
     const { manifest, files: mapped } = await sttvOpenDirectory(files);
-    return new SttvStorageSession(new SttvDocumentReader(manifest, mapped), new SttvSetAdapter(manifest, rules));
+    return new SttvStorageSession(new SttvDocumentReader(manifest, mapped), new SttvSetAdapter(manifest, rules, [], combinationId));
   }
   initial(progress?: (kind: SttvDatabaseKind, identifier: string) => void) {
     return this.load(opening.initial_datasets as SttvDatabaseKind[], progress);

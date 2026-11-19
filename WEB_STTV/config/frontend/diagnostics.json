@@ -1,6 +1,11 @@
 {
   "source": "builtin",
   "messages": {
+    "tree_combination_missing": "sttv_diagnostic_tree_combination_missing",
+    "tree_combination_stale": "sttv_diagnostic_tree_combination_stale",
+    "tree_enrichment_invalid": "sttv_diagnostic_tree_enrichment_invalid",
+    "tree_layout_failed": "sttv_diagnostic_tree_layout_failed",
+    "tree_ambiguous": "sttv_diagnostic_tree_ambiguous",
     "directory_unsupported": "sttv_diagnostic_directory_unsupported",
     "file_read_failed": "sttv_diagnostic_file_read_failed",
     "invalid_json": "sttv_diagnostic_invalid_json",

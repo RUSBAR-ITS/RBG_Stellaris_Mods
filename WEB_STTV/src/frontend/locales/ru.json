@@ -1,4 +1,9 @@
 {
+  "sttv_diagnostic_tree_combination_missing": "Заданная комбинация дерева технологий отсутствует или не поддерживается.",
+  "sttv_diagnostic_tree_combination_stale": "Комбинация дерева технологий не соответствует этому набору БД.",
+  "sttv_diagnostic_tree_enrichment_invalid": "Сохранённое дерево технологий неполно или содержит противоречия. Подробности в отчёте.",
+  "sttv_diagnostic_tree_layout_failed": "Не удалось разместить деревья технологий. Подробности в отчёте.",
+  "sttv_diagnostic_tree_ambiguous": "У некоторых технологий не определён единственный родитель; они показаны отдельными деревьями.",
   "sttv_diagnostic_directory_unsupported": "Этот браузер не поддерживает выбор каталога.",
   "sttv_open_database": "Открыть набор БД",
   "sttv_save_report": "Сохранить отчёт",

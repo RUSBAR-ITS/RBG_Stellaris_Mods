@@ -4,7 +4,6 @@ import { SttvStorageSession } from '../../src/frontend/storage/session';
 import { sttvRealFiles } from './realFiles';
 import { sttvRules } from './setHarness';
 import { sttvAdaptDatabase } from '../../src/frontend/data/adapter';
-import { sttvLayout } from '../../src/frontend/data/layout';
 import { SttvPreparationError } from '../../src/frontend/workers/diagnostics';
 import { sttvDatabase, sttvTechnology, sttvVariant, sttvScalar, sttvLogical } from './fixtures';
 
@@ -19,7 +18,6 @@ test('requirements preserve groups, repeated paths, and count alternatives once'
     { from: 'a', to: 'c', requirementPaths: [[0], [1, 0]] },
     { from: 'b', to: 'c', requirementPaths: [[1, 1]] },
   ]);
-  assert.deepEqual(sttvLayout(catalog.technologies, {}).areas[0].columns[0].ids, ['a', 'b', 'c']);
 });
 test('variants inherit the tier and requirements while selecting their area', () => {
   const base = sttvTechnology('a', 2);
@@ -27,9 +25,6 @@ test('variants inherit the tier and requirements while selecting their area', ()
   const catalog = sttvAdaptDatabase(sttvDatabase([base]));
   assert.deepEqual(catalog.technologies.a.representations.map(view => [view.id, view.area]),
     [['base', 'physics'], ['swap:1', 'society'], ['swap:2', 'physics']]);
-  const layout = sttvLayout(catalog.technologies, { a: 'swap:1' });
-  assert.deepEqual(layout.areas[1].columns[2].ids, ['a']);
-  assert.deepEqual(layout.areas[0].columns[2].ids, []);
 });
 test('category subdirectories and unrelated commands are not treated as technologies', () => {
   const db = sttvDatabase([sttvTechnology('a')]);
@@ -41,17 +36,20 @@ test('unusable requirements produce an explicit preparation error', () => {
   for (const items of [
     [sttvTechnology('a', 0, 'physics', [sttvScalar('missing')])],
     [sttvTechnology('a'), sttvTechnology('a')],
-    [sttvTechnology('a', 0, 'physics', [sttvScalar('b')]), sttvTechnology('b', 0, 'physics', [sttvScalar('a')])],
     [sttvTechnology('a', 0, 'physics', [sttvLogical('OR', [sttvLogical('NOT', [sttvScalar('a')])])])],
   ]) assert.throws(() => sttvAdaptDatabase(sttvDatabase(items)), SttvPreparationError);
 });
-test('layout orders by requirement count then predecessor set and stable ID', () => {
-  const items = [sttvTechnology('z'), sttvTechnology('a'),
-    sttvTechnology('c', 1, 'physics', [sttvScalar('a')]),
-    sttvTechnology('b', 1, 'physics', [sttvScalar('z')]),
-    sttvTechnology('d', 1, 'physics', [sttvScalar('a')])];
-  const catalog = sttvAdaptDatabase(sttvDatabase(items));
-  assert.deepEqual(sttvLayout(catalog.technologies, {}).areas[0].columns[1].ids, ['c', 'd', 'b']);
+test('starting and repeatable fields are extracted from the base definition with explicit defaults', () => {
+  const node = sttvTechnology('a', 5);
+  node.value!.items!.push({ kind: 'assignment', key: sttvScalar('start_tech'), value: sttvScalar('yes') },
+    { kind: 'assignment', key: sttvScalar('levels'), value: sttvScalar('-1') });
+  const { technologies } = sttvAdaptDatabase(sttvDatabase([node, sttvTechnology('b')]));
+  assert.equal(technologies.a.startTech, true); assert.equal(technologies.a.levels, -1);
+  assert.equal(technologies.b.startTech, false); assert.equal(technologies.b.levels, null);
+  node.value!.items!.push({ kind: 'assignment', key: sttvScalar('start_tech'), value: sttvScalar('yes') });
+  assert.equal(sttvAdaptDatabase(sttvDatabase([node])).technologies.a.startTech, true);
+  node.value!.items!.push({ kind: 'assignment', key: sttvScalar('start_tech'), value: sttvScalar('no') });
+  assert.throws(() => sttvAdaptDatabase(sttvDatabase([node])), SttvPreparationError);
 });
 test('real technology set member database produces the agreed catalog without input mutation', { skip: !process.env.STTV_DATABASE_DIR }, async () => {
   const session = await SttvStorageSession.open(await sttvRealFiles(process.env.STTV_DATABASE_DIR!), sttvRules);

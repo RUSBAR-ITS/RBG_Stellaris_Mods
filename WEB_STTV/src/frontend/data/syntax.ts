@@ -11,7 +11,7 @@ export interface SttvNode {
   value?: SttvNode;
   body?: SttvNode;
   items?: SttvNode[];
-  enrichments?: { localization?: SttvStoredLocalization };
+  enrichments?: { localization?: SttvStoredLocalization; technology_tree?: unknown };
 }
 export interface SttvDatabase {
   format: string;

@@ -23,7 +23,7 @@ test('manual opening, language, theme, collapse, and refresh defaults', async ({
   expect(requests.every(url => new URL(url).origin === new URL(page.url()).origin)).toBe(true);
   expect(requests.some(url => /database\.json|\/api\//.test(url))).toBe(false);
 });
-test('card tooltip and manual variants use overlays and preserve selection', async ({ page }) => {
+test('card tooltip uses the prepared representation without manual variant controls', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page); await sttvReady(page);
   const card = page.locator('[data-technology-id="tech_example"]');
   await card.hover();
@@ -31,22 +31,14 @@ test('card tooltip and manual variants use overlays and preserve selection', asy
   await expect(page.getByRole('tooltip')).toContainText('tech_example');
   const before = await sttvOffset(page);
   await card.click();
-  await expect(page.getByRole('tooltip')).toHaveCount(0);
-  await expect(page.getByRole('option')).toHaveCount(3);
-  await expect(page.getByRole('option').nth(1)).toContainText('(Variant 1)');
-  await page.keyboard.press('ArrowDown'); await page.keyboard.press('Escape');
-  await expect(card.locator('button')).toBeFocused();
+  await expect(page.getByRole('option')).toHaveCount(0);
+  await expect(card.locator('button')).toHaveCount(0);
+  await expect(card).toBeFocused();
   expect(await sttvOffset(page)).toEqual(before);
-  await card.click(); await page.getByRole('option').nth(1).click();
-  await expect(page.locator('[data-area="society"] [data-technology-id="tech_example"]')).toHaveCount(1);
-  await card.scrollIntoViewIfNeeded(); await card.click();
-  await expect(page.getByRole('option').nth(1)).toHaveAttribute('aria-selected', 'true');
-  await page.keyboard.press('Escape');
   await page.getByRole('button', { name: en.sttv_language, exact: true }).click();
   await page.getByRole('option', { name: ru.sttv_language_ru, exact: true }).click();
-  await card.scrollIntoViewIfNeeded(); await card.click();
-  await expect(page.getByRole('option').nth(1)).toContainText(ru.sttv_variant_suffix.replace('{number}', '1'));
-  await expect(page.getByRole('option').nth(1)).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('[data-area="physics"] [data-technology-id="tech_example"]')).toHaveCount(1);
+  await expect(page.getByRole('option')).toHaveCount(0);
 });
 test('scrollbars support keyboard, wheel, drag and preserve offsets on menu resize', async ({ page }) => {
   const errors: string[] = [];

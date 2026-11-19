@@ -10,6 +10,8 @@
   "fields": {
     "area": "area",
     "tier": "tier",
+    "startTech": "start_tech",
+    "levels": "levels",
     "prerequisites": "prerequisites",
     "variant": "technology_swap",
     "description": "desc",

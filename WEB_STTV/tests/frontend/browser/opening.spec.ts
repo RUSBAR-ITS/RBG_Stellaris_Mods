@@ -75,17 +75,37 @@ test('real database loads in a worker and remains read-only', async ({ page, bro
   await expect(page.locator('[data-technology-id]')).toHaveCount(679, { timeout: 840_000 });
   const elapsed = performance.now() - started;
   expect(workers).toHaveLength(1); expect(errors).toEqual([]);
-  await page.screenshot({ path: 'data/frontend-tests/real-night.png' });
+  await mkdir('data/frontend-stage5', { recursive: true });
+  await page.screenshot({ path: 'data/frontend-stage5/real-ru-night.png' });
+  const readReport = async () => {
+    const downloading = page.waitForEvent('download');
+    await page.getByRole('button', { name: /Save report|Сохранить отчёт/, exact: true }).click();
+    return JSON.parse(await readFile((await (await downloading).path())!, 'utf8'));
+  };
+  const initialReport = await readReport();
+  const positions = () => page.locator('[data-technology-id]').evaluateAll(cards => cards.map(card => ({
+    id: card.getAttribute('data-technology-id'), area: card.closest('[data-area]')!.getAttribute('data-area'),
+    row: card.parentElement!.dataset.row, column: card.parentElement!.dataset.tier,
+  })));
+  const initialPositions = await positions();
+  expect(new Set(initialPositions.map(p => `${p.area}:${p.row}:${p.column}`)).size).toBe(679);
+  await page.getByRole('button', { name: ru.sttv_day_theme, exact: true }).click();
+  await page.screenshot({ path: 'data/frontend-stage5/real-ru-day.png' });
+  expect(await positions()).toEqual(initialPositions);
   await sttvEnglish(page);
-  await page.getByRole('button', { name: en.sttv_day_theme, exact: true }).click();
-  await page.screenshot({ path: 'data/frontend-tests/real-day.png' });
+  const englishPositions = await positions(); expect(englishPositions).not.toEqual(initialPositions);
+  expect(new Set(englishPositions.map(p => `${p.area}:${p.row}:${p.column}`)).size).toBe(679);
+  await page.screenshot({ path: 'data/frontend-stage5/real-en-day.png' });
+  await page.getByRole('button', { name: en.sttv_night_theme, exact: true }).click();
+  await page.screenshot({ path: 'data/frontend-stage5/real-en-night.png' });
+  expect(await positions()).toEqual(englishPositions);
   const card = page.locator('[data-technology-id="tech_titans"]');
   await card.scrollIntoViewIfNeeded(); await card.hover();
   await expect(page.getByRole('tooltip')).toContainText('Titans');
-  await page.screenshot({ path: 'data/frontend-tests/real-tooltip.png' });
+  await page.screenshot({ path: 'data/frontend-stage5/real-tooltip.png' });
   await card.click();
-  await expect(page.getByRole('option')).toHaveCount(3);
-  await page.screenshot({ path: 'data/frontend-tests/real-variants.png' });
+  await expect(page.getByRole('option')).toHaveCount(0);
+  await expect(card.locator('button')).toHaveCount(0);
   expect(errors).toEqual([]);
   await mkdir('data/frontend-tests', { recursive: true });
   const memory = await page.evaluate(() => {
@@ -100,5 +120,10 @@ test('real database loads in a worker and remains read-only', async ({ page, bro
   await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
   const diagnostic = JSON.parse(await readFile((await (await downloading).path())!, 'utf8'));
   expect(diagnostic.coverage.documents.filter((row: any) => row.status === 'verified' && row.database !== 'technologies')).toHaveLength(0);
-  await writeFile('data/stage17/browser_real_set.json', JSON.stringify({ ...report, coverage: diagnostic.coverage }, null, 2) + '\n');
+  expect(diagnostic.coverage.bytesRead).toBe(initialReport.coverage.bytesRead);
+  expect(diagnostic.tree.combination.parameters).toEqual(initialReport.tree.combination.parameters);
+  expect(diagnostic.tree.language).toBe('en');
+  expect(diagnostic.tree.areas.reduce((sum: number, area: any) => sum + area.technologies, 0)).toBe(679);
+  await writeFile('data/frontend-stage5/browser-real-set.json', JSON.stringify({ ...report,
+    initialTree: initialReport.tree, tree: diagnostic.tree, coverage: diagnostic.coverage }, null, 2) + '\n');
 });

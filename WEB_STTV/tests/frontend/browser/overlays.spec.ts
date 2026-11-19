@@ -24,21 +24,22 @@ test('oversized literal descriptions remain reachable without scrolling the fiel
   expect(await sttvOffset(page)).toEqual(before);
   await page.mouse.move(10, 10); await expect(tooltip).toHaveCount(0);
 });
-test('keyboard selection changes only after confirmation and returns to the trigger', async ({ page }) => {
+test('language selection changes only after confirmation; cards remain read-only and focusable', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
   const technology = sttvTechnology('tech_base');
   technology.value!.items!.push(sttvVariant('tech_alternate'));
   await sttvUpload(page, sttvDatabase([technology]));
   const card = page.locator('[data-technology-id="tech_base"]');
-  const trigger = card.locator('button');
+  const trigger = page.getByRole('button', { name: en.sttv_language, exact: true });
   await trigger.focus(); await page.keyboard.press('ArrowDown');
-  await page.keyboard.press('End');
+  await page.keyboard.press('Home');
   await expect(card).toContainText('tech_base');
-  await expect(page.getByRole('option').first()).toHaveAttribute('aria-selected', 'true');
-  await page.keyboard.press('Enter'); await expect(card).toContainText('tech_alternate');
+  await expect(page.getByRole('option').last()).toHaveAttribute('aria-selected', 'true');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(trigger).toBeFocused();
-  await trigger.click(); await page.keyboard.press('Home'); await page.keyboard.press('Escape');
-  await expect(card).toContainText('tech_alternate');
+  await card.focus(); await expect(page.getByRole('tooltip')).toContainText('tech_base details');
+  await expect(card.locator('button')).toHaveCount(0);
   await page.getByRole('button', { name: en.sttv_day_theme, exact: true }).focus();
   await expect(page.getByRole('tooltip', { name: en.sttv_day_theme, exact: true })).toBeVisible();
 });

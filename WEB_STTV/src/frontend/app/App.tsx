@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import config from '../../../config/frontend/interface.json';
 import type { SttvLanguage } from '../localization/model';
 import { SttvLocalizationProvider } from '../localization/context';
@@ -10,28 +10,29 @@ import { SttvTechnologyField } from '../ui/layout/TechnologyField';
 import { sttvUseDatabase } from './useDatabase';
 import { sttvStatusMessage } from './status';
 import { sttvDownloadReport } from './report';
+import { sttvPrepareField } from './field';
 
 export function SttvApp() {
   const [language, setLanguage] = useState(config.initialLanguage as SttvLanguage);
   const [theme, setTheme] = useState(config.initialTheme);
   const [expanded, setExpanded] = useState(config.initialMenuExpanded);
-  const [selected, setSelected] = useState<Record<string, string>>({});
   const [exportFailed, setExportFailed] = useState(false);
-  const { opening, controller } = sttvUseDatabase();
+  const { opening: loaded, controller } = sttvUseDatabase();
+  const { opening, layout } = useMemo(() => sttvPrepareField(loaded, language), [loaded, language]);
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
-  useEffect(() => { setSelected({}); setExportFailed(false); }, [opening.operationId]);
+  useEffect(() => { setExportFailed(false); }, [opening.operationId]);
   const completed = ['ready', 'empty', 'error'].includes(opening.status);
   function save() {
-    try { sttvDownloadReport(opening); setExportFailed(false); }
+    try { sttvDownloadReport(opening, layout?.report); setExportFailed(false); }
     catch { setExportFailed(true); }
   }
   const actions = <>
     {opening.status === 'loading'
       ? <SttvButton label={{ id: 'sttv_cancel' }} onClick={() => controller.cancel()} border="hover" />
       : <>
-        {opening.status === 'error' && <SttvButton label={{ id: 'sttv_retry' }} onClick={() => controller.retry()} border="hover" />}
+        {opening.status === 'error' && <SttvButton label={{ id: 'sttv_retry' }} onClick={() => controller.open(opening.files)} border="hover" />}
         <SttvButton label={{ id: 'sttv_open_database' }} onClick={() => {
           if (input.current && 'webkitdirectory' in input.current) input.current.click();
           else controller.unsupportedDirectory();
@@ -52,8 +53,8 @@ export function SttvApp() {
           <SttvMenuToggle expanded={expanded} onToggle={() => setExpanded(value => !value)} />
           {expanded && <SttvThemeToggle theme={theme} onToggle={() => setTheme(value => value === 'night' ? 'day' : 'night')} />}
         </>} />}>
-      {opening.status === 'ready' && opening.data && <SttvTechnologyField key={opening.operationId}
-        data={opening.data} selected={selected} onSelect={(id, value) => setSelected(previous => ({ ...previous, [id]: value }))} />}
+      {opening.status === 'ready' && opening.data && layout && <SttvTechnologyField key={opening.operationId}
+        data={opening.data} layout={layout} />}
     </SttvMainWindow>
   </SttvLocalizationProvider>;
 }

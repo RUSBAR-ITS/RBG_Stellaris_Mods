@@ -29,7 +29,9 @@
 
 ## Document status
 
-Approved and implemented [backend stage 17](TZ_BACKEND_STAGE_17_EN.md) and [frontend stage 4](frontend/TZ_FRONTEND_STAGE_4_EN.md): manifests, separate documents, object indexes, verification on read and full audit. Current instructions are in the [backend guide](BACKEND_STAGE_17_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_4_EN.md). Earlier formats and launch procedures below are historical.
+Approved and implemented [frontend stage 5 — tree grid](frontend/TZ_FRONTEND_STAGE_5_EN.md): a prepared parent/child combination, whole-tree placement, starting-root priority, RU/EN sorting and tier transitions. Manual variant changes and backend calls are deferred by the user's decision. Current launch instructions and checks are in the [frontend 0.0.5 guide](frontend/FRONTEND_STAGE_5_EN.md).
+
+Approved and implemented [backend stage 17](TZ_BACKEND_STAGE_17_EN.md) and [frontend stage 4](frontend/TZ_FRONTEND_STAGE_4_EN.md): manifests, separate documents, object indexes, verification on read and full audit. Current instructions are in the [backend guide](BACKEND_STAGE_17_EN.md) and [frontend guide](frontend/FRONTEND_STAGE_5_EN.md). Earlier formats and launch procedures below are historical.
 
 Approved and implemented [stage 16 — technology parent and child enrichment](TZ_BACKEND_STAGE_16_EN.md): a Python operation using prepared databases, 13 configurable criteria, named combinations, variants and separate input/result revisions. All 679 base decisions matched the analytical reference. See the [guide](BACKEND_STAGE_16_EN.md) for running and verification; grid layout and frontend integration remain subsequent stages.
 

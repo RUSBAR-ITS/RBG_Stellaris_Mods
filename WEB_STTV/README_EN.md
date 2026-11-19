@@ -13,19 +13,19 @@
 
 **Stellaris Technological Tree View**, project directory: `WEB_STTV`.
 
-A local interactive web reference for Stellaris technologies. The first interface displays cards by research area and tier, names and descriptions in tooltips, and manual variants. Vanilla images belong to later stages. Data is collected from user-selected sources and transformed into the reference application's internal database. The intended distribution is portable on Windows and requires no separate web-server installation.
+A local interactive web reference for Stellaris technologies. The first interface displays cards by research area and tier, names and descriptions in tooltips, and variants from a prepared combination. Vanilla images belong to later stages. Data is collected from user-selected sources and transformed into the reference application's internal database. The intended distribution is portable on Windows and requires no separate web-server installation.
 
 ## Status
 
-Implemented [backend stage 17](Docs/BACKEND_STAGE_17_EN.md) and [frontend 0.0.4](Docs/frontend/FRONTEND_STAGE_4_EN.md): a manifest, 450 persistent documents across 15 kinds, verification on read and selective loading. Indented JSON preserves AST, history and RU/EN localization. Monolithic merging has been removed.
+Implemented [backend stage 17](Docs/BACKEND_STAGE_17_EN.md) and [frontend 0.0.5](Docs/frontend/FRONTEND_STAGE_5_EN.md): a manifest, 450 persistent documents across 15 kinds, verification on read, selective loading and a tree grid using stored parents. `config/frontend/tree_layout.json` selects a prepared combination; sorting uses the current language. Indented JSON preserves AST, history and RU/EN localization. Monolithic merging has been removed.
 
 Tree enrichment retains 13 criteria: checked 679 base decisions, 206 variants and three combined selections. All 450 documents match the reference after format normalization. Full audit passed. Building took 387.885 s; initial loader opening took 2.601 s, reading only 35 technology documents. Measurement conditions are documented in the guides.
 
-Reusable libraries and explicit preparation/reuse modes remain available. The new grid, sorting, HTTP API and portable distribution remain separate stages.
+Reusable libraries and explicit preparation/reuse modes remain available. Interactive variant recalculation, connection lines, an HTTP API and portable distribution remain separate stages.
 
 ## Running the frontend
 
-From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer has Node.js under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_4_EN.md#starting-and-selecting-a-directory).
+From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer has Node.js under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_5_EN.md#starting-and-combination).
 
 Click “Open database set” and select **`data/stage17/database_set`**. Future builds default to `data/database_set`. Select the root containing `manifest.json`; old 15-file sets are unsupported. Build separately: `$env:PYTHONPATH="src/backend"`, then `python -B -m sttv.database_sets --rebuild-libraries`. Startup and refresh neither build nor automatically open data.
 
@@ -80,11 +80,13 @@ Absolute source roots belong to the current environment. Game and localization d
 
 ## Documents
 
+- [Frontend stage 5 specification: tree grid from a prepared combination — implemented](Docs/frontend/TZ_FRONTEND_STAGE_5_EN.md).
+- [Frontend 0.0.5 guide and verification results](Docs/frontend/FRONTEND_STAGE_5_EN.md).
 - [Backend stage 17](Docs/BACKEND_STAGE_17_EN.md).
-- [Frontend 0.0.4](Docs/frontend/FRONTEND_STAGE_4_EN.md).
+- [Previous frontend 0.0.4: directory opening](Docs/frontend/FRONTEND_STAGE_4_EN.md).
 
 - [Stage 17 specification: manifest and separate database documents](Docs/TZ_BACKEND_STAGE_17_EN.md).
-- [Frontend stage 4 specification draft: directory opening and selective reading](Docs/frontend/TZ_FRONTEND_STAGE_4_EN.md).
+- [Frontend stage 4 specification: directory opening and selective reading](Docs/frontend/TZ_FRONTEND_STAGE_4_EN.md).
 - [Stage 16 specification: technology parent and child enrichment](Docs/TZ_BACKEND_STAGE_16_EN.md).
 - [Stage 16: running, combinations and verification results](Docs/BACKEND_STAGE_16_EN.md).
 - [Agreed tree relationship enrichment approach](Docs/TECHNOLOGY_TREE_ENRICHMENT_EN.md).

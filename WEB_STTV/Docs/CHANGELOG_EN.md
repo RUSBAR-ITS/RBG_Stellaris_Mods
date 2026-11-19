@@ -2,6 +2,12 @@
 
 ## Contents
 
+- [2026-11-19 — tree grid and frontend 0.0.5](#2026-11-19--tree-grid-and-frontend-005)
+- [2026-11-19 — tree order and grid specification draft](#2026-11-19--tree-order-and-grid-specification-draft)
+- [2026-11-19 — branches with a parent in another area](#2026-11-19--branches-with-a-parent-in-another-area)
+- [2026-11-19 — lower-tier continuation placement](#2026-11-19--lower-tier-continuation-placement)
+- [2026-11-19 — branch order and vacant cells](#2026-11-19--branch-order-and-vacant-cells)
+- [2026-11-19 — initial tree placement rules](#2026-11-19--initial-tree-placement-rules)
 - [2026-11-19 — manifests, separate documents and frontend 0.0.4](#2026-11-19--manifests-separate-documents-and-frontend-004)
 - [2026-11-19 — manifest and separate database storage draft](#2026-11-19--manifest-and-separate-database-storage-draft)
 - [2026-11-19 — technology parent and child enrichment implementation](#2026-11-19--technology-parent-and-child-enrichment-implementation)
@@ -144,6 +150,44 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-19 — tree grid and frontend 0.0.5
+
+Implemented the approved [stage 5 specification](frontend/TZ_FRONTEND_STAGE_5_EN.md): the grid uses saved parents, children and combination variants. Added layout configuration, separate tree modules, language sorting, starting-root and direct-continuation priority, repeatable technology placement in column 6 and local roots at cross-area links.
+
+Removed independent column sorting and hidden the manual variant picker. Cards and sorting share name lookup; keyboard order follows trees. Added combination/graph contract checks, RU/EN messages and report version 4 with field parameters. Identical starting-flag repetitions are accepted; conflicting values fail.
+
+Passed 49 synthetic tests, verification of two prepared combinations in RU/EN, 16 browser scenarios, TypeScript and the build. All 679 technologies are placed without overlap; opening reads only 35 technology documents. Version raised to 0.0.5. Measurements, completed and skipped checks are in the [guide](frontend/FRONTEND_STAGE_5_EN.md).
+
+## 2026-11-19 — tree order and grid specification draft
+
+- Recorded agreed whole-tree ordering: trees beginning with a starting technology first, then others; current-language name and ID within each group. Starting descendants stay in their branches; cross-area branch starts follow the common order.
+- Prepared the [frontend stage 5 specification draft](frontend/TZ_FRONTEND_STAGE_5_EN.md): extracting stored parents/children and combination parameters, configuration, row placement and branch heights, diagnostics and checks. The user chose a prepared-combination stage; manual variant changes and backend calls are deferred.
+- Distinguished agreed decisions from proposed technical details. Updated RU/EN rules, README, specification index and tables of contents. Checked links and the current manifest contract; code, product configuration and databases are unchanged, and product tests were not run. The specification awaits approval.
+
+## 2026-11-19 — branches with a parent in another area
+
+- Recorded the [grid rule](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md#single-tree-placement) placing a technology in its own area and column as a branch start when its parent belongs to another area. The cross-area link is not currently displayed or used for geometry; parents, children and prerequisites remain in the data.
+- Clarified physics placement for encryption and decryption. Displaying links to all prerequisites is deferred to later stages; the general ordering of multiple trees remains under design.
+- Updated RU/EN documentation and tables of contents. Checked internal links and rule consistency; code and databases are unchanged and product tests were not run.
+
+## 2026-11-19 — lower-tier continuation placement
+
+- Recorded the agreed model in the [grid rules](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md#single-tree-placement): a lower-tier continuation retains its column and shares the parent's row where possible; overlap moves its entire branch downward. Added an example with a cell occupied by an ancestor.
+- Recorded confirmation of the parents of all ten reviewed technologies. Cross-area encryption and decryption placement remains the next design question; zero-weight and special-acquisition markers are deferred to later stages.
+- Updated both language versions and tables of contents. Only documentation changed; code and databases are unchanged. Checked links and wording consistency; product tests were not run.
+
+## 2026-11-19 — branch order and vacant cells
+
+- Recorded branch order taking priority over packing in the [grid rules](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md#single-tree-placement): a side branch cannot fill the parent's row above a same-tier main continuation. Added the agreed example.
+- Checked the base combination in the prepared stage 17 set: no multiple digit-stripped ID continuations were found; confirmed 10 links toward a lower display tier, including eight within a research area. Handling these links remains under discussion.
+- Updated only RU/EN documentation and tables of contents. Game sources, product code and databases are unchanged; local links were checked, product tests were not run.
+
+## 2026-11-19 — initial tree placement rules
+
+- Recorded agreed display-tier columns, continuation alignment, same-tier vertical placement and reserved child-branch space in the [chain rules](frontend/TECHNOLOGY_CHAINS_AND_SORTING_EN.md#single-tree-placement).
+- Direct continuation by digit-stripped ID equality takes priority over alphabetical child ordering. Additional prerequisites remain in the data but are not displayed at this stage.
+- Updated both language versions and tables of contents. This is a design clarification: code and databases are unchanged; wording and links were checked, product tests were not run.
 
 ## 2026-11-19 — manifests, separate documents and frontend 0.0.4
 

@@ -1,0 +1,15 @@
+{
+  "combination_id": "reference_default",
+  "starting_roots_first": true,
+  "ignored_id_characters": "0123456789",
+  "sort_locales": {
+    "ru": "ru",
+    "en": "en"
+  },
+  "repeatable": {
+    "levels": -1,
+    "game_tier": 5,
+    "display_tier": 6,
+    "requires_prerequisite": true
+  }
+}

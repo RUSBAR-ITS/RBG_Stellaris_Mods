@@ -2,6 +2,5 @@
 .sttv-research-area { flex: none; }
 .sttv-area-heading { margin: 0; height: var(--sttv-area-heading-height); display: flex; align-items: flex-start; }
 .sttv-tier-heading { margin: 0; height: var(--sttv-tier-heading-height); display: flex; align-items: flex-start; }
-.sttv-columns { display: flex; gap: var(--sttv-column-gap); }
-.sttv-tier-column { width: var(--sttv-card-width); flex: none; }
-.sttv-tier-cards { display: flex; flex-direction: column; gap: var(--sttv-card-gap); }
+.sttv-tier-headings, .sttv-tree-grid { display: grid; column-gap: var(--sttv-column-gap); }
+.sttv-tree-grid { row-gap: var(--sttv-card-gap); }

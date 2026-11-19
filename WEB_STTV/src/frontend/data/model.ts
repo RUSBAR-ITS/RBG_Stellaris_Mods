@@ -18,6 +18,9 @@ export interface SttvRepresentation {
   sourceRef: SttvNodeRef;
 }
 export interface SttvTechnology {
+  startTech: boolean;
+  levels: number | null;
+  tree: import('./tree/model').SttvTreeRecord;
   id: string;
   tier: number;
   prerequisites: SttvGroup;
@@ -70,6 +73,7 @@ export interface SttvDatasetInfo {
   state: 'not_loaded' | 'loading' | 'loaded' | 'failed';
 }
 export interface SttvCatalog extends SttvTechnologyCatalog {
+  treeCombination: import('./tree/model').SttvTreeCombination;
   setId: string;
   snapshotRevision: string;
   coverage: import('../storage/model').SttvCoverage;

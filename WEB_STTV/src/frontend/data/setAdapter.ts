@@ -9,6 +9,9 @@ import { sttvDatabaseKinds } from './registry';
 import { SttvIndexBuilder } from '../localization/index';
 import { SttvPreparationError, sttvInvalid, type SttvDiagnostic } from '../workers/diagnostics';
 import type { SttvTargetRegistry } from './textTargets';
+import { sttvTreeCombination } from './tree/metadata';
+import { sttvValidateTree } from './tree/validation';
+import layoutSettings from '../../../config/frontend/tree_layout.json';
 
 export class SttvSetAdapter {
   strings = new SttvIndexBuilder();
@@ -20,15 +23,17 @@ export class SttvSetAdapter {
   definitionIndex: SttvCatalog['definitionIndex'] = {};
   loadedDocuments = new Set<string>();
   datasets: SttvCatalog['datasets'];
+  treeCombination: SttvCatalog['treeCombination'];
   constructor(readonly manifest: SttvManifest, private rules: SttvTargetRegistry,
-    private diagnostics: SttvDiagnostic[] = []) {
+    private diagnostics: SttvDiagnostic[] = [], private combinationId = layoutSettings.combination_id) {
+    this.treeCombination = sttvTreeCombination(manifest, combinationId);
     this.datasets = sttvDatabaseKinds.map(kind => ({ kind, name: kind,
       size: manifest.datasets[kind].documents.reduce((sum, d) => sum + d.byte_size, 0),
       documentCount: manifest.datasets[kind].documents.length,
       objectCount: manifest.datasets[kind].objects.length, state: 'not_loaded' }));
   }
   fork() {
-    const copy = new SttvSetAdapter(this.manifest, this.rules, [...this.diagnostics]);
+    const copy = new SttvSetAdapter(this.manifest, this.rules, [...this.diagnostics], this.combinationId);
     copy.strings = this.strings.fork();
     for (const field of ['technologies', 'components', 'buildings', 'definitions', 'definitionIndex', 'datasets'] as const) {
       Object.assign(copy, { [field]: structuredClone(this[field]) });
@@ -43,7 +48,7 @@ export class SttvSetAdapter {
     const database = db.database;
     try {
       if (database === 'technologies') sttvAdaptDatabase(db, [], this.strings, false,
-        { catalog: this.technologies, itemOffset });
+        { catalog: this.technologies, itemOffset, combinationId: this.combinationId });
       else if (database === 'components' || database === 'buildings') sttvAdaptObjects(db, database, this.strings,
         { catalog: this[database], itemOffset });
       else {
@@ -72,10 +77,13 @@ export class SttvSetAdapter {
     }
   }
   finish(coverage: SttvCoverage): SttvCatalog {
-    if (this.datasets.find(row => row.kind === 'technologies')!.state === 'loaded') sttvValidateTechnologies(this.technologies);
+    if (this.datasets.find(row => row.kind === 'technologies')!.state === 'loaded') {
+      sttvValidateTechnologies(this.technologies);
+      sttvValidateTree(this.technologies.technologies, this.treeCombination);
+    }
     this.strings.orderOrigins();
     const loaded = (kind: SttvDatabaseKind) => this.datasets.find(row => row.kind === kind)!.state === 'loaded';
-    const catalog: SttvCatalog = { ...this.technologies,
+    const catalog: SttvCatalog = { ...this.technologies, treeCombination: this.treeCombination,
       localization: this.strings.index, setId: this.manifest.set_id, snapshotRevision: this.manifest.snapshot_revision,
       datasets: this.datasets, diagnostics: [...this.diagnostics, ...this.strings.warnings()], coverage,
       components: this.components.objects, buildings: this.buildings.objects,
