@@ -52,7 +52,7 @@ The tooltip key exists in [English localization:1375](/E:/SteamLibrary/steamapps
 
 ## Diagnostic cause
 
-During the initial check, our [loader](../src/backend/sttv/script/inlining/loader.py) appended the `.txt` extension from [inline_scripts.json](../config/parser/inline_scripts.json). It therefore requested the absent name and reported `missing_inline_template`. Following the next user request, a [separate exception configuration](../config/parser/exceptions.json) explicitly permits reading the discovered extensionless file. Other calls retain the `.txt` rule.
+During the initial check, our [loader](../../Instruments/Stellaris_Parser/stellaris_parser/script/inlining/loader.py) appended the `.txt` extension from [inline_scripts.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/inline_scripts.json). It therefore requested the absent name and reported `missing_inline_template`. Following the next user request, a [separate exception configuration](../../Instruments/Stellaris_Parser/stellaris_parser/config/exceptions.json) explicitly permits reading the discovered extensionless file. Other calls retain the `.txt` rule.
 
 The vanilla [00_README.txt:33](/E:/SteamLibrary/steamapps/common/Stellaris/common/inline_scripts/00_README.txt:33) describes calls without an extension and maps its example to a `.txt` file. That example does not establish engine behavior for extensionless files. Alternative-name lookup and file renaming were not added in this iteration.
 

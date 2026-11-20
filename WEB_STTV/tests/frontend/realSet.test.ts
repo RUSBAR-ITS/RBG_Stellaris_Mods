@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../frontend-workspace';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
@@ -21,7 +22,7 @@ test('real set preserves catalogs and confirms previously researched upgrade wit
   assert.equal(Object.keys(catalog.technologies).length, 679);
   assert.equal(Object.keys(catalog.components).length, 1506);
   assert.equal(Object.keys(catalog.buildings).length, 498);
-  const research = JSON.parse(readFileSync('data/chain_analysis/unlock_evidence.json', 'utf8'));
+  const research = JSON.parse(readFileSync(new URL('../fixtures/technology_tree/unlock_evidence.json', import.meta.url), 'utf8'));
   const existing = new Map(catalog.upgradeEvidence.map(item => [`${item.from}:${item.to}`, item]));
   for (const expected of research.evidence) {
     const found = existing.get(`${expected.from_tech}:${expected.to_tech}`);
@@ -47,7 +48,7 @@ test('real set preserves catalogs and confirms previously researched upgrade wit
     warningsByCode: catalog.diagnostics.reduce((counts, item) => {
       counts[item.code] = (counts[item.code] ?? 0) + 1; return counts;
     }, {} as Record<string, number>) };
-  mkdirSync('data/stage17', { recursive: true });
-  writeFileSync('data/stage17/frontend_catalog_report.json', JSON.stringify(report, null, 2) + '\n');
+  mkdirSync(sttvWorkPath('stage17'), { recursive: true });
+  writeFileSync(sttvWorkPath('stage17/frontend_catalog_report.json'), JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify(report));
 });

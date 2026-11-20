@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "case_sensitive": {
+      "type": "boolean"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "max_reference_depth": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "name_pattern": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "prefix": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "format_version",
+    "prefix",
+    "name_pattern",
+    "case_sensitive",
+    "max_reference_depth"
+  ],
+  "type": "object"
+}

@@ -1,4 +1,6 @@
 """Small structural fixtures and isolated ready database sets."""
+from sttv.common.paths import work_directory
+
 
 from copy import deepcopy
 import json
@@ -51,7 +53,7 @@ def rules(*ids):
 
 class SetFixture(unittest.TestCase):
     def setUp(self):
-        base = PRODUCT_ROOT / 'data/tests'
+        base = work_directory() / 'tests'
         base.mkdir(parents=True, exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(dir=base)
         self.root = Path(self.temporary.name)
@@ -78,7 +80,7 @@ class SetFixture(unittest.TestCase):
         self.save_db()
 
     def tearDown(self):
-        assert self.root.resolve().is_relative_to((PRODUCT_ROOT / 'data/tests').resolve())
+        assert self.root.resolve().is_relative_to((work_directory() / 'tests').resolve())
         self.temporary.cleanup()
 
     def save(self, path, data):

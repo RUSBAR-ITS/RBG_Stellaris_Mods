@@ -4,14 +4,14 @@ from unittest.mock import patch
 
 from sttv.common.schema import validate_schema
 from sttv.database.storage import read_database
-from sttv.enrichment.localization.snapshot import Snapshot
+from stellaris_parser.localization.snapshot import Snapshot
 from .support import LocalizationFixture
 
 
 class PublicationTests(LocalizationFixture):
     def test_completed_database_reads_without_sources(self):
         self.assert_success(self.run_operation())
-        with patch("sttv.enrichment.localization.reader.read_entries", side_effect=AssertionError("Source access")), \
+        with patch("stellaris_parser.localization.reader.read_entries", side_effect=AssertionError("Source access")), \
              patch("sttv.sources.settings.load_settings", side_effect=AssertionError("Parser access")):
             database = self.read_db()["documents"][0]
         self.assertEqual(database["format_version"], 1)
@@ -26,6 +26,7 @@ class PublicationTests(LocalizationFixture):
         self.options["report"] = "../outside.json"
         self.assert_failure("schema_error")
         self.options["report"] = "reports/report.json"
+        self.options['targets']['technologies'] = {'base': 'product', 'path': 'config/enrichment/targets/technologies.json'}
         self.variables["WORK_DIR"] = str(self.directories["RU_LOC_TIER_1"])
         self.assert_failure("unsafe_output")
 

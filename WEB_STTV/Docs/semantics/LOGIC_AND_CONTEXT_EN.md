@@ -42,7 +42,7 @@ These are references and scope transitions, not independent empire attributes. A
 
 ## Sources
 
-- [L1 — agreed analysis of logical values and operators](../KEYWORDS_AND_VALUES_EN.md). The historical section about temporarily ignoring inline calls belongs to an earlier stage; only its logic description is used here. [Current recognition configuration](../../config/parser/logical_operators.json).
+- [L1 — agreed analysis of logical values and operators](../KEYWORDS_AND_VALUES_EN.md). The historical section about temporarily ignoring inline calls belongs to an earlier stage; only its logic description is used here. [Current recognition configuration](../../../Instruments/Stellaris_Parser/stellaris_parser/config/logical_operators.json).
 - [L2 — alternative technology requirements](E:/SteamLibrary/steamapps/common/Stellaris/common/technology/00_megastructures.txt:6).
 - [L3 — job eligibility conditions](E:/SteamLibrary/steamapps/common/Stellaris/common/scripted_triggers/01_scripted_triggers_jobs.txt:2).
 - [L4 — v4.3.1 trigger documentation dump](https://raw.githubusercontent.com/OldEnt/stellaris-triggers-modifiers-effects-list/master/4.3.1_game_triggers.log): `always`, `exists`. Older than the installation; local examples are checked separately.

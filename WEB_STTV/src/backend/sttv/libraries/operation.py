@@ -11,7 +11,7 @@ from .inventory import Inventory, configuration, digest
 from .snapshot import prepare_snapshot
 from .storage import publish, load
 from .ownership import ownership
-from sttv.script.metrics import ACTIVE as METRICS, Metrics
+from stellaris_parser.script.metrics import ACTIVE as METRICS, Metrics
 
 ACTIVE = ContextVar('sttv_libraries', default=None)
 

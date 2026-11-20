@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 import { sttvDatabase, sttvTechnology } from '../fixtures';
@@ -69,9 +70,9 @@ test('all zoom levels preserve geometry and centre, clamp scroll bounds and leav
   const clamped = await sttvZoomGeometry(page);
   expect(clamped.x).toBeLessThanOrEqual(clamped.scrollWidth - clamped.width);
   expect(clamped.y).toBeLessThanOrEqual(clamped.scrollHeight - clamped.height);
-  mkdirSync('data/frontend-stage9', { recursive: true });
+  mkdirSync(sttvWorkPath('frontend-stage9'), { recursive: true });
   await page.locator('#sttv-viewport-content').evaluate(e => { e.scrollLeft = 0; e.scrollTop = 0; });
-  await page.screenshot({ path: 'data/frontend-stage9/long-title-50.png' });
+  await page.screenshot({ path: sttvWorkPath('frontend-stage9/long-title-50.png') });
 });
 
 test('scrollbars appear only for scaled bounds and keyboard focus reaches clipped distant cards', async ({ page }) => {
@@ -113,14 +114,14 @@ test('real set keeps every image, full title and connection across zoom and lang
   await page.goto('/'); await page.locator('input[type=file]').setInputFiles(process.env.STTV_DATABASE_DIR!);
   await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 90000 });
   await expect(page.locator('[data-connection-child]')).toHaveCount(464);
-  mkdirSync('data/frontend-stage9', { recursive: true });
+  mkdirSync(sttvWorkPath('frontend-stage9'), { recursive: true });
   for (const language of ['ru', 'en']) {
     if (language === 'en') await sttvEnglish(page);
     for (const percent of [50, 100, 150]) {
       await sttvZoom(page, percent); await sttvCheckConnectionAnchors(page);
       expect(await page.locator('.sttv-card-title').evaluateAll(items => items.every(item => item.scrollWidth <= item.clientWidth + 1))).toBe(true);
       await page.locator('#sttv-viewport-content').evaluate(e => { e.scrollLeft = 0; e.scrollTop = 0; });
-      await page.screenshot({ path: `data/frontend-stage9/real-${language}-${percent}.png` });
+      await page.screenshot({ path: sttvWorkPath(`frontend-stage9/real-${language}-${percent}.png`) });
     }
   }
 });

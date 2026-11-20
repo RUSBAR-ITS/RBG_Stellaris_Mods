@@ -13,9 +13,11 @@
 
 **Stellaris Technological Tree View**, project directory: `WEB_STTV`.
 
-A local interactive web reference for Stellaris technologies. The first interface displays cards by research area and tier, names and descriptions in tooltips, and variants from a prepared combination. Cards show prepared game images and base attributes. Data is collected from user-selected sources and transformed into the reference application's internal database. The intended distribution is portable on Windows and requires no separate web-server installation.
+A local interactive web reference for Stellaris technologies. The first interface displays cards by research area and tier, names and descriptions in tooltips, and variants from a prepared combination. Cards show prepared game images and base attributes. Data is collected from user-selected sources and transformed into the reference application's internal database. Data preparation runs on the game workstation and publishes packages to the MongoDB server.
 
 ## Status
+
+The localization dictionary is published in MongoDB. Stellaris Parser prepares it, the loader publishes the collection, and the server reads by key. [Stage 23 commands](Docs/BACKEND_STAGE_23_EN.md)
 
 Implemented [stage 21](Docs/BACKEND_STAGE_21_EN.md) and its approved acquisition addendum. Frontend version: 0.0.13; the new `data/stage21_acquisition/database_set` contains 30 kinds and a technical acquisition index. The guide describes the DLC matrix and checks; unknown engine semantics remain explicit. Visual and in-game verification remain with the user. Earlier stage history follows.
 
@@ -39,9 +41,7 @@ The field opens at 50%. The menu offers 50%, 75%, 100%, 125% and 150%; zoom pers
 
 ## Running the frontend
 
-From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer has Node.js under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_9_EN.md#result-and-startup).
-
-Click “Open database set” and select **`data/stage21_acquisition/database_set`**. To apply DLC changes start the Python service using the [guide](Docs/BACKEND_STAGE_21_EN.md#startup), which also describes registering the set. Startup and refresh neither build nor automatically open data.
+Run `npm ci` and `npm run dev` from `WEB_STTV` using Node.js 24. Open `http://127.0.0.1:5173/`. Run fixture tests using `npm test` and `npm run test:browser`. Connecting the technology tree to the server database is a subsequent stage.
 
 ## Directory structure
 
@@ -51,7 +51,7 @@ Click “Open database set” and select **`data/stage21_acquisition/database_se
 | `src/backend/` | Python processing and subsequent local-service code |
 | `config/` | Sources, output paths, parser, library and localization configurations |
 | `schemas/` | 41 generated configuration, database, and report schemas |
-| `data/` | Default working folder for the database, reports, temporary output, and checks |
+| `../TMP/WEB_STTV/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 | `Docs/frontend/` | Interface concept and subsequent frontend documentation |
 | `Docs/semantics/` | Game construct dictionary for technology and object-relation analysis |
@@ -66,7 +66,7 @@ The shared [global_variables.json](global_variables.json) file stores project va
 
 | Variable | Purpose | Current value |
 | --- | --- | --- |
-| `WORK_DIR` | Product and validation working folder, relative to the project directory by default | `data` |
+| `WORK_DIR` | Product and validation working folder, relative to the project directory by default | `../TMP/WEB_STTV` |
 | `STELLARIS_ROOT` | Absolute path to the installed game root | `E:/SteamLibrary/steamapps/common/Stellaris` |
 | `TECH_PATH` | Path to the technology directory relative to `STELLARIS_ROOT` | `common/technology` |
 | `COMPONENTS_DIR` | Component directory relative to `STELLARIS_ROOT` | `common/component_templates` |
@@ -94,6 +94,8 @@ Absolute source roots belong to the current environment. Game and localization d
 
 ## Documents
 
+- [Stage 23 specification — Stellaris Parser, the loader and the MongoDB-backed server](Docs/TZ_BACKEND_STAGE_23_EN.md).
+- [Stage 22 specification — importing game localization into MongoDB](Docs/TZ_BACKEND_STAGE_22_EN.md).
 - [Stage 21 and acquisition — implementation, startup and limitations](Docs/BACKEND_STAGE_21_EN.md).
 - [Approved stage 19 specification: empire and DLC reference import](Docs/TZ_BACKEND_STAGE_19_EN.md), [implementation and checks](Docs/BACKEND_STAGE_19_EN.md).
 - Implemented specifications: [backend stage 20 — DLC combinations](Docs/TZ_BACKEND_STAGE_20_EN.md), [frontend stage 10 — menu and DLC settings](Docs/frontend/TZ_FRONTEND_STAGE_10_EN.md).
@@ -172,7 +174,7 @@ Absolute source roots belong to the current environment. Game and localization d
 - [Backend: inline_script expansion](Docs/BACKEND_STAGE_5_EN.md).
 
 - [Backend: parsing results database](Docs/BACKEND_STAGE_6_EN.md).
-- [Inline_script path exceptions](config/parser/exceptions.json): exact permitted files and reasons; application rules are described in the backend guide.
+- [Inline_script path exceptions](../Instruments/Stellaris_Parser/stellaris_parser/config/exceptions.json): exact permitted files and reasons; application rules are described in the backend guide.
 
 - [Stage-seven backend: static variables and verification](Docs/BACKEND_STAGE_7_EN.md).
 

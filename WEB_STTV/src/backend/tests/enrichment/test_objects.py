@@ -8,7 +8,7 @@ from sttv.common.json_io import json_text, read_json
 from sttv.database.storage import read_database
 from sttv.database.validation import validate_database
 from sttv.enrichment.localization.attachment import remove_previous
-from sttv.script.serialization import walk_nodes
+from stellaris_parser.script.serialization import walk_nodes
 from .support import LocalizationFixture
 
 

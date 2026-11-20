@@ -1,14 +1,6 @@
 """Closed contracts for inline settings, history, and source provenance."""
 
-from .helpers import BOOL, LINE, NULL, RELATIVE, STRING, TEXT, array, mapping, obj, union
-
-
-def configuration():
-    return obj({"format_version": {"const": 1},
-                "path_field": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"},
-                "parameter_case_sensitive": BOOL,
-                "extension": {"type": "string", "pattern": "^\\.[A-Za-z0-9]+$"},
-                "max_depth": {"type": "integer", "minimum": 1}})
+from .helpers import BOOL, LINE, NULL, RELATIVE, STRING, TEXT, array, obj, union
 
 
 def counts():
@@ -16,13 +8,8 @@ def counts():
                 ("encountered", "expanded", "failed", "template_files", "max_depth")})
 
 
-def exceptions():
-    return obj({"format_version": {"const": 1},
-                "inline_script_files": mapping(obj({"file": RELATIVE, "reason": TEXT}), RELATIVE)})
-
-
 def location():
-    return obj({"root": {"enum": ["STELLARIS_ROOT", "TECH_PATH", "INLINE_SCRIPTS_DIR", "PRODUCT_ROOT"]},
+    return obj({"root": {"enum": ["STELLARIS_ROOT", "TECH_PATH", "INLINE_SCRIPTS_DIR", "PRODUCT_ROOT", "PARSER_CONFIG", "WORK_DIR"]},
                 "file": RELATIVE, "line": LINE, "column": LINE,
                 "expansion_id": union(TEXT, NULL)})
 

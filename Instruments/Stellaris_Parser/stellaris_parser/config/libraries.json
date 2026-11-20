@@ -1,0 +1,9 @@
+{
+  "encoding": "utf-8-sig",
+  "pattern": "*.txt",
+  "inline_script": "common/inline_scripts",
+  "scripted_effect": "common/scripted_effects",
+  "scripted_trigger": "common/scripted_triggers",
+  "script_value": "common/script_values",
+  "static_variables": "common/scripted_variables"
+}

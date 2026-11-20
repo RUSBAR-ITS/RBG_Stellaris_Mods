@@ -4,8 +4,8 @@ from copy import deepcopy
 
 from support import BuildFixture
 from sttv.database.history import validate_history
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 from sttv.sources.settings import load_settings
 from sttv.sources.expansion import expansion_context
 

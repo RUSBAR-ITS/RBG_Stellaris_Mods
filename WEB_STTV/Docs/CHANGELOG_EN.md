@@ -2,6 +2,16 @@
 
 ## Contents
 
+- [2026-11-20 — separate parser, loader and server](#2026-11-20--separate-parser-loader-and-server)
+
+- [2026-11-20 — research tools and fixture migration](#2026-11-20--research-tools-and-fixture-migration)
+
+- [2026-11-20 — backend separation draft](#2026-11-20--backend-separation-draft)
+
+- [2026-11-20 — loading the dictionary into MongoDB](#2026-11-20--loading-the-dictionary-into-mongodb)
+
+- [2026-11-20 — MongoDB localization import draft](#2026-11-20--mongodb-localization-import-draft)
+
 - [2026-11-19 — technology acquisition analysis and version 0.0.13](#2026-11-19--technology-acquisition-analysis-and-version-0013)
 
 - [2026-11-19 — stage 21 progress and technology acquisition research](#2026-11-19--stage-21-progress-and-technology-acquisition-research)
@@ -182,6 +192,30 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-20 — separate parser, loader and server
+
+Extracted Stellaris Parser and the shared document package format. The loader and server use separate MongoDB profiles. Workspace outputs moved to `TMP/WEB_STTV`. Verified all 303,500 dictionary documents. [Results and commands](BACKEND_STAGE_23_EN.md)
+
+## 2026-11-20 — research tools and fixture migration
+
+Moved 19 research scripts and three reference fixtures out of the working directories. Updated test and documentation paths, tool arguments and checks for the current parser API. Section 10 of AGENTS.md now covers reusable materials.
+
+## 2026-11-20 — backend separation draft
+
+Removed the requirement to rebuild the file-backed test setup after cleanup. Stage 23 acceptance now uses the localization JSON package and the `wiki.localization` MongoDB collection.
+
+Revised the stage 23 draft. The independent parser belongs in `Instruments/Stellaris_Parser/`. The loader and server have separate MongoDB connection configurations. The migration to `TMP/WEB_STTV/` identifies tools and test references worth keeping before manual cleanup.
+
+Drafted the separation of the local parser, MongoDB loader and server. Specified the package for finished documents and boundary tests using the stage 22 dictionary. [Stage 23 specification](TZ_BACKEND_STAGE_23_EN.md)
+
+## 2026-11-20 — loading the dictionary into MongoDB
+
+Added preparation, batch loading and full comparison commands, MongoDB and Vault reference configuration, a schema and tests. The test server holds 303,500 documents with raw text and priority selections. Repeat import and recovery from a failed batch were verified. [Stage 22 guide](BACKEND_STAGE_22_EN.md)
+
+## 2026-11-20 — MongoDB localization import draft
+
+The [stage 22 specification](TZ_BACKEND_STAGE_22_EN.md) describes a document per language and key, retention of every source definition, translation selection and acceptance checks for the first import into `wiki.localization`. It records the size of the current RU and EN game sources.
 
 ## 2026-11-19 — technology acquisition analysis and version 0.0.13
 

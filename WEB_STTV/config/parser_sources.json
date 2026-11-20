@@ -1,0 +1,35 @@
+{
+  "roots": [
+    "E:/SteamLibrary/steamapps/common/Stellaris"
+  ],
+  "batch_size": 1000,
+  "localization": {
+    "reading": {
+      "pattern": "*.yml",
+      "recursive": true,
+      "encoding": "utf-8-sig"
+    },
+    "languages": {
+      "ru": {
+        "header": "l_russian",
+        "sources": [
+          "RU_LOC_TIER_1",
+          "RU_LOC_TIER_2",
+          "RU_LOC_TIER_3"
+        ]
+      },
+      "en": {
+        "header": "l_english",
+        "sources": [
+          "EN_LOC_TIER_1"
+        ]
+      }
+    },
+    "directories": {
+      "RU_LOC_TIER_1": "E:/SteamLibrary/steamapps/workshop/content/281990/681483874/localisation/replace",
+      "RU_LOC_TIER_2": "E:/SteamLibrary/steamapps/workshop/content/281990/681483874/localisation/russian",
+      "RU_LOC_TIER_3": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/russian",
+      "EN_LOC_TIER_1": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english"
+    }
+  }
+}

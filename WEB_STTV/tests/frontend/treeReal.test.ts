@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../frontend-workspace';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs';
@@ -71,8 +72,8 @@ test('prepared real combinations cover all technologies without rereads, mutatio
     }
     assert.deepEqual(readFileSync(manifestPath), manifestBytes);
     assert.deepEqual(docs.map(doc => statSync(join(directory, doc.path)).mtimeMs), stats);
-    mkdirSync('data/frontend-stage7', { recursive: true });
-    writeFileSync('data/frontend-stage7/real-layout.json', JSON.stringify(reports, null, 2) + '\n');
+    mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
+    writeFileSync(sttvWorkPath('frontend-stage7/real-layout.json'), JSON.stringify(reports, null, 2) + '\n');
     console.log(JSON.stringify(reports.map(({ openingSeconds, layout, statusCounts }) => ({ openingSeconds,
       combination: layout.combination.id, language: layout.language, seconds: layout.seconds,
       areas: layout.areas, crossAreaLinks: layout.hiddenCrossAreaLinks, statusCounts }))));

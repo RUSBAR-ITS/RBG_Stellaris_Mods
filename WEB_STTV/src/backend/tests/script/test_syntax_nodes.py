@@ -6,9 +6,9 @@ from unittest.mock import patch
 from support import syntax
 from script.assertions import check_document
 from sttv.common.errors import BuildError
-from sttv.script.nodes import Assignment, Block, Conditional, Formula, Scalar, TaggedBlock
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.nodes import Assignment, Block, Conditional, Formula, Scalar, TaggedBlock
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 
 
 class SyntaxNodeTests(unittest.TestCase):

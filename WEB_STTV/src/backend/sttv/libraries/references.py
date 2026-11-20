@@ -1,11 +1,11 @@
 """Check prepared reference targets before exposing a loaded graph."""
 
 from sttv.common.errors import BuildError
-from sttv.script.nodes import Source, Located, Assignment
-from sttv.script.inlining.text import MappedSource, Piece
-from sttv.script.scripted.index import Definition
-from sttv.script.variables.table import Table, Resolved
-from sttv.script import nodes
+from stellaris_parser.script.nodes import Source, Located, Assignment
+from stellaris_parser.script.inlining.text import MappedSource, Piece
+from stellaris_parser.script.scripted.index import Definition
+from stellaris_parser.script.variables.table import Table, Resolved
+from stellaris_parser.script import nodes
 
 
 def require(condition, message):

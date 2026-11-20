@@ -1,6 +1,6 @@
 """Use the established localization tiers and reference resolver for categories."""
 
-from sttv.enrichment.localization.index import LocalizationIndex
+from stellaris_parser.localization.index import LocalizationIndex
 from sttv.enrichment.localization.references import Resolver
 
 

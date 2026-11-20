@@ -33,7 +33,7 @@ Python interfaces `sttv.builder.build(variables_path, config_path)` and `sttv.da
 
 `SCRIPTED_VARIABLES_DIR = common/scripted_variables` is relative to `STELLARIS_ROOT`. The directory is required but may be empty. Shared files are read separately and excluded from independent documents alongside inline-template and scripted-effect libraries. File links cannot escape the library root; sources and configurations are protected from writes.
 
-The sixth selection, `parser.static_variables` in [backend.json](../config/backend.json), points to [static_variables.json](../config/parser/static_variables.json). It supports `product` / `work` bases, pattern, recursive traversal, encoding, prefix, name regular expression, case sensitivity, and chain limit. Defaults: `*.txt`, recursive, `utf-8-sig`, `@`, `[A-Za-z_][A-Za-z0-9_]*`, case-sensitive, depth 64.
+The sixth selection, `parser.static_variables` in [backend.json](../config/backend.json), points to [static_variables.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/static_variables.json). It supports `product` / `work` bases, pattern, recursive traversal, encoding, prefix, name regular expression, case sensitivity, and chain limit. Defaults: `*.txt`, recursive, `utf-8-sig`, `@`, `[A-Za-z_][A-Za-z0-9_]*`, case-sensitive, depth 64.
 
 Shared chains resolve in the shared scope. Each document has an isolated local declaration table; local names override shared names without changing already resolved shared chains. Collect declarations before resolving references, allowing forward references. A repeated name in one scope is an error even when values match. These are backend implementation rules, not claims about every engine edge case.
 

@@ -65,9 +65,9 @@ Templates under `INLINE_SCRIPTS_DIR` are excluded from independent selection. Th
 
 `WORK_DIR` defaults to `data`; another relative or absolute path inside the repository is supported. Writes cannot overlap sources, code, configuration, or other protected material. Source TXT files are not copied into the working directory.
 
-Targeted exception in [constructs.json](../config/parser/constructs.json): `trait_bg_active_glow` joins `rgb` and `hsv` in `tagged_blocks`. This preserves the observed declaration without `=` as a `tagged_block`. No missing operator is inserted; arbitrary other names without an operator remain rejected. This is an agreed parser exception, not confirmation that the engine accepts this declaration.
+Targeted exception in [constructs.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/constructs.json): `trait_bg_active_glow` joins `rgb` and `hsv` in `tagged_blocks`. This preserves the observed declaration without `=` as a `tagged_block`. No missing operator is inserted; arbitrary other names without an operator remain rejected. This is an agreed parser exception, not confirmation that the engine accepts this declaration.
 
-[exceptions.json](../config/parser/exceptions.json) is selected through `parser.exceptions` in `backend.json` and validated against `parser_exceptions.schema.json`. In `inline_script_files`, the key is the invocation name before automatic extension addition, `file` is the exact filename relative to `INLINE_SCRIPTS_DIR`, and `reason` explains the exception:
+[exceptions.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/exceptions.json) is selected through `parser.exceptions` in `backend.json` and validated against `parser_exceptions.schema.json`. In `inline_script_files`, the key is the invocation name before automatic extension addition, `file` is the exact filename relative to `INLINE_SCRIPTS_DIR`, and `reason` explains the exception:
 
 ```json
 {

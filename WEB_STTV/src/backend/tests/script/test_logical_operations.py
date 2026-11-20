@@ -6,10 +6,10 @@ import unittest
 from support import syntax
 from script.assertions import check_document
 from sttv.common.errors import BuildError
-from sttv.script.nodes import Assignment, LogicalOperation, Scalar
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
-from sttv.script.syntax import make_syntax
+from stellaris_parser.script.nodes import Assignment, LogicalOperation, Scalar
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
+from stellaris_parser.script.syntax import make_syntax
 
 
 class LogicalOperationTests(unittest.TestCase):

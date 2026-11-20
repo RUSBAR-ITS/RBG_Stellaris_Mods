@@ -1,0 +1,46 @@
+{
+  "mongodb": {
+    "active_profile": "local",
+    "profiles": {
+      "local": {
+        "host": "127.0.0.1",
+        "port": 27017,
+        "database": "wiki",
+        "username": "wiki",
+        "auth_source": "wiki",
+        "mechanism": "SCRAM-SHA-256",
+        "ca_file": "/etc/wiki-tls/ca.pem",
+        "password_env": "STTV_MONGO_PASSWORD"
+      },
+      "network": {
+        "host": "192.168.1.39",
+        "port": 27017,
+        "database": "wiki",
+        "username": "wiki",
+        "auth_source": "wiki",
+        "mechanism": "SCRAM-SHA-256",
+        "vault": {
+          "address": "https://192.168.1.211:8200",
+          "auth_mount": "rit-human-cert",
+          "role": "rusbar-personal",
+          "certificate": "CurrentUser\\MY\\CF16DDFF6DF7E138B63B37716E6C1C037881524A",
+          "password": {
+            "path": "lab/data/mongodb/rbg/stellaris-wiki/users/wiki",
+            "field": "password"
+          },
+          "ca": {
+            "path": "lab/data/mongodb/rbg/stellaris-wiki/trust",
+            "field": "certificate_pem"
+          }
+        }
+      }
+    }
+  },
+  "scratch_directory": "../../TMP/WEB_STTV/server",
+  "collection": "localization",
+  "http": {
+    "host": "127.0.0.1",
+    "port": 8788,
+    "prefix": "/api/localization"
+  }
+}

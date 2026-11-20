@@ -3,8 +3,8 @@
 from dataclasses import fields, replace
 import re
 
-from sttv.script.nodes import Assignment, Located, Scalar
-from sttv.script.parser import parse_text
+from stellaris_parser.script.nodes import Assignment, Located, Scalar
+from stellaris_parser.script.parser import parse_text
 
 
 def numeric_declarations(items):

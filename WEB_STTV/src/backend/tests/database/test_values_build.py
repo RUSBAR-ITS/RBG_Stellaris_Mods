@@ -4,7 +4,7 @@ from copy import deepcopy
 
 from database.value_support import ValueFixture
 from sttv.database.validation import validate_database
-from sttv.script.parser import parse_text
+from stellaris_parser.script.parser import parse_text
 from sttv.sources.settings import load_settings
 from sttv.sources.expansion import expansion_context
 from script.corpus_statistics import Statistics

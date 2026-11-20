@@ -4,11 +4,11 @@ from copy import deepcopy
 
 from sttv.common.errors import BuildError
 from sttv.common.report import Report
-from sttv.script.inlining.loader import FileTemplates
-from sttv.script.nodes import Source
-from sttv.script.prepared import prepare
-from sttv.script.scripted.index import Index
-from sttv.script.variables.processor import Processor
+from stellaris_parser.script.inlining.loader import FileTemplates
+from stellaris_parser.script.nodes import Source
+from stellaris_parser.script.prepared import prepare
+from stellaris_parser.script.scripted.index import Index
+from stellaris_parser.script.variables.processor import Processor
 from sttv.sources.static_variables import prepare_variables
 from sttv.sources.scripted import load_library
 from .configuration import reading

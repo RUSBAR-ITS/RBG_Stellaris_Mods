@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "anonymous_blocks": {
+      "type": "boolean"
+    },
+    "bare_values": {
+      "type": "boolean"
+    },
+    "conditional": {
+      "additionalProperties": false,
+      "properties": {
+        "body_close": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "header_close": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "negation": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "open": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "open",
+        "header_close",
+        "body_close",
+        "negation"
+      ],
+      "type": "object"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "formulas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "close": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "open": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "open",
+          "close"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "inline_script": {
+      "additionalProperties": false,
+      "properties": {
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "keyword": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "keyword",
+        "case_sensitive"
+      ],
+      "type": "object"
+    },
+    "mixed_blocks": {
+      "type": "boolean"
+    },
+    "parameters": {
+      "additionalProperties": false,
+      "properties": {
+        "close": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "default_separator": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "open": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "open",
+        "close",
+        "default_separator"
+      ],
+      "type": "object"
+    },
+    "tagged_blocks": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format_version",
+    "bare_values",
+    "anonymous_blocks",
+    "mixed_blocks",
+    "tagged_blocks",
+    "parameters",
+    "formulas",
+    "conditional",
+    "inline_script"
+  ],
+  "type": "object"
+}

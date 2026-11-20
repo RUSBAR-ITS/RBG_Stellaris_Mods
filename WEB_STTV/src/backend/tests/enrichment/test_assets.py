@@ -1,4 +1,6 @@
 """Resource conversion, inheritance, source identity and reuse regression checks."""
+from sttv.common.paths import work_directory
+
 
 import json
 from pathlib import Path
@@ -11,7 +13,7 @@ from sttv.common.paths import PRODUCT_ROOT
 from sttv.common.errors import BuildError
 from sttv.enrichment.assets.images import Images
 from sttv.enrichment.assets.selection import attach
-from sttv.enrichment.localization.snapshot import Snapshot
+from stellaris_parser.localization.snapshot import Snapshot
 from sttv.storage.identity import source_hash
 from sttv.storage.assets import verify_asset, check_assets
 
@@ -30,7 +32,7 @@ def block(items):
 
 class ResourceTests(unittest.TestCase):
     def setUp(self):
-        directory = PRODUCT_ROOT / 'data/stage18/tests'
+        directory = work_directory() / 'stage18/tests'
         directory.mkdir(parents=True, exist_ok=True)
         self.temporary = TemporaryDirectory(dir=directory)
         self.addCleanup(self.temporary.cleanup)

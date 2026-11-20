@@ -3,7 +3,7 @@
 import unittest
 from unittest.mock import patch
 
-from sttv.enrichment.localization.index import LocalizationIndex
+from stellaris_parser.localization.index import LocalizationIndex
 from sttv.enrichment.localization.references import Resolver
 from sttv.parallel.text_cache import CachedResolver
 

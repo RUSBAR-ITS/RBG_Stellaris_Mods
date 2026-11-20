@@ -1,6 +1,7 @@
 """Configuration boundaries and command-line behavior."""
 
 import json
+from os.path import relpath
 import subprocess
 import sys
 from pathlib import Path
@@ -22,7 +23,7 @@ class ConfigurationTests(BuildFixture):
                 expand_variables(values)
 
     def test_relative_work_directory_and_cli_from_other_directory(self):
-        self.variables["WORK_DIR"] = self.root.relative_to(PRODUCT_ROOT).as_posix() + "/work"
+        self.variables["WORK_DIR"] = Path(relpath(self.root, PRODUCT_ROOT)).as_posix() + "/work"
         self.assertEqual(self.run_build()["status"], "success")
         result = subprocess.run(
             [sys.executable, "-B", str(PRODUCT_ROOT / "src/backend/main.py"),

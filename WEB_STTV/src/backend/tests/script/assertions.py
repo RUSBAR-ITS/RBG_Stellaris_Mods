@@ -1,6 +1,6 @@
 """Independent reconstruction of meaningful tokens from syntax nodes."""
 
-from sttv.script.nodes import Assignment, Block, Conditional, Formula, LogicalOperation, Scalar, TaggedBlock
+from stellaris_parser.script.nodes import Assignment, Block, Conditional, Formula, LogicalOperation, Scalar, TaggedBlock
 
 
 def node_tokens(node, syntax):

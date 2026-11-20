@@ -1,4 +1,6 @@
 """Acquisition proofs distinguish grants, alternatives, runtime scopes and ownership."""
+from sttv.common.paths import work_directory
+
 
 import unittest
 from copy import deepcopy
@@ -15,7 +17,7 @@ from .test_dlc import block as b, field as a, scalar as s, technology
 
 
 def options():
-    return load({'base': 'product', 'path': 'config/enrichment/acquisition/sources.json'}, PRODUCT_ROOT / 'data')[0]
+    return load({'base': 'product', 'path': 'config/enrichment/acquisition/sources.json'}, work_directory())[0]
 
 
 def evidence(source, *items):

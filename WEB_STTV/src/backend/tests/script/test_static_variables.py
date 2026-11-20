@@ -1,4 +1,6 @@
 """Static scopes, literal fidelity, reference limits and syntax boundaries."""
+from stellaris_parser.schema import CONFIG
+
 
 from copy import deepcopy
 import unittest
@@ -7,16 +9,16 @@ from support import PRODUCT_ROOT, syntax
 from sttv.common.errors import BuildError
 from sttv.common.json_io import read_json
 from sttv.common.report import Report
-from sttv.script.parser import parse_text
-from sttv.script.variables.rules import Rules
-from sttv.script.variables.table import Table
-from sttv.script.variables.processor import Processor
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.variables.rules import Rules
+from stellaris_parser.script.variables.table import Table
+from stellaris_parser.script.variables.processor import Processor
 from script.corpus_statistics import Statistics
 
 
 class StaticVariableTests(unittest.TestCase):
     def setUp(self):
-        self.options = read_json(PRODUCT_ROOT / 'config/parser/static_variables.json')
+        self.options = read_json(CONFIG / 'static_variables.json')
 
     def process(self, text, shared='', **changes):
         self.rules = Rules(dict(self.options, **changes), syntax())

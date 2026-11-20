@@ -1,0 +1,17 @@
+{
+  "purpose": "Acceptance examples only; never read by the selection algorithm",
+  "parents": {
+    "tech_juggernaut": "tech_battleships",
+    "tech_dyson_gun": "tech_lasers_3",
+    "tech_advanced_metallurgy_1": "tech_alloys_1",
+    "tech_mega_engineering": "tech_starbase_5",
+    "tech_volcanic_terraforming": "tech_terrestrial_sculpting",
+    "tech_armor_hardeners_1": "tech_advanced_metallurgy_1",
+    "tech_space_defense_station_improvement": "tech_starbase_4",
+    "tech_arkship_system_scanner": "tech_sensors_2",
+    "tech_transcendent_faith": "tech_consecration_fields",
+    "tech_robomodding_points_1": "tech_droid_workers",
+    "tech_civilian_arkship": "tech_arkship_construction",
+    "tech_dark_matter_detection": "tech_detection_array"
+  }
+}

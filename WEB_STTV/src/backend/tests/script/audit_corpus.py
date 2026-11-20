@@ -9,8 +9,8 @@ from support import PRODUCT_ROOT
 from sttv.common.errors import BuildError
 from sttv.common.paths import output_path
 from sttv.common.report import Report
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document, walk_nodes
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document, walk_nodes
 from sttv.database.history import validate_history
 from sttv.sources.expansion import expansion_context, independent_sources, source_exclusion
 from sttv.sources.settings import check_sources, load_settings

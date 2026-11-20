@@ -1,4 +1,6 @@
 """Document identity, selective verification and atomic snapshot publication."""
+from sttv.common.paths import work_directory
+
 
 from copy import deepcopy
 import json
@@ -11,8 +13,8 @@ from support import PRODUCT_ROOT, syntax
 from sttv.common.datasets import KINDS
 from sttv.common.errors import BuildError
 from sttv.common.timing import performance
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 from sttv.storage.audit import audit
 from sttv.storage.identity import document_id, source_hash
 from sttv.storage.manifest import create, finalize
@@ -24,7 +26,7 @@ from sttv.storage.writing import prepare, write_document
 
 class StorageTests(unittest.TestCase):
     def setUp(self):
-        base = PRODUCT_ROOT / 'data/tests'
+        base = work_directory() / 'tests'
         base.mkdir(exist_ok=True, parents=True)
         self.temp = TemporaryDirectory(dir=base)
         self.root = Path(self.temp.name)

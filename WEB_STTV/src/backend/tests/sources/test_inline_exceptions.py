@@ -1,4 +1,6 @@
 """Explicit template exceptions preserve confinement and never enable broad fallback."""
+from stellaris_parser.schema import CONFIG
+
 
 import json
 from pathlib import Path
@@ -7,7 +9,7 @@ from unittest.mock import patch
 from support import BuildFixture, PRODUCT_ROOT
 from sttv.common.errors import BuildError
 from sttv.common.json_io import read_json
-from sttv.script.inline import FileTemplates
+from stellaris_parser.script.inline import FileTemplates
 
 
 class InlineExceptionTests(BuildFixture):
@@ -66,7 +68,7 @@ class InlineExceptionTests(BuildFixture):
         self.assertIn('duplicate_inline_exception', self.errors(self.run_build()))
 
     def test_resolved_link_cannot_escape_before_reading(self):
-        options = read_json(PRODUCT_ROOT / 'config/parser/inline_scripts.json')
+        options = read_json(CONFIG / 'inline_scripts.json')
         loader = FileTemplates(self.inline, options, {'allowed': self.entry('link')})
         resolved = Path.resolve
         destination = self.game / 'outside.txt'

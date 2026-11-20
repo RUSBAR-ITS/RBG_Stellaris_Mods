@@ -3,7 +3,7 @@
 from copy import deepcopy
 
 from sttv.common.errors import BuildError
-from sttv.script.serialization import walk_nodes
+from stellaris_parser.script.serialization import walk_nodes
 from sttv.common.datasets import KINDS
 from .report import count_field, diagnostic, failure
 

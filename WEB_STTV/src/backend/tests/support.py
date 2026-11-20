@@ -1,4 +1,8 @@
 """Isolated source fixtures and outputs, always inside the project work folder."""
+from stellaris_parser.schema import CONFIG
+
+from sttv.common.paths import work_directory
+
 
 import copy
 import hashlib
@@ -19,14 +23,14 @@ from sttv.common.paths import PRODUCT_ROOT
 
 @lru_cache
 def syntax():
-    from sttv.script.syntax import load_syntax
-    return load_syntax(PRODUCT_ROOT / "config/parser/lexical.json",
-                       PRODUCT_ROOT / "config/parser/constructs.json",
-                       PRODUCT_ROOT / "config/parser/logical_operators.json")
+    from stellaris_parser.script.syntax import load_syntax
+    return load_syntax(CONFIG / "lexical.json",
+                       CONFIG / "constructs.json",
+                       CONFIG / "logical_operators.json")
 
 
 def syntax_payload(document):
-    from sttv.script.serialization import serialize_document
+    from stellaris_parser.script.serialization import serialize_document
 
     def clean(value):
         if isinstance(value, dict):
@@ -39,7 +43,7 @@ def syntax_payload(document):
 
 class BuildFixture(unittest.TestCase):
     def setUp(self):
-        base = (PRODUCT_ROOT / "data" / "tests").resolve()
+        base = (work_directory() / "tests").resolve()
         base.mkdir(parents=True, exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(dir=base)
         self.root = Path(self.temporary.name).resolve()
@@ -93,7 +97,7 @@ tech_b = {
 """)
 
     def tearDown(self):
-        assert self.root.is_relative_to((PRODUCT_ROOT / "data/tests").resolve())
+        assert self.root.is_relative_to((work_directory() / 'tests').resolve())
         self.temporary.cleanup()
 
     def write_script(self, name, content):

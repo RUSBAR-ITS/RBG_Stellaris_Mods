@@ -1,4 +1,6 @@
 """Explicit real-data acceptance; expected pairs are read only after calculation."""
+from sttv.common.paths import work_directory
+
 
 import argparse
 from collections import Counter
@@ -111,13 +113,15 @@ def run(config, reference, expectations, output):
 
 
 if __name__ == '__main__':
+    fixtures = PRODUCT_ROOT / 'tests/fixtures/technology_tree'
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config',type=Path,required=True)
-    parser.add_argument('--reference',type=Path,required=True)
-    parser.add_argument('--expectations',type=Path,required=True)
+    parser.add_argument('--reference', type=Path, default=fixtures / 'report.json')
+    parser.add_argument('--expectations', type=Path, default=fixtures / 'expectations.json')
     parser.add_argument('--output',type=Path,required=True)
     args=parser.parse_args()
-    if not args.output.resolve().is_relative_to(PRODUCT_ROOT / 'data'):
+    roots = (work_directory(),)
+    if not any(args.output.resolve().is_relative_to(root) for root in roots):
         parser.error('Acceptance artifacts must stay in the product working directory')
     args.output.mkdir(parents=True,exist_ok=True)
     run(args.config,args.reference,args.expectations,args.output)

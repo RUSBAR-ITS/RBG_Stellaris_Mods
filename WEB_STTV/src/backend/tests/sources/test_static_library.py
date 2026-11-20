@@ -1,4 +1,6 @@
 """Shared-library validation, isolation, refresh and filesystem boundaries."""
+from stellaris_parser.schema import CONFIG
+
 
 import json
 import os
@@ -11,7 +13,7 @@ from sttv.common.schema import validate_schema
 
 class StaticLibraryTests(BuildFixture):
     def configure(self, **changes):
-        config = json.loads((PRODUCT_ROOT / 'config/parser/static_variables.json').read_text(encoding='utf-8'))
+        config = json.loads((CONFIG / 'static_variables.json').read_text(encoding='utf-8'))
         reading = {key: changes.pop(key) for key in ('pattern', 'recursive', 'encoding') if key in changes}
         config.update(changes)
         work = Path(self.variables['WORK_DIR'])

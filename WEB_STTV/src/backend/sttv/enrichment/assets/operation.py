@@ -15,7 +15,7 @@ from sttv.storage.manifest import finalize
 from sttv.storage.publication import Publication
 from sttv.storage.writing import write_document
 from sttv.storage.assets import verify_references
-from sttv.enrichment.localization.snapshot import Snapshot
+from stellaris_parser.localization.snapshot import Snapshot
 from .settings import configure
 from .images import Images
 from .selection import attach

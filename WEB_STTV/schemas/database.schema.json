@@ -2410,7 +2410,9 @@
             "STELLARIS_ROOT",
             "TECH_PATH",
             "INLINE_SCRIPTS_DIR",
-            "PRODUCT_ROOT"
+            "PRODUCT_ROOT",
+            "PARSER_CONFIG",
+            "WORK_DIR"
           ]
         },
         "span": {

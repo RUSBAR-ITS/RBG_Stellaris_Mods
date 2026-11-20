@@ -29,6 +29,10 @@
 
 ## Document status
 
+Drafted [stage 23 — Stellaris Parser, the loader and the MongoDB-backed server](TZ_BACKEND_STAGE_23_EN.md).
+
+Implemented [stage 22 — importing game localization into MongoDB](TZ_BACKEND_STAGE_22_EN.md). [Loading and checking the published dictionary](BACKEND_STAGE_22_EN.md)
+
 Implemented [stage 21](BACKEND_STAGE_21_EN.md) and its approved acquisition addendum. Frontend version: 0.0.13; the new `data/stage21_acquisition/database_set` contains 30 kinds and a technical acquisition index. The guide describes the DLC matrix and checks; unknown engine semantics remain explicit. Visual and in-game verification remain with the user. Earlier stage history follows.
 
 Approved [stage 19](TZ_BACKEND_STAGE_19_EN.md): ten additional database kinds for empire settings and DLCs, RU/EN localization and reading 25 kinds. An additional CLASS exception based on the enclosing trait's leader_class is approved. Results and limitations: [guide](BACKEND_STAGE_19_EN.md).

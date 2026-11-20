@@ -1,18 +1,20 @@
 """Create expansion contexts and exclude definition libraries from input roots."""
 
-from sttv.script.inline import Expansion, FileTemplates
+from stellaris_parser.script.inline import Expansion, FileTemplates
 
 
 def expansion_context(settings, report=None, variables=None):
     from sttv.common.report import Report
     from .static_variables import variable_processor
     from sttv.libraries.operation import current
-    from sttv.script.source_exceptions import SourceExceptions
+    from stellaris_parser.script.source_exceptions import SourceExceptions
     report = report if report is not None else Report()
     variables = variables or variable_processor(settings, report)
     templates, library = current(settings).context(settings, report)
+    config_root = {'product': 'PRODUCT_ROOT', 'work': 'WORK_DIR', 'parser': 'PARSER_CONFIG'}[
+        settings.options['parser']['source_exceptions']['base']]
     corrections = SourceExceptions(settings.source_exceptions, report, settings.source_exceptions_file,
-                                    settings.inline_directory.relative_to(settings.game).as_posix())
+                                    settings.inline_directory.relative_to(settings.game).as_posix(), config_root)
     return Expansion(templates, settings.inline_options, report, library, variables, corrections)
 
 

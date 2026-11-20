@@ -1,4 +1,6 @@
 """All syntax forms survive JSON; corrupted structural metadata is rejected."""
+from stellaris_parser.schema import CONFIG
+
 
 from copy import deepcopy
 from dataclasses import asdict
@@ -9,14 +11,14 @@ from support import PRODUCT_ROOT, syntax
 from sttv.common.errors import BuildError
 from sttv.common.json_io import read_json
 from sttv.database.validation import validate_database
-from sttv.script.inline import Expansion, MemoryTemplates
-from sttv.script.nodes import InlineInvocation, Span
-from sttv.script.parser import parse_text
-from sttv.script.serialization import encode, serialize_document, walk_nodes
+from stellaris_parser.script.inline import Expansion, MemoryTemplates
+from stellaris_parser.script.nodes import InlineInvocation, Span
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import encode, serialize_document, walk_nodes
 
 
 def fixture(text, templates=None):
-    options = read_json(PRODUCT_ROOT / "config/parser/inline_scripts.json")
+    options = read_json(CONFIG / "inline_scripts.json")
     context = Expansion(MemoryTemplates(templates or {}, options), options)
     document = parse_text(text, syntax(), "fixture.txt", expansion=context)
     from sttv.storage.writing import prepare

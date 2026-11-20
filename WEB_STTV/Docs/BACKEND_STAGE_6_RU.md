@@ -65,9 +65,9 @@ database = read_database(product / "data/database.json")
 
 `WORK_DIR` по умолчанию — `data`, также поддерживается другой относительный или абсолютный путь внутри репозитория. Запись не может пересекаться с источниками, кодом, конфигурацией и другими защищёнными материалами. Исходные TXT-файлы в рабочую папку не копируются.
 
-Точечное исключение в [constructs.json](../config/parser/constructs.json): `trait_bg_active_glow` добавлен в `tagged_blocks` рядом с `rgb` и `hsv`. Это позволяет сохранить встреченную в игре запись без `=` как `tagged_block`. Отсутствующий оператор не дописывается; произвольные другие имена без оператора по-прежнему отклоняются. Это согласованное исключение нашего парсера, а не подтверждение допустимости такого объявления движком.
+Точечное исключение в [constructs.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/constructs.json): `trait_bg_active_glow` добавлен в `tagged_blocks` рядом с `rgb` и `hsv`. Это позволяет сохранить встреченную в игре запись без `=` как `tagged_block`. Отсутствующий оператор не дописывается; произвольные другие имена без оператора по-прежнему отклоняются. Это согласованное исключение нашего парсера, а не подтверждение допустимости такого объявления движком.
 
-Файл [exceptions.json](../config/parser/exceptions.json) задаётся через `parser.exceptions` в `backend.json` и проверяется схемой `parser_exceptions.schema.json`. В `inline_script_files` ключ — имя вызова без автоматически добавляемого расширения, `file` — точное имя файла относительно `INLINE_SCRIPTS_DIR`, `reason` — причина исключения:
+Файл [exceptions.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/exceptions.json) задаётся через `parser.exceptions` в `backend.json` и проверяется схемой `parser_exceptions.schema.json`. В `inline_script_files` ключ — имя вызова без автоматически добавляемого расширения, `file` — точное имя файла относительно `INLINE_SCRIPTS_DIR`, `reason` — причина исключения:
 
 ```json
 {

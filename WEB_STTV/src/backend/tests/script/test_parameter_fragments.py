@@ -1,15 +1,17 @@
 """Default and conditional text processing independently of game commands."""
+from stellaris_parser.schema import CONFIG
+
 
 from support import PRODUCT_ROOT, syntax, syntax_payload
 from sttv.common.json_io import read_json
-from sttv.script.inline import Expansion, MemoryTemplates
-from sttv.script.parser import parse_text
+from stellaris_parser.script.inline import Expansion, MemoryTemplates
+from stellaris_parser.script.parser import parse_text
 import unittest
 
 
 class ParameterFragmentTests(unittest.TestCase):
     def expand(self, payload, template):
-        options = read_json(PRODUCT_ROOT / 'config/parser/inline_scripts.json')
+        options = read_json(CONFIG / 'inline_scripts.json')
         context = Expansion(MemoryTemplates({'p.txt': template}, options), options)
         self.context = context
         return parse_text('inline_script=' + payload, syntax(), 'caller.txt', expansion=context)
@@ -32,7 +34,7 @@ class ParameterFragmentTests(unittest.TestCase):
 
     def test_statistics_ignore_new_history_and_count_test_body_and_value(self):
         from script.corpus_statistics import Statistics
-        from sttv.script.nodes import Block, ScriptedTriggerTest
+        from stellaris_parser.script.nodes import Block, ScriptedTriggerTest
         doc = parse_text('count=2', syntax(), 'source.txt')
         item = doc.items[0]
         doc.items[:] = [ScriptedTriggerTest('>', item.value, Block([item], item.span, origin=item.origin),

@@ -42,7 +42,7 @@
 
 ## Источники
 
-- [L1 — согласованный разбор логических значений и операторов](../KEYWORDS_AND_VALUES_RU.md#логические-операторы). В этом историческом документе раздел про временное игнорирование inline-вставок относится к прежнему этапу; здесь используется только описание логики. [Действующий конфиг распознавания](../../config/parser/logical_operators.json).
+- [L1 — согласованный разбор логических значений и операторов](../KEYWORDS_AND_VALUES_RU.md#логические-операторы). В этом историческом документе раздел про временное игнорирование inline-вставок относится к прежнему этапу; здесь используется только описание логики. [Действующий конфиг распознавания](../../../Instruments/Stellaris_Parser/stellaris_parser/config/logical_operators.json).
 - [L2 — альтернативные технологические требования](E:/SteamLibrary/steamapps/common/Stellaris/common/technology/00_megastructures.txt:6).
 - [L3 — условия назначения на работы](E:/SteamLibrary/steamapps/common/Stellaris/common/scripted_triggers/01_scripted_triggers_jobs.txt:2).
 - [L4 — выгрузка документации триггеров v4.3.1](https://raw.githubusercontent.com/OldEnt/stellaris-triggers-modifiers-effects-list/master/4.3.1_game_triggers.log): `always`, `exists`. Версия старше установленной; локальные примеры проверяются отдельно.

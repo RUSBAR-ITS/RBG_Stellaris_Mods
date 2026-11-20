@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect, type Page } from '@playwright/test';
 import { resolve } from 'node:path';
 import { readFile, mkdir } from 'node:fs/promises';
@@ -82,7 +83,7 @@ test('draft, discard, failure, cancellation and a new snapshot preserve the corr
 test('real catalog thumbnails, navigation and DLC profiles agree with Python', async ({ page }) => {
   test.skip(!process.env.STTV_DATABASE_DIR, 'Requires the registered prepared set and local service');
   test.setTimeout(180000);
-  await mkdir('data/stage20/screenshots', { recursive: true });
+  await mkdir(sttvWorkPath('stage20/screenshots'), { recursive: true });
   await page.goto('/'); await sttvEnglish(page);
   await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
   await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 90000 });
@@ -90,10 +91,10 @@ test('real catalog thumbnails, navigation and DLC profiles agree with Python', a
   await expect(page.getByRole('switch')).toHaveCount(36);
   await expect(page.locator('.sttv-dlc-image img')).toHaveCount(32);
   await expect(button(page, en.sttv_dlc_apply)).toBeDisabled();
-  await page.screenshot({ path: 'data/stage20/screenshots/dlc-night-en.png' });
+  await page.screenshot({ path: sttvWorkPath('stage20/screenshots/dlc-night-en.png') });
   await button(page, en.sttv_day_theme).click();
   await button(page, en.sttv_language).click(); await page.getByRole('option', { name: 'Русский', exact: true }).click();
-  await page.screenshot({ path: 'data/stage20/screenshots/dlc-day-ru.png' });
+  await page.screenshot({ path: sttvWorkPath('stage20/screenshots/dlc-day-ru.png') });
   await sttvEnglish(page);
   for (const toggle of await page.getByRole('switch').all()) await toggle.click();
   await button(page, en.sttv_dlc_apply).click();
@@ -106,7 +107,7 @@ test('real catalog thumbnails, navigation and DLC profiles agree with Python', a
   expect(result.coverage.verifiedDocuments).toBe(68);
   await button(page, en.sttv_nav_tree).click();
   await expect(page.locator('[data-technology-id="tech_archeology_lab"]')).toHaveCount(1);
-  await page.screenshot({ path: 'data/stage20/screenshots/tree-no-dlc.png' });
+  await page.screenshot({ path: sttvWorkPath('stage20/screenshots/tree-no-dlc.png') });
   await button(page, en.sttv_nav_dlc).click();
   for (const toggle of await page.getByRole('switch').all()) await toggle.click();
   await button(page, en.sttv_dlc_apply).click();

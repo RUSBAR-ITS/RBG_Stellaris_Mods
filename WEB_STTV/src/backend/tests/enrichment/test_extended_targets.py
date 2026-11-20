@@ -8,8 +8,8 @@ from sttv.common.datasets import definition
 from sttv.common.errors import BuildError
 from sttv.common.json_io import read_json
 from sttv.enrichment.localization.selection import select_targets
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 
 
 class ExtendedTargetTests(unittest.TestCase):

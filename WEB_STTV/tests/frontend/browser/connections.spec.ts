@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect } from '@playwright/test';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -30,8 +31,8 @@ test('card hover colors complete parent/child paths without rerouting or changin
   await card.hover();
   await expect(page.locator('.sttv-connection[data-role="parent"]').first()).toHaveCSS('stroke', 'rgb(23, 104, 166)');
   expect(await paths()).toEqual(before);
-  mkdirSync('data/frontend-stage7', { recursive: true });
-  await page.screenshot({ path: 'data/frontend-stage7/synthetic-day.png' });
+  mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
+  await page.screenshot({ path: sttvWorkPath('frontend-stage7/synthetic-day.png') });
 });
 
 test('connection endpoints stay on cards through scrolling, menu changes and window resizing', async ({ page }) => {
@@ -40,8 +41,8 @@ test('connection endpoints stay on cards through scrolling, menu changes and win
   sttvConnect(nodes, { B: 'A', C: 'B', D: 'C' });
   await sttvUpload(page, sttvDatabase(nodes));
   await expect(page.locator('[data-connection-child]')).toHaveCount(3);
-  mkdirSync('data/frontend-stage7', { recursive: true });
-  await page.screenshot({ path: 'data/frontend-stage7/reverse-night.png' });
+  mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
+  await page.screenshot({ path: sttvWorkPath('frontend-stage7/reverse-night.png') });
   const check = async () => {
     const endpoints = await page.locator('[data-connection-child]').evaluateAll(arrows => arrows.map(arrow => {
       const child = document.querySelector(`[data-technology-id="${arrow.getAttribute('data-connection-child')}"]`)!;
@@ -81,27 +82,27 @@ test('routing failure is localized and exports its combination and configuration
 
 test('real connections cover all local parents and retain geometry while hovering in both themes', async ({ page }) => {
   test.skip(!process.env.STTV_DATABASE_DIR, 'Requires the prepared manifest dataset');
-  mkdirSync('data/frontend-stage7', { recursive: true });
+  mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
   await page.goto('/');
   await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
   await expect(page.locator('[data-connection-child]')).toHaveCount(464, { timeout: 60000 });
   const firstPaths = await page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')));
   const card = page.locator('[data-technology-id="tech_lasers_3"]');
   await card.scrollIntoViewIfNeeded(); await card.hover();
-  await page.screenshot({ path: 'data/frontend-stage7/real-ru-night.png' });
+  await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-ru-night.png') });
   await expect(page.locator('.sttv-connection[data-role="parent"]').first()).toHaveCSS('stroke', 'rgb(115, 191, 255)');
   await expect(page.locator('.sttv-connection[data-role="children"]').first()).toHaveCSS('stroke', 'rgb(242, 179, 102)');
   await page.getByRole('button', { name: ru.sttv_day_theme, exact: true }).click();
-  await card.hover(); await page.screenshot({ path: 'data/frontend-stage7/real-ru-day.png' });
+  await card.hover(); await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-ru-day.png') });
   expect(await page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')))).toEqual(firstPaths);
   await sttvEnglish(page);
   await expect(page.locator('[data-connection-child]')).toHaveCount(464);
   await card.scrollIntoViewIfNeeded(); await card.hover();
-  await page.screenshot({ path: 'data/frontend-stage7/real-en-day.png' });
+  await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-en-day.png') });
   await page.getByRole('button', { name: en.sttv_night_theme, exact: true }).click();
-  await card.hover(); await page.screenshot({ path: 'data/frontend-stage7/real-en-night.png' });
+  await card.hover(); await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-en-night.png') });
   const download = page.waitForEvent('download'); await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
   const report = JSON.parse(readFileSync((await (await download).path())!, 'utf8'));
   expect(report.tree.connections.logicalConnections).toBe(464); expect(report.coverage.verifiedDocuments).toBe(35);
-  writeFileSync('data/frontend-stage7/browser-real-set.json', JSON.stringify(report, null, 2));
+  writeFileSync(sttvWorkPath('frontend-stage7/browser-real-set.json'), JSON.stringify(report, null, 2));
 });

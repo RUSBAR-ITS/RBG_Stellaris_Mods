@@ -1,4 +1,6 @@
 """Cross-object DLC proofs, alternative paths and conservative context boundaries."""
+from sttv.common.paths import work_directory
+
 
 from copy import deepcopy
 import unittest
@@ -13,7 +15,7 @@ from .test_dlc import block as b, field as a, logic, scalar as s, technology
 
 def rules():
     return resolve(read_json(PRODUCT_ROOT / 'config/enrichment/dlc.json'),
-                   lambda path, schema: read_json(path), PRODUCT_ROOT / 'data')
+                   lambda path, schema: read_json(path), work_directory())
 
 
 def record(key, *items):

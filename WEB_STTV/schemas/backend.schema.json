@@ -64,7 +64,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -84,7 +85,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -104,7 +106,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -124,7 +127,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -144,7 +148,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -164,7 +169,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -184,7 +190,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -204,7 +211,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {
@@ -224,7 +232,8 @@
             "base": {
               "enum": [
                 "product",
-                "work"
+                "work",
+                "parser"
               ]
             },
             "path": {

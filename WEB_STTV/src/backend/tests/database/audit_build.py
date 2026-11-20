@@ -12,8 +12,8 @@ from sttv.builder import build
 from sttv.common.json_io import json_text
 from sttv.common.paths import output_path
 from sttv.storage import open_set
-from sttv.script.nodes import Located
-from sttv.script.parser import parse_text
+from stellaris_parser.script.nodes import Located
+from stellaris_parser.script.parser import parse_text
 from sttv.sources.expansion import expansion_context
 from sttv.sources.files import selected_files
 from sttv.sources.settings import load_settings

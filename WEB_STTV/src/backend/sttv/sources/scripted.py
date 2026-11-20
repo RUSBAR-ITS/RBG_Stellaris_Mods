@@ -1,8 +1,8 @@
 """Read named libraries separately from independently selected game documents."""
 
-from sttv.script.inline import Expansion
-from sttv.script.parser import parse_text
-from sttv.script.scripted.index import Index
+from stellaris_parser.script.inline import Expansion
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.scripted.index import Index
 from .files import read_source, source_files
 
 

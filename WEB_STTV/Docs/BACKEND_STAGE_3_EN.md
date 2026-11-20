@@ -33,8 +33,8 @@ The selected section in [backend.json](../config/backend.json) is:
 }
 ```
 
-- [lexical.json](../config/parser/lexical.json): BOM, whitespace characters, comment opener, quotation and escaping, multiline strings, operators, and brace delimiters.
-- [constructs.json](../config/parser/constructs.json): standalone values, anonymous and mixed blocks, `rgb`/`hsv` tags, parameters with optional defaults, formulas, and conditional fragments.
+- [lexical.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/lexical.json): BOM, whitespace characters, comment opener, quotation and escaping, multiline strings, operators, and brace delimiters.
+- [constructs.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/constructs.json): standalone values, anonymous and mixed blocks, `rgb`/`hsv` tags, parameters with optional defaults, formulas, and conditional fragments.
 
 Select `base: "work"` for custom configurations: paths are relative to `WORK_DIR`. `product` means the product directory. Selection is independent of the terminal working directory; a missing or invalid file does not activate a fallback.
 

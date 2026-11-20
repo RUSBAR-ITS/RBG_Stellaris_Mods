@@ -4,10 +4,10 @@ import json
 from hashlib import sha256
 
 from support import PRODUCT_ROOT
-from sttv.script.nodes import Source
-from sttv.script.inlining.text import slice_source
-from sttv.script.parser import parse_source, parse_text
-from sttv.script.serialization import serialize_document, walk_nodes
+from stellaris_parser.script.nodes import Source
+from stellaris_parser.script.inlining.text import slice_source
+from stellaris_parser.script.parser import parse_source, parse_text
+from stellaris_parser.script.serialization import serialize_document, walk_nodes
 from sttv.sources.settings import load_settings
 from sttv.sources.expansion import expansion_context
 from sttv.database.history import validate_history

@@ -1,8 +1,8 @@
 """Track shared inputs and directory membership across the complete run."""
 
 from sttv.common.errors import BuildError
-from sttv.enrichment.localization.index import LocalizationIndex
-from sttv.enrichment.localization.snapshot import Snapshot
+from stellaris_parser.localization.index import LocalizationIndex
+from stellaris_parser.localization.snapshot import Snapshot
 from sttv.sources.files import selected_files
 
 

@@ -1,9 +1,9 @@
 """Validate library catalogs and their typed definition references once on load."""
 
 from sttv.common.schema import validate_schema
-from sttv.script.nodes import Source
-from sttv.script.scripted.index import Definition
-from sttv.script.variables.table import Resolved
+from stellaris_parser.script.nodes import Source
+from stellaris_parser.script.scripted.index import Definition
+from stellaris_parser.script.variables.table import Resolved
 from .configuration import KINDS
 from .references import require
 

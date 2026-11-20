@@ -16,12 +16,12 @@ from sttv.storage.settings import load
 from sttv.storage.writing import prepare, write_document
 from sttv.storage.references import diagnostics
 from .attachment import attach
-from .index import LocalizationIndex
+from stellaris_parser.localization.index import LocalizationIndex
 from .references import Resolver
 from .report import failed, failure, new_report
 from .selection import select_targets
 from .settings import load_settings
-from .snapshot import Snapshot
+from stellaris_parser.localization.snapshot import Snapshot
 from sttv.common.datasets import definition
 
 

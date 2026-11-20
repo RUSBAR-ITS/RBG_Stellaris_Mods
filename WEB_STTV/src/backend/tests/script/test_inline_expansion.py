@@ -1,4 +1,6 @@
 """Expansion behavior, argument isolation, metadata, and diagnostics."""
+from stellaris_parser.schema import CONFIG
+
 
 from copy import deepcopy
 import unittest
@@ -6,16 +8,16 @@ import unittest
 from support import PRODUCT_ROOT, syntax
 from sttv.common.errors import BuildError
 from sttv.common.json_io import read_json
-from sttv.script.inline import Expansion, MemoryTemplates
-from sttv.script.nodes import InlineInvocation, LogicalOperation
-from sttv.script.parser import parse_text
+from stellaris_parser.script.inline import Expansion, MemoryTemplates
+from stellaris_parser.script.nodes import InlineInvocation, LogicalOperation
+from stellaris_parser.script.parser import parse_text
 from support import syntax_payload
-from sttv.script.syntax import make_syntax
+from stellaris_parser.script.syntax import make_syntax
 
 
 class InlineExpansionTests(unittest.TestCase):
     def expand(self, text, templates, options=None, selected=None):
-        options = options or read_json(PRODUCT_ROOT / 'config/parser/inline_scripts.json')
+        options = options or read_json(CONFIG / 'inline_scripts.json')
         self.context = Expansion(MemoryTemplates(templates, options), options)
         return parse_text(text, selected or syntax(), 'caller.txt', expansion=self.context)
 
@@ -77,7 +79,7 @@ class InlineExpansionTests(unittest.TestCase):
             self.assertEqual(self.context.counts['failed'], 1)
 
     def test_cycles_and_depth_boundary(self):
-        options = read_json(PRODUCT_ROOT / 'config/parser/inline_scripts.json')
+        options = read_json(CONFIG / 'inline_scripts.json')
         options['max_depth'] = 2
         self.expand('inline_script=p', {'p.txt': 'inline_script=q', 'q.txt': 'x=yes'}, options)
         for templates, code in [({'p.txt': 'inline_script=p'}, 'inline_cycle'),
@@ -110,7 +112,7 @@ class InlineExpansionTests(unittest.TestCase):
         forms['inline_script']['keyword'] = 'include'
         forms['parameters'] = {'open': '%', 'close': '%', 'default_separator': '|'}
         selected = make_syntax(syntax().lexical, forms, syntax().logical_operators)
-        options = read_json(PRODUCT_ROOT / 'config/parser/inline_scripts.json')
+        options = read_json(CONFIG / 'inline_scripts.json')
         options.update(path_field='file', parameter_case_sensitive=False)
         doc = self.expand('include={file=p key=yes}', {'p.txt': 'x=%KEY%'}, options, selected)
         self.assertEqual(doc.items[0].value.text, 'yes')

@@ -72,11 +72,13 @@ TXT сохраняет формат `текст:количество` и сор�
 - [usage_inventory.json](../data/text_frequency/scalar_analysis/usage_inventory.json) — все 56 268 текстов с формами употребления и примерами, включая отклонённые кандидаты.
 - [report.json](../data/text_frequency/scalar_analysis/report.json), [source_manifest.json](../data/text_frequency/scalar_analysis/source_manifest.json), [validation_report.json](../data/text_frequency/scalar_analysis/validation_report.json) — охват, суммы, диагностика, хеши и проверки.
 
-Обработчик: `TMP/WEB_STTV/text_frequency/audit_scalar_usage.py`; обход и критерии находятся в `scalar_usage.py`, проверки — в `verify_scalar_usage.py`. Используются текущий частотный список, его манифест и конфигурация продукта. Результаты записываются в `WORK_DIR/text_frequency/scalar_analysis/`; исходный список частот сохраняется.
+Обработчик: `Instruments/Stellaris_Parser/tools/text_frequency/audit_scalar_usage.py`; обход и критерии находятся в `scalar_usage.py`, проверки — в `verify_scalar_usage.py`. Используются текущий частотный список, его манифест и конфигурация продукта. Результаты записываются в `<output>/scalar_analysis/`; исходный список частот сохраняется.
 
 ```powershell
-& WEB_STTV/data/.venv/Scripts/python.exe -B TMP/WEB_STTV/text_frequency/audit_scalar_usage.py
-& WEB_STTV/data/.venv/Scripts/python.exe -B TMP/WEB_STTV/text_frequency/verify_scalar_usage.py
+$game = (Get-Content WEB_STTV/global_variables.json -Raw | ConvertFrom-Json).STELLARIS_ROOT
+$results = "TMP/WEB_STTV/text_frequency"
+python -B Instruments/Stellaris_Parser/tools/text_frequency/audit_scalar_usage.py --source $game --output $results
+python -B Instruments/Stellaris_Parser/tools/text_frequency/verify_scalar_usage.py --source $game --output $results
 ```
 
 ## Проверки

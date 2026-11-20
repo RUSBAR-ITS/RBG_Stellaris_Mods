@@ -9,40 +9,40 @@
   },
   "parser": {
     "scripted_calls": {
-      "base": "product",
-      "path": "config/parser/scripted_calls.json"
+      "base": "parser",
+      "path": "scripted_calls.json"
     },
     "static_variables": {
-      "base": "product",
-      "path": "config/parser/static_variables.json"
+      "base": "parser",
+      "path": "static_variables.json"
     },
     "exceptions": {
-      "base": "product",
-      "path": "config/parser/exceptions.json"
+      "base": "parser",
+      "path": "exceptions.json"
     },
     "inline_scripts": {
-      "base": "product",
-      "path": "config/parser/inline_scripts.json"
+      "base": "parser",
+      "path": "inline_scripts.json"
     },
     "lexical": {
-      "base": "product",
-      "path": "config/parser/lexical.json"
+      "base": "parser",
+      "path": "lexical.json"
     },
     "constructs": {
-      "base": "product",
-      "path": "config/parser/constructs.json"
+      "base": "parser",
+      "path": "constructs.json"
     },
     "logical_operators": {
-      "base": "product",
-      "path": "config/parser/logical_operators.json"
+      "base": "parser",
+      "path": "logical_operators.json"
     },
     "script_values": {
-      "base": "product",
-      "path": "config/parser/script_values.json"
+      "base": "parser",
+      "path": "script_values.json"
     },
     "source_exceptions": {
-      "base": "product",
-      "path": "config/parser/source_exceptions.json"
+      "base": "parser",
+      "path": "source_exceptions.json"
     }
   },
   "datasets": {

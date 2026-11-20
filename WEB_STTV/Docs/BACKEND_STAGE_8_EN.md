@@ -37,7 +37,7 @@ Four directories relative to `STELLARIS_ROOT` are read separately and excluded f
 | `SCRIPTED_TRIGGERS_DIR` | `common/scripted_triggers` |
 | `SCRIPTED_VARIABLES_DIR` | `common/scripted_variables` |
 
-The seventh selector, `parser.scripted_calls`, selects [scripted_calls.json](../config/parser/scripted_calls.json). Filename pattern, recursion, encoding, name/parameter case rules, depth, node budget, and service fields are configurable. Defaults are `*.txt`, `utf-8-sig`, recursive traversal, case-insensitive names, case-sensitive parameters, mixed depth 64, and at most 1,000,000 created nodes per document. The separate inline-depth limit also applies.
+The seventh selector, `parser.scripted_calls`, selects [scripted_calls.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/scripted_calls.json). Filename pattern, recursion, encoding, name/parameter case rules, depth, node budget, and service fields are configurable. Defaults are `*.txt`, `utf-8-sig`, recursive traversal, case-insensitive names, case-sensitive parameters, mixed depth 64, and at most 1,000,000 created nodes per document. The separate inline-depth limit also applies.
 
 Indexes are built from the game on every operation. Duplicate normalized names, including cross-library collisions, are errors. `namespace` is retained as a file field in the report; `optimize_memory` is excluded from working commands and recorded in history. Caches do not transfer processed bodies between calls or builds. All consumed source hashes are verified again before publication.
 

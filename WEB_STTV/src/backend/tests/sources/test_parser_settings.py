@@ -1,4 +1,6 @@
 """Parser selection, persistence boundaries, and structural serialization."""
+from stellaris_parser.schema import CONFIG
+
 
 import json
 import subprocess
@@ -21,7 +23,7 @@ class ParserSettingsTests(BuildFixture):
         folder = work / 'parser'
         folder.mkdir(parents=True, exist_ok=True)
         for name in ('lexical', 'constructs', 'logical_operators'):
-            (folder / f'{name}.json').write_bytes((PRODUCT_ROOT / f'config/parser/{name}.json').read_bytes())
+            (folder / f'{name}.json').write_bytes((CONFIG / f'{name}.json').read_bytes())
             self.options['parser'][name] = {'base': 'work', 'path': f'parser/{name}.json'}
         return folder
 

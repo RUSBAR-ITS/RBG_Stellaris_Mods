@@ -4,7 +4,7 @@ import hashlib
 import json
 
 from sttv.common.errors import BuildError
-from sttv.script.inlining.loader import FileTemplates
+from stellaris_parser.script.inlining.loader import FileTemplates
 from sttv.sources.files import source_files
 
 PREPARATION_VERSION = '1'

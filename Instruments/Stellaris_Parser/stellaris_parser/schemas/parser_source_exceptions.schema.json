@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "format_version": {
+      "const": 1
+    },
+    "rules": {
+      "items": {
+        "anyOf": [
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "additionalProperties": false,
+                "properties": {
+                  "replace_scalar": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "replace_scalar"
+                ],
+                "type": "object"
+              },
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "const": "script_value_reference"
+              },
+              "match": {
+                "additionalProperties": false,
+                "properties": {
+                  "file": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "root_files": {
+                    "items": {
+                      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "scalar": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "root_files",
+                  "file",
+                  "scalar"
+                ],
+                "type": "object"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "reason",
+              "match",
+              "action"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "parameter_from": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "parameter_from"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "parameter_literal": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "parameter_literal"
+                    ],
+                    "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "parameter_from_object": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "allowed_values": {
+                            "items": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "minItems": 1,
+                            "type": "array",
+                            "uniqueItems": true
+                          },
+                          "field": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "multiple_literal": {
+                            "minLength": 1,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "field",
+                          "allowed_values",
+                          "multiple_literal"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "parameter_from_object"
+                    ],
+                    "type": "object"
+                  }
+                ]
+              },
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "const": "missing_parameter"
+              },
+              "match": {
+                "additionalProperties": false,
+                "properties": {
+                  "call_kind": {
+                    "enum": [
+                      "inline_script",
+                      "scripted_effect",
+                      "scripted_trigger",
+                      "script_value"
+                    ]
+                  },
+                  "call_name": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "definition_file": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "missing_parameter": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "reference": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "required_parameters": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "root_files": {
+                    "items": {
+                      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "root_files",
+                  "call_kind",
+                  "definition_file",
+                  "reference",
+                  "missing_parameter",
+                  "required_parameters"
+                ],
+                "type": "object"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "reason",
+              "match",
+              "action"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "additionalProperties": false,
+                "properties": {
+                  "insert": {
+                    "const": " ="
+                  }
+                },
+                "required": [
+                  "insert"
+                ],
+                "type": "object"
+              },
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "const": "missing_assignment_separator"
+              },
+              "match": {
+                "additionalProperties": false,
+                "properties": {
+                  "containers": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "root_files": {
+                    "items": {
+                      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "value": {
+                    "const": "\"\""
+                  }
+                },
+                "required": [
+                  "root_files",
+                  "containers",
+                  "field",
+                  "value"
+                ],
+                "type": "object"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "reason",
+              "match",
+              "action"
+            ],
+            "type": "object"
+          }
+        ]
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "format_version",
+    "rules"
+  ],
+  "type": "object"
+}

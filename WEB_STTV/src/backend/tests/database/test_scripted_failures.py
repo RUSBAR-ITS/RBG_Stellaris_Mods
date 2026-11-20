@@ -1,4 +1,6 @@
 """Failure isolation, source confinement, and mixed expansion boundaries."""
+from stellaris_parser.schema import CONFIG
+
 
 from copy import deepcopy
 from pathlib import Path
@@ -15,7 +17,7 @@ class ScriptedFailureTests(BuildFixture):
         (self.effects / 'base.txt').write_text(text, encoding='utf-8')
 
     def options_for_calls(self, **updates):
-        options = json.loads((PRODUCT_ROOT / 'config/parser/scripted_calls.json').read_text())
+        options = json.loads((CONFIG / 'scripted_calls.json').read_text())
         options.update(updates)
         work = Path(self.variables['WORK_DIR'])
         work.mkdir(parents=True, exist_ok=True)

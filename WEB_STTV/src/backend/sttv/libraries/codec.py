@@ -3,10 +3,10 @@
 from dataclasses import fields
 
 from sttv.common.errors import BuildError
-from sttv.script import nodes
-from sttv.script.inlining.text import MappedSource, Piece
-from sttv.script.scripted.index import Definition
-from sttv.script.variables.table import Table, Resolved
+from stellaris_parser.script import nodes
+from stellaris_parser.script.inlining.text import MappedSource, Piece
+from stellaris_parser.script.scripted.index import Definition
+from stellaris_parser.script.variables.table import Table, Resolved
 
 CLASSES = {cls.__name__: cls for cls in (nodes.Source, MappedSource, Table, Piece, Definition, Resolved,
     nodes.Span, nodes.Token, nodes.Parameter, nodes.Scalar, nodes.Formula, nodes.Block,
@@ -95,7 +95,7 @@ def decode(graph, rules):
                     raise BuildError('library_source', 'Mapped source length mismatch')
             if obj.plan is not None:
                 validate_plan(obj)
-                from sttv.script.prepared import install
+                from stellaris_parser.script.prepared import install
                 install(obj)
         elif isinstance(obj, Table):
             obj.rules = rules

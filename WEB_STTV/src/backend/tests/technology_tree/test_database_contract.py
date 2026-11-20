@@ -6,8 +6,8 @@ import unittest
 from support import syntax
 from sttv.common.errors import BuildError
 from sttv.database.validation import validate_database
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 from sttv.storage.writing import prepare
 from sttv.enrichment.technology_tree.integrity import check_results
 from sttv.enrichment.technology_tree.representations import prepare as technologies

@@ -127,11 +127,11 @@ Separately confirmed moving **19** infinitely repeatable technologies from game 
 
 ## Artifacts
 
-- [Complete report with 679 decisions and traces](../../data/chain_analysis/final_review/report.json).
+- [Complete report with 679 decisions and traces](../../tests/fixtures/technology_tree/report.json).
 - [Evidence and criterion matches](../../data/chain_analysis/final_review/evidence.json).
 - [Ambiguity log](../../data/chain_analysis/final_review/ambiguities.json).
 - [Research pass settings](../../data/chain_analysis/final_review/rules.json).
-- [Acceptance examples used only by verification](../../data/chain_analysis/final_review/expectations.json).
+- [Acceptance examples used only by verification](../../tests/fixtures/technology_tree/expectations.json).
 - [Calculation entry point](../../data/chain_analysis/final_review/run.py).
 - [General chain rules](TECHNOLOGY_CHAINS_AND_SORTING_EN.md).
 - [Русская версия](CHAIN_RULES_FULL_REVIEW_RU.md).

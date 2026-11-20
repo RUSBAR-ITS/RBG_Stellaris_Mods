@@ -232,7 +232,7 @@ Synthetic checks:
 
 Run actual-data checks using a working technology database copy under `WORK_DIR/stage16`, preserving the reference until verification. A separate acceptance configuration points to this copy and the other 14 source databases as read-only inputs; copying every large file is unnecessary. Do not regenerate game data.
 
-For the base combination on the researched set, expect **679 technologies: 178 roots, 501 selected parents (412 with one original requirement and 89 with multiple), 0 ambiguities and 0 cycles**. Compare all decisions and 12 control examples with the [reference report](../data/chain_analysis/final_review/report.json). Verification reads the reference after calculation; selection cannot access expected pairs. Investigate mismatches instead of masking them with manual corrections.
+For the base combination on the researched set, expect **679 technologies: 178 roots, 501 selected parents (412 with one original requirement and 89 with multiple), 0 ambiguities and 0 cycles**. Compare all decisions and 12 control examples with the [reference report](../tests/fixtures/technology_tree/report.json). Verification reads the reference after calculation; selection cannot access expected pairs. Investigate mismatches instead of masking them with manual corrections.
 
 Using indexes prepared once, check all 206 variants individually and several combinations, including the seven changing area/category. Variant checks cover invariants, unknown-state diagnostics and reproducibility; zero ambiguity is not promised for them. Separately verify saving and reopening at least the base combination and one changed combination.
 

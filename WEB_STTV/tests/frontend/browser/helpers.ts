@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../../frontend-workspace';
 import { expect, type Page } from '@playwright/test';
 import { sttvBrowserDatabase, sttvSet } from '../fixtures';
 import type { SttvDatabase } from '../../../src/frontend/data/syntax';
@@ -17,7 +18,7 @@ export async function sttvUpload(page: Page, data: unknown = sttvBrowserDatabase
   await sttvUploadEntries(page, sttvBundle(sttvSet(data as SttvDatabase)).entries);
 }
 export async function sttvUploadEntries(page: Page, entries: { path: string; content: string | Uint8Array }[]) {
-  const base = resolve('data/frontend-tests/directories'); mkdirSync(base, { recursive: true });
+  const base = resolve(sttvWorkPath('frontend-tests/directories')); mkdirSync(base, { recursive: true });
   const directory = mkdtempSync(resolve(base, 'set-'));
   for (const entry of entries) {
     const path = resolve(directory, entry.path);

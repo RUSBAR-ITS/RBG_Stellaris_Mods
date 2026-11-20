@@ -2,7 +2,7 @@
 
 from sttv.common.timing import measure
 from sttv.enrichment.localization.settings import load_settings
-from sttv.enrichment.localization.snapshot import Snapshot
+from stellaris_parser.localization.snapshot import Snapshot
 from sttv.sources.settings import check_sources
 from sttv.common.datasets import definition
 

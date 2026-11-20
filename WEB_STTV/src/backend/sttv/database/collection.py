@@ -1,7 +1,7 @@
 """Collect selected source documents without domain projection or enrichment."""
 
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 from sttv.sources.files import read_source
 from sttv.common.timing import measure
 

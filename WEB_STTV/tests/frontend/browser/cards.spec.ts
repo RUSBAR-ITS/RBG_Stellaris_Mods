@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect } from '@playwright/test';
 import { mkdirSync } from 'node:fs';
 import { sttvDatabase, sttvTechnology, sttvAssignment as a, sttvScalar as s, sttvBlock as b } from '../fixtures';
@@ -32,11 +33,11 @@ test('expanded cards preserve full names, hide absent values, show zero and dist
   expect(geometry[1].background).not.toBe(geometry[1].surface);
   expect(geometry[2].background).toBe(geometry[2].surface);
   expect(geometry[0].border).not.toBe(geometry[1].border);
-  mkdirSync('data/frontend-stage8', { recursive: true });
-  await first.scrollIntoViewIfNeeded(); await page.screenshot({ path: 'data/frontend-stage8/synthetic-night.png' });
+  mkdirSync(sttvWorkPath('frontend-stage8'), { recursive: true });
+  await first.scrollIntoViewIfNeeded(); await page.screenshot({ path: sttvWorkPath('frontend-stage8/synthetic-night.png') });
   await page.getByRole('button', { name: en.sttv_day_theme, exact: true }).click();
   expect(await first.evaluate(e => getComputedStyle(e).backgroundColor)).not.toBe(geometry[0].background);
-  await page.screenshot({ path: 'data/frontend-stage8/synthetic-day.png' });
+  await page.screenshot({ path: sttvWorkPath('frontend-stage8/synthetic-day.png') });
 });
 
 test('real prepared images and card geometry load without game paths in RU and EN', async ({ page }) => {
@@ -53,8 +54,8 @@ test('real prepared images and card geometry load without game paths in RU and E
     await expect(cards).toHaveCount(678);
     expect(await cards.evaluateAll(cards => cards.every(card => [...card.querySelectorAll('.sttv-card-details, .sttv-card-title')]
       .every(e => e.scrollWidth <= e.clientWidth + 1 && e.scrollHeight <= e.clientHeight + 1)))).toBe(true);
-    mkdirSync('data/frontend-stage8', { recursive: true });
-    await page.screenshot({ path: `data/frontend-stage8/real-${language}-night.png` });
+    mkdirSync(sttvWorkPath('frontend-stage8'), { recursive: true });
+    await page.screenshot({ path: sttvWorkPath(`frontend-stage8/real-${language}-night.png`) });
   }
   expect(errors).toEqual([]);
 });

@@ -1,5 +1,5 @@
 """Descriptor-relative thumbnails share the asset pipeline and remain confined."""
-from pathlib import Path
+from sttv.common.paths import work_directory
 from types import SimpleNamespace
 import unittest
 from unittest.mock import Mock
@@ -23,7 +23,7 @@ class DlcAssetTests(unittest.TestCase):
         return reader
 
     def test_descriptor_relative_path_and_missing_placeholder(self):
-        source = Path('WEB_STTV/data/tests/game').resolve()
+        source = work_directory() / 'tests/game'
         settings = SimpleNamespace(source=source, dlc_root=source / 'dlc', options={'dlc_thumbnails': {'field': 'thumbnail'}})
         images = Mock(); images.get.return_value = 'image_hash'
         report = {'counts': {}, 'diagnostics': []}
@@ -34,7 +34,7 @@ class DlcAssetTests(unittest.TestCase):
         self.assertEqual(report['diagnostics'][0]['code'], 'dlc_thumbnail_missing')
 
     def test_traversal_and_absolute_thumbnail_paths_are_rejected(self):
-        source = Path('WEB_STTV/data/tests/game').resolve()
+        source = work_directory() / 'tests/game'
         settings = SimpleNamespace(source=source, dlc_root=source / 'dlc', options={'dlc_thumbnails': {'field': 'thumbnail'}})
         for path in ('../outside.png', 'C:/outside.png', '/outside.png'):
             with self.subTest(path=path), self.assertRaises(BuildError):

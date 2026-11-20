@@ -1,7 +1,10 @@
 """Enclosing trait context survives nested icon calls without inferred game rules."""
+from stellaris_parser.schema import CONFIG
+
 
 import copy
 import json
+from pathlib import Path
 
 from support import BuildFixture, PRODUCT_ROOT
 from sttv.common.json_io import read_json
@@ -10,12 +13,13 @@ from sttv.common.json_io import read_json
 class TraitClassTests(BuildFixture):
     def setUp(self):
         super().setUp()
-        rule = next(copy.deepcopy(r) for r in read_json(PRODUCT_ROOT / 'config/parser/source_exceptions.json')['rules']
+        rule = next(copy.deepcopy(r) for r in read_json(CONFIG / 'source_exceptions.json')['rules']
                     if r['id'] == 'sttv_trait_icon_class')
         rule['match'].update(root_files=['common/technology/base.txt'], definition_file='common/inline_scripts/part.txt')
-        path = self.root / 'trait_corrections.json'
+        path = Path(self.variables['WORK_DIR']) / 'trait_corrections.json'
+        path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps({'format_version': 1, 'rules': [rule]}), encoding='utf-8')
-        self.options['parser']['source_exceptions'] = {'base': 'product', 'path': path.relative_to(PRODUCT_ROOT).as_posix()}
+        self.options['parser']['source_exceptions'] = {'base': 'work', 'path': path.name}
         (self.inline / 'part.txt').write_text('icon_class=$CLASS$', encoding='utf-8')
         (self.inline / 'outer.txt').write_text('nested={inline_script=part}', encoding='utf-8')
 

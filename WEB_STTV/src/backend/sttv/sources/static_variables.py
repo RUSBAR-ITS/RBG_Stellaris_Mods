@@ -1,9 +1,9 @@
 """Read the shared variable library once for a build or corpus operation."""
 
-from sttv.script.parser import parse_text
-from sttv.script.variables.processor import Processor
-from sttv.script.variables.rules import fail
-from sttv.script.variables.table import Table
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.variables.processor import Processor
+from stellaris_parser.script.variables.rules import fail
+from stellaris_parser.script.variables.table import Table
 from .files import read_source, source_files
 
 

@@ -1,3 +1,4 @@
+import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect } from '@playwright/test';
 import { statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -31,7 +32,8 @@ test('large formatted JSON streams through the browser without File.text', async
       });
     } finally { worker.terminate(); URL.revokeObjectURL(url); }
   });
-  writeFileSync('data/stage17/large_stream_probe.json', JSON.stringify({ path, bytes: statSync(path).size,
+  mkdirSync(sttvWorkPath('stage17'), { recursive: true });
+  writeFileSync(sttvWorkPath('stage17/large_stream_probe.json'), JSON.stringify({ path, bytes: statSync(path).size,
     browser: browser.version(), seconds: (performance.now() - started) / 1000, ...result }, null, 2) + '\n');
   expect(result.status).toBe('success'); expect(result.count).toBe(result.expected); expect(result.count).toBeGreaterThan(0);
 });

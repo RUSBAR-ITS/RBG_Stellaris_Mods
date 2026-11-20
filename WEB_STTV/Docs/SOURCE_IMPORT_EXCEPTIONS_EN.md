@@ -12,7 +12,7 @@
 
 ## Status
 
-The user approved these rules with stage 12 on 2026-11-18; they are implemented. [source_exceptions.json](../config/parser/source_exceptions.json) is loaded through `parser.source_exceptions`, with every application recorded in the report. Case-insensitive parameter names, structural expansion of `effect = no`, and mixed-environment resolution for one shared variable declaration are implemented.
+The user approved these rules with stage 12 on 2026-11-18; they are implemented. [source_exceptions.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/source_exceptions.json) is loaded through `parser.source_exceptions`, with every application recorded in the report. Case-insensitive parameter names, structural expansion of `effect = no`, and mixed-environment resolution for one shared variable declaration are implemented.
 
 This transformation neither evaluates nor confirms engine behavior for `effect = no`. Original causes are documented in the [investigation](RESEARCH_STAGE_12_BLOCKERS_EN.md); all seven files passed the full run, with results in the [stage 12 guide](BACKEND_STAGE_12_EN.md#verification).
 
@@ -39,7 +39,7 @@ Stage 19 approves `sttv_trait_icon_class` and `sttv_trait_council_icon_class`: a
 
 If an intermediate template dropped an explicitly supplied CLASS, the same scoped exceptions first use the nearest explicit argument in the invocation chain, then consult leader_class. This does not introduce general argument inheritance between templates.
 
-`source_exceptions.json` is separate from [exceptions.json](../config/parser/exceptions.json), which already allows an inline template filename without an extension. The new file describes import transformations; its paths match sources already being read and do not authorize opening arbitrary files.
+`source_exceptions.json` is separate from [exceptions.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/exceptions.json), which already allows an inline template filename without an extension. The new file describes import transformations; its paths match sources already being read and do not authorize opening arbitrary files.
 
 The implementation loads the file through `parser.source_exceptions`, validates its format and records it among configuration inputs. Applied transformations affect set contents and identity. Conditions within one rule use AND; `root_files` entries use OR. Parameter names follow the shared case policy; argument values are not lowercased. Complete scalar reference values match exactly.
 

@@ -2,7 +2,6 @@
 
 from dataclasses import dataclass
 from pathlib import Path
-from os.path import relpath
 
 from sttv.common.errors import BuildError
 from sttv.common.variables import expand_variables, substitute
@@ -10,8 +9,8 @@ from sttv.common.json_io import read_json
 from sttv.common.paths import (PRODUCT_ROOT, PRODUCT_DIRECTORIES, REPOSITORY_ROOT, distinct_paths,
                                output_path, path_from, protected, selected_path)
 from sttv.common.schema import validate_schema
-from sttv.script.syntax import Syntax, load_syntax
-from sttv.script.variables.rules import Rules
+from stellaris_parser.script.syntax import Syntax, load_syntax
+from stellaris_parser.script.variables.rules import Rules
 
 
 @dataclass
@@ -113,7 +112,7 @@ def load_settings(variables_path, config_path, options=None, dataset=None):
     static_rules = Rules(read_json(static_config), syntax)
     scripted_options = read_json(scripted_config)
     validate_schema(scripted_options, 'parser_scripted_calls.schema.json')
-    from sttv.script.values.references import validate_options
+    from stellaris_parser.script.values.references import validate_options
     value_options = read_json(value_config)
     validate_options(value_options, syntax)
     source_exceptions = read_json(corrections_config)
@@ -122,7 +121,7 @@ def load_settings(variables_path, config_path, options=None, dataset=None):
                     syntax, inline_directory, inline_options, scripted_effects_directory,
                     scripted_variables_directory, parser_exceptions, static_rules,
                     scripted_triggers_directory, scripted_options, script_values_directory, value_options,
-                    source_exceptions, Path(relpath(corrections_config, PRODUCT_ROOT)).as_posix(), libraries, parallel)
+                    source_exceptions, options['parser']['source_exceptions']['path'], libraries, parallel)
 
 
 def check_sources(settings):

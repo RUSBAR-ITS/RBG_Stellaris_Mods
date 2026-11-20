@@ -4,8 +4,8 @@ import re
 import json
 from collections import Counter
 
-from sttv.script.nodes import Assignment, Block, Conditional, Formula, LogicalOperation, Scalar, TaggedBlock
-from sttv.script.nodes import ScriptedTriggerTest, ScriptValue
+from stellaris_parser.script.nodes import Assignment, Block, Conditional, Formula, LogicalOperation, Scalar, TaggedBlock
+from stellaris_parser.script.nodes import ScriptedTriggerTest, ScriptValue
 
 VARIABLE = re.compile(r'@(?:[A-Za-z0-9_]+|\$[^$\r\n]+\$)+')
 PARAMETER = re.compile(r'\$[^$|\s]+(?:\|[^$]*)?\$')

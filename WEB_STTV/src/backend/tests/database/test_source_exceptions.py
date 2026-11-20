@@ -1,7 +1,10 @@
 """Scoped import corrections, structural effect calls, and parameter environments."""
+from stellaris_parser.schema import CONFIG
+
 
 import copy
 import json
+from pathlib import Path
 
 from support import BuildFixture, PRODUCT_ROOT
 from sttv.common.json_io import read_json
@@ -9,13 +12,14 @@ from sttv.common.json_io import read_json
 
 class SourceExceptionTests(BuildFixture):
     def configure(self, rule):
-        config = self.root / 'corrections.json'
+        config = Path(self.variables['WORK_DIR']) / 'corrections.json'
+        config.parent.mkdir(parents=True, exist_ok=True)
         config.write_text(json.dumps({'format_version': 1, 'rules': rule}), encoding='utf-8')
         self.options['parser']['source_exceptions'] = {
-            'base': 'product', 'path': config.relative_to(PRODUCT_ROOT).as_posix()}
+            'base': 'work', 'path': config.name}
 
     def missing_rule(self):
-        rule = copy.deepcopy(read_json(PRODUCT_ROOT / 'config/parser/source_exceptions.json')['rules'][1])
+        rule = copy.deepcopy(read_json(CONFIG / 'source_exceptions.json')['rules'][1])
         rule['match'].update(root_files=['common/technology/base.txt'], definition_file='common/inline_scripts/part.txt')
         return rule
 
@@ -72,7 +76,7 @@ class SourceExceptionTests(BuildFixture):
         self.assertIn('ambiguous_static_environment', self.errors(self.run_build()))
 
     def test_reference_correction_is_exact_logged_and_keeps_original_history(self):
-        rule = copy.deepcopy(read_json(PRODUCT_ROOT / 'config/parser/source_exceptions.json')['rules'][0])
+        rule = copy.deepcopy(read_json(CONFIG / 'source_exceptions.json')['rules'][0])
         rule['match'].update(root_files=['common/technology/base.txt'], file='common/technology/base.txt')
         self.configure([rule])
         (self.values / 'test.txt').write_text('scripted_modifier_mult={base=$MODIFIER$}', encoding='utf-8')
@@ -88,7 +92,7 @@ class SourceExceptionTests(BuildFixture):
         self.assertIn('invalid_script_value_arguments', self.errors(self.run_build()))
 
     def test_literal_argument_has_configuration_provenance_and_existing_value_wins(self):
-        rule = copy.deepcopy(read_json(PRODUCT_ROOT / 'config/parser/source_exceptions.json')['rules'][2])
+        rule = copy.deepcopy(read_json(CONFIG / 'source_exceptions.json')['rules'][2])
         rule['match'].update(root_files=['common/technology/base.txt'],
                              definition_file='common/scripted_effects/test.txt', call_name='give')
         self.configure([rule])
@@ -101,4 +105,4 @@ class SourceExceptionTests(BuildFixture):
             self.assertEqual(value['text'], expected)
             self.assertEqual(report['counts']['source_exceptions'][rule['id']], applications)
             if applications:
-                self.assertIn('PRODUCT_ROOT', json.dumps(value['origin']))
+                self.assertIn('WORK_DIR', json.dumps(value['origin']))

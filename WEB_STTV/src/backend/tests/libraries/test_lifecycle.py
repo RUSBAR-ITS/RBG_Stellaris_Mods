@@ -12,8 +12,8 @@ from sttv.builder import build
 from sttv.common.errors import BuildError
 from sttv.libraries.operation import library_operation, add_mode_arguments
 from sttv.sources.expansion import expansion_context
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 from .fixture import LibraryFixture
 
 

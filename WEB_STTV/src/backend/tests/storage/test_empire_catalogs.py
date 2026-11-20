@@ -1,4 +1,6 @@
 """Configured empire identities and nested DLC indexes."""
+from stellaris_parser.schema import CONFIG
+
 
 from copy import deepcopy
 from types import SimpleNamespace
@@ -10,11 +12,11 @@ from sttv.common.json_io import read_json
 from sttv.common.report import Report
 from sttv.common.object_selection import pointer_indices
 from sttv.database_sets.descriptors import relationships, verify
-from sttv.script.nodes import Source
-from sttv.script.parser import parse_source, parse_text
-from sttv.script.serialization import serialize_document
-from sttv.script.source_exceptions import SourceExceptions
-from sttv.script.source_insertions import repair
+from stellaris_parser.script.nodes import Source
+from stellaris_parser.script.parser import parse_source, parse_text
+from stellaris_parser.script.serialization import serialize_document
+from stellaris_parser.script.source_exceptions import SourceExceptions
+from stellaris_parser.script.source_insertions import repair
 from sttv.storage.objects import index_document, check_objects
 from sttv.storage.writing import prepare
 
@@ -56,7 +58,7 @@ class EmpireCatalogTests(unittest.TestCase):
             relationships('dlcs', [doc, descriptor, deepcopy(descriptor)])
 
     def test_repair_exact_scope_and_original_positions(self):
-        options = read_json(PRODUCT_ROOT / 'config/parser/source_exceptions.json')
+        options = read_json(CONFIG / 'source_exceptions.json')
         report = Report()
         context = SimpleNamespace(exceptions=SourceExceptions(options, report, 'rules.json'), preparing=False, stack=[])
         raw = 'dlcs={ dlc002={ paradoxplaza_store_url ""\n name="Test" } }'

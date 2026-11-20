@@ -1,5 +1,5 @@
 {
-  "WORK_DIR": "data",
+  "WORK_DIR": "../TMP/WEB_STTV",
   "STELLARIS_ROOT": "E:/SteamLibrary/steamapps/common/Stellaris",
   "TECH_PATH": "common/technology",
   "INLINE_SCRIPTS_DIR": "common/inline_scripts",

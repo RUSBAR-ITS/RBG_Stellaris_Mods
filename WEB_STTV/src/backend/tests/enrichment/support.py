@@ -1,4 +1,6 @@
 """Small persisted trees and localization sources inside the repository."""
+from sttv.common.paths import work_directory
+
 
 import copy
 import tempfile
@@ -9,14 +11,14 @@ from support import PRODUCT_ROOT, syntax
 from sttv.common.json_io import json_text, read_json
 from sttv.database.validation import FORMAT, FORMAT_VERSION
 from sttv.enrichment.localization import enrich_localization
-from sttv.script.parser import parse_text
-from sttv.script.serialization import serialize_document
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.serialization import serialize_document
 
 
 class LocalizationFixture(unittest.TestCase):
     def setUp(self):
-        base = PRODUCT_ROOT / "data/tests"
-        base.mkdir(exist_ok=True)
+        base = work_directory() / 'tests'
+        base.mkdir(parents=True, exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(dir=base)
         self.root = Path(self.temporary.name).resolve()
         self.work = self.root / "work"
@@ -32,7 +34,7 @@ class LocalizationFixture(unittest.TestCase):
         self.options = read_json(PRODUCT_ROOT / "config/enrichment/localization.json")
         self.target_options = read_json(PRODUCT_ROOT / self.options['targets']['technologies']['path'])
         self.target_file = self.work / 'targets.json'
-        self.options['targets']['technologies'] = {'base': 'product', 'path': self.target_file.relative_to(PRODUCT_ROOT).as_posix()}
+        self.options['targets']['technologies'] = {'base': 'work', 'path': self.target_file.name}
         self.variable_file, self.config_file = self.root / "variables.json", self.root / "localization.json"
         self.database_path = self.work / "database_set/manifest.json"
         self.documents = [("common/technology/base.txt", 'tech_a = { technology_swap = { name = variant_a } } null_void_beam = {}'),
@@ -46,7 +48,7 @@ class LocalizationFixture(unittest.TestCase):
                 "null_void_beam": "Void", "null_void_beam_desc": "Void description"})
 
     def tearDown(self):
-        assert self.root.is_relative_to((PRODUCT_ROOT / "data/tests").resolve())
+        assert self.root.is_relative_to((work_directory() / 'tests').resolve())
         self.temporary.cleanup()
 
     def write_database(self):

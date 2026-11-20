@@ -87,13 +87,15 @@ The third pass had 59,828 distinct elements and 1,553,955 occurrences. Removing 
 - [Second-pass snapshot](../../TMP/WEB_STTV/text_frequency/pass_2_snapshot/report.json) — previous artifacts remain under `TMP/WEB_STTV/text_frequency/pass_2_snapshot/`.
 - [Third-pass snapshot](../../TMP/WEB_STTV/text_frequency/pass_3_snapshot/report.json) — lists before variable exclusion, including both scalar-use lists.
 
-Research modules: [count_text.py](../../TMP/WEB_STTV/text_frequency/count_text.py), [frequency_tree.py](../../TMP/WEB_STTV/text_frequency/frequency_tree.py), [verify_frequency.py](../../TMP/WEB_STTV/text_frequency/verify_frequency.py). All three lists share the filter in [variable_filter.py](../../TMP/WEB_STTV/text_frequency/variable_filter.py). Paths use product settings; output is written to `WORK_DIR/text_frequency/` within the repository. Rerunning replaces current results.
+Research modules: [count_text.py](../../Instruments/Stellaris_Parser/tools/text_frequency/count_text.py), [frequency_tree.py](../../Instruments/Stellaris_Parser/tools/text_frequency/frequency_tree.py), [verify_frequency.py](../../Instruments/Stellaris_Parser/tools/text_frequency/verify_frequency.py). All three lists share the filter in [variable_filter.py](../../Instruments/Stellaris_Parser/tools/text_frequency/variable_filter.py). Set the source and report directories with `--source` and `--output`. Rerunning replaces current results.
 
 From the repository root:
 
 ```powershell
-& WEB_STTV/data/.venv/Scripts/python.exe -B TMP/WEB_STTV/text_frequency/count_text.py
-& WEB_STTV/data/.venv/Scripts/python.exe -B TMP/WEB_STTV/text_frequency/verify_frequency.py
+$game = (Get-Content WEB_STTV/global_variables.json -Raw | ConvertFrom-Json).STELLARIS_ROOT
+$results = "TMP/WEB_STTV/text_frequency"
+python -B Instruments/Stellaris_Parser/tools/text_frequency/count_text.py --source $game --output $results
+python -B Instruments/Stellaris_Parser/tools/text_frequency/verify_frequency.py --source $game --output $results
 ```
 
 ## Checks and limitations

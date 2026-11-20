@@ -28,7 +28,7 @@ Without `--config`, the standard `config/backend.json`, `data/database.json`, an
 
 The new variable `SCRIPT_VALUES_DIR = common/script_values` selects the library relative to `STELLARIS_ROOT`. It is read separately and excluded from independent traversal together with inline, scripted effect, scripted trigger, and scripted variable directories. An existing directory is required; an empty library is valid.
 
-The eighth selector, `parser.script_values`, points to [script_values.json](../config/parser/script_values.json): `reference_prefix = value:`, `scope_separator = .`, and `argument_separator = |`. Ambiguous and conflicting markers are rejected. File patterns, recursion, encoding, case rules, and shared limits come from [scripted_calls.json](../config/parser/scripted_calls.json), without duplicating loading settings.
+The eighth selector, `parser.script_values`, points to [script_values.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/script_values.json): `reference_prefix = value:`, `scope_separator = .`, and `argument_separator = |`. Ambiguous and conflicting markers are rejected. File patterns, recursion, encoding, case rules, and shared limits come from [scripted_calls.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/scripted_calls.json), without duplicating loading settings.
 
 Defaults are `*.txt`, recursive traversal, `utf-8-sig`, case-insensitive names, case-sensitive parameters, mixed depth up to 64, and a budget of 1,000,000 created nodes per document. The separate inline-depth limit still applies. Configurations and libraries are protected from output overwrites.
 

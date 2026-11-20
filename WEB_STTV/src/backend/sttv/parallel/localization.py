@@ -3,9 +3,9 @@
 from copy import copy
 
 from sttv.libraries.inventory import digest
-from sttv.enrichment.localization.index import LocalizationIndex
+from stellaris_parser.localization.index import LocalizationIndex
 from sttv.enrichment.localization.report import new_report, failed
-from sttv.enrichment.localization.snapshot import Snapshot
+from stellaris_parser.localization.snapshot import Snapshot
 from sttv.enrichment.localization.selection import select_targets
 from sttv.enrichment.localization.attachment import attach
 from sttv.common.errors import BuildError

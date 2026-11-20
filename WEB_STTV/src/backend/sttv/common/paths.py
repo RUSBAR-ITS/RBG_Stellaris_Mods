@@ -14,6 +14,11 @@ def path_from(value, parent):
     return (path if path.is_absolute() else parent / path).resolve()
 
 
+def work_directory():
+    from .json_io import read_json
+    return path_from(read_json(PRODUCT_ROOT / "global_variables.json")["WORK_DIR"], PRODUCT_ROOT)
+
+
 def protected(path, roots):
     return any(path == root or path.is_relative_to(root) for root in roots)
 
@@ -31,7 +36,11 @@ def output_path(work, value, roots=()):
 
 
 def selected_path(selection, work):
-    base = PRODUCT_ROOT if selection["base"] == "product" else work
+    if selection["base"] == "parser":
+        from stellaris_parser.schema import CONFIG
+        base = CONFIG
+    else:
+        base = PRODUCT_ROOT if selection["base"] == "product" else work
     path = path_from(selection["path"], base)
     if path == base or not path.is_relative_to(base):
         raise BuildError("unsafe_config", "Configuration path escapes its selected base")

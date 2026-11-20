@@ -16,7 +16,7 @@ from sttv.common.timing import performance
 from sttv.database.checks.compiler import Compiler
 from sttv.storage.writing import write_document
 from sttv.database.validation import database_rules, DatabaseValidator
-from sttv.script.serialization import walk_nodes
+from stellaris_parser.script.serialization import walk_nodes
 
 
 class PreparedValidationTests(unittest.TestCase):

@@ -28,7 +28,7 @@
 
 Новая переменная `SCRIPT_VALUES_DIR = common/script_values` задаёт библиотеку относительно `STELLARIS_ROOT`. Она читается отдельно и исключена из самостоятельного обхода вместе с каталогами inline, scripted effects, scripted triggers и scripted variables. Требуется существующий каталог; пустая библиотека допустима.
 
-Восьмой селектор `parser.script_values` указывает на [script_values.json](../config/parser/script_values.json): `reference_prefix = value:`, `scope_separator = .`, `argument_separator = |`. Неоднозначные и конфликтующие обозначения отклоняются. Маска файлов, рекурсивность, кодировка, регистр и общие пределы берутся из [scripted_calls.json](../config/parser/scripted_calls.json), без второго набора настроек загрузки.
+Восьмой селектор `parser.script_values` указывает на [script_values.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/script_values.json): `reference_prefix = value:`, `scope_separator = .`, `argument_separator = |`. Неоднозначные и конфликтующие обозначения отклоняются. Маска файлов, рекурсивность, кодировка, регистр и общие пределы берутся из [scripted_calls.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/scripted_calls.json), без второго набора настроек загрузки.
 
 Значения по умолчанию: `*.txt`, рекурсивный обход, `utf-8-sig`, имена без учёта регистра, параметры с учётом регистра, смешанная глубина до 64 и бюджет 1 000 000 создаваемых узлов на документ. Отдельное ограничение inline-глубины сохраняется. Конфиги и библиотеки защищены от перезаписи результатами.
 

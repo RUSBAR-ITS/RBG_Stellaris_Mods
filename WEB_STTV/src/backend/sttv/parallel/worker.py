@@ -15,8 +15,8 @@ from sttv.storage.writing import write_document
 from sttv.database.validation import database_rules
 from sttv.libraries.operation import ACTIVE
 from sttv.libraries.storage import load
-from sttv.script.metrics import ACTIVE as METRICS, Metrics
-from sttv.script.serialization import encode
+from stellaris_parser.script.metrics import ACTIVE as METRICS, Metrics
+from stellaris_parser.script.serialization import encode
 from sttv.sources.expansion import expansion_context
 from sttv.enrichment.localization.report import new_report
 from .localization import Localizations

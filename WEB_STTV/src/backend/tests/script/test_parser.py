@@ -4,7 +4,7 @@ import unittest
 
 import support
 from sttv.common.errors import BuildError
-from sttv.script.parser import parse_text as parse_document
+from stellaris_parser.script.parser import parse_text as parse_document
 
 
 def parse_text(text):

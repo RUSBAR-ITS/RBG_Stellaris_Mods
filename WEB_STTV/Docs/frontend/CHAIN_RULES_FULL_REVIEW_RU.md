@@ -127,11 +127,11 @@
 
 ## Артефакты
 
-- [Полный отчёт с 679 решениями и трассировками](../../data/chain_analysis/final_review/report.json).
+- [Полный отчёт с 679 решениями и трассировками](../../tests/fixtures/technology_tree/report.json).
 - [Свидетельства и соответствия критериев](../../data/chain_analysis/final_review/evidence.json).
 - [Журнал неоднозначностей](../../data/chain_analysis/final_review/ambiguities.json).
 - [Настройки исследовательского прогона](../../data/chain_analysis/final_review/rules.json).
-- [Контрольные примеры, используемые только проверкой](../../data/chain_analysis/final_review/expectations.json).
+- [Контрольные примеры, используемые только проверкой](../../tests/fixtures/technology_tree/expectations.json).
 - [Запуск расчёта](../../data/chain_analysis/final_review/run.py).
 - [Общие правила цепочек](TECHNOLOGY_CHAINS_AND_SORTING_RU.md).
 - [English version](CHAIN_RULES_FULL_REVIEW_EN.md).

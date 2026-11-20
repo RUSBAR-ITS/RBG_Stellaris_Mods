@@ -72,11 +72,13 @@ Numbers `0` and `1` are absent from the second list because they also occur as k
 - [usage_inventory.json](../data/text_frequency/scalar_analysis/usage_inventory.json) — all 56,268 texts with usage forms and examples, including rejected candidates.
 - [report.json](../data/text_frequency/scalar_analysis/report.json), [source_manifest.json](../data/text_frequency/scalar_analysis/source_manifest.json), [validation_report.json](../data/text_frequency/scalar_analysis/validation_report.json) — coverage, totals, diagnostics, hashes, and checks.
 
-Handler: `TMP/WEB_STTV/text_frequency/audit_scalar_usage.py`; traversal and criteria reside in `scalar_usage.py`, checks in `verify_scalar_usage.py`. Inputs are the current frequency list, its manifest, and product settings. Results go to `WORK_DIR/text_frequency/scalar_analysis/`; the original frequency list remains intact.
+Handler: `Instruments/Stellaris_Parser/tools/text_frequency/audit_scalar_usage.py`; traversal and criteria reside in `scalar_usage.py`, checks in `verify_scalar_usage.py`. Inputs are the current frequency list, its manifest, and product settings. Results go to `<output>/scalar_analysis/`; the original frequency list remains intact.
 
 ```powershell
-& WEB_STTV/data/.venv/Scripts/python.exe -B TMP/WEB_STTV/text_frequency/audit_scalar_usage.py
-& WEB_STTV/data/.venv/Scripts/python.exe -B TMP/WEB_STTV/text_frequency/verify_scalar_usage.py
+$game = (Get-Content WEB_STTV/global_variables.json -Raw | ConvertFrom-Json).STELLARIS_ROOT
+$results = "TMP/WEB_STTV/text_frequency"
+python -B Instruments/Stellaris_Parser/tools/text_frequency/audit_scalar_usage.py --source $game --output $results
+python -B Instruments/Stellaris_Parser/tools/text_frequency/verify_scalar_usage.py --source $game --output $results
 ```
 
 ## Checks

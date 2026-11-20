@@ -3,8 +3,8 @@
 from .helpers import BOOL, RELATIVE, TEXT, array, obj
 
 
-def selection():
-    return obj({"base": {"enum": ["product", "work"]}, "path": RELATIVE})
+def selection(*bases):
+    return obj({"base": {"enum": ["product", "work", *bases]}, "path": RELATIVE})
 
 
 def schema():
@@ -15,7 +15,7 @@ def schema():
         "parallel": selection(),
         "storage": selection(),
         "sources": array(source, minItems=1),
-        "parser": obj({key: selection() for key in
+        "parser": obj({key: selection("parser") for key in
                        ("lexical", "constructs", "logical_operators", "inline_scripts", "exceptions",
                         "static_variables", "scripted_calls", "script_values", "source_exceptions")}),
         "outputs": obj({"report": RELATIVE}),

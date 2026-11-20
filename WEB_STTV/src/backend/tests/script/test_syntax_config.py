@@ -6,8 +6,8 @@ import unittest
 from support import syntax
 from script.assertions import check_document
 from sttv.common.errors import BuildError
-from sttv.script.parser import parse_text
-from sttv.script.syntax import make_syntax
+from stellaris_parser.script.parser import parse_text
+from stellaris_parser.script.syntax import make_syntax
 
 
 class SyntaxConfigurationTests(unittest.TestCase):

@@ -3,8 +3,8 @@
 import unittest
 
 from support import syntax
-from sttv.script.nodes import Source
-from sttv.script.values.references import candidate, invocation
+from stellaris_parser.script.nodes import Source
+from stellaris_parser.script.values.references import candidate, invocation
 
 
 class ValueReferenceTests(unittest.TestCase):

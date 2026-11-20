@@ -1,4 +1,6 @@
 """Fixtures shared by calculation expansion acceptance tests."""
+from stellaris_parser.schema import CONFIG
+
 
 import json
 
@@ -17,7 +19,7 @@ class ValueFixture(BuildFixture):
         return self.database()['documents'][0], report
 
     def change_options(self, kind, **changes):
-        options = json.loads((PRODUCT_ROOT / f'config/parser/{kind}.json').read_text())
+        options = json.loads((CONFIG / f'{kind}.json').read_text())
         options.update(changes)
         path = self.root / 'work' / f'{kind}.json'
         path.parent.mkdir(parents=True, exist_ok=True)

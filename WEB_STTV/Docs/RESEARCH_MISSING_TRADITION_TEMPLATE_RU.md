@@ -52,7 +52,7 @@ tradition_swap = {
 
 ## Причина диагностики
 
-При первоначальной проверке наш [загрузчик](../src/backend/sttv/script/inlining/loader.py) дописывал расширение из [inline_scripts.json](../config/parser/inline_scripts.json): `.txt`. Поэтому он искал отсутствующий вариант имени и выдавал `missing_inline_template`. По следующему поручению пользователя добавлен [отдельный конфиг исключений](../config/parser/exceptions.json), который явно разрешает чтение найденного файла без расширения. Для остальных вызовов правило `.txt` сохранено.
+При первоначальной проверке наш [загрузчик](../../Instruments/Stellaris_Parser/stellaris_parser/script/inlining/loader.py) дописывал расширение из [inline_scripts.json](../../Instruments/Stellaris_Parser/stellaris_parser/config/inline_scripts.json): `.txt`. Поэтому он искал отсутствующий вариант имени и выдавал `missing_inline_template`. По следующему поручению пользователя добавлен [отдельный конфиг исключений](../../Instruments/Stellaris_Parser/stellaris_parser/config/exceptions.json), который явно разрешает чтение найденного файла без расширения. Для остальных вызовов правило `.txt` сохранено.
 
 Ванильный [00_README.txt:33](/E:/SteamLibrary/steamapps/common/Stellaris/common/inline_scripts/00_README.txt:33) описывает вызов без расширения, а пример связывает его с файлом `.txt`. Поведение движка для файла без расширения этим примером не установлено. Автоматический поиск альтернативного имени или переименование файла в этой итерации не добавлялись.
 
