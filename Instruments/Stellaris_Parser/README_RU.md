@@ -29,3 +29,5 @@ python -m stellaris_parser prepare --config WEB_STTV/config/parser_sources.json 
 ```powershell
 python -m stellaris_parser parse --config WEB_STTV/config/parser_sources.json --output TMP/WEB_STTV/physics.json common/technology/00_phys_tech.txt
 ```
+
+Пакетный запуск и повторное использование библиотек описаны в проекте ТЗ. [ТЗ на пакетный разбор](Docs/TZ_BATCH_PARSE_RU.md)

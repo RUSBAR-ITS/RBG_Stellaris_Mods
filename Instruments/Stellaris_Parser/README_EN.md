@@ -29,3 +29,5 @@ Set `roots` to the selected mod and game directories in priority order. The firs
 ```powershell
 python -m stellaris_parser parse --config WEB_STTV/config/parser_sources.json --output TMP/WEB_STTV/physics.json common/technology/00_phys_tech.txt
 ```
+
+The draft specification describes batch parsing and library reuse. [Batch parsing specification](Docs/TZ_BATCH_PARSE_EN.md)
