@@ -46,6 +46,14 @@
             }
           ]
         },
+        "description_fields": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
         "description_nodes": {
           "type": "boolean"
         },
@@ -86,6 +94,16 @@
           "minLength": 1,
           "type": "string"
         },
+        "name_candidates": {
+          "items": {
+            "enum": [
+              "identity",
+              "uppercase"
+            ]
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
         "name_field": {
           "minLength": 1,
           "type": "string"
@@ -95,6 +113,14 @@
         },
         "omit_name": {
           "type": "boolean"
+        },
+        "optional_variants": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
         },
         "text_field": {
           "minLength": 1,

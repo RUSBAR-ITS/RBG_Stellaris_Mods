@@ -8,6 +8,11 @@ def invalid(message, path):
 
 
 def validate_fallback(node, path, name, field):
+    if field['fallback']['kind'] == 'dlc_descriptor':
+        if (name != 'name' or field['inherited_from'] is not None
+                or field['fallback']['source_ref'] not in node.get('enrichments', {}).get('dlc', {}).get('descriptors', [])):
+            invalid('DLC name fallback must refer to a linked descriptor', path)
+        return
     reference = field['fallback']['source_ref']['pointer']
     prefix = path + '/value/items/'
     if (name != 'description' or field['inherited_from'] is not None
@@ -40,6 +45,8 @@ def validate_enrichments(enriched, document):
             for name, field in fields.items():
                 refs = [field['inherited_from'], field.get('fallback', {}).get('source_ref')]
                 for reference in refs:
+                    if reference is not None and field.get('fallback', {}).get('kind') == 'dlc_descriptor' and reference == field['fallback']['source_ref']:
+                        continue
                     if reference is not None and (reference['database'] != document.get('database')
                             or reference['document_id'] != document.get('document_id')):
                         invalid('Localization reference leaves its document', path)
@@ -58,7 +65,8 @@ def validate_enrichments(enriched, document):
                 parent_ref = field["inherited_from"]
                 parent = parent_ref['pointer'] if parent_ref else None
                 if parent is None:
-                    if field["key"] != field["requested_key"]:
+                    candidates = field.get('candidate_keys', [field['requested_key']])
+                    if candidates[0] != field['requested_key'] or field['key'] not in candidates:
                         invalid("Direct text must match its requested key", path)
                     continue
                 if (name != "description" or parent not in enriched

@@ -1,0 +1,88 @@
+{
+  "rules": [
+    {
+      "id": "ascension_perk",
+      "enabled": true,
+      "handler": "object",
+      "predicates": [
+        "has_ascension_perk"
+      ],
+      "database": "ascension_perks",
+      "purpose": "acquisition",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "potential",
+          "context": "country"
+        },
+        {
+          "field": "possible",
+          "context": "country"
+        }
+      ],
+      "source": "common/ascension_perks",
+      "diagnostic_code": "dlc_object_dependency"
+    },
+    {
+      "id": "tradition",
+      "enabled": true,
+      "handler": "tradition",
+      "predicates": [
+        "has_tradition"
+      ],
+      "database": "traditions",
+      "purpose": "acquisition",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "potential",
+          "context": "country"
+        },
+        {
+          "field": "possible",
+          "context": "country"
+        }
+      ],
+      "source": "common/traditions",
+      "diagnostic_code": "dlc_object_dependency",
+      "providers": {
+        "rule": "tradition_category",
+        "fields": [
+          "traditions",
+          "adoption_bonus",
+          "finish_bonus"
+        ]
+      }
+    },
+    {
+      "id": "tradition_category",
+      "enabled": true,
+      "handler": "object",
+      "predicates": [],
+      "database": "tradition_categories",
+      "purpose": "acquisition",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "potential",
+          "context": "country"
+        },
+        {
+          "field": "possible",
+          "context": "country"
+        }
+      ],
+      "source": "common/tradition_categories",
+      "diagnostic_code": "dlc_object_dependency"
+    }
+  ]
+}

@@ -16,6 +16,7 @@
 - [Button](elements/TZ_BUTTON_EN.md).
 - [Selection control](elements/TZ_SELECT_EN.md).
 - [Connection](elements/TZ_CONNECTION_EN.md).
+- [DLC enable switch](TZ_FRONTEND_STAGE_10_EN.md#6-ui-kit-and-styling).
 
 ## Composite elements
 
@@ -27,6 +28,7 @@
 - [Card attribute row](TZ_FRONTEND_STAGE_8_EN.md#2-card-contents).
 - [Tooltip](elements/TZ_TOOLTIP_EN.md).
 - [Status panel](elements/TZ_STATUS_PANEL_EN.md).
+- [DLC row](TZ_FRONTEND_STAGE_10_EN.md#3-dlc-list).
 
 ## Regions and layout structure
 
@@ -45,3 +47,4 @@
 ## Views
 
 - [Main window](elements/TZ_MAIN_WINDOW_EN.md).
+- [DLC settings](TZ_FRONTEND_STAGE_10_EN.md).

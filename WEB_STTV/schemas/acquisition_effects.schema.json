@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "activation": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "branches": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "commands": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "basis": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "handler": {
+            "enum": [
+              "grant",
+              "option",
+              "progress",
+              "random",
+              "copy_random",
+              "copy_all"
+            ]
+          },
+          "scalar": {
+            "type": "boolean"
+          },
+          "target": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "handler",
+          "target",
+          "scalar",
+          "basis"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "domain_fields": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "event_calls": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "failure_field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_depth": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_depth"
+      ],
+      "type": "object"
+    },
+    "random": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "safe_actions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "scopes": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "transparent": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "commands",
+    "activation",
+    "event_calls",
+    "scopes",
+    "transparent",
+    "branches",
+    "random",
+    "safe_actions",
+    "domain_fields",
+    "failure_field",
+    "limits"
+  ],
+  "type": "object"
+}

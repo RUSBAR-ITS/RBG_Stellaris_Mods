@@ -13,6 +13,7 @@ from sttv.storage.publication import Publication
 from .publication import publish
 from .selection import calculate
 from .settings import load
+from sttv.enrichment.dlc import catalog as dlc_catalog, filtering as dlc_filter
 
 
 def run(settings, report, recalculate, publication):
@@ -22,8 +23,23 @@ def run(settings, report, recalculate, publication):
     report['rules'] = settings.rules
     with measure(times, 'reading'):
         reader = open_set(settings.storage.manifest)
+        if settings.expected_revision is not None and reader.manifest['snapshot_revision'] != settings.expected_revision:
+            raise BuildError('stale_snapshot', 'The requested snapshot is no longer current')
         documents, records, targets = technology_input(settings, reader)
         technologies = representations.prepare(records, settings.combination['variants'])
+        visibility = None
+        if 'dlc' in settings.combination:
+            names = dlc_catalog.read_catalog(reader, settings.dlc_rules)
+            enabled = settings.combination['dlc']['enabled']
+            settings.dlc_profile = dlc_catalog.profile(names, list(names) if enabled is None else enabled)
+            from sttv.enrichment.dlc.analysis import Analysis
+            cache = getattr(settings, 'analysis_cache', None)
+            analysis = (cache.get(technologies, names, settings.dlc_rules, reader, settings.cancelled) if cache else
+                        Analysis(technologies, names, settings.dlc_rules, reader=reader, cancelled=settings.cancelled))
+            visibility, notes = analysis.evaluate(settings.dlc_profile['enabled'])
+            report['dlc_analysis'] = analysis.report()
+            report['diagnostics'].extend(notes)
+            settings.combination['id'] = 'dlc_' + revisions.digest(revisions.parameters(settings, technologies))
     report['combination'] = {'id': settings.combination['id'], **revisions.parameters(settings, technologies)}
     with measure(times, 'hashing'):
         inventory = [{'kind': kind, 'algorithm': 'sttv.dataset_sources.v1', 'hash': dataset['source_revision']}
@@ -49,13 +65,20 @@ def run(settings, report, recalculate, publication):
     if reusable and not recalculate:
         results, meta = old_results, old_meta
         report['decisions'] = reporting.reused_decisions(technologies, results)
+        if visibility is not None:
+            stored_visibility = {key: value['visibility'] for key, value in results.items()}
+            report['diagnostics'].extend(dlc_filter.attach(results, report['decisions'], technologies, stored_visibility))
         report['action'] = 'reused'
     else:
+        settings.check_snapshot()
         with measure(times, 'indexes'):
             prepared = evidence.load(settings, technologies, reader)
         report['bytes']['index_read'] = reader.bytes - report['bytes']['technology_read']
         with measure(times, 'criteria'):
-            results, decisions, diagnostics = calculate(technologies, prepared, settings.rules, settings.facts)
+            selected = dlc_filter.select(technologies, visibility) if visibility is not None else technologies
+            results, decisions, diagnostics = calculate(selected, prepared, settings.rules, settings.facts)
+            if visibility is not None:
+                diagnostics.extend(dlc_filter.attach(results, decisions, technologies, visibility))
         report['decisions'] = decisions
         report['diagnostics'].extend(diagnostics)
         report['action'] = 'computed'
@@ -79,6 +102,9 @@ def run(settings, report, recalculate, publication):
         report['bytes']['written'] = 0
         report['counts']['written_documents'] = 0
     report['counts']['unchanged_documents'] = len(documents) - report['counts']['written_documents']
+    if visibility is not None:
+        report['counts']['visible'] = sum(row['visible'] for row in visibility.values())
+        report['counts']['hidden'] = len(visibility) - report['counts']['visible']
     report['coverage'] = reader.coverage()
     report['bytes']['read_and_hashed'] = reader.bytes
     report['bytes']['hashing_extra_read'] = 0
@@ -88,11 +114,24 @@ def run(settings, report, recalculate, publication):
 
 
 @schema_operation
-def execute(variables_path=None, config_path=None, combination_path=None, *, recalculate=False):
+def execute(variables_path=None, config_path=None, combination_path=None, *, recalculate=False,
+            dlc_enabled=False, cancelled=None, expected_revision=None, variants=None, commit_guard=None, analysis_cache=None):
     report, settings, start = reporting.initial(), None, perf_counter()
     try:
         with measure(report['timings'], 'configuration'):
             settings = load(variables_path, config_path, combination_path)
+            settings.analysis_cache = analysis_cache
+            settings.cancelled = cancelled
+            settings.expected_revision = expected_revision
+            settings.commit_guard = commit_guard
+            if variants is not None:
+                settings.combination['variants'] = variants
+            if dlc_enabled is not False:
+                settings.combination['dlc'] = {'enabled': dlc_enabled}
+            if expected_revision is not None:
+                current = open_set(settings.storage.manifest).manifest['snapshot_revision']
+                if current != expected_revision:
+                    raise BuildError('stale_snapshot', 'The requested snapshot is no longer current')
         with Publication(settings.storage) as publication:
             from sttv.parallel.memory import Monitor
             memory = Monitor(publication.directory)

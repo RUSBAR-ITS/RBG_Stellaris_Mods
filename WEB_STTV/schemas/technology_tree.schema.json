@@ -42,6 +42,26 @@
       ],
       "type": "object"
     },
+    "dlc_rules": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
     "format": {
       "const": "sttv.technology_tree_config"
     },
@@ -125,6 +145,7 @@
     "technology_targets",
     "rules",
     "combination",
+    "dlc_rules",
     "report",
     "staging_directory"
   ],

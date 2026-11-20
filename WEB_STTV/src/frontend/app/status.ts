@@ -9,6 +9,10 @@ import en from '../locales/en.json';
 export function sttvStatusMessage(state: SttvOpening, language: SttvLanguage = 'ru'): SttvTextRef {
   const kind = state.progress?.kind;
   const dictionary: Record<string, string> = language === 'ru' ? ru : en;
+  if (state.status === 'error' && state.error?.details.serviceCode) return {
+    id: state.error.details.serviceCode === 'set_mismatch' || state.error.details.serviceCode === 'stale_snapshot'
+      ? 'sttv_dlc_set_mismatch' : state.error.details.serviceCode === 'service_unavailable'
+        ? 'sttv_dlc_service_required' : 'sttv_dlc_prepare_failed' };
   if (state.status === 'loading') return { id: `sttv_${state.phase ?? 'reading'}`,
     params: { index: (state.progress?.fileIndex ?? 0) + 1, total: state.progress?.total ?? state.files.length,
       kind: kind ? dictionary[sttvDatasets[kind].labelId] : '' } };
@@ -16,7 +20,7 @@ export function sttvStatusMessage(state: SttvOpening, language: SttvLanguage = '
     && typeof state.error.details.count === 'number') return { id: 'sttv_invalid_database_count',
       params: { count: state.error.details.count, expected: state.error.details.expected as number } };
   if (state.status === 'error' && state.error) return { id: diagnostics.messages[state.error.code] };
-  if (state.status === 'empty') return { id: 'sttv_empty' };
-  if (state.status === 'ready') return { id: 'sttv_ready', params: { count: Object.keys(state.data!.technologies).length } };
+  if (state.status === 'empty') return { id: state.data?.treeCombination.parameters.dlc ? 'sttv_dlc_tree_empty' : 'sttv_empty' };
+  if (state.status === 'ready') return { id: 'sttv_ready', params: { count: Object.values(state.data!.technologies).filter(t => t.tree.visibility?.visible !== false).length } };
   return { id: 'sttv_no_database' };
 }

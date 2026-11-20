@@ -85,7 +85,10 @@ class SourceExceptions:
             if rule is None:
                 return None
             action, used = rule['action'], set()
-            if 'parameter_from' in action:
+            if 'parameter_from_object' in action:
+                from .object_arguments import derive
+                argument, value_source = derive(context, action, self.config_file, record['id'], normalize(parameter.name))
+            elif 'parameter_from' in action:
                 key = normalize(action['parameter_from'])
                 argument = bindings[key]
                 used.add(key)

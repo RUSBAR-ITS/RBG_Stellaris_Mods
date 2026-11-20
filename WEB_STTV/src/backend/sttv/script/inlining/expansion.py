@@ -14,6 +14,7 @@ class Expansion(Coordinator):
         if len(self.stack) > self.options['max_depth']:
             raise BuildError('inline_depth', 'Inline expansion depth exceeded')
         path, raw, arguments, bindings = invocation(node, source, syntax, self.options)
+        self.argument_bindings[record['id']] = bindings
         identity, relative, _ = self.templates.identity(path.text)
         record.update(target=dict(file=relative),
                       invocation=dict(operator='=', form=node.form if node.form == 'reference' else 'arguments',
@@ -31,6 +32,7 @@ class Expansion(Coordinator):
         self.account(document.items)
         self.remember(document)
         self.sequence(document.items, expanded, syntax, definition_root)
+        used.update(self.forwarded_arguments.pop(record['id'], set()))
         self.unused(bindings, used, relative, record, node)
         return document.items
 

@@ -22,6 +22,7 @@ from .report import failed, failure, new_report
 from .selection import select_targets
 from .settings import load_settings
 from .snapshot import Snapshot
+from sttv.common.datasets import definition
 
 
 def refresh(settings, snapshot, report, storage, kind):
@@ -32,10 +33,18 @@ def refresh(settings, snapshot, report, storage, kind):
         index = LocalizationIndex(settings, snapshot, report)
         resolver = Resolver(index, settings.options['references'])
         identities = {}
+        linked, descriptors = {}, {}
+        if 'descriptorLink' in definition(kind):
+            from sttv.database_sets.descriptors import relationships
+            linked = {doc['document_id']: doc for doc in reader.iter_documents(kind)}
+            _, descriptors, _ = relationships(kind, linked.values())
         for position, descriptor in enumerate(manifest['datasets'][kind]['documents']):
-            document = reader.read_document(kind, descriptor['document_id'])
+            document = linked.get(descriptor['document_id']) if linked else reader.read_document(kind, descriptor['document_id'])
             envelope = {'documents': [document]}
             targets = select_targets(envelope, settings, report['counts'], identities=identities)
+            if linked:
+                from sttv.database_sets.descriptors import decorate_targets
+                decorate_targets(kind, targets, descriptors)
             diagnostic_start = len(report['diagnostics'])
             attach(envelope, targets, settings, resolver, report)
             diagnostics(report, kind, descriptor['document_id'], diagnostic_start)

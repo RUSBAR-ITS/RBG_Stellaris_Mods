@@ -1,0 +1,105 @@
+{
+  "rules": [
+    {
+      "id": "origin",
+      "enabled": true,
+      "handler": "object",
+      "predicates": [
+        "has_origin"
+      ],
+      "database": "civics",
+      "purpose": "selection",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "playable",
+          "context": "country"
+        },
+        {
+          "field": "potential",
+          "context": "government"
+        },
+        {
+          "field": "possible",
+          "context": "government"
+        }
+      ],
+      "source": "common/governments/civics",
+      "diagnostic_code": "dlc_object_dependency",
+      "selector": {
+        "field": "is_origin",
+        "value": "yes",
+        "default": "no"
+      }
+    },
+    {
+      "id": "civic",
+      "enabled": true,
+      "handler": "object",
+      "predicates": [
+        "has_civic",
+        "has_valid_civic"
+      ],
+      "database": "civics",
+      "purpose": "acquisition",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "playable",
+          "context": "country"
+        },
+        {
+          "field": "potential",
+          "context": "government"
+        },
+        {
+          "field": "possible",
+          "context": "government"
+        }
+      ],
+      "source": "common/governments/civics",
+      "diagnostic_code": "dlc_object_dependency",
+      "selector": {
+        "field": "is_origin",
+        "value": "no",
+        "default": "no"
+      }
+    },
+    {
+      "id": "authority",
+      "enabled": true,
+      "handler": "object",
+      "predicates": [
+        "has_authority"
+      ],
+      "database": "authorities",
+      "purpose": "acquisition",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "playable",
+          "context": "country"
+        },
+        {
+          "field": "potential",
+          "context": "government"
+        },
+        {
+          "field": "possible",
+          "context": "government"
+        }
+      ],
+      "source": "common/governments/authorities",
+      "diagnostic_code": "dlc_object_dependency"
+    }
+  ]
+}

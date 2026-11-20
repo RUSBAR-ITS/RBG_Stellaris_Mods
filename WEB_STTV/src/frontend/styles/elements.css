@@ -1,4 +1,23 @@
 :root {
+  --sttv-switch-background: var(--sttv-hidden-border);
+  --sttv-switch-color: var(--sttv-text-primary);
+  --sttv-switch-font: var(--sttv-type-control);
+  --sttv-switch-off: var(--sttv-border);
+  --sttv-switch-on: var(--sttv-accent);
+  --sttv-switch-thumb-color: var(--sttv-text-primary);
+  --sttv-switch-hover: var(--sttv-hover-background);
+  --sttv-switch-focus: var(--sttv-accent);
+  --sttv-switch-disabled-color: var(--sttv-text-secondary);
+  --sttv-switch-disabled-background: var(--sttv-border);
+  --sttv-dlc-color: var(--sttv-text-primary);
+  --sttv-dlc-background: var(--sttv-field-background);
+  --sttv-dlc-font: var(--sttv-type-body);
+  --sttv-dlc-heading-font: var(--sttv-type-area);
+  --sttv-dlc-row-background: var(--sttv-surface-background);
+  --sttv-dlc-row-border: var(--sttv-border);
+  --sttv-button-disabled-color: var(--sttv-text-secondary);
+  --sttv-nav-selected-background: var(--sttv-pressed-background);
+  --sttv-nav-selected-color: var(--sttv-text-primary);
   --sttv-card-detail-font: var(--sttv-type-card-detail);
   --sttv-card-detail-color: var(--sttv-text-primary);
   --sttv-card-physics-background: var(--sttv-science-physics-surface);

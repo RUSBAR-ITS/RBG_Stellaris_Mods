@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "condition_fields": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "crisis_levels": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "crisis_predicate": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "definitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "directory": {
+            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+            "type": "string"
+          },
+          "effects": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "gates": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "type": {
+            "enum": [
+              "perk",
+              "tradition",
+              "crisis_path",
+              "crisis_level",
+              "event",
+              "on_action"
+            ]
+          }
+        },
+        "required": [
+          "directory",
+          "type",
+          "effects",
+          "gates"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "event_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "event_lists": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "event_triggered": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "definitions",
+    "condition_fields",
+    "event_id",
+    "event_triggered",
+    "event_lists",
+    "crisis_levels",
+    "crisis_predicate"
+  ],
+  "type": "object"
+}

@@ -12,10 +12,10 @@ export const sttvRules: SttvTargetRegistry = Object.fromEntries(sttvDatabaseKind
 export function sttvAdaptSet(inputs: SttvDatabase[], _files: { name: string; size: number }[] = []) {
   if (inputs.length !== sttvDatabaseKinds.length || new Set(inputs.map(d => d.database)).size !== sttvDatabaseKinds.length
     || inputs.some(d => d.format !== 'sttv.parse_document' || d.format_version !== 1)) sttvSetError('Invalid fixture set.');
-  const { manifest } = sttvBundle(inputs);
+  const { manifest, documents } = sttvBundle(inputs);
   sttvCheckManifest(manifest);
   const adapter = new SttvSetAdapter(manifest, sttvRules);
-  for (const kind of sttvDatabaseKinds) for (const db of inputs.filter(d => d.database === kind)) {
+  for (const kind of sttvDatabaseKinds) for (const db of documents.filter(d => d.database === kind)) {
     adapter.document(db, 0); adapter.completed(kind, db.document_id);
   }
   return adapter.finish({ declaredDocuments: inputs.length, verifiedDocuments: inputs.length,

@@ -8,10 +8,15 @@ from sttv.common.datasets import KINDS
 
 def registry():
     from .helpers import mapping
-    return obj({'format_version': {'const': 1}, 'datasets': mapping(obj({
+    fields = {
         'labelId': TEXT, 'directory': RELATIVE, 'recursive': BOOL, 'rootTypes': array(TEXT, uniqueItems=True),
         'identity': {'enum': ['key', 'field', 'anonymous', 'fragments']}, 'idField': union(TEXT, NULL)
-    }), {'type': 'string', 'pattern': '^[a-z][a-z_]*$'})})
+    }
+    optional = {'containers': array(TEXT),
+        'sourceRoles': array(obj({'role': {'enum': ['objects', 'descriptor']}, 'pattern': TEXT})),
+        'descriptorLink': obj({'matchField': TEXT, 'localizationField': TEXT})}
+    return obj({'format_version': {'const': 2}, 'datasets': mapping(obj({**fields, **optional}, list(fields)),
+        {'type': 'string', 'pattern': '^[a-z][a-z_]*$'})})
 
 
 def configuration():
@@ -21,6 +26,7 @@ def configuration():
     result = obj({'parser': build['parser'], 'libraries': selection(), 'parallel': selection(), 'datasets': obj({kind: dataset for kind in KINDS}),
                 'storage': selection(), 'localization': selection(), 'report': RELATIVE})
     result['properties']['assets'] = selection()
+    result['properties']['acquisition'] = selection()
     return result
 
 

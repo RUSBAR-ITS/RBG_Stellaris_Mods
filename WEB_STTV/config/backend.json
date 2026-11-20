@@ -1,5 +1,8 @@
 {
-  "assets": {"base": "product", "path": "config/enrichment/assets.json"},
+  "assets": {
+    "base": "product",
+    "path": "config/enrichment/assets.json"
+  },
   "parallel": {
     "base": "product",
     "path": "config/parallel.json"
@@ -252,6 +255,222 @@
         "report": "reports/events_build.json",
         "localization_report": "reports/events_localization.json"
       }
+    },
+    "species_archetypes": {
+      "sources": [
+        {
+          "variable": "SPECIES_ARCHETYPES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/species_archetypes_build.json",
+        "localization_report": "reports/species_archetypes_localization.json"
+      }
+    },
+    "species_classes": {
+      "sources": [
+        {
+          "variable": "SPECIES_CLASSES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/species_classes_build.json",
+        "localization_report": "reports/species_classes_localization.json"
+      }
+    },
+    "ethics": {
+      "sources": [
+        {
+          "variable": "ETHICS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/ethics_build.json",
+        "localization_report": "reports/ethics_localization.json"
+      }
+    },
+    "ethic_categories": {
+      "sources": [
+        {
+          "variable": "ETHIC_CATEGORIES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/ethic_categories_build.json",
+        "localization_report": "reports/ethic_categories_localization.json"
+      }
+    },
+    "traits": {
+      "sources": [
+        {
+          "variable": "TRAITS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/traits_build.json",
+        "localization_report": "reports/traits_localization.json"
+      }
+    },
+    "graphical_culture": {
+      "sources": [
+        {
+          "variable": "GRAPHICAL_CULTURE_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/graphical_culture_build.json",
+        "localization_report": "reports/graphical_culture_localization.json"
+      }
+    },
+    "ship_categories": {
+      "sources": [
+        {
+          "variable": "SHIP_CATEGORIES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/ship_categories_build.json",
+        "localization_report": "reports/ship_categories_localization.json"
+      }
+    },
+    "authorities": {
+      "sources": [
+        {
+          "variable": "AUTHORITIES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/authorities_build.json",
+        "localization_report": "reports/authorities_localization.json"
+      }
+    },
+    "civics": {
+      "sources": [
+        {
+          "variable": "CIVICS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/civics_build.json",
+        "localization_report": "reports/civics_localization.json"
+      }
+    },
+    "dlcs": {
+      "sources": [
+        {
+          "variable": "DLC_METADATA_DIR",
+          "pattern": "dlc_info.txt",
+          "recursive": false,
+          "encoding": "utf-8-sig"
+        },
+        {
+          "variable": "DLC_DIR",
+          "pattern": "*.dlc",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/dlcs_build.json",
+        "localization_report": "reports/dlcs_localization.json"
+      }
+    },
+    "ascension_perks": {
+      "sources": [
+        {
+          "variable": "ASCENSION_PERKS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/ascension_perks_build.json",
+        "localization_report": "reports/ascension_perks_localization.json"
+      }
+    },
+    "traditions": {
+      "sources": [
+        {
+          "variable": "TRADITIONS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/traditions_build.json",
+        "localization_report": "reports/traditions_localization.json"
+      }
+    },
+    "tradition_categories": {
+      "sources": [
+        {
+          "variable": "TRADITION_CATEGORIES_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/tradition_categories_build.json",
+        "localization_report": "reports/tradition_categories_localization.json"
+      }
+    },
+    "crisis_paths": {
+      "sources": [
+        {
+          "variable": "CRISIS_PATHS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/crisis_paths_build.json",
+        "localization_report": "reports/crisis_paths_localization.json"
+      }
+    },
+    "crisis_levels": {
+      "sources": [
+        {
+          "variable": "CRISIS_LEVELS_DIR",
+          "pattern": "*.txt",
+          "recursive": true,
+          "encoding": "utf-8-sig"
+        }
+      ],
+      "outputs": {
+        "report": "reports/crisis_levels_build.json",
+        "localization_report": "reports/crisis_levels_localization.json"
+      }
     }
   },
   "localization": {
@@ -266,5 +485,9 @@
   "storage": {
     "base": "product",
     "path": "config/storage.json"
+  },
+  "acquisition": {
+    "base": "product",
+    "path": "config/enrichment/acquisition/sources.json"
   }
 }

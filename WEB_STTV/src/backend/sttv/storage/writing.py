@@ -27,7 +27,7 @@ def write_document(document, path, kind, metrics, *, validate=True):
             validator = DatabaseValidator()
             validator.container(document)
             nodes = validator.document(document)
-        objects = index_document(kind, identifier, document['items'])
+        objects = index_document(kind, identifier, document['items'], document['source'])
     if validate:
         metrics['validated_documents'] += 1
         metrics['documents'].append({'source': document['source']['file'], 'nodes': nodes,

@@ -14,6 +14,8 @@ class Target:
     field_keys: dict = field(default_factory=dict)
     fallback: tuple | None = None
     kind: str = 'technologies'
+    candidates: dict = field(default_factory=dict)
+    candidate_sources: dict = field(default_factory=dict)
 
 
 def assignment(node, key=None):

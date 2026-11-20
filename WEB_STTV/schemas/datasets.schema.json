@@ -6,6 +6,31 @@
       "additionalProperties": {
         "additionalProperties": false,
         "properties": {
+          "containers": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "descriptorLink": {
+            "additionalProperties": false,
+            "properties": {
+              "localizationField": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "matchField": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "matchField",
+              "localizationField"
+            ],
+            "type": "object"
+          },
           "directory": {
             "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
             "type": "string"
@@ -43,6 +68,29 @@
             },
             "type": "array",
             "uniqueItems": true
+          },
+          "sourceRoles": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "pattern": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "role": {
+                  "enum": [
+                    "objects",
+                    "descriptor"
+                  ]
+                }
+              },
+              "required": [
+                "role",
+                "pattern"
+              ],
+              "type": "object"
+            },
+            "type": "array"
           }
         },
         "required": [
@@ -62,7 +110,7 @@
       "type": "object"
     },
     "format_version": {
-      "const": 1
+      "const": 2
     }
   },
   "required": [

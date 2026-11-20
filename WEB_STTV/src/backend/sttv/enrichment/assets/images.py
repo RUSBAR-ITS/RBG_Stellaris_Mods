@@ -17,7 +17,8 @@ class Images:
         self.settings, self.publication = settings, publication
         self.snapshot, self.report = snapshot, report
         self.files, self.sources, self.cache = {}, {}, {}
-        self.revision = digest({'options': settings.options, 'decoder': pillow_version, 'algorithm': 1})
+        conversion_options = {key: value for key, value in settings.options.items() if key != 'dlc_thumbnails'}
+        self.revision = digest({'options': conversion_options, 'decoder': pillow_version, 'algorithm': 1})
         self.previous = previous if settings.options['reuse'] and previous.get('settings_revision') == self.revision else {}
 
     def get(self, relative, context):

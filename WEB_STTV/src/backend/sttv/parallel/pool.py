@@ -23,6 +23,7 @@ class Pool:
         self.root, self.executor = None, None
         self.monitor = None
         self.requests, self.responses = None, []
+        self.acquisition_options, self.acquisition_results = None, []
 
     def __enter__(self):
         options = self.settings.parallel
@@ -78,7 +79,8 @@ class Pool:
         for index, (path, encoding) in enumerate(files):
             source = path.relative_to(settings.game).as_posix()
             jobs.append({'kind': kind, 'index': index, 'source': source, 'path': str(path), 'encoding': encoding,
-                         'settings': settings, 'local': local, 'output': str(directory / f'{index:06d}.json')})
+                         'settings': settings, 'local': local, 'acquisition': self.acquisition_options,
+                         'output': str(directory / f'{index:06d}.json')})
             parallel['jobs'].append({'index': index, 'source': source, 'status': 'not_started', 'pid': None,
                                     'seconds': 0.0, 'bytes': 0, 'content_hash': None, 'shard_hash': None})
         results, pending, cursor, failed = {}, {}, 0, False
@@ -109,6 +111,8 @@ class Pool:
                         if fragment is not None and Path(fragment['path']).resolve() != Path(job['output']).resolve():
                             raise BuildError('parallel_result', 'Unexpected intermediate file')
                         results[result['index']] = result
+                        if result.get('acquisition'):
+                            self.acquisition_results.append(result['acquisition'])
                         summary = parallel['jobs'][job['index']]
                         summary.update(status=result['status'], pid=result['pid'], seconds=result['seconds'])
                         if fragment:

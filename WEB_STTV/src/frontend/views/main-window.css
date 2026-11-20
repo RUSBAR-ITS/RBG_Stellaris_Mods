@@ -1,3 +1,5 @@
 .sttv-main-window { display: grid; grid-template-rows: minmax(0, 1fr) var(--sttv-status-height); height: 100%; }
 .sttv-workspace { display: flex; min-height: 0; min-width: 0; }
-.sttv-main-content { flex: 1; min-width: 0; min-height: 0; background: var(--sttv-main-background); }
+.sttv-main-content { position: relative; flex: 1; min-width: 0; min-height: 0; background: var(--sttv-main-background); }
+.sttv-view-slot { position: absolute; inset: 0; }
+.sttv-view-slot[data-active='false'] { visibility: hidden; pointer-events: none; }

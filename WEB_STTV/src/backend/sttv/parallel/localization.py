@@ -20,7 +20,7 @@ class Localizations:
         self.tables = {}
         self.texts = {}
 
-    def apply(self, document, settings, ordinal, report, identities, timings):
+    def apply(self, document, settings, ordinal, report, identities, timings, decorate=None):
         key = digest({'sources': {lang: [(tier, str(path)) for tier, path in sources]
                                  for lang, sources in settings.sources.items()},
                       'reading': settings.options['reading'], 'languages': settings.options['languages']})
@@ -39,6 +39,8 @@ class Localizations:
         container = {'documents': [document]}
         targets = select_targets(container, settings, report['counts'],
                                  document_offset=ordinal, identities=identities)
+        if decorate:
+            decorate(targets)
         reference_key = key, digest(settings.options['references'])
         resolver = CachedResolver(index, settings.options['references'], self.texts.setdefault(reference_key, {}))
         attach(container, targets, settings, resolver, report, fresh=True)

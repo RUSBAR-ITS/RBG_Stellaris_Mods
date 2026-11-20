@@ -80,7 +80,22 @@
                         "economic_categories",
                         "scripted_actions",
                         "on_actions",
-                        "events"
+                        "events",
+                        "species_archetypes",
+                        "species_classes",
+                        "ethics",
+                        "ethic_categories",
+                        "traits",
+                        "graphical_culture",
+                        "ship_categories",
+                        "authorities",
+                        "civics",
+                        "dlcs",
+                        "ascension_perks",
+                        "traditions",
+                        "tradition_categories",
+                        "crisis_paths",
+                        "crisis_levels"
                       ]
                     }
                   },
@@ -120,7 +135,22 @@
                     "economic_categories",
                     "scripted_actions",
                     "on_actions",
-                    "events"
+                    "events",
+                    "species_archetypes",
+                    "species_classes",
+                    "ethics",
+                    "ethic_categories",
+                    "traits",
+                    "graphical_culture",
+                    "ship_categories",
+                    "authorities",
+                    "civics",
+                    "dlcs",
+                    "ascension_perks",
+                    "traditions",
+                    "tradition_categories",
+                    "crisis_paths",
+                    "crisis_levels"
                   ]
                 },
                 "type": "array",
@@ -162,7 +192,22 @@
                         "economic_categories",
                         "scripted_actions",
                         "on_actions",
-                        "events"
+                        "events",
+                        "species_archetypes",
+                        "species_classes",
+                        "ethics",
+                        "ethic_categories",
+                        "traits",
+                        "graphical_culture",
+                        "ship_categories",
+                        "authorities",
+                        "civics",
+                        "dlcs",
+                        "ascension_perks",
+                        "traditions",
+                        "tradition_categories",
+                        "crisis_paths",
+                        "crisis_levels"
                       ]
                     },
                     "type": "array",
@@ -193,7 +238,22 @@
                     "economic_categories",
                     "scripted_actions",
                     "on_actions",
-                    "events"
+                    "events",
+                    "species_archetypes",
+                    "species_classes",
+                    "ethics",
+                    "ethic_categories",
+                    "traits",
+                    "graphical_culture",
+                    "ship_categories",
+                    "authorities",
+                    "civics",
+                    "dlcs",
+                    "ascension_perks",
+                    "traditions",
+                    "tradition_categories",
+                    "crisis_paths",
+                    "crisis_levels"
                   ]
                 },
                 "propertyNames": {
@@ -243,7 +303,22 @@
                   "economic_categories",
                   "scripted_actions",
                   "on_actions",
-                  "events"
+                  "events",
+                  "species_archetypes",
+                  "species_classes",
+                  "ethics",
+                  "ethic_categories",
+                  "traits",
+                  "graphical_culture",
+                  "ship_categories",
+                  "authorities",
+                  "civics",
+                  "dlcs",
+                  "ascension_perks",
+                  "traditions",
+                  "tradition_categories",
+                  "crisis_paths",
+                  "crisis_levels"
                 ]
               },
               "modifier_block": {
@@ -304,7 +379,22 @@
                   "economic_categories",
                   "scripted_actions",
                   "on_actions",
-                  "events"
+                  "events",
+                  "species_archetypes",
+                  "species_classes",
+                  "ethics",
+                  "ethic_categories",
+                  "traits",
+                  "graphical_culture",
+                  "ship_categories",
+                  "authorities",
+                  "civics",
+                  "dlcs",
+                  "ascension_perks",
+                  "traditions",
+                  "tradition_categories",
+                  "crisis_paths",
+                  "crisis_levels"
                 ]
               }
             },
@@ -340,7 +430,22 @@
                         "economic_categories",
                         "scripted_actions",
                         "on_actions",
-                        "events"
+                        "events",
+                        "species_archetypes",
+                        "species_classes",
+                        "ethics",
+                        "ethic_categories",
+                        "traits",
+                        "graphical_culture",
+                        "ship_categories",
+                        "authorities",
+                        "civics",
+                        "dlcs",
+                        "ascension_perks",
+                        "traditions",
+                        "tradition_categories",
+                        "crisis_paths",
+                        "crisis_levels"
                       ]
                     },
                     "linked_field": {
@@ -363,7 +468,22 @@
                         "economic_categories",
                         "scripted_actions",
                         "on_actions",
-                        "events"
+                        "events",
+                        "species_archetypes",
+                        "species_classes",
+                        "ethics",
+                        "ethic_categories",
+                        "traits",
+                        "graphical_culture",
+                        "ship_categories",
+                        "authorities",
+                        "civics",
+                        "dlcs",
+                        "ascension_perks",
+                        "traditions",
+                        "tradition_categories",
+                        "crisis_paths",
+                        "crisis_levels"
                       ]
                     },
                     "modifier": {
@@ -419,7 +539,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "roles": {
@@ -479,7 +614,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "predicate": {
@@ -529,7 +679,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "completion_field": {
@@ -552,7 +717,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "component_type": {
@@ -583,7 +763,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "events_field": {
@@ -618,7 +813,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "kinds": {
@@ -638,7 +848,22 @@
                         "economic_categories",
                         "scripted_actions",
                         "on_actions",
-                        "events"
+                        "events",
+                        "species_archetypes",
+                        "species_classes",
+                        "ethics",
+                        "ethic_categories",
+                        "traits",
+                        "graphical_culture",
+                        "ship_categories",
+                        "authorities",
+                        "civics",
+                        "dlcs",
+                        "ascension_perks",
+                        "traditions",
+                        "tradition_categories",
+                        "crisis_paths",
+                        "crisis_levels"
                       ]
                     },
                     "type": "array",
@@ -1011,7 +1236,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             }
                           },
@@ -1085,7 +1325,22 @@
                             "economic_categories",
                             "scripted_actions",
                             "on_actions",
-                            "events"
+                            "events",
+                            "species_archetypes",
+                            "species_classes",
+                            "ethics",
+                            "ethic_categories",
+                            "traits",
+                            "graphical_culture",
+                            "ship_categories",
+                            "authorities",
+                            "civics",
+                            "dlcs",
+                            "ascension_perks",
+                            "traditions",
+                            "tradition_categories",
+                            "crisis_paths",
+                            "crisis_levels"
                           ]
                         },
                         "type": "array",
@@ -1127,7 +1382,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             },
                             "type": "array",
@@ -1158,7 +1428,22 @@
                             "economic_categories",
                             "scripted_actions",
                             "on_actions",
-                            "events"
+                            "events",
+                            "species_archetypes",
+                            "species_classes",
+                            "ethics",
+                            "ethic_categories",
+                            "traits",
+                            "graphical_culture",
+                            "ship_categories",
+                            "authorities",
+                            "civics",
+                            "dlcs",
+                            "ascension_perks",
+                            "traditions",
+                            "tradition_categories",
+                            "crisis_paths",
+                            "crisis_levels"
                           ]
                         },
                         "propertyNames": {
@@ -1242,7 +1527,22 @@
                           "economic_categories",
                           "scripted_actions",
                           "on_actions",
-                          "events"
+                          "events",
+                          "species_archetypes",
+                          "species_classes",
+                          "ethics",
+                          "ethic_categories",
+                          "traits",
+                          "graphical_culture",
+                          "ship_categories",
+                          "authorities",
+                          "civics",
+                          "dlcs",
+                          "ascension_perks",
+                          "traditions",
+                          "tradition_categories",
+                          "crisis_paths",
+                          "crisis_levels"
                         ]
                       },
                       "modifier_block": {
@@ -1337,7 +1637,22 @@
                           "economic_categories",
                           "scripted_actions",
                           "on_actions",
-                          "events"
+                          "events",
+                          "species_archetypes",
+                          "species_classes",
+                          "ethics",
+                          "ethic_categories",
+                          "traits",
+                          "graphical_culture",
+                          "ship_categories",
+                          "authorities",
+                          "civics",
+                          "dlcs",
+                          "ascension_perks",
+                          "traditions",
+                          "tradition_categories",
+                          "crisis_paths",
+                          "crisis_levels"
                         ]
                       }
                     },
@@ -1407,7 +1722,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             },
                             "linked_field": {
@@ -1430,7 +1760,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             },
                             "modifier": {
@@ -1520,7 +1865,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "roles": {
@@ -1580,7 +1940,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "predicate": {
@@ -1630,7 +2005,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "completion_field": {
@@ -1653,7 +2043,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "component_type": {
@@ -1684,7 +2089,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "events_field": {
@@ -1719,7 +2139,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "kinds": {
@@ -1739,7 +2174,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             },
                             "type": "array",

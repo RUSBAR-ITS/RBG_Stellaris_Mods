@@ -111,7 +111,7 @@ test('tooltips retain size and close on zoom, while focus and relationship highl
 test('real set keeps every image, full title and connection across zoom and language changes', async ({ page }) => {
   test.skip(!process.env.STTV_DATABASE_DIR, 'Requires the prepared set'); test.setTimeout(120000);
   await page.goto('/'); await page.locator('input[type=file]').setInputFiles(process.env.STTV_DATABASE_DIR!);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(679, { timeout: 90000 });
+  await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 90000 });
   await expect(page.locator('[data-connection-child]')).toHaveCount(464);
   mkdirSync('data/frontend-stage9', { recursive: true });
   for (const language of ['ru', 'en']) {

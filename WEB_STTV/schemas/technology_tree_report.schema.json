@@ -65,6 +65,9 @@
       },
       "type": "array"
     },
+    "dlc_analysis": {
+      "type": "object"
+    },
     "error": {
       "anyOf": [
         {

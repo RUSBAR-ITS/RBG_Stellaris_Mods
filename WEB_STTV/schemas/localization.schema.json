@@ -142,7 +142,67 @@
     "targets": {
       "additionalProperties": false,
       "properties": {
+        "ascension_perks": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "authorities": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
         "buildings": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "civics": {
           "additionalProperties": false,
           "properties": {
             "base": {
@@ -182,7 +242,67 @@
           ],
           "type": "object"
         },
+        "crisis_levels": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "crisis_paths": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
         "deposits": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "dlcs": {
           "additionalProperties": false,
           "properties": {
             "base": {
@@ -222,7 +342,67 @@
           ],
           "type": "object"
         },
+        "ethic_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "ethics": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
         "events": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "graphical_culture": {
           "additionalProperties": false,
           "properties": {
             "base": {
@@ -322,7 +502,67 @@
           ],
           "type": "object"
         },
+        "ship_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
         "ship_sizes": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "species_archetypes": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "species_classes": {
           "additionalProperties": false,
           "properties": {
             "base": {
@@ -441,6 +681,66 @@
             "path"
           ],
           "type": "object"
+        },
+        "tradition_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "traditions": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
+        },
+        "traits": {
+          "additionalProperties": false,
+          "properties": {
+            "base": {
+              "enum": [
+                "product",
+                "work"
+              ]
+            },
+            "path": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "base",
+            "path"
+          ],
+          "type": "object"
         }
       },
       "required": [
@@ -458,7 +758,22 @@
         "economic_categories",
         "scripted_actions",
         "on_actions",
-        "events"
+        "events",
+        "species_archetypes",
+        "species_classes",
+        "ethics",
+        "ethic_categories",
+        "traits",
+        "graphical_culture",
+        "ship_categories",
+        "authorities",
+        "civics",
+        "dlcs",
+        "ascension_perks",
+        "traditions",
+        "tradition_categories",
+        "crisis_paths",
+        "crisis_levels"
       ],
       "type": "object"
     }

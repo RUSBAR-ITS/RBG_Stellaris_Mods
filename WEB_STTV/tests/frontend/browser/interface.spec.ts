@@ -16,6 +16,7 @@ test('manual opening, language, theme, collapse, and refresh defaults', async ({
   await expect(page.getByRole('complementary')).toHaveCSS('width', '53px');
   await page.getByRole('button', { name: en.sttv_expand_menu, exact: true }).click();
   await expect(page.getByRole('button', { name: en.sttv_language, exact: true })).toBeVisible();
+  requests.length = 0;
   await page.reload();
   await expect(page.locator('[data-technology-id]')).toHaveCount(0);
   await expect(page.locator('html')).toHaveAttribute('lang', 'ru');

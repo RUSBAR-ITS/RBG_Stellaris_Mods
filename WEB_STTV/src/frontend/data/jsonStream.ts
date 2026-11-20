@@ -95,7 +95,7 @@ export class SttvJsonStream {
   }
 }
 
-export async function sttvReadJson(file: Blob, item?: ConstructorParameters<typeof SttvJsonStream>[0], manifest = false) {
+export async function sttvReadJson(file: Pick<Blob, 'stream'>, item?: ConstructorParameters<typeof SttvJsonStream>[0], manifest = false) {
   const parser = new SttvJsonStream(item, manifest), hash = sha256.create();
   const decoder = new TextDecoder('utf-8', { fatal: true });
   const reader = file.stream().getReader();

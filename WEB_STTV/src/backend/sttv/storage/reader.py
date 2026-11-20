@@ -77,11 +77,13 @@ class Reader:
             self.check_document(key)
 
     def coverage(self):
-        return {'declared': len(self.paths), 'verified': len(self.verified),
-                'not_checked': len(self.paths) - len(self.verified), 'bytes_read': self.bytes,
+        declared = set(self.paths)
+        declared.update(('acquisition', row['path']) for row in self.manifest['acquisition']['documents'])
+        return {'declared': len(declared), 'verified': len(self.verified),
+                'not_checked': len(declared) - len(self.verified), 'bytes_read': self.bytes,
                 'documents': [{'database': kind, 'document_id': identifier,
                     'status': 'verified' if (kind, identifier) in self.verified else 'not_checked'}
-                    for kind, identifier in self.paths]}
+                    for kind, identifier in sorted(declared)]}
 
 
 def open_set(manifest_path):

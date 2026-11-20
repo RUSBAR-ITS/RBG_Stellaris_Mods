@@ -65,6 +65,7 @@ def source_revision(documents):
 
 def set_revision(manifest):
     return digest({'algorithm': 'sttv.dataset_sources.v1', 'registry_revision': manifest['registry_revision'],
+                   'acquisition_revision': manifest['acquisition']['revision'],
                    'datasets': {k: v['source_revision'] for k, v in sorted(manifest['datasets'].items())}})
 
 

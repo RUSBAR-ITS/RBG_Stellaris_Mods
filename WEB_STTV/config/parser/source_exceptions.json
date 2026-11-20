@@ -59,6 +59,98 @@
         "parameter_literal": "0"
       },
       "reason": "Supply the user-approved temporary RANDOM value of zero for the affected nomad calls."
+    },
+    {
+      "id": "sttv_dlc_metadata_store_separator",
+      "kind": "missing_assignment_separator",
+      "reason": "Approved missing assignment separator in vanilla DLC catalog.",
+      "match": {
+        "root_files": [
+          "dlc_metadata/dlc_info.txt"
+        ],
+        "containers": [
+          "dlcs",
+          "dlc002"
+        ],
+        "field": "paradoxplaza_store_url",
+        "value": "\"\""
+      },
+      "action": {
+        "insert": " ="
+      }
+    },
+    {
+      "id": "sttv_trait_icon_class",
+      "kind": "missing_parameter",
+      "match": {
+        "root_files": [
+          "common/traits/00_admiral_traits.txt",
+          "common/traits/00_general_traits.txt",
+          "common/traits/00_generic_leader_traits.txt",
+          "common/traits/00_governor_traits.txt",
+          "common/traits/00_scientist_traits.txt",
+          "common/traits/00_special_leader_traits.txt",
+          "common/traits/06_distant_stars_traits.txt",
+          "common/traits/08_ancrel_traits.txt",
+          "common/traits/10_paragon_traits.txt",
+          "common/traits/13_machine_age_traits.txt",
+          "common/traits/14_grand_archive_traits.txt",
+          "common/traits/15_biogenesis_leader_traits.txt",
+          "common/traits/16_infernals_traits.txt"
+        ],
+        "call_kind": "inline_script",
+        "definition_file": "common/inline_scripts/trait/icon.txt",
+        "reference": "$CLASS$",
+        "missing_parameter": "CLASS",
+        "required_parameters": []
+      },
+      "action": {
+        "parameter_from_object": {
+          "field": "leader_class",
+          "allowed_values": [
+            "commander",
+            "official",
+            "scientist"
+          ],
+          "multiple_literal": "leader"
+        }
+      },
+      "reason": "Derive missing trait icon CLASS from the enclosing trait; use approved leader for multiple classes."
+    },
+    {
+      "id": "sttv_trait_council_icon_class",
+      "kind": "missing_parameter",
+      "match": {
+        "root_files": [
+          "common/traits/00_admiral_traits.txt",
+          "common/traits/00_general_traits.txt",
+          "common/traits/00_generic_leader_traits.txt",
+          "common/traits/00_governor_traits.txt",
+          "common/traits/00_scientist_traits.txt",
+          "common/traits/00_special_leader_traits.txt",
+          "common/traits/08_ancrel_traits.txt",
+          "common/traits/12_astral_planes_traits.txt",
+          "common/traits/16_infernals_traits.txt",
+          "common/traits/17_shroud_leader_traits.txt"
+        ],
+        "call_kind": "inline_script",
+        "definition_file": "common/inline_scripts/trait/icon_element/council_no.txt",
+        "reference": "trait/icon_element/council_no_$CLASS$",
+        "missing_parameter": "CLASS",
+        "required_parameters": []
+      },
+      "action": {
+        "parameter_from_object": {
+          "field": "leader_class",
+          "allowed_values": [
+            "commander",
+            "official",
+            "scientist"
+          ],
+          "multiple_literal": "leader"
+        }
+      },
+      "reason": "Derive missing trait icon CLASS from the enclosing trait; use approved leader for multiple classes."
     }
   ]
 }

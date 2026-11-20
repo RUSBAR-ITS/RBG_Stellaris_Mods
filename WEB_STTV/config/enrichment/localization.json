@@ -1,6 +1,9 @@
 {
   "format_version": 3,
-  "storage": {"base": "product", "path": "config/storage.json"},
+  "storage": {
+    "base": "product",
+    "path": "config/storage.json"
+  },
   "languages": {
     "ru": {
       "header": "l_russian",
@@ -89,6 +92,66 @@
     "events": {
       "base": "product",
       "path": "config/enrichment/targets/events.json"
+    },
+    "species_archetypes": {
+      "base": "product",
+      "path": "config/enrichment/targets/species_archetypes.json"
+    },
+    "species_classes": {
+      "base": "product",
+      "path": "config/enrichment/targets/species_classes.json"
+    },
+    "ethics": {
+      "base": "product",
+      "path": "config/enrichment/targets/ethics.json"
+    },
+    "ethic_categories": {
+      "base": "product",
+      "path": "config/enrichment/targets/ethic_categories.json"
+    },
+    "traits": {
+      "base": "product",
+      "path": "config/enrichment/targets/traits.json"
+    },
+    "graphical_culture": {
+      "base": "product",
+      "path": "config/enrichment/targets/graphical_culture.json"
+    },
+    "ship_categories": {
+      "base": "product",
+      "path": "config/enrichment/targets/ship_categories.json"
+    },
+    "authorities": {
+      "base": "product",
+      "path": "config/enrichment/targets/authorities.json"
+    },
+    "civics": {
+      "base": "product",
+      "path": "config/enrichment/targets/civics.json"
+    },
+    "dlcs": {
+      "base": "product",
+      "path": "config/enrichment/targets/dlcs.json"
+    },
+    "ascension_perks": {
+      "base": "product",
+      "path": "config/enrichment/targets/ascension_perks.json"
+    },
+    "traditions": {
+      "base": "product",
+      "path": "config/enrichment/targets/traditions.json"
+    },
+    "tradition_categories": {
+      "base": "product",
+      "path": "config/enrichment/targets/tradition_categories.json"
+    },
+    "crisis_paths": {
+      "base": "product",
+      "path": "config/enrichment/targets/crisis_paths.json"
+    },
+    "crisis_levels": {
+      "base": "product",
+      "path": "config/enrichment/targets/crisis_levels.json"
     }
   }
 }

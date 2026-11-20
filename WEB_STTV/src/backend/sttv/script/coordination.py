@@ -22,7 +22,11 @@ class Coordinator:
     @measured_application
     def expand(self, document, syntax, root_only=False):
         self.records, self.stack, self.sources, self.created = [], [], {}, 0
+        self.argument_bindings, self.forwarded_arguments = {}, {}
         self.root_source = document.source.origin(0, 0)
+        self.exception_document = document
+        self.exception_objects = tuple(n for n in document.items
+                                       if isinstance(n, Assignment) and isinstance(n.value, Block))
         table = self.variables.prepare(document, count=False, resolve=False) if self.variables else None
         try:
             if not root_only and self.variables and any(isinstance(n, InlineInvocation) for n in document.items):

@@ -9,7 +9,9 @@
 
 - [ ] Prepare and agree on a fix for passing `CLASS` through leader-trait inline chains.
 
-Status: deferred; implementation has not started. Found during the WEB_STTV audit of the installed game on 2026-11-15. Affects 14 files under `common/traits/`: 10 stop in `trait/icon_element/council_no.txt`, and another 4 in `trait/icon.txt`.
+Game-fix status: deferred. WEB_STTV import has an approved and implemented targeted exception under [stage 19](WEB_STTV/Docs/TZ_BACKEND_STAGE_19_EN.md#7-dlc-source-exception): preserve explicit CLASS from the call chain, otherwise use the sole leader_class or leader for multiple classes. Game sources are unchanged; this import correction does not complete the game-fix task.
+
+Found during the WEB_STTV audit of the installed game on 2026-11-15. The original audit affected 14 files under common/traits: 10 stopped in trait/icon_element/council_no.txt and another four in trait/icon.txt.
 
 Confirmed examples:
 

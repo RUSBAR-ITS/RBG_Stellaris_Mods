@@ -10,7 +10,7 @@ from sttv.storage.publication import Publication
 from sttv.storage.settings import load
 from sttv.enrichment.technology_tree import revisions
 from storage.fixtures import publish, documents
-from .support import SetFixture, tech, assignment, block
+from .support import SetFixture, tech, assignment, block, rules
 
 
 class OperationTests(SetFixture):
@@ -30,7 +30,7 @@ class OperationTests(SetFixture):
         self.assert_success(second)
         self.assertEqual(second['action'], 'reused')
         self.assertEqual(second['coverage']['verified'], 1)
-        self.assertEqual(second['coverage']['not_checked'], 14)
+        self.assertEqual(second['coverage']['not_checked'], 24)
         forced = self.run_operation(recalculate=True)
         self.assert_success(forced)
         self.assertEqual(forced['action'], 'computed')
@@ -105,6 +105,7 @@ class OperationTests(SetFixture):
             self.assertEqual(self.manifest.read_bytes(), before)
 
     def test_snapshot_detects_mid_operation_file_change(self):
+        self.save(self.work / 'rules.json', rules('direct_upgrades', 'same_area', 'highest_tier'))
         from sttv.enrichment.technology_tree import operation
         original = operation.evidence.load
         reader = open_set(self.manifest)
@@ -128,6 +129,7 @@ class OperationTests(SetFixture):
         self.assertEqual(result['error']['code'], 'report_write_error')
 
     def test_projection_worker_reports_corrupt_document_with_context(self):
+        self.save(self.work / 'rules.json', rules('direct_upgrades', 'same_area', 'highest_tier'))
         reader = open_set(self.manifest)
         identifier = reader.document_ids('buildings')[0]
         path = reader.paths[('buildings', identifier)]

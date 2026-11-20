@@ -6,6 +6,36 @@
         "enrichments": {
           "additionalProperties": false,
           "properties": {
+            "dlc": {
+              "additionalProperties": false,
+              "properties": {
+                "descriptors": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "database": {
+                        "const": "dlcs"
+                      },
+                      "document_id": {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "database",
+                      "document_id"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array",
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "descriptors"
+              ],
+              "type": "object"
+            },
             "localization": {
               "additionalProperties": false,
               "properties": {
@@ -16,56 +46,114 @@
                     "description": {
                       "additionalProperties": false,
                       "properties": {
+                        "candidate_keys": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array",
+                          "uniqueItems": true
+                        },
                         "fallback": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "kind": {
-                              "const": "component_set"
-                            },
-                            "source_ref": {
+                          "anyOf": [
+                            {
                               "additionalProperties": false,
                               "properties": {
-                                "database": {
-                                  "enum": [
-                                    "technologies",
-                                    "components",
-                                    "buildings",
-                                    "megastructures",
-                                    "ship_sizes",
-                                    "starbase_levels",
-                                    "starbase_modules",
-                                    "starbase_buildings",
-                                    "terraform",
-                                    "deposits",
-                                    "pop_jobs",
-                                    "economic_categories",
-                                    "scripted_actions",
-                                    "on_actions",
-                                    "events"
-                                  ]
+                                "kind": {
+                                  "const": "component_set"
                                 },
-                                "document_id": {
-                                  "pattern": "^[a-f0-9]{64}$",
-                                  "type": "string"
-                                },
-                                "pointer": {
-                                  "pattern": "^/items/\\d+(?:/.*)?$",
-                                  "type": "string"
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "enum": [
+                                        "technologies",
+                                        "components",
+                                        "buildings",
+                                        "megastructures",
+                                        "ship_sizes",
+                                        "starbase_levels",
+                                        "starbase_modules",
+                                        "starbase_buildings",
+                                        "terraform",
+                                        "deposits",
+                                        "pop_jobs",
+                                        "economic_categories",
+                                        "scripted_actions",
+                                        "on_actions",
+                                        "events",
+                                        "species_archetypes",
+                                        "species_classes",
+                                        "ethics",
+                                        "ethic_categories",
+                                        "traits",
+                                        "graphical_culture",
+                                        "ship_categories",
+                                        "authorities",
+                                        "civics",
+                                        "dlcs",
+                                        "ascension_perks",
+                                        "traditions",
+                                        "tradition_categories",
+                                        "crisis_paths",
+                                        "crisis_levels"
+                                      ]
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    },
+                                    "pointer": {
+                                      "pattern": "^/items/\\d+(?:/.*)?$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id",
+                                    "pointer"
+                                  ],
+                                  "type": "object"
                                 }
                               },
                               "required": [
-                                "database",
-                                "document_id",
-                                "pointer"
+                                "kind",
+                                "source_ref"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "kind": {
+                                  "const": "dlc_descriptor"
+                                },
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "const": "dlcs"
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id"
+                                  ],
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "source_ref"
                               ],
                               "type": "object"
                             }
-                          },
-                          "required": [
-                            "kind",
-                            "source_ref"
-                          ],
-                          "type": "object"
+                          ]
                         },
                         "inherited_from": {
                           "anyOf": [
@@ -88,7 +176,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "document_id": {
@@ -200,56 +303,114 @@
                     "name": {
                       "additionalProperties": false,
                       "properties": {
+                        "candidate_keys": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array",
+                          "uniqueItems": true
+                        },
                         "fallback": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "kind": {
-                              "const": "component_set"
-                            },
-                            "source_ref": {
+                          "anyOf": [
+                            {
                               "additionalProperties": false,
                               "properties": {
-                                "database": {
-                                  "enum": [
-                                    "technologies",
-                                    "components",
-                                    "buildings",
-                                    "megastructures",
-                                    "ship_sizes",
-                                    "starbase_levels",
-                                    "starbase_modules",
-                                    "starbase_buildings",
-                                    "terraform",
-                                    "deposits",
-                                    "pop_jobs",
-                                    "economic_categories",
-                                    "scripted_actions",
-                                    "on_actions",
-                                    "events"
-                                  ]
+                                "kind": {
+                                  "const": "component_set"
                                 },
-                                "document_id": {
-                                  "pattern": "^[a-f0-9]{64}$",
-                                  "type": "string"
-                                },
-                                "pointer": {
-                                  "pattern": "^/items/\\d+(?:/.*)?$",
-                                  "type": "string"
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "enum": [
+                                        "technologies",
+                                        "components",
+                                        "buildings",
+                                        "megastructures",
+                                        "ship_sizes",
+                                        "starbase_levels",
+                                        "starbase_modules",
+                                        "starbase_buildings",
+                                        "terraform",
+                                        "deposits",
+                                        "pop_jobs",
+                                        "economic_categories",
+                                        "scripted_actions",
+                                        "on_actions",
+                                        "events",
+                                        "species_archetypes",
+                                        "species_classes",
+                                        "ethics",
+                                        "ethic_categories",
+                                        "traits",
+                                        "graphical_culture",
+                                        "ship_categories",
+                                        "authorities",
+                                        "civics",
+                                        "dlcs",
+                                        "ascension_perks",
+                                        "traditions",
+                                        "tradition_categories",
+                                        "crisis_paths",
+                                        "crisis_levels"
+                                      ]
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    },
+                                    "pointer": {
+                                      "pattern": "^/items/\\d+(?:/.*)?$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id",
+                                    "pointer"
+                                  ],
+                                  "type": "object"
                                 }
                               },
                               "required": [
-                                "database",
-                                "document_id",
-                                "pointer"
+                                "kind",
+                                "source_ref"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "kind": {
+                                  "const": "dlc_descriptor"
+                                },
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "const": "dlcs"
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id"
+                                  ],
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "source_ref"
                               ],
                               "type": "object"
                             }
-                          },
-                          "required": [
-                            "kind",
-                            "source_ref"
-                          ],
-                          "type": "object"
+                          ]
                         },
                         "inherited_from": {
                           "anyOf": [
@@ -272,7 +433,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "document_id": {
@@ -392,56 +568,114 @@
                     "description": {
                       "additionalProperties": false,
                       "properties": {
+                        "candidate_keys": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array",
+                          "uniqueItems": true
+                        },
                         "fallback": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "kind": {
-                              "const": "component_set"
-                            },
-                            "source_ref": {
+                          "anyOf": [
+                            {
                               "additionalProperties": false,
                               "properties": {
-                                "database": {
-                                  "enum": [
-                                    "technologies",
-                                    "components",
-                                    "buildings",
-                                    "megastructures",
-                                    "ship_sizes",
-                                    "starbase_levels",
-                                    "starbase_modules",
-                                    "starbase_buildings",
-                                    "terraform",
-                                    "deposits",
-                                    "pop_jobs",
-                                    "economic_categories",
-                                    "scripted_actions",
-                                    "on_actions",
-                                    "events"
-                                  ]
+                                "kind": {
+                                  "const": "component_set"
                                 },
-                                "document_id": {
-                                  "pattern": "^[a-f0-9]{64}$",
-                                  "type": "string"
-                                },
-                                "pointer": {
-                                  "pattern": "^/items/\\d+(?:/.*)?$",
-                                  "type": "string"
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "enum": [
+                                        "technologies",
+                                        "components",
+                                        "buildings",
+                                        "megastructures",
+                                        "ship_sizes",
+                                        "starbase_levels",
+                                        "starbase_modules",
+                                        "starbase_buildings",
+                                        "terraform",
+                                        "deposits",
+                                        "pop_jobs",
+                                        "economic_categories",
+                                        "scripted_actions",
+                                        "on_actions",
+                                        "events",
+                                        "species_archetypes",
+                                        "species_classes",
+                                        "ethics",
+                                        "ethic_categories",
+                                        "traits",
+                                        "graphical_culture",
+                                        "ship_categories",
+                                        "authorities",
+                                        "civics",
+                                        "dlcs",
+                                        "ascension_perks",
+                                        "traditions",
+                                        "tradition_categories",
+                                        "crisis_paths",
+                                        "crisis_levels"
+                                      ]
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    },
+                                    "pointer": {
+                                      "pattern": "^/items/\\d+(?:/.*)?$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id",
+                                    "pointer"
+                                  ],
+                                  "type": "object"
                                 }
                               },
                               "required": [
-                                "database",
-                                "document_id",
-                                "pointer"
+                                "kind",
+                                "source_ref"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "kind": {
+                                  "const": "dlc_descriptor"
+                                },
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "const": "dlcs"
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id"
+                                  ],
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "source_ref"
                               ],
                               "type": "object"
                             }
-                          },
-                          "required": [
-                            "kind",
-                            "source_ref"
-                          ],
-                          "type": "object"
+                          ]
                         },
                         "inherited_from": {
                           "anyOf": [
@@ -464,7 +698,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "document_id": {
@@ -576,56 +825,114 @@
                     "name": {
                       "additionalProperties": false,
                       "properties": {
+                        "candidate_keys": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array",
+                          "uniqueItems": true
+                        },
                         "fallback": {
-                          "additionalProperties": false,
-                          "properties": {
-                            "kind": {
-                              "const": "component_set"
-                            },
-                            "source_ref": {
+                          "anyOf": [
+                            {
                               "additionalProperties": false,
                               "properties": {
-                                "database": {
-                                  "enum": [
-                                    "technologies",
-                                    "components",
-                                    "buildings",
-                                    "megastructures",
-                                    "ship_sizes",
-                                    "starbase_levels",
-                                    "starbase_modules",
-                                    "starbase_buildings",
-                                    "terraform",
-                                    "deposits",
-                                    "pop_jobs",
-                                    "economic_categories",
-                                    "scripted_actions",
-                                    "on_actions",
-                                    "events"
-                                  ]
+                                "kind": {
+                                  "const": "component_set"
                                 },
-                                "document_id": {
-                                  "pattern": "^[a-f0-9]{64}$",
-                                  "type": "string"
-                                },
-                                "pointer": {
-                                  "pattern": "^/items/\\d+(?:/.*)?$",
-                                  "type": "string"
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "enum": [
+                                        "technologies",
+                                        "components",
+                                        "buildings",
+                                        "megastructures",
+                                        "ship_sizes",
+                                        "starbase_levels",
+                                        "starbase_modules",
+                                        "starbase_buildings",
+                                        "terraform",
+                                        "deposits",
+                                        "pop_jobs",
+                                        "economic_categories",
+                                        "scripted_actions",
+                                        "on_actions",
+                                        "events",
+                                        "species_archetypes",
+                                        "species_classes",
+                                        "ethics",
+                                        "ethic_categories",
+                                        "traits",
+                                        "graphical_culture",
+                                        "ship_categories",
+                                        "authorities",
+                                        "civics",
+                                        "dlcs",
+                                        "ascension_perks",
+                                        "traditions",
+                                        "tradition_categories",
+                                        "crisis_paths",
+                                        "crisis_levels"
+                                      ]
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    },
+                                    "pointer": {
+                                      "pattern": "^/items/\\d+(?:/.*)?$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id",
+                                    "pointer"
+                                  ],
+                                  "type": "object"
                                 }
                               },
                               "required": [
-                                "database",
-                                "document_id",
-                                "pointer"
+                                "kind",
+                                "source_ref"
+                              ],
+                              "type": "object"
+                            },
+                            {
+                              "additionalProperties": false,
+                              "properties": {
+                                "kind": {
+                                  "const": "dlc_descriptor"
+                                },
+                                "source_ref": {
+                                  "additionalProperties": false,
+                                  "properties": {
+                                    "database": {
+                                      "const": "dlcs"
+                                    },
+                                    "document_id": {
+                                      "pattern": "^[a-f0-9]{64}$",
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "database",
+                                    "document_id"
+                                  ],
+                                  "type": "object"
+                                }
+                              },
+                              "required": [
+                                "kind",
+                                "source_ref"
                               ],
                               "type": "object"
                             }
-                          },
-                          "required": [
-                            "kind",
-                            "source_ref"
-                          ],
-                          "type": "object"
+                          ]
                         },
                         "inherited_from": {
                           "anyOf": [
@@ -648,7 +955,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "document_id": {
@@ -821,6 +1143,47 @@
                       "resolved",
                       "ambiguous"
                     ]
+                  },
+                  "visibility": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "evidence": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "reasons": {
+                        "items": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "code": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "pointer": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "code",
+                            "pointer"
+                          ],
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "visible": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "visible",
+                      "reasons",
+                      "evidence"
+                    ],
+                    "type": "object"
                   }
                 },
                 "required": [
@@ -2470,7 +2833,22 @@
         "economic_categories",
         "scripted_actions",
         "on_actions",
-        "events"
+        "events",
+        "species_archetypes",
+        "species_classes",
+        "ethics",
+        "ethic_categories",
+        "traits",
+        "graphical_culture",
+        "ship_categories",
+        "authorities",
+        "civics",
+        "dlcs",
+        "ascension_perks",
+        "traditions",
+        "tradition_categories",
+        "crisis_paths",
+        "crisis_levels"
       ]
     },
     "document_id": {

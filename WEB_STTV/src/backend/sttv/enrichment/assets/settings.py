@@ -18,6 +18,7 @@ class Settings:
     source: Path
     localization: object
     report: Path
+    dlc_root: Path
 
 
 def configure(variables_path, config_path, snapshot, storage_path=None):
@@ -39,4 +40,5 @@ def configure(variables_path, config_path, snapshot, storage_path=None):
     report = output_path(work, options['report'])
     if report.is_relative_to(storage.root):
         raise BuildError('storage_path_collision', 'Resource report must be outside the set')
-    return Settings(options, storage, source, loc, report)
+    dlc_root = confined(source, values[options['dlc_thumbnails']['directory_variable']])
+    return Settings(options, storage, source, loc, report, dlc_root)

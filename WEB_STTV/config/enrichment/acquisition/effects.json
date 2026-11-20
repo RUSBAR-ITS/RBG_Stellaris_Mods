@@ -1,0 +1,88 @@
+{
+  "commands": {
+    "give_technology": {
+      "handler": "grant",
+      "target": "tech",
+      "scalar": true,
+      "basis": "effects.log:93; direct country grant, no documented potential gate"
+    },
+    "add_research_option": {
+      "handler": "option",
+      "target": "tech",
+      "scalar": true,
+      "basis": "effects.log:1220; permanent research option, not current ownership"
+    },
+    "add_tech_progress": {
+      "handler": "progress",
+      "target": "tech",
+      "scalar": false,
+      "basis": "effects.log:3428; progress alone does not establish unlock"
+    },
+    "add_random_research_option": {
+      "handler": "random",
+      "target": "tech",
+      "scalar": false,
+      "basis": "effects.log:1971; selection filters only, potential/weight unspecified"
+    },
+    "copy_random_tech_from": {
+      "handler": "copy_random",
+      "target": "who",
+      "scalar": false,
+      "basis": "effects.log:1985; recipient positive weight and potential, donor required"
+    },
+    "copy_techs_from": {
+      "handler": "copy_all",
+      "target": "target",
+      "scalar": true,
+      "basis": "effects.log:1805; weights and modifiers respected, donor required"
+    }
+  },
+  "event_calls": [
+    "country_event",
+    "planet_event",
+    "fleet_event",
+    "ship_event",
+    "pop_event",
+    "event"
+  ],
+  "activation": "activate_crisis_progression",
+  "scopes": [
+    "root",
+    "from",
+    "prev",
+    "owner",
+    "controller",
+    "fromfrom",
+    "capital_scope"
+  ],
+  "transparent": [
+    "hidden_effect",
+    "hidden_effects"
+  ],
+  "branches": [
+    "if",
+    "else_if",
+    "else"
+  ],
+  "random": [
+    "random_list",
+    "random"
+  ],
+  "safe_actions": [
+    "log",
+    "custom_tooltip",
+    "tooltip",
+    "text",
+    "show_sound",
+    "play_sound"
+  ],
+  "domain_fields": [
+    "area",
+    "category",
+    "tier"
+  ],
+  "limits": {
+    "max_depth": 128
+  },
+  "failure_field": "fail_effects"
+}

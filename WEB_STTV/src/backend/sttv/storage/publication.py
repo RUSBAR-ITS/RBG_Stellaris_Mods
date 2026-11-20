@@ -91,6 +91,24 @@ class Publication:
         finally:
             temporary.unlink(missing_ok=True)
 
+    def accept_auxiliary(self, source, relative, checksum, size):
+        source = Path(source).resolve()
+        if not source.is_relative_to(REPOSITORY_ROOT):
+            raise BuildError('unsafe_output', 'Auxiliary documents must be prepared in the workspace')
+        target = confined(self.settings.root, relative)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        if source.stat().st_size != size or file_digest(source) != checksum:
+            raise BuildError('document_hash', 'Prepared acquisition document changed')
+        if target.exists():
+            if target.stat().st_size != size or file_digest(target) != checksum:
+                raise BuildError('document_hash', 'Existing acquisition document is corrupt')
+            if source != target:
+                source.unlink()
+        else:
+            os.replace(source, target)
+            self.new_files.append(relative)
+            self.written_bytes += size
+
     def __exit__(self, *_):
         if self.directory is not None:
             if self.directory.parent != self.settings.staging.resolve() or not self.directory.name.startswith('operation-'):

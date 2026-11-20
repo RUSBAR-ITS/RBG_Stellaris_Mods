@@ -15,8 +15,9 @@ import { sttvConnectAreas } from '../connections/layout';
 export function sttvLayout(data: Pick<SttvCatalog, 'technologies' | 'treeCombination' | 'localization'>,
   language: SttvLanguage, settings: SttvTreeSettings = defaults, dimensions = defaultDimensions): SttvLayout {
   const started = performance.now();
-  const { technologies, treeCombination: combination } = data;
-  if (combination.id !== settings.combination_id) {
+  const combination = data.treeCombination;
+  const technologies = Object.fromEntries(Object.entries(data.technologies).filter(([, t]) => t.tree.visibility?.visible !== false));
+  if (!combination.parameters.dlc && combination.id !== settings.combination_id) {
     sttvTreeError('tree_enrichment_invalid', 'Field configuration and loaded combination differ.',
       { expected: settings.combination_id, received: combination.id });
   }

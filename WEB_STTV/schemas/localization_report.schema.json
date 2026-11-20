@@ -5,11 +5,31 @@
     "counts": {
       "additionalProperties": false,
       "properties": {
+        "ascension_perks": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "authorities": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "buildings": {
           "minimum": 0,
           "type": "integer"
         },
+        "civics": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "components": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "crisis_levels": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "crisis_paths": {
           "minimum": 0,
           "type": "integer"
         },
@@ -21,11 +41,27 @@
           "minimum": 0,
           "type": "integer"
         },
+        "dlcs": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "economic_categories": {
           "minimum": 0,
           "type": "integer"
         },
+        "ethic_categories": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "ethics": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "events": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "graphical_culture": {
           "minimum": 0,
           "type": "integer"
         },
@@ -91,7 +127,19 @@
           "minimum": 0,
           "type": "integer"
         },
+        "ship_categories": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "ship_sizes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "species_archetypes": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "species_classes": {
           "minimum": 0,
           "type": "integer"
         },
@@ -119,6 +167,18 @@
           "minimum": 0,
           "type": "integer"
         },
+        "tradition_categories": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "traditions": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "traits": {
+          "minimum": 0,
+          "type": "integer"
+        },
         "variants": {
           "minimum": 0,
           "type": "integer"
@@ -140,6 +200,21 @@
         "scripted_actions",
         "on_actions",
         "events",
+        "species_archetypes",
+        "species_classes",
+        "ethics",
+        "ethic_categories",
+        "traits",
+        "graphical_culture",
+        "ship_categories",
+        "authorities",
+        "civics",
+        "dlcs",
+        "ascension_perks",
+        "traditions",
+        "tradition_categories",
+        "crisis_paths",
+        "crisis_levels",
         "variants",
         "descriptions",
         "objects",
@@ -248,7 +323,22 @@
                       "economic_categories",
                       "scripted_actions",
                       "on_actions",
-                      "events"
+                      "events",
+                      "species_archetypes",
+                      "species_classes",
+                      "ethics",
+                      "ethic_categories",
+                      "traits",
+                      "graphical_culture",
+                      "ship_categories",
+                      "authorities",
+                      "civics",
+                      "dlcs",
+                      "ascension_perks",
+                      "traditions",
+                      "tradition_categories",
+                      "crisis_paths",
+                      "crisis_levels"
                     ]
                   },
                   "document_id": {

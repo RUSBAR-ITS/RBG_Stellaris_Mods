@@ -14,7 +14,7 @@ test('streamed items produce the same catalogs and preserve late references', as
   const streamed = await session.load(sttvDatabaseKinds), direct = sttvAdaptSet(inputs);
   assert.deepEqual(streamed.technologies, direct.technologies);
   assert.deepEqual(JSON.parse(JSON.stringify(streamed.localization)), JSON.parse(JSON.stringify(direct.localization)));
-  assert.equal(streamed.coverage.verifiedDocuments, 15);
+  assert.equal(streamed.coverage.verifiedDocuments, sttvDatabaseKinds.length);
 });
 test('character boundaries preserve Unicode and discard only unused payload fields', () => {
   const input = { ...sttvDatabase([sttvTechnology('example')]), metadata: { ignored: '\\"\n\u0416\ud83d\ude00' } };

@@ -18,7 +18,7 @@ export function SttvCardMeasurement({ data, onMeasure }: { data: SttvCatalog; on
     return () => { active = false; };
   }, [data, language, onMeasure]);
   return <div ref={root} className="sttv-card-measurement" aria-hidden="true">
-    {Object.values(data.technologies).map(tech => {
+    {Object.values(data.technologies).filter(t => t.tree.visibility?.visible !== false).map(tech => {
       const rep = sttvRepresentation(tech, data.treeCombination.parameters.variants);
       return <div key={tech.id} className="sttv-card" data-area={rep.area}>
         <SttvCardContent technology={tech} representation={rep} measuring

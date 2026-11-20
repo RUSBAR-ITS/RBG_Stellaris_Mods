@@ -130,6 +130,17 @@
     "counts": {
       "additionalProperties": false,
       "properties": {
+        "catalog": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
         "errors": {
           "minimum": 0,
           "type": "integer"

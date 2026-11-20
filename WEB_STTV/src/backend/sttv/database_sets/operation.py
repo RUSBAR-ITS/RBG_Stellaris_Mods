@@ -63,6 +63,13 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
                 'build_counts': builds[kind].data['counts'], 'localization_counts': localizations[kind]['counts']}
         snapshot = lifetime.enter_context(library_operation(settings[KINDS[0]], library_mode))
         pool = lifetime.enter_context(Pool(settings[KINDS[0]], snapshot))
+        from sttv.enrichment.acquisition.configuration import load as load_acquisition
+        from sttv.enrichment.acquisition.preparation import inventory, prepare as prepare_acquisition
+        acquisition_options, acquisition_configs = load_acquisition(options['acquisition'], settings[KINDS[0]].work)
+        for path in acquisition_configs:
+            inputs.record(path, 'configuration')
+        acquisition_files = inventory(settings[KINDS[0]], acquisition_options)
+        pool.acquisition_options = acquisition_options
         for kind in KINDS:
             stage, current = 'preparation', kind
             member_started = perf_counter()
@@ -72,16 +79,21 @@ def build_database_set(variables_path=None, config_path=None, *, library_mode=No
                 content_hash=source_revision([r['descriptor'] for r in members[kind]]),
                 bytes=sum(r['descriptor']['byte_size'] for r in members[kind]),
                 seconds=round(perf_counter() - member_started, 3))
+        stage, current = 'acquisition', None
+        acquisition = prepare_acquisition(pool, publication, inputs, acquisition_options, acquisition_files)
+        report['performance']['timings']['acquisition'] = acquisition['statistics'].pop('seconds')
         pool.__exit__(None, None, None)
         stage, current = 'manifest', None
         with measure(report['performance']['timings'], 'manifest'):
-            manifest = create(members)
+            manifest = create(members, acquisition)
         report['set_id'] = manifest['set_id']
         report['snapshot_revision'] = manifest['snapshot_revision']
         def verify():
             with measure(report['performance']['timings'], 'verify_inputs'):
                 inputs.verify()
                 snapshot.inventory.verify()
+                if inventory(settings[KINDS[0]], acquisition_options) != acquisition_files:
+                    raise BuildError('input_changed', 'Acquisition source membership changed')
         stage = 'publication'
         with measure(report['performance']['timings'], 'publish'):
             report['published'] = publication.publish(manifest, verify)

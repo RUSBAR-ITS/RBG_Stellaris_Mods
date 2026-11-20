@@ -17,7 +17,9 @@
 
 ## Status
 
-Current implementation: [frontend 0.0.6](FRONTEND_STAGE_6_EN.md), with tree connections and hover highlighting.
+Current stage: [frontend 0.0.12](FRONTEND_STAGE_10_EN.md), with tree/DLC sections, drafts and application through a local Python service. Opening selects a manifest directory. A prepared tree can be viewed offline; DLC recalculation requires the service. DLC changes enrich existing data without invoking the builder or reading game sources. The initial-stage description below remains historical.
+
+Tree connections and hover highlighting were introduced in [frontend 0.0.6](FRONTEND_STAGE_6_EN.md).
 
 This document records agreed decisions about the window layout and initial interface. The first stage is implemented under the prepared and approved specifications; running instructions and the actual implementation are described in the [guide](FRONTEND_STAGE_1_EN.md).
 

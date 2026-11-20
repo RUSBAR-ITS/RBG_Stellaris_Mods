@@ -17,6 +17,11 @@ export function sttvTreeCombination(manifest: SttvManifest, id = settings.combin
     return invalid('Invalid combination parameters.');
   }
   const revisions = ['input_revision', 'rules_revision', 'parameters_revision', 'calculation_revision', 'result_revision'] as const;
+  const dlc = row.parameters.dlc;
+  if (dlc !== undefined && (!sttvRecord(dlc) || !Array.isArray(dlc.known) || !Array.isArray(dlc.enabled)
+    || !dlc.known.every(v => typeof v === 'string') || !dlc.enabled.every(v => dlc.known instanceof Array && dlc.known.includes(v))
+    || new Set(dlc.known).size !== dlc.known.length || new Set(dlc.enabled).size !== dlc.enabled.length
+    || typeof dlc.catalog_revision !== 'string' || !/^[a-f0-9]{64}$/.test(dlc.catalog_revision))) return invalid('Invalid DLC profile.');
   for (const key of revisions) if (typeof row[key] !== 'string' || !/^[a-f0-9]{64}$/.test(row[key])) invalid(`Invalid ${key}.`);
   if (typeof row.implementation_revision !== 'string' || !row.implementation_revision
     || !Array.isArray(row.inputs) || !row.inputs.length) return invalid('Missing input revisions.');

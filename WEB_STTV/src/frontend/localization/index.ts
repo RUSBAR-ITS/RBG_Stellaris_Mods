@@ -18,6 +18,16 @@ export class SttvIndexBuilder {
     return result;
   }
 
+  removeDocuments(ids: Set<string>) {
+    for (const language of config.languages as SttvLanguage[]) for (const [id, row] of Object.entries(this.index[language])) {
+      row.origins = row.origins.filter(origin => !ids.has(origin.recordRef.document_id));
+      if (!row.origins.length) delete this.index[language][id];
+      const address = `${language}:${id}`;
+      const resolved = (this.resolvedOrigins.get(address) ?? []).filter(origin => !ids.has(origin.recordRef.document_id));
+      if (resolved.length) this.resolvedOrigins.set(address, resolved); else this.resolvedOrigins.delete(address);
+    }
+  }
+
   add(localization: SttvStoredLocalization | undefined, path: string,
     database: SttvDatabaseKind = 'technologies', descriptionOnly = false,
     roles: ('name' | 'description')[] = descriptionOnly ? ['description'] : ['name', 'description']) {
@@ -36,8 +46,9 @@ export class SttvIndexBuilder {
         if (field === 'name') nameId = id; else descriptionId = id;
         const origin: SttvOrigin = { recordRef: { database, document_id: this.documentId, pointer: recordRef }, key: value.key, raw: value.raw,
           source: value.source, inheritedFrom: value.inherited_from,
-          ...(value.fallback ? { fallback: { kind: value.fallback.kind,
-            sourceRef: value.fallback.source_ref } } : {}),
+          ...(value.fallback ? { fallback: value.fallback.kind === 'component_set'
+            ? { kind: 'component_set' as const, sourceRef: value.fallback.source_ref }
+            : { kind: 'dlc_descriptor' as const, sourceRef: value.fallback.source_ref } } : {}),
           unresolvedReferences: value.unresolved_references };
         const existing = this.index[language][id];
         const address = `${language}:${id}`;

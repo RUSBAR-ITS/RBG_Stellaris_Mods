@@ -15,13 +15,26 @@ def audit(manifest_path):
         report['snapshot_revision'] = reader.manifest['snapshot_revision']
         from .assets import verify_asset, verify_references
         presentation = reader.manifest.get('presentation', {})
+        from sttv.common.datasets import definition
+        linked = {}
         for kind, identifier in reader.paths:
+            if 'descriptorLink' in definition(kind):
+                linked.setdefault(kind, []).append(reader.read_document(kind, identifier))
+                continue
             extract = (lambda pointer, node: verify_references(node, presentation)) if kind == 'technologies' and presentation else None
             reader.project(kind, identifier, extract)
+        from sttv.database_sets.descriptors import verify
+        for kind, documents in linked.items():
+            verify(kind, documents)
         images = presentation.get('files', {})
         for row in images.values():
             verify_asset(reader.root, row)
             verified_images += 1
+        from sttv.enrichment.acquisition.storage import Index
+        acquisition = reader.manifest['acquisition']
+        index = Index(reader, {'revision': acquisition['configuration_revision']})
+        for path in index.descriptors:
+            index.document(path)
         reader.check_snapshot()
         report['status'] = 'success'
     except Exception as exc:

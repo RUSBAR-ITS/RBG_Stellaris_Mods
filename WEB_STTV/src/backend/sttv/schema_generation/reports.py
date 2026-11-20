@@ -31,4 +31,5 @@ def schema():
                   'source_exceptions': array(source_exceptions.application()),
                   "database_written": BOOL, "diagnostics": array(diagnostic()), 'performance': performance.schema()})
     result["$defs"] = {"origin": inline.origin()}
+    result['properties']['counts']['properties']['catalog'] = mapping({'type': 'integer', 'minimum': 0})
     return result

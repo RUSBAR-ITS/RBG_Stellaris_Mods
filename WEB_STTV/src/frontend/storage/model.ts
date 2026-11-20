@@ -19,7 +19,12 @@ export interface SttvManifest {
   presentation?: import('./assets').SttvPresentation;
   technology_tree?: unknown;
   format: 'sttv.database_manifest';
-  format_version: 1;
+  format_version: 2;
+  acquisition: {
+    format_version: 1;
+    revision: string;
+    documents: { path: string; file_hash: string; byte_size: number }[];
+  };
   set_id: string;
   snapshot_revision: string;
   registry_revision: string;

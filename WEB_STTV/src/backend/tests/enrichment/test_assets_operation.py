@@ -13,6 +13,7 @@ from sttv.storage.audit import audit
 class AssetOperationTests(BuildFixture):
     def setUp(self):
         super().setUp()
+        self.variables['DLC_DIR'] = 'dlc'
         for tier in ('RU_LOC_TIER_1', 'RU_LOC_TIER_2', 'RU_LOC_TIER_3', 'EN_LOC_TIER_1'):
             directory = self.root / tier
             directory.mkdir()

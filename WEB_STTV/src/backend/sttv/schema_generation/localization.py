@@ -11,6 +11,8 @@ def target():
     optional = {'name_prefix': STRING, 'name_field': TEXT, 'omit_name': BOOL, 'description_nodes': BOOL,
                 'description_excluded': array(TEXT), 'endpoint_fields': array(TEXT), 'endpoint_description_suffix': TEXT,
                 'child_text_fields': array(obj({'field': TEXT, 'role': {'enum': ['name', 'description']}}))}
+    optional.update(description_fields=array(TEXT, uniqueItems=True), optional_variants=array(TEXT, uniqueItems=True),
+                    name_candidates=array({'enum': ['identity', 'uppercase']}, uniqueItems=True))
     return obj({
         "selection": obj({"variable": TEXT, "pattern": TEXT, "recursive": BOOL}),
         "keys": obj({**keys, **optional}, required=list(keys)),
@@ -40,17 +42,21 @@ def source():
 
 def field():
     from .storage import node_ref
+    from .helpers import HASH
     result = obj({"requested_key": TEXT, "key": union(TEXT, NULL),
                 "raw": union(STRING, NULL), "text": union(STRING, NULL),
                 "source": union(source(), NULL),
                 "inherited_from": union(node_ref(), NULL),
                 "unresolved_references": array(TEXT, uniqueItems=True)})
-    result['properties']['fallback'] = obj({'kind': {'const': 'component_set'},
-                                            'source_ref': node_ref()})
+    result['properties']['fallback'] = union(obj({'kind': {'const': 'component_set'}, 'source_ref': node_ref()}),
+        obj({'kind': {'const': 'dlc_descriptor'}, 'source_ref': obj({'database': {'const': 'dlcs'}, 'document_id': HASH})}))
+    result['properties']['candidate_keys'] = array(TEXT, minItems=1, uniqueItems=True)
     return result
 
 
 def enrichment():
     language = obj({"name": field(), "description": field()}, required=[])
     language['minProperties'] = 1
-    return obj({"localization": obj({key: language for key in ("ru", "en")})}, required=[])
+    from .helpers import HASH
+    return obj({"localization": obj({key: language for key in ("ru", "en")}),
+        'dlc': obj({'descriptors': array(obj({'database': {'const': 'dlcs'}, 'document_id': HASH}), uniqueItems=True)})}, required=[])

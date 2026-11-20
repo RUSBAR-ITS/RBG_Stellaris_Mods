@@ -34,7 +34,7 @@ export function sttvDataset(kind: SttvDatabaseKind, items: SttvNode[] = []): Stt
   const directory = sttvDatasets[kind].directory;
   return { format: 'sttv.parse_document', format_version: 1, database: kind,
     document_id: String(sttvDatabaseKinds.indexOf(kind) + 1).padStart(64, '0'),
-    source: { file: `${directory}/example.txt`, root: 'STELLARIS_ROOT' }, items };
+    source: { file: `${directory}/${kind === 'dlcs' ? 'dlc_info.txt' : 'example.txt'}`, root: 'STELLARIS_ROOT' }, items };
 }
 export function sttvSet(technology: SttvDatabase = sttvDatabase([])) {
   return sttvDatabaseKinds.map(kind => kind === 'technologies' ? technology : sttvDataset(kind));

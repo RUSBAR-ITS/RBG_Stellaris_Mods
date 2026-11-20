@@ -163,7 +163,11 @@ def parse_text(text, syntax, source_name=None, *, expansion=None, role="source",
     from .traversal import walk
     if role not in ("source", "template"):
         raise ValueError(f"Unknown document role: {role}")
-    document = parse_source(Source(text, source_name, root), syntax)
+    source = Source(text, source_name, root)
+    if expansion is not None:
+        from .source_insertions import repair
+        source = repair(source, syntax, expansion)
+    document = parse_source(source, syntax)
     if role == "template":
         return document
     if expansion is not None:

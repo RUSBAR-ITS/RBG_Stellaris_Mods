@@ -22,6 +22,15 @@ def localize_field(target, language, field, settings, resolver):
     result = {"requested_key": key, "key": None, "raw": None, "text": None,
               "source": None, "inherited_from": None, "unresolved_references": []}
     resolved = resolver.resolve(language, key)
+    if resolved is None:
+        for candidate in target.candidates.get(field, []):
+            resolved = resolver.resolve(language, candidate)
+            if resolved is not None:
+                if candidate in target.candidate_sources:
+                    result['fallback'] = {'kind': 'dlc_descriptor', 'source_ref': target.candidate_sources[candidate]}
+                else:
+                    result['candidate_keys'] = target.candidates[field]
+                break
     if resolved is None and field == 'description' and target.fallback:
         resolved = resolver.resolve(language, target.fallback[0])
         if resolved is not None:

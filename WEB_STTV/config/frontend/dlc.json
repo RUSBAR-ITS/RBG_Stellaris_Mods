@@ -1,0 +1,11 @@
+{
+  "navigation": ["tree", "dlc"],
+  "listMaxWidth": 860,
+  "padding": 24,
+  "gap": 12,
+  "imageWidth": 96,
+  "imageHeight": 54,
+  "switchWidth": 42,
+  "switchHeight": 24,
+  "switchInset": 3
+}

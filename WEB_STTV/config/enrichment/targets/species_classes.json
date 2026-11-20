@@ -1,0 +1,20 @@
+{
+  "selection": {
+    "variable": "SPECIES_CLASSES_DIR",
+    "pattern": "*.txt",
+    "recursive": true
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": "_desc",
+    "description_field": null,
+    "text_field": "text",
+    "fallback_field": null,
+    "description_fields": [
+      "description",
+      "desc"
+    ],
+    "description_nodes": true
+  }
+}

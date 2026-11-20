@@ -16,6 +16,9 @@ import { SttvCardMeasurement } from '../ui/composite/CardMeasurement';
 import { SttvImageProvider } from '../ui/base/ResourceImage';
 import type { SttvCatalog } from '../data/model';
 import { sttvDiagnostic, type SttvDiagnostic } from '../workers/diagnostics';
+import { sttvUseDlc } from './useDlc';
+import { SttvDlcSettings } from '../views/DlcSettings';
+import navigation from '../../../config/frontend/dlc.json';
 
 export function SttvApp() {
   const [language, setLanguage] = useState(config.initialLanguage as SttvLanguage);
@@ -23,7 +26,9 @@ export function SttvApp() {
   const [expanded, setExpanded] = useState(config.initialMenuExpanded);
   const [zoom, setZoom] = useState(sttvZoomSettings.initialPercent);
   const [exportFailed, setExportFailed] = useState(false);
+  const [view, setView] = useState('tree');
   const { opening: loaded, controller } = sttvUseDatabase();
+  const dlc = sttvUseDlc(loaded, controller, view);
   const [imageIssues, setImageIssues] = useState<{ operation: number; items: SttvDiagnostic[] }>({ operation: 0, items: [] });
   const imageUnavailable = useCallback((id: string, reason: string) => setImageIssues(previous => ({
     operation: loaded.operationId, items: [...(previous.operation === loaded.operationId ? previous.items : []),
@@ -34,6 +39,9 @@ export function SttvApp() {
   const onMeasure = useCallback((height: number) => setMeasurement({ data: loaded.data, language, height }), [loaded.data, language]);
   const { opening, layout } = useMemo(() => measured ? sttvPrepareField(loaded, language, measurement!.height)
     : { opening: loaded, layout: null }, [loaded, language, measured, measurement]);
+  const previousField = useRef<{ operation: number; data: SttvCatalog; layout: NonNullable<typeof layout> } | null>(null);
+  if (layout && opening.data) previousField.current = { operation: opening.operationId, data: opening.data, layout };
+  const field = previousField.current?.operation === opening.operationId && opening.status === 'ready' ? previousField.current : null;
   const input = useRef<HTMLInputElement>(null);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
@@ -45,6 +53,8 @@ export function SttvApp() {
     catch { setExportFailed(true); }
   }
   const actions = <>
+    {navigation.navigation.map(id => <SttvButton key={id} label={{ id: `sttv_nav_${id}` }}
+      current={view === id} onClick={() => setView(id)} border="never" />)}
     {opening.status === 'loading'
       ? <SttvButton label={{ id: 'sttv_cancel' }} onClick={() => controller.cancel()} border="hover" />
       : <>
@@ -64,16 +74,20 @@ export function SttvApp() {
       event.currentTarget.value = '';
       if (files.length) controller.open(files);
     }} />
-    <SttvMainWindow status={exportFailed ? { id: 'sttv_export_failed' } : sttvStatusMessage(opening, language)}
+    <SttvMainWindow status={exportFailed ? { id: 'sttv_export_failed' } : dlc.status ?? sttvStatusMessage(opening, language)}
       menu={<SttvMenuPanel expanded={expanded} actions={actions}
         settings={<><SttvLanguageSelector value={language} onChange={setLanguage} />
-          <SttvZoomSelector value={zoom} onChange={setZoom} /></>}
+          {view === 'tree' && <SttvZoomSelector value={zoom} onChange={setZoom} />}</>}
         buttons={<>
           <SttvMenuToggle expanded={expanded} onToggle={() => setExpanded(value => !value)} />
           {expanded && <SttvThemeToggle theme={theme} onToggle={() => setTheme(value => value === 'night' ? 'day' : 'night')} />}
         </>} />}>
-      {opening.status === 'ready' && opening.data && layout && <SttvTechnologyField key={opening.operationId}
-        data={opening.data} layout={layout} scale={zoom / 100} />}
+      <div className="sttv-view-slot" data-active={view === 'tree'} aria-hidden={view !== 'tree'} inert={view !== 'tree'}>
+        {field && <SttvTechnologyField key={opening.operationId} data={field.data} layout={field.layout} scale={zoom / 100} />}
+      </div>
+      <div className="sttv-view-slot" data-active={view === 'dlc'} aria-hidden={view !== 'dlc'} inert={view !== 'dlc'}>
+        <SttvDlcSettings key={opening.operationId} data={opening.data} state={dlc} />
+      </div>
     </SttvMainWindow>
     </SttvImageProvider>
   </SttvLocalizationProvider>;

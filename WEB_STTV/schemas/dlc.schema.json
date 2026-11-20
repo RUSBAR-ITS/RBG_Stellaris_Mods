@@ -1,0 +1,420 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acquisition": {
+      "type": "object"
+    },
+    "catalog": {
+      "additionalProperties": false,
+      "properties": {
+        "database": {
+          "const": "dlcs"
+        },
+        "name_field": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "database",
+        "name_field"
+      ],
+      "type": "object"
+    },
+    "constants": {
+      "additionalProperties": {
+        "additionalProperties": {
+          "type": "boolean"
+        },
+        "propertyNames": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "context": {
+      "const": "playable_empire"
+    },
+    "factor_field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "format": {
+      "const": "sttv.dlc_rules"
+    },
+    "format_version": {
+      "const": 2
+    },
+    "government_requirements": {
+      "additionalProperties": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "groups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "base": {
+            "enum": [
+              "product",
+              "work"
+            ]
+          },
+          "path": {
+            "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "base",
+          "path"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "ignored_wrapper_fields": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "limits": {
+      "additionalProperties": false,
+      "properties": {
+        "max_depth": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_nodes": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "max_steps": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "max_depth",
+        "max_nodes",
+        "max_steps"
+      ],
+      "type": "object"
+    },
+    "modifier_field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "potential_field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "predicates": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "required_datasets": {
+      "items": {
+        "enum": [
+          "technologies",
+          "components",
+          "buildings",
+          "megastructures",
+          "ship_sizes",
+          "starbase_levels",
+          "starbase_modules",
+          "starbase_buildings",
+          "terraform",
+          "deposits",
+          "pop_jobs",
+          "economic_categories",
+          "scripted_actions",
+          "on_actions",
+          "events",
+          "species_archetypes",
+          "species_classes",
+          "ethics",
+          "ethic_categories",
+          "traits",
+          "graphical_culture",
+          "ship_categories",
+          "authorities",
+          "civics",
+          "dlcs",
+          "ascension_perks",
+          "traditions",
+          "tradition_categories",
+          "crisis_paths",
+          "crisis_levels"
+        ]
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "rules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "contexts": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "database": {
+            "enum": [
+              "technologies",
+              "components",
+              "buildings",
+              "megastructures",
+              "ship_sizes",
+              "starbase_levels",
+              "starbase_modules",
+              "starbase_buildings",
+              "terraform",
+              "deposits",
+              "pop_jobs",
+              "economic_categories",
+              "scripted_actions",
+              "on_actions",
+              "events",
+              "species_archetypes",
+              "species_classes",
+              "ethics",
+              "ethic_categories",
+              "traits",
+              "graphical_culture",
+              "ship_categories",
+              "authorities",
+              "civics",
+              "dlcs",
+              "ascension_perks",
+              "traditions",
+              "tradition_categories",
+              "crisis_paths",
+              "crisis_levels"
+            ]
+          },
+          "diagnostic_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "gates": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "context": {
+                  "enum": [
+                    "country",
+                    "government",
+                    "species"
+                  ]
+                },
+                "field": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "field",
+                "context"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "handler": {
+            "enum": [
+              "object",
+              "ship_category",
+              "tradition",
+              "observe",
+              "technology"
+            ]
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "predicates": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "providers": {
+            "additionalProperties": false,
+            "properties": {
+              "fields": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "rule": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "rule",
+              "fields"
+            ],
+            "type": "object"
+          },
+          "purpose": {
+            "enum": [
+              "selection",
+              "acquisition",
+              "observation"
+            ]
+          },
+          "selector": {
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "field": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "value": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "value",
+              "default"
+            ],
+            "type": "object"
+          },
+          "source": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "enabled",
+          "predicates",
+          "handler",
+          "database",
+          "contexts",
+          "purpose",
+          "gates",
+          "source",
+          "diagnostic_code"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "scopes": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "from": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "to": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "from",
+          "to"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "unsupported_actions": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "weight_field": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "wrappers": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format",
+    "format_version",
+    "predicates",
+    "constants",
+    "wrappers",
+    "ignored_wrapper_fields",
+    "potential_field",
+    "weight_field",
+    "modifier_field",
+    "factor_field",
+    "unsupported_actions",
+    "catalog",
+    "context",
+    "groups",
+    "required_datasets",
+    "limits",
+    "government_requirements",
+    "scopes"
+  ],
+  "type": "object"
+}

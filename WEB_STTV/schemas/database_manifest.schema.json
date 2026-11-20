@@ -2,9 +2,431 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "acquisition": {
+      "additionalProperties": false,
+      "properties": {
+        "calls": {
+          "additionalProperties": {
+            "items": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "configuration_revision": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "context": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "coverage": {
+          "additionalProperties": false,
+          "properties": {
+            "diagnostics": {
+              "items": {
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "parsed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "parsed",
+            "diagnostics"
+          ],
+          "type": "object"
+        },
+        "documents": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "byte_size": {
+                "minimum": 0,
+                "type": "integer"
+              },
+              "coverage": {
+                "additionalProperties": false,
+                "properties": {
+                  "classification": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "reason": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "sha256": {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      "type": {
+                        "const": "documentation"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "sha256",
+                      "reason"
+                    ],
+                    "type": "object"
+                  },
+                  "commands_checked": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "diagnostics": {
+                    "items": {
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "parsed": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "parsed",
+                  "commands_checked",
+                  "diagnostics"
+                ],
+                "type": "object"
+              },
+              "file_hash": {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              "path": {
+                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                "type": "string"
+              },
+              "source": {
+                "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "path",
+              "file_hash",
+              "byte_size",
+              "coverage"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "format_version": {
+          "const": 1
+        },
+        "implementation": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "membership_revision": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "preparation_revision": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "revision": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "statistics": {
+          "additionalProperties": false,
+          "properties": {
+            "bytes": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "parsed_documents": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "reused_documents": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "seconds": {
+              "minimum": 0,
+              "type": "number"
+            }
+          },
+          "required": [
+            "reused_documents",
+            "parsed_documents",
+            "bytes"
+          ],
+          "type": "object"
+        },
+        "targets": {
+          "additionalProperties": {
+            "items": {
+              "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        }
+      },
+      "required": [
+        "format_version",
+        "implementation",
+        "context",
+        "revision",
+        "configuration_revision",
+        "membership_revision",
+        "documents",
+        "targets",
+        "calls",
+        "coverage",
+        "statistics"
+      ],
+      "type": "object"
+    },
     "datasets": {
       "additionalProperties": false,
       "properties": {
+        "ascension_perks": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "authorities": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
         "buildings": {
           "additionalProperties": false,
           "properties": {
@@ -87,7 +509,119 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "civics": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -199,7 +733,231 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "crisis_levels": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "crisis_paths": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -311,7 +1069,119 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "dlcs": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -423,7 +1293,231 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "ethic_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "ethics": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -535,7 +1629,119 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "graphical_culture": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -647,7 +1853,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -759,7 +1965,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -871,7 +2077,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -983,7 +2189,119 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "ship_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1095,7 +2413,231 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "species_archetypes": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "species_classes": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1207,7 +2749,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1319,7 +2861,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1431,7 +2973,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1543,7 +3085,7 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1655,7 +3197,343 @@
                     ]
                   },
                   "pointer": {
-                    "pattern": "^/items/\\d+$",
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "tradition_categories": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "traditions": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
+                    "type": "string"
+                  },
+                  "type": {
+                    "minLength": 1,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "type",
+                  "document_id",
+                  "pointer"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "source_revision": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_revision",
+            "documents",
+            "objects"
+          ],
+          "type": "object"
+        },
+        "traits": {
+          "additionalProperties": false,
+          "properties": {
+            "documents": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "byte_size": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "file_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "item_count": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "path": {
+                    "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "file": {
+                        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                        "type": "string"
+                      },
+                      "root": {
+                        "const": "STELLARIS_ROOT"
+                      }
+                    },
+                    "required": [
+                      "root",
+                      "file"
+                    ],
+                    "type": "object"
+                  },
+                  "source_hash": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "document_id",
+                  "source",
+                  "path",
+                  "byte_size",
+                  "file_hash",
+                  "source_hash",
+                  "item_count"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            "objects": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "document_id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "id": {
+                    "anyOf": [
+                      {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pointer": {
+                    "pattern": "^/items/\\d+(?:/value/items/\\d+)*$",
                     "type": "string"
                   },
                   "type": {
@@ -1701,7 +3579,22 @@
         "economic_categories",
         "scripted_actions",
         "on_actions",
-        "events"
+        "events",
+        "species_archetypes",
+        "species_classes",
+        "ethics",
+        "ethic_categories",
+        "traits",
+        "graphical_culture",
+        "ship_categories",
+        "authorities",
+        "civics",
+        "dlcs",
+        "ascension_perks",
+        "traditions",
+        "tradition_categories",
+        "crisis_paths",
+        "crisis_levels"
       ],
       "type": "object"
     },
@@ -1709,7 +3602,7 @@
       "const": "sttv.database_manifest"
     },
     "format_version": {
-      "const": 1
+      "const": 2
     },
     "presentation": {
       "additionalProperties": false,
@@ -1721,56 +3614,114 @@
               "en": {
                 "additionalProperties": false,
                 "properties": {
+                  "candidate_keys": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
                   "fallback": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "kind": {
-                        "const": "component_set"
-                      },
-                      "source_ref": {
+                    "anyOf": [
+                      {
                         "additionalProperties": false,
                         "properties": {
-                          "database": {
-                            "enum": [
-                              "technologies",
-                              "components",
-                              "buildings",
-                              "megastructures",
-                              "ship_sizes",
-                              "starbase_levels",
-                              "starbase_modules",
-                              "starbase_buildings",
-                              "terraform",
-                              "deposits",
-                              "pop_jobs",
-                              "economic_categories",
-                              "scripted_actions",
-                              "on_actions",
-                              "events"
-                            ]
+                          "kind": {
+                            "const": "component_set"
                           },
-                          "document_id": {
-                            "pattern": "^[a-f0-9]{64}$",
-                            "type": "string"
-                          },
-                          "pointer": {
-                            "pattern": "^/items/\\d+(?:/.*)?$",
-                            "type": "string"
+                          "source_ref": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "database": {
+                                "enum": [
+                                  "technologies",
+                                  "components",
+                                  "buildings",
+                                  "megastructures",
+                                  "ship_sizes",
+                                  "starbase_levels",
+                                  "starbase_modules",
+                                  "starbase_buildings",
+                                  "terraform",
+                                  "deposits",
+                                  "pop_jobs",
+                                  "economic_categories",
+                                  "scripted_actions",
+                                  "on_actions",
+                                  "events",
+                                  "species_archetypes",
+                                  "species_classes",
+                                  "ethics",
+                                  "ethic_categories",
+                                  "traits",
+                                  "graphical_culture",
+                                  "ship_categories",
+                                  "authorities",
+                                  "civics",
+                                  "dlcs",
+                                  "ascension_perks",
+                                  "traditions",
+                                  "tradition_categories",
+                                  "crisis_paths",
+                                  "crisis_levels"
+                                ]
+                              },
+                              "document_id": {
+                                "pattern": "^[a-f0-9]{64}$",
+                                "type": "string"
+                              },
+                              "pointer": {
+                                "pattern": "^/items/\\d+(?:/.*)?$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "database",
+                              "document_id",
+                              "pointer"
+                            ],
+                            "type": "object"
                           }
                         },
                         "required": [
-                          "database",
-                          "document_id",
-                          "pointer"
+                          "kind",
+                          "source_ref"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "kind": {
+                            "const": "dlc_descriptor"
+                          },
+                          "source_ref": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "database": {
+                                "const": "dlcs"
+                              },
+                              "document_id": {
+                                "pattern": "^[a-f0-9]{64}$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "database",
+                              "document_id"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "source_ref"
                         ],
                         "type": "object"
                       }
-                    },
-                    "required": [
-                      "kind",
-                      "source_ref"
-                    ],
-                    "type": "object"
+                    ]
                   },
                   "inherited_from": {
                     "anyOf": [
@@ -1793,7 +3744,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "document_id": {
@@ -1905,56 +3871,114 @@
               "ru": {
                 "additionalProperties": false,
                 "properties": {
+                  "candidate_keys": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
                   "fallback": {
-                    "additionalProperties": false,
-                    "properties": {
-                      "kind": {
-                        "const": "component_set"
-                      },
-                      "source_ref": {
+                    "anyOf": [
+                      {
                         "additionalProperties": false,
                         "properties": {
-                          "database": {
-                            "enum": [
-                              "technologies",
-                              "components",
-                              "buildings",
-                              "megastructures",
-                              "ship_sizes",
-                              "starbase_levels",
-                              "starbase_modules",
-                              "starbase_buildings",
-                              "terraform",
-                              "deposits",
-                              "pop_jobs",
-                              "economic_categories",
-                              "scripted_actions",
-                              "on_actions",
-                              "events"
-                            ]
+                          "kind": {
+                            "const": "component_set"
                           },
-                          "document_id": {
-                            "pattern": "^[a-f0-9]{64}$",
-                            "type": "string"
-                          },
-                          "pointer": {
-                            "pattern": "^/items/\\d+(?:/.*)?$",
-                            "type": "string"
+                          "source_ref": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "database": {
+                                "enum": [
+                                  "technologies",
+                                  "components",
+                                  "buildings",
+                                  "megastructures",
+                                  "ship_sizes",
+                                  "starbase_levels",
+                                  "starbase_modules",
+                                  "starbase_buildings",
+                                  "terraform",
+                                  "deposits",
+                                  "pop_jobs",
+                                  "economic_categories",
+                                  "scripted_actions",
+                                  "on_actions",
+                                  "events",
+                                  "species_archetypes",
+                                  "species_classes",
+                                  "ethics",
+                                  "ethic_categories",
+                                  "traits",
+                                  "graphical_culture",
+                                  "ship_categories",
+                                  "authorities",
+                                  "civics",
+                                  "dlcs",
+                                  "ascension_perks",
+                                  "traditions",
+                                  "tradition_categories",
+                                  "crisis_paths",
+                                  "crisis_levels"
+                                ]
+                              },
+                              "document_id": {
+                                "pattern": "^[a-f0-9]{64}$",
+                                "type": "string"
+                              },
+                              "pointer": {
+                                "pattern": "^/items/\\d+(?:/.*)?$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "database",
+                              "document_id",
+                              "pointer"
+                            ],
+                            "type": "object"
                           }
                         },
                         "required": [
-                          "database",
-                          "document_id",
-                          "pointer"
+                          "kind",
+                          "source_ref"
+                        ],
+                        "type": "object"
+                      },
+                      {
+                        "additionalProperties": false,
+                        "properties": {
+                          "kind": {
+                            "const": "dlc_descriptor"
+                          },
+                          "source_ref": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "database": {
+                                "const": "dlcs"
+                              },
+                              "document_id": {
+                                "pattern": "^[a-f0-9]{64}$",
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "database",
+                              "document_id"
+                            ],
+                            "type": "object"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "source_ref"
                         ],
                         "type": "object"
                       }
-                    },
-                    "required": [
-                      "kind",
-                      "source_ref"
-                    ],
-                    "type": "object"
+                    ]
                   },
                   "inherited_from": {
                     "anyOf": [
@@ -1977,7 +4001,22 @@
                               "economic_categories",
                               "scripted_actions",
                               "on_actions",
-                              "events"
+                              "events",
+                              "species_archetypes",
+                              "species_classes",
+                              "ethics",
+                              "ethic_categories",
+                              "traits",
+                              "graphical_culture",
+                              "ship_categories",
+                              "authorities",
+                              "civics",
+                              "dlcs",
+                              "ascension_perks",
+                              "traditions",
+                              "tradition_categories",
+                              "crisis_paths",
+                              "crisis_levels"
                             ]
                           },
                           "document_id": {
@@ -2092,6 +4131,24 @@
               "en"
             ],
             "type": "object"
+          },
+          "propertyNames": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "dlc_icons": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "propertyNames": {
             "minLength": 1,
@@ -2258,6 +4315,425 @@
                 "pattern": "^[a-f0-9]{64}$",
                 "type": "string"
               },
+              "dlc_rules_snapshot": {
+                "additionalProperties": false,
+                "properties": {
+                  "acquisition": {
+                    "type": "object"
+                  },
+                  "catalog": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "database": {
+                        "const": "dlcs"
+                      },
+                      "name_field": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "database",
+                      "name_field"
+                    ],
+                    "type": "object"
+                  },
+                  "constants": {
+                    "additionalProperties": {
+                      "additionalProperties": {
+                        "type": "boolean"
+                      },
+                      "propertyNames": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "context": {
+                    "const": "playable_empire"
+                  },
+                  "factor_field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "format": {
+                    "const": "sttv.dlc_rules"
+                  },
+                  "format_version": {
+                    "const": 2
+                  },
+                  "government_requirements": {
+                    "additionalProperties": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "groups": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "base": {
+                          "enum": [
+                            "product",
+                            "work"
+                          ]
+                        },
+                        "path": {
+                          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "base",
+                        "path"
+                      ],
+                      "type": "object"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "ignored_wrapper_fields": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "limits": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "max_depth": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "max_nodes": {
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      "max_steps": {
+                        "minimum": 1,
+                        "type": "integer"
+                      }
+                    },
+                    "required": [
+                      "max_depth",
+                      "max_nodes",
+                      "max_steps"
+                    ],
+                    "type": "object"
+                  },
+                  "modifier_field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "potential_field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "predicates": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "required_datasets": {
+                    "items": {
+                      "enum": [
+                        "technologies",
+                        "components",
+                        "buildings",
+                        "megastructures",
+                        "ship_sizes",
+                        "starbase_levels",
+                        "starbase_modules",
+                        "starbase_buildings",
+                        "terraform",
+                        "deposits",
+                        "pop_jobs",
+                        "economic_categories",
+                        "scripted_actions",
+                        "on_actions",
+                        "events",
+                        "species_archetypes",
+                        "species_classes",
+                        "ethics",
+                        "ethic_categories",
+                        "traits",
+                        "graphical_culture",
+                        "ship_categories",
+                        "authorities",
+                        "civics",
+                        "dlcs",
+                        "ascension_perks",
+                        "traditions",
+                        "tradition_categories",
+                        "crisis_paths",
+                        "crisis_levels"
+                      ]
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "rules": {
+                    "items": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "contexts": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "database": {
+                          "enum": [
+                            "technologies",
+                            "components",
+                            "buildings",
+                            "megastructures",
+                            "ship_sizes",
+                            "starbase_levels",
+                            "starbase_modules",
+                            "starbase_buildings",
+                            "terraform",
+                            "deposits",
+                            "pop_jobs",
+                            "economic_categories",
+                            "scripted_actions",
+                            "on_actions",
+                            "events",
+                            "species_archetypes",
+                            "species_classes",
+                            "ethics",
+                            "ethic_categories",
+                            "traits",
+                            "graphical_culture",
+                            "ship_categories",
+                            "authorities",
+                            "civics",
+                            "dlcs",
+                            "ascension_perks",
+                            "traditions",
+                            "tradition_categories",
+                            "crisis_paths",
+                            "crisis_levels"
+                          ]
+                        },
+                        "diagnostic_code": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "enabled": {
+                          "type": "boolean"
+                        },
+                        "gates": {
+                          "items": {
+                            "additionalProperties": false,
+                            "properties": {
+                              "context": {
+                                "enum": [
+                                  "country",
+                                  "government",
+                                  "species"
+                                ]
+                              },
+                              "field": {
+                                "minLength": 1,
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "field",
+                              "context"
+                            ],
+                            "type": "object"
+                          },
+                          "type": "array"
+                        },
+                        "handler": {
+                          "enum": [
+                            "object",
+                            "ship_category",
+                            "tradition",
+                            "observe",
+                            "technology"
+                          ]
+                        },
+                        "id": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "predicates": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "type": "array",
+                          "uniqueItems": true
+                        },
+                        "providers": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "fields": {
+                              "items": {
+                                "minLength": 1,
+                                "type": "string"
+                              },
+                              "minItems": 1,
+                              "type": "array",
+                              "uniqueItems": true
+                            },
+                            "rule": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "rule",
+                            "fields"
+                          ],
+                          "type": "object"
+                        },
+                        "purpose": {
+                          "enum": [
+                            "selection",
+                            "acquisition",
+                            "observation"
+                          ]
+                        },
+                        "selector": {
+                          "additionalProperties": false,
+                          "properties": {
+                            "default": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "field": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "value": {
+                              "minLength": 1,
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "value",
+                            "default"
+                          ],
+                          "type": "object"
+                        },
+                        "source": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "enabled",
+                        "predicates",
+                        "handler",
+                        "database",
+                        "contexts",
+                        "purpose",
+                        "gates",
+                        "source",
+                        "diagnostic_code"
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  },
+                  "scopes": {
+                    "additionalProperties": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "from": {
+                          "items": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "minItems": 1,
+                          "type": "array"
+                        },
+                        "to": {
+                          "minLength": 1,
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "from",
+                        "to"
+                      ],
+                      "type": "object"
+                    },
+                    "propertyNames": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "object"
+                  },
+                  "unsupported_actions": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "weight_field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "wrappers": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "type": "array",
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "format",
+                  "format_version",
+                  "predicates",
+                  "constants",
+                  "wrappers",
+                  "ignored_wrapper_fields",
+                  "potential_field",
+                  "weight_field",
+                  "modifier_field",
+                  "factor_field",
+                  "unsupported_actions",
+                  "catalog",
+                  "context",
+                  "groups",
+                  "required_datasets",
+                  "limits",
+                  "government_requirements",
+                  "scopes"
+                ],
+                "type": "object"
+              },
               "implementation_revision": {
                 "minLength": 1,
                 "type": "string"
@@ -2297,6 +4773,37 @@
               "parameters": {
                 "additionalProperties": false,
                 "properties": {
+                  "dlc": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "catalog_revision": {
+                        "pattern": "^[a-f0-9]{64}$",
+                        "type": "string"
+                      },
+                      "enabled": {
+                        "items": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "uniqueItems": true
+                      },
+                      "known": {
+                        "items": {
+                          "minLength": 1,
+                          "type": "string"
+                        },
+                        "type": "array",
+                        "uniqueItems": true
+                      }
+                    },
+                    "required": [
+                      "known",
+                      "enabled",
+                      "catalog_revision"
+                    ],
+                    "type": "object"
+                  },
                   "mode": {
                     "const": "reference"
                   },
@@ -2436,7 +4943,22 @@
                                       "economic_categories",
                                       "scripted_actions",
                                       "on_actions",
-                                      "events"
+                                      "events",
+                                      "species_archetypes",
+                                      "species_classes",
+                                      "ethics",
+                                      "ethic_categories",
+                                      "traits",
+                                      "graphical_culture",
+                                      "ship_categories",
+                                      "authorities",
+                                      "civics",
+                                      "dlcs",
+                                      "ascension_perks",
+                                      "traditions",
+                                      "tradition_categories",
+                                      "crisis_paths",
+                                      "crisis_levels"
                                     ]
                                   }
                                 },
@@ -2476,7 +4998,22 @@
                                   "economic_categories",
                                   "scripted_actions",
                                   "on_actions",
-                                  "events"
+                                  "events",
+                                  "species_archetypes",
+                                  "species_classes",
+                                  "ethics",
+                                  "ethic_categories",
+                                  "traits",
+                                  "graphical_culture",
+                                  "ship_categories",
+                                  "authorities",
+                                  "civics",
+                                  "dlcs",
+                                  "ascension_perks",
+                                  "traditions",
+                                  "tradition_categories",
+                                  "crisis_paths",
+                                  "crisis_levels"
                                 ]
                               },
                               "type": "array",
@@ -2518,7 +5055,22 @@
                                       "economic_categories",
                                       "scripted_actions",
                                       "on_actions",
-                                      "events"
+                                      "events",
+                                      "species_archetypes",
+                                      "species_classes",
+                                      "ethics",
+                                      "ethic_categories",
+                                      "traits",
+                                      "graphical_culture",
+                                      "ship_categories",
+                                      "authorities",
+                                      "civics",
+                                      "dlcs",
+                                      "ascension_perks",
+                                      "traditions",
+                                      "tradition_categories",
+                                      "crisis_paths",
+                                      "crisis_levels"
                                     ]
                                   },
                                   "type": "array",
@@ -2549,7 +5101,22 @@
                                   "economic_categories",
                                   "scripted_actions",
                                   "on_actions",
-                                  "events"
+                                  "events",
+                                  "species_archetypes",
+                                  "species_classes",
+                                  "ethics",
+                                  "ethic_categories",
+                                  "traits",
+                                  "graphical_culture",
+                                  "ship_categories",
+                                  "authorities",
+                                  "civics",
+                                  "dlcs",
+                                  "ascension_perks",
+                                  "traditions",
+                                  "tradition_categories",
+                                  "crisis_paths",
+                                  "crisis_levels"
                                 ]
                               },
                               "propertyNames": {
@@ -2599,7 +5166,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             },
                             "modifier_block": {
@@ -2660,7 +5242,22 @@
                                 "economic_categories",
                                 "scripted_actions",
                                 "on_actions",
-                                "events"
+                                "events",
+                                "species_archetypes",
+                                "species_classes",
+                                "ethics",
+                                "ethic_categories",
+                                "traits",
+                                "graphical_culture",
+                                "ship_categories",
+                                "authorities",
+                                "civics",
+                                "dlcs",
+                                "ascension_perks",
+                                "traditions",
+                                "tradition_categories",
+                                "crisis_paths",
+                                "crisis_levels"
                               ]
                             }
                           },
@@ -2696,7 +5293,22 @@
                                       "economic_categories",
                                       "scripted_actions",
                                       "on_actions",
-                                      "events"
+                                      "events",
+                                      "species_archetypes",
+                                      "species_classes",
+                                      "ethics",
+                                      "ethic_categories",
+                                      "traits",
+                                      "graphical_culture",
+                                      "ship_categories",
+                                      "authorities",
+                                      "civics",
+                                      "dlcs",
+                                      "ascension_perks",
+                                      "traditions",
+                                      "tradition_categories",
+                                      "crisis_paths",
+                                      "crisis_levels"
                                     ]
                                   },
                                   "linked_field": {
@@ -2719,7 +5331,22 @@
                                       "economic_categories",
                                       "scripted_actions",
                                       "on_actions",
-                                      "events"
+                                      "events",
+                                      "species_archetypes",
+                                      "species_classes",
+                                      "ethics",
+                                      "ethic_categories",
+                                      "traits",
+                                      "graphical_culture",
+                                      "ship_categories",
+                                      "authorities",
+                                      "civics",
+                                      "dlcs",
+                                      "ascension_perks",
+                                      "traditions",
+                                      "tradition_categories",
+                                      "crisis_paths",
+                                      "crisis_levels"
                                     ]
                                   },
                                   "modifier": {
@@ -2775,7 +5402,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "roles": {
@@ -2835,7 +5477,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "predicate": {
@@ -2885,7 +5542,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "completion_field": {
@@ -2908,7 +5580,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "component_type": {
@@ -2939,7 +5626,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "events_field": {
@@ -2974,7 +5676,22 @@
                                     "economic_categories",
                                     "scripted_actions",
                                     "on_actions",
-                                    "events"
+                                    "events",
+                                    "species_archetypes",
+                                    "species_classes",
+                                    "ethics",
+                                    "ethic_categories",
+                                    "traits",
+                                    "graphical_culture",
+                                    "ship_categories",
+                                    "authorities",
+                                    "civics",
+                                    "dlcs",
+                                    "ascension_perks",
+                                    "traditions",
+                                    "tradition_categories",
+                                    "crisis_paths",
+                                    "crisis_levels"
                                   ]
                                 },
                                 "kinds": {
@@ -2994,7 +5711,22 @@
                                       "economic_categories",
                                       "scripted_actions",
                                       "on_actions",
-                                      "events"
+                                      "events",
+                                      "species_archetypes",
+                                      "species_classes",
+                                      "ethics",
+                                      "ethic_categories",
+                                      "traits",
+                                      "graphical_culture",
+                                      "ship_categories",
+                                      "authorities",
+                                      "civics",
+                                      "dlcs",
+                                      "ascension_perks",
+                                      "traditions",
+                                      "tradition_categories",
+                                      "crisis_paths",
+                                      "crisis_levels"
                                     ]
                                   },
                                   "type": "array",
@@ -3367,7 +6099,22 @@
                                               "economic_categories",
                                               "scripted_actions",
                                               "on_actions",
-                                              "events"
+                                              "events",
+                                              "species_archetypes",
+                                              "species_classes",
+                                              "ethics",
+                                              "ethic_categories",
+                                              "traits",
+                                              "graphical_culture",
+                                              "ship_categories",
+                                              "authorities",
+                                              "civics",
+                                              "dlcs",
+                                              "ascension_perks",
+                                              "traditions",
+                                              "tradition_categories",
+                                              "crisis_paths",
+                                              "crisis_levels"
                                             ]
                                           }
                                         },
@@ -3441,7 +6188,22 @@
                                           "economic_categories",
                                           "scripted_actions",
                                           "on_actions",
-                                          "events"
+                                          "events",
+                                          "species_archetypes",
+                                          "species_classes",
+                                          "ethics",
+                                          "ethic_categories",
+                                          "traits",
+                                          "graphical_culture",
+                                          "ship_categories",
+                                          "authorities",
+                                          "civics",
+                                          "dlcs",
+                                          "ascension_perks",
+                                          "traditions",
+                                          "tradition_categories",
+                                          "crisis_paths",
+                                          "crisis_levels"
                                         ]
                                       },
                                       "type": "array",
@@ -3483,7 +6245,22 @@
                                               "economic_categories",
                                               "scripted_actions",
                                               "on_actions",
-                                              "events"
+                                              "events",
+                                              "species_archetypes",
+                                              "species_classes",
+                                              "ethics",
+                                              "ethic_categories",
+                                              "traits",
+                                              "graphical_culture",
+                                              "ship_categories",
+                                              "authorities",
+                                              "civics",
+                                              "dlcs",
+                                              "ascension_perks",
+                                              "traditions",
+                                              "tradition_categories",
+                                              "crisis_paths",
+                                              "crisis_levels"
                                             ]
                                           },
                                           "type": "array",
@@ -3514,7 +6291,22 @@
                                           "economic_categories",
                                           "scripted_actions",
                                           "on_actions",
-                                          "events"
+                                          "events",
+                                          "species_archetypes",
+                                          "species_classes",
+                                          "ethics",
+                                          "ethic_categories",
+                                          "traits",
+                                          "graphical_culture",
+                                          "ship_categories",
+                                          "authorities",
+                                          "civics",
+                                          "dlcs",
+                                          "ascension_perks",
+                                          "traditions",
+                                          "tradition_categories",
+                                          "crisis_paths",
+                                          "crisis_levels"
                                         ]
                                       },
                                       "propertyNames": {
@@ -3598,7 +6390,22 @@
                                         "economic_categories",
                                         "scripted_actions",
                                         "on_actions",
-                                        "events"
+                                        "events",
+                                        "species_archetypes",
+                                        "species_classes",
+                                        "ethics",
+                                        "ethic_categories",
+                                        "traits",
+                                        "graphical_culture",
+                                        "ship_categories",
+                                        "authorities",
+                                        "civics",
+                                        "dlcs",
+                                        "ascension_perks",
+                                        "traditions",
+                                        "tradition_categories",
+                                        "crisis_paths",
+                                        "crisis_levels"
                                       ]
                                     },
                                     "modifier_block": {
@@ -3693,7 +6500,22 @@
                                         "economic_categories",
                                         "scripted_actions",
                                         "on_actions",
-                                        "events"
+                                        "events",
+                                        "species_archetypes",
+                                        "species_classes",
+                                        "ethics",
+                                        "ethic_categories",
+                                        "traits",
+                                        "graphical_culture",
+                                        "ship_categories",
+                                        "authorities",
+                                        "civics",
+                                        "dlcs",
+                                        "ascension_perks",
+                                        "traditions",
+                                        "tradition_categories",
+                                        "crisis_paths",
+                                        "crisis_levels"
                                       ]
                                     }
                                   },
@@ -3763,7 +6585,22 @@
                                               "economic_categories",
                                               "scripted_actions",
                                               "on_actions",
-                                              "events"
+                                              "events",
+                                              "species_archetypes",
+                                              "species_classes",
+                                              "ethics",
+                                              "ethic_categories",
+                                              "traits",
+                                              "graphical_culture",
+                                              "ship_categories",
+                                              "authorities",
+                                              "civics",
+                                              "dlcs",
+                                              "ascension_perks",
+                                              "traditions",
+                                              "tradition_categories",
+                                              "crisis_paths",
+                                              "crisis_levels"
                                             ]
                                           },
                                           "linked_field": {
@@ -3786,7 +6623,22 @@
                                               "economic_categories",
                                               "scripted_actions",
                                               "on_actions",
-                                              "events"
+                                              "events",
+                                              "species_archetypes",
+                                              "species_classes",
+                                              "ethics",
+                                              "ethic_categories",
+                                              "traits",
+                                              "graphical_culture",
+                                              "ship_categories",
+                                              "authorities",
+                                              "civics",
+                                              "dlcs",
+                                              "ascension_perks",
+                                              "traditions",
+                                              "tradition_categories",
+                                              "crisis_paths",
+                                              "crisis_levels"
                                             ]
                                           },
                                           "modifier": {
@@ -3876,7 +6728,22 @@
                                             "economic_categories",
                                             "scripted_actions",
                                             "on_actions",
-                                            "events"
+                                            "events",
+                                            "species_archetypes",
+                                            "species_classes",
+                                            "ethics",
+                                            "ethic_categories",
+                                            "traits",
+                                            "graphical_culture",
+                                            "ship_categories",
+                                            "authorities",
+                                            "civics",
+                                            "dlcs",
+                                            "ascension_perks",
+                                            "traditions",
+                                            "tradition_categories",
+                                            "crisis_paths",
+                                            "crisis_levels"
                                           ]
                                         },
                                         "roles": {
@@ -3936,7 +6803,22 @@
                                             "economic_categories",
                                             "scripted_actions",
                                             "on_actions",
-                                            "events"
+                                            "events",
+                                            "species_archetypes",
+                                            "species_classes",
+                                            "ethics",
+                                            "ethic_categories",
+                                            "traits",
+                                            "graphical_culture",
+                                            "ship_categories",
+                                            "authorities",
+                                            "civics",
+                                            "dlcs",
+                                            "ascension_perks",
+                                            "traditions",
+                                            "tradition_categories",
+                                            "crisis_paths",
+                                            "crisis_levels"
                                           ]
                                         },
                                         "predicate": {
@@ -3986,7 +6868,22 @@
                                             "economic_categories",
                                             "scripted_actions",
                                             "on_actions",
-                                            "events"
+                                            "events",
+                                            "species_archetypes",
+                                            "species_classes",
+                                            "ethics",
+                                            "ethic_categories",
+                                            "traits",
+                                            "graphical_culture",
+                                            "ship_categories",
+                                            "authorities",
+                                            "civics",
+                                            "dlcs",
+                                            "ascension_perks",
+                                            "traditions",
+                                            "tradition_categories",
+                                            "crisis_paths",
+                                            "crisis_levels"
                                           ]
                                         },
                                         "completion_field": {
@@ -4009,7 +6906,22 @@
                                             "economic_categories",
                                             "scripted_actions",
                                             "on_actions",
-                                            "events"
+                                            "events",
+                                            "species_archetypes",
+                                            "species_classes",
+                                            "ethics",
+                                            "ethic_categories",
+                                            "traits",
+                                            "graphical_culture",
+                                            "ship_categories",
+                                            "authorities",
+                                            "civics",
+                                            "dlcs",
+                                            "ascension_perks",
+                                            "traditions",
+                                            "tradition_categories",
+                                            "crisis_paths",
+                                            "crisis_levels"
                                           ]
                                         },
                                         "component_type": {
@@ -4040,7 +6952,22 @@
                                             "economic_categories",
                                             "scripted_actions",
                                             "on_actions",
-                                            "events"
+                                            "events",
+                                            "species_archetypes",
+                                            "species_classes",
+                                            "ethics",
+                                            "ethic_categories",
+                                            "traits",
+                                            "graphical_culture",
+                                            "ship_categories",
+                                            "authorities",
+                                            "civics",
+                                            "dlcs",
+                                            "ascension_perks",
+                                            "traditions",
+                                            "tradition_categories",
+                                            "crisis_paths",
+                                            "crisis_levels"
                                           ]
                                         },
                                         "events_field": {
@@ -4075,7 +7002,22 @@
                                             "economic_categories",
                                             "scripted_actions",
                                             "on_actions",
-                                            "events"
+                                            "events",
+                                            "species_archetypes",
+                                            "species_classes",
+                                            "ethics",
+                                            "ethic_categories",
+                                            "traits",
+                                            "graphical_culture",
+                                            "ship_categories",
+                                            "authorities",
+                                            "civics",
+                                            "dlcs",
+                                            "ascension_perks",
+                                            "traditions",
+                                            "tradition_categories",
+                                            "crisis_paths",
+                                            "crisis_levels"
                                           ]
                                         },
                                         "kinds": {
@@ -4095,7 +7037,22 @@
                                               "economic_categories",
                                               "scripted_actions",
                                               "on_actions",
-                                              "events"
+                                              "events",
+                                              "species_archetypes",
+                                              "species_classes",
+                                              "ethics",
+                                              "ethic_categories",
+                                              "traits",
+                                              "graphical_culture",
+                                              "ship_categories",
+                                              "authorities",
+                                              "civics",
+                                              "dlcs",
+                                              "ascension_perks",
+                                              "traditions",
+                                              "tradition_categories",
+                                              "crisis_paths",
+                                              "crisis_levels"
                                             ]
                                           },
                                           "type": "array",
@@ -4204,6 +7161,7 @@
   "required": [
     "format",
     "format_version",
+    "acquisition",
     "set_id",
     "snapshot_revision",
     "registry_revision",

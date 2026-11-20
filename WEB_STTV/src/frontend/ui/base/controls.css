@@ -8,6 +8,8 @@
 .sttv-button:hover { background: var(--sttv-button-background-hover); border-color: var(--sttv-button-border-hover); }
 .sttv-button[data-border='never']:hover { border-color: var(--sttv-button-border-hidden); }
 .sttv-button:active { background: var(--sttv-button-background-pressed); }
+.sttv-button:disabled { color: var(--sttv-button-disabled-color); background: var(--sttv-button-background); border-color: var(--sttv-button-border); }
+.sttv-button[aria-current='page'] { background: var(--sttv-nav-selected-background); color: var(--sttv-nav-selected-color); }
 .sttv-button:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-button-focus); outline-offset: 1px; }
 .sttv-icon { width: var(--sttv-icon-size); height: var(--sttv-icon-size); flex: none; color: var(--sttv-icon-color); }
 .sttv-icon path { fill: var(--sttv-icon-fill); stroke: currentColor; stroke-width: var(--sttv-icon-stroke); stroke-linecap: round; stroke-linejoin: round; }

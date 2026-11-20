@@ -15,9 +15,11 @@ interface SttvButtonProps {
   onClick: () => void;
   border?: 'always' | 'hover' | 'never';
   className?: string;
+  disabled?: boolean;
+  current?: boolean;
 }
 export function SttvButton({ label, icon, accessibleName = label, tooltip, onClick,
-  border = 'always', className = '' }: SttvButtonProps) {
+  border = 'always', className = '', disabled = false, current }: SttvButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
   const [hover, setHover] = useState(false);
   const [focus, setFocus] = useState(false);
@@ -25,6 +27,7 @@ export function SttvButton({ label, icon, accessibleName = label, tooltip, onCli
   const tooltipId = useId();
   return <>
     <button ref={ref} type="button" className={`sttv-button ${className}`} data-border={border}
+      disabled={disabled} aria-current={current ? 'page' : undefined}
       aria-label={accessibleName && text(accessibleName)} aria-describedby={tooltip && (hover || focus) ? tooltipId : undefined}
       onClick={onClick} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}
       onFocus={event => setFocus(event.currentTarget.matches(':focus-visible'))}

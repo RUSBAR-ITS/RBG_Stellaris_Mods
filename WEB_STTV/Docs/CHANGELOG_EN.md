@@ -2,6 +2,20 @@
 
 ## Contents
 
+- [2026-11-19 — technology acquisition analysis and version 0.0.13](#2026-11-19--technology-acquisition-analysis-and-version-0013)
+
+- [2026-11-19 — stage 21 progress and technology acquisition research](#2026-11-19--stage-21-progress-and-technology-acquisition-research)
+
+- [2026-11-19 — recursive DLC dependency draft](#2026-11-19--recursive-dlc-dependency-draft)
+
+- [2026-11-19 — DLC settings and frontend 0.0.12](#2026-11-19--dlc-settings-and-frontend-0012)
+
+- [2026-11-19 — CLASS exception and DLC settings drafts](#2026-11-19--class-exception-and-dlc-settings-drafts)
+
+- [2026-11-19 — reference import and frontend 0.0.11](#2026-11-19--reference-import-and-frontend-0011)
+
+- [2026-11-19 — empire and DLC reference import draft](#2026-11-19--empire-and-dlc-reference-import-draft)
+
 - [2026-11-19 — field zoom and frontend 0.0.10](#2026-11-19--field-zoom-and-frontend-0010)
 
 - [2026-11-19 — card frame and height, zoom draft](#2026-11-19--card-frame-and-height-zoom-draft)
@@ -168,6 +182,57 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-19 — technology acquisition analysis and version 0.0.13
+
+Implemented recursive DLC restrictions and the approved acquisition analysis: 30 database kinds, crisis paths/levels, source-file index, grant callers and guards, conservative `has_technology`. Added source/effect/entry configuration, generated schemas and manifest version 2. The graph is reused between DLC applications; the frontend does not read the technical index. New set: `data/stage21_acquisition/database_set`; service configuration points to it. Checks and limitations, including unconfirmed random-option selection, are documented in the [guide](BACKEND_STAGE_21_EN.md). No services or game were started.
+
+## 2026-11-19 — stage 21 progress and technology acquisition research
+
+- The approved main stage 21 scope added ascension perk, tradition and category import/RU/EN localization, grouped DLC configuration, a recursive three-valued graph, cycle/limit handling, evidence and coverage. Calculation revisions, schemas and selective reading were updated; the frontend accepts 28 kinds and explicitly rejects incomplete older sets.
+- Full `data/stage21` preparation completed in 557.156 s. Checks covered 86 DLC profiles, Weaver weapon removal without BioGenesis, and publication of three reference combinations plus reuse of the full profile. Targeted backend checks and 70 frontend tests passed; 3 real-data checks were skipped in the general run. No HTTP/Vite services were started; browser acceptance was not performed and the stage is not declared complete.
+- [Cosmogenesis acquisition was investigated separately](RESEARCH_COSMOGENESIS_ACQUISITION_EN.md): crisis levels unlock research options through a DLC-dependent path; no confirmed route bypassing Machine Age was found. All six Lathe consumers have their own direct DLC restriction; missiles and torpedoes have alternative conditions. All 43 matrix profiles without Machine Age were checked.
+- The user chose to extend the specification with acquisition analysis. A [RU/EN addendum](TZ_BACKEND_STAGE_21_ACQUISITION_EN.md) proposes two crisis catalogs, a technical source/grant/call index, acquisition-specific rules, coverage and diagnostics. Textual inventory found commands in 131 source files. Addendum code is not implemented; its requirements await approval. Main-specification status and documentation pointers were updated.
+
+## 2026-11-19 — recursive DLC dependency draft
+
+- Prepared RU/EN [stage 21 drafts](TZ_BACKEND_STAGE_21_EN.md): recursion through nested conditions and object references for the entire DLC catalog, cycles, caching, evidence and coverage reporting.
+- Proposed three new database kinds and source variables: `ascension_perks`, `traditions`, `tradition_categories`. A limited inventory found 49, 234 and 33 root definitions with no duplicate IDs or syntax errors; full import was not run.
+- Distinguished object availability from empire possession, selection restrictions from existence, and DLC restrictions from zero weight. Proposed an all-DLC test matrix without exhaustive combination enumeration.
+- Backend stage 20 and frontend stage 10 guides now explicitly record that weaver weapons are not yet excluded through the indirect BioGenesis dependency. Updated documentation links. Code, configuration and product version are unchanged; approval is pending and no services were started.
+
+## 2026-11-19 — DLC settings and frontend 0.0.12
+
+- Implemented backend stage 20 and frontend stage 10: tree/DLC navigation, thumbnails, accessible switches, draft/apply/discard/cancel behavior.
+- Python evaluates DLC-caused potential prohibitions and zero-weight modifiers. Unknown conditions and base zero weight do not exclude technologies. Parents are selected after filtering; later criteria cannot restore hidden candidates.
+- Added DLC rule configuration, visibility revisions/evidence and persisted reusable combinations. Selected technology variants are retained.
+- Added an explicitly launched loopback service with set/revision checks, sequential operations, cancellation and declared-resource reads. The interface never invokes the game builder.
+- The frontend adopts snapshots atomically, streams/verifies new bytes and retains unchanged catalogs/images. Errors retain the previous tree.
+- Prepared 32 thumbnails for 36 DLC. The stage 20 set contains 822 unique images and 543 documents; source data and the stage 19 reference are preserved. All/none/mixed profiles yielded 678/543/544 visible technologies.
+- Updated 36 generated schemas, RU/EN strings, styling dictionary, README and guides. Added semantics, API, snapshot and UI tests. Details: [backend](BACKEND_STAGE_20_EN.md), [frontend](frontend/FRONTEND_STAGE_10_EN.md).
+
+
+## 2026-11-19 — CLASS exception and DLC settings drafts
+
+- Approved and implemented trait-icon CLASS exceptions: prefer an explicit value in the call chain, then the object's sole leader_class, then leader for multiple classes. Rules, allowed classes and files are configured; missing/unknown evidence remains an error. Extended the schema and focused tests while preserving substitution provenance.
+- Completed stage 19 acceptance: published 25 kinds and 543 documents, imported all 1127 traits, verified 791 images and both tree combinations. Existing source data and parent/child decisions match the reference; new-set browser checks: 29 passed, one conditional scenario skipped.
+- Prepared RU/EN drafts for [backend stage 20](TZ_BACKEND_STAGE_20_EN.md) and [frontend stage 10](frontend/TZ_FRONTEND_STAGE_10_EN.md). All DLC enabled initially, explicit application and both DLC restriction types are agreed. Local Python invocation, atomic combination updates, pictures and view states are proposed; new section code was not implemented.
+- Inspected expanded technology DLC predicates: 143 technologies and 166 occurrences. Updated documentation indexes, UI inventory and VANILLA-001 status; game files remain unchanged. Exception and full-set acceptance results: [stage 19 guide](BACKEND_STAGE_19_EN.md).
+
+## 2026-11-19 — reference import and frontend 0.0.11
+
+- Added ten database kinds, source locations and RU/EN targets; the registry now contains 25 kinds. Origins remain in `civics`, leader traits remain in `traits`.
+- Nested DLC indexes and flat descriptors share object selection; exact `name` matching, document references, per-language localization fallback and link checks do not infer ownership.
+- Added the approved `sttv_dlc_metadata_store_separator` exception with original coordinates and diagnostics. Schemas were regenerated.
+- Frontend 0.0.11 supports the expanded registry, nested addresses and technical DLC name fallback. Initial loading stays selective; no empire controls are added.
+- Updated tests and bilingual documentation. All 450 original documents match the reference. `VANILLA-001` stopped the full build; the new set is not published and the reference is preserved. Checks and limitations: [guide](BACKEND_STAGE_19_EN.md).
+
+## 2026-11-19 — empire and DLC reference import draft
+
+- Prepared the RU/EN [stage 19 specification](TZ_BACKEND_STAGE_19_EN.md): ten new kinds, a shared civic/origin source, RU/EN text, DLC catalog and descriptors, and a scoped exception for the missing operator.
+- Defined nested DLC indexing, references to separate package documents, selective reading of a 25-kind set and preservation of existing build mechanisms. DLC ownership, user controls and condition evaluation are outside import scope.
+- An initial structural pass of 60 TXT files across nine directories found no syntax errors or duplicate root-object IDs. Found 36 DLC catalog entries and 32 descriptors; full expansion and a new set build have not yet been run.
+- Updated README and general specification links. This draft awaits approval; executable code, schemas, runtime configs and the application version remain unchanged.
 
 ## 2026-11-19 — field zoom and frontend 0.0.10
 

@@ -9,11 +9,13 @@ export interface SttvTreeRecord {
   parent_tech: string | null;
   children: string[];
   status: 'root' | 'resolved' | 'ambiguous';
+  visibility?: { visible: boolean; reasons: { code: string; pointer: string }[] };
 }
 export interface SttvTreeCombination {
   id: string;
   mode: string;
-  parameters: { mode: string; profile: Record<string, unknown>; variants: Record<string, string> };
+  parameters: { mode: string; profile: Record<string, unknown>; variants: Record<string, string>;
+    dlc?: { known: string[]; enabled: string[]; catalog_revision: string } };
   source_set_id: string;
   inputs: { kind: SttvDatabaseKind; algorithm: string; hash: string }[];
   implementation_revision: string;

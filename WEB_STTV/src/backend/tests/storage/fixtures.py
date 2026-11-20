@@ -24,7 +24,14 @@ def publish(variables, documents, *, storage_config=None, validate=False):
                 fragment = write_document(document, publication.directory / f'{kind}-{number}.json',
                                           kind, performance(), validate=validate)
                 members[kind].append(publication.accept(fragment, kind))
-        manifest = create(members)
+        from sttv.enrichment.acquisition.storage import empty
+        from sttv.enrichment.acquisition.configuration import load as acquisition_options
+        from sttv.storage.identity import digest
+        index = empty()
+        options, _ = acquisition_options({'base': 'product', 'path': 'config/enrichment/acquisition/sources.json'}, settings.root.parent)
+        index['configuration_revision'] = options['revision']
+        index['revision'] = digest({k: v for k, v in index.items() if k not in ('revision', 'statistics')})
+        manifest = create(members, index)
         if old:
             for kind in KINDS:
                 if kind not in documents:

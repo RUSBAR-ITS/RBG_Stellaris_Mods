@@ -1,0 +1,47 @@
+{
+  "rules": [
+    {
+      "id": "ship_category",
+      "enabled": true,
+      "handler": "ship_category",
+      "predicates": [
+        "uses_ship_category"
+      ],
+      "database": "ship_categories",
+      "purpose": "selection",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [],
+      "source": "common/ship_categories",
+      "diagnostic_code": "dlc_object_dependency",
+      "providers": {
+        "rule": "ship_provider",
+        "fields": [
+          "ship_kinds"
+        ]
+      }
+    },
+    {
+      "id": "ship_provider",
+      "enabled": true,
+      "handler": "object",
+      "predicates": [],
+      "database": "graphical_culture",
+      "purpose": "selection",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [
+        {
+          "field": "selectable",
+          "context": "country"
+        }
+      ],
+      "source": "common/graphical_culture",
+      "diagnostic_code": "dlc_object_dependency"
+    }
+  ]
+}

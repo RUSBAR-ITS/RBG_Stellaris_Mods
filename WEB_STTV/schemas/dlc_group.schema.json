@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "rules": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "contexts": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "database": {
+            "enum": [
+              "technologies",
+              "components",
+              "buildings",
+              "megastructures",
+              "ship_sizes",
+              "starbase_levels",
+              "starbase_modules",
+              "starbase_buildings",
+              "terraform",
+              "deposits",
+              "pop_jobs",
+              "economic_categories",
+              "scripted_actions",
+              "on_actions",
+              "events",
+              "species_archetypes",
+              "species_classes",
+              "ethics",
+              "ethic_categories",
+              "traits",
+              "graphical_culture",
+              "ship_categories",
+              "authorities",
+              "civics",
+              "dlcs",
+              "ascension_perks",
+              "traditions",
+              "tradition_categories",
+              "crisis_paths",
+              "crisis_levels"
+            ]
+          },
+          "diagnostic_code": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "gates": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "context": {
+                  "enum": [
+                    "country",
+                    "government",
+                    "species"
+                  ]
+                },
+                "field": {
+                  "minLength": 1,
+                  "type": "string"
+                }
+              },
+              "required": [
+                "field",
+                "context"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "handler": {
+            "enum": [
+              "object",
+              "ship_category",
+              "tradition",
+              "observe",
+              "technology"
+            ]
+          },
+          "id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "predicates": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "providers": {
+            "additionalProperties": false,
+            "properties": {
+              "fields": {
+                "items": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "minItems": 1,
+                "type": "array",
+                "uniqueItems": true
+              },
+              "rule": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "rule",
+              "fields"
+            ],
+            "type": "object"
+          },
+          "purpose": {
+            "enum": [
+              "selection",
+              "acquisition",
+              "observation"
+            ]
+          },
+          "selector": {
+            "additionalProperties": false,
+            "properties": {
+              "default": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "field": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "value": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "field",
+              "value",
+              "default"
+            ],
+            "type": "object"
+          },
+          "source": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "enabled",
+          "predicates",
+          "handler",
+          "database",
+          "contexts",
+          "purpose",
+          "gates",
+          "source",
+          "diagnostic_code"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "rules"
+  ],
+  "type": "object"
+}

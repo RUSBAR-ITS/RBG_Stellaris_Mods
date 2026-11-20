@@ -45,12 +45,12 @@ test('real prepared images and card geometry load without game paths in RU and E
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/'); await page.locator('input[type=file]').setInputFiles(process.env.STTV_DATABASE_DIR!);
-  const cards = page.locator('[data-technology-id]'); await expect(cards).toHaveCount(679, { timeout: 90000 });
+  const cards = page.locator('[data-technology-id]'); await expect(cards).toHaveCount(678, { timeout: 90000 });
   await expect.poll(() => cards.locator('.sttv-card-image img').evaluateAll(images =>
-    images.filter(image => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0).length)).toBe(679);
+    images.filter(image => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0).length)).toBe(678);
   for (const language of ['ru', 'en']) {
     if (language === 'en') await sttvEnglish(page);
-    await expect(cards).toHaveCount(679);
+    await expect(cards).toHaveCount(678);
     expect(await cards.evaluateAll(cards => cards.every(card => [...card.querySelectorAll('.sttv-card-details, .sttv-card-title')]
       .every(e => e.scrollWidth <= e.clientWidth + 1 && e.scrollHeight <= e.clientHeight + 1)))).toBe(true);
     mkdirSync('data/frontend-stage8', { recursive: true });

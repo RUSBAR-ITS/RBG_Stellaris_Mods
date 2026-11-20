@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "allowed_origins": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "array",
+      "uniqueItems": true
+    },
+    "history_limit": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "host": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "max_request_bytes": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "poll_interval_ms": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "port": {
+      "maximum": 65535,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "prefix": {
+      "pattern": "^/[a-z0-9/_-]+[a-z0-9]$",
+      "type": "string"
+    },
+    "tree_config": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "variables": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "host",
+    "port",
+    "prefix",
+    "variables",
+    "tree_config",
+    "allowed_origins",
+    "max_request_bytes",
+    "history_limit",
+    "poll_interval_ms"
+  ],
+  "type": "object"
+}

@@ -8,15 +8,34 @@ import { sttvOpenDirectory } from './manifest';
 import { SttvDocumentReader } from './reader';
 import { sttvLoadAssets, type SttvCachedImage } from './assets';
 import { SttvPreparationError, sttvDiagnostic } from '../workers/diagnostics';
+import { sttvCheckManifest } from './manifest';
+import { sttvSnapshotFiles, type SttvRemoteBytes } from './bytes';
 
 export class SttvStorageSession {
   private tail: Promise<unknown> = Promise.resolve();
   private images = new Map<string, SttvCachedImage>();
   private constructor(readonly reader: SttvDocumentReader, private adapter: SttvSetAdapter) {}
+  get combinationId() { return this.adapter.treeCombination.id; }
   static async open(files: File[], rules: SttvTargetRegistry, combinationId?: string) {
     const { manifest, files: mapped } = await sttvOpenDirectory(files);
     if (!manifest.presentation) throw new SttvPreparationError(sttvDiagnostic('assets_not_prepared', 'preparing'));
     return new SttvStorageSession(new SttvDocumentReader(manifest, mapped), new SttvSetAdapter(manifest, rules, [], combinationId));
+  }
+  static fromSnapshot(input: unknown, files: Map<string, File>, rules: SttvTargetRegistry,
+    combinationId: string, remote?: SttvRemoteBytes) {
+    const manifest = sttvCheckManifest(input);
+    return new SttvStorageSession(new SttvDocumentReader(manifest, sttvSnapshotFiles(manifest, files), remote),
+      new SttvSetAdapter(manifest, rules, [], combinationId));
+  }
+  async refresh(input: unknown, combinationId: string, remote: SttvRemoteBytes) {
+    await this.tail;
+    const manifest = sttvCheckManifest(input), adapter = this.adapter.rebase(manifest, combinationId);
+    const reader = new SttvDocumentReader(manifest, sttvSnapshotFiles(manifest, this.reader.files), remote);
+    reader.inherit(this.reader);
+    const next = new SttvStorageSession(reader, adapter);
+    next.images = new Map(this.images);
+    const data = await next.initial();
+    return { session: next, data };
   }
   initial(progress?: (kind: SttvDatabaseKind, identifier: string) => void) {
     return this.load(opening.initial_datasets as SttvDatabaseKind[], progress);
@@ -39,11 +58,9 @@ export class SttvStorageSession {
   resolveNodes(refs: SttvNodeRef[]) {
     for (const ref of refs) {
       const dataset = this.reader.manifest.datasets[ref.database];
-      const rootPointer = ref.pointer.match(/^\/items\/\d+(?:\/|$)/)?.[0].replace(/\/$/, '');
-      if (!dataset?.objects.some(row => row.document_id === ref.document_id && row.pointer === rootPointer)) {
+      if (!dataset?.objects.some(row => row.document_id === ref.document_id && row.pointer === ref.pointer)) {
         sttvSetError('Node reference is not in the manifest.', { sourceRef: ref });
       }
-      if (ref.pointer !== rootPointer) sttvSetError('Direct loading requires a root object reference.', { sourceRef: ref });
     }
     return this.enqueue(refs, []).then(data => ({ data, refs }));
   }
@@ -60,7 +77,7 @@ export class SttvStorageSession {
       }
       for (const kind of completeKinds) trial.datasets.find(row => row.kind === kind)!.state = 'loaded';
       const catalog = trial.finish(this.reader.coverage());
-      await sttvLoadAssets(catalog, this.reader.manifest.presentation!, this.reader.files, this.images);
+      await sttvLoadAssets(catalog, this.reader.manifest.presentation!, this.reader.files, this.images, this.reader.remote);
       this.adapter = trial;
       return catalog;
     });

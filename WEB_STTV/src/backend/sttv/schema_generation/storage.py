@@ -25,12 +25,14 @@ def descriptor():
 
 def object_row():
     return obj({'id': union(TEXT, NULL), 'type': TEXT, 'document_id': HASH,
-                'pointer': {'type': 'string', 'pattern': r'^/items/\d+$'}})
+                'pointer': {'type': 'string', 'pattern': r'^/items/\d+(?:/value/items/\d+)*$'}})
 
 
 def manifest():
     dataset = obj({'source_revision': HASH, 'documents': array(descriptor()), 'objects': array(object_row())})
-    result = obj({'format': {'const': 'sttv.database_manifest'}, 'format_version': {'const': 1},
+    from .acquisition import manifest as acquisition_manifest
+    result = obj({'format': {'const': 'sttv.database_manifest'}, 'format_version': {'const': 2},
+                  'acquisition': acquisition_manifest(),
                   'set_id': HASH, 'snapshot_revision': HASH, 'registry_revision': HASH,
                   'datasets': obj({kind: dataset for kind in KINDS})})
     result['properties']['technology_tree'] = technology_tree.metadata()

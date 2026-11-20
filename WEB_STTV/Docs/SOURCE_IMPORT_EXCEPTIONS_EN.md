@@ -18,13 +18,14 @@ This transformation neither evaluates nor confirms engine behavior for `effect =
 
 ## Conditional exceptions
 
-Three entries cover four root documents. All paths are relative to `STELLARIS_ROOT`.
+The rules below use paths relative to `STELLARIS_ROOT`.
 
 | Rule | Conditions | In-memory transformation |
 | --- | --- | --- |
 | `sttv_event_job_amenities_separator` | Both root document and immediate source are `common/pop_jobs/06_event_jobs.txt`; the scalar reference exactly equals `value:scripted_modifier_mult\|MODIFIER\|pop_job_amenities_mult\|\|` | Remove only the last `\|`, then parse the corrected reference with the normal handler |
 | `sttv_archive_selected_relic` | Root document is `events/grand_archive_events.txt` or `events/leviathans_events_1.txt`; expansion uses `common/inline_scripts/grand_archive/collection/stage_3_reward_option.txt`; `gave_relic_$RELIC$` is reached; `RELIC` is absent and `SELECTED_RELIC` was supplied | Bind `RELIC` to the supplied `SELECTED_RELIC` for this invocation, preserving its value provenance |
 | `sttv_nomads_ethic_random` | Root document is `events/nomads_origin_events.txt`; invocation is `pop_group_add_ethic_effect` from `common/scripted_effects/00_scripted_effects.txt`; `$RANDOM$` is reached but its argument is absent; `POP_GROUP`, `ETHOS`, `PERCENTAGE` were supplied | Add `RANDOM = 0` to this invocation as the explicitly agreed temporary value |
+| `sttv_dlc_metadata_store_separator` | Only `dlc_metadata/dlc_info.txt`, direct contents of `dlcs/dlc002`, token sequence `paradoxplaza_store_url ""` | Insert `=` in memory. Comments, string literals, other objects and corrected assignments do not match; multiple matches fail |
 
 A reached reference means a lookup after conditional template fragments are selected. Matching text in a comment or discarded fragment does not activate a rule. The root document remains available through nested expansions. `required_parameters` checks presence, including explicitly supplied values; original arguments are not overwritten.
 
@@ -33,6 +34,10 @@ A `||` suffix alone does not justify a correction: it can represent an empty arg
 `RELIC` does not become a global parameter alias. `RANDOM` does not gain a default across the entire effect or game. Multiple matching invocations inside the allowed root documents are handled individually.
 
 ## Application and reporting
+
+Stage 19 approves `sttv_trait_icon_class` and `sttv_trait_council_icon_class`: a reached missing CLASS only in `trait/icon.txt` and `trait/icon_element/council_no.txt`, within the configured root trait files. Derive it from the enclosing root trait's immediate leader_class. A sole allowed class retains its original coordinates; multiple distinct classes use approved leader with configuration provenance. Explicit arguments are preserved. Missing fields, invalid shapes, unknown classes or unresolved owners fail. Nested calls use the original call chain, not neighboring objects or filenames. Reports identify the object/field in value_source and retain the call chain. Allowed values and the neutral value belong to parameter_from_object configuration, not expander code.
+
+If an intermediate template dropped an explicitly supplied CLASS, the same scoped exceptions first use the nearest explicit argument in the invocation chain, then consult leader_class. This does not introduce general argument inheritance between templates.
 
 `source_exceptions.json` is separate from [exceptions.json](../config/parser/exceptions.json), which already allows an inline template filename without an extension. The new file describes import transformations; its paths match sources already being read and do not authorize opening arbitrary files.
 
@@ -72,7 +77,7 @@ If any environment cannot resolve the name or definitions differ, retain a diagn
 
 ## Verification
 
-The prepared file was checked against current sources: one exact reference has the extra separator, and the corrected reference is accepted by the existing script-value reader. The calling template contains five invocations supplying `SELECTED_RELIC` without `RELIC`; the nomad file contains nine matching invocations without `RANDOM`. JSON, contents and links were checked; hashes confirmed 151 existing code, configuration and database files unchanged. The [verification report](../data/stage12/source_exceptions_review.json) covers condition matching, not execution of the exceptions that are not yet wired.
+The prepared file was checked against current sources: one exact reference has the extra separator, and the corrected reference is accepted by the existing script-value reader. The calling template contains five invocations supplying `SELECTED_RELIC` without `RELIC`; the nomad file contains nine matching invocations without `RANDOM`. JSON, contents and links were checked; hashes confirmed 151 existing code, configuration and database files unchanged. The verification report (`data/stage12/source_exceptions_review.json`) covers condition matching, not execution of the exceptions that are not yet wired.
 
 During implementation, test every rule and nearby nonmatching cases: a different file, template or reference, an already supplied `RELIC`/`RANDOM`, a comment, and a discarded branch. Check a valid empty script-value argument, repeated application, conflicting rules, and complete reporting.
 

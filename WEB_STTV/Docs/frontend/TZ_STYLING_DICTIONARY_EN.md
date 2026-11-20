@@ -80,6 +80,8 @@ Contrast was calculated for primary, secondary, and accent text on five backgrou
 
 ## Element states
 
+Stage 10 adds `--sttv-dlc-*`, `--sttv-switch-*` and `--sttv-nav-*` to `styles/elements.css`: list/row text and surfaces, image placeholders, on/off/disabled/focus switch states and active navigation. Geometry comes from `config/frontend/dlc.json`.
+
 Variables are created only for states specified for that element. For example, buttons account for hover and pressed states, while scrollbar thumbs account for dragging. A state supported by one element does not need to be added to other elements.
 
 When values match across elements or states, their respective variables explicitly reference a shared definition. This keeps assignments unambiguous and allows changing one state independently.

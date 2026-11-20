@@ -41,4 +41,6 @@ def call(self, node, source, syntax, definition=None, definition_root=False, pay
             exc.provenance = getattr(exc, 'provenance', node.origin)
         raise exc
     finally:
+        self.argument_bindings.pop(record['id'], None)
+        self.forwarded_arguments.pop(record['id'], None)
         self.stack.pop()

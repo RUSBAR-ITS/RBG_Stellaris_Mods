@@ -1,5 +1,5 @@
 {
-  "format_version": 1,
+  "format_version": 2,
   "datasets": {
     "technologies": {
       "labelId": "sttv.dataset.technologies",
@@ -146,6 +146,143 @@
       ],
       "identity": "field",
       "idField": "id"
+    },
+    "species_archetypes": {
+      "labelId": "sttv.dataset.species_archetypes",
+      "directory": "common/species_archetypes",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "species_classes": {
+      "labelId": "sttv.dataset.species_classes",
+      "directory": "common/species_classes",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "ethics": {
+      "labelId": "sttv.dataset.ethics",
+      "directory": "common/ethics",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "ethic_categories": {
+      "labelId": "sttv.dataset.ethic_categories",
+      "directory": "common/ethic_categories",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "traits": {
+      "labelId": "sttv.dataset.traits",
+      "directory": "common/traits",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "graphical_culture": {
+      "labelId": "sttv.dataset.graphical_culture",
+      "directory": "common/graphical_culture",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "ship_categories": {
+      "labelId": "sttv.dataset.ship_categories",
+      "directory": "common/ship_categories",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "authorities": {
+      "labelId": "sttv.dataset.authorities",
+      "directory": "common/governments/authorities",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "civics": {
+      "labelId": "sttv.dataset.civics",
+      "directory": "common/governments/civics",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "dlcs": {
+      "labelId": "sttv.dataset.dlcs",
+      "directory": "dlc_metadata",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null,
+      "containers": [
+        "dlcs"
+      ],
+      "sourceRoles": [
+        {
+          "role": "objects",
+          "pattern": "dlc_metadata/dlc_info.txt"
+        },
+        {
+          "role": "descriptor",
+          "pattern": "dlc/*.dlc"
+        }
+      ],
+      "descriptorLink": {
+        "matchField": "name",
+        "localizationField": "localizable_name"
+      }
+    },
+    "ascension_perks": {
+      "labelId": "sttv.dataset.ascension_perks",
+      "directory": "common/ascension_perks",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "traditions": {
+      "labelId": "sttv.dataset.traditions",
+      "directory": "common/traditions",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "tradition_categories": {
+      "labelId": "sttv.dataset.tradition_categories",
+      "directory": "common/tradition_categories",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "crisis_paths": {
+      "labelId": "sttv.dataset.crisis_paths",
+      "directory": "common/crisis_paths",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
+    },
+    "crisis_levels": {
+      "labelId": "sttv.dataset.crisis_levels",
+      "directory": "common/crisis_levels",
+      "recursive": true,
+      "rootTypes": [],
+      "identity": "key",
+      "idField": null
     }
   }
 }

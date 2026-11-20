@@ -3,6 +3,7 @@ import type { SttvNode } from './syntax';
 import { sttvFields, sttvScalar } from './syntax';
 import { sttvInvalid } from '../workers/diagnostics';
 import type { SttvIndexBuilder } from '../localization/index';
+import { sttvDatasets } from './registry';
 
 type SttvTextRole = 'name' | 'description';
 export interface SttvTargetRules {
@@ -12,6 +13,7 @@ export interface SttvTargetRules {
     description_nodes?: boolean; description_excluded?: string[]; text_field: string;
     child_text_fields?: { field: string; role: string }[];
     endpoint_fields?: string[]; endpoint_description_suffix?: string;
+    description_fields?: string[]; optional_variants?: string[]; name?: string;
   };
 }
 export type SttvTargetRegistry = Partial<Record<SttvDatabaseKind, SttvTargetRules>>;
@@ -55,9 +57,11 @@ export function sttvDefinitionTexts(root: SttvNode, pointer: string, id: string,
     const fields = sttvFields(items, keys.name_field);
     if (fields.length > 1) throw sttvInvalid(pointer, 'Ambiguous name field.');
     if (fields.length) expected.name = sttvScalar(fields[0].node.value, pointer);
+    else if (sttvDatasets[database].descriptorLink) expected.name = id;
   } else if (!keys.omit_name) expected.name = base;
   if (keys.description_suffix !== null) expected.description = base + keys.description_suffix;
-  const descriptions = keys.description_field ? sttvFields(items, keys.description_field) : [];
+  const descriptions = [...(keys.description_field ? sttvFields(items, keys.description_field) : []),
+    ...(keys.description_fields ?? []).flatMap(field => sttvFields(items, field))];
   const direct = !keys.description_nodes && descriptions.length === 1 && descriptions[0].node.value?.kind === 'scalar';
   if (direct) expected.description = sttvScalar(descriptions[0].node.value, pointer);
   add(root, pointer, expected);
@@ -66,6 +70,17 @@ export function sttvDefinitionTexts(root: SttvNode, pointer: string, id: string,
     const values = sttvFields(node.value?.items ?? [], keys.text_field);
     if (!keys.description_nodes && values.length === 1) add(node, path, { description: sttvScalar(values[0].node.value, path) });
     else descendants(node, path);
+  }
+  for (const field of keys.optional_variants ?? []) {
+    for (const { node, index } of sttvFields(items, field)) {
+      if (node.value?.kind !== 'block') continue;
+      const path = `${pointer}/value/items/${index}`;
+      const names = sttvFields(node.value.items ?? [], keys.name ?? 'name');
+      const name = names.length ? sttvScalar(names[0].node.value, path) : undefined;
+      const nested = sttvDefinitionTexts(node, path, name ?? id, database, { keys: { ...keys,
+        optional_variants: [], omit_name: !name, description_suffix: name ? keys.description_suffix : null } }, strings);
+      texts.push(...nested.texts);
+    }
   }
   for (const field of keys.child_text_fields ?? []) {
     for (const { node, index } of sttvFields(items, field.field)) {

@@ -4,6 +4,7 @@ import { sttvDocument, sttvField, sttvItems, sttvScalar, type SttvDatabase } fro
 import { sttvDefinitionTexts, type SttvTargetRules } from './textTargets';
 import type { SttvIndexBuilder } from '../localization/index';
 import { sttvInvalid } from '../workers/diagnostics';
+import { sttvSelectedNodes } from './objectSelection';
 
 export function sttvAdaptDefinitions(db: SttvDatabase, kind: SttvDatabaseKind,
   rules: SttvTargetRules, strings: SttvIndexBuilder,
@@ -13,12 +14,10 @@ export function sttvAdaptDefinitions(db: SttvDatabase, kind: SttvDatabaseKind,
   [db].forEach(document => {
     strings.documentId = db.document_id;
     const file = sttvDocument(document, '');
-    if (!file.startsWith(spec.directory + '/') || !file.endsWith('.txt')) return;
+    if (!spec.sourceRoles && (!file.startsWith(spec.directory + '/') || !file.endsWith('.txt'))) return;
     if (!spec.recursive && file.slice(0, file.lastIndexOf('/')) !== spec.directory) return;
-    document.items.forEach((node, i) => {
-      if (node.kind !== 'assignment' || node.operator !== '=' || node.value?.kind !== 'block') return;
-      const pointer = `/items/${i + (partial?.itemOffset ?? 0)}`, type = sttvScalar(node.key, pointer);
-      if (spec.rootTypes.length && !(spec.rootTypes as string[]).includes(type)) return;
+    sttvSelectedNodes(kind, document.items, file, partial?.itemOffset ?? 0).forEach(({ node, pointer }) => {
+      const type = sttvScalar(node.key, pointer);
       const items = sttvItems(node.value, pointer), sourceRef = { database: kind, document_id: db.document_id, pointer };
       const id = spec.identity === 'anonymous' ? undefined : spec.idField
         ? sttvScalar(sttvField(items, spec.idField, pointer), pointer) : type;
@@ -31,8 +30,18 @@ export function sttvAdaptDefinitions(db: SttvDatabase, kind: SttvDatabaseKind,
         }
         (index[id] ??= []).push(sourceRef);
       }
-      definitions.push({ sourceRef, type, ...(id === undefined ? {} : { id }),
-        ...sttvDefinitionTexts(node, pointer, id ?? type, kind, rules, strings) });
+      const texts = sttvDefinitionTexts(node, pointer, id ?? type, kind, rules, strings);
+      const descriptorRefs = node.enrichments?.dlc?.descriptors;
+      if (spec.descriptorLink) {
+        const name = sttvScalar(sttvField(items, spec.descriptorLink.matchField, pointer), pointer);
+        const nameId = texts.texts.find(text => text.sourceRef.pointer === pointer)?.nameId;
+        if (nameId) for (const language of ['ru', 'en'] as const) {
+          const record = strings.index[language][nameId];
+          if (record?.status === 'missing') record.fallbackText = name;
+        }
+      }
+      definitions.push({ sourceRef, type, ...(id === undefined ? {} : { id }), ...texts,
+        ...(descriptorRefs ? { descriptorRefs } : {}) });
     });
   });
   return { definitions, index };

@@ -46,7 +46,7 @@ test('event descriptions, repeated transitions and handler fragments keep their 
 });
 test('duplicate event IDs and missing declared texts fail with qualified addresses', () => {
   for (const duplicate of [false, true]) {
-    const values = sttvInputs(), items = values.at(-1)!.items;
+    const values = sttvInputs(), items = values.find(value => value.database === 'events')!.items;
     if (duplicate) items.push(structuredClone(items[0]));
     else delete items[0].value!.items![1].enrichments;
     assert.throws(() => sttvAdaptSet(values, sttvSetFiles(values)), SttvPreparationError);

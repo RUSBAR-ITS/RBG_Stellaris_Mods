@@ -1,0 +1,73 @@
+{
+  "rules": [
+    {
+      "id": "trait",
+      "enabled": true,
+      "handler": "observe",
+      "predicates": [
+        "has_trait"
+      ],
+      "database": "traits",
+      "purpose": "observation",
+      "contexts": [
+        "country",
+        "government",
+        "species"
+      ],
+      "gates": [],
+      "source": "common/traits",
+      "diagnostic_code": "dlc_object_dependency"
+    },
+    {
+      "id": "species_class",
+      "enabled": true,
+      "handler": "observe",
+      "predicates": [
+        "is_species_class"
+      ],
+      "database": "species_classes",
+      "purpose": "observation",
+      "contexts": [
+        "species",
+        "government"
+      ],
+      "gates": [],
+      "source": "common/species_classes",
+      "diagnostic_code": "dlc_object_dependency"
+    },
+    {
+      "id": "species_archetype",
+      "enabled": true,
+      "handler": "observe",
+      "predicates": [
+        "is_archetype"
+      ],
+      "database": "species_archetypes",
+      "purpose": "observation",
+      "contexts": [
+        "species",
+        "government"
+      ],
+      "gates": [],
+      "source": "common/species_archetypes",
+      "diagnostic_code": "dlc_object_dependency"
+    },
+    {
+      "id": "technology",
+      "enabled": true,
+      "handler": "technology",
+      "predicates": [
+        "has_technology"
+      ],
+      "database": "technologies",
+      "purpose": "acquisition",
+      "contexts": [
+        "country",
+        "government"
+      ],
+      "gates": [],
+      "source": "common/technology; acquisition index",
+      "diagnostic_code": "dlc_object_dependency"
+    }
+  ]
+}

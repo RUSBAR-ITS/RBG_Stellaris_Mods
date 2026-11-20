@@ -17,6 +17,7 @@ class DatabaseSetTests(BuildFixture):
     def setUp(self):
         super().setUp()
         self.options = read_json(PRODUCT_ROOT / 'config/backend.json')
+        (self.game / 'prescripted_countries').mkdir()
         self.components = self.game / 'common/component_templates'
         self.buildings = self.game / 'common/buildings'
         self.components.mkdir()
@@ -29,6 +30,12 @@ class DatabaseSetTests(BuildFixture):
             directory = self.game / spec['directory']
             directory.mkdir(parents=True, exist_ok=True)
             self.variables[kind.upper() + '_DIR'] = spec['directory']
+            if kind == 'dlcs':
+                self.variables.update(DLC_METADATA_DIR='dlc_metadata', DLC_DIR='dlc')
+                (self.game / 'dlc').mkdir()
+                (self.game / 'dlc/base.dlc').write_text('name=Example localizable_name=tech_a', encoding='utf-8')
+                (directory / 'dlc_info.txt').write_text('dlcs={dlc001={name=Example localizable_name=tech_a}}', encoding='utf-8')
+                continue
             contents = {'events': 'country_event = { id = example.1 title = tech_a desc = tech_a_desc }',
                         'terraform': 'terraform_link = { from = pc_a to = pc_b }',
                         'starbase_levels': 'level_one = { ship_size = small }'}.get(kind, 'example = {}')
@@ -66,7 +73,7 @@ class DatabaseSetTests(BuildFixture):
         manifest = self.database_path().read_bytes()
         reader = open_set(self.database_path())
         self.assertEqual(reader.manifest['set_id'], result['set_id'])
-        self.assertEqual(len(reader.manifest['datasets']), 15)
+        self.assertEqual(len(reader.manifest['datasets']), 30)
         for path in reader.paths.values():
             content = path.read_bytes()
             self.assertNotIn(b'\r\n', content)

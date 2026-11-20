@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "context": {
+      "const": "playable_empire"
+    },
+    "directory": {
+      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+      "type": "string"
+    },
+    "effects": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "encoding": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "entries": {
+      "additionalProperties": false,
+      "properties": {
+        "base": {
+          "enum": [
+            "product",
+            "work"
+          ]
+        },
+        "path": {
+          "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "base",
+        "path"
+      ],
+      "type": "object"
+    },
+    "format_version": {
+      "const": 1
+    },
+    "non_executable_sources": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sha256",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "propertyNames": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "pattern": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "roots": {
+      "items": {
+        "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "format_version",
+    "context",
+    "roots",
+    "pattern",
+    "encoding",
+    "non_executable_sources",
+    "directory",
+    "effects",
+    "entries"
+  ],
+  "type": "object"
+}

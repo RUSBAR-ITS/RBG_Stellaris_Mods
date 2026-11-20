@@ -1,6 +1,7 @@
 """Publish only changed documents and switch a complete combination atomically."""
 
 from copy import deepcopy
+from contextlib import nullcontext
 
 from sttv.common.errors import BuildError
 from sttv.common.timing import performance
@@ -28,5 +29,6 @@ def publish(reader, documents, changed, combo, metadata, settings, publication):
     def verify():
         settings.check_snapshot()
         reader.check_snapshot()
-    publication.publish(manifest, verify)
+    with settings.commit_guard() if settings.commit_guard else nullcontext():
+        publication.publish(manifest, verify)
     return manifest

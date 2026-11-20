@@ -29,6 +29,12 @@
 
 ## Document status
 
+Implemented [stage 21](BACKEND_STAGE_21_EN.md) and its approved acquisition addendum. Frontend version: 0.0.13; the new `data/stage21_acquisition/database_set` contains 30 kinds and a technical acquisition index. The guide describes the DLC matrix and checks; unknown engine semantics remain explicit. Visual and in-game verification remain with the user. Earlier stage history follows.
+
+Approved [stage 19](TZ_BACKEND_STAGE_19_EN.md): ten additional database kinds for empire settings and DLCs, RU/EN localization and reading 25 kinds. An additional CLASS exception based on the enclosing trait's leader_class is approved. Results and limitations: [guide](BACKEND_STAGE_19_EN.md).
+
+Drafted [backend stage 20](TZ_BACKEND_STAGE_20_EN.md) and [frontend stage 10](frontend/TZ_FRONTEND_STAGE_10_EN.md): menu sections, DLC selection with Apply, filtering and combination recalculation. The complete specifications are not approved yet.
+
 Approved and implemented [frontend stage 9](frontend/TZ_FRONTEND_STAGE_9_EN.md): initial 50%, a 50–150% menu selector, unified card/font/connection scaling, centre preservation and correct scroll bounds. The setting is session-only; menus and tooltips retain their normal size. Startup and validation: [0.0.10 guide](frontend/FRONTEND_STAGE_9_EN.md).
 
 Approved and implemented [backend stage 18](TZ_BACKEND_STAGE_18_EN.md) and [frontend stage 8](frontend/TZ_FRONTEND_STAGE_8_EN.md): set PNG resources, RU/EN categories and an expanded card with full names, attributes and area/rarity/danger styling. Missing cost and weight are hidden; numeric zero remains visible. Startup and results: [backend guide](BACKEND_STAGE_18_EN.md) and [0.0.9 guide](frontend/FRONTEND_STAGE_8_EN.md). Subsequent entries describe earlier stages.

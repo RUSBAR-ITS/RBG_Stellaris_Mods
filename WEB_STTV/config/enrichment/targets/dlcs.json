@@ -1,0 +1,18 @@
+{
+  "selection": {
+    "variable": "DLC_METADATA_DIR",
+    "pattern": "dlc_info.txt",
+    "recursive": false
+  },
+  "keys": {
+    "variant": null,
+    "name": "name",
+    "description_suffix": null,
+    "description_field": null,
+    "text_field": "text",
+    "fallback_field": null,
+    "description_fields": [],
+    "description_nodes": true,
+    "name_field": "localizable_name"
+  }
+}

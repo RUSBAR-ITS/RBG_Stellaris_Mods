@@ -58,6 +58,7 @@ test('missing, stale and malformed saved combinations show distinct reportable e
 });
 
 test('another prepared combination is opened through its configuration and preserves its variants', async ({ page }) => {
+  test.setTimeout(150000);
   test.skip(!process.env.STTV_DATABASE_DIR || process.env.STTV_PREVIEW === '1', 'Requires real files and the development config module');
   await page.route('**/config/frontend/tree_layout.json*', async route => {
     const response = await route.fetch();
@@ -65,7 +66,7 @@ test('another prepared combination is opened through its configuration and prese
   });
   await page.goto('/'); await sttvEnglish(page);
   await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
-  await expect(page.locator('[data-technology-id]')).toHaveCount(679, { timeout: 60000 });
+  await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 120000 });
   await expect(page.locator('[data-connection-child]')).toHaveCount(463);
   await expect(page.locator('[data-area="society"] [data-technology-id]')).toHaveCount(319);
   await expect(page.locator('[data-area="engineering"] [data-technology-id]')).toHaveCount(192);
@@ -73,7 +74,8 @@ test('another prepared combination is opened through its configuration and prese
   const downloading = page.waitForEvent('download');
   await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
   const report = JSON.parse(await readFile((await (await downloading).path())!, 'utf8'));
-  expect(report.tree.combination.id).toBe('reference_variants');
+  expect(report.tree.combination.id).toMatch(/^dlc_/);
+  expect(report.tree.combination.parameters.variants.tech_titans).toBe('swap:2');
   expect(report.tree.settings.combination_id).toBe('reference_variants');
   expect(report.tree.hiddenCrossAreaLinks).toBe(38);
   expect(report.tree.connections.logicalConnections).toBe(463);

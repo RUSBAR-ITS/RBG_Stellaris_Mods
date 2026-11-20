@@ -25,5 +25,21 @@
   "ECONOMIC_CATEGORIES_DIR": "common/economic_categories",
   "SCRIPTED_ACTIONS_DIR": "common/scripted_actions",
   "ON_ACTIONS_DIR": "common/on_actions",
-  "EVENTS_DIR": "events"
+  "EVENTS_DIR": "events",
+  "SPECIES_ARCHETYPES_DIR": "common/species_archetypes",
+  "SPECIES_CLASSES_DIR": "common/species_classes",
+  "ETHICS_DIR": "common/ethics",
+  "ETHIC_CATEGORIES_DIR": "common/ethic_categories",
+  "TRAITS_DIR": "common/traits",
+  "GRAPHICAL_CULTURE_DIR": "common/graphical_culture",
+  "SHIP_CATEGORIES_DIR": "common/ship_categories",
+  "AUTHORITIES_DIR": "common/governments/authorities",
+  "CIVICS_DIR": "common/governments/civics",
+  "DLC_METADATA_DIR": "dlc_metadata",
+  "DLC_DIR": "dlc",
+  "ASCENSION_PERKS_DIR": "common/ascension_perks",
+  "TRADITIONS_DIR": "common/traditions",
+  "TRADITION_CATEGORIES_DIR": "common/tradition_categories",
+  "CRISIS_PATHS_DIR": "common/crisis_paths",
+  "CRISIS_LEVELS_DIR": "common/crisis_levels"
 }

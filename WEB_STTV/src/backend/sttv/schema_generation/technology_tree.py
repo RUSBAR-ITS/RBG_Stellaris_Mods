@@ -2,17 +2,19 @@
 
 from .helpers import BOOL, HASH, NULL, TEXT, RELATIVE, array, obj, mapping, union
 from .configuration import selection
+from .dlc import PROFILE, VISIBILITY, configuration as dlc_rules
 
 ID = {'type': 'string', 'pattern': '^[a-z][a-z0-9_]*$'}
 VARIANT = {'type': 'string', 'pattern': r'^(base|swap:[1-9][0-9]*)$'}
 FACTS = mapping(mapping(mapping(BOOL)))
 RESULT = obj({'parent_tech': union(TEXT, NULL), 'children': array(TEXT, uniqueItems=True),
               'status': {'enum': ['root', 'resolved', 'ambiguous']}})
+RESULT['properties']['visibility'] = VISIBILITY
 
 
 def configuration():
     return obj({'format': {'const': 'sttv.technology_tree_config'}, 'format_version': {'const': 1},
-        **{key: selection() for key in ('storage', 'dataset_registry', 'technology_targets', 'rules', 'combination')},
+        **{key: selection() for key in ('storage', 'dataset_registry', 'technology_targets', 'rules', 'combination', 'dlc_rules')},
         'report': RELATIVE, 'staging_directory': RELATIVE})
 
 
@@ -22,8 +24,10 @@ def profile():
 
 
 def combination():
-    return obj({'format': {'const': 'sttv.technology_tree_combination'}, 'format_version': {'const': 1},
+    result = obj({'format': {'const': 'sttv.technology_tree_combination'}, 'format_version': {'const': 1},
                 'id': ID, 'mode': {'const': 'reference'}, 'profile': selection(), 'variants': mapping(VARIANT)})
+    result['properties']['dlc'] = obj({'enabled': array(TEXT, uniqueItems=True)})
+    return result
 
 
 def metadata():
@@ -35,6 +39,8 @@ def metadata():
         'rules_snapshot': schema(), 'implementation_revision': TEXT,
         **{key: HASH for key in ('input_revision', 'rules_revision', 'parameters_revision',
                                 'calculation_revision', 'result_revision')}})
+    entry['properties']['parameters']['properties']['dlc'] = PROFILE
+    entry['properties']['dlc_rules_snapshot'] = dlc_rules()
     return obj({'format_version': {'const': 1}, 'combinations': mapping(entry, ID)})
 
 
@@ -51,4 +57,5 @@ def report():
         'diagnostics': array(detail), 'ambiguities': array(detail), 'file_hashes': detail,
         'error': union(obj({'code': TEXT, 'message': TEXT, 'details': detail}, required=['code', 'message']), NULL)})
     result['properties']['memory'] = detail
+    result['properties']['dlc_analysis'] = detail
     return result

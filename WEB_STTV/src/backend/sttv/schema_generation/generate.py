@@ -8,11 +8,19 @@ from sttv.common.persistence import save_json
 from . import configuration, database, reports, syntax, inline, static_variables, scripted, values
 from .helpers import document
 from . import localization, localization_report, database_sets, source_exceptions
-from . import libraries, parallel, technology_tree, technology_tree_rules, storage, assets
+from . import libraries, parallel, technology_tree, technology_tree_rules, storage, assets, dlc, service
+from . import acquisition
 
 
 def declarations():
     return {
+        'acquisition_sources.schema.json': acquisition.sources(),
+        'acquisition_effects.schema.json': acquisition.effects(),
+        'acquisition_entries.schema.json': acquisition.entries(),
+        'acquisition_document.schema.json': acquisition.document(),
+        'dlc.schema.json': dlc.configuration(),
+        'dlc_group.schema.json': dlc.group(),
+        'service.schema.json': service.configuration(),
         'assets.schema.json': assets.configuration(),
         'assets_report.schema.json': assets.report(),
         'storage.schema.json': storage.configuration(),

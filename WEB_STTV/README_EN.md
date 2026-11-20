@@ -17,13 +17,19 @@ A local interactive web reference for Stellaris technologies. The first interfac
 
 ## Status
 
+Implemented [stage 21](Docs/BACKEND_STAGE_21_EN.md) and its approved acquisition addendum. Frontend version: 0.0.13; the new `data/stage21_acquisition/database_set` contains 30 kinds and a technical acquisition index. The guide describes the DLC matrix and checks; unknown engine semantics remain explicit. Visual and in-game verification remain with the user. Earlier stage history follows.
+
+[Backend stage 20](Docs/BACKEND_STAGE_20_EN.md) and [frontend 0.0.12](Docs/frontend/FRONTEND_STAGE_10_EN.md) add DLC settings and tree recalculation through a local Python service. Prepared set: `data/stage20/database_set`, with 543 documents, 822 images and 36 DLC. Opening enables all DLC; edits use an Apply button. Earlier stage results are retained below.
+
+[Stage 19](Docs/BACKEND_STAGE_19_EN.md) adds empire/DLC catalogs and a 25-kind registry; the frontend version is 0.0.11. The approved CLASS exception unblocked trait import. The complete `data/stage19/database_set` contains 543 documents; the full build, audit and browser checks completed. The previous reference is preserved for comparison. Earlier stage results are also listed below.
+
 Implemented [backend stage 18](Docs/BACKEND_STAGE_18_EN.md) and [frontend 0.0.10](Docs/frontend/FRONTEND_STAGE_9_EN.md): a manifest, 450 persistent documents across 15 kinds, verification on read, selective loading and a tree grid using stored parents. `config/frontend/tree_layout.json` selects a prepared combination; sorting uses the current language. Indented JSON preserves AST, history and RU/EN localization. Monolithic merging has been removed.
 
 Previous stage 17 results: checked 13 tree criteria, 679 base decisions, 206 variants and three combined selections. All 450 documents match the reference after format normalization. Full audit passed. Building took 387.885 s; initial loader opening took 2.601 s, reading only 35 technology documents. Conditions for these measurements are documented in the [stage 17 guide](Docs/BACKEND_STAGE_17_EN.md).
 
 Connections from selected parents within each research area use arrows and shared trunks. Hovering over a card highlights its parent and child paths in different colors. Routing expands the necessary gaps while preserving logical card positions.
 
-Reusable libraries and explicit preparation/reuse modes remain available. Interactive variant recalculation, additional and cross-area connections, an HTTP API and portable distribution remain separate stages.
+Reusable libraries and explicit preparation/reuse modes remain available. Interactive variant recalculation, additional and cross-area connections and portable distribution remain separate stages.
 
 The set includes 791 PNG images and 13 RU/EN categories; preparation preserved source data and prepared trees. Cards display full names, images and base attributes, hide missing cost/weight and highlight rarity/danger.
 
@@ -35,7 +41,7 @@ The field opens at 50%. The menu offers 50%, 75%, 100%, 125% and 150%; zoom pers
 
 From `WEB_STTV` with Node.js 24: `npm ci`, then `npm run dev`. Open `http://127.0.0.1:5173/`. This computer has Node.js under `data/`; see the [guide](Docs/frontend/FRONTEND_STAGE_9_EN.md#result-and-startup).
 
-Click “Open database set” and select **`data/stage17/database_set`**. Future builds default to `data/database_set`. Select the root containing `manifest.json`; old 15-file sets are unsupported. Build separately: `$env:PYTHONPATH="src/backend"`, then `python -B -m sttv.database_sets --rebuild-libraries --prepare-assets`. Startup and refresh neither build nor automatically open data.
+Click “Open database set” and select **`data/stage21_acquisition/database_set`**. To apply DLC changes start the Python service using the [guide](Docs/BACKEND_STAGE_21_EN.md#startup), which also describes registering the set. Startup and refresh neither build nor automatically open data.
 
 ## Directory structure
 
@@ -44,7 +50,7 @@ Click “Open database set” and select **`data/stage17/database_set`**. Future
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
 | `config/` | Sources, output paths, parser, library and localization configurations |
-| `schemas/` | 34 generated configuration, database, and report schemas |
+| `schemas/` | 41 generated configuration, database, and report schemas |
 | `data/` | Default working folder for the database, reports, temporary output, and checks |
 | `Docs/` | Russian and English documentation |
 | `Docs/frontend/` | Interface concept and subsequent frontend documentation |
@@ -84,10 +90,13 @@ Nested calls, argument substitution, and invocation history are implemented. Met
 
 During enrichment, Russian text is selected per key in the order `RU_LOC_TIER_1` → `RU_LOC_TIER_2` → `RU_LOC_TIER_3`, moving to the next source if the key is absent. English text for the same key comes from `EN_LOC_TIER_1`. Russian and English localization are treated separately; key availability is checked independently for each language.
 
-Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads settings, expands inline calls, named effects, triggers, and script values, and substitutes static variables. The general tree builder does not require localization; the set coordinator then enriches all fifteen trees and publishes them together.
+Absolute source roots belong to the current environment. Game and localization directories are read-only; `WORK_DIR` is intended for writing output. The builder loads settings, expands inline calls, named effects, triggers, and script values, and substitutes static variables. The general tree builder does not require localization; the set coordinator then enriches 25 database kinds and publishes them together only after the entire set is prepared successfully.
 
 ## Documents
 
+- [Stage 21 and acquisition — implementation, startup and limitations](Docs/BACKEND_STAGE_21_EN.md).
+- [Approved stage 19 specification: empire and DLC reference import](Docs/TZ_BACKEND_STAGE_19_EN.md), [implementation and checks](Docs/BACKEND_STAGE_19_EN.md).
+- Implemented specifications: [backend stage 20 — DLC combinations](Docs/TZ_BACKEND_STAGE_20_EN.md), [frontend stage 10 — menu and DLC settings](Docs/frontend/TZ_FRONTEND_STAGE_10_EN.md).
 - [Images: stage 18 preparation, configuration and results](Docs/BACKEND_STAGE_18_EN.md).
 - [Expanded card stage 8 specification — implemented](Docs/frontend/TZ_FRONTEND_STAGE_8_EN.md).
 

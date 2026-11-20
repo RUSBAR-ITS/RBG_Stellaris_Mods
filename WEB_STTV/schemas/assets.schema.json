@@ -28,6 +28,24 @@
       "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
       "type": "string"
     },
+    "dlc_thumbnails": {
+      "additionalProperties": false,
+      "properties": {
+        "directory_variable": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "field": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "directory_variable",
+        "field"
+      ],
+      "type": "object"
+    },
     "extension": {
       "const": ".dds"
     },
@@ -156,6 +174,7 @@
     "source_root",
     "technology_directory",
     "extension",
+    "dlc_thumbnails",
     "fields",
     "missing_inherit_icon",
     "research_icons",

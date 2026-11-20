@@ -9,6 +9,7 @@ from sttv.common.report import Report
 from sttv.common.schema import SchemaSession, _session
 from sttv.common.timing import measure
 from sttv.common.errors import BuildError
+from sttv.common.datasets import definition
 from sttv.database.collection import read_document
 from sttv.storage.writing import write_document
 from sttv.database.validation import database_rules
@@ -91,8 +92,13 @@ def execute(job):
                 result['localization_files'] = STATE['localizations'].apply(
                     document, job['local'], job['index'], local, result['identities'],
                     report.data['performance']['timings'])
+        if job.get('acquisition'):
+            from sttv.enrichment.acquisition.extraction import extract
+            from sttv.enrichment.acquisition.preparation import store
+            result['acquisition'] = store(extract(document, job['acquisition']), job['output'] + '.acquisition.json')
         stage = 'validation_storage'
-        result['fragment'] = write_document(document, Path(job['output']), job['kind'], report.data['performance'])
+        result['fragment'] = write_document(document, Path(job['output']), job['kind'], report.data['performance'],
+            validate='descriptorLink' not in definition(job['kind']))
         report.data['counts']['nodes'] += result['fragment']['nodes']
         result['status'] = 'success'
     except Exception as exc:

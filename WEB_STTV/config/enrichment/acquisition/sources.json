@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "context": "playable_empire",
+  "roots": [
+    "common",
+    "events",
+    "prescripted_countries"
+  ],
+  "pattern": "*.txt",
+  "encoding": "utf-8-sig",
+  "directory": "acquisition",
+  "effects": {
+    "base": "product",
+    "path": "config/enrichment/acquisition/effects.json"
+  },
+  "entries": {
+    "base": "product",
+    "path": "config/enrichment/acquisition/entries.json"
+  },
+  "non_executable_sources": {
+    "common/HOW_TO_MAKE_NEW_SHIPS.txt": {
+      "sha256": "f8d6c798bf207c93fb5a645d557d83cfb50658e70d6cb5613579a1c921170e28",
+      "reason": "Vanilla ship-authoring prose and illustrative snippets, not an executable definition. Exact bytes reviewed; changed content is parsed normally."
+    }
+  }
+}

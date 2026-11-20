@@ -79,6 +79,8 @@ export interface SttvDatasetInfo {
   state: 'not_loaded' | 'loading' | 'loaded' | 'failed';
 }
 export interface SttvCatalog extends SttvTechnologyCatalog {
+  dlcService?: { available: boolean; code?: string };
+  dlcReport?: Record<string, unknown>;
   presentation?: import('../storage/assets').SttvPresentation;
   images?: Record<string, Blob | null>;
   treeCombination: import('./tree/model').SttvTreeCombination;
@@ -105,5 +107,6 @@ export interface SttvDefinition {
   type: string;
   id?: string;
   texts: SttvDefinitionText[];
+  descriptorRefs?: { database: 'dlcs'; document_id: string }[];
   endpoints?: Record<string, { id: string; sourceRef: SttvNodeRef }>;
 }

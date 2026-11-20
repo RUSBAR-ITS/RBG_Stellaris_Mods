@@ -54,8 +54,8 @@ test('one verified image read serves all cards and cached corruption remains in 
     return file;
   });
   const image = files.find(file => file.name.endsWith('.png'))!;
-  const arrayBuffer = image.arrayBuffer.bind(image); let reads = 0;
-  image.arrayBuffer = () => { reads++; return arrayBuffer(); };
+  const stream = image.stream.bind(image); let reads = 0;
+  image.stream = () => { reads++; return stream(); };
   const session = await SttvStorageSession.open(files, sttvRules);
   const first = await session.initial();
   assert.equal(reads, 1);

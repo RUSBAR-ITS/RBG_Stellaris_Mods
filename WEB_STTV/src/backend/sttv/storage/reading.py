@@ -6,6 +6,7 @@ import hashlib
 from sttv.common.errors import BuildError
 from .stream import Stream
 from .objects import object_row
+from sttv.common.object_selection import selected_nodes
 
 
 class HashedText:
@@ -46,9 +47,9 @@ def _read(path, kind, descriptor, expected_objects, extract, full):
                 for index in stream.indices():
                     node = stream.value()
                     pointer = f'/items/{index}'
-                    row = object_row(kind, descriptor['document_id'], pointer, node)
-                    if row is not None:
-                        objects.append(row)
+                    for selected, child in selected_nodes(kind, [node], descriptor['source']):
+                        selected = pointer + selected[len('/items/0'):]
+                        objects.append(object_row(kind, descriptor['document_id'], selected, child))
                     if full:
                         result.append(node)
                     elif extract is not None:

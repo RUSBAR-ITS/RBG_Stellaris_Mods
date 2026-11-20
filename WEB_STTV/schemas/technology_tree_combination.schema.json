@@ -2,6 +2,23 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": false,
   "properties": {
+    "dlc": {
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "enabled"
+      ],
+      "type": "object"
+    },
     "format": {
       "const": "sttv.technology_tree_combination"
     },

@@ -3,6 +3,7 @@
   "storage": {"base": "product", "path": "config/storage.json"},
   "localization": {"base": "product", "path": "config/enrichment/localization.json"},
   "source_root": "STELLARIS_ROOT",
+  "dlc_thumbnails": {"directory_variable": "DLC_DIR", "field": "thumbnail"},
   "technology_directory": "gfx/interface/icons/technologies",
   "extension": ".dds",
   "fields": {"icon": "icon", "variant": "technology_swap", "name": "name", "inherit_icon": "inherit_icon", "category": "category"},

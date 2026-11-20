@@ -5,6 +5,7 @@ export function sttvBuildReport(state: SttvOpening, now = new Date(), tree?: Stt
   if (!state.files.length || !['ready', 'empty', 'error'].includes(state.status)) throw new Error('No completed attempt.');
   return { format: 'sttv.frontend_diagnostics', formatVersion: 4, exportedAt: now.toISOString(),
     tree: tree ?? null, treeCombination: state.data?.treeCombination ?? null,
+    dlc: state.data?.dlcReport ?? null, service: state.data?.dlcService ?? null,
     operationId: state.operationId, root: state.files[0]?.webkitRelativePath?.split('/')[0] || null, setId: state.data?.setId ?? null,
     snapshotRevision: state.data?.snapshotRevision ?? null, coverage: state.data?.coverage ?? null,
     datasets: state.data?.datasets ?? [],

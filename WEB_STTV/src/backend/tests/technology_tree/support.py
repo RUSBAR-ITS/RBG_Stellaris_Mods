@@ -63,7 +63,7 @@ class SetFixture(unittest.TestCase):
         from storage.fixtures import publish
         from sttv.common.datasets import KINDS
         self.manifest = publish(self.variables, {kind: [{
-            'source': {'root': 'STELLARIS_ROOT', 'file': f'common/{kind}/empty.txt'},
+            'source': {'root': 'STELLARIS_ROOT', 'file': 'dlc_metadata/dlc_info.txt' if kind == 'dlcs' else f'common/{kind}/empty.txt'},
             'items': [], 'metadata': {'expansions': []}}] for kind in KINDS})
         self.options = read_json(PRODUCT_ROOT / 'config/enrichment/technology_tree.json')
         self.options['combination'] = {'base': 'work', 'path': 'combination.json'}

@@ -85,7 +85,7 @@ test('empty results retain their worker and export only current diagnostics', ()
   workers[0].send({ type: 'ready', data: sttvAdaptSet(sttvSet(), sttvSetFiles()) });
   assert.equal(controller.state.status, 'empty'); assert.equal(workers[0].stopped, false);
   const report = sttvBuildReport(controller.state, new Date('2026-11-17T00:00:00Z'));
-  assert.deepEqual(Object.keys(report), ['format', 'formatVersion', 'exportedAt', 'tree', 'treeCombination', 'operationId', 'root', 'setId',
+  assert.deepEqual(Object.keys(report), ['format', 'formatVersion', 'exportedAt', 'tree', 'treeCombination', 'dlc', 'service', 'operationId', 'root', 'setId',
     'snapshotRevision', 'coverage', 'datasets', 'files', 'counts', 'result', 'error', 'diagnostics']);
   assert.equal(report.files.length, 3);
   assert.equal(report.files[0].name, file.name);

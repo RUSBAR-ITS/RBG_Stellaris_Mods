@@ -44,6 +44,11 @@ class Projections:
                 if selected is not None and identifier not in selected:
                     continue
                 key = kind, identifier
+                cached = reader.cache.get((key, 'dlc_compact', False))
+                if cached is not None:
+                    reader.check_document(key)
+                    result[kind].extend(r for r in cached if wanted is None or r['id'] in wanted)
+                    continue
                 jobs.append((kind, reader.paths[key], reader.descriptors[key], reader.objects[key], wanted))
         start = perf_counter()
         for offset in range(0, len(jobs), self.workers):

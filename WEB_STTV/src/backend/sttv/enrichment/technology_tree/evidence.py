@@ -35,7 +35,15 @@ def prepare(catalog, technologies, rules, weapon_routes=()):
 
 def load(settings, technologies, reader):
     with Projections(reader, settings.storage.workers) as projections:
-        records = projections.load([kind for kind in settings.registry if kind not in ('technologies', 'events')])
+        def references(value):
+            if isinstance(value, str):
+                return {value} if value in settings.registry else set()
+            children = value.values() if isinstance(value, dict) else value if isinstance(value, list) else []
+            return set().union(*(references(child) for child in children))
+        kinds = references([rule['parameters'] for rule in settings.rules['rules'] if rule['enabled']])
+        if any(r['enabled'] and r['id'] == 'production_affinity' for r in settings.rules['rules']):
+            kinds.update(('economic_categories', 'pop_jobs'))
+        records = projections.load(sorted(kinds - {'technologies', 'events'}))
         records['technologies'] = list(technologies.values())
         catalog = Catalog(records)
         functional = next((r for r in settings.rules['rules'] if r['id'] == 'functional_groups' and r['enabled']), None)

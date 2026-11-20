@@ -4,7 +4,7 @@ import hashlib
 import json
 
 
-IMPLEMENTATION_REVISION = '1.0.0'
+IMPLEMENTATION_REVISION = '1.3.0'
 
 
 def digest(value):
@@ -27,8 +27,18 @@ def script_nodes(node):
 
 
 def parameters(settings, technologies):
-    return {'mode': settings.combination['mode'], 'profile': settings.facts,
+    result = {'mode': settings.combination['mode'], 'profile': settings.facts,
             'variants': {key: technologies[key]['variant'] for key in sorted(technologies)}}
+    if settings.dlc_profile is not None:
+        result['dlc'] = settings.dlc_profile
+    return result
+
+
+def rules_revision(metadata):
+    value = metadata['rules_snapshot']
+    if 'dlc_rules_snapshot' in metadata:
+        value = {'parents': value, 'dlc': metadata['dlc_rules_snapshot']}
+    return digest(value)
 
 
 def calculation_revision(metadata):
@@ -47,5 +57,8 @@ def metadata(settings, technologies, set_id, inputs):
         'rules_revision': digest(settings.rules), 'parameters_revision': digest(params),
         'implementation_revision': IMPLEMENTATION_REVISION}
     result['input_revision'] = digest({'source_set_id': set_id, 'inputs': result['inputs']})
+    if settings.dlc_profile is not None:
+        result['dlc_rules_snapshot'] = settings.dlc_rules
+        result['rules_revision'] = rules_revision(result)
     result['calculation_revision'] = calculation_revision(result)
     return result

@@ -18,6 +18,7 @@ def check_assets(manifest, paths):
             raise BuildError('asset_identity', 'Duplicate resource path or invalid resource identity')
         paths.add(path)
     for identifier in [*presentation['research_icons'].values(),
+                       *presentation.get('dlc_icons', {}).values(),
                        *(row['asset_id'] for row in presentation['sources'].values())]:
         if identifier is not None and identifier not in presentation['files']:
             raise BuildError('missing_asset', 'Resource reference is not in the manifest')

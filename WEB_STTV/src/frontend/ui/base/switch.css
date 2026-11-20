@@ -1,0 +1,14 @@
+.sttv-switch { display: inline-flex; align-items: center; gap: var(--sttv-dlc-gap); border: none;
+  padding: var(--sttv-control-padding); background: var(--sttv-switch-background); color: var(--sttv-switch-color);
+  font: var(--sttv-switch-font); border-radius: var(--sttv-radius); cursor: pointer; }
+.sttv-switch-track { display: inline-block; position: relative; flex: none; width: var(--sttv-switch-width);
+  height: var(--sttv-switch-height); border-radius: var(--sttv-switch-height); background: var(--sttv-switch-off); }
+.sttv-switch-thumb { position: absolute; top: var(--sttv-switch-inset); left: var(--sttv-switch-inset);
+  width: calc(var(--sttv-switch-height) - 2 * var(--sttv-switch-inset)); height: calc(var(--sttv-switch-height) - 2 * var(--sttv-switch-inset));
+  border-radius: 50%; background: var(--sttv-switch-thumb-color); }
+.sttv-switch[aria-checked='true'] .sttv-switch-track { background: var(--sttv-switch-on); }
+.sttv-switch[aria-checked='true'] .sttv-switch-thumb { left: calc(var(--sttv-switch-width) - var(--sttv-switch-height) + var(--sttv-switch-inset)); }
+.sttv-switch:hover:not(:disabled) { background: var(--sttv-switch-hover); }
+.sttv-switch:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-switch-focus); }
+.sttv-switch:disabled { cursor: default; color: var(--sttv-switch-disabled-color); }
+.sttv-switch:disabled .sttv-switch-track { background: var(--sttv-switch-disabled-background); }

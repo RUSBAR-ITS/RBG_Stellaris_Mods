@@ -42,8 +42,15 @@ class Settings:
     staging: Path
     configs: dict
     snapshots: dict
+    dlc_rules: dict = None
+    dlc_profile: dict = None
+    cancelled: object = None
+    expected_revision: str = None
+    commit_guard: object = None
 
     def check_snapshot(self):
+        if self.cancelled is not None and self.cancelled():
+            raise BuildError('cancelled', 'Calculation cancelled before publication')
         for path, expected in self.snapshots.items():
             if not path.exists() or signature(path) != expected:
                 raise BuildError('changed_input', f'Input changed during operation: {path}')
@@ -99,6 +106,9 @@ def load(variables_path=None, config_path=None, combination_path=None):
     registry = referenced('dataset_registry', 'datasets.schema.json')['datasets']
     targets = referenced('technology_targets', 'localization_target.schema.json')
     rules = resolve_rules(referenced('rules'))
+    dlc_rules = referenced('dlc_rules', 'dlc.schema.json')
+    from sttv.enrichment.dlc.settings import resolve as resolve_dlc
+    dlc_rules = resolve_dlc(dlc_rules, read, work)
     combo = read(combination_path or selected_path(options['combination'], work), 'technology_tree_combination.schema.json')
     profile = read(selected_path(combo['profile'], work), 'technology_tree_profile.schema.json')
     report, staging = (output_path(work, options[key]) for key in ('report', 'staging_directory'))
@@ -116,4 +126,4 @@ def load(variables_path=None, config_path=None, combination_path=None):
     if not directory.is_relative_to(game):
         raise BuildError('invalid_selection', 'Technology selection must be relative to game root')
     return Settings(work, options, storage, registry, targets, directory.relative_to(game).as_posix(),
-                    rules, combo, profile['facts'], report, staging, configs, snapshots)
+                    rules, combo, profile['facts'], report, staging, configs, snapshots, dlc_rules)

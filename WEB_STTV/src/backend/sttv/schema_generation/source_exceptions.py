@@ -14,8 +14,14 @@ def configuration():
                     required_parameters=array(TEXT, uniqueItems=True))
     parameter = obj({'id': TEXT, 'kind': {'const': 'missing_parameter'}, 'reason': TEXT,
                      'match': obj(matching, [key for key in matching if key != 'call_name']),
-                     'action': union(obj({'parameter_from': TEXT}), obj({'parameter_literal': STRING}))})
-    return obj({'format_version': {'const': 1}, 'rules': array(union(scalar, parameter))})
+                     'action': union(obj({'parameter_from': TEXT}), obj({'parameter_literal': STRING}),
+                         obj({'parameter_from_object': obj({'field': TEXT,
+                             'allowed_values': array(TEXT, minItems=1, uniqueItems=True),
+                             'multiple_literal': TEXT})}))})
+    separator = obj({'id': TEXT, 'kind': {'const': 'missing_assignment_separator'}, 'reason': TEXT,
+        'match': obj(dict(root, containers=array(TEXT, minItems=1), field=TEXT, value={'const': '""'})),
+        'action': obj({'insert': {'const': ' ='}})})
+    return obj({'format_version': {'const': 1}, 'rules': array(union(scalar, parameter, separator))})
 
 
 def application():

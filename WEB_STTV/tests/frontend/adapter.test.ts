@@ -60,7 +60,12 @@ test('real technology set member database produces the agreed catalog without in
   assert.deepEqual(catalog.technologies.tech_titans.prerequisiteIds, ['tech_battleships', 'tech_stinger_growth_2']);
   assert.match(catalog.technologies.tech_titans.sourceRef.document_id, /^[a-f0-9]{64}$/);
   assert.equal(catalog.technologies.tech_titans.sourceRef.pointer, '/items/5');
-  assert.equal(catalog.diagnostics.length, 0);
+  assert.deepEqual(catalog.diagnostics.map(d => ({ code: d.code, technology: d.details.technology,
+    field: d.details.field })).sort((a, b) => String(a.technology).localeCompare(String(b.technology))), [
+    { code: 'card_value_invalid', technology: 'tech_dyson_gun', field: 'weight' },
+    { code: 'card_value_invalid', technology: 'tech_dyson_swarm', field: 'weight' },
+    { code: 'card_value_invalid', technology: 'tech_orbital_arc_furnace', field: 'weight' },
+  ]);
   const serialized = JSON.stringify(catalog);
   assert.equal(serialized.includes('"kind":"assignment"'), false);
   console.log(JSON.stringify({ technologies: 679, variants: 206, links: catalog.links.length,

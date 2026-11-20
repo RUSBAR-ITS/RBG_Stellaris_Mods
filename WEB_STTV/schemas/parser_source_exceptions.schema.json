@@ -102,6 +102,43 @@
                       "parameter_literal"
                     ],
                     "type": "object"
+                  },
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "parameter_from_object": {
+                        "additionalProperties": false,
+                        "properties": {
+                          "allowed_values": {
+                            "items": {
+                              "minLength": 1,
+                              "type": "string"
+                            },
+                            "minItems": 1,
+                            "type": "array",
+                            "uniqueItems": true
+                          },
+                          "field": {
+                            "minLength": 1,
+                            "type": "string"
+                          },
+                          "multiple_literal": {
+                            "minLength": 1,
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "field",
+                          "allowed_values",
+                          "multiple_literal"
+                        ],
+                        "type": "object"
+                      }
+                    },
+                    "required": [
+                      "parameter_from_object"
+                    ],
+                    "type": "object"
                   }
                 ]
               },
@@ -164,6 +201,78 @@
                   "reference",
                   "missing_parameter",
                   "required_parameters"
+                ],
+                "type": "object"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "reason",
+              "match",
+              "action"
+            ],
+            "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "action": {
+                "additionalProperties": false,
+                "properties": {
+                  "insert": {
+                    "const": " ="
+                  }
+                },
+                "required": [
+                  "insert"
+                ],
+                "type": "object"
+              },
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "const": "missing_assignment_separator"
+              },
+              "match": {
+                "additionalProperties": false,
+                "properties": {
+                  "containers": {
+                    "items": {
+                      "minLength": 1,
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                  },
+                  "field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "root_files": {
+                    "items": {
+                      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  },
+                  "value": {
+                    "const": "\"\""
+                  }
+                },
+                "required": [
+                  "root_files",
+                  "containers",
+                  "field",
+                  "value"
                 ],
                 "type": "object"
               },

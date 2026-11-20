@@ -8,6 +8,7 @@ from . import localization
 def configuration():
     return obj({'format_version': {'const': 1}, 'storage': selection(), 'localization': selection(),
         'source_root': TEXT, 'technology_directory': RELATIVE, 'extension': {'const': '.dds'},
+        'dlc_thumbnails': obj({'directory_variable': TEXT, 'field': TEXT}),
         'fields': obj({k: TEXT for k in ('icon', 'variant', 'name', 'inherit_icon', 'category')}),
         'missing_inherit_icon': BOOL, 'research_icons': obj({k: RELATIVE for k in ('physics', 'society', 'engineering')}),
         'directory': RELATIVE, 'conversion': obj({'format': {'const': 'PNG'},
@@ -30,8 +31,10 @@ def report():
 def manifest():
     descriptor = obj({'path': RELATIVE, 'mime_type': {'const': 'image/png'}, 'file_hash': HASH,
         'byte_size': LINE, 'width': LINE, 'height': LINE})
-    return obj({'format_version': {'const': 1}, 'revision': HASH, 'settings_revision': HASH,
+    result = obj({'format_version': {'const': 1}, 'revision': HASH, 'settings_revision': HASH,
         'files': mapping(descriptor, HASH),
         'sources': mapping(obj({'source_hash': HASH, 'asset_id': HASH}), RELATIVE),
         'research_icons': obj({k: union(HASH, NULL) for k in ('physics', 'society', 'engineering')}),
         'categories': mapping(obj({k: localization.field() for k in ('ru', 'en')}))})
+    result['properties']['dlc_icons'] = mapping(union(HASH, NULL))
+    return result

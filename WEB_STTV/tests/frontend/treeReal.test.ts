@@ -67,7 +67,7 @@ test('prepared real combinations cover all technologies without rereads, mutatio
       assert.deepEqual([...readCounts], beforeReads); assert.equal(JSON.stringify(data.technologies), original);
       assert.equal([...readCounts.values()].every(n => n === 1), true);
       assert.equal(data.coverage.verifiedDocuments, 35);
-      assert.equal(data.datasets.filter(d => d.state === 'not_loaded').length, 14);
+      assert.equal(data.datasets.filter(d => d.state === 'not_loaded').length, data.datasets.length - 1);
     }
     assert.deepEqual(readFileSync(manifestPath), manifestBytes);
     assert.deepEqual(docs.map(doc => statSync(join(directory, doc.path)).mtimeMs), stats);

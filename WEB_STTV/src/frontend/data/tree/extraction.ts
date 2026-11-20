@@ -11,5 +11,11 @@ export function sttvTreeRecord(value: unknown, combinationId: string, sourceRef:
     || (row.status === 'resolved') !== (row.parent_tech !== null)) {
     sttvTreeError('tree_enrichment_invalid', 'Missing or invalid tree record.', { combinationId, sourceRef });
   }
-  return { parent_tech: row.parent_tech as string | null, children: [...row.children], status: row.status as SttvTreeRecord['status'] };
+  if (row.visibility !== undefined && (!sttvRecord(row.visibility) || typeof row.visibility.visible !== 'boolean'
+    || !Array.isArray(row.visibility.reasons))) {
+    sttvTreeError('tree_enrichment_invalid', 'Invalid DLC visibility.', { combinationId, sourceRef });
+  }
+  return { parent_tech: row.parent_tech as string | null, children: [...row.children], status: row.status as SttvTreeRecord['status'],
+    ...(sttvRecord(row.visibility) ? { visibility: { visible: row.visibility.visible as boolean,
+      reasons: row.visibility.reasons as { code: string; pointer: string }[] } } : {}) };
 }

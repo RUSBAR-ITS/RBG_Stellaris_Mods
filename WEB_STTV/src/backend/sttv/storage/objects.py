@@ -2,6 +2,7 @@
 
 from sttv.common.datasets import definition
 from sttv.common.errors import BuildError
+from sttv.common.object_selection import selected_nodes
 
 
 def object_row(kind, identifier, pointer, node):
@@ -23,9 +24,9 @@ def object_row(kind, identifier, pointer, node):
     return {'id': identity, 'type': key, 'document_id': identifier, 'pointer': pointer}
 
 
-def index_document(kind, identifier, items):
-    return [row for i, node in enumerate(items)
-            if (row := object_row(kind, identifier, f'/items/{i}', node)) is not None]
+def index_document(kind, identifier, items, source=None):
+    return [object_row(kind, identifier, pointer, node)
+            for pointer, node in selected_nodes(kind, items, source)]
 
 
 def check_objects(kind, rows, documents):

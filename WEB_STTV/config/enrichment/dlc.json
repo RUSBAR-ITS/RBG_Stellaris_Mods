@@ -1,0 +1,90 @@
+{
+  "format": "sttv.dlc_rules",
+  "format_version": 2,
+  "predicates": [
+    "host_has_dlc"
+  ],
+  "constants": {
+    "always": {
+      "yes": true,
+      "no": false
+    }
+  },
+  "wrappers": [
+    "hidden_trigger",
+    "custom_tooltip"
+  ],
+  "ignored_wrapper_fields": [
+    "text"
+  ],
+  "potential_field": "potential",
+  "weight_field": "weight_modifier",
+  "modifier_field": "modifier",
+  "factor_field": "factor",
+  "unsupported_actions": [
+    "add",
+    "mult",
+    "base",
+    "weight"
+  ],
+  "catalog": {
+    "database": "dlcs",
+    "name_field": "name"
+  },
+  "context": "playable_empire",
+  "limits": {
+    "max_depth": 128,
+    "max_nodes": 250000,
+    "max_steps": 2000000
+  },
+  "groups": [
+    {
+      "base": "product",
+      "path": "config/enrichment/dlc/ship_categories.json"
+    },
+    {
+      "base": "product",
+      "path": "config/enrichment/dlc/empire_objects.json"
+    },
+    {
+      "base": "product",
+      "path": "config/enrichment/dlc/ascension.json"
+    },
+    {
+      "base": "product",
+      "path": "config/enrichment/dlc/species.json"
+    }
+  ],
+  "government_requirements": {
+    "origin": "has_origin",
+    "civics": "has_civic",
+    "authority": "has_authority"
+  },
+  "scopes": {
+    "founder_species": {
+      "from": [
+        "country"
+      ],
+      "to": "species"
+    }
+  },
+  "required_datasets": [
+    "ascension_perks",
+    "authorities",
+    "civics",
+    "graphical_culture",
+    "ship_categories",
+    "species_archetypes",
+    "species_classes",
+    "technologies",
+    "tradition_categories",
+    "traditions",
+    "traits",
+    "crisis_paths",
+    "crisis_levels"
+  ],
+  "acquisition": {
+    "base": "product",
+    "path": "config/enrichment/acquisition/sources.json"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "definitions": [
+    {
+      "directory": "common/ascension_perks",
+      "type": "perk",
+      "effects": [
+        "on_enabled"
+      ],
+      "gates": [
+        "potential",
+        "possible"
+      ]
+    },
+    {
+      "directory": "common/traditions",
+      "type": "tradition",
+      "effects": [
+        "on_enabled"
+      ],
+      "gates": [
+        "potential",
+        "possible"
+      ]
+    },
+    {
+      "directory": "common/crisis_paths",
+      "type": "crisis_path",
+      "effects": [],
+      "gates": []
+    },
+    {
+      "directory": "common/crisis_levels",
+      "type": "crisis_level",
+      "effects": [
+        "on_unlock"
+      ],
+      "gates": [
+        "allow"
+      ]
+    },
+    {
+      "directory": "events",
+      "type": "event",
+      "effects": [
+        "immediate",
+        "after",
+        "option"
+      ],
+      "gates": [
+        "trigger"
+      ]
+    },
+    {
+      "directory": "common/on_actions",
+      "type": "on_action",
+      "effects": [
+        "effect"
+      ],
+      "gates": []
+    }
+  ],
+  "condition_fields": [
+    "potential",
+    "possible",
+    "allow",
+    "trigger",
+    "limit",
+    "prerequisites",
+    "starting_potential",
+    "weight_modifier",
+    "ai_chance"
+  ],
+  "event_id": "id",
+  "event_triggered": "is_triggered_only",
+  "event_lists": [
+    "events",
+    "random_events"
+  ],
+  "crisis_levels": "levels",
+  "crisis_predicate": "has_crisis_level"
+}

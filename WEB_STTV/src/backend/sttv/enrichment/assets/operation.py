@@ -20,6 +20,7 @@ from .settings import configure
 from .images import Images
 from .selection import attach
 from .categories import prepare_categories
+from .dlc import prepare as prepare_dlc
 
 
 @schema_operation
@@ -59,6 +60,7 @@ def prepare_assets(variables_path=None, config_path=None, *, storage_path=None):
             report['timings']['localization'] = perf_counter() - started
             presentation = {'format_version': 1, 'settings_revision': images.revision,
                 'files': images.files, 'sources': images.sources, 'research_icons': icons, 'categories': localized}
+            presentation['dlc_icons'] = prepare_dlc(reader, settings, images, report)
             presentation['revision'] = digest(presentation)
             manifest['presentation'] = presentation
             finalize(manifest)

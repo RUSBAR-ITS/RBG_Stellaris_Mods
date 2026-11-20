@@ -15,7 +15,7 @@ export function sttvSource(reader: string, input: unknown, path: string[]) {
 export function sttvLookup(sources: SttvSources, language: SttvLanguage, ref: SttvTextRef): string {
   const source = ref.source ?? config.defaultSource;
   const record = sources[source]?.[language]?.[ref.id];
-  let text = record?.status === 'resolved' && record.text !== null ? record.text : `⟦${ref.id}⟧`;
+  let text = record?.status === 'resolved' && record.text !== null ? record.text : record?.fallbackText ?? `⟦${ref.id}⟧`;
   if (source === 'builtin' && ref.params) {
     text = text.replace(/\{([A-Za-z_][A-Za-z_0-9]*)\}/g, (token, key: string) =>
       Object.hasOwn(ref.params!, key) ? String(ref.params![key]) : token);

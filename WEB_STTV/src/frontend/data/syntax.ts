@@ -12,6 +12,7 @@ export interface SttvNode {
   body?: SttvNode;
   items?: SttvNode[];
   enrichments?: { localization?: SttvStoredLocalization; technology_tree?: unknown;
+    dlc?: { descriptors: { database: 'dlcs'; document_id: string }[] };
     presentation?: { format_version: number; icon_asset_id: string | null } };
 }
 export interface SttvDatabase {

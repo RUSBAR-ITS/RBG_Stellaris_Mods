@@ -5,6 +5,7 @@ import type { SttvManifest } from '../../src/frontend/storage/model';
 import { sttvDatabaseKinds, sttvDatasets } from '../../src/frontend/data/registry';
 import { sttvSetError } from '../../src/frontend/data/setMetadata';
 import { sttvCombination } from './treeFixtures';
+import { sttvSelectedNodes } from '../../src/frontend/data/objectSelection';
 
 export const sttvHash = (text: string) => createHash('sha256').update(text).digest('hex');
 function canonical(v: unknown): string {
@@ -14,7 +15,13 @@ function canonical(v: unknown): string {
   return JSON.stringify(v);
 }
 export function sttvBundle(inputs: SttvDatabase[]) {
-  const manifest: SttvManifest = { format: 'sttv.database_manifest', format_version: 1,
+  inputs = structuredClone(inputs);
+  for (const db of inputs) if (db.database === 'technologies') for (const node of db.items) {
+    const trees = node.enrichments?.technology_tree as Record<string, any> | undefined;
+    if (trees) for (const row of Object.values(trees)) row.visibility ??= { visible: true, reasons: [] };
+  }
+  const manifest: SttvManifest = { format: 'sttv.database_manifest', format_version: 2,
+    acquisition: { format_version: 1, revision: 'f'.repeat(64), documents: [] },
     presentation: { format_version: 1, revision: 'd'.repeat(64), files: {}, categories: {},
       research_icons: { physics: null, society: null, engineering: null } },
     set_id: 'a'.repeat(64), snapshot_revision: 'b'.repeat(64), registry_revision: sttvHash(canonical(registry)),
@@ -23,7 +30,11 @@ export function sttvBundle(inputs: SttvDatabase[]) {
   for (const kind of sttvDatabaseKinds) manifest.datasets[kind] = { documents: [], objects: [], source_revision: 'c'.repeat(64) };
   const ids = inputs.filter(db => db.database === 'technologies' && db.source.file.split('/').slice(0, -1).join('/') === 'common/technology')
     .flatMap(db => db.items.filter(node => node.kind === 'assignment' && node.value?.kind === 'block').map(node => node.key!.text!));
-  manifest.technology_tree = { format_version: 1, combinations: { reference_default: sttvCombination(ids) } };
+  const combination = sttvCombination(ids);
+  const known = inputs.filter(db => db.database === 'dlcs').flatMap(db =>
+    sttvSelectedNodes('dlcs', db.items, db.source.file).map(({ node }) => node.key!.text!)).sort();
+  combination.parameters.dlc = { known, enabled: known, catalog_revision: 'e'.repeat(64) };
+  manifest.technology_tree = { format_version: 1, combinations: { reference_default: combination } };
   for (const db of inputs) {
     if (!sttvDatabaseKinds.includes(db.database)) sttvSetError('Unknown dataset.');
     const dataset = manifest.datasets[db.database], spec = sttvDatasets[db.database];
@@ -32,16 +43,16 @@ export function sttvBundle(inputs: SttvDatabase[]) {
     entries.push({ path, content });
     dataset.documents.push({ document_id: db.document_id, source: db.source, path, file_hash,
       source_hash: file_hash, byte_size: Buffer.byteLength(content), item_count: db.items.length });
-    db.items.forEach((node, i) => {
+    sttvSelectedNodes(db.database, db.items, db.source.file).forEach(({ node, pointer }) => {
       if (node.kind !== 'assignment' || node.value?.kind !== 'block' || !node.key?.text
         || spec.rootTypes.length && !(spec.rootTypes as string[]).includes(node.key.text)) return;
       const id = spec.identity === 'anonymous' ? null : spec.idField
         ? node.value.items?.find(n => n.key?.text === spec.idField)?.value?.text ?? '' : node.key.text;
-      dataset.objects.push({ id, type: node.key.text, document_id: db.document_id, pointer: `/items/${i}` });
+      dataset.objects.push({ id, type: node.key.text, document_id: db.document_id, pointer });
     });
   }
   entries.push({ path: 'manifest.json', content: JSON.stringify(manifest, null, 2) + '\n' });
-  return { manifest, entries };
+  return { manifest, entries, documents: inputs };
 }
 export function sttvFiles(inputs: SttvDatabase[]) {
   return sttvBundle(inputs).entries.map(entry => {

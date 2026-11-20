@@ -12,6 +12,9 @@ export function sttvValidateTree(technologies: Record<string, SttvTechnology>, c
       fail('Missing or unknown selected representation.', tech.id);
     }
     const parent = tech.tree.parent_tech;
+    if (combination.parameters.dlc && !tech.tree.visibility) fail('DLC visibility is missing.', tech.id);
+    if (tech.tree.visibility?.visible === false && (parent !== null || tech.tree.children.length)) fail('Hidden technology has links.', tech.id);
+    if (parent !== null && technologies[parent]?.tree.visibility?.visible === false) fail('Parent is hidden.', tech.id);
     if (parent !== null && (!Object.hasOwn(technologies, parent) || !technologies[parent].tree.children.includes(tech.id))) {
       fail('Missing parent or reciprocal child reference.', tech.id);
     }

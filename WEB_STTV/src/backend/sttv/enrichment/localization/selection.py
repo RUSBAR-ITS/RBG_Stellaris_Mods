@@ -4,7 +4,8 @@ from fnmatch import fnmatchcase
 from pathlib import PurePosixPath
 
 from sttv.common.errors import BuildError
-from sttv.common.datasets import definition
+from sttv.common.datasets import KINDS, definition
+from sttv.common.object_selection import selected_nodes
 from .targets import Target, assignment, one_field, scalar, variants
 from .description_targets import child_targets, descriptions
 
@@ -21,6 +22,11 @@ def root_target(node, pointer, name, kind, keys):
     if keys['description_suffix'] is not None:
         fields['description'] = text_key + keys['description_suffix']
     base = Target(pointer, node, name, field_keys=fields, kind=kind)
+    if kind in KINDS and 'descriptorLink' in definition(kind):
+        base.field_keys.setdefault('name', name)
+    if keys.get('name_candidates'):
+        base.candidates['name'] = [name.upper() if form == 'uppercase' else name
+                                   for form in keys['name_candidates']]
     if keys['fallback_field']:
         shared = one_field(node, keys['fallback_field'], pointer, required=False)
         if shared:
@@ -43,12 +49,8 @@ def select_targets(database, settings, counts=None, *, document_offset=0, identi
         if (not options['selection']['recursive'] and len(relative.parts) != 1
                 or not fnmatchcase(path.name, options['selection']['pattern'])):
             continue
-        for number, node in enumerate(document['items']):
-            if not assignment(node) or node['value']['kind'] != 'block':
-                continue
-            if spec['rootTypes'] and node['key']['text'] not in spec['rootTypes']:
-                continue
-            pointer = f'/documents/{index}/items/{number}'
+        for pointer, node in selected_nodes(kind, document['items'], document['source']):
+            pointer = f'/documents/{index}' + pointer
             if counts is not None:
                 counts['objects'] += 1
             name = (one_field(node, spec['idField'], pointer)[0] if spec['identity'] == 'field'
@@ -63,6 +65,10 @@ def select_targets(database, settings, counts=None, *, document_offset=0, identi
                 nested.extend(variants(base, keys))
             if keys['description_field']:
                 nested.extend(descriptions(base, keys))
+            for field in keys.get('description_fields', []):
+                nested.extend(descriptions(base, {**keys, 'description_field': field}))
+            from .optional_variants import select_variants
+            nested.extend(select_variants(base, keys))
             nested.extend(child_targets(base, keys))
             if base.field_keys:
                 targets.append(base)

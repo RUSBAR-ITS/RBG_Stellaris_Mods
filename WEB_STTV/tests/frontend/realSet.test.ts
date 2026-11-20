@@ -17,7 +17,7 @@ test('real set preserves catalogs and confirms previously researched upgrade wit
   assert.equal(initial.coverage.documents.filter(d => d.status === 'verified' && d.database !== 'technologies').length, 0);
   const initialSeconds = (performance.now() - started) / 1000;
   const catalog = await session.load(sttvDatabaseKinds);
-  assert.equal(catalog.datasets.length, 15);
+  assert.equal(catalog.datasets.length, sttvDatabaseKinds.length);
   assert.equal(Object.keys(catalog.technologies).length, 679);
   assert.equal(Object.keys(catalog.components).length, 1506);
   assert.equal(Object.keys(catalog.buildings).length, 498);

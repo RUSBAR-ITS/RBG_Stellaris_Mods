@@ -1,6 +1,7 @@
 {
   "format": "sttv.technology_tree_config",
   "format_version": 1,
+  "dlc_rules": {"base": "product", "path": "config/enrichment/dlc.json"},
   "dataset_registry": {
     "base": "product",
     "path": "config/datasets.json"

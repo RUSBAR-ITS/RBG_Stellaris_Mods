@@ -8,6 +8,7 @@ import { sttvSetError } from '../data/setMetadata';
 import { sttvReadJson } from '../data/jsonStream';
 import type { SttvManifest } from './model';
 import { sttvCheckPresentation } from './assets';
+import { sttvObjectPointer } from '../data/objectSelection';
 
 export function sttvRelative(path: string) {
   if (typeof path !== 'string' || !path || /[:\\]/.test(path)
@@ -25,14 +26,14 @@ function hash(value: unknown) { return typeof value === 'string' && hashPattern.
 
 export function sttvCheckManifest(input: unknown): SttvManifest {
   const manifest = input as SttvManifest;
-  if (manifest?.format !== 'sttv.database_manifest' || manifest.format_version !== 1
+  if (manifest?.format !== 'sttv.database_manifest' || manifest.format_version !== 2
     || !hash(manifest.set_id) || !hash(manifest.snapshot_revision) || !hash(manifest.registry_revision)) {
     sttvSetError('Unsupported or invalid manifest.');
   }
   const expectedRegistry = bytesToHex(sha256(new TextEncoder().encode(canonical(registry))));
-  if (manifest.registry_revision !== expectedRegistry) sttvSetError('Object registry revision differs.');
+  if (manifest.registry_revision !== expectedRegistry) sttvSetError('Object registry revision differs. Prepare a new database set.');
   if (!manifest.datasets || Object.keys(manifest.datasets).sort().join() !== [...sttvDatabaseKinds].sort().join()) {
-    sttvSetError('Manifest must declare every dataset exactly once.');
+    sttvSetError('Manifest must declare every dataset exactly once. Prepare a new database set.');
   }
   const paths = new Set<string>(), documentIds = new Set<string>();
   for (const kind of sttvDatabaseKinds) {
@@ -55,8 +56,9 @@ export function sttvCheckManifest(input: unknown): SttvManifest {
     }
     for (const row of dataset.objects) {
       const count = documents.get(row.document_id), address = row.document_id + row.pointer;
-      if (typeof row.type !== 'string' || !/^\/items\/(0|[1-9]\d*)$/.test(row.pointer)
-        || count === undefined || Number(row.pointer.slice(7)) >= count || addresses.has(address)
+      const document = dataset.documents.find(d => d.document_id === row.document_id);
+      if (typeof row.type !== 'string' || !document || !sttvObjectPointer(kind, row.pointer, document.source.file)
+        || count === undefined || Number(row.pointer.split('/')[2]) >= count || addresses.has(address)
         || (spec.identity === 'anonymous' ? row.id !== null : typeof row.id !== 'string' || !row.id)) {
         sttvSetError('Invalid object index entry.', { kind, entry: row });
       }
@@ -67,6 +69,17 @@ export function sttvCheckManifest(input: unknown): SttvManifest {
     }
   }
   if (manifest.presentation) sttvCheckPresentation(manifest.presentation, sttvRelative, paths);
+  const acquisition = manifest.acquisition;
+  if (acquisition?.format_version !== 1 || !hash(acquisition.revision) || !Array.isArray(acquisition.documents)) {
+    sttvSetError('Acquisition index is missing or incompatible. Prepare a new database set.');
+  }
+  for (const row of acquisition.documents) {
+    const path = sttvRelative(row.path).toLowerCase();
+    if (paths.has(path) || !hash(row.file_hash) || !Number.isSafeInteger(row.byte_size) || row.byte_size < 0) {
+      sttvSetError('Invalid acquisition document descriptor.', { path });
+    }
+    paths.add(path);
+  }
   return manifest;
 }
 
@@ -90,6 +103,9 @@ export async function sttvOpenDirectory(files: File[]) {
     for (const row of dataset.documents) if (!map.has(row.path)) {
       sttvSetError('Declared document is missing.', { kind, document_id: row.document_id, path: row.path });
     }
+  }
+  for (const row of manifest.acquisition.documents) if (!map.has(row.path)) {
+    sttvSetError('Declared acquisition index document is missing. Prepare a new database set.', { path: row.path });
   }
   return { manifest, files: map, manifestBytes: parsed.bytes };
 }
