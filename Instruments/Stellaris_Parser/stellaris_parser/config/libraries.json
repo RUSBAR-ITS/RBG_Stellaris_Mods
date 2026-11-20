@@ -5,5 +5,13 @@
   "scripted_effect": "common/scripted_effects",
   "scripted_trigger": "common/scripted_triggers",
   "script_value": "common/script_values",
-  "static_variables": "common/scripted_variables"
+  "static_variables": "common/scripted_variables",
+  "outputs": {
+    "inline_script": "inline_scripts.json",
+    "scripted_effect": "scripted_effects.json",
+    "scripted_trigger": "scripted_triggers.json",
+    "script_value": "script_values.json",
+    "static_variables": "scripted_variables.json",
+    "manifest": "manifest.json"
+  }
 }

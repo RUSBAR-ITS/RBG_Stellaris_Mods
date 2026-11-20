@@ -1,0 +1,10 @@
+{
+  "roots": ["E:/SteamLibrary/steamapps/common/Stellaris"],
+  "library_directory": "../../../TMP/Stellaris_Parser/run-01/artifacts/libraries",
+  "batch": {
+    "directories": ["common/technology"],
+    "exclude_files": ["common/technology/000_documentation.txt"],
+    "output": "../../../TMP/Stellaris_Parser/run-01/artifacts/scripts",
+    "workers": 10
+  }
+}

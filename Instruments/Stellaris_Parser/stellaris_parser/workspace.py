@@ -1,117 +1,111 @@
-"""Parse a file using ordered game/mod roots and the shared expansion engine."""
+"""Single-file and directory operations for the standalone script parser."""
 
-from collections import Counter
-from hashlib import sha256
+from dataclasses import dataclass
 from pathlib import Path
+import sys
 
 from document_package.errors import BuildError
-from document_package.json_io import read_json
-from document_package.package import confined
-from .schema import ROOT, validate_schema
-from .script.inline import Expansion, FileTemplates
-from .script.nodes import Source
-from .script.parser import parse_text
-from .script.scripted.index import Index
-from .script.serialization import serialize_document
-from .script.source_exceptions import SourceExceptions
-from .script.syntax import load_syntax
-from .script.values.references import validate_options
-from .script.variables.processor import Processor
-from .script.variables.rules import Rules
-from .script.variables.table import Table
+from document_package.package import confined, save_json
+from .libraries.runtime import Runtime
+from .libraries.storage import rebuild, load
+from .scheduling import run_jobs
+from .script_settings import ScriptSettings
 from .settings import check_output
+from .sources import SourceFile, relative_path
 
 
-class Sources:
-    def __init__(self, config, roots):
-        self.roots = roots
-        self.options = read_json(config / 'libraries.json')
-        if not roots or any(not p.is_dir() for p in roots):
-            raise BuildError('missing_root', 'Each configured source root must be an existing directory')
-
-    def find(self, relative):
-        for root in self.roots:
-            path = confined(root, relative)
-            if path.is_file():
-                return path
-        raise BuildError('source_unavailable', f'Missing source: {relative}')
-
-    def library(self, kind):
-        files = {}
-        for root in self.roots:
-            directory = confined(root, self.options[kind])
-            for path in directory.rglob(self.options['pattern']):
-                if path.is_file():
-                    relative = path.relative_to(root).as_posix()
-                    files.setdefault(relative, confined(root, relative))
-        for name, path in sorted(files.items()):
-            yield name, self.read(path)
-
-    def read(self, path):
-        return path.read_text(encoding=self.options['encoding'])
+def runtime_for(settings, mode, workers):
+    if mode == 'rebuild':
+        catalogs = rebuild(settings, workers)
+    elif mode == 'reuse':
+        catalogs = load(settings)
+    else:
+        raise ValueError('Select --rebuild-libraries or --reuse-libraries')
+    return Runtime(settings, catalogs)
 
 
-class Templates:
-    def __init__(self, sources, options, exceptions):
-        self.sources, self.cache, self.manifest = sources, {}, {}
-        self.roots = [FileTemplates(confined(root, sources.options['inline_script']), options, exceptions)
-                      for root in sources.roots]
-
-    def identity(self, name):
-        for root in self.roots:
-            key, relative, path = root.identity(name)
-            if path.is_file():
-                return key, relative, path
-        raise BuildError('missing_inline_template', f'Missing inline template: {name}')
-
-    def read(self, name):
-        key, relative, path = self.identity(name)
-        if key not in self.cache:
-            raw = path.read_bytes()
-            self.manifest[relative] = sha256(raw).hexdigest()
-            self.cache[key] = Source(raw.decode(self.sources.options['encoding']).replace('\r\n', '\n')
-                                     .replace('\r', '\n'), relative, 'INLINE_SCRIPTS_DIR')
-        return self.cache[key]
+def parse_file(config_path, relative, output, mode):
+    settings = ScriptSettings(config_path)
+    check_output(Path(output).resolve(), [*settings.protected, settings.destination])
+    relative = relative_path(relative).as_posix()
+    path = settings.sources.find(relative)
+    return runtime_for(settings, mode, 1).parse(relative, path)
 
 
-def configuration(directory, name):
-    options = read_json(directory / f'{name}.json')
-    validate_schema(options, f'parser_{name}.schema.json')
-    return options
+@dataclass(frozen=True)
+class ParseJob(SourceFile):
+    output: Path
 
 
-def parse_file(config_path, relative, output):
-    config_path = Path(config_path).resolve()
-    cfg = read_json(config_path)
-    directory = (config_path.parent / cfg.get('syntax_directory', ROOT / 'config')).resolve()
-    roots = [(config_path.parent / r).resolve() for r in cfg['roots']]
-    check_output(Path(output).resolve(), [*roots, directory, config_path])
-    sources = Sources(directory, roots)
-    path = sources.find(relative)
-    syntax = load_syntax(*(directory / f'{k}.json' for k in ('lexical', 'constructs', 'logical_operators')))
-    rules = Rules(configuration(directory, 'static_variables'), syntax)
-    table = Table(rules)
-    for name, text in sources.library('static_variables'):
-        for node in parse_text(text, syntax, name, role='template').items:
-            if not rules.declaration(node):
-                raise BuildError('invalid_static_library', f'Expected a static declaration in {name}')
-            table.add(node)
-    variables = Processor(rules, table.resolve_all(), Counter())
-    options = configuration(directory, 'inline_scripts')
-    templates = Templates(sources, options, configuration(directory, 'exceptions')['inline_script_files'])
-    library = Index(configuration(directory, 'scripted_calls'))
-    library.value_options = configuration(directory, 'script_values')
-    validate_options(library.value_options, syntax)
-    corrections = SourceExceptions(configuration(directory, 'source_exceptions'), None,
-                                   'source_exceptions.json', sources.options['inline_script'])
-    preparer = Expansion(templates, options, variables=variables, exceptions=corrections)
-    preparer.preparing = True
-    for kind in ('scripted_effect', 'scripted_trigger', 'script_value'):
-        for name, text in sources.library(kind):
-            document = parse_text(text, syntax, name, role='template')
-            preparer.expand(document, syntax, root_only=True)
-            object.__setattr__(document, 'node_sources', dict(preparer.sources))
-            library.add(document, kind, syntax, variables)
-    expansion = Expansion(templates, options, library=library, variables=variables, exceptions=corrections)
-    document = parse_text(sources.read(path), syntax, Path(relative).as_posix(), expansion=expansion)
-    return serialize_document(variables.apply(document))
+def output_jobs(selected, output):
+    owners = {}
+    for rel, file in selected.items():
+        target = confined(output, rel.with_suffix('.json'))
+        if target in owners:
+            raise ValueError(f'Conflicting output for {owners[target]} and {rel}: {target}')
+        owners[target] = rel
+        yield ParseJob(file.relative, file.path, file.size, target)
+
+
+_WORKER = None
+
+
+def initialize(runtime):
+    global _WORKER
+    _WORKER = runtime
+
+
+def write_file(job):
+    try:
+        save_json(job.output, _WORKER.parse(job.relative, job.path))
+    except (BuildError, ValueError, KeyError, OSError, RecursionError) as exc:
+        return f'{job.relative}: {exc}'
+    return None
+
+
+def directory_list(values, allow_root=False):
+    if not isinstance(values, list):
+        raise ValueError('Expected a list of relative paths')
+    return [relative_path(value, allow_root=allow_root) for value in values]
+
+
+def parse_batch(config_path, mode, directories=None, output=None, workers=None):
+    settings = ScriptSettings(config_path)
+    return run_batch(settings, mode, directories, output, workers)
+
+
+def run_batch(settings, mode, directories=None, output=None, workers=None):
+    options = settings.config.get('batch', {})
+    workers = options.get('workers') if workers is None else workers
+    if type(workers) is not int or workers < 1:
+        raise ValueError('workers must be a positive integer')
+    if output is None:
+        output = settings.path.parent / options['output']
+    output = Path(output).resolve()
+    check_output(output, [*settings.protected, settings.destination])
+    excludes = set(directory_list(options.get('exclude_files', [])))
+    filters = dict(skip=settings.directories.values(), exclude=excludes)
+    if not directories and 'sources' in options:
+        patterns = directory_list(options['sources'])
+        if not patterns:
+            raise ValueError('Select at least one source pattern')
+    else:
+        directories = directory_list(directories or options.get('directories'), allow_root=True)
+        if not directories:
+            raise ValueError('Select at least one input directory')
+    runtime = runtime_for(settings, mode, workers)
+    if directories:
+        selected = settings.sources.collect(directories, '*.txt', required=True, **filters)
+    else:
+        selected = settings.sources.matching(patterns, **filters)
+    jobs = list(output_jobs(selected, output))
+    failed = 0
+    try:
+        for _, error in run_jobs(jobs, workers, write_file, initialize, (runtime,)):
+            if error is not None:
+                print(error, file=sys.stderr)
+                failed += 1
+    finally:
+        initialize(None)
+    print(f'Parsed {len(jobs) - failed} of {len(jobs)} files; failed: {failed}')
+    return int(bool(failed))

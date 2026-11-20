@@ -17,6 +17,8 @@ A local interactive web reference for Stellaris technologies. The first interfac
 
 ## Status
 
+On the game workstation, `prepare-all` produces the expanded scripts for 30 datasets and a separate RU/EN dictionary in one run. The profile specifies the local artifact directories. [Run instructions](../Instruments/Stellaris_Parser/README_EN.md#full-preparation)
+
 The localization dictionary is published in MongoDB. Stellaris Parser prepares it, the loader publishes the collection, and the server reads by key. [Stage 23 commands](Docs/BACKEND_STAGE_23_EN.md)
 
 Implemented [stage 21](Docs/BACKEND_STAGE_21_EN.md) and its approved acquisition addendum. Frontend version: 0.0.13; the new `data/stage21_acquisition/database_set` contains 30 kinds and a technical acquisition index. The guide describes the DLC matrix and checks; unknown engine semantics remain explicit. Visual and in-game verification remain with the user. Earlier stage history follows.

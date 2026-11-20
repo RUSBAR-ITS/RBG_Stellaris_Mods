@@ -42,7 +42,7 @@ def documents(index, keys):
             yield {'_id': {'language': language, 'key': key}, 'selected': 0, 'definitions': definitions}
 
 
-def prepare(settings):
+def prepare(settings, *, save_report=True):
     report = {'status': 'failed', 'languages': {}, 'conflicts': []}
     snapshot = settings.snapshot or Snapshot({'inputs': []})
     path = confined(settings.directory, 'prepare_report.json')
@@ -52,8 +52,11 @@ def prepare(settings):
         index = LocalizationIndex(sources, snapshot, diagnostics)
         counts, conflicts, keys = summarize(index, sources.sources, diagnostics['duplicates'])
         report.update(languages=counts, conflicts=conflicts)
-        if any(c['blocking'] for c in conflicts):
-            raise BuildError('localization_conflict', 'Conflicting definitions in the selected tier; see prepare_report.json')
+        conflict = next((c for c in conflicts if c['blocking']), None)
+        if conflict:
+            entries = ', '.join(f"{s['file']}:{s['line']}" for s in conflict['sources'])
+            raise BuildError('localization_conflict', f"Conflicting definitions for {conflict['language']} "
+                             f"{conflict['key']} in {conflict['tier']}: {entries}")
         batches = [write_batch(settings.directory, batch) for batch in
                    batched(documents(index, keys), settings.options['batch_size'])]
         snapshot.verify()
@@ -66,7 +69,8 @@ def prepare(settings):
         raise
     finally:
         check_report(report)
-        save_json(path, report)
+        if save_report:
+            save_json(path, report)
 
 
 def check_report(report):

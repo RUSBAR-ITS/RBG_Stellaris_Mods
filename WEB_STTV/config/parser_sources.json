@@ -2,8 +2,47 @@
   "roots": [
     "E:/SteamLibrary/steamapps/common/Stellaris"
   ],
+  "library_directory": "../../TMP/WEB_STTV/database-inputs/artifacts/libraries",
+  "batch": {
+    "workers": 10,
+    "output": "../../TMP/WEB_STTV/database-inputs/artifacts/scripts",
+    "sources": [
+      "common/technology/**/*.txt",
+      "common/component_templates/**/*.txt",
+      "common/buildings/**/*.txt",
+      "common/megastructures/**/*.txt",
+      "common/ship_sizes/**/*.txt",
+      "common/starbase_levels/**/*.txt",
+      "common/starbase_modules/**/*.txt",
+      "common/starbase_buildings/**/*.txt",
+      "common/terraform/**/*.txt",
+      "common/deposits/**/*.txt",
+      "common/pop_jobs/**/*.txt",
+      "common/economic_categories/**/*.txt",
+      "common/scripted_actions/**/*.txt",
+      "common/on_actions/**/*.txt",
+      "events/**/*.txt",
+      "common/species_archetypes/**/*.txt",
+      "common/species_classes/**/*.txt",
+      "common/ethics/**/*.txt",
+      "common/ethic_categories/**/*.txt",
+      "common/traits/**/*.txt",
+      "common/graphical_culture/**/*.txt",
+      "common/ship_categories/**/*.txt",
+      "common/governments/authorities/**/*.txt",
+      "common/governments/civics/**/*.txt",
+      "dlc_metadata/dlc_info.txt",
+      "dlc/**/*.dlc",
+      "common/ascension_perks/**/*.txt",
+      "common/traditions/**/*.txt",
+      "common/tradition_categories/**/*.txt",
+      "common/crisis_paths/**/*.txt",
+      "common/crisis_levels/**/*.txt"
+    ]
+  },
   "batch_size": 1000,
   "localization": {
+    "output": "../../TMP/WEB_STTV/database-inputs/artifacts/localization",
     "reading": {
       "pattern": "*.yml",
       "recursive": true,

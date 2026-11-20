@@ -23,9 +23,10 @@ class WorkspaceTests(unittest.TestCase):
                 path = root / name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text(text, encoding='utf-8')
-            (root / 'sources.json').write_text(json.dumps({'roots': ['mod', 'game']}), encoding='utf-8')
+            (root / 'sources.json').write_text(json.dumps({'roots': ['mod', 'game'],
+                                                         'library_directory': 'artifacts/libraries'}), encoding='utf-8')
             cmd = [sys.executable, '-m', 'stellaris_parser', 'parse', '--config', 'sources.json',
-                   '--output', 'tree.json', 'common/technology/demo.txt']
+                   '--rebuild-libraries', '--output', 'tree.json', 'common/technology/demo.txt']
             subprocess.run(cmd, cwd=root, check=True)
             document = json.loads((root / 'tree.json').read_text(encoding='utf-8'))
             fields = document['items'][0]['value']['items']

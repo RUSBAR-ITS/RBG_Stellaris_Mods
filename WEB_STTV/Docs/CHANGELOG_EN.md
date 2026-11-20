@@ -2,6 +2,8 @@
 
 ## Contents
 
+- [2026-11-20 — reference data preparation profile](#2026-11-20--reference-data-preparation-profile)
+
 - [2026-11-20 — separate parser, loader and server](#2026-11-20--separate-parser-loader-and-server)
 
 - [2026-11-20 — research tools and fixture migration](#2026-11-20--research-tools-and-fixture-migration)
@@ -192,6 +194,14 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-20 — reference data preparation profile
+
+The source profile now lists all 30 WEB_STTV datasets, including the DLC catalog and descriptors, and output paths for scripts, libraries and the RU/EN dictionary. A draft specification describes running the two readers in one invocation. [Profile](../config/parser_sources.json) · [Draft specification](../../Instruments/Stellaris_Parser/Docs/TZ_PREPARE_ALL_EN.md)
+
+The specification assigns the RU/EN dictionary one dedicated process in addition to the script worker limit. It starts alongside library preparation. The command waits for both the scripts and the dictionary.
+
+The standalone Stellaris Parser implements `prepare-all`. The reference profile selects TXT and DLC files by exact paths and globs. A dedicated process prepares the dictionary in the loader's format. The command reports failure of either task and writes only output artifacts to the result directories. [Run instructions](../../Instruments/Stellaris_Parser/README_EN.md#full-preparation)
 
 ## 2026-11-20 — separate parser, loader and server
 
