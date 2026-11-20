@@ -2,6 +2,10 @@
 
 ## Contents
 
+- [2026-11-20 — standalone MongoDB loader](#2026-11-20--standalone-mongodb-loader)
+
+- [2026-11-20 — standalone loader proposal](#2026-11-20--standalone-loader-proposal)
+
 - [2026-11-20 — reference data preparation profile](#2026-11-20--reference-data-preparation-profile)
 
 - [2026-11-20 — separate parser, loader and server](#2026-11-20--separate-parser-loader-and-server)
@@ -194,6 +198,21 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-20 — standalone MongoDB loader
+
+- Moved the loader to its own Python project. The CLI creates, drops, imports and verifies the database using configured sources and collections.
+- Split queryable game trees, source locations and per-file expansion history. Added staged publication, recovery and isolated MongoDB tests. [Loader guide](../src/loader/README_EN.md)
+
+## 2026-11-20 — standalone loader proposal
+
+Created the agreed loader directory, `WEB_STTV/src/loader/`. The draft specifies independent startup and reading prepared JSON files from paths in the loader’s own configuration. [Stage 24 specification](TZ_BACKEND_STAGE_24_EN.md).
+
+Added requirements for dropping and creating the database, mapping input directories to collections and importing each game object as a separate document.
+
+Agreed on a technical `_id` for anonymous definitions using the source, relative file path and original index in `items`. Acceptance now checks that loading the same data reproduces the keys. A new game version requires a full database rebuild starting with an explicit `drop`.
+
+The draft now separates the game tree, node locations and file expansion history. BSON sizes and tree reconstruction were checked in memory for five large events.
 
 ## 2026-11-20 — reference data preparation profile
 

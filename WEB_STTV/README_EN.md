@@ -19,7 +19,7 @@ A local interactive web reference for Stellaris technologies. The first interfac
 
 On the game workstation, `prepare-all` produces the expanded scripts for 30 datasets and a separate RU/EN dictionary in one run. The profile specifies the local artifact directories. [Run instructions](../Instruments/Stellaris_Parser/README_EN.md#full-preparation)
 
-The localization dictionary is published in MongoDB. Stellaris Parser prepares it, the loader publishes the collection, and the server reads by key. [Stage 23 commands](Docs/BACKEND_STAGE_23_EN.md)
+The standalone loader imports prepared game objects and localization JSON into MongoDB. The loader configuration defines input paths, collections and connection profiles. [Running and verifying a load](src/loader/README_EN.md)
 
 Implemented [stage 21](Docs/BACKEND_STAGE_21_EN.md) and its approved acquisition addendum. Frontend version: 0.0.13; the new `data/stage21_acquisition/database_set` contains 30 kinds and a technical acquisition index. The guide describes the DLC matrix and checks; unknown engine semantics remain explicit. Visual and in-game verification remain with the user. Earlier stage history follows.
 
@@ -51,6 +51,7 @@ Run `npm ci` and `npm run dev` from `WEB_STTV` using Node.js 24. Open `http://12
 | --- | --- |
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
+| `src/loader/` | Standalone MongoDB loader and its tests |
 | `config/` | Sources, output paths, parser, library and localization configurations |
 | `schemas/` | 41 generated configuration, database, and report schemas |
 | `../TMP/WEB_STTV/` | Default working folder for the database, reports, temporary output, and checks |
@@ -96,6 +97,7 @@ Absolute source roots belong to the current environment. Game and localization d
 
 ## Documents
 
+- [Stage 24 specification — standalone MongoDB loader](Docs/TZ_BACKEND_STAGE_24_EN.md).
 - [Stage 23 specification — Stellaris Parser, the loader and the MongoDB-backed server](Docs/TZ_BACKEND_STAGE_23_EN.md).
 - [Stage 22 specification — importing game localization into MongoDB](Docs/TZ_BACKEND_STAGE_22_EN.md).
 - [Stage 21 and acquisition — implementation, startup and limitations](Docs/BACKEND_STAGE_21_EN.md).

@@ -36,8 +36,246 @@
       }
     }
   },
-  "scratch_directory": "../../TMP/WEB_STTV/loader",
-  "collections": {
-    "localization": "localization"
-  }
+  "scratch_directory": "../../TMP/WEB_STTV/loader/artifacts/scratch",
+  "input_root": "../../TMP/WEB_STTV/database-inputs/artifacts",
+  "history_collection": "script_history",
+  "sources": [
+    {
+      "path": "localization",
+      "collection": "localization",
+      "identity": "package"
+    },
+    {
+      "path": "scripts/common/technology",
+      "collection": "technologies",
+      "provenance": "technologies_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/component_templates",
+      "collection": "components",
+      "provenance": "components_provenance",
+      "identity": "field",
+      "root_types": [
+        "weapon_component_template",
+        "utility_component_template",
+        "strike_craft_component_template"
+      ],
+      "field": "key"
+    },
+    {
+      "path": "scripts/common/buildings",
+      "collection": "buildings",
+      "provenance": "buildings_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/megastructures",
+      "collection": "megastructures",
+      "provenance": "megastructures_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/ship_sizes",
+      "collection": "ship_sizes",
+      "provenance": "ship_sizes_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/starbase_levels",
+      "collection": "starbase_levels",
+      "provenance": "starbase_levels_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/starbase_modules",
+      "collection": "starbase_modules",
+      "provenance": "starbase_modules_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/starbase_buildings",
+      "collection": "starbase_buildings",
+      "provenance": "starbase_buildings_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/terraform",
+      "collection": "terraform",
+      "provenance": "terraform_provenance",
+      "identity": "anonymous",
+      "root_types": [
+        "terraform_link"
+      ]
+    },
+    {
+      "path": "scripts/common/deposits",
+      "collection": "deposits",
+      "provenance": "deposits_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/pop_jobs",
+      "collection": "pop_jobs",
+      "provenance": "pop_jobs_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/economic_categories",
+      "collection": "economic_categories",
+      "provenance": "economic_categories_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/scripted_actions",
+      "collection": "scripted_actions",
+      "provenance": "scripted_actions_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/on_actions",
+      "collection": "on_actions",
+      "provenance": "on_actions_provenance",
+      "identity": "fragments"
+    },
+    {
+      "path": "scripts/events",
+      "collection": "events",
+      "provenance": "events_provenance",
+      "identity": "field",
+      "root_types": [
+        "agreement_event",
+        "astral_rift_event",
+        "bypass_event",
+        "carrier_event",
+        "colony_event",
+        "country_event",
+        "espionage_operation_event",
+        "event",
+        "first_contact_event",
+        "fleet_event",
+        "leader_event",
+        "observer_event",
+        "planet_event",
+        "pop_faction_event",
+        "pop_group_event",
+        "ship_event",
+        "situation_event",
+        "starbase_event",
+        "system_event"
+      ],
+      "field": "id"
+    },
+    {
+      "path": "scripts/common/species_archetypes",
+      "collection": "species_archetypes",
+      "provenance": "species_archetypes_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/species_classes",
+      "collection": "species_classes",
+      "provenance": "species_classes_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/ethics",
+      "collection": "ethics",
+      "provenance": "ethics_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/ethic_categories",
+      "collection": "ethic_categories",
+      "provenance": "ethic_categories_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/traits",
+      "collection": "traits",
+      "provenance": "traits_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/graphical_culture",
+      "collection": "graphical_culture",
+      "provenance": "graphical_culture_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/ship_categories",
+      "collection": "ship_categories",
+      "provenance": "ship_categories_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/governments/authorities",
+      "collection": "authorities",
+      "provenance": "authorities_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/governments/civics",
+      "collection": "civics",
+      "provenance": "civics_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/dlc_metadata",
+      "collection": "dlcs",
+      "provenance": "dlcs_provenance",
+      "identity": "key",
+      "containers": [
+        "dlcs"
+      ]
+    },
+    {
+      "path": "scripts/common/ascension_perks",
+      "collection": "ascension_perks",
+      "provenance": "ascension_perks_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/traditions",
+      "collection": "traditions",
+      "provenance": "traditions_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/tradition_categories",
+      "collection": "tradition_categories",
+      "provenance": "tradition_categories_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/crisis_paths",
+      "collection": "crisis_paths",
+      "provenance": "crisis_paths_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/crisis_levels",
+      "collection": "crisis_levels",
+      "provenance": "crisis_levels_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/technology/category",
+      "collection": "technology_categories",
+      "provenance": "technology_categories_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/technology/tier",
+      "collection": "technology_tiers",
+      "provenance": "technology_tiers_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/dlc",
+      "collection": "dlc_descriptors",
+      "provenance": "dlc_descriptors_provenance",
+      "identity": "file"
+    }
+  ]
 }
