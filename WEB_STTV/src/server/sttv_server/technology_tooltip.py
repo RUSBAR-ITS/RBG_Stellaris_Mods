@@ -1,13 +1,14 @@
 """Build localized tooltip content from a base technology, independently of tree layout."""
 
+from . import condition_text
 from .localization import determine_key
-from .tooltip_expressions import ARGUMENTS, LOGIC, councilor_position, numeric_text, operation_term
+from .tooltip_expressions import ARGUMENTS, LOGIC, councilor_position, operation_term
 from .tooltip_labels import Labels
-from .tree.ast import number
+from .tree.ast import fields, number
 from .tree.inputs import records
 
 
-SECTIONS = ('prerequisites', 'potential', 'allow', 'weight_modifier')
+SECTIONS = ('prerequisites', 'potential', 'allow', 'starting_potential', 'weight_modifier')
 FLAG_CHECKS = {'has_country_flag', 'has_global_flag'}
 IGNORED_FLAGS = {('has_country_flag', 'crystal_armor_1_weight')}
 SYMBOLS = {'=': '=', '!=': '≠', '<': '<', '>': '>', '<=': '≤', '>=': '≥'}
@@ -39,35 +40,148 @@ NAMES = {
     'exists': 'target', 'is_same_value': 'target',
 }
 
+FAUNA_TARGETS = {'event_target:' + name + '_country' for name in
+                 ('tiyanki', 'amoeba', 'crystal', 'voidworms', 'cutholoids')}
+
 
 class Content:
-    def __init__(self, labels):
+    def __init__(self, labels, index=None):
+        self.index = index
+        if index is not None:
+            labels.saved_targets = index.saved_targets
+        self.origin = {}
+        self.flag_evidence = {}
         self.labels = labels
+        self.titles = {}
+
+    def name(self, source):
+        if source not in self.titles:
+            self.titles[source] = self.source_title(source)
+        return self.titles[source]
+
+    def source_title(self, source):
+        kind, identifier = source
+        if kind == 'events':
+            keys = self.index.event_keys(identifier)
+            family = self.labels.label('sttv_tooltip_story_' + identifier.partition('.')[0],
+                                       fallback=self.labels.phrase('event_script'))
+            fallback, basis = family, 'event_family'
+            if identifier in self.index.hidden:
+                parents, seen, pending = set(), {identifier}, [identifier]
+                while pending and len(parents) < 3:
+                    event = pending.pop()
+                    for entry in self.index.incoming.get(event, ()):
+                        parent = entry['source']
+                        if entry['issue'] or parent not in self.index.routes():
+                            continue
+                        if parent[0] != 'events' or parent[1] not in self.index.hidden:
+                            parents.add(parent)
+                        elif parent[1] not in seen:
+                            pending.append(parent[1])
+                            seen.add(parent[1])
+                if 0 < len(parents) <= 2:
+                    fallback = self.labels.phrase('source_step', name={'localized_list':
+                                                  [self.name(parent) for parent in sorted(parents)]})
+                    basis = 'calling_source'
+            wrapper = None if identifier in self.index.hidden else 'sttv_tooltip_source_event'
+            label = self.labels.label(*keys, fallback=fallback, wrapper=wrapper)
+            label.missing = {'reason': 'source_named_by_context', 'source': list(source), 'basis': basis}
+            return label
+        title = self.labels.label(*self.index.names[source], 'sttv_tooltip_source_unnamed')
+        return self.labels.phrase('source_' + kind, name=title)
 
     def unknown(self, node):
-        return {'kind': 'unrecognized', 'expression': node}
+        return self.partial(node, ())
+
+    def stage_name(self, source, stage):
+        if stage.startswith('archaeology_stage:'):
+            return self.labels.phrase('excavation_stage', number=stage.split(':')[1])
+        return self.labels.label('sttv_tooltip_progress_' + stage + '_' + source[0],
+                                 'sttv_tooltip_progress_' + stage, stage, 'sttv_tooltip_source_unknown_stage')
+
+    def partial(self, node, path, children=None):
+        check = node.get('key', {}).get('text', node['kind'])
+        self.labels.diagnostics.append({'reason': 'unknown_condition', 'check': check,
+                                        'section': path[0] if path else None, 'expression': node, **self.origin})
+        result = {'kind': 'partial', 'key': check, 'text': self.labels.phrase('unresolved_condition'),
+                  'expression': node}
+        value = node.get('value', node)
+        if children is not None:
+            result['children'] = children
+        elif value.get('kind') == 'block':
+            result['children'] = [c for item in value['items'] if (c := self.node(item, (*path, check))) is not None]
+        elif 'text' in value:
+            if number(value['text']) is not None or value['text'] in ('yes', 'no'):
+                result['text'] = self.labels.phrase('unresolved_operand', operator=node.get('operator', ''), value=value['text'])
+        return result
 
     def term(self, kind, key, **arguments):
         return {'kind': kind, 'key': key, 'text': self.labels.phrase(key, **arguments)}
+
+    def flag_condition(self, check, flag, label):
+        node = {'kind': 'condition', 'key': check, 'text': label, 'reference': {'type': check, 'id': flag}}
+        if self.index is None:
+            return node
+        sites = self.index.flag_sites.get((check, flag), {})
+        if sites:
+            self.flag_evidence[check, flag] = list(sites.values())
+        setting = {s['source'] for s in sites.values() if s['action'].startswith('set_')}
+        if not setting:
+            return node
+        # Prefer the explicit translation. Supply the observed setting actions if it is missing.
+        sources = []
+        contexts = {(s['source'], s['option'], s['stages']) for s in sites.values() if s['action'].startswith('set_')}
+        for source, option, stages in sorted(contexts, key=repr):
+            details = [self.name(source)]
+            if option:
+                details.append(self.labels.phrase('progress_choose', name=self.labels.label(
+                    option, 'sttv_tooltip_source_unknown_option')))
+            for stage in stages:
+                details.append(self.stage_name(source, stage))
+            sources.append({'localized_list': details})
+        label.keys = label.keys[:1]
+        label.fallback = self.labels.phrase('flag_observed_' + ('galaxy' if check == 'has_global_flag' else 'object'),
+                                            sources={'localized_list': sources})
+        origin = self.origin.get('object')
+        if isinstance(origin, (list, tuple)) and len(origin) == 2:
+            from .acquisition_mechanics import acquisition_rules
+            project = acquisition_rules()['project_flags'].get(flag, {}).get(origin[0], {}).get(origin[1])
+            if ('special_projects', project) in setting:
+                node['text'] = self.labels.phrase('completed_project', name=self.labels.label(project, color='Y'))
+        return node
 
     def comparison(self, key, operator, value):
         if key == 'perc_communications_with_playable':
             percent = format(number(value) * 100, 'f')
             return self.term('condition', key, comparison=SYMBOLS[operator],
-                             percentage=numeric_text(percent, self.labels.language) + '%')
+                             percentage=self.labels.numeric(percent, suffix='%'))
         return self.term('condition', key, comparison=SYMBOLS[operator],
-                         value=numeric_text(value, self.labels.language))
+                         value=self.labels.numeric(value))
 
     def group(self, operator, children):
         if None in children:
             children = [child for child in children if child is not None]
             if not children:
                 return None
+        if operator in ('AND', 'OR'):
+            compact = self.compact_predicates(operator, children)
+            if compact:
+                return compact
+            flattened = []
+            for child in children:
+                if (child.get('operator') == operator and child.get('kind') == 'group'
+                        and set(child) == {'kind', 'operator', 'text', 'children'}
+                        and child.get('children')
+                        and child['text'].keys == (determine_key(self.labels.rules, 'tooltip_condition', operator.lower()),)):
+                    flattened.extend(child['children'])
+                else:
+                    flattened.append(child)
+            children = flattened
         if len(children) == 1:
             child = children[0]
             if operator in ('AND', 'OR') and child['kind'] in ('condition', 'technology', 'group', 'scope'):
                 return child
-            if operator == 'NOT' and child.get('key') in ('has_origin', 'has_authority') and child['kind'] == 'condition':
+            if operator == 'NOT' and child.get('key') in ('has_origin', 'has_authority', 'has_active_event') and child['kind'] == 'condition':
                 # Keep the original group until the batch lookup confirms the negative translation.
                 return {'kind': 'group', 'operator': operator, 'text': self.labels.phrase('not'), 'children': children,
                         '_negative_text': self.labels.phrase('not_' + child['key'], **child['text'].arguments)}
@@ -78,6 +192,31 @@ class Content:
             children = [{**child, 'text': self.labels.technology(child['id'], reference=True)} for child in children]
         return {'kind': 'group', 'operator': operator, 'text': self.labels.phrase(term),
                 'children': children}
+
+    def compact_predicates(self, operator, children):
+        if len(children) < 2 or any(child.get('kind') != 'condition' or child.get('negated')
+                                    or 'reference' not in child for child in children):
+            return None
+        checks = {child['key'] for child in children}
+        ids = [child['reference']['id'] for child in children]
+        if operator == 'AND' and len(children) == 2 and dict(zip((c['key'] for c in children), ids)) == {
+                'is_ship_class': 'shipclass_science_ship', 'exists': 'leader'}:
+            return {**self.term('condition', 'staffed_science_ship'),
+                    'evidence': {'operator': 'AND', 'checks': [c['reference'] | {'check': c['key']} for c in children]}}
+        if operator == 'AND' and len(children) == 2 and checks == {'exists', 'has_communications'}:
+            if ids[0] == ids[1] and ids[0] in FAUNA_TARGETS:
+                result = self.term('condition', 'fauna_contact', name=self.labels.name('country', ids[0]))
+                return {**result, 'reference': {'type': 'fauna_contact', 'id': ids[0]},
+                        'evidence': {'operator': operator, 'checks': [c['reference'] | {'check': c['key']} for c in children]}}
+        if operator == 'OR' and checks in ({'has_valid_civic'}, {'fauna_contact'}):
+            civic = checks == {'has_valid_civic'}
+            names = [self.labels.name('civic' if civic else 'country', ident) for ident in ids]
+            for name in names:
+                name.color = 'Y'
+            result = self.term('condition', 'one_valid_civic' if civic else 'one_fauna_contact',
+                               names={'localized_list': names})
+            return {**result, 'evidence': {'operator': operator, 'alternatives': [
+                c.get('evidence') or {'check': c['key'], **c['reference']} for c in children]}}
 
     def weight_rule(self, node):
         if node.get('kind') != 'assignment' or node['key'].get('text') != 'modifier' or node['operator'] != '=':
@@ -149,7 +288,10 @@ class Content:
                                       [self.node(node['body'], path)])
         if kind != 'assignment':
             return self.unknown(node)
-        key, sign, value = node['key']['text'], node['operator'], node['value']
+        key, sign, value = node['key']['text'].casefold(), node['operator'], node['value']
+        extra = condition_text.apply(self, node, path, SCOPES)
+        if extra is not None:
+            return extra
         text = value.get('text')
         term = operation_term(path, key)
         if term and sign == '=':
@@ -167,7 +309,7 @@ class Content:
         if key in FLAG_CHECKS and text:
             if (key, text) in IGNORED_FLAGS:
                 return None
-            return {'kind': 'condition', 'key': key, 'text': self.labels.flag(key, text, path[0])}
+            return self.flag_condition(key, text, self.labels.flag(key, text, path[0]))
         if key == 'has_policy_flag' and text:
             return {'kind': 'condition', 'key': key, 'text': self.labels.policy(text)}
         if key in BOOLEAN and text in ('yes', 'no'):
@@ -181,7 +323,8 @@ class Content:
                 elif text.startswith('trait_'):
                     label += '_species'
             role = 'pop_category' if key == 'is_pop_category' else slot
-            condition = self.term('condition', label, **{slot: self.labels.name(role, text)})
+            condition = {**self.term('condition', label, **{slot: self.labels.name(role, text)}),
+                         'reference': {'type': role, 'id': text}}
             if key == 'has_technology':
                 condition['id'] = text
             return condition
@@ -191,10 +334,15 @@ class Content:
             if key in SCOPES:
                 return self.with_children(self.term('scope', key), [self.conditions(value['items'], (*path, key))])
             if key == 'custom_tooltip':
-                return self.with_children({'kind': key}, [self.node(item, (*path, key)) for item in value['items']])
+                items = value['items']
+                statuses = {'success_text', 'fail_text'}
+                checks = [item for item in items if item.get('key', {}).get('text') not in statuses]
+                if len(checks) != len(items) and not checks:
+                    return {**self.term('caption', 'neutral_caption'), 'expression': node}
+                return self.with_children({'kind': key}, [self.node(item, (*path, key)) for item in checks])
         if text and (key == 'custom_tooltip' or (path[-1] == 'custom_tooltip' and key in ('text', 'fail_text', 'success_text'))):
             return {'kind': 'caption', 'key': key, 'text': self.labels.label(text, fallback=text)}
-        return self.unknown(node)
+        return self.partial(node, path)
 
     def arguments(self, node, path):
         key = node['key']['text']
@@ -212,7 +360,7 @@ class Content:
             if slot == 'value':
                 if number(text) is None:
                     return self.unknown(node)
-                args.update(comparison=SYMBOLS[sign], value=numeric_text(text, self.labels.language))
+                args.update(comparison=SYMBOLS[sign], value=self.labels.numeric(text))
             elif slot in ('disabled', 'in_construction'):
                 args[slot] = text
             else:
@@ -249,19 +397,29 @@ class Content:
         if number(operand) is None:
             return self.unknown(node)
         signed = key == 'add'
-        text = numeric_text(operand, self.labels.language, signed=signed)
+        text = self.labels.numeric(operand, signed=signed)
         return {**self.term('operation', term, **{'signed_value' if signed else 'value': text}), 'value': operand}
 
 
-def technology_tooltip(db, rules, reader, technology_id, language):
-    row = next(records(db, 'technologies', list(SECTIONS), {'_id': technology_id}), None)
+def prepare_tooltip(db, rules, technology_id, progress=None):
+    row = next(records(db, 'technologies', [*SECTIONS, 'start_tech', 'weight'], {'_id': technology_id}), None)
     if row is None:
         return None
-    labels = Labels(language, rules, db)
-    content = Content(labels)
+    labels = Labels(None, rules, db)
+    content = Content(labels, progress)
     sections = {}
+    weights = fields(row['body'], 'weight')
+    if len(weights) > 1:
+        sections['weight_notes'] = [content.term('condition', 'conflicting_weights', values=', '.join(
+            w.get('text', '?') for w in weights))]
+    starting = any(v.get('text') == 'yes' for v in fields(row['body'], 'start_tech'))
     for item in row['body']['items']:
         key, block = item['key']['text'], item['value']
+        if key not in SECTIONS or key == 'starting_potential' and not starting:
+            continue
+        if 'source' in row:
+            content.origin = {'object': technology_id, 'file': row['source']['document_id'],
+                              'pointer': f"{row['source']['pointer']}/value/items/{item['source_index']}"}
         if item['operator'] != '=' or block['kind'] != 'block':
             sections.setdefault(key, []).append(content.unknown(item))
         elif block['items']:
@@ -274,7 +432,34 @@ def technology_tooltip(db, rules, reader, technology_id, language):
                     entries.append(condition)
             if not entries:
                 del sections[key]
-    return labels.resolve({'technology_id': technology_id, 'language': language,
+    if progress is not None:
+        from .progress_content import ProgressContent
+        renderer = ProgressContent(labels, progress, None)
+        if technology_id in progress.mechanics.blocked:
+            sections.setdefault('weight_notes', []).append(content.term('condition', 'ordinary_zero'))
+        for parent, mandatory in progress.mechanics.indirect(technology_id):
+            sources = [renderer.name(source) for source, entries in progress.rewards['research_options'].get(parent, {}).items()
+                       if any(not e.get('pool') and not progress.issue(e) for e in entries)]
+            if sources:
+                note = content.term('condition', 'indirect_required' if mandatory else 'indirect_alternative',
+                                    name=labels.technology(parent, reference=True))
+                note.update(technology_link=parent, children=[{'kind': 'progress', 'text': title} for title in sources])
+                sections.setdefault('prerequisites', []).append(note)
+        for section in progress.rewards:
+            groups = renderer.sections(technology_id, section)
+            if groups:
+                sections[section] = groups
+        content.flag_evidence.update(renderer.flag_evidence)
+    from .tooltip_document import pack
+    return pack(labels, {'technology_id': technology_id,
                            'name': labels.technology(technology_id),
                            'description': labels.label(determine_key(rules, 'technology_description', technology_id)),
-                           'sections': sections}, reader)
+                           'sections': sections, 'flag_evidence': [
+                               {'check': check, 'flag': flag, 'sites': sites}
+                               for (check, flag), sites in sorted(content.flag_evidence.items())]})
+
+
+def technology_tooltip(db, rules, reader, technology_id, language, progress=None, enabled=None):
+    from .tooltip_document import render
+    document = prepare_tooltip(db, rules, technology_id, progress)
+    return render(document, rules, reader, language, enabled) if document else None

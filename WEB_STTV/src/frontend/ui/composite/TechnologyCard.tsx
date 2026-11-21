@@ -1,32 +1,34 @@
-import { useId, useLayoutEffect, useRef, useState } from 'react';
 import type { SttvRepresentation, SttvCardTechnology } from '../../data/model';
 import { sttvUseLocalization } from '../../localization/context';
 import { SttvCardContent } from './CardContent';
-import { sttvTechnologyName } from '../../data/tree/comparison';
-import { SttvTooltip } from './Tooltip';
-import { SttvTechnologyTooltipDetails } from './TechnologyTooltipDetails';
+import { useContext } from 'react';
+import { technologyLink } from '../../app/technologyRoute';
+import { TreeTooltipContext } from '../../app/tooltipCache';
+import type { CardAction } from './CardOverlay';
 import './technology-card.css';
 
-export function SttvTechnologyCard({ technology, representation, onHover, resourceIcon, scale }:
+export function SttvTechnologyCard({ technology, representation, onHover, onFocusChange, resourceIcon, open }:
   { technology: SttvCardTechnology; representation: SttvRepresentation; resourceIcon: string | null;
-    scale: number; onHover: (active: boolean) => void }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [hover, setHover] = useState(false);
-  const [focused, setFocused] = useState(false);
-  useLayoutEffect(() => { setHover(false); setFocused(false); }, [scale]);
-  const { text, language } = sttvUseLocalization();
-  const tooltipId = useId();
-  const name = sttvTechnologyName(technology, representation, text);
-  return <div ref={ref} className="sttv-card" data-technology-id={technology.id}
+    open: (action: CardAction) => void; onHover: (active: boolean) => void; onFocusChange: (active: boolean) => void }) {
+  const { language } = sttvUseLocalization();
+  const { enabled } = useContext(TreeTooltipContext);
+  function activate(anchor: HTMLAnchorElement, kind: CardAction['kind']) {
+    open({ id: technology.id, anchor, kind });
+  }
+  return <a className="sttv-card" href={technologyLink(technology.id, language, enabled)} data-technology-id={technology.id}
     data-area={representation.area} data-rarity={technology.dangerous ? 'dangerous' : technology.rare ? 'rare' : 'ordinary'}
-    tabIndex={0} onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-    aria-describedby={hover || focused ? tooltipId : undefined}
-    onMouseEnter={() => { setHover(true); onHover(true); }} onMouseLeave={() => { setHover(false); onHover(false); }}>
+    onFocus={() => onFocusChange(true)} onBlur={() => onFocusChange(false)}
+    onMouseEnter={() => onHover(true)} onMouseLeave={() => onHover(false)}
+    onClick={event => {
+      if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault(); activate(event.currentTarget, 'details');
+    }}
+    onContextMenu={event => { event.preventDefault(); activate(event.currentTarget, 'menu'); }}
+    onKeyDown={event => {
+      if (event.key === ' ' || event.key === 'ContextMenu' || (event.shiftKey && event.key === 'F10')) {
+        event.preventDefault(); activate(event.currentTarget, event.key === ' ' ? 'details' : 'menu');
+      }
+    }}>
     <SttvCardContent technology={technology} representation={representation} resourceIcon={resourceIcon} />
-    <SttvTooltip id={tooltipId} anchor={ref.current} visible={hover || focused}
-      content={{ heading: name, body: { source: 'database', id: representation.descriptionId } }}>
-      {representation.id === 'base' && <SttvTechnologyTooltipDetails key={technology.id + ':' + language}
-        technology={technology} language={language} />}
-    </SttvTooltip>
-  </div>;
+  </a>;
 }

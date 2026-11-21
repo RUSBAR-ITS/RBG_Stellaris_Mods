@@ -14,3 +14,13 @@
 .sttv-tooltip-details ul { padding-inline-start: 1.25em; }
 .sttv-tooltip-details section > ul { list-style: none; padding-inline-start: 0; }
 .sttv-tooltip-details section > ul > li + li { margin-block-start: .5em; }
+
+.sttv-card-overlay { pointer-events: auto; overscroll-behavior: contain; }
+.sttv-card-overlay a, .sttv-technology-page a { color: var(--sttv-tooltip-body-color); }
+.sttv-technology-page { height: 100%; box-sizing: border-box; overflow: auto; padding: 1rem; }
+.sttv-technology-page .sttv-tooltip-details { max-width: 78ch; }
+.sttv-tooltip-details .sttv-tooltip-heading { font: var(--sttv-tooltip-heading-font); color: var(--sttv-tooltip-heading-color); }
+.sttv-technology-page h1.sttv-tooltip-heading { font-size: 1.6em; }
+.sttv-card-overlay h2, .sttv-card-overlay p { margin: 0 0 var(--sttv-control-padding); }
+
+.sttv-tooltip-details .sttv-event-name { color: var(--sttv-tooltip-event-color); }

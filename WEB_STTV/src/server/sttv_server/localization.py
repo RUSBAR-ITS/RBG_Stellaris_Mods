@@ -27,6 +27,14 @@ def fragments(text):
         char = text[index]
         index += 1
         if char == '[':
+            concept = re.match(r"\['(concept_[A-Za-z0-9_]+)'\]", text[index - 1:])
+            if concept:
+                if start < index - 1:
+                    yield text[start:index - 1], None, None
+                yield concept[0], concept[1], None
+                index += len(concept[0]) - 1
+                start = index
+                continue
             depth = 1
             while index < len(text) and depth:
                 depth += (text[index] == '[') - (text[index] == ']')

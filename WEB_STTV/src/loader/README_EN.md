@@ -19,7 +19,7 @@ sttv-loader load --config WEB_STTV/config/loader.json --profile network
 sttv-loader verify --config WEB_STTV/config/loader.json --profile network
 ```
 
-`create` adds missing collections and preserves existing contents. `load` reads prepared JSON and replaces the configured collections after verification. For a full game version rebuild, the separate command `sttv-loader drop --config WEB_STTV/config/loader.json --profile network` deletes the entire database named by the profile.
+`create` adds missing collections and preserves existing contents. `load` reads prepared JSON and replaces the configured collections after verification. For a full reload of the test VM use its maintenance certificate to drop the database, then run these three commands. [Stand maintenance](../../../Instruments/WEB_STTV/README_EN.md#full-test-server-reload)
 
 The `network` profile uses Vault and a certificate from the Windows certificate store to obtain the MongoDB password and trusted CA. The `local` profile reads the password from the configured environment variable and the CA from a file. Both use TLS and SCRAM-SHA-256. [Configuration](../../config/loader.json)
 
@@ -47,7 +47,7 @@ Policies and bypass types use the game key of the root block. The `policies` col
 | `identity` value | Document and key |
 | --- | --- |
 | `key` | Definition keyed by its block name |
-| `field` | Definition keyed by a field in its body, such as an event's `id` |
+| `field` | Match the field name (such as an event's `id`) case-insensitively. Preserve its value verbatim as `_id`. Multiple matching fields in one object are ambiguous. |
 | `anonymous`, `fragments` | Definition keyed by `{root, file, item}`. The position is zero-based and precedes filtering |
 | `file` | All entries of a single DLC descriptor keyed by `{root, file}` |
 | `package` | Localization package entry with its original composite key |

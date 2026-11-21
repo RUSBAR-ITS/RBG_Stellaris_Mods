@@ -1,40 +1,43 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { technologyLink } from '../../app/technologyRoute';
 import { request } from '../../app/reference';
-import type { SttvCardTechnology } from '../../data/model';
-import type { SttvLanguage } from '../../localization/model';
+import { sttvUseLocalization } from '../../localization/context';
 import { SttvText } from '../base/Text';
 import { SttvGameText } from '../base/GameText';
+import { TreeTooltipContext, type Expression, type TechnologyResponse } from '../../app/tooltipCache';
 
-interface Expression {
-  kind: string;
-  key?: string;
-  text?: string;
-  children?: Expression[];
-  formula?: Expression[];
-  expression?: unknown;
-  operations?: Expression[];
-  condition?: Expression;
-}
-type Sections = Partial<Record<'prerequisites' | 'potential' | 'allow' | 'weight_modifier', Expression[]>>;
-interface Response { technology_id: string; language: SttvLanguage; sections: Sections }
-
-// A new tree supplies new card objects, so its tooltips cannot reuse an older snapshot.
-const cache = new WeakMap<SttvCardTechnology, Partial<Record<SttvLanguage, Sections>>>();
+const EnabledDlc = createContext<string[] | undefined>(undefined);
 
 function Expressions({ items }: { items?: Expression[] }) {
   if (!items?.length) return null;
   return <ul>{items.map((node, index) => <li key={index}><ExpressionLine node={node} /></li>)}</ul>;
 }
 
+function RewardDetails({ summary, items }: { summary: ReactNode; items?: Expression[] }) {
+  const [expanded, setExpanded] = useState(false);
+  return <details className="sttv-reward-details" onToggle={event => setExpanded(event.currentTarget.open)}>
+    <summary>{summary}</summary>
+    {expanded && <Expressions items={items} />}
+  </details>;
+}
+
 function ExpressionLine({ node }: { node: Expression }) {
-  if (node.kind === 'unrecognized') return <code>{JSON.stringify(node.expression)}</code>;
+  const { language } = sttvUseLocalization();
+  const enabled = useContext(EnabledDlc);
+  const evidence = node.expression ?? node.evidence;
   const children = node.children;
   const child = children?.length === 1 ? children[0] : undefined;
   const inlineScope = node.kind === 'scope' && child?.kind === 'condition' && !child.children?.length;
   let text = node.text ?? '';
   if (children?.length && text && !inlineScope) text = text.trimEnd().replace(/:+$/, '') + ':';
-  return <><SttvGameText value={text} />
+  const heading = <span className={node.source?.[0] === 'events' ? 'sttv-event-name' : undefined}><SttvGameText value={node.source?.[0] === 'events' ? text.replace(/§[\w!]/gu, '') : text} /></span>;
+  if (node.summary?.length) return <RewardDetails items={children} summary={<>{heading}{' '}
+    {node.summary.map((part, i) => <span key={i}>{i > 0 && ' · '}<SttvGameText value={part} /></span>)}
+  </>} />;
+  return <>{node.technology_link ? <a href={technologyLink(node.technology_link, language, enabled)}>{heading}</a> : heading}
     {inlineScope ? <> — <ExpressionLine node={child} /></> : <Expressions items={children} />}
+    {evidence != null && <details><summary><SttvText text={{ id: 'sttv_condition_details' }} role="tooltip-body" /></summary>
+      <code>{JSON.stringify(evidence)}</code></details>}
     <Expressions items={node.formula} />
   </>;
 }
@@ -57,40 +60,62 @@ function Heading({ id }: { id: string }) {
   return <h3><SttvText text={{ id }} role="tooltip-heading" /></h3>;
 }
 
-export function SttvTechnologyTooltipDetails({ technology, language }:
-  { technology: SttvCardTechnology; language: SttvLanguage }) {
-  const [sections, setSections] = useState<Sections | undefined>(() => cache.get(technology)?.[language]);
-  const [failed, setFailed] = useState(false);
+export function SttvTechnologyDetails({ id, enabled, page = false }:
+  { id: string; enabled?: string[]; page?: boolean }) {
+  const { language } = sttvUseLocalization();
+  const { cache } = useContext(TreeTooltipContext);
+  const key = JSON.stringify([id, language, enabled ?? null]);
+  const [state, setState] = useState<{ key: string; error?: string; result?: TechnologyResponse }>();
+  const result = cache.get(key) ?? (state?.key === key ? state.result : undefined);
   useEffect(() => {
-    const cached = cache.get(technology)?.[language];
-    setFailed(false);
-    setSections(cached);
-    if (cached) return;
+    if (cache.has(key)) return;
+    const generation = cache.generation;
     const controller = new AbortController();
-    request<Response>('/api/trees/technology-tooltip', 'POST', { technology_id: technology.id, language }, controller.signal)
-      .then(result => {
+    request<TechnologyResponse>('/api/trees/technology-tooltip', 'POST',
+      { technology_id: id, language, enabled_dlc: enabled }, controller.signal).then(value => {
         if (controller.signal.aborted) return;
-        if (result.technology_id !== technology.id || result.language !== language || !result.sections) {
-          throw new Error('Unexpected technology tooltip response');
+        if (cache.generation !== generation) {
+          setState({ key, error: 'tooltip_reset' });
+          return;
         }
-        cache.set(technology, { ...cache.get(technology), [language]: result.sections });
-        setSections(result.sections);
-      })
-      .catch(() => { if (!controller.signal.aborted) setFailed(true); });
+        if (value.technology_id !== id || value.language !== language || !value.sections)
+          throw new Error('Unexpected technology response');
+        cache.set(key, value);
+        setState({ key, result: value });
+      }).catch((err: Error) => {
+        if (!controller.signal.aborted) setState({ key, error: err.message });
+      });
     return () => controller.abort();
-  }, [technology, language]);
-  if (!sections) return <div className="sttv-tooltip-status" role="status">
-    <SttvText text={{ id: failed ? 'sttv_tooltip_error' : 'sttv_tooltip_loading' }} role="tooltip-body" />
-  </div>;
+  }, [cache, key, id, language, enabled]);
+  if (!result) {
+    const error = state?.key === key ? state.error : undefined;
+    const status = error === 'tooltip_reset' ? 'sttv_reset_done_tooltips'
+      : error === 'technology_not_found' ? 'sttv_unknown_technology'
+      : error ? 'sttv_technology_request_error' : 'sttv_tooltip_loading';
+    return <div role="status" className="sttv-tooltip-status"><SttvText text={{
+      id: status,
+      params: { id } }} /></div>;
+  }
+  const { sections } = result;
   const { prerequisites, potential, allow, weight_modifier: weights } = sections;
-  return <div className="sttv-tooltip-details">
+  const Title = page ? 'h1' : 'h2';
+  return <EnabledDlc.Provider value={enabled}><div className="sttv-tooltip-details">
+    <Title className="sttv-tooltip-heading"><SttvGameText value={result.name} /></Title>
+    {result.description && <p><SttvGameText value={result.description} /></p>}
     {!!prerequisites?.length && <section><Heading id="sttv_tooltip_prerequisites" /><Expressions items={prerequisites} /></section>}
-    {(!!potential?.length || !!allow?.length) && <section><Heading id="sttv_tooltip_availability" />
+    {(!!potential?.length || !!allow?.length || !!sections.starting_potential?.length) && <section><Heading id="sttv_tooltip_availability" />
       {!!potential?.length && <><h4><SttvText text={{ id: 'sttv_tooltip_potential' }} role="tooltip-body" /></h4>
         <Expressions items={potential} /></>}
       {!!allow?.length && <><h4><SttvText text={{ id: 'sttv_tooltip_allow' }} role="tooltip-body" /></h4>
         <Expressions items={allow} /></>}
+      {!!sections.starting_potential?.length && <><h4><SttvText text={{ id: 'sttv_tooltip_starting' }} role="tooltip-body" /></h4>
+        <Expressions items={sections.starting_potential} /></>}
     </section>}
-    {!!weights?.length && <section><Heading id="sttv_tooltip_weight" /><WeightRules items={weights} /></section>}
-  </div>;
+    {(!!weights?.length || !!sections.weight_notes?.length) && <section><Heading id="sttv_tooltip_weight" />
+      <Expressions items={sections.weight_notes} />{weights?.length ? <WeightRules items={weights} /> : null}</section>}
+    {!!sections.research_options?.length && <section><Heading id="sttv_tooltip_options" /><Expressions items={sections.research_options} /></section>}
+    {!!sections.researched_grants?.length && <section><Heading id="sttv_tooltip_grants" /><Expressions items={sections.researched_grants} /></section>}
+    {!!sections.research_progress?.length && <section><Heading id="sttv_tooltip_progress" />
+      <Expressions items={sections.research_progress} /></section>}
+  </div></EnabledDlc.Provider>;
 }

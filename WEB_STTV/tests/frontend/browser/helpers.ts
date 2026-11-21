@@ -21,16 +21,22 @@ export function treeFixture(techs: Technology[], parents: Record<string, string>
     cards: Object.fromEntries(techs.map(t => [t.id, { ...t, name: t.id, description: t.id + '_desc', categories: [],
       icon: 'test_icon', source: { database: 'technologies', document_id: t.id, pointer: '' } }])) };
 }
-export async function mockTexts(page: Page, techs: Technology[]) {
+export async function mockTexts(page: Page, techs: Technology[], mockDetails = true) {
   const texts = new Map(techs.flatMap(t => [[t.id, t.name], [t.id + '_desc', t.description]] as [string, string][]));
+  if (mockDetails) await page.route('**/api/trees/technology-tooltip', route => {
+    const body = route.request().postDataJSON();
+    const tech = techs.find(t => t.id === body.technology_id);
+    return tech ? route.fulfill({ json: { ...body, name: tech.name, description: tech.description, sections: {} } })
+      : route.fulfill({ status: 404, json: { error: 'technology_not_found' } });
+  });
   await page.route('**/api/localization/lookup', route => {
     const { keys } = route.request().postDataJSON() as { keys: string[] };
     return route.fulfill({ json: { items: keys.map(key => ({ key, text: texts.get(key) ?? null })) } });
   });
   await page.route('**/game-assets/gfx/**', route => route.fulfill({ contentType: 'image/png', body: png }));
 }
-export async function openTree(page: Page, techs: Technology[], parents: Record<string, string> = {}) {
-  await mockTexts(page, techs);
+export async function openTree(page: Page, techs: Technology[], parents: Record<string, string> = {}, mockDetails = true) {
+  await mockTexts(page, techs, mockDetails);
   await page.route('**/api/trees/reference', route => route.fulfill(route.request().method() === 'POST'
     ? { json: treeFixture(techs, parents) } : { status: 405 }));
   await page.getByRole('button', { name: en.sttv_nav_tree, exact: true }).click();

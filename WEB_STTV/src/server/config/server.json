@@ -11,5 +11,6 @@
   },
   "http": {"host": "127.0.0.1", "port": 8788},
   "localization_keys_file": "localization_keys.json",
+  "condition_rules_file": "condition_rules.json",
   "tree_rules_file": "reference_tree.json"
 }

@@ -116,6 +116,22 @@ class LoaderTests(unittest.TestCase):
                 with local_lock(path):
                     self.fail('second writer acquired the same lock')
 
+    def test_identity_field_spelling_and_collision(self):
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            path = root / 'projects.json'
+            source = {'path': path.name, 'collection': 'projects', 'provenance': 'projects_src',
+                      'identity': 'field', 'field': 'Key'}
+            inputs = Inputs({'input_root': '.', 'history_collection': 'history', 'sources': [source]}, root)
+            field = assign('KEY', scalar('Project_A'))
+            write_script(path, 'projects.txt', [assign('special_project', block(field))])
+            _, project = inputs.records()
+            self.assertEqual(project.document['_id'], 'Project_A')
+            self.assertEqual(project.document['tree']['value']['items'], [field])
+            write_script(path, 'projects.txt', [assign('special_project', block(field, assign('key', scalar('B'))))])
+            with self.assertRaisesRegex(BuildError, 'multiple fields match'):
+                list(inputs.records())
+
 
 @unittest.skipUnless(os.environ.get('STTV_LOADER_TEST_CONFIG'), 'requires a dedicated MongoDB test configuration')
 class MongoTests(unittest.TestCase):

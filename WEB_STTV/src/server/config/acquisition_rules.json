@@ -1,0 +1,16 @@
+{
+  "project_flags": {
+    "crisis_special_project_4_complete": {
+      "crisis_levels": {
+        "crisis_level_5": "CRISIS_SPECIAL_PROJECT_4",
+        "crisis_behemoth_level_5": "BEHEMOTH_CRISIS_SPECIAL_PROJECT_4"
+      }
+    }
+  },
+  "debris": {
+    "snapshot": "4.5.4 (1b4f)",
+    "file": "common/defines/00_defines.txt",
+    "key": "DEBRIS_ANALYZED_TECH_PROGRESS",
+    "fraction": "0.10"
+  }
+}

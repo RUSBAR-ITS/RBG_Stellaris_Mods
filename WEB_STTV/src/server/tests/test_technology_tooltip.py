@@ -37,7 +37,7 @@ class TooltipTests(unittest.TestCase):
         self.assertEqual([c['text'] for c in result['node']['children']],
                          [strings['test_has_country_flag_found'], strings['test_has_global_flag']])
         self.assertEqual(result['diagnostics'], [{'reason': 'missing_flag_label', 'check': 'has_global_flag',
-                                                  'flag': 'found', 'technology': 'tech_a', 'section': 'potential'}])
+                                                  'flag': 'found', 'technology': 'tech_a', 'language': 'en', 'section': 'potential'}])
 
     def test_ignored_country_flag_does_not_make_a_weight_bonus_unconditional(self):
         ignored = entry('has_country_flag', scalar('crystal_armor_1_weight'))
@@ -90,7 +90,8 @@ class TooltipTests(unittest.TestCase):
                 self.assertNotIn('_negative_text', fallback['node'])
                 self.assertIn({'reason': 'missing_localization', 'keys': ['test_not_' + key]}, fallback['diagnostics'])
                 texts['test_not_' + key] = 'Without {' + slot + '}'
-                negative = {'kind': 'condition', 'key': key, 'negated': True, 'text': 'Without X'}
+                negative = {'kind': 'condition', 'key': key, 'negated': True, 'text': 'Without X',
+                            'reference': {'id': 'x', 'type': slot}}
                 self.assertEqual(labels.resolve({'node': node}, reader)['node'], negative)
                 double = content.node(logic('NOT', expr), ('allow',))
                 self.assertEqual(labels.resolve({'node': double}, reader)['node'],
@@ -112,8 +113,8 @@ class TooltipTests(unittest.TestCase):
         for op in ('AND', 'OR'):
             self.assertEqual(content.node(logic(op), ('allow',))['children'], [])
         invalid = {**check, 'operator': '!='}
-        self.assertEqual(content.node(logic('NOT', invalid), ('allow',))['children'],
-                         [{'kind': 'unrecognized', 'expression': invalid}])
+        child, = content.node(logic('NOT', invalid), ('allow',))['children']
+        self.assertEqual((child['kind'], child['expression']), ('partial', invalid))
 
     def test_headings_describe_the_direct_operands_in_the_same_scope(self):
         rules = {'tooltip_condition': {'prefix': 'sttv_', 'suffix': ''}, 'technology_name': {'suffix': ''}}
@@ -167,6 +168,8 @@ class TooltipTests(unittest.TestCase):
         custom, flag = group['children']
         label, check = custom['children']
         self.assertEqual(label['text'], 'Game caption')
-        self.assertEqual(check['children'], [{'kind': 'unrecognized', 'expression': mystery}])
+        partial, = check['children']
+        self.assertEqual((partial['kind'], partial['expression']), ('partial', mystery))
+        self.assertEqual(partial['children'][0]['id'], 'tech_other')
         self.assertEqual(flag['text'], 'Policy flag shared_flag')
-        self.assertEqual(response['diagnostics'][0]['matches'], [('one', 'option'), ('two', 'option')])
+        self.assertEqual(next(d['matches'] for d in response['diagnostics'] if 'matches' in d), [('one', 'option'), ('two', 'option')])

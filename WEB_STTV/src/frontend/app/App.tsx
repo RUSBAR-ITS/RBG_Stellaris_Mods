@@ -14,6 +14,9 @@ import { SttvTabs } from '../ui/composite/Tabs';
 import { DlcSettings } from '../views/DlcSettings';
 import { ReferenceField } from '../views/ReferenceField';
 import { useReferenceTree } from './useReferenceTree';
+import { TreeTooltipContext } from './tooltipCache';
+import { technologyLink, technologyRoute } from './technologyRoute';
+import { SttvTechnologyPage } from '../views/TechnologyPage';
 
 type View = 'tree' | 'system' | 'game';
 type GameTab = 'dlc' | 'empire';
@@ -22,18 +25,38 @@ const switchStyle = { '--sttv-switch-width': controls.switchWidth + 'px', '--stt
   '--sttv-switch-inset': controls.switchInset + 'px' } as CSSProperties;
 
 export function SttvApp() {
-  const [language, setLanguage] = useState(config.initialLanguage as SttvLanguage);
+  const [route, setRoute] = useState(() => technologyRoute(location.hash));
+  const [language, setLanguage] = useState<SttvLanguage>(route?.language ?? config.initialLanguage as SttvLanguage);
   const [theme, setTheme] = useState(config.initialTheme);
   const [expanded, setExpanded] = useState(config.initialMenuExpanded);
   const [zoom, setZoom] = useState(sttvZoomSettings.initialPercent);
   const [view, setView] = useState<View>('tree');
   const [tab, setTab] = useState<GameTab>('dlc');
   const [referenceMode, setReferenceMode] = useState(true);
-  const reference = useReferenceTree();
+  const reference = useReferenceTree(route?.enabled);
+  const showTree = view === 'tree' && !route;
+  useEffect(() => {
+    function changed() {
+      const next = technologyRoute(location.hash);
+      setRoute(next);
+      if (next?.language) setLanguage(next.language);
+      if (!next && location.hash === '#/tree') setView('tree');
+    }
+    window.addEventListener('hashchange', changed);
+    return () => window.removeEventListener('hashchange', changed);
+  }, []);
+  useEffect(() => {
+    if (!route && location.hash === '#/tree' && referenceMode) void reference.open();
+  }, [route]);
+  function changeLanguage(value: SttvLanguage) {
+    setLanguage(value);
+    if (route) history.replaceState(null, '', technologyLink(route.id, value, route.enabled));
+  }
 
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   useEffect(() => { document.documentElement.dataset.theme = theme; }, [theme]);
   function navigate(page: View) {
+    if (route) { history.pushState(null, '', page === 'tree' ? '#/tree' : location.pathname + location.search); setRoute(null); }
     setView(page);
     if (page === 'tree' && referenceMode) void reference.open();
     if (page === 'game' && tab === 'dlc') void reference.loadDlcs();
@@ -43,23 +66,31 @@ export function SttvApp() {
     if (next === 'dlc') void reference.loadDlcs();
   }
   return <SttvLocalizationProvider language={language} data={reference.tree}>
-    <SttvMainWindow status={view === 'game' && tab === 'dlc' && reference.catalogError ? reference.catalogError
+    <SttvMainWindow status={route ? { id: 'sttv_technology_page' } : view === 'game' && tab === 'dlc' && reference.catalogError ? reference.catalogError
       : !referenceMode && view === 'tree' ? { id: 'sttv_empire_mode' } : reference.status ?? { id: 'sttv_ref_idle' }}
       menu={<SttvMenuPanel expanded={expanded}
-        actions={pages.map(page => <SttvButton key={page} label={{ id: `sttv_nav_${page}` }} current={view === page}
+        actions={pages.map(page => <SttvButton key={page} label={{ id: `sttv_nav_${page}` }} current={!route && view === page}
           onClick={() => navigate(page)} border="never" />)}
-        settings={<><SttvLanguageSelector value={language} onChange={setLanguage} />
-          {view === 'tree' && <SttvZoomSelector value={zoom} onChange={setZoom} />}</>}
+        settings={<><SttvLanguageSelector value={language} onChange={changeLanguage} />
+          {showTree && <SttvZoomSelector value={zoom} onChange={setZoom} />}</>}
         buttons={<><SttvMenuToggle expanded={expanded} onToggle={() => setExpanded(!expanded)} />
           {expanded && <SttvThemeToggle theme={theme} onToggle={() => setTheme(theme === 'night' ? 'day' : 'night')} />}</>} />}>
-      <div className="sttv-view-slot" data-active={view === 'tree'} aria-hidden={view !== 'tree'} inert={view !== 'tree'}>
-        {referenceMode ? reference.tree && <ReferenceField key={reference.tree.id + language} tree={reference.tree}
-          language={language} scale={zoom / 100} /> : <p><SttvText text={{ id: 'sttv_empire_placeholder' }} /></p>}
+      <div className="sttv-view-slot" data-active={showTree} aria-hidden={!showTree} inert={!showTree}>
+        <TreeTooltipContext.Provider value={{ enabled: reference.tree?.enabled, active: showTree,
+          cache: reference.tooltipCache }}>
+          {referenceMode ? reference.tree && <ReferenceField key={reference.tree.id + language} tree={reference.tree}
+            language={language} scale={zoom / 100} /> : <p><SttvText text={{ id: 'sttv_empire_placeholder' }} /></p>}
+        </TreeTooltipContext.Provider>
       </div>
-      {view === 'system' && <SttvTabs label="sttv_nav_system" selected="database" onSelect={() => {}}
+      {route && <TreeTooltipContext.Provider value={{ cache: reference.tooltipCache, active: true }}>
+        <SttvTechnologyPage key={route.id} id={route.id} enabled={route.enabled} />
+      </TreeTooltipContext.Provider>}
+      {!route && view === 'system' && <SttvTabs label="sttv_nav_system" selected="database" onSelect={() => {}}
         tabs={[{ id: 'database', label: 'sttv_tab_database', content:
-          <SttvButton label={{ id: 'sttv_ref_clear' }} disabled={reference.busy} onClick={reference.clear} /> }]} />}
-      {view === 'game' && <div className="sttv-view-slot" style={switchStyle}>
+          <div className="sttv-reset-actions">{(['trees', 'progress', 'tooltips', 'all'] as const).map(scope => <SttvButton key={scope}
+            label={{ id: scope === 'trees' ? 'sttv_ref_clear' : 'sttv_reset_' + scope }} disabled={reference.busy}
+            onClick={() => reference.clear(scope)} />)}</div> }]} />}
+      {!route && view === 'game' && <div className="sttv-view-slot" style={switchStyle}>
         <SttvTabs<GameTab> label="sttv_nav_game" selected={tab} onSelect={selectGameTab} tabs={[
           { id: 'dlc', label: 'sttv_tab_dlc', content: <DlcSettings state={reference} referenceMode={referenceMode} /> },
           { id: 'empire', label: 'sttv_tab_empire', content: <>

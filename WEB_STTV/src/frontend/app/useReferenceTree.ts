@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { SttvTextRef } from '../localization/model';
 import { fetchReference, referenceEndpoint, request, type ServerDlc } from './reference';
+import { createTooltipCache } from './tooltipCache';
 
 function sameSelection(left: string[], right: string[]) {
   return left.length === right.length && left.every(id => right.includes(id));
@@ -9,14 +10,22 @@ function errorMessage(error: unknown): SttvTextRef {
   return { id: 'sttv_ref_error', params: { reason: error instanceof Error ? error.message : String(error) } };
 }
 
-export function useReferenceTree() {
+export function useReferenceTree(initialSelection?: string[]) {
   const [tree, setTree] = useState<Awaited<ReturnType<typeof fetchReference>> | null>(null);
   const [dlcs, setDlcs] = useState<ServerDlc[] | null>(null);
   const [catalogError, setCatalogError] = useState<SttvTextRef | null>(null);
-  const [applied, setApplied] = useState<string[]>();
+  const [applied, setApplied] = useState(initialSelection);
   const [draft, setDraft] = useState<string[]>();
   const [status, setStatus] = useState<SttvTextRef | null>(null);
   const [busy, setBusy] = useState(false);
+  const [tooltipCache] = useState(createTooltipCache);
+  const channel = useRef<BroadcastChannel | null>(null);
+  useEffect(() => {
+    const resets = new BroadcastChannel('sttv-tooltip-reset');
+    resets.onmessage = () => tooltipCache.clear();
+    channel.current = resets;
+    return () => { channel.current = null; resets.close(); };
+  }, [tooltipCache]);
   const pending = useRef(false), reading = useRef(false);
   const selected = applied ?? dlcs?.map(i => i.id);
   const dirty = !!draft && !!selected && !sameSelection(draft, selected);
@@ -37,7 +46,7 @@ export function useReferenceTree() {
     try {
       const { items } = await request<{ items: ServerDlc[] }>(referenceEndpoint + '/dlcs');
       setDlcs(items);
-      setDraft(previous => previous ?? items.map(item => item.id));
+      setDraft(previous => previous ?? applied ?? items.map(item => item.id));
     } catch (error) { setCatalogError(errorMessage(error)); }
     finally { reading.current = false; }
   }
@@ -45,6 +54,7 @@ export function useReferenceTree() {
     return run(async () => {
       const result = await fetchReference(selection);
       setTree(result);
+      tooltipCache.clear();
       setApplied(result.enabled);
       setDraft(previous => applying ? result.enabled : previous ?? result.enabled);
       setStatus({ id: 'sttv_ref_ready', params: { number: result.nodes.length } });
@@ -61,15 +71,21 @@ export function useReferenceTree() {
     if (tree && !sameSelection(tree.enabled, draft)) setTree(null);
     setStatus({ id: 'sttv_dlc_applied' });
   }
-  function clear() {
+  function clear(scope: 'trees' | 'progress' | 'tooltips' | 'all') {
     return run(async () => {
-      const result = await request<{ removed_collections: number }>(referenceEndpoint, 'DELETE');
-      setTree(null);
-      setStatus({ id: 'sttv_ref_removed', params: { number: result.removed_collections } });
+      const endpoints = { trees: referenceEndpoint, progress: '/api/trees/research-progress', tooltips: '/api/trees/technology-tooltips', all: '/api/trees/generated' };
+      const result = await request<{ removed_collections: number }>(endpoints[scope], 'DELETE');
+      if (scope === 'trees' || scope === 'all') setTree(null);
+      if (scope !== 'trees') {
+        tooltipCache.clear();
+        channel.current?.postMessage('clear');
+      }
+      setStatus({ id: scope === 'trees' ? 'sttv_ref_removed' : 'sttv_reset_done_' + scope,
+        params: { number: result.removed_collections } });
     });
   }
   function toggle(id: string) {
     setDraft(prev => prev?.includes(id) ? prev.filter(v => v !== id) : [...prev ?? [], id]);
   }
-  return { tree, dlcs, catalogError, draft, status, dirty, busy, open, apply, clear, loadDlcs, toggle, discard: () => setDraft(selected) };
+  return { tree, dlcs, catalogError, draft, status, dirty, busy, open, apply, clear, tooltipCache, loadDlcs, toggle, discard: () => setDraft(selected) };
 }

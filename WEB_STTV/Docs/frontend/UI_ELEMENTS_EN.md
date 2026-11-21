@@ -48,6 +48,7 @@
 ## Views
 
 - [Main window](elements/TZ_MAIN_WINDOW_EN.md).
+- [Technology page](elements/TZ_TECHNOLOGY_PAGE_EN.md).
 - [DLC settings](TZ_FRONTEND_STAGE_10_EN.md).
 - [System settings](TZ_FRONTEND_STAGE_11_EN.md#database-operations).
 - [Game settings](TZ_FRONTEND_STAGE_11_EN.md#game-settings).

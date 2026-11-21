@@ -37,6 +37,7 @@
     }
   },
   "scratch_directory": "../../TMP/WEB_STTV/loader/artifacts/scratch",
+  "maintenance": {"drop_database": "wiki", "vault_path": "lab/data/mongodb/rbg/stellaris-wiki/admin"},
   "input_root": "../../TMP/WEB_STTV/database-inputs/artifacts",
   "history_collection": "script_history",
   "sources": [
@@ -50,6 +51,20 @@
       "collection": "technologies",
       "provenance": "technologies_provenance",
       "identity": "key"
+    },
+    {
+      "path": "scripts/common/artifact_actions",
+      "collection": "artifact_actions",
+      "provenance": "artifact_actions_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/global_ship_designs",
+      "collection": "global_ship_designs",
+      "provenance": "global_ship_designs_provenance",
+      "identity": "field",
+      "root_types": ["ship_design"],
+      "field": "name"
     },
     {
       "path": "scripts/common/component_templates",
@@ -272,6 +287,70 @@
       "identity": "key"
     },
     {
+      "path": "scripts/common/council_agendas",
+      "collection": "council_agendas",
+      "provenance": "council_agendas_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/astral_actions",
+      "collection": "astral_actions",
+      "provenance": "astral_actions_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/resolutions",
+      "collection": "resolutions",
+      "provenance": "resolutions_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/situations",
+      "collection": "situations",
+      "provenance": "situations_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/patrons/psionic_auras",
+      "collection": "psionic_auras",
+      "provenance": "psionic_auras_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/special_projects",
+      "collection": "special_projects",
+      "provenance": "special_projects_provenance",
+      "identity": "field",
+      "root_types": [
+        "special_project"
+      ],
+      "field": "key"
+    },
+    {
+      "path": "scripts/common/archaeological_site_types",
+      "collection": "archaeological_site_types",
+      "provenance": "archaeological_site_types_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/anomalies",
+      "collection": "anomalies",
+      "provenance": "anomalies_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/first_contact",
+      "collection": "first_contact",
+      "provenance": "first_contact_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/astral_rifts",
+      "collection": "astral_rifts",
+      "provenance": "astral_rifts_provenance",
+      "identity": "key"
+    },
+    {
       "path": "scripts/common/technology/category",
       "collection": "technology_categories",
       "provenance": "technology_categories_provenance",
@@ -288,6 +367,48 @@
       "collection": "dlc_descriptors",
       "provenance": "dlc_descriptors_provenance",
       "identity": "file"
+    },
+    {
+      "path": "scripts/common/country_focus/focus_rewards",
+      "collection": "focus_rewards",
+      "provenance": "focus_rewards_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/federation_perks",
+      "collection": "federation_perks",
+      "provenance": "federation_perks_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/specialist_subject_perks",
+      "collection": "specialist_subject_perks",
+      "provenance": "specialist_subject_perks_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/tradable_actions",
+      "collection": "tradable_actions",
+      "provenance": "tradable_actions_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/patrons",
+      "collection": "patrons",
+      "provenance": "patrons_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/fallen_empires",
+      "collection": "fallen_empires",
+      "provenance": "fallen_empires_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/solar_system_initializers",
+      "collection": "solar_system_initializers",
+      "provenance": "solar_system_initializers_provenance",
+      "identity": "key"
     }
   ]
 }

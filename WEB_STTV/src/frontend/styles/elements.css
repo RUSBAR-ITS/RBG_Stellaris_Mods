@@ -66,6 +66,7 @@
   --sttv-select-border-hover: var(--sttv-accent);
   --sttv-select-focus: var(--sttv-accent);
   --sttv-tooltip-heading-font: var(--sttv-type-tooltip-heading);
+  --sttv-tooltip-event-color: var(--sttv-accent);
   --sttv-tooltip-heading-color: var(--sttv-text-primary);
   --sttv-tooltip-body-font: var(--sttv-type-tooltip);
   --sttv-tooltip-body-color: var(--sttv-text-primary);

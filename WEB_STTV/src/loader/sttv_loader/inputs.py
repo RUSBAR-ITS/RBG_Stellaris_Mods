@@ -98,11 +98,14 @@ def script_records(spec, path, history):
         yield InputRecord(spec.collection, {'_id': source, 'source': source, 'pointer': '/items',
                                             'tree': data['items']}, spec.provenance)
         return
+    identity_field = spec.field.casefold() if spec.identity == 'field' else None
     for pointer, index, node in blocks(data['items'], '/items', spec.containers, spec.root_types):
         identifier = node['key']['text']
-        if spec.identity == 'field':
+        if identity_field is not None:
             values = [item['value'].get('text') for item in node['value']['items']
-                      if item.get('kind') == 'assignment' and item['key']['text'] == spec.field]
+                      if item.get('kind') == 'assignment' and item['key']['text'].casefold() == identity_field]
+            if len(values) > 1:
+                raise BuildError('ambiguous_object_id', f'{path}{pointer}: multiple fields match {spec.field!r}')
             if len(values) != 1 or not isinstance(values[0], str) or not values[0]:
                 raise BuildError('missing_object_id', f'{path}{pointer}: expected one {spec.field}')
             identifier = values[0]

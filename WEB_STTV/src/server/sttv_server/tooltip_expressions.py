@@ -29,6 +29,8 @@ WEIGHT_TERMS = {
 }
 FORMULA_TERMS = {
     ("script_value", "base"): "base",
+    ("script_value", "mult"): "mult",
+    ("modifier", "add"): "formula_add",
     ("script_value", "add"): "formula_add",
     ("script_value", "modifier"): "formula_modifier",
     ("modifier", "mult"): "mult",

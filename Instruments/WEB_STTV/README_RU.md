@@ -3,6 +3,7 @@
 ## Оглавление
 
 - [Запуск на снимке](#запуск-на-снимке)
+- [Полное обновление стенда](#полное-обновление-стенда)
 
 ## Запуск на снимке
 
@@ -24,4 +25,12 @@ python -B "$tools/dlc/check_acquisition.py" --variables $variables --profiles "$
 
 ```powershell
 python -B "$tools/dlc/publish_acquisition.py" --variables $variables --output $work
+```
+
+## Полное обновление стенда
+
+С рабочей машины команда ниже удаляет указанную БД по TLS с сертификатом администратора из Vault. Имя БД сверяется с сетевым профилем загрузчика. Перед выполнением остановить API и проверить подготовленный экспорт. После сброса выполнить штатные команды загрузчика `create`, `load`, `verify`, загрузить значки через `upload-images` и запустить API. Маршруты HTTP-стенда хранятся в [serve.py](stand/serve.py).
+
+```powershell
+python Instruments/WEB_STTV/stand/drop_database.py --config WEB_STTV/config/loader.json --database wiki
 ```

@@ -1,0 +1,356 @@
+{
+  "any_war": {"scope":"any_war"},
+  "any_defender": {"scope":"any_defender"},
+  "any_attacker": {"scope":"any_attacker"},
+  "any_owned_ship": {"scope":"any_owned_ship"},
+  "any_owned_colony": {"scope":"any_owned_colony"},
+  "any_controlled_fleet": {"scope":"any_controlled_fleet"},
+  "any_rival_country": {"scope":"any_rival_country"},
+  "any_war_participant": {"scope":"any_war_participant"},
+  "any_galaxy_planet": {"scope":"any_galaxy_planet"},
+  "any_starbase_in_network": {"scope":"any_starbase_in_network"},
+  "any_controlled_ship": {"scope":"any_controlled_ship"},
+  "starbase": {"scope":"starbase"},
+  "closest_system": {"scope":"closest_system"},
+  "create_fleet": {"scope":"create_fleet"},
+  "every_system": {"scope":"every_system"},
+  "random_system": {"scope":"random_system"},
+  "random_system_within_border": {"scope":"random_system_within_border"},
+  "every_system_planet": {"scope":"every_system_planet"},
+  "every_system_within_border": {"scope":"every_system_within_border"},
+  "moon": {"scope":"moon"},
+  "create_starbase": {"scope":"create_starbase"},
+  "random_owned_colony": {"scope":"random_owned_colony"},
+  "random_owned_nonprimary_starbase": {"scope":"random_owned_nonprimary_starbase"},
+  "random_rim_system": {"scope":"random_rim_system"},
+  "fleet_power": {"number":"fleet_power"},
+  "max_naval_capacity": {"number":"max_naval_capacity"},
+  "num_ships": {"number":"num_ships"},
+  "max_steps": {"number":"max_steps"},
+  "min_distance": {"number":"min_distance"},
+  "max_distance": {"number":"max_distance"},
+  "min_jumps": {"number":"min_jumps"},
+  "max_jumps": {"number":"max_jumps"},
+  "is_difficulty": {"number":"is_difficulty"},
+  "attacker_war_exhaustion": {"percent":true},
+  "defender_war_exhaustion": {"percent":true},
+  "galaxy_percentage": {"percent":true},
+  "count_country": {"count":true},
+  "count_owned_fleet": {"count":true},
+  "count_playable_country": {"count":true},
+  "count_system_megastructure": {"count":true},
+  "count_system_planet_colony": {"count":true},
+  "count_system_within_border": {"count":true},
+  "use_bypasses": {"boolean":"use_bypasses"},
+  "is_galactic_custodian": {"boolean":"is_galactic_custodian"},
+  "is_galactic_emperor": {"boolean":"is_galactic_emperor"},
+  "is_bottleneck_system": {"boolean":"is_bottleneck_system"},
+  "has_any_megastructure": {"boolean":"has_any_megastructure"},
+  "is_capital_system": {"boolean":"is_capital_system"},
+  "is_mobile": {"boolean":"is_mobile"},
+  "has_orbital_bombardment": {"boolean":"has_orbital_bombardment"},
+  "is_same_empire": {"reference":"target"},
+  "is_inside_border": {"reference":"target"},
+  "is_within_borders_of": {"reference":"target"},
+  "is_overlord_to": {"reference":"target"},
+  "has_completed_event_chain": {"reference":"event_chain"},
+  "galaxy_size": {"reference":"galaxy_size"},
+  "any_starbase_in_system": {
+    "scope": "any_starbase_in_system",
+    "scope_locale": "any_starbase_in_system_trigger"
+  },
+  "has_anomaly": {
+    "boolean_locale": {"yes": "HAS_ANOMALY", "no": "HAS_NOT_ANOMALY"}
+  },
+  "is_disabled": {
+    "boolean_locale": {"yes": "IS_DISABLED_TRIGGER", "no": "IS_NOT_DISABLED_TRIGGER"}
+  },
+  "agreement_preset": {
+    "reference": "agreement"
+  },
+  "any_deposit": {
+    "scope": "any_deposit"
+  },
+  "any_fleet_in_system": {
+    "scope": "any_fleet_in_system"
+  },
+  "any_moon": {
+    "scope": "any_moon"
+  },
+  "any_neighbor_system": {
+    "scope": "any_neighbor_system"
+  },
+  "any_owned_fleet": {
+    "scope": "any_owned_fleet"
+  },
+  "any_owned_megastructure": {
+    "scope": "any_owned_megastructure"
+  },
+  "any_playable_country": {
+    "scope": "any_playable_country"
+  },
+  "any_situation": {
+    "scope": "any_situation"
+  },
+  "any_system": {
+    "scope": "any_system"
+  },
+  "attunement": {
+    "number": "attunement"
+  },
+  "capital_scope": {
+    "scope": "capital_scope"
+  },
+  "carrier_is_type": {
+    "reference": "type"
+  },
+  "contact_country": {
+    "scope": "contact_country"
+  },
+  "controller": {
+    "scope": "controller"
+  },
+  "current_stage": {
+    "reference": "stage"
+  },
+  "end_game_years_passed": {
+    "number": "end_game_years_passed"
+  },
+  "explorer": {
+    "scope": "explorer"
+  },
+  "fleet": {
+    "scope": "fleet"
+  },
+  "from": {
+    "scope": "from"
+  },
+  "fromfrom": {
+    "scope": "fromfrom"
+  },
+  "fromfromfrom": {
+    "scope": "fromfromfrom"
+  },
+  "has_access_fleet": {
+    "reference": "target"
+  },
+  "has_active_tradition": {
+    "reference": "tradition"
+  },
+  "has_any_strategic_resource": {
+    "boolean": "has_any_strategic_resource_boolean"
+  },
+  "has_building": {
+    "reference": "building"
+  },
+  "has_climate": {
+    "reference": "climate"
+  },
+  "has_country_flag": {
+    "event_titles": {
+      "fircon_1255_fired": "fircon.1256.name",
+      "fircon_1260_fired": "fircon.1261.name",
+      "fircon_1270_fired": "fircon.1271.name",
+      "fircon_1280_fired": "fircon.1285.name",
+      "fircon_1295_fired": "fircon.1300.name",
+      "fircon_1305_fired": "fircon.1310.name",
+      "fircon_1375_fired": "fircon.1380.name",
+      "fircon_1405_fired": "fircon.1410.name",
+      "fircon_1440_fired": "fircon.1445.name",
+      "fircon_1465_fired": "fircon.1470.name",
+      "fircon_1495_fired": "fircon.1500.name",
+      "fircon_2500_fired": "fircon.2505.name",
+      "fircon_2510_fired": "fircon.2515.name",
+      "fircon_2520_fired": "fircon.2525.name",
+      "fircon_2530_fired": "fircon.2535.name",
+      "fircon_2540_fired": "fircon.2545.name",
+      "fircon_2550_fired": "fircon.2555.name"
+    }
+  },
+  "has_covenant": {
+    "reference": "patron"
+  },
+  "has_deposit": {
+    "boolean": "has_deposit_boolean"
+  },
+  "is_deposit_type": {"reference": "deposit"},
+  "has_mining_station": {"boolean": "has_mining_station"},
+  "is_robotic": {"boolean": "is_robotic"},
+  "is_unemployed": {"boolean": "is_unemployed"},
+  "has_strategic_resource": {"boolean": "has_strategic_resource"},
+  "is_scope_type": {"reference": "scope_type"},
+  "is_owned_by": {"reference": "target"},
+  "has_hyperlane_to": {"reference": "target"},
+  "any_ship_in_system": {"scope": "any_ship_in_system"},
+  "overlord": {"scope": "overlord"},
+  "is_controlled_by": {"reference": "target"},
+  "is_crises_allowed": {"boolean": "is_crises_allowed"},
+  "graphical_culture": {"reference": "graphical_culture"},
+  "allowed_crisis_type": {"reference": "crisis_type"},
+  "has_event_chain": {
+    "reference": "event_chain"
+  },
+  "has_ground_combat": {
+    "boolean": "has_ground_combat_boolean"
+  },
+  "has_mission": {
+    "reference": "mission"
+  },
+  "has_moon": {
+    "boolean": "has_moon_boolean"
+  },
+  "has_observation_outpost": {
+    "boolean": "has_observation_outpost_boolean"
+  },
+  "has_overlord": {
+    "reference": "target"
+  },
+  "has_owner": {
+    "boolean": "has_owner_boolean"
+  },
+  "has_planet_class": {
+    "reference": "planet_class"
+  },
+  "has_pre_ftl_age": {
+    "reference": "age"
+  },
+  "has_special_project": {
+    "reference": "project"
+  },
+  "has_starbase_building": {
+    "reference": "starbase_building"
+  },
+  "has_starbase_module": {
+    "reference": "starbase_module"
+  },
+  "ideal_planet_class": {
+    "reference": "planet_class"
+  },
+  "is_artificial": {
+    "boolean": "is_artificial_boolean"
+  },
+  "is_asteroid": {
+    "boolean": "is_asteroid_boolean"
+  },
+  "is_at_war": {
+    "boolean": "is_at_war_boolean"
+  },
+  "is_at_war_with": {
+    "reference": "target"
+  },
+  "is_capital": {
+    "boolean": "is_capital_boolean"
+  },
+  "is_colonizable": {
+    "boolean": "is_colonizable_boolean"
+  },
+  "is_colony": {
+    "boolean": "is_colony_boolean"
+  },
+  "is_homeworld": {
+    "boolean": "is_homeworld_boolean"
+  },
+  "is_hostile": {
+    "reference": "target"
+  },
+  "is_hostile_to": {
+    "reference": "target"
+  },
+  "is_in_domain": {
+    "reference": "patron"
+  },
+  "is_in_federation_with": {
+    "reference": "target"
+  },
+  "is_megastructure_type": {
+    "reference": "megastructure"
+  },
+  "is_moon": {
+    "boolean": "is_moon_boolean"
+  },
+  "is_occupied_flag": {
+    "boolean": "is_occupied_flag_boolean"
+  },
+  "is_primitive": {
+    "boolean": "is_primitive_boolean"
+  },
+  "is_ringworld": {
+    "boolean": "is_ringworld_boolean"
+  },
+  "is_ship_class": {
+    "reference": "ship_class"
+  },
+  "is_ship_size": {
+    "reference": "ship_size"
+  },
+  "is_space_fauna": {
+    "boolean": "is_space_fauna_boolean"
+  },
+  "is_species_class": {
+    "reference": "species_class"
+  },
+  "is_star": {
+    "boolean": "is_star_boolean"
+  },
+  "is_star_class": {
+    "reference": "star_class"
+  },
+  "is_tutorial_level": {
+    "reference": "literal"
+  },
+  "is_under_colonization": {
+    "boolean": "is_under_colonization_boolean"
+  },
+  "is_unfriendly_to": {
+    "reference": "target"
+  },
+  "last_building_changed": {
+    "reference": "building"
+  },
+  "leader": {
+    "scope": "leader"
+  },
+  "leader_class": {
+    "reference": "leader_class"
+  },
+  "num_ascension_perks": {
+    "number": "num_ascension_perks"
+  },
+  "num_minerals": {
+    "number": "num_minerals"
+  },
+  "num_planets_in_system": {
+    "number": "num_planets_in_system"
+  },
+  "observation_outpost": {
+    "scope": "observation_outpost"
+  },
+  "observation_outpost_owner": {
+    "scope": "observation_outpost_owner"
+  },
+  "original_owner": {
+    "boolean": "original_owner_boolean",
+    "scope": "original_owner"
+  },
+  "owner_main_species": {
+    "scope": "owner_main_species"
+  },
+  "planet": {
+    "scope": "planet"
+  },
+  "root": {
+    "scope": "root"
+  },
+  "situation_progress": {
+    "number": "situation_progress"
+  },
+  "space_owner": {
+    "scope": "space_owner"
+  },
+  "target": {
+    "scope": "target"
+  },
+  "uplift_is_archetype": {
+    "reference": "archetype"
+  }
+}

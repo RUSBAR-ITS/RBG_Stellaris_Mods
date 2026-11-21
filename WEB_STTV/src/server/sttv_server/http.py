@@ -41,7 +41,7 @@ def make_server(address, read_strings, trees=None, tooltip=None):
                     if not isinstance(identifier, str) or not identifier.strip():
                         raise ValueError('Expected a technology ID')
                     identifier.encode('utf-8')
-                    return self.tooltip_request(identifier, body['language'])
+                    return self.tooltip_request(identifier, body['language'], body.get('enabled_dlc'))
                 keys = body.get('keys')
                 if not isinstance(keys, list) or not all(isinstance(k, str) and k for k in keys):
                     raise ValueError('Expected an array of keys')
@@ -55,9 +55,11 @@ def make_server(address, read_strings, trees=None, tooltip=None):
                 return self.reply(503, {'error': 'database_unavailable'})
             self.reply(200, result)
 
-        def tooltip_request(self, identifier, language):
+        def tooltip_request(self, identifier, language, enabled):
             try:
-                result = tooltip(identifier, language)
+                result = tooltip(identifier, language, enabled)
+            except BuildError as exc:
+                return self.reply(exc.status, {'error': exc.code, 'reason': str(exc)})
             except PyMongoError:
                 logging.exception('MongoDB tooltip lookup failed')
                 return self.reply(503, {'error': 'database_unavailable'})
@@ -87,10 +89,13 @@ def make_server(address, read_strings, trees=None, tooltip=None):
             self.reply(404, {'error': 'not_found'})
 
         def do_DELETE(self):
-            if urlsplit(self.path).path != '/api/trees/reference' or trees is None:
+            scopes = {'/api/trees/reference': 'trees', '/api/trees/research-progress': 'progress',
+                      '/api/trees/technology-tooltips': 'tooltips', '/api/trees/generated': 'all'}
+            scope = scopes.get(urlsplit(self.path).path)
+            if scope is None or trees is None:
                 return self.reply(404, {'error': 'not_found'})
             if urlsplit(self.path).query or self.headers.get('Content-Length', '0') != '0' or self.headers.get('Transfer-Encoding'):
                 return self.reply(400, {'error': 'invalid_request'})
-            self.tree_request(trees.clear)
+            self.tree_request(lambda: trees.clear(scope))
 
     return ThreadingHTTPServer(address, Handler)

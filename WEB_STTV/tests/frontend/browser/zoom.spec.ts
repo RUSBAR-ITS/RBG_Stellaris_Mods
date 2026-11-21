@@ -88,7 +88,7 @@ test('tooltips retain size and close on zoom, while focus and relationship highl
   let tooltipWidth = 0;
   for (const percent of [50, 100, 150]) {
     await sttvZoom(page, percent); await expect(page.getByRole('tooltip')).toHaveCount(0);
-    await card.hover(); await expect(page.getByRole('tooltip')).toBeVisible();
+    await card.click(); await expect(page.getByRole('tooltip')).toBeVisible();
     const tooltip = (await page.getByRole('tooltip').boundingBox())!;
     if (tooltipWidth) expect(tooltip.width).toBe(tooltipWidth); else tooltipWidth = tooltip.width;
     expect(tooltip.x).toBeGreaterThanOrEqual(0); expect(tooltip.x + tooltip.width).toBeLessThanOrEqual(1440);

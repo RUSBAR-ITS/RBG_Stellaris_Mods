@@ -9,7 +9,7 @@ test('card hover colors complete parent/child paths without rerouting or changin
   const paths = () => page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')));
   const before = await paths();
   const card = page.locator('[data-technology-id="C"]'); await card.hover();
-  await expect(page.getByRole('tooltip')).toBeVisible();
+  await expect(page.getByRole('tooltip')).toHaveCount(0);
   const colors = await page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(node => ({
     parent: node.getAttribute('data-parent'), children: JSON.parse(node.getAttribute('data-children')!),
     role: node.getAttribute('data-role'), color: getComputedStyle(node).stroke,

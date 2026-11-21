@@ -39,6 +39,8 @@ The internal function `sttv_server.localization.determine_key(rules, context, va
 
 ## Technology tooltip content
 
+The proposed shared rules for rendering game conditions are in the [specification draft](Docs/TZ_CONDITION_TEXT_EN.md).
+
 Request one base technology by game ID and language. The request reads the source documents and localization from MongoDB. [Content rules](../../Docs/frontend/TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
 
 ```sh
@@ -51,9 +53,13 @@ The response contains `technology_id`, `language`, `name`, `description`, `secti
 
 The server returns the simplified condition ready for display. A negated origin or authority check retains its original `key` and carries `negated: true`. When the negative translation is missing, the API returns a `NOT` group containing the original check. [Rules and examples](Docs/TZ_TOOLTIP_CONDITION_SIMPLIFICATION_EN.md)
 
-A node’s localized label is in `text`. Unrecognized nodes carry `kind = unrecognized` and the original `expression`. If a name is unavailable the condition retains its game ID and `diagnostics` identifies the missing key. An unknown technology returns HTTP 404. An unsupported language or invalid request body returns HTTP 400. [API acceptance checks](tests/tooltip_acceptance.py)
+A partially understood node carries `kind = partial`, the readable part and the original expression in `expression`. Object references retain their type and ID. The page and card use the same data.
+
+The server stores one prepared document per technology in `technology_tooltips`. Language and disabled DLC annotations are applied on read. Reset tooltip content in System settings sends `DELETE /api/trees/technology-tooltips`. Resetting the acquisition index or all generated data also clears this collection. The next request rebuilds only the requested technology.
 
 For country and galaxy flags the server looks up a complete phrase by check type and flag ID in the selected language. If the translation is missing, the tooltip displays a neutral phrase and `diagnostics` records the check type, flag ID, technology and section. The tooltip omits the `crystal_armor_1_weight` check. [Flag dictionary and display rules](Docs/TZ_TOOLTIP_FLAGS_EN.md)
+
+The tooltip and direct page use the same `POST /api/trees/technology-tooltip` request. The `research_options`, `researched_grants` and `research_progress` fields contain confirmed sources for each acquisition method. Branches with an unresolved recipient or source appear in `diagnostics`. The `DELETE /api/trees/research-progress` reset clears the shared index for all three. [Card actions and technology page](../../Docs/frontend/TZ_TECHNOLOGY_PAGE_AND_ACQUISITION_EN.md)
 
 ## Technology tree
 

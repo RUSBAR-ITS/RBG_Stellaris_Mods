@@ -3,6 +3,7 @@
 ## Contents
 
 - [Using a snapshot](#using-a-snapshot)
+- [Full test server reload](#full-test-server-reload)
 
 ## Using a snapshot
 
@@ -24,4 +25,12 @@ Run the following publication check on a test snapshot. It changes combinations 
 
 ```powershell
 python -B "$tools/dlc/publish_acquisition.py" --variables $variables --output $work
+```
+
+## Full test server reload
+
+From the workstation, the command below drops the named database over TLS with the Vault maintenance certificate. It checks the name against the loader network profile. Stop the API and check the prepared export first. Follow the drop with the regular loader commands `create`, `load`, `verify`, publish sprites with `upload-images` and start the API. The test HTTP proxy routes are in [serve.py](stand/serve.py).
+
+```powershell
+python Instruments/WEB_STTV/stand/drop_database.py --config WEB_STTV/config/loader.json --database wiki
 ```

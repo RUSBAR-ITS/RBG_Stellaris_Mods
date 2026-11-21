@@ -48,6 +48,7 @@
 ## Виды
 
 - [Основное окно](elements/TZ_MAIN_WINDOW_RU.md).
+- [Страница технологии](elements/TZ_TECHNOLOGY_PAGE_RU.md).
 - [Настройка DLC](TZ_FRONTEND_STAGE_10_RU.md).
 - [Настройки системы](TZ_FRONTEND_STAGE_11_RU.md#операции-с-бд).
 - [Настройки игры](TZ_FRONTEND_STAGE_11_RU.md#настройки-игры).

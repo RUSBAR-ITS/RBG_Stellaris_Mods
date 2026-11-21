@@ -2,6 +2,18 @@
 
 ## Contents
 
+- [2026-11-21 — Source and object names in conditions](#2026-11-21--source-and-object-names-in-conditions)
+- [2026-11-21 — Technology acquisition sources](#2026-11-21--technology-acquisition-sources)
+- [2026-11-21 — Overall technology acquisition and readability specification](#2026-11-21--overall-technology-acquisition-and-readability-specification)
+- [2026-11-21 — Specification for reward sources and starting eligibility](#2026-11-21--specification-for-reward-sources-and-starting-eligibility)
+- [2026-11-21 — Full acquisition and readability audit](#2026-11-21--full-acquisition-and-readability-audit)
+- [2026-11-21 — Debris and missing technology acquisition sources](#2026-11-21--debris-and-missing-technology-acquisition-sources)
+- [2026-11-21 — Condition text and tooltip collection reset](#2026-11-21--condition-text-and-tooltip-collection-reset)
+- [2026-11-21 — Game condition text specification draft](#2026-11-21--game-condition-text-specification-draft)
+- [2026-11-21 — Technology page readability](#2026-11-21--technology-page-readability)
+- [2026-11-21 — Acquisition sources and technology page](#2026-11-21--acquisition-sources-and-technology-page)
+- [2026-11-21 — Research progress sources in import profiles](#2026-11-21--research-progress-sources-in-import-profiles)
+- [2026-11-21 — Research progress and data reset specification draft](#2026-11-21--research-progress-and-data-reset-specification-draft)
 - [2026-11-21 — Inline icons and trait levels in tooltips](#2026-11-21--inline-icons-and-trait-levels-in-tooltips)
 - [2026-11-21 — Draft specification for inline icons and trait names](#2026-11-21--draft-specification-for-inline-icons-and-trait-names)
 - [2026-11-21 — Flag meanings in tooltips](#2026-11-21--flag-meanings-in-tooltips)
@@ -245,6 +257,80 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-21 — Source and object names in conditions
+
+- Rewards and flag conditions now share the same source lookup. Hidden events can use a confirmed caller or the subject of their event chain. Diagnostics record the source ID and the basis for the caption.
+- Added RU/EN labels for saved targets, stages, flags and actions. Wording distinguishes ownership from control and the empire under a check from the recipient of a reward. Archaeological sources include the stage number.
+- Shared rules describe contact with space fauna, alternative civics and a science ship with an assigned leader. The underlying checks remain available for inspection.
+- Added an audit of visible text on every technology page in both languages, including missing names, unidentified operands and empty logical groups. [Results](../src/server/Docs/TECHNOLOGY_ACQUISITION_RESULTS_EN.md)
+
+## 2026-11-21 — Technology acquisition sources
+
+- Parser and loader profiles include minor artifact actions and fixed ship designs. Both catalogs retain object provenance.
+- The server traces rewards to their entry points and recipients. The tooltip and technology page describe researchable debris, random selection, starting eligibility, prerequisites with special acquisition paths and conflicting weight declarations.
+- Reward summaries show the recipient and outcome. Each branch can be expanded independently. The stored tooltip document reuses identical expressions by reference.
+- The [acquisition results](../src/server/Docs/TECHNOLOGY_ACQUISITION_RESULTS_EN.md) document verification on the test server and the outstanding cases in each group.
+
+## 2026-11-21 — Overall technology acquisition and readability specification
+
+Drafted one specification covering all 11 audit findings. Each has an expected result and a check, with a full review of 679 technologies in both languages. The tables for nine rewards and 19 starting eligibility conditions are linked as an appendix. [Overall specification](../src/server/Docs/TZ_TECHNOLOGY_ACQUISITION_FIXES_EN.md)
+
+## 2026-11-21 — Specification for reward sources and starting eligibility
+
+Drafted the first iteration of fixes from the audit. It covers nine scripted rewards, 19 technologies with starting conditions and acceptance criteria for rechecking 1,358 RU/EN pages. [Specification](../src/server/Docs/TZ_TECHNOLOGY_ACQUISITION_FIXES_1_EN.md)
+
+## 2026-11-21 — Full acquisition and readability audit
+
+Reopened all 1,358 pages on the test site and compared the results with game definitions, reward commands and earlier surveys. Recorded the three acquisition sections and outstanding condition, recipient and wording issues for all 679 technologies. [Correction register](../src/server/Docs/TECHNOLOGY_ACQUISITION_AUDIT_EN.md) · [Technology index](../src/server/Docs/TECHNOLOGY_ACQUISITION_INDEX_EN.md)
+
+## 2026-11-21 — Debris and missing technology acquisition sources
+
+Compared 679 base technology pages with game component and ship design definitions. Listed corrections for 16 technologies with an explicit zero weight and empty acquisition sections. Six have equipped ships for debris testing, nine have traceable scripted rewards, and one has conditional starting eligibility. [Audit and technology list](../src/server/Docs/TECHNOLOGY_DEBRIS_AUDIT_EN.md)
+
+## 2026-11-21 — Condition text and tooltip collection reset
+
+Added handling for condition forms, scopes and typed acquisition sources. Added six inline sprite mappings, prepared MongoDB tooltip documents and a dedicated reset button. The maintenance profile specifies the certificate source for a full `wiki` drop.
+
+The v4.5.4 stand was rebuilt from 783 parsed script files. After a full `wiki` drop the loader imported and verified 345,269 documents across 106 collections. All previous localization keys were recovered, with 418 additional RU/EN records. The image profile processed 923 files. Import took 600 seconds and verification took 468 seconds.
+
+Browser acceptance opened all 679 technologies in both languages. It compared text, sources and reward addresses across 1,358 pages and checked inline images. Checks included calculated stockpile thresholds, clearing the collection from system settings and reading a prepared tooltip after a server restart. Of the 281 previously recorded check/flag combinations, 259 still carry diagnostics. The working reports include original expressions and their use sites. [Stand reconciliation](../../TMP/WEB_STTV/condition-text/reports/acceptance.json) · [Page checks](../../TMP/WEB_STTV/condition-text/reports/release/pages.json) · [Conditions](../../TMP/WEB_STTV/condition-text/reports/operands.json)
+
+## 2026-11-21 — Game condition text specification draft
+
+Acceptance includes a full browser sweep of all technology pages in RU and EN with a recorded result for every ID and language pair.
+
+The draft specifies a prepared tooltip collection and a collection-wide reset in system settings. After a reset, technology documents are rebuilt on demand.
+
+Drafted a shared server renderer for Russian and English condition descriptions. The specification covers operand shapes, subjects, nested logic, diagnostics and acceptance. The first-stage inventory lists 132 keys and paths. [Specification draft](../src/server/Docs/TZ_CONDITION_TEXT_EN.md)
+
+## 2026-11-21 — Technology page readability
+
+Audited the RU and EN pages of 679 technologies. Recorded affected technologies and examples for source names, conditions, inflection markup and six inline icons. Traced both the observation and crisis paths for Blue Lasers. [Survey findings](frontend/TECHNOLOGY_PAGE_READABILITY_EN.md)
+
+## 2026-11-21 — Acquisition sources and technology page
+
+Published directly addressable base technology pages with language and applied DLC settings. Left click opens persistent details, the context menu and middle click open the page. The server separates research options, ownership and partial progress and checks the recipient and callers of events and special projects. Added seven source directories to the parser and loader profiles. The acquisition index reset covers all three outcomes.
+
+Listed the technology page as a standalone UI view. Its content, navigation and acceptance checks have a [dedicated specification](frontend/elements/TZ_TECHNOLOGY_PAGE_EN.md).
+
+Surveyed all 679 base technologies in v4.5.4 for three types of named rewards and produced RU/EN lists and a source inventory. Drafted the three detail sections, left-click tooltip, context menu, new-tab behavior and a dedicated base technology page. [Draft specification and survey](frontend/TZ_TECHNOLOGY_PAGE_AND_ACQUISITION_EN.md)
+
+## 2026-11-21 — Research progress sources in import profiles
+
+The loader matches identity field names case-insensitively, preserves the ID value and reports duplicate matching fields. This applies to special projects, components and events. The parser prepared all 105 new files.
+
+Added ten directories to the parser and loader profiles and excluded seven documentation files. The first nine supplied 105 files. One further file defines 32 astral rifts and links their names to the initial events in reward chains. [Specification](../src/server/Docs/TZ_TOOLTIP_RESEARCH_PROGRESS_EN.md)
+
+Added a server index of `add_tech_progress` rewards, RU/EN tooltip content and reset operations in system settings. The v4.5.4 export matched 1,359 reward branches across 315 technologies by target, source and amount. Anomaly outcomes now support both a direct event reference and a nested `anomaly_event`. A second check found a caller for all 264 events. Checks for `distar.150` covered the condition for awarding 25% Living Metal research progress and the disabled Distant Stars label in both languages.
+
+Reloaded the test `wiki` database. Loading 343,716 documents into 92 collections took 570.35 s and independent verification against the export took 493.97 s. Restored the existing selection of 36 DLCs with 678 visible cards. Checked all 679 technologies through the API. Two concurrent first requests shared one 21.88 s index build. A repeat request for the same card took 0.011 s. Verified all three reset operations and preservation of the source collections. Browser checks covered reopening the Living Metal tooltip after a reset, switching languages and discarding a delayed response.
+
+## 2026-11-21 — Research progress and data reset specification draft
+
+The draft covers `add_tech_progress` sources, DLC requirement labels in tooltips, additional export directories and three reset operations in system settings. [Specification draft](../src/server/Docs/TZ_TOOLTIP_RESEARCH_PROGRESS_EN.md)
+
+The next deployment now calls for dropping the test `wiki` database, reloading the entire export, clearing server caches and rebuilding trees for previously used DLC selections. [Deployment procedure](../src/server/Docs/TZ_TOOLTIP_RESEARCH_PROGRESS_EN.md#publishing-this-stage-to-the-test-server)
 
 ## 2026-11-21 — Inline icons and trait levels in tooltips
 

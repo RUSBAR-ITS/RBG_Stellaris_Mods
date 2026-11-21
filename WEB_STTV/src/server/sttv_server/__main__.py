@@ -8,7 +8,6 @@ from pathlib import Path
 from .config import load_config
 from .database import connect, selected_strings
 from .http import make_server
-from .technology_tooltip import technology_tooltip
 from .tree.service import ReferenceTrees
 
 
@@ -25,8 +24,7 @@ def main():
         reader = partial(selected_strings, collection)
         trees = ReferenceTrees(collection.database, config['tree_rules'], config['key_rules'], reader,
                                config.get('tree_collection_prefix', 'tree_'))
-        tooltip = partial(technology_tooltip, collection.database, config['key_rules'], reader)
-        with make_server((http['host'], http['port']), reader, trees, tooltip) as server:
+        with make_server((http['host'], http['port']), reader, trees, trees.technology_tooltip) as server:
             server.serve_forever()
 
 

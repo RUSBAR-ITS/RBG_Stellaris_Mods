@@ -6,3 +6,4 @@
 .sttv-tabs [role=tabpanel] { min-height: 0; overflow: auto; flex: 1; padding: var(--sttv-control-padding); }
 .sttv-empire-mode { display: flex; gap: var(--sttv-control-padding); align-items: center; }
 .sttv-empire-inputs { border: 0; padding: 0; margin: 0; }
+.sttv-reset-actions { display: flex; flex-direction: column; align-items: flex-start; gap: var(--sttv-control-padding); }

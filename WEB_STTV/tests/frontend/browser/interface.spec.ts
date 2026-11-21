@@ -27,7 +27,7 @@ test('manual opening, language, theme, collapse, and refresh defaults', async ({
 test('card tooltip uses the prepared representation without manual variant controls', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page); await sttvReady(page);
   const card = page.locator('[data-technology-id="tech_example"]');
-  await card.hover();
+  await card.click();
   await expect(page.getByRole('tooltip')).toContainText('tech_example details');
   await expect(page.getByRole('tooltip')).toContainText('tech_example');
   const before = await sttvOffset(page);

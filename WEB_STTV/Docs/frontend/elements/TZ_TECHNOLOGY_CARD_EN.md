@@ -17,6 +17,8 @@
 
 ## Status and purpose
 
+In the reference tree, hover and focus highlight connections. Left click opens the details, the context menu opens the technology page, and middle click opens it in a new tab. [Card actions and technology page](../TZ_TECHNOLOGY_PAGE_AND_ACQUISITION_EN.md)
+
 Implemented the [stage 8 redesign](../TZ_FRONTEND_STAGE_8_EN.md): game icon, full name, attributes and area/rarity/danger styling. It replaces the earlier content and size restrictions below. This document retains design history; current behavior and verified scenarios are described in the [0.0.8 guide](../FRONTEND_STAGE_8_EN.md). Interactive variant switching remains deferred.
 
 This document records the technology card requirements agreed by the user on 2026-11-16: the tooltip contains both the name and description, and technology variants are selected manually through a dropdown with mouse and keyboard support. The element has not been implemented yet; remaining details are listed in the final section for further design.

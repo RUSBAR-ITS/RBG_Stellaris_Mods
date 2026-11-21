@@ -1,4 +1,5 @@
 .sttv-card {
+  display: block; text-decoration: none;
   width: var(--sttv-card-width); height: var(--sttv-card-height); flex: none;
   padding: var(--sttv-card-frame-inset); border: var(--sttv-card-frame-width) solid var(--sttv-card-frame-color);
   background: var(--sttv-card-frame-color); color: var(--sttv-card-color); border-radius: var(--sttv-radius);
