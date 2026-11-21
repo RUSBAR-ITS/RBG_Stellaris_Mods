@@ -1,0 +1,16 @@
+{
+  "ru": {
+    "PHYSICS": "Физика",
+    "SOCIETY": "Социология",
+    "ENGINEERING": "Инженерия",
+    "tech_titans": "Титаны",
+    "physics_research": "Физические исследования"
+  },
+  "en": {
+    "PHYSICS": "Physics",
+    "SOCIETY": "Society",
+    "ENGINEERING": "Engineering",
+    "tech_titans": "Titans",
+    "physics_research": "Physics Research"
+  }
+}

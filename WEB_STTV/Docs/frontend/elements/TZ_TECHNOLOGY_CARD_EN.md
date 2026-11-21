@@ -58,6 +58,8 @@ If the name does not fit, an ellipsis appears at the end of the visible portion 
 
 ## Name and description in the tooltip
 
+For a base technology in the reference tree, the description is followed by its required technologies, availability conditions and draw weight modifiers when present. [Extended tooltip content](../TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
+
 Hovering over any part of the card, including its padding, shows the shared tooltip. Moving the pointer away from the card hides it. The entire card is the anchor element. Opening the variant list hides the card tooltip; that card's tooltip is not shown while the list is open.
 
 The tooltip contains:

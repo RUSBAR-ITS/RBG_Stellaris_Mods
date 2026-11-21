@@ -1,0 +1,31 @@
+{
+  "game_root": "E:/SteamLibrary/steamapps/common/Stellaris",
+  "descriptor_directory": "../../TMP/WEB_STTV/database-inputs/artifacts/scripts/dlc",
+  "run_directory": "../../TMP/WEB_STTV/loader-images",
+  "destination_root": "/home/ansible/web-sttv/assets",
+  "groups": {
+    "technologies": {"directory": "gfx/interface/icons/technologies", "pattern": "*.dds"},
+    "categories": {"directory": "gfx/interface/icons/technologies/categories", "pattern": "category_*.dds"},
+    "research": {
+      "directory": "gfx/interface/icons/resources",
+      "files": ["physics_research.dds", "society_research.dds", "engineering_research.dds"]
+    },
+    "dlc": {"directory": "dlc", "descriptor_field": "thumbnail"}
+  },
+  "ssh": {
+    "host": "192.168.1.36",
+    "port": 22,
+    "user": "ansible",
+    "executable": "C:/Program Files/Git/usr/bin/ssh.exe",
+    "known_hosts": "stellaris_wiki_known_hosts",
+    "vault": {
+      "address": "https://192.168.1.211:8200",
+      "auth_mount": "rit-human-cert",
+      "role": "rusbar-personal",
+      "certificate": "CurrentUser\\MY\\CF16DDFF6DF7E138B63B37716E6C1C037881524A",
+      "path": "lab/data/accounts/automation/ansible",
+      "key_field": "ssh_private_key",
+      "passphrase_field": "ssh_private_key_passphrase"
+    }
+  }
+}

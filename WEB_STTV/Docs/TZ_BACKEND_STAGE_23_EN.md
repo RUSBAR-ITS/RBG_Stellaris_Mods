@@ -36,7 +36,7 @@ The loader and server each read their own configuration. In both, the `mongodb` 
 
 | Component | Default profile on the test system | Details |
 | --- | --- | --- |
-| Windows loader | `network` → `192.168.1.39:27017` | Gets the password and CA through its configured Vault access. The command takes the input package path. |
+| Windows loader | `network` → `192.168.1.36:27017` | Gets the password and CA through its configured Vault access. The command takes the input package path. |
 | Ubuntu server on the MongoDB host | `local` → `127.0.0.1:27017` | Uses a secret accessible to the service and the test system's public CA at `/etc/wiki-tls/ca.pem`. The HTTP bind address and port are configured separately. |
 
 Both test profiles use `wiki` for the database and `authSource`, SCRAM-SHA-256 and TLS with hostname verification. Loopback refers to the host running the component. A server running on another host selects `network` in its own configuration.

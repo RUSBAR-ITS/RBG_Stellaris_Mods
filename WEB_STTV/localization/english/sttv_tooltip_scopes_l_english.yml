@@ -1,0 +1,34 @@
+﻿l_english:
+# Object quantifiers
+ sttv_tooltip_any_agreement: "At least one of the empire’s agreements"
+ sttv_tooltip_any_country: "At least one empire"
+ sttv_tooltip_any_member: "At least one federation member"
+ sttv_tooltip_any_neighbor_country: "At least one neighbouring empire"
+ sttv_tooltip_any_owned_leader: "At least one recruited leader"
+ sttv_tooltip_any_owned_nonprimary_starbase: "At least one owned station other than a primary starbase"
+ sttv_tooltip_any_owned_planet: "At least one planet owned by the empire"
+ sttv_tooltip_any_owned_pop_group: "At least one owned pop group"
+ sttv_tooltip_any_owned_species: "At least one species in the empire’s population"
+ sttv_tooltip_any_planet_within_border: "At least one planet within the empire’s borders"
+ sttv_tooltip_any_relation: "At least one empire with which the current empire has relations"
+ sttv_tooltip_any_system_megastructure: "At least one megastructure in this system"
+ sttv_tooltip_any_system_planet: "At least one planet in this system"
+ sttv_tooltip_any_system_within_border: "At least one system within the empire’s borders"
+
+# Scope changes
+ sttv_tooltip_federation: "$FEDERATION$"
+ sttv_tooltip_founder_species: "$FOUNDER_SPECIES$"
+ sttv_tooltip_owner: "$TRIGGER_OWNER$"
+ sttv_tooltip_owner_species: "$TRIGGER_OWNER_SPECIES$"
+ sttv_tooltip_prev: "Previous scope object"
+ sttv_tooltip_solar_system: "$SOLAR_SYSTEM$"
+ sttv_tooltip_space_owner?: "Owner of the system’s territory (if any)"
+ sttv_tooltip_species: "$TRIGGER_SPECIES$"
+ sttv_tooltip_this: "Current scope object"
+
+# General and compound checks
+ sttv_tooltip_always: "$ALWAYS$"
+ sttv_tooltip_always_no: "$NEVER$"
+ sttv_tooltip_exists: "The object “{target}” exists"
+ sttv_tooltip_is_same_value: "The current object is the same as “{target}”"
+ sttv_tooltip_calc_true_if: "Number of conditions met {comparison} {value}"

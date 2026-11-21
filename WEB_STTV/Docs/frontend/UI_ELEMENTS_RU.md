@@ -29,6 +29,7 @@
 - [Тултип](elements/TZ_TOOLTIP_RU.md).
 - [Панель состояния](elements/TZ_STATUS_PANEL_RU.md).
 - [Строка DLC](TZ_FRONTEND_STAGE_10_RU.md#3-список-dlc).
+- [Вкладки](elements/TZ_TABS_RU.md).
 
 ## Области и структура раскладки
 
@@ -48,3 +49,5 @@
 
 - [Основное окно](elements/TZ_MAIN_WINDOW_RU.md).
 - [Настройка DLC](TZ_FRONTEND_STAGE_10_RU.md).
+- [Настройки системы](TZ_FRONTEND_STAGE_11_RU.md#операции-с-бд).
+- [Настройки игры](TZ_FRONTEND_STAGE_11_RU.md#настройки-игры).

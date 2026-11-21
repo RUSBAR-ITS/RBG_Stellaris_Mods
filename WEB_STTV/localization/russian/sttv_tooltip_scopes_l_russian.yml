@@ -1,0 +1,34 @@
+﻿l_russian:
+# Object quantifiers
+ sttv_tooltip_any_agreement: "Хотя бы одно соглашение государства"
+ sttv_tooltip_any_country: "Хотя бы одно государство"
+ sttv_tooltip_any_member: "Хотя бы один член федерации"
+ sttv_tooltip_any_neighbor_country: "Хотя бы одна соседняя империя"
+ sttv_tooltip_any_owned_leader: "Хотя бы один нанятый лидер"
+ sttv_tooltip_any_owned_nonprimary_starbase: "Хотя бы одна станция во владении государства, кроме основных космических баз"
+ sttv_tooltip_any_owned_planet: "Хотя бы одна планета во владении государства"
+ sttv_tooltip_any_owned_pop_group: "Хотя бы одна группа поселений во владении"
+ sttv_tooltip_any_owned_species: "Хотя бы один вид населения государства"
+ sttv_tooltip_any_planet_within_border: "Хотя бы одна планета в пределах границ государства"
+ sttv_tooltip_any_relation: "Хотя бы одно государство, с которым у империи есть отношения"
+ sttv_tooltip_any_system_megastructure: "Хотя бы одно мегасооружение в этой системе"
+ sttv_tooltip_any_system_planet: "Хотя бы одна планета в этой системе"
+ sttv_tooltip_any_system_within_border: "Хотя бы одна система в пределах границ государства"
+
+# Scope changes
+ sttv_tooltip_federation: "$FEDERATION$"
+ sttv_tooltip_founder_species: "$FOUNDER_SPECIES$"
+ sttv_tooltip_owner: "$TRIGGER_OWNER$"
+ sttv_tooltip_owner_species: "$TRIGGER_OWNER_SPECIES$"
+ sttv_tooltip_prev: "Предыдущий объект проверки"
+ sttv_tooltip_solar_system: "$SOLAR_SYSTEM$"
+ sttv_tooltip_space_owner?: "Владелец территории системы (если есть)"
+ sttv_tooltip_species: "$TRIGGER_SPECIES$"
+ sttv_tooltip_this: "Текущий объект проверки"
+
+# General and compound checks
+ sttv_tooltip_always: "$ALWAYS$"
+ sttv_tooltip_always_no: "$NEVER$"
+ sttv_tooltip_exists: "Существует объект «{target}»"
+ sttv_tooltip_is_same_value: "Текущий объект совпадает с объектом «{target}»"
+ sttv_tooltip_calc_true_if: "Число выполненных условий {comparison} {value}"

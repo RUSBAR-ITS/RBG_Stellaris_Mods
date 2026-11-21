@@ -29,6 +29,7 @@
 - [Tooltip](elements/TZ_TOOLTIP_EN.md).
 - [Status panel](elements/TZ_STATUS_PANEL_EN.md).
 - [DLC row](TZ_FRONTEND_STAGE_10_EN.md#3-dlc-list).
+- [Tabs](elements/TZ_TABS_EN.md).
 
 ## Regions and layout structure
 
@@ -48,3 +49,5 @@
 
 - [Main window](elements/TZ_MAIN_WINDOW_EN.md).
 - [DLC settings](TZ_FRONTEND_STAGE_10_EN.md).
+- [System settings](TZ_FRONTEND_STAGE_11_EN.md#database-operations).
+- [Game settings](TZ_FRONTEND_STAGE_11_EN.md#game-settings).

@@ -17,7 +17,9 @@ A local interactive web reference for Stellaris technologies. The first interfac
 
 ## Status
 
-On the game workstation, `prepare-all` produces the expanded scripts for 30 datasets and a separate RU/EN dictionary in one run. The profile specifies the local artifact directories. [Run instructions](../Instruments/Stellaris_Parser/README_EN.md#full-preparation)
+The frontend uses the tree and localization APIs. [Current interface](Docs/frontend/FRONTEND_STAGE_11_EN.md)
+
+On the game workstation, `prepare-all` produces the expanded scripts, including policies and bypass types, and a separate RU/EN dictionary in one run. The profile specifies the sources and local artifact directories. [Profile](config/parser_sources.json) · [Run instructions](../Instruments/Stellaris_Parser/README_EN.md#full-preparation)
 
 The standalone loader imports prepared game objects and localization JSON into MongoDB. The loader configuration defines input paths, collections and connection profiles. [Running and verifying a load](src/loader/README_EN.md)
 
@@ -43,7 +45,7 @@ The field opens at 50%. The menu offers 50%, 75%, 100%, 125% and 150%; zoom pers
 
 ## Running the frontend
 
-Run `npm ci` and `npm run dev` from `WEB_STTV` using Node.js 24. Open `http://127.0.0.1:5173/`. Run fixture tests using `npm test` and `npm run test:browser`. Connecting the technology tree to the server database is a subsequent stage.
+Open the test site in a browser and choose **Technology tree**. Under **Game settings → DLC**, change the selection and choose **Apply**. The reference mode switch is on the **Empire settings** tab. To clear generated trees, open **System settings → Database operations**. [Test site](http://192.168.1.36:5173/) · [Stage 11 guide](Docs/frontend/FRONTEND_STAGE_11_EN.md)
 
 ## Directory structure
 
@@ -52,6 +54,7 @@ Run `npm ci` and `npm run dev` from `WEB_STTV` using Node.js 24. Open `http://12
 | `src/frontend/` | Interface code |
 | `src/backend/` | Python processing and subsequent local-service code |
 | `src/loader/` | Standalone MongoDB loader and its tests |
+| `src/server/` | Game localization server. [Startup and batch lookup](src/server/README_EN.md) |
 | `config/` | Sources, output paths, parser, library and localization configurations |
 | `schemas/` | 41 generated configuration, database, and report schemas |
 | `../TMP/WEB_STTV/` | Default working folder for the database, reports, temporary output, and checks |

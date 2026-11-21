@@ -37,7 +37,9 @@
       "common/traditions/**/*.txt",
       "common/tradition_categories/**/*.txt",
       "common/crisis_paths/**/*.txt",
-      "common/crisis_levels/**/*.txt"
+      "common/crisis_levels/**/*.txt",
+      "common/policies/**/*.txt",
+      "common/bypass/**/*.txt"
     ]
   },
   "batch_size": 1000,
@@ -54,17 +56,21 @@
         "sources": [
           "RU_LOC_TIER_1",
           "RU_LOC_TIER_2",
-          "RU_LOC_TIER_3"
+          "RU_LOC_TIER_3",
+          "STTV_LOC_RU"
         ]
       },
       "en": {
         "header": "l_english",
         "sources": [
-          "EN_LOC_TIER_1"
+          "EN_LOC_TIER_1",
+          "STTV_LOC_EN"
         ]
       }
     },
     "directories": {
+      "STTV_LOC_RU": "../localization/russian",
+      "STTV_LOC_EN": "../localization/english",
       "RU_LOC_TIER_1": "E:/SteamLibrary/steamapps/workshop/content/281990/681483874/localisation/replace",
       "RU_LOC_TIER_2": "E:/SteamLibrary/steamapps/workshop/content/281990/681483874/localisation/russian",
       "RU_LOC_TIER_3": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/russian",

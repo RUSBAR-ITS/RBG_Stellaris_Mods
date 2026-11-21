@@ -13,7 +13,7 @@
         "password_env": "STTV_MONGO_PASSWORD"
       },
       "network": {
-        "host": "192.168.1.39",
+        "host": "192.168.1.36",
         "port": 27017,
         "database": "wiki",
         "username": "wiki",
@@ -257,6 +257,18 @@
       "path": "scripts/common/crisis_levels",
       "collection": "crisis_levels",
       "provenance": "crisis_levels_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/policies",
+      "collection": "policies",
+      "provenance": "policies_provenance",
+      "identity": "key"
+    },
+    {
+      "path": "scripts/common/bypass",
+      "collection": "bypass",
+      "provenance": "bypass_provenance",
       "identity": "key"
     },
     {

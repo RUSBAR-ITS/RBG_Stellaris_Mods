@@ -1,23 +1,22 @@
+import { SttvTreeError } from '../../src/frontend/data/tree/contract';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { sttvAdaptDatabase } from '../../src/frontend/data/adapter';
-import { sttvLayout } from '../../src/frontend/data/tree/layout';
 import { sttvConnectAreas } from '../../src/frontend/data/connections/layout';
 import { sttvConnectionRole } from '../../src/frontend/data/connections/segments';
 import { sttvValidateConnections } from '../../src/frontend/data/connections/validation';
 import { sttvAttachment } from '../../src/frontend/data/connections/points';
-import { sttvPlaceTrees } from '../../src/frontend/data/tree/placement';
-import { SttvPreparationError } from '../../src/frontend/workers/diagnostics';
+import { sttvPlaceTrees } from './placementFixture';
 import config from '../../config/frontend/connections.json';
 import dimensions from '../../config/frontend/interface.json';
-import { sttvCombination, sttvConnect } from './treeFixtures';
-import { sttvDatabase, sttvTechnology } from './fixtures';
 
 function prepare(tiers: Record<string, number>, parents: Record<string, string | null>) {
-  const nodes = Object.entries(tiers).map(([id, tier]) => sttvTechnology(id, tier));
-  sttvConnect(nodes, parents);
-  const data = { ...sttvAdaptDatabase(sttvDatabase(nodes)), treeCombination: sttvCombination(Object.keys(tiers)) };
-  return { data, layout: sttvLayout(data, 'en') };
+  const nodes = new Map(Object.entries(tiers).map(([id, column]) => [id, { column, children: [] as string[] }]));
+  const roots = [...nodes.keys()].filter(id => !parents[id]).sort();
+  for (const [id, parent] of Object.entries(parents)) if (parent) nodes.get(parent)!.children.push(id);
+  const placed = sttvPlaceTrees(roots, nodes, () => (a, b) => a.localeCompare(b));
+  const columns = 1 + Math.max(...Object.values(tiers));
+  const connected = sttvConnectAreas([{ area: 'physics', roots, ...placed }], parents, columns);
+  return { layout: { ...connected, report: { connections: connected.report }, columnCount: columns } };
 }
 const pairs = (routes: { parent: string; child: string }[]) => routes.map(r => [r.parent, r.child] as [string, string]);
 
@@ -64,9 +63,10 @@ test('children on opposite sides share the same exit corner without a displaced 
 });
 
 test('expansion preserves logical placement, independent trees reuse gaps, and output is reproducible', () => {
-  const { data, layout } = prepare({ A: 0, B: 1, C: 0, D: 0, E: 0, F: 2 },
-    { B: 'A', C: 'A', D: 'C', E: 'A', F: 'D' });
-  const repeated = sttvLayout(data, 'en');
+  const tiers = { A: 0, B: 1, C: 0, D: 0, E: 0, F: 2 };
+  const parents = { B: 'A', C: 'A', D: 'C', E: 'A', F: 'D' };
+  const { layout } = prepare(tiers, parents);
+  const repeated = prepare(tiers, parents).layout;
   assert.deepEqual(repeated.areas, layout.areas);
   assert.equal(layout.report.connections.logicalConnections, 5);
   for (const area of layout.areas) for (const card of area.cards) {
@@ -75,11 +75,11 @@ test('expansion preserves logical placement, independent trees reuse gaps, and o
     assert.equal(area.geometry.cards[card.id].x, layout.columns[card.column]);
   }
   assert.ok(layout.report.connections.leftPadding >= dimensions.fieldPadding);
-  const area = layout.areas[0], parents = Object.fromEntries(Object.values(data.technologies).map(t => [t.id, t.tree.parent_tech]));
+  const area = layout.areas[0];
   const duplicate = { area: 'society', roots: area.roots.map(id => `copy_${id}`), rowCount: area.rowCount,
     cards: area.cards.map(c => ({ ...c, id: `copy_${c.id}` })) };
   const copiedParents = Object.fromEntries(Object.entries(parents).map(([id, parent]) => [`copy_${id}`, parent ? `copy_${parent}` : null]));
-  const both = sttvConnectAreas([area, duplicate], { ...parents, ...copiedParents }, layout.tiers.length);
+  const both = sttvConnectAreas([area, duplicate], { ...parents, ...copiedParents }, layout.columnCount);
   assert.deepEqual(both.report.columnGaps, layout.report.connections.columnGaps);
   assert.equal(both.report.leftPadding, layout.report.connections.leftPadding);
 });
@@ -88,7 +88,7 @@ test('independent geometry validation rejects card penetration, foreign overlaps
   const original = prepare({ A: 0, B: 1, C: 2 }, { B: 'A', C: 'B' }).layout.areas[0].geometry;
   const expected = pairs(original.routes);
   const assertFailure = (geometry: typeof original) => assert.throws(() => sttvValidateConnections(geometry, expected),
-    (error: unknown) => error instanceof SttvPreparationError && error.diagnostic.code === 'tree_connections_failed');
+    (error: unknown) => error instanceof SttvTreeError && error.code === 'tree_connections_failed');
   const missing = structuredClone(original); missing.routes.pop(); assertFailure(missing);
   const crossing = structuredClone(original);
   const s = crossing.segments[0];
@@ -102,8 +102,8 @@ test('routing exhaustion produces bounded, contextual diagnostics', () => {
   const area = { area: 'physics', roots: ['A'], rowCount: 1,
     cards: [{ id: 'A', column: 0, row: 0 }, { id: 'B', column: 0, row: 0 }] };
   assert.throws(() => sttvConnectAreas([area], { A: null, B: 'A' }, 1, { ...config, maxLaneAttempts: 1 }),
-    (error: unknown) => error instanceof SttvPreparationError && error.diagnostic.details.parent === 'A'
-      && error.diagnostic.details.child === 'B' && !!error.diagnostic.details.settings);
+    (error: unknown) => error instanceof SttvTreeError && error.details.parent === 'A'
+      && error.details.child === 'B' && !!error.details.settings);
 });
 
 test('varied nested trees bridge crossings while retaining the original placement', () => {

@@ -1,4 +1,4 @@
-import type { SttvRepresentation, SttvTechnology } from '../../data/model';
+import type { SttvRepresentation, SttvCardTechnology } from '../../data/model';
 import { sttvUseLocalization } from '../../localization/context';
 import { sttvTechnologyName } from '../../data/tree/comparison';
 import { SttvResourceImage } from '../base/ResourceImage';
@@ -10,7 +10,7 @@ export function SttvAttributeRow({ label, children }: { label: string; children:
 }
 
 export function SttvCardContent({ technology: tech, representation: rep, resourceIcon, measuring = false }:
-  { technology: SttvTechnology; representation: SttvRepresentation; resourceIcon: string | null; measuring?: boolean }) {
+  { technology: SttvCardTechnology; representation: SttvRepresentation; resourceIcon: string | null; measuring?: boolean }) {
   const { text, language } = sttvUseLocalization();
   const number = new Intl.NumberFormat(language, { maximumFractionDigits: 10 });
   const information = [rep.categories.map(id => text({ source: 'database', id })).join(text({ id: 'sttv_category_separator' })),

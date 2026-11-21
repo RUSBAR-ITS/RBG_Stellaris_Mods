@@ -1,0 +1,655 @@
+{
+  "layout": {
+    "starting_roots_first": true,
+    "ignored_id_characters": "0123456789",
+    "sort_locales": {
+      "ru": "ru",
+      "en": "en"
+    },
+    "repeatable": {
+      "levels": -1,
+      "game_tier": 5,
+      "display_tier": 6,
+      "requires_prerequisite": true
+    }
+  },
+  "reference_facts": {
+    "country": {
+      "is_nomadic": {
+        "yes": false,
+        "no": true
+      },
+      "uses_ship_category": {
+        "bio_ship": false
+      },
+      "has_ethic": {
+        "ethic_gestalt_consciousness": false
+      },
+      "has_authority": {
+        "auth_machine_intelligence": false,
+        "auth_hive_mind": false
+      },
+      "exists": {
+        "this": true
+      },
+      "always": {
+        "yes": true,
+        "no": false
+      }
+    },
+    "founder_species": {
+      "is_archetype": {
+        "MACHINE": false,
+        "ROBOT": false
+      },
+      "always": {
+        "yes": true,
+        "no": false
+      }
+    }
+  },
+  "empire_predicates": [
+    "is_nomadic",
+    "has_origin",
+    "has_authority",
+    "has_ethic",
+    "has_civic",
+    "has_valid_civic",
+    "uses_ship_category",
+    "is_archetype",
+    "has_federation_perk"
+  ],
+  "exclusive_predicates": [
+    "has_origin",
+    "has_authority",
+    "is_archetype"
+  ],
+  "parent_rules": [
+    {
+      "id": "normalized_id",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "same_area",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "same_category",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "mandatory",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "direct_upgrades",
+      "enabled": true,
+      "parameters": {
+        "mappings": [
+          {
+            "kind": "components",
+            "field": "upgrades_to",
+            "direction": "forward"
+          },
+          {
+            "kind": "buildings",
+            "field": "upgrades",
+            "direction": "forward"
+          }
+        ]
+      }
+    },
+    {
+      "id": "same_potential",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "functional_groups",
+      "enabled": true,
+      "parameters": {
+        "ship": {
+          "group": "mobile_combat_ship",
+          "kind": "ship_sizes",
+          "speed_field": "max_speed",
+          "roles_field": "ship_roles",
+          "roles": [
+            "artillery",
+            "carrier",
+            "gunship"
+          ]
+        },
+        "terraform": {
+          "group": "planet_class_change",
+          "kind": "terraform",
+          "type": "terraform_link",
+          "from_field": "from",
+          "to_field": "to",
+          "condition_field": "condition",
+          "predicate": "has_technology"
+        },
+        "weapon": {
+          "group": "anti_ship_weaponry",
+          "kinds": [
+            "components",
+            "buildings",
+            "ship_sizes",
+            "starbase_buildings",
+            "starbase_modules",
+            "megastructures"
+          ],
+          "component_kind": "components",
+          "component_type": "weapon_component_template",
+          "action_field": "scripted_action",
+          "action_kind": "scripted_actions",
+          "completion_field": "on_completed",
+          "hook_kind": "on_actions",
+          "events_field": "events",
+          "event_kind": "events",
+          "effect_field": "immediate",
+          "damage_command": "damage_ship",
+          "excluded_effect_sections": [
+            "limit",
+            "potential",
+            "allow",
+            "possible",
+            "weight_modifier",
+            "ai_weight"
+          ]
+        }
+      }
+    },
+    {
+      "id": "direct_relations",
+      "enabled": true,
+      "parameters": {
+        "kinds": [
+          "components",
+          "buildings",
+          "ship_sizes",
+          "starbase_buildings",
+          "starbase_modules",
+          "megastructures"
+        ],
+        "sections": [
+          "potential",
+          "allow",
+          "possible",
+          "triggered_station_modifier"
+        ],
+        "relations": {
+          "has_starbase_size": "ship_sizes",
+          "has_starbase_module": "starbase_modules",
+          "has_starbase_building": "starbase_buildings",
+          "has_building": "buildings",
+          "has_megastructure": "megastructures"
+        },
+        "operators": [
+          "=",
+          ">="
+        ],
+        "queue": {
+          "command": "starbase_buildable_is_in_queue_before",
+          "field": "first",
+          "kinds": [
+            "starbase_modules",
+            "starbase_buildings"
+          ]
+        }
+      }
+    },
+    {
+      "id": "indirect_affinity",
+      "enabled": true,
+      "parameters": {
+        "depth": 1,
+        "kind": "components",
+        "modifier_block": "ship_modifier"
+      }
+    },
+    {
+      "id": "production_affinity",
+      "enabled": true,
+      "parameters": {
+        "generation_fields": {
+          "generate_mult_modifiers": "mult",
+          "generate_add_modifiers": "add"
+        },
+        "modifier_pattern": "{category}_produces_{suffix}",
+        "job_modifier_pattern": "job_{job}_add",
+        "provider_kind": "buildings",
+        "provider_blocks": [
+          "planet_modifier",
+          "triggered_planet_modifier"
+        ]
+      }
+    },
+    {
+      "id": "capacity_affinity",
+      "enabled": true,
+      "parameters": {
+        "mappings": [
+          {
+            "modifier": "country_starbase_capacity_add",
+            "kind": "starbase_levels",
+            "usage_field": "starbase_capacity_used",
+            "linked_field": "ship_size",
+            "linked_kind": "ship_sizes"
+          }
+        ]
+      }
+    },
+    {
+      "id": "standard_empire",
+      "enabled": true,
+      "parameters": {}
+    },
+    {
+      "id": "highest_tier",
+      "enabled": true,
+      "parameters": {}
+    }
+  ],
+  "dlc": {
+    "acquisition_predicates": ["has_crisis_level"],
+    "format": "sttv.dlc_rules",
+    "format_version": 2,
+    "predicates": [
+      "host_has_dlc"
+    ],
+    "constants": {
+      "always": {
+        "yes": true,
+        "no": false
+      }
+    },
+    "wrappers": [
+      "hidden_trigger",
+      "custom_tooltip"
+    ],
+    "ignored_wrapper_fields": [
+      "text"
+    ],
+    "potential_field": "potential",
+    "weight_field": "weight_modifier",
+    "modifier_field": "modifier",
+    "factor_field": "factor",
+    "unsupported_actions": [
+      "add",
+      "mult",
+      "base",
+      "weight"
+    ],
+    "catalog": {
+      "database": "dlcs",
+      "name_field": "name"
+    },
+    "context": "playable_empire",
+    "limits": {
+      "max_depth": 128,
+      "max_nodes": 250000,
+      "max_steps": 2000000
+    },
+    "government_requirements": {
+      "origin": "has_origin",
+      "civics": "has_civic",
+      "authority": "has_authority"
+    },
+    "scopes": {
+      "founder_species": {
+        "from": [
+          "country"
+        ],
+        "to": "species"
+      }
+    },
+    "required_datasets": [
+      "ascension_perks",
+      "authorities",
+      "civics",
+      "graphical_culture",
+      "ship_categories",
+      "species_archetypes",
+      "species_classes",
+      "technologies",
+      "tradition_categories",
+      "traditions",
+      "traits",
+      "crisis_paths",
+      "crisis_levels"
+    ],
+    "rules": [
+      {
+        "id": "ship_category",
+        "enabled": true,
+        "handler": "ship_category",
+        "predicates": [
+          "uses_ship_category"
+        ],
+        "database": "ship_categories",
+        "purpose": "selection",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [],
+        "source": "common/ship_categories",
+        "diagnostic_code": "dlc_object_dependency",
+        "providers": {
+          "rule": "ship_provider",
+          "fields": [
+            "ship_kinds"
+          ]
+        }
+      },
+      {
+        "id": "ship_provider",
+        "enabled": true,
+        "handler": "object",
+        "predicates": [],
+        "database": "graphical_culture",
+        "purpose": "selection",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "selectable",
+            "context": "country"
+          }
+        ],
+        "source": "common/graphical_culture",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "origin",
+        "enabled": true,
+        "handler": "object",
+        "predicates": [
+          "has_origin"
+        ],
+        "database": "civics",
+        "purpose": "selection",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "playable",
+            "context": "country"
+          },
+          {
+            "field": "potential",
+            "context": "government"
+          },
+          {
+            "field": "possible",
+            "context": "government"
+          }
+        ],
+        "source": "common/governments/civics",
+        "diagnostic_code": "dlc_object_dependency",
+        "selector": {
+          "field": "is_origin",
+          "value": "yes",
+          "default": "no"
+        }
+      },
+      {
+        "id": "civic",
+        "enabled": true,
+        "handler": "object",
+        "predicates": [
+          "has_civic",
+          "has_valid_civic"
+        ],
+        "database": "civics",
+        "purpose": "acquisition",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "playable",
+            "context": "country"
+          },
+          {
+            "field": "potential",
+            "context": "government"
+          },
+          {
+            "field": "possible",
+            "context": "government"
+          }
+        ],
+        "source": "common/governments/civics",
+        "diagnostic_code": "dlc_object_dependency",
+        "selector": {
+          "field": "is_origin",
+          "value": "no",
+          "default": "no"
+        }
+      },
+      {
+        "id": "authority",
+        "enabled": true,
+        "handler": "object",
+        "predicates": [
+          "has_authority"
+        ],
+        "database": "authorities",
+        "purpose": "acquisition",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "playable",
+            "context": "country"
+          },
+          {
+            "field": "potential",
+            "context": "government"
+          },
+          {
+            "field": "possible",
+            "context": "government"
+          }
+        ],
+        "source": "common/governments/authorities",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "ascension_perk",
+        "enabled": true,
+        "handler": "object",
+        "predicates": [
+          "has_ascension_perk"
+        ],
+        "database": "ascension_perks",
+        "purpose": "acquisition",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "potential",
+            "context": "country"
+          },
+          {
+            "field": "possible",
+            "context": "country"
+          }
+        ],
+        "source": "common/ascension_perks",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "tradition",
+        "enabled": true,
+        "handler": "tradition",
+        "predicates": [
+          "has_tradition"
+        ],
+        "database": "traditions",
+        "purpose": "acquisition",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "potential",
+            "context": "country"
+          },
+          {
+            "field": "possible",
+            "context": "country"
+          }
+        ],
+        "source": "common/traditions",
+        "diagnostic_code": "dlc_object_dependency",
+        "providers": {
+          "rule": "tradition_category",
+          "fields": [
+            "traditions",
+            "adoption_bonus",
+            "finish_bonus"
+          ]
+        }
+      },
+      {
+        "id": "tradition_category",
+        "enabled": true,
+        "handler": "object",
+        "predicates": [],
+        "database": "tradition_categories",
+        "purpose": "acquisition",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [
+          {
+            "field": "potential",
+            "context": "country"
+          },
+          {
+            "field": "possible",
+            "context": "country"
+          }
+        ],
+        "source": "common/tradition_categories",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "trait",
+        "enabled": true,
+        "handler": "observe",
+        "predicates": [
+          "has_trait"
+        ],
+        "database": "traits",
+        "purpose": "observation",
+        "contexts": [
+          "country",
+          "government",
+          "species"
+        ],
+        "gates": [],
+        "source": "common/traits",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "species_class",
+        "enabled": true,
+        "handler": "observe",
+        "predicates": [
+          "is_species_class"
+        ],
+        "database": "species_classes",
+        "purpose": "observation",
+        "contexts": [
+          "species",
+          "government"
+        ],
+        "gates": [],
+        "source": "common/species_classes",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "species_archetype",
+        "enabled": true,
+        "handler": "observe",
+        "predicates": [
+          "is_archetype"
+        ],
+        "database": "species_archetypes",
+        "purpose": "observation",
+        "contexts": [
+          "species",
+          "government"
+        ],
+        "gates": [],
+        "source": "common/species_archetypes",
+        "diagnostic_code": "dlc_object_dependency"
+      },
+      {
+        "id": "technology",
+        "enabled": true,
+        "handler": "technology",
+        "predicates": [
+          "has_technology"
+        ],
+        "database": "technologies",
+        "purpose": "acquisition",
+        "contexts": [
+          "country",
+          "government"
+        ],
+        "gates": [],
+        "source": "common/technology; acquisition index",
+        "diagnostic_code": "dlc_object_dependency"
+      }
+    ]
+  },
+  "catalogs": [
+    "ascension_perks",
+    "authorities",
+    "buildings",
+    "civics",
+    "components",
+    "crisis_levels",
+    "crisis_paths",
+    "dlcs",
+    "economic_categories",
+    "events",
+    "graphical_culture",
+    "localization",
+    "megastructures",
+    "on_actions",
+    "pop_jobs",
+    "scripted_actions",
+    "ship_categories",
+    "ship_sizes",
+    "species_archetypes",
+    "species_classes",
+    "starbase_buildings",
+    "starbase_levels",
+    "starbase_modules",
+    "technologies",
+    "terraform",
+    "tradition_categories",
+    "traditions",
+    "traits"
+  ]
+}

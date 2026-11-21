@@ -1,11 +1,11 @@
 import { useLayoutEffect, useRef } from 'react';
-import type { SttvCatalog } from '../../data/model';
+import type { SttvCardCatalog } from '../../data/model';
 import { sttvRepresentation } from '../../data/tree/comparison';
 import { SttvCardContent } from './CardContent';
 import dimensions from '../../../../config/frontend/interface.json';
 import { sttvUseLocalization } from '../../localization/context';
 
-export function SttvCardMeasurement({ data, onMeasure }: { data: SttvCatalog; onMeasure: (height: number) => void }) {
+export function SttvCardMeasurement({ data, onMeasure }: { data: SttvCardCatalog; onMeasure: (height: number) => void }) {
   const root = useRef<HTMLDivElement>(null);
   const { language } = sttvUseLocalization();
   useLayoutEffect(() => {
@@ -18,7 +18,7 @@ export function SttvCardMeasurement({ data, onMeasure }: { data: SttvCatalog; on
     return () => { active = false; };
   }, [data, language, onMeasure]);
   return <div ref={root} className="sttv-card-measurement" aria-hidden="true">
-    {Object.values(data.technologies).filter(t => t.tree.visibility?.visible !== false).map(tech => {
+    {Object.values(data.technologies).map(tech => {
       const rep = sttvRepresentation(tech, data.treeCombination.parameters.variants);
       return <div key={tech.id} className="sttv-card" data-area={rep.area}>
         <SttvCardContent technology={tech} representation={rep} measuring

@@ -1,0 +1,8 @@
+.sttv-tabs { display: flex; flex-direction: column; height: 100%; color: var(--sttv-body-color); font: var(--sttv-body-font); }
+.sttv-tabs [role=tablist] { display: flex; gap: var(--sttv-control-padding); padding: var(--sttv-control-padding); border-bottom: 1px solid var(--sttv-tab-border); }
+.sttv-tabs [role=tab] { background: transparent; color: var(--sttv-tab-color); font: var(--sttv-tab-font); border: 0; border-bottom: 2px solid transparent; padding: var(--sttv-control-padding); cursor: pointer; }
+.sttv-tabs [role=tab][aria-selected=true] { border-bottom-color: var(--sttv-tab-selected); }
+.sttv-tabs [role=tab]:focus-visible { outline: var(--sttv-focus-width) solid var(--sttv-tab-focus); }
+.sttv-tabs [role=tabpanel] { min-height: 0; overflow: auto; flex: 1; padding: var(--sttv-control-padding); }
+.sttv-empire-mode { display: flex; gap: var(--sttv-control-padding); align-items: center; }
+.sttv-empire-inputs { border: 0; padding: 0; margin: 0; }

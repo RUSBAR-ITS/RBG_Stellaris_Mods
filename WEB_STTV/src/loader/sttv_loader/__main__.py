@@ -1,4 +1,4 @@
-"""Manage MongoDB and load configured JSON sources."""
+"""Import configured documents into MongoDB or upload game images over SSH."""
 
 import argparse
 import json
@@ -29,6 +29,11 @@ def collection_versions(db, names):
 
 def run(action, config_path, profile=None):
     config_path = Path(config_path).resolve()
+    if action == 'upload-images':
+        if profile is not None:
+            raise ValueError('--profile applies only to MongoDB commands')
+        from .image_upload import upload_images
+        return upload_images(config_path)
     config = settings(config_path, profile)
     inputs = Inputs(config.options, config_path.parent)
     if any(config.scratch.is_relative_to(source.path) for source in inputs.sources):
@@ -58,7 +63,7 @@ def run(action, config_path, profile=None):
 
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
-    cli.add_argument('action', choices=('create', 'drop', 'load', 'verify'))
+    cli.add_argument('action', choices=('create', 'drop', 'load', 'verify', 'upload-images'))
     cli.add_argument('--config', required=True)
     cli.add_argument('--profile')
     args = cli.parse_args()

@@ -1,8 +1,9 @@
-# MongoDB loader
+# Document and game image loader
 
 ## Contents
 
 - [Running the loader](#running-the-loader)
+- [Uploading images over SSH](#uploading-images-over-ssh)
 - [Inputs and documents](#inputs-and-documents)
 - [Publication and recovery](#publication-and-recovery)
 - [Checks](#checks)
@@ -22,7 +23,24 @@ sttv-loader verify --config WEB_STTV/config/loader.json --profile network
 
 The `network` profile uses Vault and a certificate from the Windows certificate store to obtain the MongoDB password and trusted CA. The `local` profile reads the password from the configured environment variable and the CA from a file. Both use TLS and SCRAM-SHA-256. [Configuration](../../config/loader.json)
 
+## Uploading images over SSH
+
+Use the image extra on the Windows workstation with Stellaris installed. From the repository root run
+
+```powershell
+python -m pip install ./Instruments/Document_Package "./WEB_STTV/src/loader[images]"
+sttv-loader upload-images --config WEB_STTV/config/loader_images.json
+```
+
+`game_root` points to the Stellaris installation and `descriptor_directory` to the prepared DLC descriptor JSON files. The command selects technology and category icons, the three research area icons and declared DLC thumbnails from the game. Prepared PNG files appear under `run_directory/artifacts/` at game-relative paths. [Configuration](../../config/loader_images.json) · [Selection rules](Docs/TZ_IMAGE_UPLOAD_EN.md)
+
+The SSH user needs write access to the existing `destination_root`. The supplied configuration targets `/home/ansible/web-sttv/assets` on `stellaris-wiki`. Ubuntu needs `python3`. The loader verifies the host key against `known_hosts` and retrieves SSH credentials through the Windows certificate and Vault. The command runs independently of MongoDB and document import.
+
+A repeat invocation compares per-file SHA-256 digests and transfers only changes. After an interrupted transfer, rerun the same command. Each invocation writes a report under `run_directory/reports/upload-images-*.json` with selected, transferred and skipped counts by group, errors and elapsed time.
+
 ## Inputs and documents
+
+Policies and bypass types use the game key of the root block. The `policies` collection stores options and the flags they set. The `bypass` collection stores bypass definitions with their game localization keys. [Specification and checks](Docs/TZ_POLICIES_AND_BYPASS_EN.md)
 
 `input_root` and `scratch_directory` are relative to the configuration directory. Each entry in `sources` maps an input path relative to `input_root` to a collection. Script directories are scanned recursively for JSON. The most specific mapping applies to a nested directory or individual file.
 
@@ -43,6 +61,8 @@ The loader stages collections, checks the final BSON size, reads back the data a
 After failure, the `sttv__publication` journal lets the loader restore the previous set or finish cleaning up a committed load. After an abrupt exit, repeat `load` from the same workspace with the same `scratch_directory`. The separate `verify` command checks the published data in read-only mode.
 
 ## Checks
+
+Run the image preparation checks with `python -m unittest discover -s WEB_STTV/src/loader/tests -p "test_image*.py" -v`. For the transfer check, set `STTV_IMAGE_TEST_CONFIG` to an image configuration targeting a dedicated writable Ubuntu test directory. The test leaves its PNGs in a unique subdirectory there. It changes one image, truncates a transfer during replacement, checks the previous target digest and retries.
 
 Run `python -m unittest discover -s WEB_STTV/src/loader/tests -v` from the repository root. To enable the integration test, set `STTV_LOADER_TEST_CONFIG` to a configuration for a dedicated empty database whose name starts with `sttv_loader_test_`. The test recreates that database and drops it on completion.
 

@@ -2,6 +2,42 @@
 
 ## Contents
 
+- [2026-11-21 — extended tooltip on technology cards](#2026-11-21--extended-tooltip-on-technology-cards)
+
+- [2026-11-21 — published the tooltip API on the test site](#2026-11-21--published-the-tooltip-api-on-the-test-site)
+
+- [2026-11-21 — restored the test site at its new address](#2026-11-21--restored-the-test-site-at-its-new-address)
+
+- [2026-11-21 — server response for technology tooltips](#2026-11-21--server-response-for-technology-tooltips)
+
+- [2026-11-21 — logic and weight in the tooltip dictionary](#2026-11-21--logic-and-weight-in-the-tooltip-dictionary)
+
+- [2026-11-21 — scopes in technology tooltips](#2026-11-21--scopes-in-technology-tooltips)
+
+- [2026-11-21 — game condition translations](#2026-11-21--game-condition-translations)
+
+- [2026-11-21 — phrase dictionary specification](#2026-11-21--phrase-dictionary-specification)
+
+- [2026-11-21 — policies and bypass types](#2026-11-21--policies-and-bypass-types)
+
+- [2026-11-21 — technology tooltip content](#2026-11-21--technology-tooltip-content)
+
+- [2026-11-20 — server tree settings](#2026-11-20--server-tree-settings)
+
+- [2026-11-20 — server tree settings proposal](#2026-11-20--server-tree-settings-proposal)
+
+- [2026-11-20 — MongoDB reference tree](#2026-11-20--mongodb-reference-tree)
+
+- [2026-11-20 — server technology tree design](#2026-11-20--server-technology-tree-design)
+
+- [2026-11-20 — game image uploads](#2026-11-20--game-image-uploads)
+
+- [2026-11-20 — SSH image upload proposal](#2026-11-20--ssh-image-upload-proposal)
+
+- [2026-11-20 — game localization server](#2026-11-20--game-localization-server)
+
+- [2026-11-20 — game localization API draft](#2026-11-20--game-localization-api-draft)
+
 - [2026-11-20 — standalone MongoDB loader](#2026-11-20--standalone-mongodb-loader)
 
 - [2026-11-20 — standalone loader proposal](#2026-11-20--standalone-loader-proposal)
@@ -198,6 +234,89 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-21 — extended tooltip on technology cards
+
+Hovering over or focusing a card loads research conditions and weight modifiers. The tooltip preserves condition groups and operation order. The live browser check covered Titans in Russian and English and keyboard scrolling. Three tooltip browser tests passed, including retry after an error and rendering nested formulas. [Tooltip specification](frontend/TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
+
+## 2026-11-21 — published the tooltip API on the test site
+
+Updated the server modules and localization key rules on `stellaris-wiki`. Its proxy accepts `POST /api/trees/technology-tooltip` on port 5173. Workstation checks through this route covered six technologies in Russian and English, an unknown ID and malformed requests. The reference tree returns 678 visible technologies with all 36 DLC enabled. [API contract](../src/server/README_EN.md#technology-tooltip-content)
+
+## 2026-11-21 — restored the test site at its new address
+
+Moved the test site to `192.168.1.36` and updated the network profiles and the image loader’s pinned SSH host key entry. The VM’s nftables rule allows TCP 5173 from `192.168.1.0/24`. MongoDB and the web frontend listen on the current IPv4 address, and systemd starts the API and frontend at boot. Reissued the MongoDB server TLS certificate for `.36` and saved it in Vault. [Test site](http://192.168.1.36:5173/)
+
+## 2026-11-21 — server response for technology tooltips
+
+Added `POST /api/trees/technology-tooltip` for base technologies in Russian or English. It returns the name, description, complete prerequisites, availability checks and weight changes. Published the wording for the Galactic Archivism multiplier based on the acquired specimen count. Checked both languages across 679 technologies and 1,672 conditional weight modifiers. HTTP checks on Ubuntu covered six examples, an unknown ID and invalid requests. [Contract](../src/server/README_EN.md#technology-tooltip-content)
+
+## 2026-11-21 — logic and weight in the tooltip dictionary
+
+Published 21 RU/EN string pairs for logical groups, conditions and weight operations. Added argument mappings for nested checks and the council position used in a calculated multiplier. The acceptance check read all 136 templates in each language through the API and covered 121 game keys across four sections of 679 base technologies. [Dictionary](../src/server/Docs/TZ_TOOLTIP_DICTIONARY_EN.md)
+
+## 2026-11-21 — scopes in technology tooltips
+
+Published 28 RU/EN string pairs for 14 object quantifiers, 9 scope changes and 4 general checks in MongoDB. Verified both `always` forms, the `calc_true_if` threshold, API translations and nesting in three real technologies. All 27 constructs occurred in the scan of 679 technologies. [Dictionary](../src/server/Docs/TZ_TOOLTIP_DICTIONARY_EN.md#scopes-and-general-checks)
+
+## 2026-11-21 — game condition translations
+
+Published 87 RU/EN string pairs for 70 game conditions. Added the English project localization directory to the parser profile and the `tooltip_condition` context to the server key rules. The acceptance check read all 174 translations through the API, verified placeholders and static references, and checked coverage across 679 technologies. [Dictionary](../src/server/Docs/TZ_TOOLTIP_DICTIONARY_EN.md) · [Acceptance check](../tests/tooltip_dictionary_acceptance.py)
+
+## 2026-11-21 — phrase dictionary specification
+
+Drafted the server phrase dictionary specification for technology prerequisites, availability conditions and weight modifiers. It defines the rule format, name sources, Russian and English templates and coverage checks against the published database. [Draft specification](../src/server/Docs/TZ_TOOLTIP_DICTIONARY_EN.md)
+
+Catalogued all 121 keys across 679 technologies. The specification lists game checks, scopes and parts of expressions. Ordinary checks only need a phrase key and two translations. [List of checks](../src/server/Docs/TZ_TOOLTIP_DICTIONARY_EN.md#game-conditions)
+
+## 2026-11-21 — policies and bypass types
+
+Added the complete `common/policies` and `common/bypass` directories to the parser and loader profiles. Published 60 policies and 10 bypass types from nine files to the test database. Reconstructed all 70 trees from MongoDB and compared them with the JSON artifacts. Verified the options that set three policy flags and the Russian and English names of four bypass types. [Specification and acceptance criteria](../src/loader/Docs/TZ_POLICIES_AND_BYPASS_EN.md)
+
+## 2026-11-21 — technology tooltip content
+
+Drafted requirements for prerequisites, availability and weight modifiers. Checked the fields across 679 base technologies in MongoDB and included a complete Titans example. [Draft specification](frontend/TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
+
+## 2026-11-20 — server tree settings
+
+Added game and system settings tabs, the reference mode switch and tree clearing under Database operations. The server catalog supplies localized DLC names and thumbnail paths. Published 36 project Russian DLC names in MongoDB. Retired the directory importer, file worker and its report export. [Results and checks](frontend/FRONTEND_STAGE_11_EN.md)
+
+## 2026-11-20 — server tree settings proposal
+
+- Drafted the navigation, settings tabs, mode switch and directory interface retirement specifications. Comparison with the installed game identified a missing DLC name source. Verified delivery of 32 published thumbnails on the test server. [Stage 11 proposal](frontend/TZ_FRONTEND_STAGE_11_EN.md)
+- Drafted project-specific Russian titles for all 36 DLCs. The specification defines one localization document per key and server-side lookup. Checked 36 documents in memory and resolved 16 references to existing game strings. [Translation table](frontend/TZ_FRONTEND_STAGE_11_EN.md#proposed-titles)
+- Updated the proposed Russian title of Nemesis to “Немезис”.
+
+## 2026-11-20 — MongoDB reference tree
+
+The server computes visibility from DLCs, considers the child's own `potential` during parent selection, and stores children and RU/EN coordinates. The menu opens a tree on request, applies DLC settings and can clear all generated trees. [Running the server and using the API](../src/server/README_EN.md#technology-tree)
+
+The Ubuntu VM passed 15 server tests and the 12-profile DLC matrix over 679 technologies. Control IDs, edges, cache reuse and cleanup matched expectations. Client line routing passed on 24 layouts. The server returned 678 visible technologies with all DLCs and 464 with none. The Cosmogenesis `has_crisis_level` check accounts for the 16 additional technologies compared with the previous system. Incomplete coverage of crisis activation leaves that path undecided.
+
+## 2026-11-20 — server technology tree design
+
+- Added ten selective DLC sets and two boundary cases to the draft acceptance plan, each with expected visible and hidden technologies. [DLC profile matrix](../src/server/Docs/TZ_REFERENCE_TREE_EN.md#dlc-profile-matrix)
+- Added a menu button to the draft for clearing generated trees across all DLC sets. Specified the server response, repeat cleanup and behavior during an active build.
+- Drafted the MongoDB reference tree specification. It defines a collection per DLC set, three calculation passes, parent selection using the child's own `potential`, and shared edges for the RU and EN layouts. [Draft and acceptance scenarios](../src/server/Docs/TZ_REFERENCE_TREE_EN.md)
+
+## 2026-11-20 — game image uploads
+
+- The loader uploaded 912 PNGs to the persistent directory `/home/ansible/web-sttv/assets` on `stellaris-wiki`. Subsequent uploads use the same directory.
+- Added the `upload-images` command and its dedicated configuration. It prepares PNGs on the workstation, preserves game-relative paths and transfers new and changed files over SSH. The loader verifies the SHA-256 digest before replacing each file. [Instructions](../src/loader/README_EN.md#uploading-images-over-ssh)
+- Uploaded 864 technology icons, 13 category icons, 3 research area icons and 32 DLC thumbnails to a test directory on Ubuntu. An independent read verified all 912 paths and digests. A second invocation skipped every file. A small test set covered single-file replacement, a truncated transfer and recovery on retry.
+
+## 2026-11-20 — SSH image upload proposal
+
+- Drafted the specification for the standalone `upload-images` loader command. Checked the selection against the game installation and confirmed 912 distinct destination paths across four image groups. [Draft specification](../src/loader/Docs/TZ_IMAGE_UPLOAD_EN.md)
+
+## 2026-11-20 — game localization server
+
+- Moved localization key rules to a separate JSON file referenced by the server settings. Verified relative path resolution and the HTTP API on the Ubuntu VM. [Localization rules](../src/server/config/localization_keys.json)
+- Implemented configuration-based key selection, MongoDB translation reads and a batch HTTP lookup API. The server expands static references in the requested language and preserves unresolved fragments. Seven tests passed on the Ubuntu VM. [Startup and checks](../src/server/README_EN.md)
+
+## 2026-11-20 — game localization API draft
+
+- Added the first API draft for the new server under `src/server/`. It covers key selection configuration, batch RU/EN lookup, partial reference expansion on read and checks on the Ubuntu VM. [Draft specification](../src/server/Docs/TZ_LOCALIZATION_API_EN.md)
 
 ## 2026-11-20 — standalone MongoDB loader
 

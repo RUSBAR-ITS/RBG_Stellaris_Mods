@@ -1,53 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { SttvIndexBuilder } from '../../src/frontend/localization/index';
 import { sttvLookup, sttvSource } from '../../src/frontend/localization/lookup';
-import { SttvPreparationError } from '../../src/frontend/workers/diagnostics';
-import { sttvLocalization } from './fixtures';
 import ru from '../../src/frontend/locales/ru.json';
 import en from '../../src/frontend/locales/en.json';
 
-test('matching texts merge origins, missing entries can resolve, empty strings are valid', () => {
-  const builder = new SttvIndexBuilder();
-  builder.add(sttvLocalization('a', null), '/one');
-  builder.add(sttvLocalization('a', ''), '/two');
-  builder.add(sttvLocalization('a', ''), '/three');
-  assert.equal(builder.index.ru.a.text, '');
-  assert.equal(builder.index.ru.a.status, 'resolved');
-  assert.equal(builder.index.ru.a.origins.length, 3);
-  assert.equal(builder.warnings().length, 0);
-});
-test('inheritance retains requested addresses and all original metadata', () => {
-  const loc = sttvLocalization('variant');
-  loc.ru.description!.key = 'base_desc';
-  loc.ru.description!.inherited_from = { database: 'technologies', document_id: 'a'.repeat(64), pointer: '/items/0' };
-  const builder = new SttvIndexBuilder();
-  builder.add(loc, '/variant');
-  assert.equal(builder.index.ru.variant_desc.origins[0].key, 'base_desc');
-  assert.deepEqual(builder.index.ru.variant_desc.origins[0].inheritedFrom, loc.ru.description!.inherited_from);
-});
-test('conflicting resolved texts block preparation with text-specific evidence', () => {
-  const builder = new SttvIndexBuilder();
-  builder.add(sttvLocalization('a', null), '/missing');
-  builder.add(sttvLocalization('a', 'first'), '/first');
-  assert.throws(() => builder.add(sttvLocalization('a', 'second'), '/second'), (error: unknown) => {
-    assert.ok(error instanceof SttvPreparationError);
-    assert.equal(error.diagnostic.code, 'localization_conflict');
-    assert.equal(JSON.stringify(error.diagnostic.details).includes('/missing'), false);
-    return true;
-  });
-});
-test('lookup uses explicit source, no language fallback, and preserves game text', () => {
-  const builder = new SttvIndexBuilder();
-  const loc = sttvLocalization('a', 'Raw $key$ [Scope.Name] §G{name}§!');
-  loc.ru.name!.text = null;
-  builder.add(loc, '/a');
-  const sources = { builtin: sttvSource('strings', { en: { count: 'Count {n}' } }, []), database: builder.index };
+test('lookup preserves raw game text, empty strings and source language', () => {
+  const game = 'Raw $key$ [Scope.Name] §G{name}§!';
+  const sources = { builtin: sttvSource('strings', { en: { count: 'Count {n}' } }, []),
+    database: sttvSource('strings', { en: { a: game, empty: '' } }, []) };
   assert.equal(sttvLookup(sources, 'ru', { id: 'a', source: 'database' }), '⟦a⟧');
-  assert.equal(sttvLookup(sources, 'en', { id: 'a', source: 'database', params: { name: 'changed' } }),
-    'Raw $key$ [Scope.Name] §G{name}§!');
+  assert.equal(sttvLookup(sources, 'en', { id: 'a', source: 'database', params: { name: 'changed' } }), game);
+  assert.equal(sttvLookup(sources, 'en', { id: 'empty', source: 'database' }), '');
   assert.equal(sttvLookup(sources, 'en', { id: 'count', params: { n: 7 } }), 'Count 7');
-  assert.equal(builder.warnings().length, 1);
 });
 test('interface dictionaries have identical keys and parameter names', () => {
   assert.deepEqual(Object.keys(ru).sort(), Object.keys(en).sort());

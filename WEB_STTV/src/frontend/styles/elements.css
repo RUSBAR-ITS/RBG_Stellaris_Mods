@@ -7,6 +7,11 @@
   --sttv-switch-thumb-color: var(--sttv-text-primary);
   --sttv-switch-hover: var(--sttv-hover-background);
   --sttv-switch-focus: var(--sttv-accent);
+  --sttv-tab-border: var(--sttv-border);
+  --sttv-tab-color: var(--sttv-text-primary);
+  --sttv-tab-font: var(--sttv-type-control);
+  --sttv-tab-selected: var(--sttv-accent);
+  --sttv-tab-focus: var(--sttv-accent);
   --sttv-switch-disabled-color: var(--sttv-text-secondary);
   --sttv-switch-disabled-background: var(--sttv-border);
   --sttv-dlc-color: var(--sttv-text-primary);

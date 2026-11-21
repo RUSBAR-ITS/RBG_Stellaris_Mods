@@ -1,4 +1,4 @@
-import type { SttvCatalog } from '../../data/model';
+import type { SttvCardCatalog } from '../../data/model';
 import { useLayoutEffect, useState } from 'react';
 import type { SttvLayout } from '../../data/tree/model';
 import { sttvRepresentation } from '../../data/tree/comparison';
@@ -8,8 +8,9 @@ import { SttvTechnologyViewport } from './TechnologyViewport';
 import { SttvConnections } from './Connections';
 import './field.css';
 
-export function SttvTechnologyField({ data, layout, scale }: { data: SttvCatalog; layout: SttvLayout; scale: number }) {
-  const [hover, setHover] = useState<{ layout: SttvLayout; scale: number; id: string } | null>(null);
+type FieldLayout = Pick<SttvLayout, 'areas' | 'tiers' | 'columns' | 'height' | 'width'>;
+export function SttvTechnologyField({ data, layout, scale }: { data: SttvCardCatalog; layout: FieldLayout; scale: number }) {
+  const [hover, setHover] = useState<{ layout: FieldLayout; scale: number; id: string } | null>(null);
   useLayoutEffect(() => { setHover(null); }, [scale]);
   const hovered = hover?.layout === layout && hover.scale === scale ? hover.id : null;
   return <SttvTechnologyViewport width={layout.width} height={layout.height} scale={scale}>

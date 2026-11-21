@@ -21,7 +21,7 @@ test('perpendicular crossings have one bridge, while endpoints and coincident fo
   assert.equal(g.crossings.length, 1); assert.equal(g.bridges.length, 1);
   sttvValidateBridges(g, config);
   for (const other of [segment('v', 0, 0, 0, 100), segment('v', -50, 0, 50, 0)])
-    assert.throws(() => geometry([g.segments[0], other]), /tree_connections_failed/);
+    assert.throws(() => geometry([g.segments[0], other]), { code: 'tree_connections_failed' });
 });
 
 test('the horizontal curve stays continuous and upward in either travel direction', () => {
@@ -43,13 +43,13 @@ test('separate crossings keep separate bridges and reject insufficient space or 
   sttvValidateBridges(g, config); assert.equal(g.bridges.length, 2);
   assert.equal((sttvSegmentPath(g.segments[0], g.bridges).match(/C/g) ?? []).length, 4);
   const tooClose = geometry([segment('h', -100, 0, 100, 0), segment('v', -10, -100, -10, 100), segment('w', 10, -100, 10, 100)]);
-  assert.throws(() => sttvValidateBridges(tooClose, config), /tree_connections_failed/);
+  assert.throws(() => sttvValidateBridges(tooClose, config), { code: 'tree_connections_failed' });
   const nearCorner = geometry([segment('h', -10, 0, 100, 0), segment('v', 0, -100, 0, 100)]);
-  assert.throws(() => sttvValidateBridges(nearCorner, config), /tree_connections_failed/);
+  assert.throws(() => sttvValidateBridges(nearCorner, config), { code: 'tree_connections_failed' });
   const card = geometry(); card.cards.c = { id: 'c', x: -2, y: -10, width: 4, height: 4 };
-  assert.throws(() => sttvValidateBridges(card, config), /tree_connections_failed/);
+  assert.throws(() => sttvValidateBridges(card, config), { code: 'tree_connections_failed' });
   const junction = geometry(); junction.junctions.push({ x: 5, y: -5, parent: 'h', children: [] });
-  assert.throws(() => sttvValidateBridges(junction, config), /tree_connections_failed/);
+  assert.throws(() => sttvValidateBridges(junction, config), { code: 'tree_connections_failed' });
 });
 
 test('joining a trunk at an interior contact reuses the prefix instead of creating a cycle', () => {

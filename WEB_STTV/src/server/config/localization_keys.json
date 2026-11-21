@@ -1,0 +1,8 @@
+{
+  "dlc_project_name": {"prefix": "sttv_", "suffix": "_name"},
+  "research_area": {"map": {"physics": "PHYSICS", "society": "SOCIETY", "engineering": "ENGINEERING"}},
+  "research_category": {"suffix": ""},
+  "technology_name": {"suffix": ""},
+  "tooltip_condition": {"prefix": "sttv_tooltip_", "suffix": ""},
+  "technology_description": {"suffix": "_desc"}
+}

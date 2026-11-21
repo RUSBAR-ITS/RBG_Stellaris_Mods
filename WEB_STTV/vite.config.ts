@@ -1,7 +1,6 @@
 import { sttvWorkPath } from './frontend-workspace.ts';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import service from './config/service.json' with { type: 'json' };
 
 export default defineConfig({
   plugins: [react()],
@@ -9,5 +8,7 @@ export default defineConfig({
   cacheDir: sttvWorkPath('frontend-cache/vite'),
   build: { outDir: sttvWorkPath('frontend-build'), emptyOutDir: true },
   server: { port: 5173, strictPort: true, watch: { ignored: ['**/data/**'] },
-    proxy: { [service.prefix]: { target: `http://${service.host}:${service.port}` } } },
+    proxy: {
+      '/api/trees': process.env.STTV_SERVER_URL ?? 'http://127.0.0.1:8788',
+      '/api/localization': process.env.STTV_SERVER_URL ?? 'http://127.0.0.1:8788' } },
 });

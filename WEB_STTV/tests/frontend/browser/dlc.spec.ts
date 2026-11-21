@@ -1,140 +1,127 @@
-import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect, type Page } from '@playwright/test';
-import { resolve } from 'node:path';
-import { readFile, mkdir } from 'node:fs/promises';
-import { sttvEnglish, sttvUploadEntries, en, ru } from './helpers';
-import { sttvDlcFixture } from '../dlcFixture';
-import { sttvBundle } from '../manifestFixtures';
+import { en, ru, mockTexts, png, sttvEnglish, technology, treeFixture } from './helpers';
 
-const button = (page: Page, name: string) => page.getByRole('button', { name, exact: true });
-async function report(page: Page) {
-  const pending = page.waitForEvent('download');
-  await button(page, en.sttv_save_report).click();
-  return JSON.parse(await readFile((await (await pending).path())!, 'utf8'));
-}
-
-test('draft, discard, failure, cancellation and a new snapshot preserve the correct tree', async ({ page }) => {
-  const input = sttvDlcFixture(), original = sttvBundle(input), nextInput = structuredClone(input);
-  const nodes = nextInput.find(d => d.database === 'technologies')!.items;
-  Object.assign((nodes[0].enrichments!.technology_tree as any).reference_default,
-    { children: [], visibility: { visible: false, reasons: [{ code: 'dlc_potential', pointer: '/value' }] } });
-  Object.assign((nodes[1].enrichments!.technology_tree as any).reference_default, { parent_tech: null, status: 'root' });
-  const next = sttvBundle(nextInput);
-  next.manifest.snapshot_revision = 'f'.repeat(64);
-  (next.manifest.technology_tree as any).combinations.reference_default.parameters.dlc.enabled = [];
-  next.manifest.datasets.technologies.documents[0].source_hash = original.manifest.datasets.technologies.documents[0].source_hash;
-  let mode = 'initial', submissions = 0, requests = 0, requestId = '';
-  await page.context().route('**/api/sttv/**', async route => {
-    const path = new URL(route.request().url()).pathname;
-    requests++;
-    if (path.endsWith('/connect')) return route.fulfill({ json: { token: 'test' } });
-    if (path.endsWith('/operations')) requestId = route.request().postDataJSON().requestId;
-    const job = { id: 'job', requestId, before: original.manifest.snapshot_revision, error: null,
-      status: 'completed', result: { setId: original.manifest.set_id, snapshotRevision: mode === 'success' ? next.manifest.snapshot_revision : original.manifest.snapshot_revision,
-        combinationId: 'reference_default', profile: { known: ['a', 'b'], enabled: mode === 'success' ? [] : ['a', 'b'] }, diagnostics: [] } };
-    if (path.endsWith('/operations')) {
-      submissions++;
-      if (mode === 'fail') return route.fulfill({ json: { ...job, status: 'failed', result: null, error: { code: 'test_failure', message: 'Injected' } } });
-      if (mode === 'cancel') return route.fulfill({ json: { ...job, status: 'running', result: null } });
-      return route.fulfill({ json: job });
-    }
-    if (path.endsWith('/cancel')) mode = 'cancelled';
-    if (path.includes('/operations/job')) return route.fulfill({ json: { ...job,
-      status: mode === 'cancelled' ? 'cancelled' : 'running', result: null, error: { code: 'cancelled', message: 'Cancelled' } } });
-    const bundle = mode === 'success' ? next : original;
-    if (path.endsWith('/manifest')) return route.fulfill({ json: bundle.manifest });
-    const id = path.split('/').at(-1), kind = path.split('/').at(-2)!;
-    const row = bundle.manifest.datasets[kind as keyof typeof bundle.manifest.datasets].documents.find(d => d.document_id === id)!;
-    return route.fulfill({ body: bundle.entries.find(e => e.path === row.path)!.content, contentType: 'application/json' });
+const dlcs = [
+  { id: 'dlc040', name: { ru: 'Кочевники', en: 'Nomads' }, thumbnail: 'dlc/nomads/thumbnail.png' },
+  { id: 'dlc001', name: { ru: 'Символы господства', en: 'Symbols of Domination' }, thumbnail: null },
+  { id: 'dlc032', name: { ru: 'Машинный век', en: 'The Machine Age' }, thumbnail: 'dlc/missing.png' },
+];
+async function setup(page: Page) {
+  const calls = { catalogs: 0, selections: [] as (string[] | undefined)[], deletes: 0, failOpen: false, failClear: false };
+  const techs = [technology('a'), technology('b', 1)];
+  await mockTexts(page, techs);
+  await page.route('**/api/trees/reference/dlcs', route => {
+    calls.catalogs++;
+    return route.fulfill({ json: { items: dlcs } });
   });
-  await page.goto('/'); await sttvEnglish(page);
-  await sttvUploadEntries(page, original.entries);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
-  await expect(page.locator('[data-connection-child]')).toHaveCount(1);
-  await button(page, en.sttv_nav_dlc).click();
-  await expect(page.getByRole('switch')).toHaveCount(2);
-  await page.getByRole('switch').first().focus(); await page.keyboard.press('Space');
-  await expect(page.getByRole('switch').first()).toHaveAttribute('aria-checked', 'false');
-  expect(submissions).toBe(1);
-  await button(page, en.sttv_dlc_discard).click();
-  await expect(page.getByRole('switch').first()).toHaveAttribute('aria-checked', 'true');
-  for (const toggle of await page.getByRole('switch').all()) await toggle.click();
-  await button(page, en.sttv_nav_tree).click();
-  await expect(page.getByRole('status').last()).toHaveText(en.sttv_dlc_pending);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
-  await button(page, en.sttv_nav_dlc).click();
-  mode = 'fail'; await button(page, en.sttv_dlc_apply).click();
-  await expect(page.getByRole('status').last()).toHaveText(en.sttv_dlc_apply_failed);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
-  mode = 'cancel'; await button(page, en.sttv_dlc_apply).click();
-  await button(page, en.sttv_cancel).click();
-  await expect(page.getByRole('status').last()).toHaveText(en.sttv_dlc_cancelled);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
-  mode = 'success'; await button(page, en.sttv_dlc_apply).click();
-  await expect(page.locator('[data-technology-id]')).toHaveCount(1);
-  await expect(page.locator('[data-connection-child]')).toHaveCount(0);
-  expect(submissions).toBe(4);
-  expect((await report(page)).snapshotRevision).toBe(next.manifest.snapshot_revision);
-  requests = 0; await page.reload();
-  await expect(page.locator('[data-technology-id]')).toHaveCount(0);
-  expect(requests).toBe(0);
-});
-
-test('real catalog thumbnails, navigation and DLC profiles agree with Python', async ({ page }) => {
-  test.skip(!process.env.STTV_DATABASE_DIR, 'Requires the registered prepared set and local service');
-  test.setTimeout(180000);
-  await mkdir(sttvWorkPath('stage20/screenshots'), { recursive: true });
-  await page.goto('/'); await sttvEnglish(page);
-  await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
-  await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 90000 });
-  await button(page, en.sttv_nav_dlc).click();
-  await expect(page.getByRole('switch')).toHaveCount(36);
-  await expect(page.locator('.sttv-dlc-image img')).toHaveCount(32);
-  await expect(button(page, en.sttv_dlc_apply)).toBeDisabled();
-  await page.screenshot({ path: sttvWorkPath('stage20/screenshots/dlc-night-en.png') });
-  await button(page, en.sttv_day_theme).click();
-  await button(page, en.sttv_language).click(); await page.getByRole('option', { name: 'Русский', exact: true }).click();
-  await page.screenshot({ path: sttvWorkPath('stage20/screenshots/dlc-day-ru.png') });
+  await page.route('**/game-assets/dlc/**', route => route.request().url().endsWith('missing.png')
+    ? route.fulfill({ status: 404 }) : route.fulfill({ contentType: 'image/png', body: png }));
+  await page.route('**/api/trees/reference', async route => {
+    if (route.request().method() === 'DELETE') {
+      calls.deletes++;
+      return route.fulfill(calls.failClear ? { status: 409, json: { reason: 'cleanup busy' } } : { json: { removed_collections: 3 } });
+    }
+    const selected = route.request().postDataJSON().enabled_dlc as string[] | undefined;
+    calls.selections.push(selected);
+    return route.fulfill(calls.failOpen ? { status: 503, json: { reason: 'server busy' } }
+      : { json: treeFixture(techs, { b: 'a' }, selected ?? dlcs.map(item => item.id)) });
+  });
+  await page.goto('/');
+  return calls;
+}
+test('navigation, tabs, localized DLC images, draft, empire mode and explicit builds', async ({ page }) => {
+  const calls = await setup(page);
+  const button = (name: string) => page.getByRole('button', { name, exact: true });
+  const tab = (name: string) => page.getByRole('tab', { name, exact: true });
+  const toggle = (name: string) => page.getByRole('switch', { name, exact: true });
+  await expect(page.locator('input[type=file]')).toHaveCount(0);
+  await button(ru.sttv_nav_game).click();
+  await expect(tab('DLC')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('[data-dlc-id]')).toHaveText([/Кочевники/, /Машинный век/, /Символы господства/]);
+  await expect.poll(() => page.locator('[data-dlc-id=dlc040] img').evaluate(img => (img as HTMLImageElement).naturalWidth)).toBe(1);
+  for (const id of ['dlc001', 'dlc032']) await expect(page.locator('[data-dlc-id=' + id + '] img')).toHaveCount(0);
+  await toggle('Машинный век').click();
+  await tab('DLC').press('ArrowRight');
+  await expect(tab(ru.sttv_tab_empire)).toBeFocused();
+  const group = page.locator('.sttv-empire-inputs');
+  await group.evaluate(el => el.appendChild(document.createElement('input')));
+  await expect(group.locator('input')).toBeDisabled();
+  await toggle(ru.sttv_reference_mode).click();
+  await expect(group.locator('input')).toBeEnabled();
+  await button(ru.sttv_nav_tree).click();
+  await expect(page.getByText(ru.sttv_empire_placeholder).first()).toBeVisible();
+  await button(ru.sttv_nav_game).click();
+  await expect(tab(ru.sttv_tab_empire)).toHaveAttribute('aria-selected', 'true');
+  await tab(ru.sttv_tab_empire).press('Home');
+  await expect(toggle('Машинный век')).not.toBeChecked();
   await sttvEnglish(page);
-  for (const toggle of await page.getByRole('switch').all()) await toggle.click();
-  await button(page, en.sttv_dlc_apply).click();
-  await expect(page.locator('[data-technology-id]')).toHaveCount(543, { timeout: 90000 });
-  const result = await report(page);
-  expect(result.dlc.profile.enabled).toEqual([]);
-  expect(result.dlc.counts.visible).toBe(543);
-  expect(result.dlc.counts.hidden).toBe(136);
-  expect(result.service.available).toBe(true);
-  expect(result.coverage.verifiedDocuments).toBe(68);
-  await button(page, en.sttv_nav_tree).click();
-  await expect(page.locator('[data-technology-id="tech_archeology_lab"]')).toHaveCount(1);
-  await page.screenshot({ path: sttvWorkPath('stage20/screenshots/tree-no-dlc.png') });
-  await button(page, en.sttv_nav_dlc).click();
-  for (const toggle of await page.getByRole('switch').all()) await toggle.click();
-  await button(page, en.sttv_dlc_apply).click();
-  await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 60000 });
-  await expect(page.locator('[data-technology-id="tech_archeology_lab"]')).toHaveCount(0);
-  await button(page, en.sttv_nav_tree).click();
-  await expect(page.locator('[data-technology-id]')).toHaveCount(678);
+  await expect(page.locator('[data-dlc-id]')).toHaveText([/Nomads/, /Symbols of Domination/, /The Machine Age/]);
+  await expect(toggle('The Machine Age')).not.toBeChecked();
+  await button(en.sttv_dlc_apply).click();
+  expect(calls.selections).toEqual([]);
+  await tab(en.sttv_tab_empire).click(); await toggle(en.sttv_reference_mode).click();
+  await button(en.sttv_nav_tree).click();
+  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
+  expect(calls.selections).toEqual([['dlc040', 'dlc001']]);
+  await button(en.sttv_nav_system).click(); await button(en.sttv_nav_tree).click();
+  expect(calls.catalogs).toBe(1); expect(calls.selections).toHaveLength(1);
+});
+test('empty and partial DLC selections, retry, discard and clearing preserve the applied selection', async ({ page }) => {
+  const calls = await setup(page);
+  const button = (name: string) => page.getByRole('button', { name, exact: true });
+  await button(ru.sttv_nav_tree).click();
+  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
+  await button(ru.sttv_nav_game).click();
+  const switches = page.getByRole('switch');
+  await expect(switches).toHaveCount(3);
+  for (const element of await switches.all()) await element.click();
+  calls.failOpen = true;
+  await button(ru.sttv_dlc_apply).click();
+  await expect(page.getByRole('status')).toContainText('server busy');
+  await button(ru.sttv_nav_tree).click();
+  await expect(page.locator('[data-technology-id=a]')).toBeVisible();
+  await button(ru.sttv_nav_game).click();
+  await button(ru.sttv_dlc_discard).click();
+  await expect(switches.first()).toBeChecked();
+  for (const element of await switches.all()) await element.click();
+  calls.failOpen = false;
+  await button(ru.sttv_dlc_apply).click(); await expect(button(ru.sttv_dlc_apply)).toBeDisabled();
+  expect(calls.selections.at(-1)).toEqual([]);
+  await switches.first().click(); await button(ru.sttv_dlc_apply).click();
+  await expect(button(ru.sttv_dlc_apply)).toBeDisabled();
+  expect(calls.selections.at(-1)).toEqual(['dlc040']);
+  await button(ru.sttv_nav_system).click();
+  calls.failClear = true; await button(ru.sttv_ref_clear).click();
+  await expect(page.getByRole('status')).toContainText('cleanup busy');
+  const opens = calls.selections.length;
+  await button(ru.sttv_nav_tree).click(); await expect(page.locator('[data-technology-id=b]')).toBeVisible();
+  expect(calls.selections).toHaveLength(opens);
+  await button(ru.sttv_nav_system).click(); calls.failClear = false;
+  await button(ru.sttv_ref_clear).evaluate(el => {
+    const clear = el as HTMLButtonElement;
+    clear.click(); clear.click();
+  });
+  await expect(page.getByRole('status')).toContainText('3');
+  expect(calls.deletes).toBe(2);
+  await button(ru.sttv_nav_tree).click();
+  await expect(page.locator('[data-technology-id=b]')).toBeVisible();
+  expect(calls.selections.slice(opens)).toEqual([['dlc040']]);
 });
 
-test('offline prepared profiles remain viewable and an all-hidden result is a valid empty tree', async ({ page }) => {
-  await page.context().route('**/api/sttv/**', route => route.abort());
-  await page.goto('/'); await sttvEnglish(page);
-  const input = sttvDlcFixture();
-  await sttvUploadEntries(page, sttvBundle(input).entries);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(2);
-  await button(page, en.sttv_nav_dlc).click();
-  await expect(page.getByRole('switch')).toHaveCount(2);
-  await expect(page.getByText(en.sttv_dlc_service_unavailable)).toBeVisible();
-  await page.getByRole('switch').first().click();
-  await expect(button(page, en.sttv_dlc_apply)).toBeDisabled();
-  const nodes = input.find(d => d.database === 'technologies')!.items;
-  for (const node of nodes) Object.assign((node.enrichments!.technology_tree as any).reference_default,
-    { parent_tech: null, children: [], status: 'root', visibility: { visible: false, reasons: [] } });
-  await button(page, en.sttv_nav_tree).click();
-  await sttvUploadEntries(page, sttvBundle(input).entries);
-  await expect(page.getByRole('status').last()).toHaveText(en.sttv_dlc_tree_empty);
+test('a delayed reference response cannot replace the empire view', async ({ page }) => {
+  const calls = await setup(page);
+  let resume!: () => void;
+  const pending = new Promise<void>(resolve => { resume = resolve; });
+  await page.route('**/api/trees/reference', async route => { await pending; await route.fallback(); });
+  await page.getByRole('button', { name: ru.sttv_nav_tree, exact: true }).click();
+  await page.getByRole('button', { name: ru.sttv_nav_game, exact: true }).click();
+  await page.getByRole('tab', { name: ru.sttv_tab_empire }).click();
+  await page.getByRole('switch', { name: ru.sttv_reference_mode }).click();
+  await page.getByRole('button', { name: ru.sttv_nav_tree, exact: true }).click();
+  const localized = Promise.all(['en', 'ru'].map(language => page.waitForResponse(response =>
+    response.url().endsWith('/api/localization/lookup') && response.request().postDataJSON().language === language)));
+  resume(); await localized;
+  await expect.poll(() => calls.selections.length).toBe(1);
+  await expect(page.getByText(ru.sttv_empire_placeholder, { exact: true })).toBeVisible();
   await expect(page.locator('[data-technology-id]')).toHaveCount(0);
-  await button(page, en.sttv_nav_dlc).click();
-  await expect(page.getByRole('switch')).toHaveCount(2);
 });

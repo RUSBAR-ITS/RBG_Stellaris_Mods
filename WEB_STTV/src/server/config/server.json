@@ -1,0 +1,15 @@
+{
+  "mongodb": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "database": "wiki",
+    "collection": "localization",
+    "username": "wiki",
+    "auth_source": "wiki",
+    "ca_file": "/etc/wiki-tls/ca.pem",
+    "password_env": "STTV_MONGO_PASSWORD"
+  },
+  "http": {"host": "127.0.0.1", "port": 8788},
+  "localization_keys_file": "localization_keys.json",
+  "tree_rules_file": "reference_tree.json"
+}

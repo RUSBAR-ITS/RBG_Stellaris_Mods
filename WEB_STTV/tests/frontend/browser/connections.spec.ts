@@ -1,16 +1,10 @@
-import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect } from '@playwright/test';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { sttvDatabase, sttvTechnology } from '../fixtures';
-import { sttvConnect } from '../treeFixtures';
-import { sttvEnglish, sttvUpload, en, ru } from './helpers';
+import { sttvEnglish, openTree, technology, en } from './helpers';
 
 test('card hover colors complete parent/child paths without rerouting or changing sibling branches', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  const nodes = Object.entries({ P: 0, A: 1, B: 2, C: 1, D: 2, E: 1 }).map(([id, tier]) => sttvTechnology(id, tier));
-  sttvConnect(nodes, { A: 'P', B: 'A', C: 'A', D: 'C', E: 'A' });
-  await sttvUpload(page, sttvDatabase(nodes));
+  const nodes = Object.entries({ P: 0, A: 1, B: 2, C: 1, D: 2, E: 1 }).map(([id, tier]) => technology(id, tier));
+  await openTree(page, nodes, { A: 'P', B: 'A', C: 'A', D: 'C', E: 'A' });
   await expect(page.locator('[data-connection-child]')).toHaveCount(5);
   const paths = () => page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')));
   const before = await paths();
@@ -31,18 +25,13 @@ test('card hover colors complete parent/child paths without rerouting or changin
   await card.hover();
   await expect(page.locator('.sttv-connection[data-role="parent"]').first()).toHaveCSS('stroke', 'rgb(23, 104, 166)');
   expect(await paths()).toEqual(before);
-  mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
-  await page.screenshot({ path: sttvWorkPath('frontend-stage7/synthetic-day.png') });
 });
 
 test('connection endpoints stay on cards through scrolling, menu changes and window resizing', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  const nodes = [sttvTechnology('A', 0), sttvTechnology('B', 4), sttvTechnology('C', 0), sttvTechnology('D', 2)];
-  sttvConnect(nodes, { B: 'A', C: 'B', D: 'C' });
-  await sttvUpload(page, sttvDatabase(nodes));
+  const nodes = [technology('A', 0), technology('B', 4), technology('C', 0), technology('D', 2)];
+  await openTree(page, nodes, { B: 'A', C: 'B', D: 'C' });
   await expect(page.locator('[data-connection-child]')).toHaveCount(3);
-  mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
-  await page.screenshot({ path: sttvWorkPath('frontend-stage7/reverse-night.png') });
   const check = async () => {
     const endpoints = await page.locator('[data-connection-child]').evaluateAll(arrows => arrows.map(arrow => {
       const child = document.querySelector(`[data-technology-id="${arrow.getAttribute('data-connection-child')}"]`)!;
@@ -60,49 +49,4 @@ test('connection endpoints stay on cards through scrolling, menu changes and win
   await check();
   await page.getByRole('button', { name: en.sttv_collapse_menu, exact: true }).click();
   await page.setViewportSize({ width: 1000, height: 650 }); await check();
-});
-
-test('routing failure is localized and exports its combination and configuration', async ({ page }) => {
-  test.skip(process.env.STTV_PREVIEW === '1', 'Uses the development configuration module');
-  await page.route('**/config/frontend/connections.json*', async route => {
-    const response = await route.fetch();
-    await route.fulfill({ response, body: (await response.text()).replaceAll('16', '0') });
-  });
-  await page.goto('/'); await sttvEnglish(page);
-  const nodes = [sttvTechnology('A'), sttvTechnology('B', 4)]; sttvConnect(nodes, { B: 'A' });
-  await sttvUpload(page, sttvDatabase(nodes));
-  await expect(page.getByRole('status')).toHaveText(en.sttv_diagnostic_tree_connections_failed);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(0);
-  const download = page.waitForEvent('download'); await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
-  const report = JSON.parse(readFileSync((await (await download).path())!, 'utf8'));
-  expect(report.error.details.combination.id).toBe('reference_default');
-  expect(report.error.details.routingSettings.maxLaneAttempts).toBe(0);
-  expect(report.error.details.language).toBe('en');
-});
-
-test('real connections cover all local parents and retain geometry while hovering in both themes', async ({ page }) => {
-  test.skip(!process.env.STTV_DATABASE_DIR, 'Requires the prepared manifest dataset');
-  mkdirSync(sttvWorkPath('frontend-stage7'), { recursive: true });
-  await page.goto('/');
-  await page.locator('input[type=file]').setInputFiles(resolve(process.env.STTV_DATABASE_DIR!));
-  await expect(page.locator('[data-connection-child]')).toHaveCount(464, { timeout: 60000 });
-  const firstPaths = await page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')));
-  const card = page.locator('[data-technology-id="tech_lasers_3"]');
-  await card.scrollIntoViewIfNeeded(); await card.hover();
-  await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-ru-night.png') });
-  await expect(page.locator('.sttv-connection[data-role="parent"]').first()).toHaveCSS('stroke', 'rgb(115, 191, 255)');
-  await expect(page.locator('.sttv-connection[data-role="children"]').first()).toHaveCSS('stroke', 'rgb(242, 179, 102)');
-  await page.getByRole('button', { name: ru.sttv_day_theme, exact: true }).click();
-  await card.hover(); await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-ru-day.png') });
-  expect(await page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')))).toEqual(firstPaths);
-  await sttvEnglish(page);
-  await expect(page.locator('[data-connection-child]')).toHaveCount(464);
-  await card.scrollIntoViewIfNeeded(); await card.hover();
-  await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-en-day.png') });
-  await page.getByRole('button', { name: en.sttv_night_theme, exact: true }).click();
-  await card.hover(); await page.screenshot({ path: sttvWorkPath('frontend-stage7/real-en-night.png') });
-  const download = page.waitForEvent('download'); await page.getByRole('button', { name: en.sttv_save_report, exact: true }).click();
-  const report = JSON.parse(readFileSync((await (await download).path())!, 'utf8'));
-  expect(report.tree.connections.logicalConnections).toBe(464); expect(report.coverage.verifiedDocuments).toBe(35);
-  writeFileSync(sttvWorkPath('frontend-stage7/browser-real-set.json'), JSON.stringify(report, null, 2));
 });

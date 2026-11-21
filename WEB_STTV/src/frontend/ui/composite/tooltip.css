@@ -6,3 +6,11 @@
   background: var(--sttv-tooltip-background); pointer-events: none;
 }
 .sttv-tooltip-heading { margin-bottom: var(--sttv-control-padding); }
+.sttv-tooltip-status, .sttv-tooltip-details section { margin-block-start: var(--sttv-control-padding); }
+.sttv-tooltip-details {
+  font: var(--sttv-tooltip-body-font); color: var(--sttv-tooltip-body-color); overflow-wrap: anywhere;
+}
+.sttv-tooltip-details h3, .sttv-tooltip-details h4, .sttv-tooltip-details ul { margin: 0; }
+.sttv-tooltip-details ul { padding-inline-start: 1.25em; }
+.sttv-tooltip-details section > ul { list-style: none; padding-inline-start: 0; }
+.sttv-tooltip-details section > ul > li + li { margin-block-start: .5em; }

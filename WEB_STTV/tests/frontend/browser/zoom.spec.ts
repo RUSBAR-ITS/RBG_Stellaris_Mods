@@ -1,9 +1,5 @@
-import { sttvWorkPath } from '../../../frontend-workspace';
 import { test, expect } from '@playwright/test';
-import { mkdirSync } from 'node:fs';
-import { sttvDatabase, sttvTechnology } from '../fixtures';
-import { sttvConnect } from '../treeFixtures';
-import { sttvEnglish, sttvUpload, en, ru } from './helpers';
+import { sttvEnglish, openTree, technology, en, ru } from './helpers';
 import { sttvZoom, sttvZoomGeometry, sttvCheckConnectionAnchors } from './zoomHelpers';
 
 test('zoom is available before opening and remains session state across menu, language, theme and set changes', async ({ page }) => {
@@ -15,7 +11,7 @@ test('zoom is available before opening and remains session state across menu, la
   await page.getByRole('listbox').press('ArrowDown'); await page.getByRole('listbox').press('Enter');
   await expect(zoom()).toHaveText('75%');
   await sttvEnglish(page); await expect(zoom()).toHaveAccessibleName(en.sttv_zoom);
-  await sttvUpload(page, sttvDatabase([sttvTechnology('first')]));
+  await openTree(page, [technology('first')]);
   await expect(page.locator('[data-technology-id]')).toHaveCount(1);
   expect((await sttvZoomGeometry(page)).cardWidth).toBe(390);
   await page.getByRole('button', { name: en.sttv_day_theme, exact: true }).click();
@@ -23,8 +19,9 @@ test('zoom is available before opening and remains session state across menu, la
   await expect(zoom()).toHaveCount(0);
   await page.getByRole('button', { name: en.sttv_expand_menu, exact: true }).click();
   await expect(zoom()).toHaveText('75%');
-  await sttvUpload(page, sttvDatabase([sttvTechnology('second')]));
-  await expect(page.locator('[data-technology-id="second"]')).toBeVisible();
+  await page.getByRole('button', { name: en.sttv_nav_system, exact: true }).click();
+  await page.getByRole('button', { name: en.sttv_nav_tree, exact: true }).click();
+  await expect(page.locator('[data-technology-id="first"]')).toBeVisible();
   await expect(zoom()).toHaveText('75%');
   await page.getByRole('button', { name: en.sttv_language, exact: true }).click();
   await page.getByRole('option', { name: ru.sttv_language_ru, exact: true }).click();
@@ -35,12 +32,9 @@ test('zoom is available before opening and remains session state across menu, la
 
 test('all zoom levels preserve geometry and centre, clamp scroll bounds and leave menu dimensions unchanged', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  const nodes = Array.from({ length: 36 }, (_, i) => sttvTechnology(`zoom_${i}`, i % 7));
-  sttvConnect(nodes, { zoom_1: 'zoom_0', zoom_2: 'zoom_1' });
-  for (const language of ['ru', 'en'] as const) {
-    nodes[0].enrichments.localization[language].name!.text = 'A complete and very long technology name with many additional words '.repeat(3);
-  }
-  await sttvUpload(page, sttvDatabase(nodes)); await expect(page.locator('[data-technology-id]')).toHaveCount(36);
+  const nodes = Array.from({ length: 36 }, (_, i) => technology(`zoom_${i}`, i % 7));
+  nodes[0].name = 'A complete and very long technology name with many additional words '.repeat(3);
+  await openTree(page, nodes, { zoom_1: 'zoom_0', zoom_2: 'zoom_1' }); await expect(page.locator('[data-technology-id]')).toHaveCount(36);
   const menu = (await page.locator('.sttv-menu-panel').boundingBox())!;
   const paths = await page.locator('[data-connection-segment]').evaluateAll(nodes => nodes.map(n => n.getAttribute('d')));
   await page.locator('#sttv-viewport-content').evaluate(e => { e.scrollLeft = 300; e.scrollTop = 800; });
@@ -70,14 +64,12 @@ test('all zoom levels preserve geometry and centre, clamp scroll bounds and leav
   const clamped = await sttvZoomGeometry(page);
   expect(clamped.x).toBeLessThanOrEqual(clamped.scrollWidth - clamped.width);
   expect(clamped.y).toBeLessThanOrEqual(clamped.scrollHeight - clamped.height);
-  mkdirSync(sttvWorkPath('frontend-stage9'), { recursive: true });
   await page.locator('#sttv-viewport-content').evaluate(e => { e.scrollLeft = 0; e.scrollTop = 0; });
-  await page.screenshot({ path: sttvWorkPath('frontend-stage9/long-title-50.png') });
 });
 
 test('scrollbars appear only for scaled bounds and keyboard focus reaches clipped distant cards', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  await sttvUpload(page, sttvDatabase([sttvTechnology('small_0', 0), sttvTechnology('small_1', 1)]));
+  await openTree(page, [technology('small_0', 0), technology('small_1', 1)]);
   await expect(page.locator('[data-technology-id]')).toHaveCount(2);
   await expect(page.getByRole('scrollbar')).toHaveCount(0);
   await sttvZoom(page, 150);
@@ -90,8 +82,8 @@ test('scrollbars appear only for scaled bounds and keyboard focus reaches clippe
 
 test('tooltips retain size and close on zoom, while focus and relationship highlighting work at every scale', async ({ page }) => {
   await page.goto('/'); await sttvEnglish(page);
-  const nodes = ['a', 'b', 'c'].map((id, tier) => sttvTechnology(id, tier));
-  sttvConnect(nodes, { b: 'a', c: 'b' }); await sttvUpload(page, sttvDatabase(nodes));
+  const nodes = ['a', 'b', 'c'].map((id, tier) => technology(id, tier));
+  await openTree(page, nodes, { b: 'a', c: 'b' });
   const card = page.locator('[data-technology-id="b"]'); await expect(card).toBeVisible();
   let tooltipWidth = 0;
   for (const percent of [50, 100, 150]) {
@@ -109,19 +101,3 @@ test('tooltips retain size and close on zoom, while focus and relationship highl
   }
 });
 
-test('real set keeps every image, full title and connection across zoom and language changes', async ({ page }) => {
-  test.skip(!process.env.STTV_DATABASE_DIR, 'Requires the prepared set'); test.setTimeout(120000);
-  await page.goto('/'); await page.locator('input[type=file]').setInputFiles(process.env.STTV_DATABASE_DIR!);
-  await expect(page.locator('[data-technology-id]')).toHaveCount(678, { timeout: 90000 });
-  await expect(page.locator('[data-connection-child]')).toHaveCount(464);
-  mkdirSync(sttvWorkPath('frontend-stage9'), { recursive: true });
-  for (const language of ['ru', 'en']) {
-    if (language === 'en') await sttvEnglish(page);
-    for (const percent of [50, 100, 150]) {
-      await sttvZoom(page, percent); await sttvCheckConnectionAnchors(page);
-      expect(await page.locator('.sttv-card-title').evaluateAll(items => items.every(item => item.scrollWidth <= item.clientWidth + 1))).toBe(true);
-      await page.locator('#sttv-viewport-content').evaluate(e => { e.scrollLeft = 0; e.scrollTop = 0; });
-      await page.screenshot({ path: sttvWorkPath(`frontend-stage9/real-${language}-${percent}.png`) });
-    }
-  }
-});
