@@ -129,8 +129,7 @@ def example_phrases(samples, translated, apocalypse):
             "tech_synthetic_leaders": [phrase("factor", value=numeric_text(values[2], lang)), phrase("and"),
                                        phrase("has_origin", origin=text["origin_necrophage"]),
                                        phrase("has_trait_species", trait=text["trait_necrophage"])],
-            "tech_crystal_armor_1": [phrase("add", signed_value=numeric_text(values[3], lang, signed=True)),
-                                     phrase("has_country_flag", flag=scalar(armor, "has_country_flag"))],
+            "tech_crystal_armor_1": [],
             "tech_storm_manipulation": {
                 "operations_in_nested_value": [phrase("add_councilor_level", position=text[p]) for p in positions],
                 "separate_modifier": [phrase("factor", value=zero),

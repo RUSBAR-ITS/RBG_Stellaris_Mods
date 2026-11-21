@@ -28,10 +28,11 @@ A dedicated image configuration specifies the game root, prepared DLC descriptor
 | Research categories | `gfx/interface/icons/technologies/categories/category_*.dds`, direct children only | 13 |
 | Research costs | Select `physics_research.dds`, `society_research.dds` and `engineering_research.dds` from `gfx/interface/icons/resources/` | 3 |
 | DLC thumbnails | Read the scalar `thumbnail` from each prepared JSON descriptor under `scripts/dlc/`. Use `source.file` to locate the game descriptor and resolve the image against its directory in the game installation | 32 |
+| Inline text icons | The six resource icons and the planetary blocker icon listed in `text_icons.files` | 7 |
 
 Select all top-level technology icons. Base technologies and their variants in the inspected version reference 802 distinct files. Selecting the icon for a technology by `icon`, ID or `inherit_icon` belongs to the consumer. The `old_tech_icons` and `tech_templates` directories are outside the selection.
 
-Each DLC retains its own path to `thumbnail.png`. A DLC catalog entry without a descriptor, or a descriptor without `thumbnail`, contributes no image. A declared thumbnail whose file is missing produces a preparation error identifying the descriptor and path. The current total is **912 distinct destination paths**. Counts in the table describe this installation and may change across game versions.
+Each DLC retains its own path to `thumbnail.png`. A DLC catalog entry without a descriptor, or a descriptor without `thumbnail`, contributes no image. A declared thumbnail whose file is missing produces a preparation error identifying the descriptor and path. The current total is **919 distinct destination paths**. Counts in the table describe this installation and may change across game versions.
 
 ## Format and placement
 

@@ -32,7 +32,7 @@ python -m pip install ./Instruments/Document_Package "./WEB_STTV/src/loader[imag
 sttv-loader upload-images --config WEB_STTV/config/loader_images.json
 ```
 
-`game_root` points to the Stellaris installation and `descriptor_directory` to the prepared DLC descriptor JSON files. The command selects technology and category icons, the three research area icons and declared DLC thumbnails from the game. Prepared PNG files appear under `run_directory/artifacts/` at game-relative paths. [Configuration](../../config/loader_images.json) · [Selection rules](Docs/TZ_IMAGE_UPLOAD_EN.md)
+`game_root` points to the Stellaris installation and `descriptor_directory` to the prepared DLC descriptor JSON files. The command selects technology and category icons, the three research area icons, seven inline game-text icons and declared DLC thumbnails from the game. Prepared PNG files appear under `run_directory/artifacts/` at game-relative paths. [Configuration](../../config/loader_images.json) · [Selection rules](Docs/TZ_IMAGE_UPLOAD_EN.md) · [Inline icons](../../Docs/frontend/TZ_TOOLTIP_INLINE_ICONS_AND_TRAITS_EN.md)
 
 The SSH user needs write access to the existing `destination_root`. The supplied configuration targets `/home/ansible/web-sttv/assets` on `stellaris-wiki`. Ubuntu needs `python3`. The loader verifies the host key against `known_hosts` and retrieves SSH credentials through the Windows certificate and Vault. The command runs independently of MongoDB and document import.
 

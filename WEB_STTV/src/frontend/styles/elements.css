@@ -91,3 +91,4 @@
   --sttv-scrollbar-thumb-drag: var(--sttv-accent);
   --sttv-scrollbar-focus: var(--sttv-accent);
 }
+.sttv-inline-icon { width: 1em; height: 1em; vertical-align: -0.15em; }

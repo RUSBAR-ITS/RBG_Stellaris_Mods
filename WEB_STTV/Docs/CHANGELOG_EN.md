@@ -2,6 +2,17 @@
 
 ## Contents
 
+- [2026-11-21 — Inline icons and trait levels in tooltips](#2026-11-21--inline-icons-and-trait-levels-in-tooltips)
+- [2026-11-21 — Draft specification for inline icons and trait names](#2026-11-21--draft-specification-for-inline-icons-and-trait-names)
+- [2026-11-21 — Flag meanings in tooltips](#2026-11-21--flag-meanings-in-tooltips)
+- [2026-11-21 — Technology tooltip flag survey](#2026-11-21--technology-tooltip-flag-survey)
+
+- [2026-11-21 — shorter conditions in tooltips](#2026-11-21--shorter-conditions-in-tooltips)
+
+- [2026-11-21 — draft for shorter tooltip conditions](#2026-11-21--draft-for-shorter-tooltip-conditions)
+
+- [2026-11-21 — game text colors and weight modifier lists](#2026-11-21--game-text-colors-and-weight-modifier-lists)
+
 - [2026-11-21 — extended tooltip on technology cards](#2026-11-21--extended-tooltip-on-technology-cards)
 
 - [2026-11-21 — published the tooltip API on the test site](#2026-11-21--published-the-tooltip-api-on-the-test-site)
@@ -235,7 +246,43 @@
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
 
+## 2026-11-21 — Inline icons and trait levels in tooltips
+
+The image loader publishes seven game PNGs for `£…£` markers. Technology descriptions and conditions display the icons inline at the surrounding font size and preserve nested text colors. Four leader trait levels now have Russian and English names. Verified all 391 trait occurrences in each language across 98 technologies on the test server. Checked the cards in Chrome, including all seven images and both languages. [Rules and examples](frontend/TZ_TOOLTIP_INLINE_ICONS_AND_TRAITS_EN.md)
+
+## 2026-11-21 — Draft specification for inline icons and trait names
+
+Identified seven game DDS textures for inline icons and four localization entries for leader trait levels. The draft lists the paths, expected names in both languages and acceptance checks on technology cards. [Draft specification](frontend/TZ_TOOLTIP_INLINE_ICONS_AND_TRAITS_EN.md)
+
+## 2026-11-21 — Flag meanings in tooltips
+
+Published Russian and English descriptions for 31 country and galaxy flags on the test server. Resource checks describe discoveries. The server omits the single conditional +5 bonus for Crystal-Infused Plating. New flags and missing translations produce a neutral label and a diagnostic with the ID, technology and section. Verified 194 API responses covering all 97 technologies with flag checks, including policies, and opened four cards in Chrome in each language. [Dictionary and rules](../src/server/Docs/TZ_TOOLTIP_FLAGS_EN.md)
+
+## 2026-11-21 — Technology tooltip flag survey
+
+Surveyed 35 distinct flag values in the availability and weight conditions of 679 technologies. Game scripts confirm the meaning of 31 of the 32 country and global flags. For one only the weight bonus was established. Three policy flags already resolve to their selected options. Drafted RU/EN labels and display rules. [Inventory and game sources](../src/server/Docs/TZ_TOOLTIP_FLAGS_EN.md)
+
+Checked Cutholoid and Crystalline Entity combat rewards and traced the plating weight condition in the 2.2 series. The specification clarifies the discovery wording for all six resource flags, including Astral Threads at game start. The draft specification now lists `crystal_armor_1_weight` as an ignored tooltip condition and omits its conditional +5 row.
+
+## 2026-11-21 — shorter conditions in tooltips
+
+The server unwraps single-predicate AND/OR groups and describes negated origins and authorities in a single phrase. A research check outside a dedicated list gets a full label. Four RU/EN strings were published to the test site. A comparison across 679 technologies confirmed equivalent conditions and a display change for 570. Four cards were checked in the browser in both languages. [Examples and acceptance](../src/server/Docs/TZ_TOOLTIP_CONDITION_SIMPLIFICATION_EN.md)
+
+## 2026-11-21 — draft for shorter tooltip conditions
+
+Drafted the rules for single-operand AND/OR groups and negative origin and authority checks affecting 312 technologies. Specified the wording for a mandatory research check using Particle Lances. The full phrase is needed for 422 technologies, bringing the combined scope to 570 of 679. Checked all eight combinations of conditions for each of Quantum Neuro-Links and Particle Lances. [Specification and design check](../src/server/Docs/TZ_TOOLTIP_CONDITION_SIMPLIFICATION_EN.md)
+
+## 2026-11-21 — game text colors and weight modifier lists
+
+Added five RU/EN heading pairs for groups of researched technologies. Browser checks on the test site covered the required list for `tech_habitat_2` and the alternatives for Titans. Each of the two alternative groups in Mega-Engineering has its own heading.
+
+The shared Text element renders the 30 Stellaris text colors. The server resolves colored static resource references and preserves parameters that need a running game. Templates mark the boundaries of referenced technologies and other game objects. Updated and verified 98 localization documents on the test site.
+
+Each weight modifier has its own list item starting with its multiplier or addition. Checks retain their nesting, and each logical group heading ends with a colon. Verified six technologies through the API and five through the browser on the test site, each in Russian and English. [Specification and examples](frontend/TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
+
 ## 2026-11-21 — extended tooltip on technology cards
+
+The next iteration’s specification now covers in-game name colors and a list of modifiers with the operation first and nested conditions beneath it. Every logical group heading ends with a colon. The Titans example uses the new format.
 
 Hovering over or focusing a card loads research conditions and weight modifiers. The tooltip preserves condition groups and operation order. The live browser check covered Titans in Russian and English and keyboard scrolling. Three tooltip browser tests passed, including retry after an error and rendering nested formulas. [Tooltip specification](frontend/TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
 

@@ -1,0 +1,9 @@
+{
+  "energy": "resources/energy.png",
+  "minerals": "resources/minerals.png",
+  "rare_crystals": "resources/rare_crystals.png",
+  "exotic_gases": "resources/exotic_gases.png",
+  "volatile_motes": "resources/volatile_motes.png",
+  "sr_living_metal": "resources/sr_living_metal.png",
+  "blocker": "text_icons/text_icon_tile_blocker.png"
+}

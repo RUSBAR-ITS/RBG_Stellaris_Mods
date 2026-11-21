@@ -11,7 +11,7 @@
 
 ## Dictionary scope
 
-**The game conditions section is implemented.** Published 87 RU/EN string pairs for 70 conditions. For example, `has_technology` uses the key `sttv_tooltip_has_technology` and two templates, «Исследована технология „{technology}“» and “Has researched the technology ‘{technology}’”. The existing localization lookup supplies the name. One entry covers all technologies. [Russian strings](../../../localization/russian/sttv_tooltip_conditions_l_russian.yml) · [English strings](../../../localization/english/sttv_tooltip_conditions_l_english.yml)
+**The game conditions section is implemented.** Published 89 RU/EN string pairs for 70 conditions, including negative forms for origin and authority. For example, `has_technology` uses the key `sttv_tooltip_has_technology` and two templates, «Исследована технология „{technology}“» and “Has researched the technology ‘{technology}’”. The existing localization lookup supplies the name. One entry covers all technologies. [Russian strings](../../../localization/russian/sttv_tooltip_conditions_l_russian.yml) · [English strings](../../../localization/english/sttv_tooltip_conditions_l_english.yml)
 
 Both project directories are in the localization profile. The `tooltip_condition` context forms the key from the construct name. Boolean `no` uses the `_no` suffix. The `has_trait` check has separate `_species` and `_leader` labels. When composing a phrase, the caller selects the relevant variant and fills its named parameters. In numeric templates, `{comparison}` is the comparison operator, `{value}` is the value and `{percentage}` is a formatted percentage including its sign. [Tooltip content specification](../../../Docs/frontend/TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md)
 
@@ -47,7 +47,7 @@ For `exists` and `is_same_value`, `{target}` names the object being tested. For 
 
 ## Logic, weight and arguments
 
-Published **22 RU/EN string pairs** for logical groups, branches and operations, bringing the dictionary to **137 pairs**. It distinguishes a direct `weight_modifier.factor`, a conditional `modifier.factor` and a calculation inside a `script_value`. Additive changes keep their sign and a zero multiplier is shown as ×0. AND, OR, NAND and NOR use the game’s localization strings. [Russian templates](../../../localization/russian/sttv_tooltip_expressions_l_russian.yml) · [English templates](../../../localization/english/sttv_tooltip_expressions_l_english.yml)
+Published **27 RU/EN string pairs** for logical groups, branches and operations, bringing the dictionary to **144 pairs**. It distinguishes a direct `weight_modifier.factor`, a conditional `modifier.factor` and a calculation inside a `script_value`. Additive changes keep their sign and a zero multiplier is shown as ×0. Each logical group has a localized heading ending in a colon. [Russian templates](../../../localization/russian/sttv_tooltip_expressions_l_russian.yml) · [English templates](../../../localization/english/sttv_tooltip_expressions_l_english.yml)
 
 Fourteen arguments take their meaning from the enclosing check or operation. For example, `type` fills `{resource}` in `has_resource` and `{building}` in `num_buildings`. The comparison operator comes from the quantity assignment. The councillor-level label for `complex_trigger_modifier` requires `trigger = get_councilor_level`, `trigger_scope = owner`, `mode = add` and a council position in `parameters.type`. Other shapes are reported with their original expression. [Argument and operation mappings](../sttv_server/tooltip_expressions.py)
 

@@ -150,7 +150,7 @@ Game color codes `§…`, icon notation `£…`, preserved `$…$` tokens, squar
 
 The string is not interpreted as HTML or Markdown. The shared Text element's styling role, width-based wrapping, and agreed line restriction still apply; they do not alter the source string. Numeric substitution in a built-in variant suffix follows the previous section.
 
-Game markup processing belongs to a subsequent stage and is outside this specification.
+The [Text specification](elements/TZ_TEXT_EN.md#placement-and-overflow) defines how the subsequent stage renders colored spans. Lookup returns the original string with its markup.
 
 ## Language changes and data updates
 

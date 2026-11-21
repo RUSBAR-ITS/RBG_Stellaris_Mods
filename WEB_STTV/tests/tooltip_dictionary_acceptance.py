@@ -16,6 +16,7 @@ from sttv_loader.settings import settings
 from sttv_server.config import load_config
 from sttv_server.database import selected_strings
 from sttv_server.localization import determine_key
+from sttv_server.technology_tooltip import IGNORED_FLAGS
 from sttv_server.tree.ast import fields, scalar
 from sttv_server.tree.dlcs import catalog
 from sttv_server.tree.inputs import records
@@ -185,7 +186,14 @@ def survey(db, keys, translated):
                 if key in in_dictionary:
                     seen.add(key)
                     if key in ("has_country_flag", "has_global_flag"):
-                        technical_flags.setdefault(value["text"], example)
+                        flag = value["text"]
+                        term = key + "_" + flag
+                        if (key, flag) in IGNORED_FLAGS:
+                            technical_flags[term] = {**example, "display": "ignored"}
+                        elif determine_key(rules, "tooltip_condition", term) in keys:
+                            technical_flags.setdefault(term, {**example, "display": "localized"})
+                        else:
+                            unknown.setdefault(term, example)
                     label = key + "_no" if value.get("text") == "no" else key
                     if determine_key(rules, "tooltip_condition", label) not in keys:
                         unknown.setdefault(label, example)
@@ -220,7 +228,7 @@ def survey(db, keys, translated):
             "expression_keys_seen": len(expression_keys), "expression_counts": {
                 "/".join(path): count for path, count in sorted(expression_counts.items())},
             "missing_templates": sorted(missing), "examples": examples, "new_or_unhandled": unknown,
-            "flags_shown_by_id": technical_flags}
+            "technical_flags": technical_flags}
 
 
 if __name__ == "__main__":

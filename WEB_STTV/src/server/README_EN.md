@@ -47,9 +47,13 @@ curl -sS http://127.0.0.1:8788/api/trees/technology-tooltip \
   -d '{"technology_id":"tech_titans","language":"en"}'
 ```
 
-The response contains `technology_id`, `language`, `name`, `description`, `sections` and `diagnostics`. Empty sections are omitted. Each source block under `prerequisites`, `potential` and `allow` produces one expression. Logical groups carry an `operator` and ordered `children`. Entries under `weight_modifier` retain their source order. Each `modifier` holds its operation and the conditions that apply to it. A calculated factor can include a `formula` with its operations or a `trigger` identifying its game-state dependency.
+The response contains `technology_id`, `language`, `name`, `description`, `sections` and `diagnostics`. Empty sections are omitted. Each source block under `prerequisites`, `potential` and `allow` produces one expression. Logical groups carry an `operator` and ordered `children`. Entries under `weight_modifier` retain their source order. Each `modifier` contains ordered `operations` and an optional `condition` expression. Simultaneous checks form an `AND` group. Each operation supplies localized `text` for the start of the row, such as `×0.1` or `+5`. Inline game color codes delimit highlighted names. A calculated factor can include a `formula` with its operations or a `trigger` identifying its game-state dependency.
+
+The server returns the simplified condition ready for display. A negated origin or authority check retains its original `key` and carries `negated: true`. When the negative translation is missing, the API returns a `NOT` group containing the original check. [Rules and examples](Docs/TZ_TOOLTIP_CONDITION_SIMPLIFICATION_EN.md)
 
 A node’s localized label is in `text`. Unrecognized nodes carry `kind = unrecognized` and the original `expression`. If a name is unavailable the condition retains its game ID and `diagnostics` identifies the missing key. An unknown technology returns HTTP 404. An unsupported language or invalid request body returns HTTP 400. [API acceptance checks](tests/tooltip_acceptance.py)
+
+For country and galaxy flags the server looks up a complete phrase by check type and flag ID in the selected language. If the translation is missing, the tooltip displays a neutral phrase and `diagnostics` records the check type, flag ID, technology and section. The tooltip omits the `crystal_armor_1_weight` check. [Flag dictionary and display rules](Docs/TZ_TOOLTIP_FLAGS_EN.md)
 
 ## Technology tree
 

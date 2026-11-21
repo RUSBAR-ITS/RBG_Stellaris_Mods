@@ -8,6 +8,8 @@ from .tree.inputs import records
 
 
 SECTIONS = ('prerequisites', 'potential', 'allow', 'weight_modifier')
+FLAG_CHECKS = {'has_country_flag', 'has_global_flag'}
+IGNORED_FLAGS = {('has_country_flag', 'crystal_armor_1_weight')}
 SYMBOLS = {'=': '=', '!=': '≠', '<': '<', '>': '>', '<=': '≤', '>=': '≥'}
 INVERSE = {'=': '!=', '!=': '=', '<': '>=', '>': '<=', '<=': '>', '>=': '<'}
 NUMERIC = {'years_passed', 'mid_game_years_passed', 'days_passed', 'num_cosmic_storms_encountered',
@@ -33,7 +35,7 @@ NAMES = {
     'has_active_specialization': 'specialization', 'is_planet_class': 'planet_class', 'has_deposit': 'deposit',
     'has_deposit_for': 'station_class', 'has_district': 'district', 'uses_district_set': 'district_set',
     'has_megastructure': 'megastructure', 'has_relic': 'relic', 'has_seen_any_bypass': 'bypass',
-    'owns_any_bypass': 'bypass', 'has_country_flag': 'flag', 'has_global_flag': 'flag', 'has_modifier': 'modifier',
+    'owns_any_bypass': 'bypass', 'has_modifier': 'modifier',
     'exists': 'target', 'is_same_value': 'target',
 }
 
@@ -57,17 +59,69 @@ class Content:
                          value=numeric_text(value, self.labels.language))
 
     def group(self, operator, children):
-        return {'kind': 'group', 'operator': operator, 'text': self.labels.phrase(operator.lower()),
+        if None in children:
+            children = [child for child in children if child is not None]
+            if not children:
+                return None
+        if len(children) == 1:
+            child = children[0]
+            if operator in ('AND', 'OR') and child['kind'] in ('condition', 'technology', 'group', 'scope'):
+                return child
+            if operator == 'NOT' and child.get('key') in ('has_origin', 'has_authority') and child['kind'] == 'condition':
+                # Keep the original group until the batch lookup confirms the negative translation.
+                return {'kind': 'group', 'operator': operator, 'text': self.labels.phrase('not'), 'children': children,
+                        '_negative_text': self.labels.phrase('not_' + child['key'], **child['text'].arguments)}
+        term = operator.lower()
+        if (children and (operator != 'NOT' or len(children) == 1)
+                and all(child['kind'] == 'technology' or child.get('key') == 'has_technology' for child in children)):
+            term = 'technologies_' + term
+            children = [{**child, 'text': self.labels.technology(child['id'], reference=True)} for child in children]
+        return {'kind': 'group', 'operator': operator, 'text': self.labels.phrase(term),
                 'children': children}
+
+    def weight_rule(self, node):
+        if node.get('kind') != 'assignment' or node['key'].get('text') != 'modifier' or node['operator'] != '=':
+            return self.node(node, ('weight_modifier',))
+        if node['value']['kind'] != 'block':
+            return self.unknown(node)
+        operations, checks = [], []
+        for item in node['value']['items']:
+            child = self.node(item, ('weight_modifier', 'modifier'))
+            if item.get('key', {}).get('text') in ('factor', 'add'):
+                if child is None:
+                    return None
+                if child['kind'] != 'operation':
+                    return self.unknown(node)
+                operations.append(child)
+            else:
+                checks.append(child)
+        if not operations:
+            return self.unknown(node)
+        rule = {'kind': 'modifier', 'operations': operations}
+        if checks:
+            condition = checks[0] if len(checks) == 1 else self.group('AND', checks)
+            if condition is None:
+                return None
+            rule['condition'] = condition
+        return rule
 
     def conditions(self, items, path):
         children = [self.node(item, path) for item in items]
         return children[0] if len(children) == 1 else self.group('AND', children)
 
+    @staticmethod
+    def with_children(parent, children, field='children'):
+        visible = [child for child in children if child is not None]
+        if children and not visible:
+            return None
+        return {**parent, field: visible}
+
     def node(self, node, path):
         kind = node['kind']
         if kind == 'scalar' and path[0] == 'prerequisites':
-            return {'kind': 'technology', 'id': node['text'], 'text': self.labels.technology(node['text'])}
+            identifier = node['text']
+            return {'kind': 'technology', 'id': identifier,
+                    'text': self.labels.phrase('has_technology', technology=self.labels.technology(identifier))}
         if kind == 'block':
             return self.conditions(node['items'], path)
         if kind == 'logical_operation' and node['operator'] in LOGIC:
@@ -91,8 +145,8 @@ class Content:
                 key = item.get('key', {}).get('text')
                 if key in ('count_owned_pop_amount', 'count_archaeological_site') and item['value'] == {'kind': 'block', 'items': []}:
                     return self.comparison(key, sign, value)
-            return {**self.comparison('scripted_trigger_test', sign, value),
-                    'children': [self.node(node['body'], path)]}
+            return self.with_children(self.comparison('scripted_trigger_test', sign, value),
+                                      [self.node(node['body'], path)])
         if kind != 'assignment':
             return self.unknown(node)
         key, sign, value = node['key']['text'], node['operator'], node['value']
@@ -110,6 +164,10 @@ class Content:
             return self.term('condition', key, comparison=SYMBOLS[sign], starbase_size=self.labels.name('starbase_size', text))
         if sign != '=':
             return self.unknown(node)
+        if key in FLAG_CHECKS and text:
+            if (key, text) in IGNORED_FLAGS:
+                return None
+            return {'kind': 'condition', 'key': key, 'text': self.labels.flag(key, text, path[0])}
         if key == 'has_policy_flag' and text:
             return {'kind': 'condition', 'key': key, 'text': self.labels.policy(text)}
         if key in BOOLEAN and text in ('yes', 'no'):
@@ -123,14 +181,17 @@ class Content:
                 elif text.startswith('trait_'):
                     label += '_species'
             role = 'pop_category' if key == 'is_pop_category' else slot
-            return self.term('condition', label, **{slot: self.labels.name(role, text)})
+            condition = self.term('condition', label, **{slot: self.labels.name(role, text)})
+            if key == 'has_technology':
+                condition['id'] = text
+            return condition
         if value['kind'] == 'block':
             if key in ARGUMENTS:
                 return self.arguments(node, path)
             if key in SCOPES:
-                return {**self.term('scope', key), 'children': [self.conditions(value['items'], (*path, key))]}
+                return self.with_children(self.term('scope', key), [self.conditions(value['items'], (*path, key))])
             if key == 'custom_tooltip':
-                return {'kind': key, 'children': [self.node(item, (*path, key)) for item in value['items']]}
+                return self.with_children({'kind': key}, [self.node(item, (*path, key)) for item in value['items']])
         if text and (key == 'custom_tooltip' or (path[-1] == 'custom_tooltip' and key in ('text', 'fail_text', 'success_text'))):
             return {'kind': 'caption', 'key': key, 'text': self.labels.label(text, fallback=text)}
         return self.unknown(node)
@@ -165,16 +226,14 @@ class Content:
                 return self.unknown(node)
             label += '_completed_enabled'
         result = self.term('condition', label, **args)
-        if children:
-            result['children'] = children
-        return result
+        return self.with_children(result, children) if children else result
 
     def operation(self, node, term, path):
         value, key = node['value'], node['key']['text']
         if key in ('modifier', 'if', 'else', 'limit', 'hidden_trigger'):
             if value['kind'] != 'block':
                 return self.unknown(node)
-            return {**self.term(key, term), 'children': [self.node(n, (*path, key)) for n in value['items']]}
+            return self.with_children(self.term(key, term), [self.node(n, (*path, key)) for n in value['items']])
         operand = value.get('text')
         if key == 'factor' and operand == 'trigger:acquired_specimen_count':
             return {**self.term('operation', term, value=self.labels.phrase('acquired_specimen_count')),
@@ -185,8 +244,8 @@ class Content:
                 operand = items[0]['value'].get('text')
             else:
                 slot = 'signed_value' if key == 'add' else 'value'
-                return {**self.term('operation', term, **{slot: self.labels.phrase('script_value')}),
-                        'formula': [self.node(n, (*path, key, 'script_value')) for n in items]}
+                return self.with_children(self.term('operation', term, **{slot: self.labels.phrase('script_value')}),
+                                          [self.node(n, (*path, key, 'script_value')) for n in items], 'formula')
         if number(operand) is None:
             return self.unknown(node)
         signed = key == 'add'
@@ -208,9 +267,13 @@ def technology_tooltip(db, rules, reader, technology_id, language):
         elif block['items']:
             entries = sections.setdefault(key, [])
             if key == 'weight_modifier':
-                entries.extend(content.node(child, (key,)) for child in block['items'])
+                entries.extend(row for child in block['items'] if (row := content.weight_rule(child)) is not None)
             else:
-                entries.append(content.conditions(block['items'], (key,)))
+                condition = content.conditions(block['items'], (key,))
+                if condition is not None:
+                    entries.append(condition)
+            if not entries:
+                del sections[key]
     return labels.resolve({'technology_id': technology_id, 'language': language,
                            'name': labels.technology(technology_id),
                            'description': labels.label(determine_key(rules, 'technology_description', technology_id)),

@@ -92,7 +92,7 @@ The consuming component specifies alignment and size constraints. Two modes are 
 
 The mode and maximum line count are chosen when specifying the card, tooltip, and other composite elements. Display restrictions apply to the resolved text without modifying its identifier or content in the selected source.
 
-Database text is displayed as stored under the [no-markup-processing rule](../TZ_LOCALIZATION_EN.md#display-without-markup-processing): game codes, icon notation, and substitution tokens are not removed or expanded. The string is not interpreted as HTML or Markdown; a literal backslash followed by `n` is not converted into a line break by an additional processor.
+The database retains the source string. When rendering it, Text applies the game palette to colored spans. Other notation, including icons and unresolved substitutions, is displayed literally. [Game name colors](../TZ_TECHNOLOGY_TOOLTIP_CONTENT_EN.md#game-name-colors)
 
 ## Acceptance criteria
 
@@ -110,7 +110,7 @@ Checks are performed after implementation:
 - Full display mode wraps long text containing spaces at word boundaries and retains all content.
 - Line restriction mode is checked with short text that fits without an ellipsis and long text that ends with an ellipsis when it exceeds the limit.
 - Changing available width preserves the selected overflow mode and specified alignment.
-- Duplicates, conflicts, missing strings, and built-in template parameters follow the localization specification; database `text` is displayed without processing game markup.
+- Duplicates, conflicts, missing strings and built-in template parameters follow the localization specification. For a colored name, verify that the name has the game color and the following text returns to its ordinary color.
 
 ## Subsequent implementation details
 

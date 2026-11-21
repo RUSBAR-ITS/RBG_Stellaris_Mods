@@ -3,13 +3,17 @@ import { request } from '../../app/reference';
 import type { SttvCardTechnology } from '../../data/model';
 import type { SttvLanguage } from '../../localization/model';
 import { SttvText } from '../base/Text';
+import { SttvGameText } from '../base/GameText';
 
 interface Expression {
   kind: string;
+  key?: string;
   text?: string;
   children?: Expression[];
   formula?: Expression[];
   expression?: unknown;
+  operations?: Expression[];
+  condition?: Expression;
 }
 type Sections = Partial<Record<'prerequisites' | 'potential' | 'allow' | 'weight_modifier', Expression[]>>;
 interface Response { technology_id: string; language: SttvLanguage; sections: Sections }
@@ -19,11 +23,33 @@ const cache = new WeakMap<SttvCardTechnology, Partial<Record<SttvLanguage, Secti
 
 function Expressions({ items }: { items?: Expression[] }) {
   if (!items?.length) return null;
-  return <ul>{items.map((node, index) => <li key={index}>
-    {node.text}
-    {node.kind === 'unrecognized' && <code>{JSON.stringify(node.expression)}</code>}
-    <Expressions items={node.children} />
+  return <ul>{items.map((node, index) => <li key={index}><ExpressionLine node={node} /></li>)}</ul>;
+}
+
+function ExpressionLine({ node }: { node: Expression }) {
+  if (node.kind === 'unrecognized') return <code>{JSON.stringify(node.expression)}</code>;
+  const children = node.children;
+  const child = children?.length === 1 ? children[0] : undefined;
+  const inlineScope = node.kind === 'scope' && child?.kind === 'condition' && !child.children?.length;
+  let text = node.text ?? '';
+  if (children?.length && text && !inlineScope) text = text.trimEnd().replace(/:+$/, '') + ':';
+  return <><SttvGameText value={text} />
+    {inlineScope ? <> — <ExpressionLine node={child} /></> : <Expressions items={children} />}
     <Expressions items={node.formula} />
+  </>;
+}
+
+function WeightRules({ items }: { items: Expression[] }) {
+  return <ul>{items.map((rule, index) => <li key={index}>
+    {rule.kind === 'modifier' && rule.operations ? <>
+      {rule.operations.map((op, i) => <strong key={i}>({op.key === 'add' && op.formula ? '+' : ''}<SttvGameText value={op.text ?? ''} />) </strong>)}
+      {rule.condition && <ExpressionLine node={rule.condition} />}
+      {rule.operations.map((op, i) => op.formula?.length ? <div key={i}>
+        <SttvText text={{ id: 'sttv_tooltip_formula' }} role="tooltip-body" />
+        {rule.operations!.length > 1 && <> (<SttvGameText value={op.text ?? ''} />)</>}
+        <Expressions items={op.formula} />
+      </div> : null)}
+    </> : <ExpressionLine node={rule} />}
   </li>)}</ul>;
 }
 
@@ -65,6 +91,6 @@ export function SttvTechnologyTooltipDetails({ technology, language }:
       {!!allow?.length && <><h4><SttvText text={{ id: 'sttv_tooltip_allow' }} role="tooltip-body" /></h4>
         <Expressions items={allow} /></>}
     </section>}
-    {!!weights?.length && <section><Heading id="sttv_tooltip_weight" /><Expressions items={weights} /></section>}
+    {!!weights?.length && <section><Heading id="sttv_tooltip_weight" /><WeightRules items={weights} /></section>}
   </div>;
 }

@@ -1,7 +1,8 @@
 import unittest
 from unittest.mock import patch
 
-from sttv_server.technology_tooltip import technology_tooltip
+from sttv_server.technology_tooltip import Content, technology_tooltip
+from sttv_server.tooltip_labels import Labels
 
 
 def scalar(text):
@@ -16,11 +17,125 @@ def block(*items):
     return {'kind': 'block', 'items': list(items)}
 
 
-class TooltipTests(unittest.TestCase):
-    def test_multiple_children_remain_inside_negation(self):
-        from sttv_server.technology_tooltip import Content
-        from sttv_server.tooltip_labels import Labels
+def logic(operator, *children):
+    return {'kind': 'logical_operation', 'operator': operator, 'body': block(*children)}
 
+
+class TooltipTests(unittest.TestCase):
+    def test_flags_use_scope_specific_labels_and_keep_unknown_checks(self):
+        rules = {'tooltip_condition': {'prefix': 'test_', 'suffix': ''}}
+        labels = Labels('en', rules, None)
+        content = Content(labels)
+        known = entry('has_country_flag', scalar('found'))
+        unknown = entry('has_global_flag', scalar('found'))
+        node = content.node(logic('NOR', known, unknown), ('potential',))
+        strings = {'test_nor': 'None:', 'test_has_country_flag_found': 'A resource was found',
+                   'test_has_global_flag': 'A special galaxy condition is met'}
+        result = labels.resolve({'technology_id': 'tech_a', 'node': node},
+                                lambda lang, keys: [(k, strings[k]) for k in keys if k in strings])
+        self.assertEqual(result['node']['operator'], 'NOR')
+        self.assertEqual([c['text'] for c in result['node']['children']],
+                         [strings['test_has_country_flag_found'], strings['test_has_global_flag']])
+        self.assertEqual(result['diagnostics'], [{'reason': 'missing_flag_label', 'check': 'has_global_flag',
+                                                  'flag': 'found', 'technology': 'tech_a', 'section': 'potential'}])
+
+    def test_ignored_country_flag_does_not_make_a_weight_bonus_unconditional(self):
+        ignored = entry('has_country_flag', scalar('crystal_armor_1_weight'))
+        other_scope = entry('has_global_flag', scalar('crystal_armor_1_weight'))
+        content = Content(Labels('ru', {'tooltip_condition': {'suffix': ''}}, None))
+        addition = entry('add', scalar('5'))
+        def rule(*checks):
+            return content.weight_rule(entry('modifier', block(addition, *checks)))
+
+        self.assertIsNone(rule(ignored))
+        self.assertIsNone(rule(logic('NOT', entry('hidden_trigger', block(ignored)))))
+        self.assertNotIn('condition', rule())
+        self.assertEqual(rule(ignored, other_scope)['condition']['key'], 'has_global_flag')
+        self.assertEqual(rule(other_scope)['operations'][0]['value'], '5')
+
+    def test_single_and_mixed_scalar_prerequisites(self):
+        labels = Labels('en', {'tooltip_condition': {'prefix': 'test_', 'suffix': ''},
+                               'technology_name': {'suffix': ''}}, None)
+        content = Content(labels)
+        a, b, c = (scalar(name) for name in ('a', 'b', 'c'))
+        only = content.node(logic('OR', a), ('prerequisites',))
+        self.assertEqual(only['id'], 'a')
+        self.assertEqual(only['text'].keys, ('test_has_technology',))
+        self.assertIsNone(only['text'].arguments['technology'].color)
+        group = content.node(block(a, logic('OR', b, c)), ('prerequisites',))
+        self.assertEqual(group['text'].keys, ('test_and',))
+        required, alternatives = group['children']
+        self.assertEqual(required, only)
+        self.assertEqual(alternatives['text'].keys, ('test_technologies_or',))
+        for tech in alternatives['children']:
+            self.assertEqual(tech['text'].keys, (tech['id'],))
+            self.assertEqual(tech['text'].color, 'Y')
+
+    def test_negation_uses_the_selected_translation_or_keeps_its_group(self):
+        labels = Labels('en', {'tooltip_condition': {'prefix': 'test_', 'suffix': ''}}, None)
+        content = Content(labels)
+        for key in ('has_origin', 'has_authority'):
+            with self.subTest(key=key):
+                expr = logic('NOT', logic('AND', logic('OR', entry(key, scalar('x')))))
+                node = content.node(expr, ('allow',))
+                slot = key.removeprefix('has_')
+                texts = {'test_not': 'False:', 'test_' + key: 'Has {' + slot + '}', 'x': 'X'}
+
+                def reader(lang, keys):
+                    return [(k, texts[k]) for k in keys if k in texts]
+
+                fallback = labels.resolve({'node': node}, reader)
+                self.assertEqual(fallback['node']['operator'], 'NOT')
+                self.assertEqual(fallback['node']['children'][0]['text'], 'Has X')
+                self.assertNotIn('_negative_text', fallback['node'])
+                self.assertIn({'reason': 'missing_localization', 'keys': ['test_not_' + key]}, fallback['diagnostics'])
+                texts['test_not_' + key] = 'Without {' + slot + '}'
+                negative = {'kind': 'condition', 'key': key, 'negated': True, 'text': 'Without X'}
+                self.assertEqual(labels.resolve({'node': node}, reader)['node'], negative)
+                double = content.node(logic('NOT', expr), ('allow',))
+                self.assertEqual(labels.resolve({'node': double}, reader)['node'],
+                                 {'kind': 'group', 'operator': 'NOT', 'text': 'False:', 'children': [negative]})
+
+    def test_simplification_preserves_scopes_and_opaque_operands(self):
+        content = Content(Labels('en', {'tooltip_condition': {'suffix': ''}}, None))
+        check = entry('has_origin', scalar('x'))
+        scope = entry('any_neighbor_country', block(check))
+        simplified = content.node(logic('AND', scope), ('allow',))
+        self.assertEqual(simplified['key'], 'any_neighbor_country')
+        self.assertEqual(simplified['children'][0]['key'], 'has_origin')
+        for item in (entry('unknown', block(check)), entry('custom_tooltip', scalar('caption')),
+                     entry('hidden_trigger', block(check))):
+            for op in ('AND', 'OR'):
+                node = content.node(logic(op, item), ('allow',))
+                self.assertEqual(node['operator'], op)
+                self.assertEqual(node['children'], [content.node(item, ('allow',))])
+        for op in ('AND', 'OR'):
+            self.assertEqual(content.node(logic(op), ('allow',))['children'], [])
+        invalid = {**check, 'operator': '!='}
+        self.assertEqual(content.node(logic('NOT', invalid), ('allow',))['children'],
+                         [{'kind': 'unrecognized', 'expression': invalid}])
+
+    def test_headings_describe_the_direct_operands_in_the_same_scope(self):
+        rules = {'tooltip_condition': {'prefix': 'sttv_', 'suffix': ''}, 'technology_name': {'suffix': ''}}
+        content = Content(Labels('en', rules, None))
+        a, b = (entry('has_technology', scalar(key)) for key in ('tech_a', 'tech_b'))
+        for op in ('AND', 'OR', 'NOT', 'NAND', 'NOR'):
+            with self.subTest(operator=op):
+                items = [a] if op == 'NOT' else [a, b]
+                group = content.node({'kind': 'logical_operation', 'operator': op, 'body': block(*items)}, ('allow',))
+                self.assertEqual(group['text'].keys, ('sttv_technologies_' + op.lower(),))
+                self.assertEqual(group['children'][0]['text'].keys, ('tech_a',))
+                self.assertEqual(group['children'][0]['text'].color, 'Y')
+
+        alternatives = {'kind': 'logical_operation', 'operator': 'OR', 'body': block(a, b)}
+        for different in (entry('can_research_technology', scalar('tech_c')),
+                          entry('any_neighbor_country', block(a)), alternatives):
+            group = content.node(block(a, different), ('potential',))
+            self.assertEqual(group['text'].keys, ('sttv_and',))
+            self.assertEqual(group['children'][0]['text'].keys, ('sttv_has_technology',))
+        self.assertEqual(group['children'][1]['text'].keys, ('sttv_technologies_or',))
+
+    def test_multiple_children_remain_inside_negation(self):
         a = entry('has_origin', scalar('origin_a'))
         b = entry('has_civic', scalar('civic_b'))
         condition = {'kind': 'logical_operation', 'operator': 'NOT', 'body': block(a, b)}

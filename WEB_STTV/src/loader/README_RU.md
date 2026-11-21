@@ -32,7 +32,7 @@ python -m pip install ./Instruments/Document_Package "./WEB_STTV/src/loader[imag
 sttv-loader upload-images --config WEB_STTV/config/loader_images.json
 ```
 
-`game_root` указывает на установку Stellaris, `descriptor_directory` — на подготовленные JSON-дескрипторы DLC. Команда берёт из игры иконки технологий, категорий, трёх областей исследований и объявленные миниатюры DLC. Готовые PNG появляются под `run_directory/artifacts/` с игровыми относительными путями. [Конфигурация](../../config/loader_images.json) · [Правила отбора](Docs/TZ_IMAGE_UPLOAD_RU.md)
+`game_root` указывает на установку Stellaris, `descriptor_directory` — на подготовленные JSON-дескрипторы DLC. Команда берёт из игры иконки технологий, категорий, трёх областей исследований, семь встроенных иконок игрового текста и объявленные миниатюры DLC. Готовые PNG появляются под `run_directory/artifacts/` с игровыми относительными путями. [Конфигурация](../../config/loader_images.json) · [Правила отбора](Docs/TZ_IMAGE_UPLOAD_RU.md) · [Иконки в тексте](../../Docs/frontend/TZ_TOOLTIP_INLINE_ICONS_AND_TRAITS_RU.md)
 
 SSH-пользователю нужен доступ на запись в существующий `destination_root`. В штатном конфиге это `/home/ansible/web-sttv/assets` на `stellaris-wiki`. На Ubuntu нужен `python3`. Загрузчик сверяет ключ хоста с `known_hosts` и получает учётные данные SSH через сертификат Windows и Vault. Импорт документов и доступ к MongoDB для этой команды независимы.
 

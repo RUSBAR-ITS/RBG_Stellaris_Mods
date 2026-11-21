@@ -3,6 +3,7 @@ import { sttvUseLocalization } from '../../localization/context';
 import { sttvTechnologyName } from '../../data/tree/comparison';
 import { SttvResourceImage } from '../base/ResourceImage';
 import { SttvText } from '../base/Text';
+import { SttvGameText } from '../base/GameText';
 import type { ReactNode } from 'react';
 
 export function SttvAttributeRow({ label, children }: { label: string; children: ReactNode }) {
@@ -19,7 +20,7 @@ export function SttvCardContent({ technology: tech, representation: rep, resourc
     <SttvResourceImage id={rep.iconAssetId} className="sttv-card-image" measuring={measuring} />
     <div className="sttv-card-details">
       <SttvText text={sttvTechnologyName(tech, rep, text)} role="card" className="sttv-card-title" />
-      <div className="sttv-card-information">{information.join(text({ id: 'sttv_card_separator' }))}</div>
+      <div className="sttv-card-information"><SttvGameText value={information.join(text({ id: 'sttv_card_separator' }))} /></div>
       {tech.cost !== null && <SttvAttributeRow label="sttv_card_cost">
         <SttvResourceImage id={resourceIcon} label={text({ id: `sttv_${rep.area}` })} className="sttv-cost-image" measuring={measuring} />
         <span>{number.format(tech.cost)}</span>

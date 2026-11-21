@@ -69,7 +69,14 @@ class LocalizationTests(unittest.TestCase):
         rendered = '[$opaque$ [Root.GetName]] £$opaque$£ §Yvalue§! $missing$ $number|Y$'
         self.assertEqual([row['key'] for row in result['items']], keys)
         self.assertEqual([row['text'] for row in result['items']], [rendered, '§Yvalue§!', rendered, '', None])
-        self.assertEqual(calls, [['a', 'absent', 'b', 'empty'], ['c', 'missing']])
+        self.assertEqual(calls, [['a', 'absent', 'b', 'empty'], ['c', 'missing', 'number']])
+
+    def test_colored_static_references_preserve_dynamic_slots_and_plain_cached_values(self):
+        records = {'sentence': '$energy|G$ $energy$ $energy|Y$ $PLANET|Y$ $unknown|Y$',
+                   'energy': '$label$', 'label': 'Energy', 'PLANET': 'Planet'}
+        result = lookup('en', ['sentence', 'energy'], lambda _, keys: [(k, records[k]) for k in keys if k in records])
+        self.assertEqual([i['text'] for i in result['items']],
+                         ['§GEnergy§! Energy §YEnergy§! $PLANET|Y$ $unknown|Y$', 'Energy'])
 
     def test_cycle_is_relative_to_the_requested_root(self):
         records = {'A': 'a:$B$:$C$', 'B': 'b:$A$', 'C': 'c', 'S': '$S$'}

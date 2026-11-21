@@ -4,6 +4,8 @@
 
 - [Stage scope](#stage-scope)
 - [Three sections](#three-sections)
+- [Weight modifier list](#weight-modifier-list)
+- [Game name colors](#game-name-colors)
 - [Titans example](#titans-example)
 - [Names and condition phrases](#names-and-condition-phrases)
 - [Checks and scope decisions](#checks-and-scope-decisions)
@@ -14,6 +16,8 @@ Hovering over or focusing a base technology card immediately shows its localized
 
 ## Three sections
 
+The [draft specification with the Quantum Neuro-Links example](../../src/server/Docs/TZ_TOOLTIP_CONDITION_SIMPLIFICATION_EN.md) covers the shorter presentation of single-operand groups and negative checks.
+
 | Section | Source | Interpretation |
 |---|---|---|
 | Required technologies | The technology's entire `prerequisites` expression | Use names in the selected language. Siblings in the outer block imply AND. Preserve each alternative group and its boundaries, including independent OR groups. The parent chosen for layout cannot represent the full expression. |
@@ -22,26 +26,55 @@ Hovering over or focusing a base technology card immediately shows its localized
 
 Empty sections may be omitted. Interpret `has_technology` within its enclosing rule. A check on a neighbouring empire inside a weight modifier affects the weight. Nested AND, OR, NOT, NAND and NOR retain their scope. Use parentheses or a nested list when a sentence would be ambiguous. Text parameters of `custom_tooltip` supply labels. Checks inside `hidden_trigger` retain their place in the condition model. [Tooltip semantics](../semantics/TOOLTIPS_EN.md) · [Logic and context](../semantics/LOGIC_AND_CONTEXT_EN.md)
 
+## Weight modifier list
+
+When every direct item checks technologies researched by the same empire, the heading names technologies. Use “All of these technologies have been researched:” for a required list and “At least one of these technologies has been researched:” for alternatives. Any one alternative suffices and others may also have been researched. List the names beneath the heading. A group containing different scopes, other checks or subgroups keeps its general condition heading. Each subgroup takes its heading from its own items. The same rule applies to prerequisites and availability.
+
+For a standalone research requirement or a direct item under a general heading, the server supplies the full “Has researched the technology …” phrase. For Particle Lances, the mandatory X-Ray Lasers gets the full phrase, while Battleships and Stingers appear by name under “At least one of these technologies has been researched:”. This applies both to a scalar prerequisite ID and to a `has_technology` check. [Label selection and example](../../src/server/Docs/TZ_TOOLTIP_CONDITION_SIMPLIFICATION_EN.md#user-visible-result)
+
+Give each rule one item in source order. Start with the operation in parentheses and follow it with its condition. Rules testing the same empire parameter keep their individual multipliers and list items. Each operator in a compound condition has its own nested list. Its heading conveys the full operation, including negation.
+
+Every logical group heading that introduces a list of conditions ends with a single colon, at every nesting level and in every tooltip section.
+
+Illustrative example.
+
+- **(×1.5)** The empire has the Militarist ethic.
+- **(×2)** The empire has the Fanatic Militarist ethic.
+- **(×3)** All of the following are true:
+  - More than 100 years have passed since game start.
+  - At least one of the following is true:
+    - The empire has researched Battleships.
+    - A neighbouring empire has researched Titans.
+
+Preserve distinct operations such as **(×0)** and **(+5)**. Show the formula for a calculated value. Label a direct block multiplier as applying to the entire block.
+
+## Game name colors
+
+The shared Text element renders colored spans in names, descriptions and conditions. The palette comes from `textcolors` in the game’s `interface/fonts.gfx`. The game highlights a required technology in `§Y$tech_gateway_activation$§!`. The color extends from `§Y` to `§!`. The surrounding phrase retains its own color. For a resolved substitution such as `$PLANET|Y$`, color the substituted value. An unresolved substitution remains readable in its original form. [Palette](E:/SteamLibrary/steamapps/common/Stellaris/interface/fonts.gfx:9) · [Technology requirement](E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/apocalypse_l_english.yml:320)
+
+When the server inserts a game name into its own phrase, it preserves the boundaries of the name. Use the color of the equivalent in-game reference. Highlight just the name in both languages.
+
 ## Titans example
 
 Technology `tech_titans`. The following content follows the existing title and description.
 
 **Required technologies**  
-Battleships **or** Advanced Stinger Development.
+At least one of these technologies has been researched:
+
+- Battleships
+- Advanced Stinger Development
 
 **Availability conditions**  
 The game host has Apocalypse enabled.
 
 **Research draw weight modifiers**
 
-| Applies when | Weight change |
-|---|---:|
-| At most 100 years have passed since game start | ×0.1 |
-| At least one neighbouring empire has researched Titans | ×10 |
-| More than 130 years have passed | ×2 |
-| More than 140 years have passed | ×3 |
-| More than 150 years have passed | ×4 |
-| The empire has adopted the Supremacy tradition tree | ×1.25 |
+- **(×0.1)** At most 100 years have passed since game start.
+- **(×10)** At least one neighbouring empire has researched Titans.
+- **(×2)** More than 130 years have passed.
+- **(×3)** More than 140 years have passed.
+- **(×4)** More than 150 years have passed.
+- **(×1.25)** The empire has adopted the Supremacy tradition tree.
 
 Each row represents a separate modifier. The 130-, 140- and 150-year thresholds are independent. [Game definition](E:/SteamLibrary/steamapps/common/Stellaris/common/technology/00_eng_tech.txt:236)
 

@@ -10,6 +10,14 @@
       "directory": "gfx/interface/icons/resources",
       "files": ["physics_research.dds", "society_research.dds", "engineering_research.dds"]
     },
+    "text_icons": {
+      "directory": "gfx/interface/icons",
+      "files": [
+        "resources/energy.dds", "resources/minerals.dds", "resources/rare_crystals.dds",
+        "resources/exotic_gases.dds", "resources/volatile_motes.dds", "resources/sr_living_metal.dds",
+        "text_icons/text_icon_tile_blocker.dds"
+      ]
+    },
     "dlc": {"directory": "dlc", "descriptor_field": "thumbnail"}
   },
   "ssh": {

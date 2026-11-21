@@ -13,6 +13,8 @@ class Label:
     keys: tuple
     fallback: str | None
     arguments: dict | None = None
+    color: str | None = None
+    missing: dict | None = None
 
 
 class Labels:
@@ -26,14 +28,21 @@ class Labels:
         self._policies = None
         self._bypasses = None
 
-    def label(self, *keys, fallback=None, arguments=None):
+    def label(self, *keys, fallback=None, arguments=None, color=None):
         keys = tuple(k for k in keys if k)
         self.keys.update(keys)
-        return Label(keys, fallback, arguments)
+        return Label(keys, fallback, arguments, color)
 
     def phrase(self, term, **arguments):
         key = determine_key(self.rules, 'tooltip_condition', term)
         return self.label(key, fallback=term, arguments=arguments)
+
+    def flag(self, check, identifier, section):
+        specific = determine_key(self.rules, 'tooltip_condition', check + '_' + identifier)
+        neutral = determine_key(self.rules, 'tooltip_condition', check)
+        label = self.label(specific, neutral, fallback='…')
+        label.missing = {'reason': 'missing_flag_label', 'check': check, 'flag': identifier, 'section': section}
+        return label
 
     def resolve(self, result, reader):
         items = lookup(self.language, sorted(self.keys), reader)['items']
@@ -41,6 +50,10 @@ class Labels:
 
         def visit(value):
             if isinstance(value, Label):
+                if value.missing and (not value.keys or value.keys[0] not in texts):
+                    issue = {**value.missing, 'technology': result['technology_id']}
+                    if issue not in self.diagnostics:
+                        self.diagnostics.append(issue)
                 text = next((texts[k] for k in value.keys if k in texts), None)
                 if text is None:
                     if value.keys:
@@ -48,17 +61,29 @@ class Labels:
                         if issue not in self.diagnostics:
                             self.diagnostics.append(issue)
                     return value.fallback
-                return text.format(**visit(value.arguments)) if value.arguments is not None else text
+                if value.arguments is not None:
+                    text = text.format(**visit(value.arguments))
+                return f'§{value.color}{text}§!' if value.color else text
             if isinstance(value, list):
                 return [visit(entry) for entry in value]
             if isinstance(value, dict):
+                if value.get('kind') == 'unrecognized':
+                    return value
+                if '_negative_text' in value:
+                    phrase = value['_negative_text']
+                    if any(key in texts for key in phrase.keys):
+                        child, = value['children']
+                        return {**child, 'text': visit(phrase), 'negated': True}
+                    visit(phrase)  # Report the missing translation and render the original NOT group.
+                    return {k: visit(v) for k, v in value.items() if k != '_negative_text'}
                 return {k: visit(v) for k, v in value.items()}
             return value
 
         return {**visit(result), 'diagnostics': self.diagnostics}
 
-    def technology(self, identifier):
-        return self.label(determine_key(self.rules, 'technology_name', identifier), fallback=identifier)
+    def technology(self, identifier, *, reference=False):
+        return self.label(determine_key(self.rules, 'technology_name', identifier), fallback=identifier,
+                          color='Y' if reference else None)
 
     def dlc(self, name):
         if self._dlcs is None:
@@ -95,8 +120,6 @@ class Labels:
             return self.technology(value)
         if role == 'dlc':
             return self.dlc(value)
-        if role == 'flag':
-            return value
         if role == 'bypass':
             if self._bypasses is None:
                 self._bypasses = {r['id']: scalar(r['body'], 'name') for r in records(self.db, 'bypass', ['name'])}
