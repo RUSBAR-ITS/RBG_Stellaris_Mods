@@ -4,6 +4,7 @@ from . import condition_text
 from .localization import determine_key
 from .tooltip_expressions import ARGUMENTS, LOGIC, councilor_position, operation_term
 from .tooltip_labels import Labels
+from .tooltip_scopes import ScopeContext
 from .tree.ast import fields, number
 from .tree.inputs import records
 
@@ -53,6 +54,8 @@ class Content:
         self.flag_evidence = {}
         self.labels = labels
         self.titles = {}
+        if index is not None:
+            labels.source_title = self.name
 
     def name(self, source):
         if source not in self.titles:
@@ -61,6 +64,8 @@ class Content:
 
     def source_title(self, source):
         kind, identifier = source
+        if kind == 'technologies':
+            return self.labels.technology(identifier, reference=True)
         if kind == 'events':
             keys = self.index.event_keys(identifier)
             family = self.labels.label('sttv_tooltip_story_' + identifier.partition('.')[0],
@@ -88,6 +93,8 @@ class Content:
             label.missing = {'reason': 'source_named_by_context', 'source': list(source), 'basis': basis}
             return label
         title = self.labels.label(*self.index.names[source], 'sttv_tooltip_source_unnamed')
+        if kind == 'first_contact' and 'fcsum_tiyanki_2' in self.index.names[source]:
+            return self.labels.phrase('contact_tiyanki_stage_2')
         return self.labels.phrase('source_' + kind, name=title)
 
     def unknown(self, node):
@@ -128,6 +135,11 @@ class Content:
         setting = {s['source'] for s in sites.values() if s['action'].startswith('set_')}
         if not setting:
             return node
+        if check == 'has_astral_rift_flag' and flag.startswith('picked_tech_'):
+            tech = flag.removeprefix('picked_')
+            if tech in self.index.mechanics.technologies:
+                node['text'] = self.labels.phrase('selected_rift_reward', technology=self.labels.technology(tech, reference=True))
+                return node
         # Prefer the explicit translation. Supply the observed setting actions if it is missing.
         sources = []
         contexts = {(s['source'], s['option'], s['stages']) for s in sites.values() if s['action'].startswith('set_')}
@@ -140,8 +152,12 @@ class Content:
                 details.append(self.stage_name(source, stage))
             sources.append({'localized_list': details})
         label.keys = label.keys[:1]
-        label.fallback = self.labels.phrase('flag_observed_' + ('galaxy' if check == 'has_global_flag' else 'object'),
-                                            sources={'localized_list': sources})
+        subject = self.labels.scope.stack[-1].label if self.labels.scope else self.labels.phrase('participant_source_participant')
+        label.fallback = self.labels.phrase('lasting_global_result' if check == 'has_global_flag' else 'lasting_result',
+                                            subject=subject, sources={'localized_list': sources})
+        label.missing = {'reason': 'flag_meaning_from_setters', 'check': check, 'flag': flag, **self.origin,
+                         'setters': [{'file': site['file'], 'pointer': site['pointer']} for site in sites.values()
+                                     if site['action'].startswith('set_')]}
         origin = self.origin.get('object')
         if isinstance(origin, (list, tuple)) and len(origin) == 2:
             from .acquisition_mechanics import acquisition_rules
@@ -164,6 +180,21 @@ class Content:
             if not children:
                 return None
         if operator in ('AND', 'OR'):
+            if operator == 'AND' and len(children) > 1 and self.labels.scope:
+                participant = self.labels.scope.stack[-1]
+                if participant.present:
+                    other = [c for c in children if not (c.get('key') == 'exists'
+                             and c.get('reference', {}).get('id', '').casefold() == 'this')]
+                    children = other or children[:1]
+                if participant.kind == 'excavation':
+                    exists = next((c for c in children if c.get('key') == 'exists'
+                                   and c.get('reference', {}).get('id') == 'leader'), None)
+                    scientist = next((c for c in children if c.get('key') == 'leader'
+                                      and len(c.get('children', ())) == 1
+                                      and c['children'][0].get('reference') == {'type': 'leader_class', 'id': 'scientist'}), None)
+                    if exists and scientist:
+                        children = [self.term('condition', 'assigned_excavation_scientist') if c is exists else c
+                                    for c in children if c is not scientist]
             compact = self.compact_predicates(operator, children)
             if compact:
                 return compact
@@ -181,10 +212,10 @@ class Content:
             child = children[0]
             if operator in ('AND', 'OR') and child['kind'] in ('condition', 'technology', 'group', 'scope'):
                 return child
-            if operator == 'NOT' and child.get('key') in ('has_origin', 'has_authority', 'has_active_event') and child['kind'] == 'condition':
+            if operator == 'NOT' and child.get('key') in ('has_origin', 'has_authority', 'has_active_event', 'uses_ship_category', 'bioships') and child['kind'] == 'condition':
                 # Keep the original group until the batch lookup confirms the negative translation.
                 return {'kind': 'group', 'operator': operator, 'text': self.labels.phrase('not'), 'children': children,
-                        '_negative_text': self.labels.phrase('not_' + child['key'], **child['text'].arguments)}
+                        '_negative_text': self.labels.phrase('not_' + child['key'], **(child['text'].arguments or {}))}
         term = operator.lower()
         if (children and (operator != 'NOT' or len(children) == 1)
                 and all(child['kind'] == 'technology' or child.get('key') == 'has_technology' for child in children)):
@@ -289,6 +320,8 @@ class Content:
         if kind != 'assignment':
             return self.unknown(node)
         key, sign, value = node['key']['text'].casefold(), node['operator'], node['value']
+        if key == 'hidden_trigger' and sign == '=' and value.get('kind') == 'block' and value.get('items'):
+            return self.conditions(value['items'], (*path, key))
         extra = condition_text.apply(self, node, path, SCOPES)
         if extra is not None:
             return extra
@@ -315,6 +348,8 @@ class Content:
         if key in BOOLEAN and text in ('yes', 'no'):
             return self.term('condition', key + ('_no' if text == 'no' else ''))
         if key in NAMES and text is not None:
+            if key == 'uses_ship_category' and text == 'bio_ship':
+                return {**self.term('condition', 'bioships'), 'reference': {'type': 'category', 'id': text}}
             slot = NAMES[key]
             label = key
             if key == 'has_trait':
@@ -407,6 +442,7 @@ def prepare_tooltip(db, rules, technology_id, progress=None):
         return None
     labels = Labels(None, rules, db)
     content = Content(labels, progress)
+    labels.scope = ScopeContext(labels, progress, ('technologies', technology_id))
     sections = {}
     weights = fields(row['body'], 'weight')
     if len(weights) > 1:
@@ -420,6 +456,7 @@ def prepare_tooltip(db, rules, technology_id, progress=None):
         if 'source' in row:
             content.origin = {'object': technology_id, 'file': row['source']['document_id'],
                               'pointer': f"{row['source']['pointer']}/value/items/{item['source_index']}"}
+            labels.scope.address = content.origin
         if item['operator'] != '=' or block['kind'] != 'block':
             sections.setdefault(key, []).append(content.unknown(item))
         elif block['items']:

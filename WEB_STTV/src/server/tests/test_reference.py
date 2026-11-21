@@ -2,13 +2,15 @@ import json
 import unittest
 from pathlib import Path
 from threading import Lock
-from unittest.mock import Mock
+from unittest.mock import MagicMock, Mock
 
 from sttv_server.tree.builder import PreparedTree
 from sttv_server.tree.empire import compatible
-from sttv_server.tree.errors import BuildError, Busy
+from sttv_server.tree.errors import BuildError, Busy, InvalidRequest
 from sttv_server.tree.layout import place
+from sttv_server.tree.event_technologies import classify, weight_status
 from sttv_server.tree.service import ReferenceTrees
+from sttv_server.progress_sources import ProgressSources
 
 
 RULES = json.loads((Path(__file__).resolve().parents[1] / 'config/reference_tree.json').read_text())
@@ -58,6 +60,55 @@ class EmpireTests(unittest.TestCase):
 
 
 class TreeTests(unittest.TestCase):
+    def test_ready_tree_identity_and_request_types(self):
+        db = MagicMock()
+        db.dlcs.distinct.return_value = ['D']
+        db.list_collection_names.side_effect = lambda **kw: [kw['filter']['name']]
+        trees = ReferenceTrees(db, {'catalogs': []}, {}, None)
+        trees.revision = lambda: 'current'
+        trees.cards_revision, trees.cards = 'current', {}
+        keys = set()
+        for enabled in (['D'], []):
+            for mixed in (False, True):
+                for hide in (False, True):
+                    params = dict(enabled_dlc=enabled, mixed_trees=mixed, hide_event_technologies=hide)
+                    result = trees.open(params)
+                    key = result['tree_id']
+                    self.assertNotIn(key, keys)
+                    keys.add(key)
+                    trees.registry.find_one.assert_called_with({'_id': key, 'mode': 'reference', **params,
+                        'source_revision': 'current', 'rules_revision': trees.rules_revision, 'state': 'ready'})
+        self.assertEqual(trees.open({}), trees.open({'enabled_dlc': ['D', 'D'], 'mixed_trees': False,
+                                                    'hide_event_technologies': False}))
+        trees.registry.replace_one.assert_not_called()
+        for invalid in ({'mixed_trees': 1}, {'hide_event_technologies': 'false'}):
+            with self.assertRaises(InvalidRequest):
+                trees.open(invalid)
+
+    def test_event_classification_requires_a_confirmed_exclusive_route(self):
+        index = ProgressSources(('tech',), ('grant',))
+        def add(kind, identifier, *items):
+            index.add(kind, {'_id': identifier, 'source': {'file': 'test.txt'}, 'pointer': '/0',
+                             'tree': term('country_event' if kind == 'events' else identifier, block(*items))})
+        index.mechanics.technologies['tech'] = block(term('weight', '0'))
+        techs = {'tech': {'starting': False}}
+        add('events', 'grant', term('is_triggered_only', 'yes'), term('immediate', block(term('give_technology', 'tech'))))
+        self.assertFalse(classify(index, techs)['tech']['event_only'])
+        add('anomalies', 'entry', term('on_success', block(term('country_event', 'grant'))))
+        self.assertTrue(classify(index, techs)['tech']['event_only'])
+        add('ascension_perks', 'perk', term('on_enabled', block(term('country_event', 'grant'))))
+        row = classify(index, techs)['tech']
+        self.assertFalse(row['event_only'])
+        self.assertEqual(row['acquisition_basis']['sources'], ['ascension_perks', 'event'])
+
+    def test_research_weights_exclude_ai_and_keep_uncertain_additions_visible(self):
+        base = term('weight', '0')
+        bonus = lambda n: block(term('modifier', block(term('add', n))))
+        self.assertEqual(weight_status(block(base, term('ai_weight', bonus('5')))), 'zero_weight')
+        self.assertEqual(weight_status(block(base, term('weight_modifier', bonus('5')))), 'positive_add')
+        self.assertEqual(weight_status(block(base, term('weight_modifier', bonus('script_value')))), 'unknown_add')
+        self.assertEqual(weight_status(block(base, term('weight', '80'))), 'conflicting_weights')
+
     def test_zero_matches_tie_and_hidden_parent(self):
         fixture = object.__new__(PreparedTree)
         fixture.options = {'parent_rules': [{'id': 'mandatory', 'enabled': True}]}
@@ -67,7 +118,7 @@ class TreeTests(unittest.TestCase):
         fixture.techs['c']['parents'] = ['a', 'b']
         for shown, expected in [('abc', None), ('bc', 'b'), ('c', None)]:
             nodes = {k: {'children': [], 'availability': k in shown, 'parent_tech': None} for k in 'abc'}
-            fixture.parents(nodes, {}, 'test')
+            fixture.parents(nodes, {}, {'mixed_trees': False})
             self.assertEqual(nodes['c']['parent_tech'], expected)
             self.assertEqual(nodes['b']['children'], ['c'] if expected else [])
 

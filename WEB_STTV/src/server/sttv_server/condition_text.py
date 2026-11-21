@@ -51,8 +51,19 @@ def scope_parts(labels, value):
 
 def scope_name(labels, value):
     parts = scope_parts(labels, value)
+    if labels.scope is not None:
+        with labels.scope.nested(parts) as names:
+            # Each role is resolved relative to the preceding participant.
+            last = names[-1]
+            if len(parts) > 1 and parts[-1].lower() not in ('owner', 'controller', 'leader', 'this', 'root', 'prev'):
+                last = {'scope_path': names}
+            return labels.phrase('optional_scope', scope=last) if value.endswith('?') else last
     if len(parts) > 1:
         return {'scope_path': [scope_name(labels, p) for p in parts]}
+    return literal_scope(labels, value)
+
+
+def literal_scope(labels, value):
     name = value.removesuffix('?')
     part = name.casefold()
     if part.startswith('event_target:'):
@@ -249,11 +260,23 @@ def apply(content, node, path, scopes):
     parts = scope_parts(labels, raw)
     if all(p.lower().rstrip('?') in scopes or 'scope' in rules.get(p.lower().rstrip('?'), {})
            or p.lower().startswith('event_target:') for p in parts):
-        child = content.conditions(items, (*path, raw)) if items else None
+        if labels.scope is None:
+            names = [scope_name(labels, part) for part in parts]
+            child = content.conditions(items, (*path, raw)) if items else None
+        else:
+            with labels.scope.nested(parts) as names:
+                child = content.conditions(items, (*path, raw)) if items else None
+            names = [labels.phrase('optional_scope', scope=name) if part.endswith('?') else name
+                     for part, name in zip(parts, names)]
         if items and child is None:
             return None
-        for part in reversed(parts):
-            child = {'kind': 'scope', 'key': part.casefold(), 'text': scope_name(labels, part),
+        for part, label in reversed(list(zip(parts, names))):
+            if (part.casefold() == 'any_relation' and child and child.get('key') == 'is_same_value'
+                    and child['kind'] == 'condition' and child.get('reference')):
+                child = {**content.term('condition', 'has_relation_with', target=child['text'].arguments['target']),
+                         'reference': child['reference']}
+                continue
+            child = {'kind': 'scope', 'key': part.casefold(), 'text': label,
                      'children': [child] if child is not None else []}
         return child
     if key == 'else_if' or key == 'limit' and path[-1] not in ('if', 'count_owned_pop_amount', 'count_archaeological_site'):
@@ -272,7 +295,12 @@ def apply(content, node, path, scopes):
                 if limit is None:
                     return result
                 if limit['operator'] == '=' and limit['value'].get('kind') == 'block':
-                    return content.with_children(result, [content.conditions(limit['value']['items'], (*path, key))])
+                    if labels.scope:
+                        with labels.scope.nested([key]):
+                            child = content.conditions(limit['value']['items'], (*path, key))
+                    else:
+                        child = content.conditions(limit['value']['items'], (*path, key))
+                    return content.with_children(result, [child])
     if key == 'resource_stockpile_compare':
         return stockpile(content, items, path)
     fields = {n['key']['text'].casefold(): (n['operator'], n['value'].get('text')) for n in items}

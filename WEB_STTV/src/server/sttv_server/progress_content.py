@@ -4,7 +4,8 @@ from decimal import Decimal
 import json
 
 from .acquisition_mechanics import acquisition_rules
-from .condition_text import scope_name
+from .condition_text import scope_name, scope_parts
+from .tooltip_scopes import ScopeContext
 from .progress_amounts import quantity
 from .progress_sources import key
 from .technology_tooltip import Content
@@ -40,18 +41,21 @@ class ProgressContent(Content):
             return condition
         return super().node(node, path)
 
-    def conditions_for(self, guards, entry):
+    def conditions_for(self, guards, entry, *, stages=None):
         result, previous = [], []
         for negative, node in guards:
             self.origin = {'object': list(entry['source']), 'file': entry['file'],
                            'pointer': node.get('guard_pointer') or entry['pointer']}
+            self.labels.scope = ScopeContext(self.labels, self.index, entry['source'], self.origin,
+                                             stages=entry['stages'] if stages is None else stages)
+            scopes = node.get('guard_scopes', ())
+            headings = [self.scoped_step(s, recipient=False) for s in scopes]
             condition = self.node(node, (self.section,))
             if condition:
-                scopes = node.get('guard_scopes', ())
                 for i in reversed(range(len(scopes))):
                     scope = scopes[i]
                     condition = {'kind': 'scope', 'key': scope,
-                                 'text': self.scoped_label(entry['source'], scopes[:i+1], recipient=False),
+                                 'text': headings[i],
                                  'children': [condition]}
                 if node.get('guard_pointer'):
                     condition['address'] = self.origin.copy()
@@ -64,6 +68,10 @@ class ProgressContent(Content):
 
     def circumstances(self, entry):
         result = []
+        self.labels.scope = ScopeContext(self.labels, self.index, entry['source'],
+                                         {k: entry[k] for k in ('file', 'pointer')}, stages=entry['stages'])
+        for scope in entry['scopes']:
+            self.scoped_step(scope, recipient=False)
         if entry.get('delay'):
             result.append(line(self.labels.phrase('progress_delay_days', value=entry['delay'])))
         if entry.get('from_binding'):
@@ -99,20 +107,19 @@ class ProgressContent(Content):
             result.append(line(self.labels.phrase('pool_donor', name=scope_name(self.labels, args['who']))))
         return result
 
-    def scoped_label(self, source, scopes, *, recipient):
-        if scopes[-1] == 'every_playable_country':
+    def scoped_step(self, scope, *, recipient):
+        for part in scope_parts(self.labels, scope):
+            role = self.labels.scope.enter(part)
+        if scope == 'every_playable_country':
             return self.labels.phrase('matching_empire' if recipient else 'empire_under_test')
-        if tuple(scopes) == ('controller',) and source[0] == 'events':
-            kind = self.index.event_types.get(source[1])
-            if kind in ('fleet_event', 'ship_event', 'planet_event'):
-                return self.labels.phrase('controller_' + kind)
-        return scope_name(self.labels, scopes[-1])
+        return role.label
 
-    def recipient(self, source, scopes):
-        if scopes:
-            label = self.scoped_label(source, scopes, recipient=True)
-        else:
-            label = self.labels.phrase('progress_event_recipient' if source[0] == 'events' else 'progress_empire')
+    def recipient(self, entry):
+        self.labels.scope = ScopeContext(self.labels, self.index, entry['source'],
+                                         {k: entry[k] for k in ('file', 'pointer')}, stages=entry['stages'])
+        label = self.labels.scope.stack[0].label
+        for scope in entry['scopes']:
+            label = self.scoped_step(scope, recipient=True)
         return line(self.labels.phrase('progress_recipient', name=label))
 
     def amount(self, node):
@@ -131,7 +138,7 @@ class ProgressContent(Content):
         for op, value, guards in self.index.spawn.get(source, ()):
             sign = '+' if op == 'add' and value and not value.startswith('-') else '×' if op != 'add' else ''
             description.append(line(self.labels.phrase('progress_spawn_weight', value=sign + (value or '?')),
-                                    self.conditions_for(((False, g) for g in guards), entry)))
+                                    self.conditions_for(((False, g) for g in guards), entry, stages=('spawn_chance',))))
         return {**line(self.name(source), description), 'source': list(source),
                 'address': {'file': entry['file'], 'pointer': entry['pointer']}}
 
@@ -194,7 +201,7 @@ class ProgressContent(Content):
             shared = self.conditions_for(common, rewards[0])
             same_scope = all(r['scopes'] == rewards[0]['scopes'] for r in rewards)
             if same_scope:
-                shared.insert(0, self.recipient(source, rewards[0]['scopes']))
+                shared.insert(0, self.recipient(rewards[0]))
             paths = self.incoming(source) if source[0] in ('events', 'special_projects') else []
             if paths:
                 shared.insert(0, paths[0] if len(paths) == 1 else line(self.labels.phrase('or'), paths))
@@ -204,7 +211,7 @@ class ProgressContent(Content):
             for entry in rewards:
                 details = [] if common_context else self.circumstances(entry)
                 if not same_scope:
-                    details.append(self.recipient(source, entry['scopes']))
+                    details.append(self.recipient(entry))
                 details.extend(self.conditions_for((c for c in entry['conditions'] if c not in common), entry))
                 reward = line(self.amount(entry['amount']), details) if 'amount' in entry else line(
                     self.labels.phrase('acquisition_' + section), details)
@@ -218,7 +225,7 @@ class ProgressContent(Content):
                     outcomes.append(result)
             beneficiaries = []
             for entry in rewards:
-                label = self.recipient(source, entry['scopes'])['text']
+                label = self.recipient(entry)['text']
                 if label not in beneficiaries:
                     beneficiaries.append(label)
             summary = list(beneficiaries)

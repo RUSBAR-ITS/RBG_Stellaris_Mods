@@ -19,6 +19,9 @@
   background: var(--sttv-card-surface); border-radius: var(--sttv-radius);
 }
 .sttv-card-details { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: var(--sttv-card-row-gap); }
+.sttv-card[data-event-only='true'] .sttv-card-content {
+  background-image: repeating-linear-gradient(135deg, transparent 0 7px, var(--sttv-card-event-stripe) 7px 11px);
+}
 .sttv-card-title { display: block; overflow-wrap: anywhere; font: var(--sttv-card-font); }
 .sttv-card-information, .sttv-card-attribute { font: var(--sttv-card-detail-font); color: var(--sttv-card-detail-color); overflow-wrap: anywhere; }
 .sttv-card-attribute { display: flex; align-items: center; flex-wrap: wrap; gap: var(--sttv-card-row-gap); }

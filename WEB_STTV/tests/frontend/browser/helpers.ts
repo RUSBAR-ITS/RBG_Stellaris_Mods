@@ -15,8 +15,10 @@ export function treeFixture(techs: Technology[], parents: Record<string, string>
   for (const [child, parent] of Object.entries(parents)) nodes.get(parent)!.children.push(child);
   const roots = techs.filter(t => !parents[t.id]).map(t => t.id);
   const { cards } = sttvPlaceTrees(roots, nodes, () => (a, b) => a.localeCompare(b));
-  return { tree_id: 'test-' + enabled.join('-'), enabled_dlc: enabled, items: cards.map(({ id, column, row }) => ({
-    _id: id, area: techs.find(t => t.id === id)!.area, parent_tech: parents[id] ?? null,
+  return { tree_id: 'test-' + enabled.join('-'), enabled_dlc: enabled, mixed_trees: false, hide_event_technologies: false,
+    hidden_layout: [], items: cards.map(({ id, column, row }) => ({
+    _id: id, area: techs.find(t => t.id === id)!.area, layout_area: techs.find(t => t.id === id)!.area,
+    event_only: false, parent_tech: parents[id] ?? null,
     children: nodes.get(id)!.children, location: { ru: [column, row], en: [column, row] } })),
     cards: Object.fromEntries(techs.map(t => [t.id, { ...t, name: t.id, description: t.id + '_desc', categories: [],
       icon: 'test_icon', source: { database: 'technologies', document_id: t.id, pointer: '' } }])) };

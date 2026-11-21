@@ -25,6 +25,7 @@
 }
 :root, :root[data-theme='night'] {
   --sttv-science-physics-surface: #17364C;
+  --sttv-card-event-stripe: rgb(255 255 255 / 12%);
   --sttv-science-society-surface: #203E30;
   --sttv-science-engineering-surface: #443C22;
   --sttv-rarity-rare: #BE83F5;
@@ -44,6 +45,7 @@
 }
 :root[data-theme='day'] {
   --sttv-science-physics-surface: #DFEEF9;
+  --sttv-card-event-stripe: rgb(24 46 62 / 13%);
   --sttv-science-society-surface: #DFEFE3;
   --sttv-science-engineering-surface: #FFF1BF;
   --sttv-rarity-rare: #8C3BC2;

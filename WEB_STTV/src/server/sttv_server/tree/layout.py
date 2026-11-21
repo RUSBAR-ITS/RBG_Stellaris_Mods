@@ -3,7 +3,7 @@
 from .errors import BuildError
 
 
-def place(nodes, technologies, ranks, config):
+def place(nodes, technologies, ranks, config, mixed=False):
     repeat = config['repeatable']
     digits = str.maketrans('', '', config['ignored_id_characters'])
     visible = {key: row for key, row in nodes.items() if row['availability']}
@@ -16,7 +16,7 @@ def place(nodes, technologies, ranks, config):
             column = repeat['display_tier']
         columns[key] = column
         parent = row['parent_tech']
-        if parent is None or visible[parent]['area'] != row['area']:
+        if parent is None or not mixed and visible[parent]['area'] != row['area']:
             roots.setdefault(row['area'], []).append(key)
     # Cross-area edges still participate in the cycle check.
     finished = set()
@@ -33,7 +33,8 @@ def place(nodes, technologies, ranks, config):
         for area, area_roots in roots.items():
             occupied = set()
             bottom = -1
-            for root in sorted(area_roots, key=lambda k: (config['starting_roots_first'] and not technologies[k]['starting'], rank[k], k)):
+            for root in sorted(area_roots, key=lambda k: (visible[k].get('event_only', False),
+                               config['starting_roots_first'] and not technologies[k]['starting'], rank[k], k)):
                 stack = [(root, bottom + 1)]
                 while stack:
                     key, minimum = stack.pop()
@@ -45,10 +46,12 @@ def place(nodes, technologies, ranks, config):
                         raise BuildError('duplicate_node', key)
                     visited.add(key)
                     occupied.add((col, row))
+                    visible[key]['layout_area'] = area
                     visible[key]['location'][language] = [col, row]
                     bottom = max(bottom, row)
-                    children = [k for k in visible[key]['children'] if visible[k]['area'] == area]
-                    children.sort(key=lambda k: (k.translate(digits) != key.translate(digits), rank[k], k))
+                    children = [k for k in visible[key]['children'] if mixed or visible[k]['area'] == area]
+                    children.sort(key=lambda k: (visible[k].get('event_only', False),
+                                                  k.translate(digits) != key.translate(digits), rank[k], k))
                     for i, child in reversed(list(enumerate(children))):
                         stack.append((child, row + int(columns[child] == col) if i == 0 else None))
         if visited != visible.keys():

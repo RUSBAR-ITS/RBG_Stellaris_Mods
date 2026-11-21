@@ -14,6 +14,11 @@ from . import cards, dlcs
 from .errors import BuildError, Busy, InvalidRequest
 from ..progress_sources import COLLECTIONS, ProgressSources
 
+ACQUISITION_INPUTS = {'technologies', 'dlcs', 'components', 'global_ship_designs', 'script_history',
+                      *COLLECTIONS, *(name + '_provenance' for name in COLLECTIONS)}
+TOOLTIP_INPUTS = sorted(ACQUISITION_INPUTS | {'localization', 'policies', 'bypass', 'components_provenance',
+                                             'global_ship_designs_provenance', 'technologies_provenance'})
+
 
 def digest(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
@@ -28,7 +33,9 @@ class ReferenceTrees:
         self.registry = db[prefix + 'configs']
         folder = Path(__file__).parent
         code = [hashlib.sha256(p.read_bytes()).hexdigest() for p in
-                [*sorted(folder.glob('*.py')), folder.parent / 'localization.py', folder.parent / 'database.py']]
+                [*sorted(folder.glob('*.py')), folder.parent / 'localization.py', folder.parent / 'database.py',
+                 folder.parent / 'acquisition_paths.py', folder.parent / 'acquisition_mechanics.py',
+                 folder.parent / 'progress_sources.py', folder.parent / 'progress_amounts.py']]
         self.rules_revision = digest([options, key_rules, code])
         self.build_lock, self.gate = Lock(), Lock()
         self.opens, self.clearing = 0, False
@@ -66,7 +73,7 @@ class ReferenceTrees:
     def revision(self, names=None):
         if self.db['sttv__publication'].find_one({'_id': 'writer'}, {'_id': 1}):
             raise Busy('source_busy', 'The loader is publishing')
-        names = self.options['catalogs'] if names is None else names
+        names = sorted(set(self.options['catalogs']) | ACQUISITION_INPUTS) if names is None else names
         versions = sorted((r['name'], str(r['info']['uuid'])) for r in self.db.list_collections(
             filter={'name': {'$in': names}}))
         missing = set(names) - {name for name, _ in versions}
@@ -74,15 +81,22 @@ class ReferenceTrees:
             raise BuildError('missing_sources', f'Missing collections: {sorted(missing)}')
         return digest(versions)
 
+    def acquisition_index(self):
+        revision = self.revision(sorted(ACQUISITION_INPUTS))
+        if self.progress_revision != revision:
+            start = perf_counter()
+            self.progress = ProgressSources.build(self.db)
+            self.progress_revision = revision
+            logging.info('technology_acquisition_build revision=%s seconds=%.3f', revision, perf_counter() - start)
+        return self.progress
+
     def technology_tooltip(self, identifier, language, enabled=None):
         from ..technology_tooltip import prepare_tooltip
         from ..tooltip_document import render
         from .inputs import records
         from .ast import scalar
 
-        names = sorted({*COLLECTIONS, 'technologies', 'dlcs', 'localization', 'policies', 'bypass',
-                        'components', 'global_ship_designs', 'components_provenance', 'global_ship_designs_provenance',
-                        'technologies_provenance', 'script_history', *(name + '_provenance' for name in COLLECTIONS)})
+        names = TOOLTIP_INPUTS
         with self.operation():
             selection = None
             if enabled is not None:
@@ -95,13 +109,7 @@ class ReferenceTrees:
                 identity = {'_id': identifier, 'source_revision': revision, 'rules_revision': self.tooltip_rules}
                 document = self.tooltips.find_one(identity)
                 if document is None:
-                    if self.progress_revision != revision:
-                        start = perf_counter()
-                        self.progress = ProgressSources.build(self.db)
-                        self.progress_revision = revision
-                        logging.info('technology_acquisition_build revision=%s seconds=%.3f',
-                                     revision, perf_counter() - start)
-                    document = prepare_tooltip(self.db, self.key_rules, identifier, self.progress)
+                    document = prepare_tooltip(self.db, self.key_rules, identifier, self.acquisition_index())
                     if self.revision(names) != revision:
                         raise Busy('source_changed', 'Technology inputs changed during preparation')
                     if document is None:
@@ -113,7 +121,9 @@ class ReferenceTrees:
             return result
 
     def open(self, body):
-        if not isinstance(body, dict) or set(body) - {'enabled_dlc'}:
+        switches = ('mixed_trees', 'hide_event_technologies')
+        if (not isinstance(body, dict) or set(body) - {'enabled_dlc', *switches} or
+                any(type(body.get(key, False)) is not bool for key in switches)):
             raise InvalidRequest('invalid_request', 'Expected reference tree settings')
         with self.operation(), self.build_lock:
             revision = self.revision()
@@ -121,18 +131,21 @@ class ReferenceTrees:
             requested = body.get('enabled_dlc', sorted(known))
             if not isinstance(requested, list) or not all(isinstance(i, str) and i in known for i in requested):
                 raise InvalidRequest('invalid_dlc', 'Expected an array of known DLC IDs')
-            params = {'mode': 'reference', 'enabled_dlc': sorted(set(requested))}
+            params = {'mode': 'reference', 'enabled_dlc': sorted(set(requested)),
+                      **{key: body.get(key, False) for key in switches}}
             identifier = digest(params)
             target = self.db[self.prefix + identifier]
             meta = {'_id': identifier, **params, 'source_revision': revision, 'rules_revision': self.rules_revision}
             if self.registry.find_one({**meta, 'state': 'ready'}) and target.name in self.db.list_collection_names(filter={'name': target.name}):
-                rows = list(target.find({'availability': True}).sort('_id', 1))
+                nodes = list(target.find().sort('_id', 1))
             else:
                 self.registry.replace_one({'_id': identifier}, {**meta, 'state': 'building'}, upsert=True)
                 try:
                     start = perf_counter()
                     if self.prepared_revision != revision:
-                        self.prepared = PreparedTree(self.db, self.options, self.key_rules, self.read_strings)
+                        with self.progress_lock:
+                            self.prepared = PreparedTree(self.db, self.options, self.key_rules, self.read_strings,
+                                                         self.acquisition_index)
                         self.prepared_revision = revision
                     prepared = perf_counter() - start
                     logging.info('tree_build id=%s rules=%s enabled=%s', identifier, self.rules_revision, params['enabled_dlc'])
@@ -145,7 +158,7 @@ class ReferenceTrees:
                         raise Busy('source_changed', 'Input collections changed during publication')
                     self.registry.update_one({'_id': identifier}, {'$set': {'state': 'ready',
                         'seconds': {**timing, 'preparation': prepared, 'total': perf_counter() - start}}})
-                    rows = sorted((n for n in nodes if n['availability']), key=lambda n: n['_id'])
+                    nodes.sort(key=lambda n: n['_id'])
                 except Exception as exc:
                     self.registry.update_one({'_id': identifier}, {'$set': {'state': 'failed', 'cause': str(exc)}})
                     raise
@@ -154,8 +167,12 @@ class ReferenceTrees:
                 self.cards_revision = revision
             if self.revision() != revision:
                 raise Busy('source_changed', 'Input collections changed during read')
-            return {'tree_id': identifier, 'enabled_dlc': params['enabled_dlc'], 'items': rows,
-                    'cards': {n['_id']: self.cards[n['_id']] for n in rows}}
+            rows = [n for n in nodes if n['availability']]
+            # Reserve the exact cells and routing lanes of filter-hidden nodes in the browser.
+            hidden_layout = [{k: n[k] for k in ('_id', 'area', 'layout_area', 'location', 'parent_tech', 'event_only')}
+                             for n in nodes if not n['availability'] and n['location']]
+            return {'tree_id': identifier, **params, 'items': rows, 'hidden_layout': hidden_layout,
+                    'cards': {n['_id']: self.cards[n['_id']] for n in (*rows, *hidden_layout)}}
 
     def clear(self, scope='trees'):
         with self.operation(clear=True):

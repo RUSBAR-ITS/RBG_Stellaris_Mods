@@ -13,7 +13,7 @@ export function ReferenceField({ tree, language, scale }: {
   const measure = useCallback((height: number) => setMeasurement({ tree, height }), [tree]);
   const result = useMemo(() => {
     if (!height) return null;
-    try { return { layout: referenceLayout(tree.nodes, language, height) }; }
+    try { return { layout: referenceLayout(tree.nodes, tree.hidden, language, height) }; }
     catch (error) { return { error: String(error) }; }
   }, [height, tree, language]);
   return <>

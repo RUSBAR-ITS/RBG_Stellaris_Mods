@@ -14,6 +14,8 @@
 
 ## Purpose
 
+This document describes the initial reference tree. The [tree settings specification](TZ_REFERENCE_TREE_MODES_EN.md) extends its collection identity, visibility and layout contract.
+
 **Approved specification.** On request, the server opens or builds a reference tree in MongoDB. The set of enabled DLCs is the only user setting that determines membership. This stage uses the base representation of each technology. For one DLC set the server selects parents once and prepares coordinates for both Russian and English.
 
 The source is the published game data in `wiki`. The inspected import contained 679 technologies in `technologies` and 36 expansions in `dlcs`. The server reads game IDs from `_id`, expanded definitions from `tree` and translations from `localization`. A separate server rules configuration defines the order of criteria, default empire characteristics and placement rules. Its path is a server setting. The starting points for the port are the [parent rules](../../../config/enrichment/technology_tree/rules.json), [DLC rules](../../../config/enrichment/dlc.json) and [layout settings](../../../config/frontend/tree_layout.json).

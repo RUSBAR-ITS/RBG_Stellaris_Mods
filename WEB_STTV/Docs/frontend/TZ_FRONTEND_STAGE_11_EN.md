@@ -25,6 +25,8 @@ Both settings screens use the same UI kit tab component. The first visit selects
 
 Choosing Technology tree explicitly opens the reference tree. On the first click or after clearing trees, the client requests the tree for the applied DLC set. Returning to an open tree reuses the result. Page load, settings navigation and changing the mode switch do not start a build.
 
+The [draft tree settings specification](../../src/server/Docs/TZ_REFERENCE_TREE_MODES_EN.md) describes the separate Tree settings tab in System settings.
+
 ## Database operations
 
 Clear built trees appears only on this tab. It calls the existing `DELETE /api/trees/reference` operation. On success the client releases the open tree and shows the number of removed collections returned by the server. DLC settings survive the operation. On failure the client retains the tree and shows the reason in the status panel. The button is disabled while the request is running.

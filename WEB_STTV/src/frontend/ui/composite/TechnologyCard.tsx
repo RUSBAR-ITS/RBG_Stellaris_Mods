@@ -16,7 +16,8 @@ export function SttvTechnologyCard({ technology, representation, onHover, onFocu
     open({ id: technology.id, anchor, kind });
   }
   return <a className="sttv-card" href={technologyLink(technology.id, language, enabled)} data-technology-id={technology.id}
-    data-area={representation.area} data-rarity={technology.dangerous ? 'dangerous' : technology.rare ? 'rare' : 'ordinary'}
+    data-area={representation.area} data-event-only={technology.eventOnly}
+    data-rarity={technology.dangerous ? 'dangerous' : technology.rare ? 'rare' : 'ordinary'}
     onFocus={() => onFocusChange(true)} onBlur={() => onFocusChange(false)}
     onMouseEnter={() => onHover(true)} onMouseLeave={() => onHover(false)}
     onClick={event => {

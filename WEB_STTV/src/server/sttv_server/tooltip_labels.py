@@ -35,6 +35,8 @@ class Labels:
         self._policies = None
         self._bypasses = None
         self.saved_targets = {}
+        self.scope = None
+        self.source_title = None
 
     def label(self, *keys, fallback=None, arguments=None, color=None, wrapper=None):
         keys = tuple(k for k in keys if k)
@@ -64,6 +66,12 @@ class Labels:
                         'dynamic_name', 'country_pre_ftl', 'missing_game_string')}
         items = lookup(self.language, sorted(self.keys | display_keys), reader)['items']
         texts = {item['key']: item['text'] for item in items if item['text']}
+        dynamic_keys = ['sttv_caption_' + k for k, s in texts.items() if '[' in s and ']' in s]
+        if dynamic_keys:
+            captions = lookup(self.language, dynamic_keys, reader)['items']
+            for caption in captions:
+                if caption['text']:
+                    texts[caption['key'].removeprefix('sttv_caption_')] = caption['text']
 
         localized = {}
         diagnostic_keys = {repr(issue) for issue in self.diagnostics}
@@ -222,6 +230,11 @@ class Labels:
             if not key:
                 self.diagnostics.append({'reason': 'missing_bypass_name', 'id': value})
             return self.label(key, fallback=value)
+        if self.scope and role in ('target', 'country', 'other') and (
+                value.casefold() in ('owner', 'leader', 'controller') or
+                re.fullmatch(r'(?:this|root|(?:prev)+|(?:from)+)', value, re.I)):
+            from .condition_text import scope_name
+            return scope_name(self, value)
         if role in ('target', 'country', 'other') and value.lower() in ('owner', 'this', 'prev', 'species'):
             return self.phrase(value.lower())
         if role in ('target', 'country', 'other') and value.lower() in ('root', 'from'):

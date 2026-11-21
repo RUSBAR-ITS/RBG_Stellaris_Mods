@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { SttvTextRef } from '../localization/model';
-import { fetchReference, referenceEndpoint, request, type ServerDlc } from './reference';
+import { defaultModes, fetchReference, referenceEndpoint, request, type ServerDlc, type TreeModes } from './reference';
 import { createTooltipCache } from './tooltipCache';
 
 function sameSelection(left: string[], right: string[]) {
@@ -15,6 +15,7 @@ export function useReferenceTree(initialSelection?: string[]) {
   const [dlcs, setDlcs] = useState<ServerDlc[] | null>(null);
   const [catalogError, setCatalogError] = useState<SttvTextRef | null>(null);
   const [applied, setApplied] = useState(initialSelection);
+  const [modes, setModes] = useState(defaultModes);
   const [draft, setDraft] = useState<string[]>();
   const [status, setStatus] = useState<SttvTextRef | null>(null);
   const [busy, setBusy] = useState(false);
@@ -50,15 +51,19 @@ export function useReferenceTree(initialSelection?: string[]) {
     } catch (error) { setCatalogError(errorMessage(error)); }
     finally { reading.current = false; }
   }
-  function fetchTree(selection: string[] | undefined, applying: boolean) {
+  function fetchTree(selection: string[] | undefined, applying: boolean, nextModes = modes) {
     return run(async () => {
-      const result = await fetchReference(selection);
+      const result = await fetchReference(selection, nextModes);
+      setModes(result.modes);
       setTree(result);
       tooltipCache.clear();
       setApplied(result.enabled);
       setDraft(previous => applying ? result.enabled : previous ?? result.enabled);
       setStatus({ id: 'sttv_ref_ready', params: { number: result.nodes.length } });
     });
+  }
+  function toggleMode(key: keyof TreeModes) {
+    return fetchTree(applied, false, { ...modes, [key]: !modes[key] });
   }
   function open() {
     if (tree && (!applied || sameSelection(tree.enabled, applied))) return;
@@ -87,5 +92,5 @@ export function useReferenceTree(initialSelection?: string[]) {
   function toggle(id: string) {
     setDraft(prev => prev?.includes(id) ? prev.filter(v => v !== id) : [...prev ?? [], id]);
   }
-  return { tree, dlcs, catalogError, draft, status, dirty, busy, open, apply, clear, tooltipCache, loadDlcs, toggle, discard: () => setDraft(selected) };
+  return { tree, dlcs, catalogError, draft, status, dirty, busy, modes, toggleMode, open, apply, clear, tooltipCache, loadDlcs, toggle, discard: () => setDraft(selected) };
 }

@@ -108,7 +108,7 @@ def walk(body, path, context, parent='', event_ids=frozenset()):
             if target in event_ids:
                 if parent == 'random_events':
                     branch = replace(branch, chance=(*branch.chance, ('weight', name)))
-                yield 'event', target, None, ptr, branch, node
+                yield 'event', target, 'dispatch' if parent in ('events', 'random_events') else 'anomaly_event', ptr, branch, node
             continue
         if name in SKIP or not name:
             continue
@@ -226,9 +226,14 @@ class ProgressSources:
         self.event_bases = {}
         self.hidden = set()
         self.event_types = {}
+        self.event_choices = {}
+        self.operation_incidents = {}
+        self.caller_country_types = {}
+        self.project_scopes = {}
         self.dlc_names = {}
         self.mechanics = AcquisitionMechanics()
         self.situation_targets = defaultdict(set)
+        self.situation_starts = defaultdict(list)
         self.flag_sites = defaultdict(dict)
         self.saved_targets = defaultdict(list)
 
@@ -241,8 +246,24 @@ class ProgressSources:
         identifier = document['_id'] if isinstance(document['_id'], str) else key(root)
         source = (collection, identifier)
         self.names[source] = title_keys(collection, identifier, body)
+        if collection == 'special_projects':
+            self.project_scopes[identifier] = text(body, 'event_scope')
         if collection == 'events':
             self.event_types[identifier] = key(root)
+            # Only direct positive conjuncts constrain every route into this event.
+            for guard in fields(body, 'trigger'):
+                types = {text(item['value'], 'is_country_type') for item in guard.get('items', ())
+                         if key(item).casefold() == 'from' and item.get('operator') == '='}
+                types.discard(None)
+                if len(types) == 1:
+                    self.caller_country_types[identifier] = types.pop()
+            # An unconditional alternative is a choice even if setup scheduled this event.
+            self.event_choices[identifier] = {text(o, 'name') for o in fields(body, 'option')
+                                              if text(o, 'name') and not fields(o, 'trigger')}
+            if (key(root) == 'espionage_operation_event' and text(body, 'espionage_operation') == 'yes'
+                    and any(text(scope, 'set_espionage_operation_progress_locked') == 'yes'
+                            for effect in fields(body, 'immediate') for scope in fields(effect, 'from'))):
+                self.operation_incidents[identifier] = [document['source']['file'], document['pointer']]
             if base := text(body, 'base'):
                 self.event_bases[identifier] = base
             if text(body, 'hide_window') == 'yes':
@@ -268,6 +289,8 @@ class ProgressSources:
             if action == 'situation_target':
                 country_target = collection == 'events' and key(root) == 'country_event' and amount == 'root'
                 self.situation_targets[target].add(country_target)
+                self.situation_starts[target].append({**context.freeze(), 'source': source,
+                    'file': document['source']['file'], 'pointer': ptr})
                 continue
             if action == 'flag_change':
                 verb, _, scope = amount.partition('_')
@@ -286,9 +309,22 @@ class ProgressSources:
                                              caller=action in ('event', 'project'))
             if action == 'event':
                 call = node.get('value', {})
+                if collection == 'on_actions' and amount == 'dispatch':
+                    entry['forwarded_scopes'] = True
+                if collection == 'anomalies' and (amount == 'anomaly_event' or
+                        key(node).casefold() in ('anomaly_event', 'on_success') or
+                        key(node).casefold() == 'ship_event'):
+                    entry['anomaly_call'] = 'ship' if key(node).casefold() == 'ship_event' else 'anomaly'
                 binding = text(first(call, 'scopes'), 'from')
                 if binding:
                     entry['from_binding'] = binding
+                caller_scopes = first(call, 'scopes')
+                explicit = {key(item).lower(): item['value']['text'] for item in caller_scopes.get('items', ())
+                            if item.get('kind') == 'assignment' and item.get('operator') == '=' and
+                            key(item).lower() in ('from', 'fromfrom', 'fromfromfrom', 'fromfromfromfrom') and
+                            'text' in item['value']}
+                if explicit:
+                    entry['caller_scopes'] = explicit
                 if delay := text(call, 'days'):
                     entry['delay'] = delay
                 self.incoming[target].append(entry)

@@ -104,8 +104,9 @@ class TooltipTests(unittest.TestCase):
         simplified = content.node(logic('AND', scope), ('allow',))
         self.assertEqual(simplified['key'], 'any_neighbor_country')
         self.assertEqual(simplified['children'][0]['key'], 'has_origin')
-        for item in (entry('unknown', block(check)), entry('custom_tooltip', scalar('caption')),
-                     entry('hidden_trigger', block(check))):
+        self.assertEqual(content.node(entry('hidden_trigger', block(check)), ('allow',)),
+                         content.node(check, ('allow',)))
+        for item in (entry('unknown', block(check)), entry('custom_tooltip', scalar('caption'))):
             for op in ('AND', 'OR'):
                 node = content.node(logic(op, item), ('allow',))
                 self.assertEqual(node['operator'], op)
@@ -166,9 +167,8 @@ class TooltipTests(unittest.TestCase):
         group, = response['sections']['allow']
         self.assertEqual(group['operator'], 'NAND')
         custom, flag = group['children']
-        label, check = custom['children']
+        label, partial = custom['children']
         self.assertEqual(label['text'], 'Game caption')
-        partial, = check['children']
         self.assertEqual((partial['kind'], partial['expression']), ('partial', mystery))
         self.assertEqual(partial['children'][0]['id'], 'tech_other')
         self.assertEqual(flag['text'], 'Policy flag shared_flag')

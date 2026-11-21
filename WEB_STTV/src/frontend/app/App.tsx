@@ -32,6 +32,7 @@ export function SttvApp() {
   const [zoom, setZoom] = useState(sttvZoomSettings.initialPercent);
   const [view, setView] = useState<View>('tree');
   const [tab, setTab] = useState<GameTab>('dlc');
+  const [systemTab, setSystemTab] = useState<'database' | 'tree'>('database');
   const [referenceMode, setReferenceMode] = useState(true);
   const reference = useReferenceTree(route?.enabled);
   const showTree = view === 'tree' && !route;
@@ -85,11 +86,18 @@ export function SttvApp() {
       {route && <TreeTooltipContext.Provider value={{ cache: reference.tooltipCache, active: true }}>
         <SttvTechnologyPage key={route.id} id={route.id} enabled={route.enabled} />
       </TreeTooltipContext.Provider>}
-      {!route && view === 'system' && <SttvTabs label="sttv_nav_system" selected="database" onSelect={() => {}}
+      {!route && view === 'system' && <SttvTabs<'database' | 'tree'> label="sttv_nav_system" selected={systemTab} onSelect={setSystemTab}
         tabs={[{ id: 'database', label: 'sttv_tab_database', content:
           <div className="sttv-reset-actions">{(['trees', 'progress', 'tooltips', 'all'] as const).map(scope => <SttvButton key={scope}
             label={{ id: scope === 'trees' ? 'sttv_ref_clear' : 'sttv_reset_' + scope }} disabled={reference.busy}
-            onClick={() => reference.clear(scope)} />)}</div> }]} />}
+            onClick={() => reference.clear(scope)} />)}</div> },
+          { id: 'tree', label: 'sttv_tab_tree_settings', content: <div style={switchStyle}>
+            {(['mixed_trees', 'hide_event_technologies'] as const).map(key => <div className="sttv-empire-mode" key={key}>
+              <SttvText text={{ id: 'sttv_' + key }} />
+              <SttvSwitch label={{ id: 'sttv_' + key }} checked={reference.modes[key]} disabled={reference.busy}
+                onChange={() => reference.toggleMode(key)} />
+            </div>)}
+          </div> }]} />}
       {!route && view === 'game' && <div className="sttv-view-slot" style={switchStyle}>
         <SttvTabs<GameTab> label="sttv_nav_game" selected={tab} onSelect={selectGameTab} tabs={[
           { id: 'dlc', label: 'sttv_tab_dlc', content: <DlcSettings state={reference} referenceMode={referenceMode} /> },

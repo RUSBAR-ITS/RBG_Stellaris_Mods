@@ -63,6 +63,8 @@ The tooltip and direct page use the same `POST /api/trees/technology-tooltip` re
 
 ## Technology tree
 
+Under **System settings → Tree settings**, both switches default to off. Changing either switch opens the collection for the full combination with the applied DLC selection. The response returns visible nodes in `items` and reserves cells for filter-hidden nodes through `hidden_layout`. The frontend measures the same card catalog in both filter states. [Tree settings](Docs/TZ_REFERENCE_TREE_MODES_EN.md)
+
 Open the test site in a browser and choose **Technology tree**. Under **Game settings → DLC**, change the selection and choose **Apply**. The reference mode switch is on the **Empire settings** tab. To clear generated trees, open **System settings → Database operations**. [Test site](http://192.168.1.36:5173/)
 
 The published frontend proxies `/api/trees/` and `/api/localization/` to the API on the same VM over HTTP. Game PNGs are served under `/game-assets/`. For development, set the Vite proxy target with `STTV_SERVER_URL` and the build-time image base URL with `VITE_STTV_ASSETS_URL`.
@@ -84,7 +86,7 @@ Run the dictionary check from the monorepo root in an environment with the parse
 python WEB_STTV/tests/tooltip_dictionary_acceptance.py --lookup-url http://192.168.1.36:5173/api/localization/lookup --report TMP/WEB_STTV/tooltip-dictionary/reports/coverage.json
 ```
 
-The live reference-tree matrix requires a separate HTTP instance and an empty registry. Put a copy of `config/server.json` beside the original, assign a separate port and a unique `tree_collection_prefix` matching `tree_test_[a-z0-9]+_`, and start the instance with that copy. From the server directory run `PYTHONPATH=. python3 -B tests/reference_acceptance.py config/test_server.json /path/to/run/reports/matrix.json`. The test checks every stored technology against the HTTP response, duplicate and reordered DLCs, both layouts, removal of all 12 results and explicit rebuilding. Set `STTV_TREE_PUBLICATION_TEST=1` for the additional unittest covering concurrent requests, failed publication and revision changes.
+The live reference-tree matrix requires a separate HTTP instance and an empty registry. Put a copy of `config/server.json` beside the original, assign a separate port and a unique `tree_collection_prefix` matching `tree_test_[a-z0-9]+_`, and start the instance with that copy. From the server directory run `PYTHONPATH=. python3 -B tests/reference_acceptance.py config/test_server.json /path/to/run/reports/matrix.json`. The test checks every stored technology against the HTTP response, duplicate and reordered DLCs, both layouts, removal of all 18 results and explicit rebuilding. Set `STTV_TREE_PUBLICATION_TEST=1` for the additional unittest covering concurrent requests, failed publication and revision changes.
 
 With the server running, execute the following from its source directory with the same database connection environment.
 

@@ -10,7 +10,7 @@ import { sttvCrossings, sttvBridges } from './crossings';
 import { sttvRouteLength } from './candidates';
 
 export function sttvConnectAreas<T extends SttvConnectionArea>(areas: T[], parents: Record<string, string | null>, columns: number,
-  settings: SttvConnectionSettings = defaults, dimensions = defaultDimensions) {
+  settings: SttvConnectionSettings = defaults, dimensions = defaultDimensions, visible?: ReadonlySet<string>) {
   const start = performance.now();
   if (Object.values(settings).some(v => !Number.isFinite(v) || v <= 0)
     || !Number.isInteger(settings.maxLaneAttempts) || settings.bridgeUnderlayWidth <= settings.strokeWidth
@@ -41,17 +41,18 @@ export function sttvConnectAreas<T extends SttvConnectionArea>(areas: T[], paren
   const result = routed.map(area => {
     const y = sttvConnectionAxis(area.rowCount, dimensions.cardHeight, dimensions.cardGap, 0, 0,
       area.routes.flatMap(r => r.points.map(p => p.y)), settings, undefined, area.rawCrossings.map(c => c.y), false);
-    const cards = Object.fromEntries(area.cards.map(card => [card.id, { id: card.id, x: x.positions[card.column],
+    const shown = visible ? area.cards.filter(c => visible.has(c.id)) : area.cards;
+    const cards = Object.fromEntries(shown.map(card => [card.id, { id: card.id, x: x.positions[card.column],
       y: y.positions[card.row], width: dimensions.cardWidth, height: dimensions.cardHeight }]));
-    const routes = area.routes.map(route => ({ ...route, points: route.points.map(p =>
+    const routes = area.routes.filter(r => cards[r.parent] && cards[r.child]).map(route => ({ ...route, points: route.points.map(p =>
       ({ x: treeAxes.get(treeByCard.get(route.parent)!)!.pixel(p.x), y: y.pixel(p.y) })) }));
     const segments = sttvConnectionSegments(routes), crossings = sttvCrossings(segments.segments);
     const geometry: SttvAreaConnections = { cards, routes, ...segments, crossings, bridges: sttvBridges(crossings, settings), height: y.extent,
       rowGaps: y.gaps.slice(1, -1), topPadding: y.gaps[0], bottomPadding: y.gaps.at(-1)! };
-    const expected = area.cards.filter(c => parents[c.id] && cards[parents[c.id]!]).map(c => [parents[c.id]!, c.id] as [string, string]);
+    const expected = shown.filter(c => parents[c.id] && cards[parents[c.id]!]).map(c => [parents[c.id]!, c.id] as [string, string]);
     sttvValidateConnections(geometry, expected, settings);
     const { rectangles: _rectangles, routes: _routes, rawCrossings: _crossings, ...original } = area;
-    return { ...original, geometry, height: dimensions.areaHeadingHeight + dimensions.tierHeadingHeight + y.extent };
+    return { ...original, cards: shown, geometry, height: dimensions.areaHeadingHeight + dimensions.tierHeadingHeight + y.extent };
   });
   const report: SttvConnectionSummary = { settings, logicalConnections: result.reduce((n, a) => n + a.geometry.routes.length, 0),
     crossings: result.reduce((n, a) => n + a.geometry.crossings.length, 0), bridges: result.reduce((n, a) => n + a.geometry.bridges.length, 0),

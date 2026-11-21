@@ -2,6 +2,10 @@
 
 ## Contents
 
+- [2026-11-22 — Event technologies and participants in conditions](#2026-11-22--event-technologies-and-participants-in-conditions)
+- [2026-11-22 — Draft event acquisition and condition wording rules](#2026-11-22--draft-event-acquisition-and-condition-wording-rules)
+- [2026-11-22 — Mixed branches and event technology visibility](#2026-11-22--mixed-branches-and-event-technology-visibility)
+- [2026-11-22 — Draft tree settings](#2026-11-22--draft-tree-settings)
 - [2026-11-21 — Source and object names in conditions](#2026-11-21--source-and-object-names-in-conditions)
 - [2026-11-21 — Technology acquisition sources](#2026-11-21--technology-acquisition-sources)
 - [2026-11-21 — Overall technology acquisition and readability specification](#2026-11-21--overall-technology-acquisition-and-readability-specification)
@@ -257,6 +261,28 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-22 — Event technologies and participants in conditions
+
+- The tree classifier distinguishes initial grants from rewards gated by a later gameplay outcome. It records call chains and debris sources. Ten technologies joined the event group.
+- Shared page and tooltip content now identifies participants, simplifies proven existence checks, rephrases dynamic captions and describes verified flag states. Added RU/EN strings and tests for combat and anomaly dispatch, branching, hidden conditions and eight tree profiles. [Results](../src/server/Docs/EVENT_TECHNOLOGIES_AND_SCOPE_TEXT_EN.md)
+
+## 2026-11-22 — Draft event acquisition and condition wording rules
+
+Drafted rules for starting grants, future event chains and special project rewards. The specification lists acceptance technologies and wording checks across every RU/EN page. The checks cover condition participants, reward recipients, hidden checks, flag meanings and substitutions throughout a phrase, including response options. [Draft specification](../src/server/Docs/TZ_EVENT_TECHNOLOGIES_AND_SCOPE_TEXT_EN.md)
+
+## 2026-11-22 — Mixed branches and event technology visibility
+
+System settings → Tree settings can join branches across research areas and hide event and debris technologies. The server stores a separate collection for each combination of DLCs and switches. The acquisition classification controls ordering and card stripes. The filter changes final visibility after parent selection and placement. [Rules and checks](../src/server/Docs/TZ_REFERENCE_TREE_MODES_EN.md)
+
+The test server stored and reopened eight distinct collections. Filtering changed the visible count from 678 to 633 with all DLCs and from 464 to 444 with none. Parent IDs, children and RU/EN positions matched across each pair. Trinary Computing has event rewards, Mining Drone Lasers has debris, and Colossus follows an ascension perk. [Browser tree checks](../tests/frontend/referenceModes.mjs)
+
+## 2026-11-22 — Draft tree settings
+
+The draft places the “Mixed trees” and “Hide event and debris technologies” switches on a separate Tree settings tab in System settings. Event and debris technologies always use their designated ordering and striped card style. The filter hides their cards and incident connections in the prepared tree. Acceptance covers all four setting combinations. [Draft specification](../src/server/Docs/TZ_REFERENCE_TREE_MODES_EN.md)
+
+The draft specifies saving both switches in `tree_configs` and a dedicated tree collection for each requested combination with the selected DLC. Returning to a current combination reuses its saved result.
+After calculating links and coordinates, the server writes final visibility for the DLC selection and filter to the existing `availability` field.
 
 ## 2026-11-21 — Source and object names in conditions
 

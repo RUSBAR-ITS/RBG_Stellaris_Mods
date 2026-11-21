@@ -6,7 +6,7 @@ export interface SttvRepresentation {
 }
 export interface SttvCardTechnology {
   id: string; tier: number; levels: number | null; cost: number | null; weight: number | null;
-  rare: boolean; dangerous: boolean; startTech: boolean; sourceRef: SttvNodeRef; representations: SttvRepresentation[];
+  rare: boolean; dangerous: boolean; eventOnly: boolean; startTech: boolean; sourceRef: SttvNodeRef; representations: SttvRepresentation[];
 }
 export interface SttvCardCatalog {
   technologies: Record<string, SttvCardTechnology>;

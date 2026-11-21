@@ -8,16 +8,22 @@ from .availability import Analysis
 from .inputs import load_inputs
 from .layout import place
 from .selection import criterion
+from .event_technologies import classify
 
 
 log = logging.getLogger(__name__)
 
 
 class PreparedTree:
-    def __init__(self, db, options, key_rules, read_strings):
+    def __init__(self, db, options, key_rules, read_strings, acquisition):
         self.options = options
         self.names, self.techs, catalog, self.evidence = load_inputs(db, options)
         self.analysis = Analysis(self.techs, self.names, options['dlc'], catalog)
+        self.event_classes = classify(acquisition(), self.techs)
+        for tech, classification in self.event_classes.items():
+            basis = classification.get('acquisition_basis')
+            if basis and basis['status'].startswith(('unknown', 'unresolved', 'conflicting')):
+                log.warning('tree_acquisition tech=%s basis=%s', tech, basis)
         self.ranks = {}
         keys = {tech: determine_key(key_rules, 'technology_name', tech) for tech in self.techs}
         for language, locale in options['layout']['sort_locales'].items():
@@ -40,6 +46,7 @@ class PreparedTree:
             hidden = values[potential] is False and graph.baseline[potential] is not False
             hidden |= any(values[w] is True and graph.baseline[w] is not True for w in roots['weights'])
             nodes[key] = {'_id': key, 'availability': not hidden, 'area': self.techs[key]['area'],
+                          **self.event_classes[key], 'layout_area': None,
                           'parent_tech': None, 'children': [], 'location': None if hidden else {}}
             if not hidden:
                 unknown = set()
@@ -69,7 +76,7 @@ class PreparedTree:
             for rule in self.options['parent_rules']:
                 if len(current) < 2:
                     break
-                if rule['enabled']:
+                if rule['enabled'] and not (rule['id'] == 'same_area' and settings['mixed_trees']):
                     matches, witnesses, unknown = criterion(rule, tech, current, self.techs, self.evidence, context)
                     if rule['id'] == 'standard_empire':
                         log.info('empire_context settings=%s tech=%s candidates=%s branches=%s', settings, key, current, witnesses)
@@ -90,6 +97,10 @@ class PreparedTree:
         first = perf_counter()
         self.parents(nodes, values, settings)
         second = perf_counter()
-        place(nodes, self.techs, self.ranks, self.options['layout'])
+        place(nodes, self.techs, self.ranks, self.options['layout'], settings['mixed_trees'])
+        if settings['hide_event_technologies']:
+            for row in nodes.values():
+                if row['event_only']:
+                    row['availability'] = False
         return list(nodes.values()), {'availability': first - started, 'parents': second - first,
                                       'layout': perf_counter() - second}
