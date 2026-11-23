@@ -1,0 +1,63 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.1004
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				cdpd_live_target = yes
+			}
+			if = {
+				limit = {
+					event_target:cdpd_target = {
+						cdpd_section_remove_available = yes
+					}
+				}
+				country_event = { id = CDPD.4 }
+			}
+			else = {
+				set_variable = { which = cdpd_page value = 1 }
+				country_event = { id = CDPD.1002 }
+			}
+		}
+		else = {
+			country_event = { id = CDPD.3 }
+		}
+	}
+}
+
+country_event = {
+	id = CDPD.4
+	title = cdpd_section_remove_label
+	desc = {
+		trigger = { check_variable = { which = cdpd_count value > 0 } }
+		text = cdpd_page_desc
+	}
+	desc = {
+		trigger = { check_variable = { which = cdpd_count value = 0 } }
+		text = cdpd_empty_desc
+	}
+	picture = GFX_evt_alien_planet
+	is_triggered_only = yes
+	immediate = {
+		cdpd_begin_count = { SIZE = 10 }
+		inline_script = {
+			script = cdpd/catalog/cdpd_all
+			PASS = rank
+			SCREEN = CDPD.1004
+		}
+		cdpd_set_bounds = yes
+	}
+	inline_script = {
+		script = cdpd/catalog/cdpd_all
+		PASS = option
+		SCREEN = CDPD.1004
+	}
+	inline_script = {
+		script = cdpd/menu/cdpd_navigation
+		SCREEN = CDPD.1004
+		PARENT = CDPD.1002
+	}
+}

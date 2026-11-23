@@ -1,0 +1,344 @@
+# Country scope. The target is carried by the event chain.
+cdpd_end_session = {
+	inline_script = {
+		script = cdpd/catalog/cdpd_all
+		PASS = clear_rank
+		SCREEN = CDPD.2
+	}
+	clear_variable = cdpd_section_planetary_deposits_rank
+	clear_variable = cdpd_section_planetary_deposits_ordinary_planetary_features_rank
+	clear_variable = cdpd_section_planetary_deposits_ordinary_planetary_features_generator_districts_rank
+	clear_variable = cdpd_section_planetary_deposits_ordinary_planetary_features_mining_districts_rank
+	clear_variable = cdpd_section_planetary_deposits_ordinary_planetary_features_agriculture_districts_rank
+	clear_variable = cdpd_section_planetary_deposits_ordinary_rare_fauna_rank
+	clear_variable = cdpd_section_planetary_deposits_by_planet_modifier_rank
+	clear_variable = cdpd_section_planetary_deposits_volcanic_worlds_rank
+	clear_variable = cdpd_section_volcanic_worlds_mining_rank
+	clear_variable = cdpd_section_volcanic_worlds_thermotechnic_additional_rank
+	clear_variable = cdpd_section_volcanic_worlds_mixed_rank
+	clear_variable = cdpd_section_volcanic_worlds_starting_features_rank
+	clear_variable = cdpd_section_event_deposits_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_drops_in_the_ocean_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_isolated_ruin_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_overgrown_ruins_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_rapid_desertification_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_signs_of_ancient_life_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_single_minded_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_spontaneous_explosions_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_toy_factory_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_watery_grave_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_wetware_computer_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_mineral_factorial_and_ancient_automata_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_nanosand_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_abandoned_settlements_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_cornucopicturesque_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_abandoned_harvesters_rank
+	clear_variable = cdpd_section_event_deposits_anomalies_leviathan_down_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_runaway_reaction_rank
+	clear_variable = cdpd_section_event_deposits_subterranean_civilization_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_abandoned_terraforming_equipment_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_blue_lotus_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_bogplants_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_crystal_kraken_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_dancing_plague_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_dark_matter_eruption_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_escape_from_the_moon_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_feral_overload_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_glacial_crisis_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_hidden_vault_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_irradiated_planet_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_junkyard_orbit_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_metallic_puddles_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_migrating_forests_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_mushroom_picking_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_myrmeku_activity_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_nemma_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_odd_factory_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_shimmering_structure_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_strange_sands_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_the_doorway_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_tomb_world_rank
+	clear_variable = cdpd_section_event_deposits_colony_events_underground_vault_rank
+	clear_variable = cdpd_section_event_deposits_terraforming_rank
+	clear_variable = cdpd_section_event_deposits_terraforming_atmosphere_and_biosphere_changes_rank
+	clear_variable = cdpd_section_event_deposits_terraforming_geological_changes_rank
+	clear_variable = cdpd_section_event_deposits_terraforming_machine_world_rank
+	clear_variable = cdpd_section_event_deposits_terraforming_orbital_debris_rank
+	clear_variable = cdpd_section_event_deposits_terraforming_radioactive_flora_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_electric_storm_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_radiant_storm_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_magnetic_storm_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_gravity_storm_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_particle_storm_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_shroud_storm_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_stardust_storm_rank
+	clear_variable = cdpd_section_event_deposits_astral_rifts_rank
+	clear_variable = cdpd_section_event_deposits_astral_rifts_the_lattice_rank
+	clear_variable = cdpd_section_event_deposits_astral_rifts_tiny_planet_rank
+	clear_variable = cdpd_section_event_deposits_astral_rifts_windswept_planet_rank
+	clear_variable = cdpd_section_event_deposits_astral_rifts_rockworms_rank
+	clear_variable = cdpd_section_event_deposits_situations_rank
+	clear_variable = cdpd_section_event_deposits_situations_geomagnetic_storm_rank
+	clear_variable = cdpd_section_event_deposits_situations_the_mysterious_labyrinth_rank
+	clear_variable = cdpd_section_event_deposits_situations_unusual_snow_rank
+	clear_variable = cdpd_section_event_deposits_pre_ftl_civilizations_rank
+	clear_variable = cdpd_section_event_deposits_pre_ftl_civilizations_asteroid_impact_rank
+	clear_variable = cdpd_section_event_deposits_pre_ftl_civilizations_land_grabs_rank
+	clear_variable = cdpd_section_event_deposits_pre_ftl_civilizations_trade_agreements_rank
+	clear_variable = cdpd_section_event_deposits_empires_and_diplomacy_rank
+	clear_variable = cdpd_section_event_deposits_caravaneers_rank
+	clear_variable = cdpd_section_event_deposits_federations_rank
+	clear_variable = cdpd_section_event_deposits_federations_hegemony_rank
+	clear_variable = cdpd_section_event_deposits_federations_hegemony_joint_operation_rank
+	clear_variable = cdpd_section_event_deposits_leaders_rank
+	clear_variable = cdpd_section_event_deposits_leaders_th_aal_hask_guron_rank
+	clear_variable = cdpd_section_event_deposits_subject_events_rank
+	clear_variable = cdpd_section_event_deposits_subject_events_bulwark_rank
+	clear_variable = cdpd_section_event_deposits_the_shroud_rank
+	clear_variable = cdpd_section_event_deposits_story_chains_rank
+	clear_variable = cdpd_section_event_deposits_horizon_signal_rank
+	clear_variable = cdpd_section_event_deposits_machine_ascension_rank
+	clear_variable = cdpd_section_archaeology_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_earth_features_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_sol_system_geocentric_variant_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_other_worlds_in_the_sol_system_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_sol_system_europa_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_relic_worlds_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_ratling_worlds_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_keides_worlds_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_keides_worlds_other_worlds_of_keides_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_keides_worlds_taprib_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_rank
+	clear_variable = cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_grunur_prime_and_the_superflare_system_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_parvus_iii_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_zanaam_rank
+	clear_variable = cdpd_section_planetary_deposits_origins_civics_and_species_traits_rank
+	clear_variable = cdpd_section_origins_rank
+	clear_variable = cdpd_section_origins_calamitous_birth_rank
+	clear_variable = cdpd_section_origins_tree_of_life_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_broken_shackles_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_cosmic_dawn_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_here_be_dragons_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_progenitor_hive_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_resource_consolidation_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_shroud_forged_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_worlds_and_treasures_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_black_needle_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_under_one_rule_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_homeworld_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_knight_quest_rewards_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_order_planetary_decisions_rank
+	clear_variable = cdpd_section_planetary_deposits_civics_rank
+	clear_variable = cdpd_section_planetary_deposits_civics_genesis_guides_and_its_variants_rank
+	clear_variable = cdpd_section_planetary_deposits_civics_living_metal_civics_rank
+	clear_variable = cdpd_section_planetary_deposits_origins_civics_and_species_traits_species_traits_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_species_trait_exotic_metabolism_rank
+	clear_variable = cdpd_section_planetary_deposits_deposits_from_planetary_decisions_rank
+	clear_variable = cdpd_section_planetary_deposits_ring_worlds_habitats_and_arkships_rank
+	clear_variable = cdpd_section_ring_worlds_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_habitats_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_habitats_knights_of_the_toxic_god_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_payback_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_habitats_federations_end_rank
+	clear_variable = cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_arkships_rank
+	clear_variable = cdpd_section_event_deposits_cosmic_storms_storm_chasers_rank
+	clear_variable = cdpd_section_event_deposits_nomads_arkship_events_rank
+	clear_variable = cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_arkships_cosmogenesis_rank
+	clear_variable = cdpd_section_unique_planetary_deposits_by_origin_sacred_path_rank
+	clear_variable = cdpd_section_orbital_deposits_rank
+	clear_variable = cdpd_section_orbital_deposits_energy_rank
+	clear_variable = cdpd_section_orbital_deposits_minerals_rank
+	clear_variable = cdpd_section_orbital_deposits_food_rank
+	clear_variable = cdpd_section_orbital_deposits_alloys_rank
+	clear_variable = cdpd_section_orbital_deposits_trade_rank
+	clear_variable = cdpd_section_orbital_deposits_volatile_motes_rank
+	clear_variable = cdpd_section_orbital_deposits_exotic_gases_rank
+	clear_variable = cdpd_section_orbital_deposits_rare_crystals_rank
+	clear_variable = cdpd_section_orbital_deposits_living_metal_rank
+	clear_variable = cdpd_section_orbital_deposits_zro_rank
+	clear_variable = cdpd_section_orbital_deposits_dark_matter_rank
+	clear_variable = cdpd_section_orbital_deposits_nanites_rank
+	clear_variable = cdpd_section_orbital_deposits_physics_research_rank
+	clear_variable = cdpd_section_orbital_deposits_society_research_rank
+	clear_variable = cdpd_section_orbital_deposits_engineering_research_rank
+	clear_variable = cdpd_section_orbital_deposits_minor_artifacts_rank
+	clear_variable = cdpd_section_orbital_deposits_minor_artifacts_mining_station_rank
+	clear_variable = cdpd_section_orbital_deposits_minor_artifacts_research_station_rank
+	clear_variable = cdpd_section_orbital_deposits_astral_threads_rank
+	clear_variable = cdpd_section_orbital_deposits_from_events_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_before_the_supernova_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_supernova_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_nanotech_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_obsessional_directive_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_ether_drake_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_rank
+	clear_variable = cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_stellar_ignition_rank
+	clear_variable = cdpd_section_blockers_rank
+	clear_variable = cdpd_section_blockers_ordinary_rank
+	clear_variable = cdpd_section_blockers_ordinary_natural_rank
+	clear_variable = cdpd_section_blockers_ordinary_tomb_worlds_rank
+	clear_variable = cdpd_section_blockers_volcanic_rank
+	clear_variable = cdpd_section_blockers_unusual_rank
+	clear_variable = cdpd_section_blockers_unusual_anomalies_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_calamitous_birth_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_cosmic_dawn_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_here_be_dragons_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_payback_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_resource_consolidation_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_starlit_citadel_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_synthetic_fertility_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_wilderness_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_wilderness_scorched_terrain_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_wilderness_change_of_ownership_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_unplugged_rank
+	clear_variable = cdpd_section_blockers_unusual_by_origin_unplugged_machine_legacy_rank
+	clear_variable = cdpd_section_blockers_unusual_fire_cult_rank
+	clear_variable = cdpd_section_blockers_unusual_nanotech_rank
+	clear_variable = cdpd_section_blockers_unusual_relic_worlds_rank
+	clear_variable = cdpd_section_blockers_unusual_seed_bombing_rank
+	clear_variable = cdpd_section_blockers_unusual_seismic_carpet_bombing_rank
+	clear_variable = cdpd_section_blockers_unusual_shroud_rank
+	clear_variable = cdpd_section_blockers_unusual_shroud_planetary_shroud_manifestations_rank
+	clear_variable = cdpd_section_blockers_unusual_shroud_psionic_ascension_rank
+	clear_variable = cdpd_section_blockers_unusual_war_damage_rank
+	clear_variable = cdpd_section_blockers_unusual_civics_rank
+	clear_variable = cdpd_section_blockers_unusual_civics_determined_exterminator_rank
+	clear_variable = cdpd_section_blockers_unusual_civics_driven_assimilator_rank
+	clear_variable = cdpd_section_blockers_unusual_civics_environmentalist_rank
+	clear_variable = cdpd_section_blockers_unusual_civics_rogue_servitor_rank
+	clear_variable = cdpd_section_blockers_unusual_colony_events_rank
+	clear_variable = cdpd_section_blockers_unusual_colony_events_bleeding_world_rank
+	clear_variable = cdpd_section_blockers_unusual_colony_events_glacial_crisis_rank
+	clear_variable = cdpd_section_blockers_unusual_colony_events_impacts_rank
+	clear_variable = cdpd_section_blockers_unusual_colony_events_junkyard_orbit_rank
+	clear_variable = cdpd_section_blockers_unusual_colony_events_subterranean_civilization_rank
+	clear_variable = cdpd_section_blockers_unusual_crises_rank
+	clear_variable = cdpd_section_blockers_unusual_crises_behemoth_fury_rank
+	clear_variable = cdpd_section_blockers_unusual_espionage_rank
+	clear_variable = cdpd_section_blockers_unusual_espionage_wilderness_rank
+	clear_variable = cdpd_section_blockers_unusual_leviathans_rank
+	clear_variable = cdpd_section_blockers_unusual_leviathans_voidspawn_rank
+	clear_variable = cdpd_section_blockers_unusual_nomads_rank
+	clear_variable = cdpd_section_blockers_unusual_nomads_arkship_events_rank
+	clear_variable = cdpd_section_blockers_unusual_nomads_arkship_events_a_forgotten_level_rank
+	clear_variable = cdpd_section_blockers_unusual_nomads_deep_sleep_rank
+	clear_variable = cdpd_section_blockers_unusual_nomads_missions_rank
+	clear_variable = cdpd_section_blockers_unusual_overlord_holdings_rank
+	clear_variable = cdpd_section_blockers_unusual_overlord_holdings_experimental_crater_rank
+	clear_variable = cdpd_section_blockers_unusual_pre_ftl_civilizations_rank
+	clear_variable = cdpd_section_blockers_unusual_pre_ftl_civilizations_epidemics_rank
+	clear_variable = cdpd_section_blockers_unusual_ring_worlds_rank
+	clear_variable = cdpd_section_blockers_unusual_ring_worlds_ancient_rubble_rank
+	clear_variable = cdpd_section_blockers_unusual_ring_worlds_pre_ftl_civilizations_rank
+	clear_variable = cdpd_section_blockers_unusual_ring_worlds_shattered_ring_rank
+	clear_variable = cdpd_section_blockers_unusual_situations_rank
+	clear_variable = cdpd_section_blockers_unusual_situations_strategic_resource_shortages_rank
+	clear_variable = cdpd_section_blockers_unusual_situations_synthetic_ascension_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_blockers_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_machine_empires_and_unplugged_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_post_apocalyptic_origins_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_blockers_determined_exterminator_and_hard_reset_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_blockers_hive_mind_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_blockers_lithoids_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_blockers_machine_intelligence_rank
+	clear_variable = cdpd_section_blockers_unusual_starting_blockers_standard_rank
+	clear_variable = cdpd_section_blockers_unusual_subjects_rank
+	clear_variable = cdpd_section_blockers_unusual_subjects_scholarium_rank
+	clear_variable = cdpd_section_blockers_unusual_subjects_scholarium_destructive_research_rank
+	clear_variable = cdpd_section_blockers_unusual_terraforming_rank
+	clear_variable = cdpd_section_blockers_unusual_terraforming_detox_rank
+	clear_variable = cdpd_section_blockers_unusual_terraforming_terraforming_complications_rank
+	clear_variable = cdpd_section_blockers_unusual_terraforming_world_toxification_rank
+	clear_variable = cdpd_section_blockers_unusual_terravores_rank
+	clear_variable = cdpd_section_blockers_unusual_terravores_planet_consumption_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_habitats_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_habitats_star_mall_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_planets_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_planets_earth_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_planets_fevor_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_planets_trial_of_survival_rank
+	clear_variable = cdpd_section_blockers_unusual_unique_planets_folder_deneb_unity_rank
+	clear_variable = cdpd_section_blockers_utility_rank
+	clear_variable = cdpd_section_blockers_blocker_clearance_results_rank
+	clear_variable = cdpd_section_remove_rank
+	remove_country_flag = cdpd_session_open
+	clear_variable = cdpd_page
+	clear_variable = cdpd_size
+	clear_variable = cdpd_count
+	clear_variable = cdpd_pages
+	clear_variable = cdpd_used_slots
+	clear_variable = cdpd_offset
+	clear_variable = cdpd_last
+}
+
+cdpd_visit = {
+	if = {
+		limit = {
+			cdpd_live_target = yes
+		}
+		country_event = { id = $SCREEN$ }
+	}
+	else = {
+		country_event = { id = CDPD.3 }
+	}
+}
+
+cdpd_begin_count = {
+	set_variable = { which = cdpd_size value = $SIZE$ }
+	set_variable = { which = cdpd_count value = 0 }
+	set_variable = { which = cdpd_pages value = 0 }
+	set_variable = { which = cdpd_used_slots value = 0 }
+}
+
+cdpd_assign_rank = {
+	change_variable = { which = cdpd_count value = 1 }
+	set_variable = { which = $ID$_rank value = cdpd_count }
+	# Count pages at their first entry, using only integer operations.
+	if = {
+		limit = { check_variable = { which = cdpd_used_slots value = 0 } }
+		change_variable = { which = cdpd_pages value = 1 }
+	}
+	change_variable = { which = cdpd_used_slots value = 1 }
+	if = {
+		limit = { check_variable = { which = cdpd_used_slots value = cdpd_size } }
+		set_variable = { which = cdpd_used_slots value = 0 }
+	}
+}
+
+cdpd_set_bounds = {
+	if = {
+		limit = { check_variable = { which = cdpd_page value > cdpd_pages } }
+		set_variable = { which = cdpd_page value = cdpd_pages }
+	}
+	set_variable = { which = cdpd_offset value = 0 }
+	set_variable = { which = cdpd_last value = 0 }
+	if = {
+		limit = { check_variable = { which = cdpd_pages value > 0 } }
+		if = {
+			limit = { check_variable = { which = cdpd_page value < 1 } }
+			set_variable = { which = cdpd_page value = 1 }
+		}
+		set_variable = { which = cdpd_offset value = cdpd_page }
+		change_variable = { which = cdpd_offset value = -1 }
+		multiply_variable = { which = cdpd_offset value = cdpd_size }
+		set_variable = { which = cdpd_last value = cdpd_offset }
+		change_variable = { which = cdpd_last value = cdpd_size }
+		if = {
+			limit = { check_variable = { which = cdpd_last value > cdpd_count } }
+			set_variable = { which = cdpd_last value = cdpd_count }
+		}
+	}
+}

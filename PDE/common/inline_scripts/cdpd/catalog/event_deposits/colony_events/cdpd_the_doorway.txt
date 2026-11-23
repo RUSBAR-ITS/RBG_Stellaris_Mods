@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_portal_research_zone
+	NATIVE_PREVIEW = "add_deposit = d_portal_research_zone custom_tooltip = cdpd_portal_research_zone_additional"
+	LABEL = cdpd_$MODE$_portal_research_zone_label
+	TIP = cdpd_$MODE$_portal_research_zone_tip
+	VISIBLE = cdpd_$MODE$_portal_research_zone_visible
+	ACTION = cdpd_$MODE$_portal_research_zone
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_kaiju_lair
+	NATIVE_PREVIEW = "add_blocker = { type = d_kaiju_lair blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_kaiju_lair_label
+	TIP = cdpd_$MODE$_kaiju_lair_tip
+	VISIBLE = cdpd_$MODE$_kaiju_lair_visible
+	ACTION = cdpd_$MODE$_kaiju_lair
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_devastated_cities
+	NATIVE_PREVIEW = "add_blocker = { type = d_devastated_cities blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_devastated_cities_label
+	TIP = cdpd_$MODE$_devastated_cities_tip
+	VISIBLE = cdpd_$MODE$_devastated_cities_visible
+	ACTION = cdpd_$MODE$_devastated_cities
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_devoured_continent
+	NATIVE_PREVIEW = "add_blocker = { type = d_devoured_continent blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_devoured_continent_label
+	TIP = cdpd_$MODE$_devoured_continent_tip
+	VISIBLE = cdpd_$MODE$_devoured_continent_visible
+	ACTION = cdpd_$MODE$_devoured_continent
+	SCREEN = $SCREEN$
+}

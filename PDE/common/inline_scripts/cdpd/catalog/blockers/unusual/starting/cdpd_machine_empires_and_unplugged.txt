@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_strip_mine
+	NATIVE_PREVIEW = "add_blocker = { type = d_strip_mine blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_strip_mine_label
+	TIP = cdpd_$MODE$_strip_mine_tip
+	VISIBLE = cdpd_$MODE$_strip_mine_visible
+	ACTION = cdpd_$MODE$_strip_mine
+	SCREEN = $SCREEN$
+}

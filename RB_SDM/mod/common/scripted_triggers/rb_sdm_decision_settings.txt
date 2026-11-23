@@ -1,0 +1,2 @@
+# Country scope. Change this switch to allow AI empires to enact this decision.
+rb_sdm_open_menu_ai_enabled = { always = no }

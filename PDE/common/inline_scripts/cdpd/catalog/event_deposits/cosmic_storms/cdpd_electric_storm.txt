@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_electric_storm_1_engineering
+	NATIVE_PREVIEW = "add_deposit = d_electric_storm_1_engineering custom_tooltip = cdpd_electric_storm_1_engineering_properties"
+	LABEL = cdpd_$MODE$_electric_storm_1_engineering_label
+	TIP = cdpd_$MODE$_electric_storm_1_engineering_tip
+	VISIBLE = cdpd_$MODE$_electric_storm_1_engineering_visible
+	ACTION = cdpd_$MODE$_electric_storm_1_engineering
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_electric_storm_2_unity
+	NATIVE_PREVIEW = "add_deposit = d_electric_storm_2_unity custom_tooltip = cdpd_electric_storm_2_unity_properties"
+	LABEL = cdpd_$MODE$_electric_storm_2_unity_label
+	TIP = cdpd_$MODE$_electric_storm_2_unity_tip
+	VISIBLE = cdpd_$MODE$_electric_storm_2_unity_visible
+	ACTION = cdpd_$MODE$_electric_storm_2_unity
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_electric_storm_3_physics
+	NATIVE_PREVIEW = "add_deposit = d_electric_storm_3_physics custom_tooltip = cdpd_electric_storm_3_physics_properties"
+	LABEL = cdpd_$MODE$_electric_storm_3_physics_label
+	TIP = cdpd_$MODE$_electric_storm_3_physics_tip
+	VISIBLE = cdpd_$MODE$_electric_storm_3_physics_visible
+	ACTION = cdpd_$MODE$_electric_storm_3_physics
+	SCREEN = $SCREEN$
+}

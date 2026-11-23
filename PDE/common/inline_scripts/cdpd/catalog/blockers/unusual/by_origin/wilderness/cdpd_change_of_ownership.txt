@@ -1,0 +1,87 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_city
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_city blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_city_label
+	TIP = cdpd_$MODE$_wilderness_city_tip
+	VISIBLE = cdpd_$MODE$_wilderness_city_visible
+	ACTION = cdpd_$MODE$_wilderness_city
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_city_2
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_city_2 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_city_2_label
+	TIP = cdpd_$MODE$_wilderness_city_2_tip
+	VISIBLE = cdpd_$MODE$_wilderness_city_2_visible
+	ACTION = cdpd_$MODE$_wilderness_city_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_farming
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_farming blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_farming_label
+	TIP = cdpd_$MODE$_wilderness_farming_tip
+	VISIBLE = cdpd_$MODE$_wilderness_farming_visible
+	ACTION = cdpd_$MODE$_wilderness_farming
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_farming_2
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_farming_2 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_farming_2_label
+	TIP = cdpd_$MODE$_wilderness_farming_2_tip
+	VISIBLE = cdpd_$MODE$_wilderness_farming_2_visible
+	ACTION = cdpd_$MODE$_wilderness_farming_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_generator
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_generator blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_generator_label
+	TIP = cdpd_$MODE$_wilderness_generator_tip
+	VISIBLE = cdpd_$MODE$_wilderness_generator_visible
+	ACTION = cdpd_$MODE$_wilderness_generator
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_generator_2
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_generator_2 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_generator_2_label
+	TIP = cdpd_$MODE$_wilderness_generator_2_tip
+	VISIBLE = cdpd_$MODE$_wilderness_generator_2_visible
+	ACTION = cdpd_$MODE$_wilderness_generator_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_mining
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_mining blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_mining_label
+	TIP = cdpd_$MODE$_wilderness_mining_tip
+	VISIBLE = cdpd_$MODE$_wilderness_mining_visible
+	ACTION = cdpd_$MODE$_wilderness_mining
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_mining_2
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_mining_2 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_mining_2_label
+	TIP = cdpd_$MODE$_wilderness_mining_2_tip
+	VISIBLE = cdpd_$MODE$_wilderness_mining_2_visible
+	ACTION = cdpd_$MODE$_wilderness_mining_2
+	SCREEN = $SCREEN$
+}

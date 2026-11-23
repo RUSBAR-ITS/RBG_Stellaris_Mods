@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_buried_lithoids
+	NATIVE_PREVIEW = "add_blocker = { type = d_buried_lithoids blocked_deposit = none } custom_tooltip = cdpd_buried_lithoids_properties"
+	LABEL = cdpd_$MODE$_buried_lithoids_label
+	TIP = cdpd_$MODE$_buried_lithoids_tip
+	VISIBLE = cdpd_$MODE$_buried_lithoids_visible
+	ACTION = cdpd_$MODE$_buried_lithoids
+	SCREEN = $SCREEN$
+}

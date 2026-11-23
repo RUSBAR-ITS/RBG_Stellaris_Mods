@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dark_matter_monolith
+	NATIVE_PREVIEW = "add_deposit = d_dark_matter_monolith custom_tooltip = cdpd_dark_matter_monolith_additional"
+	LABEL = cdpd_$MODE$_dark_matter_monolith_label
+	TIP = cdpd_$MODE$_dark_matter_monolith_tip
+	VISIBLE = cdpd_$MODE$_dark_matter_monolith_visible
+	ACTION = cdpd_$MODE$_dark_matter_monolith
+	SCREEN = $SCREEN$
+}

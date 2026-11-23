@@ -1,0 +1,11 @@
+option = {
+	name = $LABEL$
+	trigger = {
+		check_variable = { which = $ID$_rank value > cdpd_offset }
+		check_variable = { which = $ID$_rank value <= cdpd_last }
+	}
+	hidden_effect = {
+		set_variable = { which = cdpd_page value = 1 }
+		cdpd_visit = { SCREEN = $SCREEN$ }
+	}
+}

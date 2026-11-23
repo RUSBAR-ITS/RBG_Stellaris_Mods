@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_abandoned_primitive_homesteads
+	NATIVE_PREVIEW = "add_deposit = d_abandoned_primitive_homesteads"
+	LABEL = cdpd_$MODE$_abandoned_primitive_homesteads_label
+	TIP = cdpd_$MODE$_abandoned_primitive_homesteads_tip
+	VISIBLE = cdpd_$MODE$_abandoned_primitive_homesteads_visible
+	ACTION = cdpd_$MODE$_abandoned_primitive_homesteads
+	SCREEN = $SCREEN$
+}

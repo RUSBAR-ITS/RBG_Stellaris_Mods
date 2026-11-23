@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_payback_habitat_research
+	NATIVE_PREVIEW = "add_deposit = d_payback_habitat_research custom_tooltip = cdpd_payback_habitat_research_additional"
+	LABEL = cdpd_$MODE$_payback_habitat_research_label
+	TIP = cdpd_$MODE$_payback_habitat_research_tip
+	VISIBLE = cdpd_$MODE$_payback_habitat_research_visible
+	ACTION = cdpd_$MODE$_payback_habitat_research
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_msi_air_freshener
+	NATIVE_PREVIEW = "add_deposit = d_msi_air_freshener"
+	LABEL = cdpd_$MODE$_msi_air_freshener_label
+	TIP = cdpd_$MODE$_msi_air_freshener_tip
+	VISIBLE = cdpd_$MODE$_msi_air_freshener_visible
+	ACTION = cdpd_$MODE$_msi_air_freshener
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_magnetic_storm_2_alloys
+	NATIVE_PREVIEW = "add_deposit = d_magnetic_storm_2_alloys"
+	LABEL = cdpd_$MODE$_magnetic_storm_2_alloys_label
+	TIP = cdpd_$MODE$_magnetic_storm_2_alloys_tip
+	VISIBLE = cdpd_$MODE$_magnetic_storm_2_alloys_visible
+	ACTION = cdpd_$MODE$_magnetic_storm_2_alloys
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_particle_accelerator
+	NATIVE_PREVIEW = "add_deposit = d_ancient_particle_accelerator custom_tooltip = cdpd_ancient_particle_accelerator_additional"
+	LABEL = cdpd_$MODE$_ancient_particle_accelerator_label
+	TIP = cdpd_$MODE$_ancient_particle_accelerator_tip
+	VISIBLE = cdpd_$MODE$_ancient_particle_accelerator_visible
+	ACTION = cdpd_$MODE$_ancient_particle_accelerator
+	SCREEN = $SCREEN$
+}

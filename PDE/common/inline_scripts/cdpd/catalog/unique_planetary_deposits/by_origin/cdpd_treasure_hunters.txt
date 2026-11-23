@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hive_dwelling
+	NATIVE_PREVIEW = "add_deposit = d_hive_dwelling"
+	LABEL = cdpd_$MODE$_hive_dwelling_label
+	TIP = cdpd_$MODE$_hive_dwelling_tip
+	VISIBLE = cdpd_$MODE$_hive_dwelling_visible
+	ACTION = cdpd_$MODE$_hive_dwelling
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_treasure_planet
+	NATIVE_PREVIEW = "add_deposit = d_treasure_planet custom_tooltip = cdpd_treasure_planet_properties"
+	LABEL = cdpd_$MODE$_treasure_planet_label
+	TIP = cdpd_$MODE$_treasure_planet_tip
+	VISIBLE = cdpd_$MODE$_treasure_planet_visible
+	ACTION = cdpd_$MODE$_treasure_planet
+	SCREEN = $SCREEN$
+}

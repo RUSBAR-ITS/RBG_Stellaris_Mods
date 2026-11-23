@@ -3,22 +3,22 @@ decision_cdpd_open_editor = {
 	sound = event_administrative_work
 	icon = decision_cdpd_editor
 	enactment_time = 0
-
-	resources = {
-		category = decisions
-	}
+	resources = { category = decisions }
 
 	potential = {
 		from = { is_ai = no }
-		is_within_borders_of = from
+		cdpd_target_in_borders = { COUNTRY = from }
 	}
-
-	allow = { always = yes }
-
+	allow = { from = { NOT = { has_country_flag = cdpd_session_open } } }
 	effect = {
-		save_event_target_as = cdpd_target_planet
-		from = { country_event = { id = CDPD.1 } }
+		if = {
+			limit = {
+				from = { is_ai = no NOT = { has_country_flag = cdpd_session_open } }
+				cdpd_target_in_borders = { COUNTRY = from }
+			}
+			save_event_target_as = cdpd_target
+			from = { country_event = { id = CDPD.1 } }
+		}
 	}
-
 	ai_weight = { weight = 0 }
 }

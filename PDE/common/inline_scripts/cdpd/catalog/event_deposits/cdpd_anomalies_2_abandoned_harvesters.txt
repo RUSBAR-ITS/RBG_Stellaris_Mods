@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_harvester_fields
+	NATIVE_PREVIEW = "add_deposit = d_harvester_fields"
+	LABEL = cdpd_$MODE$_harvester_fields_label
+	TIP = cdpd_$MODE$_harvester_fields_tip
+	VISIBLE = cdpd_$MODE$_harvester_fields_visible
+	ACTION = cdpd_$MODE$_harvester_fields
+	SCREEN = $SCREEN$
+}

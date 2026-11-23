@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hostile_fauna
+	NATIVE_PREVIEW = "add_deposit = d_hostile_fauna custom_tooltip = cdpd_hostile_fauna_additional"
+	LABEL = cdpd_$MODE$_hostile_fauna_label
+	TIP = cdpd_$MODE$_hostile_fauna_tip
+	VISIBLE = cdpd_$MODE$_hostile_fauna_visible
+	ACTION = cdpd_$MODE$_hostile_fauna
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hostile_flora
+	NATIVE_PREVIEW = "add_deposit = d_hostile_flora custom_tooltip = cdpd_hostile_flora_additional"
+	LABEL = cdpd_$MODE$_hostile_flora_label
+	TIP = cdpd_$MODE$_hostile_flora_tip
+	VISIBLE = cdpd_$MODE$_hostile_flora_visible
+	ACTION = cdpd_$MODE$_hostile_flora
+	SCREEN = $SCREEN$
+}

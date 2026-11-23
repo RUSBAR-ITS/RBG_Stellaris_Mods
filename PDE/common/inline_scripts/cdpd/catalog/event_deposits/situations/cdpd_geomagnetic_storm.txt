@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_machine_care_home
+	NATIVE_PREVIEW = "add_deposit = d_machine_care_home custom_tooltip = cdpd_machine_care_home_properties"
+	LABEL = cdpd_$MODE$_machine_care_home_label
+	TIP = cdpd_$MODE$_machine_care_home_tip
+	VISIBLE = cdpd_$MODE$_machine_care_home_visible
+	ACTION = cdpd_$MODE$_machine_care_home
+	SCREEN = $SCREEN$
+}

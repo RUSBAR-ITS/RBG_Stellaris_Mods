@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_mining_site
+	NATIVE_PREVIEW = "add_deposit = d_ancient_mining_site"
+	LABEL = cdpd_$MODE$_ancient_mining_site_label
+	TIP = cdpd_$MODE$_ancient_mining_site_tip
+	VISIBLE = cdpd_$MODE$_ancient_mining_site_visible
+	ACTION = cdpd_$MODE$_ancient_mining_site
+	SCREEN = $SCREEN$
+}

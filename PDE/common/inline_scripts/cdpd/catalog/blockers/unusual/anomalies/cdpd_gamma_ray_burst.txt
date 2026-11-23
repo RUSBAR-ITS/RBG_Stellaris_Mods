@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_radioactive_ruins
+	NATIVE_PREVIEW = "add_blocker = { type = d_radioactive_ruins blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_radioactive_ruins_label
+	TIP = cdpd_$MODE$_radioactive_ruins_tip
+	VISIBLE = cdpd_$MODE$_radioactive_ruins_visible
+	ACTION = cdpd_$MODE$_radioactive_ruins
+	SCREEN = $SCREEN$
+}

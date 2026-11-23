@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_one
+	NATIVE_PREVIEW = "add_deposit = d_ancient_one"
+	LABEL = cdpd_$MODE$_ancient_one_label
+	TIP = cdpd_$MODE$_ancient_one_tip
+	VISIBLE = cdpd_$MODE$_ancient_one_visible
+	ACTION = cdpd_$MODE$_ancient_one
+	SCREEN = $SCREEN$
+}

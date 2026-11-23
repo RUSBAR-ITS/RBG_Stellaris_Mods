@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_red_giant_unstable
+	NATIVE_PREVIEW = "add_deposit = d_red_giant_unstable custom_tooltip = cdpd_red_giant_unstable_properties"
+	LABEL = cdpd_$MODE$_red_giant_unstable_label
+	TIP = cdpd_$MODE$_red_giant_unstable_tip
+	VISIBLE = cdpd_$MODE$_red_giant_unstable_visible
+	ACTION = cdpd_$MODE$_red_giant_unstable
+	SCREEN = $SCREEN$
+}

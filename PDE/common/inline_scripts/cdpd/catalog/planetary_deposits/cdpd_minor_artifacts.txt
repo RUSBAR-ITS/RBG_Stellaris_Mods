@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_artifacts_planet_1
+	NATIVE_PREVIEW = "add_deposit = d_artifacts_planet_1"
+	LABEL = cdpd_$MODE$_artifacts_planet_1_label
+	TIP = cdpd_$MODE$_artifacts_planet_1_tip
+	VISIBLE = cdpd_$MODE$_artifacts_planet_1_visible
+	ACTION = cdpd_$MODE$_artifacts_planet_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_artifacts_planet_2
+	NATIVE_PREVIEW = "add_deposit = d_artifacts_planet_2"
+	LABEL = cdpd_$MODE$_artifacts_planet_2_label
+	TIP = cdpd_$MODE$_artifacts_planet_2_tip
+	VISIBLE = cdpd_$MODE$_artifacts_planet_2_visible
+	ACTION = cdpd_$MODE$_artifacts_planet_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_artifacts_planet_3
+	NATIVE_PREVIEW = "add_deposit = d_artifacts_planet_3"
+	LABEL = cdpd_$MODE$_artifacts_planet_3_label
+	TIP = cdpd_$MODE$_artifacts_planet_3_tip
+	VISIBLE = cdpd_$MODE$_artifacts_planet_3_visible
+	ACTION = cdpd_$MODE$_artifacts_planet_3
+	SCREEN = $SCREEN$
+}

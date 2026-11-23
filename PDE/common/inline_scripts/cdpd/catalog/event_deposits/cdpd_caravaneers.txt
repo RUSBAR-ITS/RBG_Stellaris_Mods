@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_numas_breath
+	NATIVE_PREVIEW = "add_deposit = d_numas_breath"
+	LABEL = cdpd_$MODE$_numas_breath_label
+	TIP = cdpd_$MODE$_numas_breath_tip
+	VISIBLE = cdpd_$MODE$_numas_breath_visible
+	ACTION = cdpd_$MODE$_numas_breath
+	SCREEN = $SCREEN$
+}

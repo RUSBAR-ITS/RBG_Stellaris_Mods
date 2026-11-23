@@ -1,0 +1,6334 @@
+cdpd_is_colonizable_or_colonized = {
+	OR = {
+		is_colonizable = yes
+		is_colony = yes
+	}
+}
+
+cdpd_is_arkship = {
+	carrier_is_type = ship
+	is_colony = yes
+}
+
+cdpd_add_volcanic_ore_veins_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_mineral_hills_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_rich_mountain_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_ore_caverns_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_mineral_fields_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_mineral_layers_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_weak_crust_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_lava_river_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_fumarole_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_stifling_atmosphere_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_dried_lavariver_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_basalt_plains_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_intraplate_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_stable_plateaus_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_tranquil_flatlands_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_tunnels_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_volcanic_sulfur_lava_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_andisol_soil_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_arid_highlands_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_hot_springs_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_buzzing_plains_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_gaia
+}
+
+cdpd_add_frozen_gas_lake_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_rushing_waterfalls_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_searing_desert_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_dust_caverns_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_dust_desert_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_geothermal_vent_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_tempestous_mountain_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_alpine
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_underwater_vent_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_ocean
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_veiny_cliffs_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_continental
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_mineral_fields_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+	}
+}
+
+cdpd_add_mineral_striations_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_gaia
+}
+
+cdpd_add_prosperous_mesa_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_ore_rich_caverns_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_rich_mountain_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_continental
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_submerged_ore_veins_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_ocean
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_crystalline_caverns_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_crystal_forest_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_crystal_reef_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_ocean
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_betharian_deposit_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_lichen_fields_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arctic
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_bountiful_plains_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_rugged_woods_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_continental
+}
+
+cdpd_add_green_hills_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_forgiving_tundra_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tundra
+		is_planet_class = pc_alpine
+	}
+}
+
+cdpd_add_boggy_fens_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ocean
+}
+
+cdpd_add_nutritious_mudland_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_desert
+}
+
+cdpd_add_natural_farmland_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_gaia
+}
+
+cdpd_add_fungal_caves_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_lush_jungle_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_ocean
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_fertile_lands_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_continental
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_great_river_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+	}
+}
+
+cdpd_add_black_soil_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_savannah
+		is_planet_class = pc_continental
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_teeming_reef_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_ocean
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_marvelous_oasis_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+	}
+}
+
+cdpd_add_tropical_island_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_tropical
+	}
+}
+
+cdpd_add_fungal_forest_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+	}
+}
+
+cdpd_add_bubbling_swamp_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_fuming_bog_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+		is_planet_class = pc_hive
+		is_planet_class = pc_machine
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_energy_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_8_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_9_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_energy_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_energy_deposits = yes
+}
+
+cdpd_add_minerals_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_8_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_9_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_minerals_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_food_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_food_deposits = yes
+}
+
+cdpd_add_food_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_food_deposits = yes
+}
+
+cdpd_add_food_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_food_deposits = yes
+}
+
+cdpd_add_food_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_food_deposits = yes
+}
+
+cdpd_add_food_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_food_deposits = yes
+}
+
+cdpd_add_food_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_food_deposits = yes
+}
+
+cdpd_add_alloys_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_alloys_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_alloys_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_alloys_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_alloys_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_alloys_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_alloys_25_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_alloys_deposits = yes
+}
+
+cdpd_add_trade_value_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_8_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_9_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_trade_value_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_trade_deposits = yes
+}
+
+cdpd_add_volatile_motes_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_volatile_motes_deposits = yes
+}
+
+cdpd_add_volatile_motes_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_volatile_motes_deposits = yes
+}
+
+cdpd_add_volatile_motes_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_volatile_motes_deposits = yes
+}
+
+cdpd_add_volatile_motes_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_volatile_motes_deposits = yes
+}
+
+cdpd_add_volatile_motes_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_volatile_motes_deposits = yes
+}
+
+cdpd_add_exotic_gases_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_exotic_gases_deposits = yes
+}
+
+cdpd_add_exotic_gases_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_exotic_gases_deposits = yes
+}
+
+cdpd_add_exotic_gases_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_exotic_gases_deposits = yes
+}
+
+cdpd_add_exotic_gases_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_exotic_gases_deposits = yes
+}
+
+cdpd_add_exotic_gases_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_exotic_gases_deposits = yes
+}
+
+cdpd_add_rare_crystals_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_rare_crystals_deposits = yes
+}
+
+cdpd_add_rare_crystals_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_rare_crystals_deposits = yes
+}
+
+cdpd_add_rare_crystals_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_rare_crystals_deposits = yes
+}
+
+cdpd_add_rare_crystals_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_rare_crystals_deposits = yes
+}
+
+cdpd_add_rare_crystals_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_rare_crystals_deposits = yes
+}
+
+cdpd_add_living_metal_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	OR = {
+		is_asteroid = yes
+		OR = {
+			is_planet_class = pc_barren
+			is_planet_class = pc_barren_cold
+			is_planet_class = pc_frozen
+			is_planet_class = pc_molten
+			is_planet_class = pc_toxic
+		}
+	}
+}
+
+cdpd_add_zro_deposit_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_zro_deposits = yes
+}
+
+cdpd_add_zro_deposit_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_zro_deposits = yes
+}
+
+cdpd_add_zro_deposit_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_zro_deposits = yes
+}
+
+cdpd_add_zro_deposit_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_zro_deposits = yes
+}
+
+cdpd_add_zro_deposit_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_zro_deposits = yes
+}
+
+cdpd_add_dark_matter_deposit_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_dark_matter_deposits = yes
+}
+
+cdpd_add_dark_matter_deposit_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_dark_matter_deposits = yes
+}
+
+cdpd_add_dark_matter_deposit_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_dark_matter_deposits = yes
+}
+
+cdpd_add_dark_matter_deposit_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_dark_matter_deposits = yes
+}
+
+cdpd_add_nanites_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_star = no
+	NOT = { has_modifier = terraforming_candidate }
+}
+
+cdpd_add_physics_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_8_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_9_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_physics_25_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_physics_deposits = yes
+}
+
+cdpd_add_society_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_8_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_9_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_15_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_society_25_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_society_deposits = yes
+}
+
+cdpd_add_engineering_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_4_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_5_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_6_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_7_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_8_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_9_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_10_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_engineering_25_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_engineering_deposits = yes
+}
+
+cdpd_add_artifacts_mining_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_terraforming_candidate = no
+	has_deposit_for = shipclass_mining_station
+}
+
+cdpd_add_artifacts_mining_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_terraforming_candidate = no
+	has_deposit_for = shipclass_mining_station
+}
+
+cdpd_add_artifacts_mining_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_terraforming_candidate = no
+	has_deposit_for = shipclass_mining_station
+}
+
+cdpd_add_artifacts_research_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_terraforming_candidate = no
+	OR = { has_deposit_for = shipclass_research_station has_deposit = no }
+}
+
+cdpd_add_artifacts_research_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_terraforming_candidate = no
+	OR = { has_deposit_for = shipclass_research_station has_deposit = no }
+}
+
+cdpd_add_artifacts_research_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_terraforming_candidate = no
+	OR = { has_deposit_for = shipclass_research_station has_deposit = no }
+}
+
+cdpd_add_astral_threads_deposit_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	OR = {
+		is_planet_class = pc_astral_scar
+		is_planet_class = pc_rift_star
+	}
+}
+
+cdpd_add_astral_threads_deposit_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_planet_class = pc_black_hole
+}
+
+cdpd_add_vast_unity_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	OR = {
+		is_planet_class = pc_frozen
+		is_planet_class = pc_barren
+		is_planet_class = pc_barren_cold
+		is_planet_class = pc_toxic
+		is_planet_class = pc_broken
+		is_planet_class = pc_gas_giant
+		is_planet_class = pc_molten
+	}
+}
+
+cdpd_add_consumer_goods_obsessional_directive_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_star = no
+	NOT = { has_modifier = terraforming_candidate }
+	NOT = {
+		is_planet_class = pc_gas_giant
+	}
+}
+
+cdpd_add_guardian_dragon_hoard_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_star = no
+}
+
+cdpd_add_protostar_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_planet_class = pc_protostar
+}
+
+cdpd_add_red_giant_unstable_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_planet_class = pc_m_giant_star
+}
+
+cdpd_add_red_giant_dm_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	is_planet_class = pc_m_giant_star
+}
+
+cdpd_add_nanite_harvester_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_nanite_harvester_deposit_regular_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_nanite_harvester_deposit_large_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = no
+	can_have_mineral_deposits = yes
+}
+
+cdpd_add_explosive_atmosphere_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_hydroactive_eggs_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+	}
+}
+
+cdpd_add_blue_lava_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_organic_slurry_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_machine
+}
+
+cdpd_add_radiotrophic_preserve_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_space_junk_hazards_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_nuked
+		is_planet_class = pc_barren
+		is_planet_class = pc_barren_cold
+		is_planet_class = pc_nanotech
+		is_planet_class = pc_machine
+		is_planet_class = pc_hive
+		is_planet_class = pc_toxic
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_electrified_oceans_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_wet = yes
+		is_cold = yes
+	}
+}
+
+cdpd_add_solar_storm_2_districts_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_solar_storm_1_energy_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_solar_storm_3_output_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_ghostly_canyon_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_shroud_storm_2_zro_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_shroud_storm_1_society_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_shroud_storm_3_happy_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_geothermal_hotspot_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_numas_breath_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_underground_generator_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_forceful_winds_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_ancient_mining_site_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_nanosands_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_ancient_one_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ocean
+}
+
+cdpd_add_the_zone_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+}
+
+cdpd_add_savage_wildlands_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+}
+
+cdpd_add_toy_factory_complex_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+}
+
+cdpd_add_weapon_extraction_facility_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_wetware_computer_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ocean
+}
+
+cdpd_add_red_desert_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+	}
+}
+
+cdpd_add_lava_tubes_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_crystaline_growths_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+	}
+}
+
+cdpd_add_magnetic_storm_1_minerals_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_magnetic_storm_2_alloys_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_magnetic_storm_3_mix_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_sky_mountain_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_rockworm_hive_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_rockworm_hive_volcanic_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_underground_mine_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_admirals_bickering_crashed_cargo_ship_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_ancient_manufactorium_crater_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_ancient_manufactorium_scrapyard_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_ancient_manufactorium_working_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_ancient_cloaking_array_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_astrogarbage_collector_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_meals_in_pods_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	has_moon = yes
+	is_moon = no
+}
+
+cdpd_add_prisoner_intergration_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	has_moon = yes
+	is_moon = no
+}
+
+cdpd_add_stasis_prison_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	has_moon = yes
+	is_moon = no
+}
+
+cdpd_add_underground_vault_2_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_underground_vault_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_crystal_kraken_body_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+}
+
+cdpd_add_crystal_kraken_body_bombed_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+}
+
+cdpd_add_crater_bluelotus_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_impossiblecorrie_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_bluelotus_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_bluelotus2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_ruin_bluelotus_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_turtle_corpse_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_migrating_forests_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_tundra
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_migrating_forest_reserve_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_tundra
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_compact_modules_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_fractal_seed_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_microplanet_memorial_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_gravity_storm_1_districts_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_gravity_storm_2_unity_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_celestial_storm_1_mines_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_celestial_storm_2_society_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_celestial_storm_3_crystal_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_electric_storm_1_engineering_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_electric_storm_2_unity_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_electric_storm_3_physics_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_gravity_storm_3_engineering_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_house_turtle_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_turtle_miner_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_landgrab_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_landgrab_foreign_holdings_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_freeports_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_federation_hegemony_monument_1_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_federation_hegemony_monument_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_living_snow_reserve_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_desert
+}
+
+cdpd_add_space_time_anomaly_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	NOT = {
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_machine_care_home_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_mountains_of_steel_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_particle_storm_1_society_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_particle_storm_2_unity_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_particle_storm_3_motes_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_underground_contact_zone_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_worm_mine_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+		}
+	}
+}
+
+cdpd_add_abandoned_primitive_homesteads_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+}
+
+cdpd_add_hyperfertile_valley_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+	}
+}
+
+cdpd_add_harvester_fields_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_starting_planet_type = yes
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_flooded_mounds_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ocean
+}
+
+cdpd_add_desertling_infestation_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_alien_sanctuary_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_ancient_battlefield_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_starting_planet_type = yes
+		AND = {
+			cdpd_is_colonizable_or_colonized = yes
+			has_modifier = irradiated_planet
+			NOT = { is_planet_class = pc_ark }
+		}
+	}
+}
+
+cdpd_add_ancient_bombardment_craters_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_starting_planet_type = yes
+		AND = {
+			cdpd_is_colonizable_or_colonized = yes
+			has_modifier = irradiated_planet
+			NOT = { is_planet_class = pc_ark }
+		}
+	}
+}
+
+cdpd_add_irradiated_ruins_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	has_modifier = irradiated_planet
+	NOT = { is_planet_class = pc_ark }
+}
+
+cdpd_add_ancient_particle_accelerator_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_starting_planet_type = yes
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_mutant_landfill_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_cave_shroom_veins_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+	}
+}
+
+cdpd_add_spore_vents_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+	}
+}
+
+cdpd_add_myrmeku_power_farms_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	NOT = {
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_odd_factory_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_psionic_sands_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_crystalline_glacier_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+	}
+}
+
+cdpd_add_mineral_seabed_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ocean
+}
+
+cdpd_add_disco_planet_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+		}
+	}
+}
+
+cdpd_add_disco_planet2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+		}
+	}
+}
+
+cdpd_add_fungal_study_zone_visible = {
+	carrier_is_type = planet
+	habitable_planet = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_hab_lonely_bot_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_hab_lonely_bot_deposit_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_hab_lonely_bot_deposit_3_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_processing_pens_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_ocean
+		is_planet_class = pc_gaia
+	}
+}
+
+cdpd_add_metal_boneyard_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_impact_crater_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_bogplants_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	NOT = {
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_liquid_dark_matter_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_eater_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_relic_arkship_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_trophy_hall_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_metallic_puddles_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_tropical
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_underground_farm_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_worm_farm_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+		}
+	}
+}
+
+cdpd_add_stormfall_electric_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_stormfall_magnetic_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_stormfall_gravity_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_avian_reserve_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_portal_research_zone_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+		}
+	}
+}
+
+cdpd_add_nanites_medium_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_nanites_small_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_nanites_tiny_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_living_metal_medium_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_living_metal_small_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_living_metal_tiny_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_virtual_power_medium_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_virtual_power_small_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_virtual_power_tiny_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_alien_pets_deposit_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_genesis_preserve_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_genesis_monument_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_artifacts_planet_1_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_terraforming_candidate = yes
+		AND = {
+			has_deposit = yes
+			NOR = { has_deposit_for = shipclass_mining_station has_deposit_for = shipclass_research_station }
+		}
+	}
+}
+
+cdpd_add_artifacts_planet_2_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_terraforming_candidate = yes
+		AND = {
+			has_deposit = yes
+			NOR = { has_deposit_for = shipclass_mining_station has_deposit_for = shipclass_research_station }
+		}
+	}
+}
+
+cdpd_add_artifacts_planet_3_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_terraforming_candidate = yes
+		AND = {
+			has_deposit = yes
+			NOR = { has_deposit_for = shipclass_mining_station has_deposit_for = shipclass_research_station }
+		}
+	}
+}
+
+cdpd_add_titanic_life_blocker_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_gaia
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_galvanic_living_metal_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_exotic_mountain_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_arcane_replicator_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_irradiated_valley_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_boswash_metropolitan_axis_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_delhi_sprawl_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_pearl_river_agglomerate_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_junk_hollows_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_fallen_orbital_shipyard_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_nuked
+	}
+}
+
+cdpd_add_space_ship_graveyard_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_desert
+}
+
+cdpd_add_pulsar_scarred_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_valley_of_zanaam_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_gaia
+}
+
+cdpd_add_dark_matter_monolith_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_tropical
+}
+
+cdpd_add_geocentric_experiment_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_fallen_empire_arkship_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_great_albertan_crater_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_mauritanian_security_zone_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_mesopotamian_urban_corridor_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_junk_wastes_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_volcanic_active_planet_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_alpine
+}
+
+cdpd_add_nano_corpses_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_desert
+}
+
+cdpd_add_scandinavian_reclamation_sector_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_saharan_irrigation_project_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_pacific_algae_tracts_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_junk_canals_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_hostile_fauna_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_tropical
+}
+
+cdpd_add_hostile_flora_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_tropical
+}
+
+cdpd_add_ancient_reactor_pits_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_relic_dense_ruins_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_immense_solar_array_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_abandoned_mining_tunnels_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_relic_metal_boneyard_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_industrial_sector_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_crashed_slaver_ship_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_knights_calibrator_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_payback_habitat_research_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_msi_air_freshener_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_cd_ancient_tunnels_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_progenitor_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_progenitor_empty_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_dimensional_manipulation_device_visible = {
+	OR = {
+		cdpd_is_arkship = yes
+		AND = {
+			carrier_is_type = planet
+			OR = {
+				is_planet_class = pc_habitat
+				AND = {
+					cdpd_is_colonizable_or_colonized = yes
+					has_planet_flag = toxic_knights_settled_world
+				}
+			}
+		}
+	}
+}
+
+cdpd_add_toxic_god_blight_upon_the_land_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_planet_class = pc_toxic
+	}
+}
+
+cdpd_add_toxic_god_deitys_swarms_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_planet_class = pc_toxic
+	}
+}
+
+cdpd_add_toxic_god_envenomed_seas_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_planet_class = pc_toxic
+	}
+}
+
+cdpd_add_toxic_god_envenomed_seas_upgraded_visible = {
+	OR = {
+		cdpd_is_arkship = yes
+		AND = {
+			carrier_is_type = planet
+			cdpd_is_colonizable_or_colonized = yes
+		}
+	}
+}
+
+cdpd_add_toxic_god_blight_upon_the_land_upgraded_visible = {
+	OR = {
+		cdpd_is_arkship = yes
+		AND = {
+			carrier_is_type = planet
+			cdpd_is_colonizable_or_colonized = yes
+		}
+	}
+}
+
+cdpd_add_toxic_god_deitys_swarms_upgraded_visible = {
+	OR = {
+		cdpd_is_arkship = yes
+		AND = {
+			carrier_is_type = planet
+			cdpd_is_colonizable_or_colonized = yes
+		}
+	}
+}
+
+cdpd_add_toxic_god_pestilential_wasteland_upgraded_visible = {
+	OR = {
+		cdpd_is_arkship = yes
+		AND = {
+			carrier_is_type = planet
+			cdpd_is_colonizable_or_colonized = yes
+		}
+	}
+}
+
+cdpd_add_toxic_god_pools_most_venemous_upgraded_visible = {
+	OR = {
+		cdpd_is_arkship = yes
+		AND = {
+			carrier_is_type = planet
+			cdpd_is_colonizable_or_colonized = yes
+		}
+	}
+}
+
+cdpd_add_toxic_god_pestilential_wasteland_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_planet_class = pc_toxic
+	}
+}
+
+cdpd_add_toxic_god_pools_most_venemous_visible = {
+	carrier_is_type = planet
+	OR = {
+		cdpd_is_colonizable_or_colonized = yes
+		is_planet_class = pc_toxic
+	}
+}
+
+cdpd_add_machine_minerals_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_machine
+}
+
+cdpd_add_arcane_device_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_hive_dwelling_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_savannah
+}
+
+cdpd_add_treasure_planet_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_mechsiah_mainframe_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_black_needle_base_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_tundra
+	is_moon = yes
+	orbit = { is_planet_class = pc_gas_giant }
+}
+
+cdpd_add_abandoned_black_needle_base_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_tundra
+	is_moon = yes
+	orbit = { is_planet_class = pc_gas_giant }
+}
+
+cdpd_add_ruined_hive_dwelling_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_savannah
+}
+
+cdpd_add_landed_dragon_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_shroud_rift_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_shroud_flora_deposit_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_arcane_generator_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ringworld_habitable
+	uses_district_set = ring_world
+}
+
+cdpd_add_cryonic_clones_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ringworld_habitable
+}
+
+cdpd_add_sentinels_metal_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	OR = { is_wet = yes is_cold = yes }
+}
+
+cdpd_add_mutation_vats_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_ancient_facilities_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_sentinels_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	OR = { is_wet = yes is_cold = yes }
+}
+
+cdpd_add_polaris_city_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_ocean
+}
+
+cdpd_add_dayside_farm_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	OR = { has_modifier = tidal_locked has_carrier_flag = tidally_locked_world }
+}
+
+cdpd_add_planet_stripmine_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	NOT = {
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_baol_growth_visible = {
+	carrier_is_type = planet
+	is_artificial = yes
+}
+
+cdpd_add_former_relic_world_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_city
+}
+
+cdpd_add_project_cornucopia_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+			is_planet_class = pc_city
+		}
+	}
+}
+
+cdpd_add_prospectorium_strip_mine_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = { uses_district_set = shattered_ring_world }
+}
+
+cdpd_add_lithoid_crater_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_tree_of_life_home_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_tree_of_life_colony_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_massive_glacier_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+	}
+}
+
+cdpd_add_mountain_range_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_noxious_swamp_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tundra
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+	}
+}
+
+cdpd_add_quicksand_basin_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_radioactive_wasteland_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_tainted_snowcaps_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_hive
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_terraforming_blocker_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_nuked
+		is_planet_class = pc_gaia
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_unpleasant_atmosphere_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_hive
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_venomous_insects_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_hive
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_poisonous_algae_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_hive
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_rotten_soil_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+		is_planet_class = pc_hive
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_old_towns_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_radioactive_ruins_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_star_mall_blocker_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_star_mall_promenade_blocker_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_ruined_arcology_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_starting_planet_type = yes
+		is_planet_class = pc_relic
+	}
+}
+
+cdpd_add_ruined_building_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_technocracy_toxic_waste_blocker_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_wet = yes
+		is_cold = yes
+		is_dry = yes
+	}
+}
+
+cdpd_add_technocracy_barren_lands_blocker_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_wet = yes
+		is_cold = yes
+		is_dry = yes
+	}
+}
+
+cdpd_add_technocracy_toxic_ocean_blocker_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_wet = yes
+		is_cold = yes
+		is_dry = yes
+	}
+}
+
+cdpd_add_technocracy_molten_waste_blocker_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_wet = yes
+		is_cold = yes
+		is_dry = yes
+	}
+}
+
+cdpd_add_ruined_district_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_city_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_city_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_farming_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_farming_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_generator_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_generator_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_mining_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_mining_2_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_scorched_plains_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_ship_debris_payback_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_ruined_hatchery_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_gaia
+}
+
+cdpd_add_forgotten_civilization_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_moon = yes
+}
+
+cdpd_add_great_pacific_garbage_patch_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_lethal_ecosphere_blocker_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_massive_crevice_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_sr_diurnal_regulator_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_sr_power_grid_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_sr_ring_gyros_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_sr_vacuum_fields_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_malfunctioning_reactor_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_hibernating_lithoids_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_machine_empire_ruins_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_former_battlefield_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_machine_ongoing_construction_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_machine
+}
+
+cdpd_add_machine_prototype_pc_machine_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_machine
+}
+
+cdpd_add_invasion_site_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_floodplains_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_alpine
+		is_planet_class = pc_arctic
+		is_planet_class = pc_tundra
+	}
+}
+
+cdpd_add_fungoid_extermination_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_georadiation_displacement_visible = {
+	carrier_is_type = planet
+	is_starting_planet_type = yes
+}
+
+cdpd_add_lithoid_devastation_visible = {
+	carrier_is_type = planet
+	OR = {
+		can_have_habitable_deposits = yes
+		AND = { is_colony = no colonizable_planet = yes }
+	}
+}
+
+cdpd_add_forgotten_level_blocker_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_mass_graves_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_kaiju_lair_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_dangerous_wildlife_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_deep_sinkhole_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_volcanic
+	}
+}
+
+cdpd_add_toxic_kelp_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_dense_jungle_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_tropical
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+	}
+}
+
+cdpd_add_collapsed_spire_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_crumbling_mining_tunnels_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_shattered_solar_array_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_flooded_reactor_pits_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_relic
+}
+
+cdpd_add_segment_rubble_1_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_segment_rubble_1_small_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_segment_rubble_2_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_segment_rubble_3_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_segment_rubble_4_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_decrepit_tunnels_1_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_decrepit_tunnels_2_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_shattered_ring_habitable
+}
+
+cdpd_add_decrepit_dwellings_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_failing_infrastructure_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_failing_infrastructure_earth_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_continental
+		is_planet_class = pc_ocean
+		is_planet_class = pc_tropical
+		is_planet_class = pc_desert
+		is_planet_class = pc_arid
+		is_planet_class = pc_savannah
+		is_planet_class = pc_arctic
+		is_planet_class = pc_alpine
+		is_planet_class = pc_tundra
+		is_planet_class = pc_volcanic
+		is_planet_class = pc_gaia
+		is_planet_class = pc_nuked
+		is_planet_class = pc_machine
+	}
+}
+
+cdpd_add_exterminators_ruins_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_crater_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_deep_sleep_cryo_pods_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_devastated_cities_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_devoured_continent_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_egg_cracking_visible = {
+	carrier_is_type = planet
+	OR = {
+		is_planet_class = pc_arid
+		is_planet_class = pc_desert
+		is_planet_class = pc_savannah
+	}
+}
+
+cdpd_add_empty_quarry_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_desert
+}
+
+cdpd_add_exploited_deposit_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_active_volcano_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_bomb_crater_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_city_ruins_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_abandoned_cities_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_bioship_remains_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_buried_lithoids_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_strip_mine_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_tomb_world_ruins_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_tomb_world_wasteland_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_nuked
+}
+
+cdpd_add_unsupervised_settlement_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_assimilators_ruins_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_collapsed_burrows_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_toxic_atmosphere_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	is_ideal = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+		}
+	}
+}
+
+cdpd_add_ash_storms_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	is_ideal = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+		}
+	}
+}
+
+cdpd_add_big_nature_preserve_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_hive
+			is_planet_class = pc_machine
+			is_planet_class = pc_relic
+		}
+	}
+}
+
+cdpd_add_buried_lithoids_overlord_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_biological_enclaves_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_cluttered_hangar_bay_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_sprawling_landfill_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_coagulated_landscape_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_shroudstone_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		is_planet_class = pc_cosmogenesis_world
+	}
+}
+
+cdpd_add_sinkhole_subterraneans_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_underground_farm_dead_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_underground_generator_dead_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_underground_mine_dead_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_habitat
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+			is_planet_class = pc_volcanic
+			is_planet_class = pc_ark
+		}
+	}
+}
+
+cdpd_add_unplugged_assimilator_hulk_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_machine
+}
+
+cdpd_add_stasis_pods_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_shroudfall_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_shroudgate_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_aura_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_ruined_sanctum_of_the_lost_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_charged_atmosphere_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	is_ideal = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+		}
+	}
+}
+
+cdpd_add_lava_flooding_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	is_ideal = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+		}
+	}
+}
+
+cdpd_add_large_volcano_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+	is_ideal = no
+	NOT = {
+		OR = {
+			is_planet_class = pc_city
+			is_planet_class = pc_machine
+			is_planet_class = pc_hive
+		}
+	}
+}
+
+cdpd_add_seed_bombing_fungoid_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_seed_bombing_plantoid_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_root_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_seismic_bombing_crater_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	is_artificial = no
+}
+
+cdpd_add_nanotech_devastation_visible = {
+	carrier_is_type = planet
+	OR = {
+		can_have_habitable_deposits = yes
+		AND = { is_colony = no colonizable_planet = yes }
+	}
+}
+
+cdpd_add_raging_lavafalls_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_rugged_landscape_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_volcanic
+}
+
+cdpd_add_mothballed_facilities_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+	NOT = {
+		OR = {
+			is_planet_class = pc_habitat
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_shattered_ring_habitable
+			is_planet_class = pc_city
+			is_planet_class = pc_relic
+		}
+	}
+}
+
+cdpd_add_spawning_complex_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_wilderness_glade_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_nature_preserve_blocker_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_resource_consolidation_1_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_machine
+}
+
+cdpd_add_organic_landfill_visible = {
+	carrier_is_type = planet
+	cdpd_is_colonizable_or_colonized = yes
+}
+
+cdpd_add_star_mall_promenade_visible = {
+	carrier_is_type = planet
+	is_planet_class = pc_habitat
+}
+
+cdpd_add_forgotten_level_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_add_deep_sleep_cryo_pods_renewed_visible = {
+	cdpd_is_arkship = yes
+}
+
+cdpd_remove_abandoned_black_needle_base_visible = {
+	has_deposit = d_abandoned_black_needle_base
+}
+
+cdpd_remove_abandoned_cities_visible = {
+	has_deposit = d_abandoned_cities
+}
+
+cdpd_remove_abandoned_mining_tunnels_visible = {
+	has_deposit = d_abandoned_mining_tunnels
+}
+
+cdpd_remove_abandoned_primitive_homesteads_visible = {
+	has_deposit = d_abandoned_primitive_homesteads
+}
+
+cdpd_remove_active_volcano_visible = {
+	has_deposit = d_active_volcano
+}
+
+cdpd_remove_admirals_bickering_crashed_cargo_ship_visible = {
+	has_deposit = d_admirals_bickering_crashed_cargo_ship
+}
+
+cdpd_remove_alien_pets_deposit_visible = {
+	has_deposit = d_alien_pets_deposit
+}
+
+cdpd_remove_alien_sanctuary_visible = {
+	has_deposit = d_alien_sanctuary
+}
+
+cdpd_remove_alloys_1_visible = {
+	has_deposit = d_alloys_1
+}
+
+cdpd_remove_alloys_10_visible = {
+	has_deposit = d_alloys_10
+}
+
+cdpd_remove_alloys_2_visible = {
+	has_deposit = d_alloys_2
+}
+
+cdpd_remove_alloys_25_visible = {
+	has_deposit = d_alloys_25
+}
+
+cdpd_remove_alloys_3_visible = {
+	has_deposit = d_alloys_3
+}
+
+cdpd_remove_alloys_4_visible = {
+	has_deposit = d_alloys_4
+}
+
+cdpd_remove_alloys_5_visible = {
+	has_deposit = d_alloys_5
+}
+
+cdpd_remove_ancient_battlefield_visible = {
+	has_deposit = d_ancient_battlefield
+}
+
+cdpd_remove_ancient_bombardment_craters_visible = {
+	has_deposit = d_ancient_bombardment_craters
+}
+
+cdpd_remove_ancient_cloaking_array_visible = {
+	has_deposit = d_ancient_cloaking_array
+}
+
+cdpd_remove_ancient_facilities_visible = {
+	has_deposit = d_ancient_facilities
+}
+
+cdpd_remove_ancient_manufactorium_crater_visible = {
+	has_deposit = d_ancient_manufactorium_crater
+}
+
+cdpd_remove_ancient_manufactorium_scrapyard_visible = {
+	has_deposit = d_ancient_manufactorium_scrapyard
+}
+
+cdpd_remove_ancient_manufactorium_vaultexploration_visible = {
+	has_deposit = d_ancient_manufactorium_vaultexploration
+}
+
+cdpd_remove_ancient_manufactorium_working_visible = {
+	has_deposit = d_ancient_manufactorium_working
+}
+
+cdpd_remove_ancient_mining_site_visible = {
+	has_deposit = d_ancient_mining_site
+}
+
+cdpd_remove_ancient_one_visible = {
+	has_deposit = d_ancient_one
+}
+
+cdpd_remove_ancient_particle_accelerator_visible = {
+	has_deposit = d_ancient_particle_accelerator
+}
+
+cdpd_remove_ancient_reactor_pits_visible = {
+	has_deposit = d_ancient_reactor_pits
+}
+
+cdpd_remove_andisol_soil_visible = {
+	has_deposit = d_andisol_soil
+}
+
+cdpd_remove_arc_furnace_1_visible = {
+	has_deposit = d_arc_furnace_1
+}
+
+cdpd_remove_arc_furnace_2_visible = {
+	has_deposit = d_arc_furnace_2
+}
+
+cdpd_remove_arc_furnace_3_visible = {
+	has_deposit = d_arc_furnace_3
+}
+
+cdpd_remove_arc_furnace_4_visible = {
+	has_deposit = d_arc_furnace_4
+}
+
+cdpd_remove_arcane_device_visible = {
+	has_deposit = d_arcane_device
+}
+
+cdpd_remove_arcane_generator_visible = {
+	has_deposit = d_arcane_generator
+}
+
+cdpd_remove_arcane_replicator_visible = {
+	has_deposit = d_arcane_replicator
+}
+
+cdpd_remove_archaeological_site_visible = {
+	has_deposit = d_archaeological_site
+}
+
+cdpd_remove_arid_highlands_visible = {
+	has_deposit = d_arid_highlands
+}
+
+cdpd_remove_artifacts_mining_1_visible = {
+	has_deposit = d_artifacts_mining_1
+}
+
+cdpd_remove_artifacts_mining_2_visible = {
+	has_deposit = d_artifacts_mining_2
+}
+
+cdpd_remove_artifacts_mining_3_visible = {
+	has_deposit = d_artifacts_mining_3
+}
+
+cdpd_remove_artifacts_planet_1_visible = {
+	has_deposit = d_artifacts_planet_1
+}
+
+cdpd_remove_artifacts_planet_2_visible = {
+	has_deposit = d_artifacts_planet_2
+}
+
+cdpd_remove_artifacts_planet_3_visible = {
+	has_deposit = d_artifacts_planet_3
+}
+
+cdpd_remove_artifacts_research_1_visible = {
+	has_deposit = d_artifacts_research_1
+}
+
+cdpd_remove_artifacts_research_2_visible = {
+	has_deposit = d_artifacts_research_2
+}
+
+cdpd_remove_artifacts_research_3_visible = {
+	has_deposit = d_artifacts_research_3
+}
+
+cdpd_remove_ash_storms_visible = {
+	has_deposit = d_ash_storms
+}
+
+cdpd_remove_assimilators_ruins_visible = {
+	has_deposit = d_assimilators_ruins
+}
+
+cdpd_remove_astral_threads_deposit_1_visible = {
+	has_deposit = d_astral_threads_deposit_1
+}
+
+cdpd_remove_astral_threads_deposit_2_visible = {
+	has_deposit = d_astral_threads_deposit_2
+}
+
+cdpd_remove_astral_threads_deposit_3_visible = {
+	has_deposit = d_astral_threads_deposit_3
+}
+
+cdpd_remove_astrogarbage_collector_visible = {
+	has_deposit = d_astrogarbage_collector
+}
+
+cdpd_remove_aura_blocker_visible = {
+	has_deposit = d_aura_blocker
+}
+
+cdpd_remove_avian_reserve_visible = {
+	has_deposit = d_avian_reserve
+}
+
+cdpd_remove_baol_growth_visible = {
+	has_deposit = d_baol_growth
+}
+
+cdpd_remove_betharian_deposit_visible = {
+	has_deposit = d_betharian_deposit
+}
+
+cdpd_remove_big_nature_preserve_blocker_visible = {
+	has_deposit = d_big_nature_preserve_blocker
+}
+
+cdpd_remove_biological_enclaves_visible = {
+	has_deposit = d_biological_enclaves
+}
+
+cdpd_remove_bioship_remains_visible = {
+	has_deposit = d_bioship_remains
+}
+
+cdpd_remove_black_needle_base_visible = {
+	has_deposit = d_black_needle_base
+}
+
+cdpd_remove_black_soil_visible = {
+	has_deposit = d_black_soil
+}
+
+cdpd_remove_blue_lava_visible = {
+	has_deposit = d_blue_lava
+}
+
+cdpd_remove_bluelotus_visible = {
+	has_deposit = d_bluelotus
+}
+
+cdpd_remove_bluelotus2_visible = {
+	has_deposit = d_bluelotus2
+}
+
+cdpd_remove_boggy_fens_visible = {
+	has_deposit = d_boggy_fens
+}
+
+cdpd_remove_bogplants_visible = {
+	has_deposit = d_bogplants
+}
+
+cdpd_remove_bomb_crater_visible = {
+	has_deposit = d_bomb_crater
+}
+
+cdpd_remove_boswash_metropolitan_axis_visible = {
+	has_deposit = d_boswash_metropolitan_axis
+}
+
+cdpd_remove_bountiful_plains_visible = {
+	has_deposit = d_bountiful_plains
+}
+
+cdpd_remove_bubbling_swamp_visible = {
+	has_deposit = d_bubbling_swamp
+}
+
+cdpd_remove_buried_lithoids_visible = {
+	has_deposit = d_buried_lithoids
+}
+
+cdpd_remove_buried_lithoids_overlord_visible = {
+	has_deposit = d_buried_lithoids_overlord
+}
+
+cdpd_remove_buzzing_plains_visible = {
+	has_deposit = d_buzzing_plains
+}
+
+cdpd_remove_cave_shroom_veins_visible = {
+	has_deposit = d_cave_shroom_veins
+}
+
+cdpd_remove_cd_ancient_tunnels_visible = {
+	has_deposit = d_cd_ancient_tunnels
+}
+
+cdpd_remove_celestial_storm_1_mines_visible = {
+	has_deposit = d_celestial_storm_1_mines
+}
+
+cdpd_remove_celestial_storm_2_society_visible = {
+	has_deposit = d_celestial_storm_2_society
+}
+
+cdpd_remove_celestial_storm_3_crystal_visible = {
+	has_deposit = d_celestial_storm_3_crystal
+}
+
+cdpd_remove_central_spire_visible = {
+	has_deposit = d_central_spire
+}
+
+cdpd_remove_charged_atmosphere_visible = {
+	has_deposit = d_charged_atmosphere
+}
+
+cdpd_remove_city_ruins_visible = {
+	has_deposit = d_city_ruins
+}
+
+cdpd_remove_cluttered_hangar_bay_visible = {
+	has_deposit = d_cluttered_hangar_bay
+}
+
+cdpd_remove_coagulated_landscape_visible = {
+	has_deposit = d_coagulated_landscape
+}
+
+cdpd_remove_collapsed_burrows_visible = {
+	has_deposit = d_collapsed_burrows
+}
+
+cdpd_remove_collapsed_spire_visible = {
+	has_deposit = d_collapsed_spire
+}
+
+cdpd_remove_compact_modules_visible = {
+	has_deposit = d_compact_modules
+}
+
+cdpd_remove_consumer_goods_obsessional_directive_visible = {
+	has_deposit = d_consumer_goods_obsessional_directive
+}
+
+cdpd_remove_crashed_slaver_ship_visible = {
+	has_deposit = d_crashed_slaver_ship
+}
+
+cdpd_remove_crashed_slaver_ship_memorial_visible = {
+	has_deposit = d_crashed_slaver_ship_memorial
+}
+
+cdpd_remove_crater_visible = {
+	has_deposit = d_crater
+}
+
+cdpd_remove_crater_bluelotus_visible = {
+	has_deposit = d_crater_bluelotus
+}
+
+cdpd_remove_crumbling_mining_tunnels_visible = {
+	has_deposit = d_crumbling_mining_tunnels
+}
+
+cdpd_remove_cryonic_clones_visible = {
+	has_deposit = d_cryonic_clones
+}
+
+cdpd_remove_crystal_forest_visible = {
+	has_deposit = d_crystal_forest
+}
+
+cdpd_remove_crystal_kraken_body_visible = {
+	has_deposit = d_crystal_kraken_body
+}
+
+cdpd_remove_crystal_kraken_body_bombed_visible = {
+	has_deposit = d_crystal_kraken_body_bombed
+}
+
+cdpd_remove_crystal_reef_visible = {
+	has_deposit = d_crystal_reef
+}
+
+cdpd_remove_crystal_rift_visible = {
+	has_deposit = d_crystal_rift
+}
+
+cdpd_remove_crystaline_growths_visible = {
+	has_deposit = d_crystaline_growths
+}
+
+cdpd_remove_crystalline_caverns_visible = {
+	has_deposit = d_crystalline_caverns
+}
+
+cdpd_remove_crystalline_glacier_visible = {
+	has_deposit = d_crystalline_glacier
+}
+
+cdpd_remove_dangerous_wildlife_blocker_visible = {
+	has_deposit = d_dangerous_wildlife_blocker
+}
+
+cdpd_remove_dark_matter_deposit_1_visible = {
+	has_deposit = d_dark_matter_deposit_1
+}
+
+cdpd_remove_dark_matter_deposit_10_visible = {
+	has_deposit = d_dark_matter_deposit_10
+}
+
+cdpd_remove_dark_matter_deposit_2_visible = {
+	has_deposit = d_dark_matter_deposit_2
+}
+
+cdpd_remove_dark_matter_deposit_3_visible = {
+	has_deposit = d_dark_matter_deposit_3
+}
+
+cdpd_remove_dark_matter_monolith_visible = {
+	has_deposit = d_dark_matter_monolith
+}
+
+cdpd_remove_dayside_farm_visible = {
+	has_deposit = d_dayside_farm
+}
+
+cdpd_remove_decrepit_dwellings_visible = {
+	has_deposit = d_decrepit_dwellings
+}
+
+cdpd_remove_decrepit_tunnels_1_visible = {
+	has_deposit = d_decrepit_tunnels_1
+}
+
+cdpd_remove_decrepit_tunnels_2_visible = {
+	has_deposit = d_decrepit_tunnels_2
+}
+
+cdpd_remove_decrepit_tunnels_3_visible = {
+	has_deposit = d_decrepit_tunnels_3
+}
+
+cdpd_remove_deep_sinkhole_visible = {
+	has_deposit = d_deep_sinkhole
+}
+
+cdpd_remove_deep_sleep_cryo_pods_visible = {
+	has_deposit = d_deep_sleep_cryo_pods
+}
+
+cdpd_remove_deep_sleep_cryo_pods_renewed_visible = {
+	has_deposit = d_deep_sleep_cryo_pods_renewed
+}
+
+cdpd_remove_delhi_sprawl_visible = {
+	has_deposit = d_delhi_sprawl
+}
+
+cdpd_remove_dense_jungle_visible = {
+	has_deposit = d_dense_jungle
+}
+
+cdpd_remove_desertling_infestation_visible = {
+	has_deposit = d_desertling_infestation
+}
+
+cdpd_remove_devastated_cities_visible = {
+	has_deposit = d_devastated_cities
+}
+
+cdpd_remove_devoured_continent_visible = {
+	has_deposit = d_devoured_continent
+}
+
+cdpd_remove_dimensional_manipulation_device_visible = {
+	has_deposit = d_dimensional_manipulation_device
+}
+
+cdpd_remove_disco_planet_visible = {
+	has_deposit = d_disco_planet
+}
+
+cdpd_remove_disco_planet2_visible = {
+	has_deposit = d_disco_planet2
+}
+
+cdpd_remove_dragon_monument_visible = {
+	has_deposit = d_dragon_monument
+}
+
+cdpd_remove_dust_caverns_visible = {
+	has_deposit = d_dust_caverns
+}
+
+cdpd_remove_dust_desert_visible = {
+	has_deposit = d_dust_desert
+}
+
+cdpd_remove_eater_deposit_visible = {
+	has_deposit = d_eater_deposit
+}
+
+cdpd_remove_egg_cracking_visible = {
+	has_deposit = d_egg_cracking
+}
+
+cdpd_remove_electric_storm_1_engineering_visible = {
+	has_deposit = d_electric_storm_1_engineering
+}
+
+cdpd_remove_electric_storm_2_unity_visible = {
+	has_deposit = d_electric_storm_2_unity
+}
+
+cdpd_remove_electric_storm_3_physics_visible = {
+	has_deposit = d_electric_storm_3_physics
+}
+
+cdpd_remove_electrified_oceans_visible = {
+	has_deposit = d_electrified_oceans
+}
+
+cdpd_remove_empty_quarry_visible = {
+	has_deposit = d_empty_quarry
+}
+
+cdpd_remove_energy_1_visible = {
+	has_deposit = d_energy_1
+}
+
+cdpd_remove_energy_10_visible = {
+	has_deposit = d_energy_10
+}
+
+cdpd_remove_energy_2_visible = {
+	has_deposit = d_energy_2
+}
+
+cdpd_remove_energy_3_visible = {
+	has_deposit = d_energy_3
+}
+
+cdpd_remove_energy_4_visible = {
+	has_deposit = d_energy_4
+}
+
+cdpd_remove_energy_5_visible = {
+	has_deposit = d_energy_5
+}
+
+cdpd_remove_energy_6_visible = {
+	has_deposit = d_energy_6
+}
+
+cdpd_remove_energy_7_visible = {
+	has_deposit = d_energy_7
+}
+
+cdpd_remove_energy_8_visible = {
+	has_deposit = d_energy_8
+}
+
+cdpd_remove_energy_9_visible = {
+	has_deposit = d_energy_9
+}
+
+cdpd_remove_engineering_1_visible = {
+	has_deposit = d_engineering_1
+}
+
+cdpd_remove_engineering_10_visible = {
+	has_deposit = d_engineering_10
+}
+
+cdpd_remove_engineering_2_visible = {
+	has_deposit = d_engineering_2
+}
+
+cdpd_remove_engineering_25_visible = {
+	has_deposit = d_engineering_25
+}
+
+cdpd_remove_engineering_3_visible = {
+	has_deposit = d_engineering_3
+}
+
+cdpd_remove_engineering_4_visible = {
+	has_deposit = d_engineering_4
+}
+
+cdpd_remove_engineering_5_visible = {
+	has_deposit = d_engineering_5
+}
+
+cdpd_remove_engineering_6_visible = {
+	has_deposit = d_engineering_6
+}
+
+cdpd_remove_engineering_7_visible = {
+	has_deposit = d_engineering_7
+}
+
+cdpd_remove_engineering_8_visible = {
+	has_deposit = d_engineering_8
+}
+
+cdpd_remove_engineering_9_visible = {
+	has_deposit = d_engineering_9
+}
+
+cdpd_remove_exotic_gases_1_visible = {
+	has_deposit = d_exotic_gases_1
+}
+
+cdpd_remove_exotic_gases_2_visible = {
+	has_deposit = d_exotic_gases_2
+}
+
+cdpd_remove_exotic_gases_3_visible = {
+	has_deposit = d_exotic_gases_3
+}
+
+cdpd_remove_exotic_gases_4_visible = {
+	has_deposit = d_exotic_gases_4
+}
+
+cdpd_remove_exotic_gases_5_visible = {
+	has_deposit = d_exotic_gases_5
+}
+
+cdpd_remove_exotic_mountain_visible = {
+	has_deposit = d_exotic_mountain
+}
+
+cdpd_remove_exploited_deposit_blocker_visible = {
+	has_deposit = d_exploited_deposit_blocker
+}
+
+cdpd_remove_explosive_atmosphere_visible = {
+	has_deposit = d_explosive_atmosphere
+}
+
+cdpd_remove_exterminators_ruins_visible = {
+	has_deposit = d_exterminators_ruins
+}
+
+cdpd_remove_failing_infrastructure_visible = {
+	has_deposit = d_failing_infrastructure
+}
+
+cdpd_remove_failing_infrastructure_earth_visible = {
+	has_deposit = d_failing_infrastructure_earth
+}
+
+cdpd_remove_fallen_empire_arkship_visible = {
+	has_deposit = d_fallen_empire_arkship
+}
+
+cdpd_remove_fallen_orbital_shipyard_visible = {
+	has_deposit = d_fallen_orbital_shipyard
+}
+
+cdpd_remove_federation_hegemony_monument_1_visible = {
+	has_deposit = d_federation_hegemony_monument_1
+}
+
+cdpd_remove_federation_hegemony_monument_2_visible = {
+	has_deposit = d_federation_hegemony_monument_2
+}
+
+cdpd_remove_fertile_lands_visible = {
+	has_deposit = d_fertile_lands
+}
+
+cdpd_remove_flooded_mounds_visible = {
+	has_deposit = d_flooded_mounds
+}
+
+cdpd_remove_flooded_reactor_pits_visible = {
+	has_deposit = d_flooded_reactor_pits
+}
+
+cdpd_remove_floodplains_visible = {
+	has_deposit = d_floodplains
+}
+
+cdpd_remove_food_10_visible = {
+	has_deposit = d_food_10
+}
+
+cdpd_remove_food_3_visible = {
+	has_deposit = d_food_3
+}
+
+cdpd_remove_food_4_visible = {
+	has_deposit = d_food_4
+}
+
+cdpd_remove_food_5_visible = {
+	has_deposit = d_food_5
+}
+
+cdpd_remove_food_6_visible = {
+	has_deposit = d_food_6
+}
+
+cdpd_remove_food_7_visible = {
+	has_deposit = d_food_7
+}
+
+cdpd_remove_forceful_winds_visible = {
+	has_deposit = d_forceful_winds
+}
+
+cdpd_remove_forgiving_tundra_visible = {
+	has_deposit = d_forgiving_tundra
+}
+
+cdpd_remove_forgotten_civilization_visible = {
+	has_deposit = d_forgotten_civilization
+}
+
+cdpd_remove_forgotten_level_visible = {
+	has_deposit = d_forgotten_level
+}
+
+cdpd_remove_forgotten_level_blocker_visible = {
+	has_deposit = d_forgotten_level_blocker
+}
+
+cdpd_remove_former_battlefield_visible = {
+	has_deposit = d_former_battlefield
+}
+
+cdpd_remove_former_relic_world_visible = {
+	has_deposit = d_former_relic_world
+}
+
+cdpd_remove_fractal_seed_visible = {
+	has_deposit = d_fractal_seed
+}
+
+cdpd_remove_freeports_visible = {
+	has_deposit = d_freeports
+}
+
+cdpd_remove_frozen_gas_lake_visible = {
+	has_deposit = d_frozen_gas_lake
+}
+
+cdpd_remove_fuming_bog_visible = {
+	has_deposit = d_fuming_bog
+}
+
+cdpd_remove_fungal_caves_visible = {
+	has_deposit = d_fungal_caves
+}
+
+cdpd_remove_fungal_forest_visible = {
+	has_deposit = d_fungal_forest
+}
+
+cdpd_remove_fungal_study_zone_visible = {
+	has_deposit = d_fungal_study_zone
+}
+
+cdpd_remove_fungoid_extermination_visible = {
+	has_deposit = d_fungoid_extermination
+}
+
+cdpd_remove_galvanic_living_metal_visible = {
+	has_deposit = d_galvanic_living_metal
+}
+
+cdpd_remove_genesis_monument_visible = {
+	has_deposit = d_genesis_monument
+}
+
+cdpd_remove_genesis_preserve_visible = {
+	has_deposit = d_genesis_preserve
+}
+
+cdpd_remove_geocentric_experiment_visible = {
+	has_deposit = d_geocentric_experiment
+}
+
+cdpd_remove_georadiation_displacement_visible = {
+	has_deposit = d_georadiation_displacement
+}
+
+cdpd_remove_geothermal_hotspot_visible = {
+	has_deposit = d_geothermal_hotspot
+}
+
+cdpd_remove_geothermal_vent_visible = {
+	has_deposit = d_geothermal_vent
+}
+
+cdpd_remove_ghostly_canyon_visible = {
+	has_deposit = d_ghostly_canyon
+}
+
+cdpd_remove_gravity_storm_1_districts_visible = {
+	has_deposit = d_gravity_storm_1_districts
+}
+
+cdpd_remove_gravity_storm_2_unity_visible = {
+	has_deposit = d_gravity_storm_2_unity
+}
+
+cdpd_remove_gravity_storm_3_engineering_visible = {
+	has_deposit = d_gravity_storm_3_engineering
+}
+
+cdpd_remove_great_albertan_crater_visible = {
+	has_deposit = d_great_albertan_crater
+}
+
+cdpd_remove_great_pacific_garbage_patch_visible = {
+	has_deposit = d_great_pacific_garbage_patch
+}
+
+cdpd_remove_great_river_visible = {
+	has_deposit = d_great_river
+}
+
+cdpd_remove_green_hills_visible = {
+	has_deposit = d_green_hills
+}
+
+cdpd_remove_guardian_dragon_hoard_visible = {
+	has_deposit = d_guardian_dragon_hoard
+}
+
+cdpd_remove_hab_alloy_1_visible = {
+	has_deposit = d_hab_alloy_1
+}
+
+cdpd_remove_hab_alloy_10_visible = {
+	has_deposit = d_hab_alloy_10
+}
+
+cdpd_remove_hab_alloy_2_visible = {
+	has_deposit = d_hab_alloy_2
+}
+
+cdpd_remove_hab_alloy_25_visible = {
+	has_deposit = d_hab_alloy_25
+}
+
+cdpd_remove_hab_alloy_3_visible = {
+	has_deposit = d_hab_alloy_3
+}
+
+cdpd_remove_hab_alloy_4_visible = {
+	has_deposit = d_hab_alloy_4
+}
+
+cdpd_remove_hab_alloy_5_visible = {
+	has_deposit = d_hab_alloy_5
+}
+
+cdpd_remove_hab_astral_threads_1_visible = {
+	has_deposit = d_hab_astral_threads_1
+}
+
+cdpd_remove_hab_astral_threads_2_visible = {
+	has_deposit = d_hab_astral_threads_2
+}
+
+cdpd_remove_hab_astral_threads_3_visible = {
+	has_deposit = d_hab_astral_threads_3
+}
+
+cdpd_remove_hab_consumer_goods_2_visible = {
+	has_deposit = d_hab_consumer_goods_2
+}
+
+cdpd_remove_hab_crystal_1_visible = {
+	has_deposit = d_hab_crystal_1
+}
+
+cdpd_remove_hab_crystal_2_visible = {
+	has_deposit = d_hab_crystal_2
+}
+
+cdpd_remove_hab_crystal_3_visible = {
+	has_deposit = d_hab_crystal_3
+}
+
+cdpd_remove_hab_crystal_4_visible = {
+	has_deposit = d_hab_crystal_4
+}
+
+cdpd_remove_hab_crystal_5_visible = {
+	has_deposit = d_hab_crystal_5
+}
+
+cdpd_remove_hab_dark_matter_1_visible = {
+	has_deposit = d_hab_dark_matter_1
+}
+
+cdpd_remove_hab_dark_matter_10_visible = {
+	has_deposit = d_hab_dark_matter_10
+}
+
+cdpd_remove_hab_dark_matter_2_visible = {
+	has_deposit = d_hab_dark_matter_2
+}
+
+cdpd_remove_hab_dark_matter_3_visible = {
+	has_deposit = d_hab_dark_matter_3
+}
+
+cdpd_remove_hab_gas_1_visible = {
+	has_deposit = d_hab_gas_1
+}
+
+cdpd_remove_hab_gas_2_visible = {
+	has_deposit = d_hab_gas_2
+}
+
+cdpd_remove_hab_gas_3_visible = {
+	has_deposit = d_hab_gas_3
+}
+
+cdpd_remove_hab_gas_4_visible = {
+	has_deposit = d_hab_gas_4
+}
+
+cdpd_remove_hab_gas_5_visible = {
+	has_deposit = d_hab_gas_5
+}
+
+cdpd_remove_hab_harvester_nanites_1_visible = {
+	has_deposit = d_hab_harvester_nanites_1
+}
+
+cdpd_remove_hab_harvester_nanites_2_visible = {
+	has_deposit = d_hab_harvester_nanites_2
+}
+
+cdpd_remove_hab_harvester_nanites_3_visible = {
+	has_deposit = d_hab_harvester_nanites_3
+}
+
+cdpd_remove_hab_living_metal_1_visible = {
+	has_deposit = d_hab_living_metal_1
+}
+
+cdpd_remove_hab_lonely_bot_deposit_visible = {
+	has_deposit = d_hab_lonely_bot_deposit
+}
+
+cdpd_remove_hab_lonely_bot_deposit_2_visible = {
+	has_deposit = d_hab_lonely_bot_deposit_2
+}
+
+cdpd_remove_hab_lonely_bot_deposit_3_visible = {
+	has_deposit = d_hab_lonely_bot_deposit_3
+}
+
+cdpd_remove_hab_mote_1_visible = {
+	has_deposit = d_hab_mote_1
+}
+
+cdpd_remove_hab_mote_2_visible = {
+	has_deposit = d_hab_mote_2
+}
+
+cdpd_remove_hab_mote_3_visible = {
+	has_deposit = d_hab_mote_3
+}
+
+cdpd_remove_hab_mote_4_visible = {
+	has_deposit = d_hab_mote_4
+}
+
+cdpd_remove_hab_mote_5_visible = {
+	has_deposit = d_hab_mote_5
+}
+
+cdpd_remove_hab_nanites_3_visible = {
+	has_deposit = d_hab_nanites_3
+}
+
+cdpd_remove_hab_zro_1_visible = {
+	has_deposit = d_hab_zro_1
+}
+
+cdpd_remove_hab_zro_2_visible = {
+	has_deposit = d_hab_zro_2
+}
+
+cdpd_remove_hab_zro_3_visible = {
+	has_deposit = d_hab_zro_3
+}
+
+cdpd_remove_hab_zro_4_visible = {
+	has_deposit = d_hab_zro_4
+}
+
+cdpd_remove_hab_zro_5_visible = {
+	has_deposit = d_hab_zro_5
+}
+
+cdpd_remove_harvester_fields_visible = {
+	has_deposit = d_harvester_fields
+}
+
+cdpd_remove_hibernating_lithoids_visible = {
+	has_deposit = d_hibernating_lithoids
+}
+
+cdpd_remove_hive_dwelling_visible = {
+	has_deposit = d_hive_dwelling
+}
+
+cdpd_remove_hostile_fauna_visible = {
+	has_deposit = d_hostile_fauna
+}
+
+cdpd_remove_hostile_flora_visible = {
+	has_deposit = d_hostile_flora
+}
+
+cdpd_remove_hot_springs_visible = {
+	has_deposit = d_hot_springs
+}
+
+cdpd_remove_house_turtle_visible = {
+	has_deposit = d_house_turtle
+}
+
+cdpd_remove_hydroactive_eggs_visible = {
+	has_deposit = d_hydroactive_eggs
+}
+
+cdpd_remove_hyperfertile_valley_visible = {
+	has_deposit = d_hyperfertile_valley
+}
+
+cdpd_remove_immense_solar_array_visible = {
+	has_deposit = d_immense_solar_array
+}
+
+cdpd_remove_impact_crater_visible = {
+	has_deposit = d_impact_crater
+}
+
+cdpd_remove_impossiblecorrie_visible = {
+	has_deposit = d_impossiblecorrie
+}
+
+cdpd_remove_industrial_sector_visible = {
+	has_deposit = d_industrial_sector
+}
+
+cdpd_remove_invasion_site_visible = {
+	has_deposit = d_invasion_site
+}
+
+cdpd_remove_irradiated_ruins_visible = {
+	has_deposit = d_irradiated_ruins
+}
+
+cdpd_remove_irradiated_valley_visible = {
+	has_deposit = d_irradiated_valley
+}
+
+cdpd_remove_junk_canals_visible = {
+	has_deposit = d_junk_canals
+}
+
+cdpd_remove_junk_hollows_visible = {
+	has_deposit = d_junk_hollows
+}
+
+cdpd_remove_junk_wastes_visible = {
+	has_deposit = d_junk_wastes
+}
+
+cdpd_remove_kaiju_lair_visible = {
+	has_deposit = d_kaiju_lair
+}
+
+cdpd_remove_knights_calibrator_visible = {
+	has_deposit = d_knights_calibrator
+}
+
+cdpd_remove_landed_dragon_visible = {
+	has_deposit = d_landed_dragon
+}
+
+cdpd_remove_landgrab_blocker_visible = {
+	has_deposit = d_landgrab_blocker
+}
+
+cdpd_remove_landgrab_foreign_holdings_visible = {
+	has_deposit = d_landgrab_foreign_holdings
+}
+
+cdpd_remove_large_volcano_visible = {
+	has_deposit = d_large_volcano
+}
+
+cdpd_remove_lava_flooding_visible = {
+	has_deposit = d_lava_flooding
+}
+
+cdpd_remove_lava_tubes_visible = {
+	has_deposit = d_lava_tubes
+}
+
+cdpd_remove_lethal_ecosphere_blocker_visible = {
+	has_deposit = d_lethal_ecosphere_blocker
+}
+
+cdpd_remove_lichen_fields_visible = {
+	has_deposit = d_lichen_fields
+}
+
+cdpd_remove_liquid_dark_matter_visible = {
+	has_deposit = d_liquid_dark_matter
+}
+
+cdpd_remove_lithoid_crater_visible = {
+	has_deposit = d_lithoid_crater
+}
+
+cdpd_remove_lithoid_devastation_visible = {
+	has_deposit = d_lithoid_devastation
+}
+
+cdpd_remove_living_metal_deposit_visible = {
+	has_deposit = d_living_metal_deposit
+}
+
+cdpd_remove_living_metal_medium_visible = {
+	has_deposit = d_living_metal_medium
+}
+
+cdpd_remove_living_metal_small_visible = {
+	has_deposit = d_living_metal_small
+}
+
+cdpd_remove_living_metal_tiny_visible = {
+	has_deposit = d_living_metal_tiny
+}
+
+cdpd_remove_living_snow_reserve_visible = {
+	has_deposit = d_living_snow_reserve
+}
+
+cdpd_remove_lush_jungle_visible = {
+	has_deposit = d_lush_jungle
+}
+
+cdpd_remove_machine_care_home_visible = {
+	has_deposit = d_machine_care_home
+}
+
+cdpd_remove_machine_empire_ruins_visible = {
+	has_deposit = d_machine_empire_ruins
+}
+
+cdpd_remove_machine_minerals_visible = {
+	has_deposit = d_machine_minerals
+}
+
+cdpd_remove_machine_ongoing_construction_visible = {
+	has_deposit = d_machine_ongoing_construction
+}
+
+cdpd_remove_machine_prototype_pc_machine_visible = {
+	has_deposit = d_machine_prototype_pc_machine
+}
+
+cdpd_remove_magnetic_storm_1_minerals_visible = {
+	has_deposit = d_magnetic_storm_1_minerals
+}
+
+cdpd_remove_magnetic_storm_2_alloys_visible = {
+	has_deposit = d_magnetic_storm_2_alloys
+}
+
+cdpd_remove_magnetic_storm_3_mix_visible = {
+	has_deposit = d_magnetic_storm_3_mix
+}
+
+cdpd_remove_malfunctioning_reactor_visible = {
+	has_deposit = d_malfunctioning_reactor
+}
+
+cdpd_remove_marvelous_oasis_visible = {
+	has_deposit = d_marvelous_oasis
+}
+
+cdpd_remove_mass_graves_visible = {
+	has_deposit = d_mass_graves
+}
+
+cdpd_remove_massive_crevice_visible = {
+	has_deposit = d_massive_crevice
+}
+
+cdpd_remove_massive_glacier_visible = {
+	has_deposit = d_massive_glacier
+}
+
+cdpd_remove_mauritanian_security_zone_visible = {
+	has_deposit = d_mauritanian_security_zone
+}
+
+cdpd_remove_meals_in_pods_visible = {
+	has_deposit = d_meals_in_pods
+}
+
+cdpd_remove_mechsiah_mainframe_visible = {
+	has_deposit = d_mechsiah_mainframe
+}
+
+cdpd_remove_mesopotamian_urban_corridor_visible = {
+	has_deposit = d_mesopotamian_urban_corridor
+}
+
+cdpd_remove_metal_boneyard_visible = {
+	has_deposit = d_metal_boneyard
+}
+
+cdpd_remove_metallic_puddles_visible = {
+	has_deposit = d_metallic_puddles
+}
+
+cdpd_remove_microplanet_memorial_visible = {
+	has_deposit = d_microplanet_memorial
+}
+
+cdpd_remove_migrating_forest_reserve_visible = {
+	has_deposit = d_migrating_forest_reserve
+}
+
+cdpd_remove_migrating_forests_visible = {
+	has_deposit = d_migrating_forests
+}
+
+cdpd_remove_mineral_fields_visible = {
+	has_deposit = d_mineral_fields
+}
+
+cdpd_remove_mineral_seabed_visible = {
+	has_deposit = d_mineral_seabed
+}
+
+cdpd_remove_mineral_striations_visible = {
+	has_deposit = d_mineral_striations
+}
+
+cdpd_remove_minerals_1_visible = {
+	has_deposit = d_minerals_1
+}
+
+cdpd_remove_minerals_10_visible = {
+	has_deposit = d_minerals_10
+}
+
+cdpd_remove_minerals_2_visible = {
+	has_deposit = d_minerals_2
+}
+
+cdpd_remove_minerals_3_visible = {
+	has_deposit = d_minerals_3
+}
+
+cdpd_remove_minerals_4_visible = {
+	has_deposit = d_minerals_4
+}
+
+cdpd_remove_minerals_5_visible = {
+	has_deposit = d_minerals_5
+}
+
+cdpd_remove_minerals_6_visible = {
+	has_deposit = d_minerals_6
+}
+
+cdpd_remove_minerals_7_visible = {
+	has_deposit = d_minerals_7
+}
+
+cdpd_remove_minerals_8_visible = {
+	has_deposit = d_minerals_8
+}
+
+cdpd_remove_minerals_9_visible = {
+	has_deposit = d_minerals_9
+}
+
+cdpd_remove_mothballed_facilities_visible = {
+	has_deposit = d_mothballed_facilities
+}
+
+cdpd_remove_mountain_range_visible = {
+	has_deposit = d_mountain_range
+}
+
+cdpd_remove_mountains_of_steel_visible = {
+	has_deposit = d_mountains_of_steel
+}
+
+cdpd_remove_msi_air_freshener_visible = {
+	has_deposit = d_msi_air_freshener
+}
+
+cdpd_remove_mutant_landfill_visible = {
+	has_deposit = d_mutant_landfill
+}
+
+cdpd_remove_mutation_vats_visible = {
+	has_deposit = d_mutation_vats
+}
+
+cdpd_remove_myrmeku_power_farms_visible = {
+	has_deposit = d_myrmeku_power_farms
+}
+
+cdpd_remove_nanite_harvester_deposit_visible = {
+	has_deposit = d_nanite_harvester_deposit
+}
+
+cdpd_remove_nanite_harvester_deposit_large_visible = {
+	has_deposit = d_nanite_harvester_deposit_large
+}
+
+cdpd_remove_nanite_harvester_deposit_regular_visible = {
+	has_deposit = d_nanite_harvester_deposit_regular
+}
+
+cdpd_remove_nanites_deposit_visible = {
+	has_deposit = d_nanites_deposit
+}
+
+cdpd_remove_nanites_medium_visible = {
+	has_deposit = d_nanites_medium
+}
+
+cdpd_remove_nanites_small_visible = {
+	has_deposit = d_nanites_small
+}
+
+cdpd_remove_nanites_tiny_visible = {
+	has_deposit = d_nanites_tiny
+}
+
+cdpd_remove_nano_corpses_visible = {
+	has_deposit = d_nano_corpses
+}
+
+cdpd_remove_nanosands_visible = {
+	has_deposit = d_nanosands
+}
+
+cdpd_remove_nanotech_devastation_visible = {
+	has_deposit = d_nanotech_devastation
+}
+
+cdpd_remove_natural_farmland_visible = {
+	has_deposit = d_natural_farmland
+}
+
+cdpd_remove_nature_preserve_blocker_visible = {
+	has_deposit = d_nature_preserve_blocker
+}
+
+cdpd_remove_noxious_swamp_visible = {
+	has_deposit = d_noxious_swamp
+}
+
+cdpd_remove_numas_breath_visible = {
+	has_deposit = d_numas_breath
+}
+
+cdpd_remove_nutritious_mudland_visible = {
+	has_deposit = d_nutritious_mudland
+}
+
+cdpd_remove_odd_factory_visible = {
+	has_deposit = d_odd_factory
+}
+
+cdpd_remove_old_towns_visible = {
+	has_deposit = d_old_towns
+}
+
+cdpd_remove_ore_rich_caverns_visible = {
+	has_deposit = d_ore_rich_caverns
+}
+
+cdpd_remove_organic_landfill_visible = {
+	has_deposit = d_organic_landfill
+}
+
+cdpd_remove_organic_slurry_visible = {
+	has_deposit = d_organic_slurry
+}
+
+cdpd_remove_pacific_algae_tracts_visible = {
+	has_deposit = d_pacific_algae_tracts
+}
+
+cdpd_remove_particle_storm_1_society_visible = {
+	has_deposit = d_particle_storm_1_society
+}
+
+cdpd_remove_particle_storm_2_unity_visible = {
+	has_deposit = d_particle_storm_2_unity
+}
+
+cdpd_remove_particle_storm_3_motes_visible = {
+	has_deposit = d_particle_storm_3_motes
+}
+
+cdpd_remove_payback_habitat_research_visible = {
+	has_deposit = d_payback_habitat_research
+}
+
+cdpd_remove_pearl_river_agglomerate_visible = {
+	has_deposit = d_pearl_river_agglomerate
+}
+
+cdpd_remove_physics_1_visible = {
+	has_deposit = d_physics_1
+}
+
+cdpd_remove_physics_10_visible = {
+	has_deposit = d_physics_10
+}
+
+cdpd_remove_physics_2_visible = {
+	has_deposit = d_physics_2
+}
+
+cdpd_remove_physics_25_visible = {
+	has_deposit = d_physics_25
+}
+
+cdpd_remove_physics_3_visible = {
+	has_deposit = d_physics_3
+}
+
+cdpd_remove_physics_4_visible = {
+	has_deposit = d_physics_4
+}
+
+cdpd_remove_physics_5_visible = {
+	has_deposit = d_physics_5
+}
+
+cdpd_remove_physics_6_visible = {
+	has_deposit = d_physics_6
+}
+
+cdpd_remove_physics_7_visible = {
+	has_deposit = d_physics_7
+}
+
+cdpd_remove_physics_8_visible = {
+	has_deposit = d_physics_8
+}
+
+cdpd_remove_physics_9_visible = {
+	has_deposit = d_physics_9
+}
+
+cdpd_remove_planet_stripmine_visible = {
+	has_deposit = d_planet_stripmine
+}
+
+cdpd_remove_poisonous_algae_visible = {
+	has_deposit = d_poisonous_algae
+}
+
+cdpd_remove_polaris_city_visible = {
+	has_deposit = d_polaris_city
+}
+
+cdpd_remove_portal_research_zone_visible = {
+	has_deposit = d_portal_research_zone
+}
+
+cdpd_remove_prisoner_intergration_visible = {
+	has_deposit = d_prisoner_intergration
+}
+
+cdpd_remove_processing_pens_visible = {
+	has_deposit = d_processing_pens
+}
+
+cdpd_remove_progenitor_visible = {
+	has_deposit = d_progenitor
+}
+
+cdpd_remove_progenitor_empty_visible = {
+	has_deposit = d_progenitor_empty
+}
+
+cdpd_remove_project_cornucopia_visible = {
+	has_deposit = d_project_cornucopia
+}
+
+cdpd_remove_prospectorium_strip_mine_visible = {
+	has_deposit = d_prospectorium_strip_mine
+}
+
+cdpd_remove_prosperous_mesa_visible = {
+	has_deposit = d_prosperous_mesa
+}
+
+cdpd_remove_protostar_visible = {
+	has_deposit = d_protostar
+}
+
+cdpd_remove_psionic_sands_visible = {
+	has_deposit = d_psionic_sands
+}
+
+cdpd_remove_pulsar_scarred_visible = {
+	has_deposit = d_pulsar_scarred
+}
+
+cdpd_remove_quicksand_basin_visible = {
+	has_deposit = d_quicksand_basin
+}
+
+cdpd_remove_radioactive_ruins_visible = {
+	has_deposit = d_radioactive_ruins
+}
+
+cdpd_remove_radioactive_wasteland_visible = {
+	has_deposit = d_radioactive_wasteland
+}
+
+cdpd_remove_radiotrophic_preserve_visible = {
+	has_deposit = d_radiotrophic_preserve
+}
+
+cdpd_remove_raging_lavafalls_visible = {
+	has_deposit = d_raging_lavafalls
+}
+
+cdpd_remove_rare_crystals_1_visible = {
+	has_deposit = d_rare_crystals_1
+}
+
+cdpd_remove_rare_crystals_2_visible = {
+	has_deposit = d_rare_crystals_2
+}
+
+cdpd_remove_rare_crystals_3_visible = {
+	has_deposit = d_rare_crystals_3
+}
+
+cdpd_remove_rare_crystals_4_visible = {
+	has_deposit = d_rare_crystals_4
+}
+
+cdpd_remove_rare_crystals_5_visible = {
+	has_deposit = d_rare_crystals_5
+}
+
+cdpd_remove_red_desert_visible = {
+	has_deposit = d_red_desert
+}
+
+cdpd_remove_red_giant_dm_visible = {
+	has_deposit = d_red_giant_dm
+}
+
+cdpd_remove_red_giant_unstable_visible = {
+	has_deposit = d_red_giant_unstable
+}
+
+cdpd_remove_relic_arkship_visible = {
+	has_deposit = d_relic_arkship
+}
+
+cdpd_remove_relic_dense_ruins_visible = {
+	has_deposit = d_relic_dense_ruins
+}
+
+cdpd_remove_relic_metal_boneyard_visible = {
+	has_deposit = d_relic_metal_boneyard
+}
+
+cdpd_remove_resource_consolidation_1_visible = {
+	has_deposit = d_resource_consolidation_1
+}
+
+cdpd_remove_rich_mountain_visible = {
+	has_deposit = d_rich_mountain
+}
+
+cdpd_remove_rockworm_hive_visible = {
+	has_deposit = d_rockworm_hive
+}
+
+cdpd_remove_rockworm_hive_volcanic_visible = {
+	has_deposit = d_rockworm_hive_volcanic
+}
+
+cdpd_remove_rotten_soil_visible = {
+	has_deposit = d_rotten_soil
+}
+
+cdpd_remove_rugged_landscape_visible = {
+	has_deposit = d_rugged_landscape
+}
+
+cdpd_remove_rugged_woods_visible = {
+	has_deposit = d_rugged_woods
+}
+
+cdpd_remove_ruin_bluelotus_visible = {
+	has_deposit = d_ruin_bluelotus
+}
+
+cdpd_remove_ruined_arcology_visible = {
+	has_deposit = d_ruined_arcology
+}
+
+cdpd_remove_ruined_building_blocker_visible = {
+	has_deposit = d_ruined_building_blocker
+}
+
+cdpd_remove_ruined_district_visible = {
+	has_deposit = d_ruined_district
+}
+
+cdpd_remove_ruined_hatchery_visible = {
+	has_deposit = d_ruined_hatchery
+}
+
+cdpd_remove_ruined_hive_dwelling_visible = {
+	has_deposit = d_ruined_hive_dwelling
+}
+
+cdpd_remove_ruined_sanctum_of_the_lost_visible = {
+	has_deposit = d_ruined_sanctum_of_the_lost
+}
+
+cdpd_remove_rushing_waterfalls_visible = {
+	has_deposit = d_rushing_waterfalls
+}
+
+cdpd_remove_saharan_irrigation_project_visible = {
+	has_deposit = d_saharan_irrigation_project
+}
+
+cdpd_remove_savage_wildlands_visible = {
+	has_deposit = d_savage_wildlands
+}
+
+cdpd_remove_scandinavian_reclamation_sector_visible = {
+	has_deposit = d_scandinavian_reclamation_sector
+}
+
+cdpd_remove_scorched_plains_visible = {
+	has_deposit = d_scorched_plains
+}
+
+cdpd_remove_searing_desert_visible = {
+	has_deposit = d_searing_desert
+}
+
+cdpd_remove_seed_bombing_fungoid_blocker_visible = {
+	has_deposit = d_seed_bombing_fungoid_blocker
+}
+
+cdpd_remove_seed_bombing_plantoid_blocker_visible = {
+	has_deposit = d_seed_bombing_plantoid_blocker
+}
+
+cdpd_remove_segment_rubble_1_visible = {
+	has_deposit = d_segment_rubble_1
+}
+
+cdpd_remove_segment_rubble_1_small_visible = {
+	has_deposit = d_segment_rubble_1_small
+}
+
+cdpd_remove_segment_rubble_2_visible = {
+	has_deposit = d_segment_rubble_2
+}
+
+cdpd_remove_segment_rubble_3_visible = {
+	has_deposit = d_segment_rubble_3
+}
+
+cdpd_remove_segment_rubble_4_visible = {
+	has_deposit = d_segment_rubble_4
+}
+
+cdpd_remove_seismic_bombing_crater_visible = {
+	has_deposit = d_seismic_bombing_crater
+}
+
+cdpd_remove_sentinels_visible = {
+	has_deposit = d_sentinels
+}
+
+cdpd_remove_sentinels_metal_visible = {
+	has_deposit = d_sentinels_metal
+}
+
+cdpd_remove_sentinels_monument_visible = {
+	has_deposit = d_sentinels_monument
+}
+
+cdpd_remove_shattered_solar_array_visible = {
+	has_deposit = d_shattered_solar_array
+}
+
+cdpd_remove_shimmering_structure_visible = {
+	has_deposit = d_shimmering_structure
+}
+
+cdpd_remove_ship_debris_broken_shackles_blocker_visible = {
+	has_deposit = d_ship_debris_broken_shackles_blocker
+}
+
+cdpd_remove_ship_debris_payback_blocker_visible = {
+	has_deposit = d_ship_debris_payback_blocker
+}
+
+cdpd_remove_shroud_flora_deposit_visible = {
+	has_deposit = d_shroud_flora_deposit
+}
+
+cdpd_remove_shroud_rift_deposit_visible = {
+	has_deposit = d_shroud_rift_deposit
+}
+
+cdpd_remove_shroud_storm_1_society_visible = {
+	has_deposit = d_shroud_storm_1_society
+}
+
+cdpd_remove_shroud_storm_2_zro_visible = {
+	has_deposit = d_shroud_storm_2_zro
+}
+
+cdpd_remove_shroud_storm_3_happy_visible = {
+	has_deposit = d_shroud_storm_3_happy
+}
+
+cdpd_remove_shroudfall_visible = {
+	has_deposit = d_shroudfall
+}
+
+cdpd_remove_shroudgate_visible = {
+	has_deposit = d_shroudgate
+}
+
+cdpd_remove_shroudstone_visible = {
+	has_deposit = d_shroudstone
+}
+
+cdpd_remove_sinkhole_subterraneans_visible = {
+	has_deposit = d_sinkhole_subterraneans
+}
+
+cdpd_remove_sky_mountain_visible = {
+	has_deposit = d_sky_mountain
+}
+
+cdpd_remove_society_1_visible = {
+	has_deposit = d_society_1
+}
+
+cdpd_remove_society_10_visible = {
+	has_deposit = d_society_10
+}
+
+cdpd_remove_society_15_visible = {
+	has_deposit = d_society_15
+}
+
+cdpd_remove_society_2_visible = {
+	has_deposit = d_society_2
+}
+
+cdpd_remove_society_25_visible = {
+	has_deposit = d_society_25
+}
+
+cdpd_remove_society_3_visible = {
+	has_deposit = d_society_3
+}
+
+cdpd_remove_society_4_visible = {
+	has_deposit = d_society_4
+}
+
+cdpd_remove_society_5_visible = {
+	has_deposit = d_society_5
+}
+
+cdpd_remove_society_6_visible = {
+	has_deposit = d_society_6
+}
+
+cdpd_remove_society_7_visible = {
+	has_deposit = d_society_7
+}
+
+cdpd_remove_society_8_visible = {
+	has_deposit = d_society_8
+}
+
+cdpd_remove_society_9_visible = {
+	has_deposit = d_society_9
+}
+
+cdpd_remove_solar_storm_1_energy_visible = {
+	has_deposit = d_solar_storm_1_energy
+}
+
+cdpd_remove_solar_storm_2_districts_visible = {
+	has_deposit = d_solar_storm_2_districts
+}
+
+cdpd_remove_solar_storm_3_output_visible = {
+	has_deposit = d_solar_storm_3_output
+}
+
+cdpd_remove_space_junk_hazards_visible = {
+	has_deposit = d_space_junk_hazards
+}
+
+cdpd_remove_space_ship_graveyard_visible = {
+	has_deposit = d_space_ship_graveyard
+}
+
+cdpd_remove_space_time_anomaly_visible = {
+	has_deposit = d_space_time_anomaly
+}
+
+cdpd_remove_spawning_complex_blocker_visible = {
+	has_deposit = d_spawning_complex_blocker
+}
+
+cdpd_remove_splinter_hive_link_visible = {
+	has_deposit = d_splinter_hive_link
+}
+
+cdpd_remove_spore_vents_visible = {
+	has_deposit = d_spore_vents
+}
+
+cdpd_remove_sprawling_landfill_blocker_visible = {
+	has_deposit = d_sprawling_landfill_blocker
+}
+
+cdpd_remove_sr_diurnal_regulator_visible = {
+	has_deposit = d_sr_diurnal_regulator
+}
+
+cdpd_remove_sr_power_grid_visible = {
+	has_deposit = d_sr_power_grid
+}
+
+cdpd_remove_sr_ring_gyros_visible = {
+	has_deposit = d_sr_ring_gyros
+}
+
+cdpd_remove_sr_vacuum_fields_visible = {
+	has_deposit = d_sr_vacuum_fields
+}
+
+cdpd_remove_star_mall_blocker_visible = {
+	has_deposit = d_star_mall_blocker
+}
+
+cdpd_remove_star_mall_promenade_visible = {
+	has_deposit = d_star_mall_promenade
+}
+
+cdpd_remove_star_mall_promenade_blocker_visible = {
+	has_deposit = d_star_mall_promenade_blocker
+}
+
+cdpd_remove_stasis_pods_visible = {
+	has_deposit = d_stasis_pods
+}
+
+cdpd_remove_stasis_prison_visible = {
+	has_deposit = d_stasis_prison
+}
+
+cdpd_remove_stellarite_trophy_visible = {
+	has_deposit = d_stellarite_trophy
+}
+
+cdpd_remove_stormfall_electric_visible = {
+	has_deposit = d_stormfall_electric
+}
+
+cdpd_remove_stormfall_gravity_visible = {
+	has_deposit = d_stormfall_gravity
+}
+
+cdpd_remove_stormfall_magnetic_visible = {
+	has_deposit = d_stormfall_magnetic
+}
+
+cdpd_remove_strip_mine_visible = {
+	has_deposit = d_strip_mine
+}
+
+cdpd_remove_submerged_ore_veins_visible = {
+	has_deposit = d_submerged_ore_veins
+}
+
+cdpd_remove_tainted_snowcaps_visible = {
+	has_deposit = d_tainted_snowcaps
+}
+
+cdpd_remove_technocracy_barren_lands_blocker_visible = {
+	has_deposit = d_technocracy_barren_lands_blocker
+}
+
+cdpd_remove_technocracy_molten_waste_blocker_visible = {
+	has_deposit = d_technocracy_molten_waste_blocker
+}
+
+cdpd_remove_technocracy_toxic_ocean_blocker_visible = {
+	has_deposit = d_technocracy_toxic_ocean_blocker
+}
+
+cdpd_remove_technocracy_toxic_waste_blocker_visible = {
+	has_deposit = d_technocracy_toxic_waste_blocker
+}
+
+cdpd_remove_teeming_reef_visible = {
+	has_deposit = d_teeming_reef
+}
+
+cdpd_remove_tempestous_mountain_visible = {
+	has_deposit = d_tempestous_mountain
+}
+
+cdpd_remove_terraforming_blocker_visible = {
+	has_deposit = d_terraforming_blocker
+}
+
+cdpd_remove_the_zone_visible = {
+	has_deposit = d_the_zone
+}
+
+cdpd_remove_titanic_life_blocker_visible = {
+	has_deposit = d_titanic_life_blocker
+}
+
+cdpd_remove_tomb_world_ruins_visible = {
+	has_deposit = d_tomb_world_ruins
+}
+
+cdpd_remove_tomb_world_wasteland_visible = {
+	has_deposit = d_tomb_world_wasteland
+}
+
+cdpd_remove_toxic_atmosphere_visible = {
+	has_deposit = d_toxic_atmosphere
+}
+
+cdpd_remove_toxic_god_blight_upon_the_land_visible = {
+	has_deposit = d_toxic_god_blight_upon_the_land
+}
+
+cdpd_remove_toxic_god_blight_upon_the_land_upgraded_visible = {
+	has_deposit = d_toxic_god_blight_upon_the_land_upgraded
+}
+
+cdpd_remove_toxic_god_deitys_swarms_visible = {
+	has_deposit = d_toxic_god_deitys_swarms
+}
+
+cdpd_remove_toxic_god_deitys_swarms_upgraded_visible = {
+	has_deposit = d_toxic_god_deitys_swarms_upgraded
+}
+
+cdpd_remove_toxic_god_envenomed_seas_visible = {
+	has_deposit = d_toxic_god_envenomed_seas
+}
+
+cdpd_remove_toxic_god_envenomed_seas_upgraded_visible = {
+	has_deposit = d_toxic_god_envenomed_seas_upgraded
+}
+
+cdpd_remove_toxic_god_pestilential_wasteland_visible = {
+	has_deposit = d_toxic_god_pestilential_wasteland
+}
+
+cdpd_remove_toxic_god_pestilential_wasteland_upgraded_visible = {
+	has_deposit = d_toxic_god_pestilential_wasteland_upgraded
+}
+
+cdpd_remove_toxic_god_pools_most_venemous_visible = {
+	has_deposit = d_toxic_god_pools_most_venemous
+}
+
+cdpd_remove_toxic_god_pools_most_venemous_upgraded_visible = {
+	has_deposit = d_toxic_god_pools_most_venemous_upgraded
+}
+
+cdpd_remove_toxic_kelp_visible = {
+	has_deposit = d_toxic_kelp
+}
+
+cdpd_remove_toy_factory_complex_visible = {
+	has_deposit = d_toy_factory_complex
+}
+
+cdpd_remove_trade_value_1_visible = {
+	has_deposit = d_trade_value_1
+}
+
+cdpd_remove_trade_value_10_visible = {
+	has_deposit = d_trade_value_10
+}
+
+cdpd_remove_trade_value_2_visible = {
+	has_deposit = d_trade_value_2
+}
+
+cdpd_remove_trade_value_3_visible = {
+	has_deposit = d_trade_value_3
+}
+
+cdpd_remove_trade_value_4_visible = {
+	has_deposit = d_trade_value_4
+}
+
+cdpd_remove_trade_value_5_visible = {
+	has_deposit = d_trade_value_5
+}
+
+cdpd_remove_trade_value_6_visible = {
+	has_deposit = d_trade_value_6
+}
+
+cdpd_remove_trade_value_7_visible = {
+	has_deposit = d_trade_value_7
+}
+
+cdpd_remove_trade_value_8_visible = {
+	has_deposit = d_trade_value_8
+}
+
+cdpd_remove_trade_value_9_visible = {
+	has_deposit = d_trade_value_9
+}
+
+cdpd_remove_treasure_planet_visible = {
+	has_deposit = d_treasure_planet
+}
+
+cdpd_remove_tree_of_life_colony_visible = {
+	has_deposit = d_tree_of_life_colony
+}
+
+cdpd_remove_tree_of_life_home_visible = {
+	has_deposit = d_tree_of_life_home
+}
+
+cdpd_remove_trophy_hall_visible = {
+	has_deposit = d_trophy_hall
+}
+
+cdpd_remove_tropical_island_visible = {
+	has_deposit = d_tropical_island
+}
+
+cdpd_remove_turtle_corpse_visible = {
+	has_deposit = d_turtle_corpse
+}
+
+cdpd_remove_turtle_miner_visible = {
+	has_deposit = d_turtle_miner
+}
+
+cdpd_remove_underground_contact_zone_visible = {
+	has_deposit = d_underground_contact_zone
+}
+
+cdpd_remove_underground_farm_visible = {
+	has_deposit = d_underground_farm
+}
+
+cdpd_remove_underground_farm_blocked_visible = {
+	has_deposit = d_underground_farm_blocked
+}
+
+cdpd_remove_underground_farm_dead_visible = {
+	has_deposit = d_underground_farm_dead
+}
+
+cdpd_remove_underground_generator_visible = {
+	has_deposit = d_underground_generator
+}
+
+cdpd_remove_underground_generator_blocked_visible = {
+	has_deposit = d_underground_generator_blocked
+}
+
+cdpd_remove_underground_generator_dead_visible = {
+	has_deposit = d_underground_generator_dead
+}
+
+cdpd_remove_underground_mine_visible = {
+	has_deposit = d_underground_mine
+}
+
+cdpd_remove_underground_mine_blocked_visible = {
+	has_deposit = d_underground_mine_blocked
+}
+
+cdpd_remove_underground_mine_dead_visible = {
+	has_deposit = d_underground_mine_dead
+}
+
+cdpd_remove_underground_vault_visible = {
+	has_deposit = d_underground_vault
+}
+
+cdpd_remove_underground_vault_2_visible = {
+	has_deposit = d_underground_vault_2
+}
+
+cdpd_remove_underwater_vent_visible = {
+	has_deposit = d_underwater_vent
+}
+
+cdpd_remove_unpleasant_atmosphere_visible = {
+	has_deposit = d_unpleasant_atmosphere
+}
+
+cdpd_remove_unplugged_assimilator_hulk_visible = {
+	has_deposit = d_unplugged_assimilator_hulk
+}
+
+cdpd_remove_unsupervised_settlement_visible = {
+	has_deposit = d_unsupervised_settlement
+}
+
+cdpd_remove_valley_of_zanaam_visible = {
+	has_deposit = d_valley_of_zanaam
+}
+
+cdpd_remove_vast_unity_deposit_visible = {
+	has_deposit = d_vast_unity_deposit
+}
+
+cdpd_remove_veiny_cliffs_visible = {
+	has_deposit = d_veiny_cliffs
+}
+
+cdpd_remove_venomous_insects_visible = {
+	has_deposit = d_venomous_insects
+}
+
+cdpd_remove_virtual_power_medium_visible = {
+	has_deposit = d_virtual_power_medium
+}
+
+cdpd_remove_virtual_power_small_visible = {
+	has_deposit = d_virtual_power_small
+}
+
+cdpd_remove_virtual_power_tiny_visible = {
+	has_deposit = d_virtual_power_tiny
+}
+
+cdpd_remove_volatile_motes_1_visible = {
+	has_deposit = d_volatile_motes_1
+}
+
+cdpd_remove_volatile_motes_2_visible = {
+	has_deposit = d_volatile_motes_2
+}
+
+cdpd_remove_volatile_motes_3_visible = {
+	has_deposit = d_volatile_motes_3
+}
+
+cdpd_remove_volatile_motes_4_visible = {
+	has_deposit = d_volatile_motes_4
+}
+
+cdpd_remove_volatile_motes_5_visible = {
+	has_deposit = d_volatile_motes_5
+}
+
+cdpd_remove_volcanic_active_planet_visible = {
+	has_deposit = d_volcanic_active_planet
+}
+
+cdpd_remove_volcanic_basalt_plains_visible = {
+	has_deposit = d_volcanic_basalt_plains
+}
+
+cdpd_remove_volcanic_dried_lavariver_visible = {
+	has_deposit = d_volcanic_dried_lavariver
+}
+
+cdpd_remove_volcanic_fumarole_visible = {
+	has_deposit = d_volcanic_fumarole
+}
+
+cdpd_remove_volcanic_intraplate_visible = {
+	has_deposit = d_volcanic_intraplate
+}
+
+cdpd_remove_volcanic_lava_river_visible = {
+	has_deposit = d_volcanic_lava_river
+}
+
+cdpd_remove_volcanic_mineral_fields_visible = {
+	has_deposit = d_volcanic_mineral_fields
+}
+
+cdpd_remove_volcanic_mineral_hills_visible = {
+	has_deposit = d_volcanic_mineral_hills
+}
+
+cdpd_remove_volcanic_mineral_layers_visible = {
+	has_deposit = d_volcanic_mineral_layers
+}
+
+cdpd_remove_volcanic_ore_caverns_visible = {
+	has_deposit = d_volcanic_ore_caverns
+}
+
+cdpd_remove_volcanic_ore_veins_visible = {
+	has_deposit = d_volcanic_ore_veins
+}
+
+cdpd_remove_volcanic_rich_mountain_visible = {
+	has_deposit = d_volcanic_rich_mountain
+}
+
+cdpd_remove_volcanic_stable_plateaus_visible = {
+	has_deposit = d_volcanic_stable_plateaus
+}
+
+cdpd_remove_volcanic_stifling_atmosphere_visible = {
+	has_deposit = d_volcanic_stifling_atmosphere
+}
+
+cdpd_remove_volcanic_sulfur_lava_visible = {
+	has_deposit = d_volcanic_sulfur_lava
+}
+
+cdpd_remove_volcanic_tranquil_flatlands_visible = {
+	has_deposit = d_volcanic_tranquil_flatlands
+}
+
+cdpd_remove_volcanic_tunnels_visible = {
+	has_deposit = d_volcanic_tunnels
+}
+
+cdpd_remove_volcanic_weak_crust_visible = {
+	has_deposit = d_volcanic_weak_crust
+}
+
+cdpd_remove_wandering_forests_visible = {
+	has_deposit = d_wandering_forests
+}
+
+cdpd_remove_weapon_extraction_facility_visible = {
+	has_deposit = d_weapon_extraction_facility
+}
+
+cdpd_remove_wetware_computer_visible = {
+	has_deposit = d_wetware_computer
+}
+
+cdpd_remove_wilderness_city_visible = {
+	has_deposit = d_wilderness_city
+}
+
+cdpd_remove_wilderness_city_2_visible = {
+	has_deposit = d_wilderness_city_2
+}
+
+cdpd_remove_wilderness_farming_visible = {
+	has_deposit = d_wilderness_farming
+}
+
+cdpd_remove_wilderness_farming_2_visible = {
+	has_deposit = d_wilderness_farming_2
+}
+
+cdpd_remove_wilderness_generator_visible = {
+	has_deposit = d_wilderness_generator
+}
+
+cdpd_remove_wilderness_generator_2_visible = {
+	has_deposit = d_wilderness_generator_2
+}
+
+cdpd_remove_wilderness_glade_blocker_visible = {
+	has_deposit = d_wilderness_glade_blocker
+}
+
+cdpd_remove_wilderness_industrial_visible = {
+	has_deposit = d_wilderness_industrial
+}
+
+cdpd_remove_wilderness_industrial_2_visible = {
+	has_deposit = d_wilderness_industrial_2
+}
+
+cdpd_remove_wilderness_mining_visible = {
+	has_deposit = d_wilderness_mining
+}
+
+cdpd_remove_wilderness_mining_2_visible = {
+	has_deposit = d_wilderness_mining_2
+}
+
+cdpd_remove_wilderness_root_blocker_visible = {
+	has_deposit = d_wilderness_root_blocker
+}
+
+cdpd_remove_worm_farm_visible = {
+	has_deposit = d_worm_farm
+}
+
+cdpd_remove_worm_mine_visible = {
+	has_deposit = d_worm_mine
+}
+
+cdpd_remove_zro_deposit_1_visible = {
+	has_deposit = d_zro_deposit_1
+}
+
+cdpd_remove_zro_deposit_2_visible = {
+	has_deposit = d_zro_deposit_2
+}
+
+cdpd_remove_zro_deposit_3_visible = {
+	has_deposit = d_zro_deposit_3
+}
+
+cdpd_remove_zro_deposit_4_visible = {
+	has_deposit = d_zro_deposit_4
+}
+
+cdpd_remove_zro_deposit_5_visible = {
+	has_deposit = d_zro_deposit_5
+}

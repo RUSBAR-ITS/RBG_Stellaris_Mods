@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_valley_of_zanaam
+	NATIVE_PREVIEW = "add_deposit = d_valley_of_zanaam custom_tooltip = cdpd_valley_of_zanaam_additional"
+	LABEL = cdpd_$MODE$_valley_of_zanaam_label
+	TIP = cdpd_$MODE$_valley_of_zanaam_tip
+	VISIBLE = cdpd_$MODE$_valley_of_zanaam_visible
+	ACTION = cdpd_$MODE$_valley_of_zanaam
+	SCREEN = $SCREEN$
+}

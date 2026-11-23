@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sky_mountain
+	NATIVE_PREVIEW = "add_deposit = d_sky_mountain custom_tooltip = cdpd_sky_mountain_additional"
+	LABEL = cdpd_$MODE$_sky_mountain_label
+	TIP = cdpd_$MODE$_sky_mountain_tip
+	VISIBLE = cdpd_$MODE$_sky_mountain_visible
+	ACTION = cdpd_$MODE$_sky_mountain
+	SCREEN = $SCREEN$
+}

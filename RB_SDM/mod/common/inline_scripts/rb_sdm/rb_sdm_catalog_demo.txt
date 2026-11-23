@@ -1,0 +1,210 @@
+# Entries appear in declaration order. SCREEN is the owning list event.
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_01
+	LABEL = rb_sdm_demo_01_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_01_visible
+	ACTION = rb_sdm_demo_01_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_02
+	LABEL = rb_sdm_demo_02_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_02_visible
+	ACTION = rb_sdm_demo_02_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_03
+	LABEL = rb_sdm_demo_03_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_03_visible
+	ACTION = rb_sdm_demo_03_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_04
+	LABEL = rb_sdm_demo_04_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_04_visible
+	ACTION = rb_sdm_demo_04_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_05
+	LABEL = rb_sdm_demo_05_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_05_visible
+	ACTION = rb_sdm_demo_05_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_06
+	LABEL = rb_sdm_demo_06_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_06_visible
+	ACTION = rb_sdm_demo_06_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_07
+	LABEL = rb_sdm_demo_07_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_07_visible
+	ACTION = rb_sdm_demo_07_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_08
+	LABEL = rb_sdm_demo_08_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_08_visible
+	ACTION = rb_sdm_demo_08_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_09
+	LABEL = rb_sdm_demo_09_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_09_visible
+	ACTION = rb_sdm_demo_09_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_10
+	LABEL = rb_sdm_demo_10_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_10_visible
+	ACTION = rb_sdm_demo_10_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_11
+	LABEL = rb_sdm_demo_11_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_11_visible
+	ACTION = rb_sdm_demo_11_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_12
+	LABEL = rb_sdm_demo_12_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_12_visible
+	ACTION = rb_sdm_demo_12_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_13
+	LABEL = rb_sdm_demo_13_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_13_visible
+	ACTION = rb_sdm_demo_13_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_14
+	LABEL = rb_sdm_demo_14_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_14_visible
+	ACTION = rb_sdm_demo_14_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_15
+	LABEL = rb_sdm_demo_15_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_15_visible
+	ACTION = rb_sdm_demo_15_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_16
+	LABEL = rb_sdm_demo_16_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_16_visible
+	ACTION = rb_sdm_demo_16_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_17
+	LABEL = rb_sdm_demo_17_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_17_visible
+	ACTION = rb_sdm_demo_17_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_18
+	LABEL = rb_sdm_demo_18_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_18_visible
+	ACTION = rb_sdm_demo_18_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_19
+	LABEL = rb_sdm_demo_19_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_19_visible
+	ACTION = rb_sdm_demo_19_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_20
+	LABEL = rb_sdm_demo_20_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_20_visible
+	ACTION = rb_sdm_demo_20_select
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "rb_sdm/rb_sdm_$PASS$"
+	ID = rb_sdm_demo_21
+	LABEL = rb_sdm_demo_21_label
+	TIP = rb_sdm_demo_tip
+	VISIBLE = rb_sdm_demo_21_visible
+	ACTION = rb_sdm_demo_21_select
+	SCREEN = $SCREEN$
+}

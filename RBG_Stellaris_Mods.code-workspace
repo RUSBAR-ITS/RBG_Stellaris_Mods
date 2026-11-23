@@ -1,0 +1,12 @@
+{
+  "folders": [
+    { "name": "RB_SDM", "path": "RB_SDM/mod" },
+    { "path": "PDE" },
+    { "path": "PCE" },
+    { "path": "BPVR_CZRM" },
+    { "path": "PIF" },
+    { "path": "PIF_MZBS" },
+    { "path": "TCTE" },
+    { "path": "UIOD_RUS" }
+  ]
+}

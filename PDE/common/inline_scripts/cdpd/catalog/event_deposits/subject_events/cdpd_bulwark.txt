@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_admirals_bickering_crashed_cargo_ship
+	NATIVE_PREVIEW = "add_deposit = d_admirals_bickering_crashed_cargo_ship"
+	LABEL = cdpd_$MODE$_admirals_bickering_crashed_cargo_ship_label
+	TIP = cdpd_$MODE$_admirals_bickering_crashed_cargo_ship_tip
+	VISIBLE = cdpd_$MODE$_admirals_bickering_crashed_cargo_ship_visible
+	ACTION = cdpd_$MODE$_admirals_bickering_crashed_cargo_ship
+	SCREEN = $SCREEN$
+}

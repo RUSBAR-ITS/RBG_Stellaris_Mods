@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_andisol_soil
+	NATIVE_PREVIEW = "add_deposit = d_andisol_soil custom_tooltip = cdpd_andisol_soil_properties"
+	LABEL = cdpd_$MODE$_andisol_soil_label
+	TIP = cdpd_$MODE$_andisol_soil_tip
+	VISIBLE = cdpd_$MODE$_andisol_soil_visible
+	ACTION = cdpd_$MODE$_andisol_soil
+	SCREEN = $SCREEN$
+}

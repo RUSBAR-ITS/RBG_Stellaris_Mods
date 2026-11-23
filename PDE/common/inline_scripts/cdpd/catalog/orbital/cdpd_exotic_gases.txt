@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_exotic_gases_1
+	NATIVE_PREVIEW = "add_deposit = d_exotic_gases_1 custom_tooltip = cdpd_exotic_gases_1_properties"
+	LABEL = cdpd_$MODE$_exotic_gases_1_label
+	TIP = cdpd_$MODE$_exotic_gases_1_tip
+	VISIBLE = cdpd_$MODE$_exotic_gases_1_visible
+	ACTION = cdpd_$MODE$_exotic_gases_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_exotic_gases_2
+	NATIVE_PREVIEW = "add_deposit = d_exotic_gases_2 custom_tooltip = cdpd_exotic_gases_2_properties"
+	LABEL = cdpd_$MODE$_exotic_gases_2_label
+	TIP = cdpd_$MODE$_exotic_gases_2_tip
+	VISIBLE = cdpd_$MODE$_exotic_gases_2_visible
+	ACTION = cdpd_$MODE$_exotic_gases_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_exotic_gases_3
+	NATIVE_PREVIEW = "add_deposit = d_exotic_gases_3 custom_tooltip = cdpd_exotic_gases_3_properties"
+	LABEL = cdpd_$MODE$_exotic_gases_3_label
+	TIP = cdpd_$MODE$_exotic_gases_3_tip
+	VISIBLE = cdpd_$MODE$_exotic_gases_3_visible
+	ACTION = cdpd_$MODE$_exotic_gases_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_exotic_gases_4
+	NATIVE_PREVIEW = "add_deposit = d_exotic_gases_4 custom_tooltip = cdpd_exotic_gases_4_properties"
+	LABEL = cdpd_$MODE$_exotic_gases_4_label
+	TIP = cdpd_$MODE$_exotic_gases_4_tip
+	VISIBLE = cdpd_$MODE$_exotic_gases_4_visible
+	ACTION = cdpd_$MODE$_exotic_gases_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_exotic_gases_5
+	NATIVE_PREVIEW = "add_deposit = d_exotic_gases_5 custom_tooltip = cdpd_exotic_gases_5_properties"
+	LABEL = cdpd_$MODE$_exotic_gases_5_label
+	TIP = cdpd_$MODE$_exotic_gases_5_tip
+	VISIBLE = cdpd_$MODE$_exotic_gases_5_visible
+	ACTION = cdpd_$MODE$_exotic_gases_5
+	SCREEN = $SCREEN$
+}

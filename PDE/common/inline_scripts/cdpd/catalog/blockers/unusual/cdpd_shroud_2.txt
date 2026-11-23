@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_aura_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_aura_blocker blocked_deposit = none } custom_tooltip = cdpd_aura_blocker_additional"
+	LABEL = cdpd_$MODE$_aura_blocker_label
+	TIP = cdpd_$MODE$_aura_blocker_tip
+	VISIBLE = cdpd_$MODE$_aura_blocker_visible
+	ACTION = cdpd_$MODE$_aura_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ruined_sanctum_of_the_lost
+	NATIVE_PREVIEW = "add_blocker = { type = d_ruined_sanctum_of_the_lost blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_ruined_sanctum_of_the_lost_label
+	TIP = cdpd_$MODE$_ruined_sanctum_of_the_lost_tip
+	VISIBLE = cdpd_$MODE$_ruined_sanctum_of_the_lost_visible
+	ACTION = cdpd_$MODE$_ruined_sanctum_of_the_lost
+	SCREEN = $SCREEN$
+}

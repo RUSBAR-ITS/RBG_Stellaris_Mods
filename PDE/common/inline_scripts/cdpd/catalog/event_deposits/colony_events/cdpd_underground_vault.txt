@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_vault_2
+	NATIVE_PREVIEW = "add_deposit = d_underground_vault_2"
+	LABEL = cdpd_$MODE$_underground_vault_2_label
+	TIP = cdpd_$MODE$_underground_vault_2_tip
+	VISIBLE = cdpd_$MODE$_underground_vault_2_visible
+	ACTION = cdpd_$MODE$_underground_vault_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_vault
+	NATIVE_PREVIEW = "add_deposit = d_underground_vault custom_tooltip = cdpd_underground_vault_additional"
+	LABEL = cdpd_$MODE$_underground_vault_label
+	TIP = cdpd_$MODE$_underground_vault_tip
+	VISIBLE = cdpd_$MODE$_underground_vault_visible
+	ACTION = cdpd_$MODE$_underground_vault
+	SCREEN = $SCREEN$
+}

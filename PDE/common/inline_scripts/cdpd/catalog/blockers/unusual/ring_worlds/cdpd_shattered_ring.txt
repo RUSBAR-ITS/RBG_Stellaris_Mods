@@ -1,0 +1,65 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sr_diurnal_regulator
+	NATIVE_PREVIEW = "add_blocker = { type = d_sr_diurnal_regulator blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_sr_diurnal_regulator_label
+	TIP = cdpd_$MODE$_sr_diurnal_regulator_tip
+	VISIBLE = cdpd_$MODE$_sr_diurnal_regulator_visible
+	ACTION = cdpd_$MODE$_sr_diurnal_regulator
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sr_power_grid
+	NATIVE_PREVIEW = "add_blocker = { type = d_sr_power_grid blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_sr_power_grid_label
+	TIP = cdpd_$MODE$_sr_power_grid_tip
+	VISIBLE = cdpd_$MODE$_sr_power_grid_visible
+	ACTION = cdpd_$MODE$_sr_power_grid
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sr_ring_gyros
+	NATIVE_PREVIEW = "add_blocker = { type = d_sr_ring_gyros blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_sr_ring_gyros_label
+	TIP = cdpd_$MODE$_sr_ring_gyros_tip
+	VISIBLE = cdpd_$MODE$_sr_ring_gyros_visible
+	ACTION = cdpd_$MODE$_sr_ring_gyros
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sr_vacuum_fields
+	NATIVE_PREVIEW = "add_blocker = { type = d_sr_vacuum_fields blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_sr_vacuum_fields_label
+	TIP = cdpd_$MODE$_sr_vacuum_fields_tip
+	VISIBLE = cdpd_$MODE$_sr_vacuum_fields_visible
+	ACTION = cdpd_$MODE$_sr_vacuum_fields
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_malfunctioning_reactor
+	NATIVE_PREVIEW = "add_blocker = { type = d_malfunctioning_reactor blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_malfunctioning_reactor_label
+	TIP = cdpd_$MODE$_malfunctioning_reactor_tip
+	VISIBLE = cdpd_$MODE$_malfunctioning_reactor_visible
+	ACTION = cdpd_$MODE$_malfunctioning_reactor
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_decrepit_tunnels_2
+	NATIVE_PREVIEW = "add_blocker = { type = d_decrepit_tunnels_2 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_decrepit_tunnels_2_label
+	TIP = cdpd_$MODE$_decrepit_tunnels_2_tip
+	VISIBLE = cdpd_$MODE$_decrepit_tunnels_2_visible
+	ACTION = cdpd_$MODE$_decrepit_tunnels_2
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_desertling_infestation
+	NATIVE_PREVIEW = "add_deposit = d_desertling_infestation custom_tooltip = cdpd_desertling_infestation_additional"
+	LABEL = cdpd_$MODE$_desertling_infestation_label
+	TIP = cdpd_$MODE$_desertling_infestation_tip
+	VISIBLE = cdpd_$MODE$_desertling_infestation_visible
+	ACTION = cdpd_$MODE$_desertling_infestation
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alien_sanctuary
+	NATIVE_PREVIEW = "add_deposit = d_alien_sanctuary custom_tooltip = cdpd_alien_sanctuary_additional"
+	LABEL = cdpd_$MODE$_alien_sanctuary_label
+	TIP = cdpd_$MODE$_alien_sanctuary_tip
+	VISIBLE = cdpd_$MODE$_alien_sanctuary_visible
+	ACTION = cdpd_$MODE$_alien_sanctuary
+	SCREEN = $SCREEN$
+}

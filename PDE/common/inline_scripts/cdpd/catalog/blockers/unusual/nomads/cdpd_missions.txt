@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_cluttered_hangar_bay
+	NATIVE_PREVIEW = "add_blocker = { type = d_cluttered_hangar_bay blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_cluttered_hangar_bay_label
+	TIP = cdpd_$MODE$_cluttered_hangar_bay_tip
+	VISIBLE = cdpd_$MODE$_cluttered_hangar_bay_visible
+	ACTION = cdpd_$MODE$_cluttered_hangar_bay
+	SCREEN = $SCREEN$
+}

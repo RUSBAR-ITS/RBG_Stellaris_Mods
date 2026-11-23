@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_former_relic_world
+	NATIVE_PREVIEW = "add_deposit = d_former_relic_world"
+	LABEL = cdpd_$MODE$_former_relic_world_label
+	TIP = cdpd_$MODE$_former_relic_world_tip
+	VISIBLE = cdpd_$MODE$_former_relic_world_visible
+	ACTION = cdpd_$MODE$_former_relic_world
+	SCREEN = $SCREEN$
+}

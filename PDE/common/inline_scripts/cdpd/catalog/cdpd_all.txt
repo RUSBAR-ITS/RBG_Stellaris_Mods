@@ -1,0 +1,1616 @@
+inline_script = {
+	script = cdpd/catalog/volcanic_worlds/cdpd_mining
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/volcanic_worlds/cdpd_thermotechnic_additional
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/volcanic_worlds/cdpd_mixed
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/volcanic_worlds/cdpd_starting_features
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_ordinary_generator_district_deposits
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_ordinary_mining_district_deposits
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_ordinary_agriculture_district_deposits
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_energy
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_minerals
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_food
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_alloys
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_trade
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_volatile_motes
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_exotic_gases
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_rare_crystals
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_living_metal
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_zro
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_dark_matter
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_nanites
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_physics_research
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_society_research
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_engineering_research
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/minor_artifacts/cdpd_mining_station
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/minor_artifacts/cdpd_research_station
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_astral_threads
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/cdpd_from_events
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/unique_orbital_deposits/cdpd_obsessional_directive
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/unique_orbital_deposits/leviathans/cdpd_ether_drake
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/unique_orbital_deposits/nomads/cdpd_stellar_ignition
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/unique_orbital_deposits/by_origin/cdpd_red_giant
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/unique_orbital_deposits/by_origin/red_giant/cdpd_supernova
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/orbital/unique_orbital_deposits/cdpd_nanotech
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_terraforming
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_terraforming_geological_changes
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/terraforming/cdpd_machine_world
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/terraforming/cdpd_radioactive_flora
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/terraforming/cdpd_orbital_debris
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_terraforming_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_cosmic_storms
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_cosmic_storms_radiant_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_radiant_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_shroud_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_cosmic_storms_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_magnetic_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_cosmic_storms_3
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_cosmic_storms_3_gravity_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_gravity_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_stardust_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_electric_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_particle_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cosmic_storms/cdpd_storm_chasers
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_event_deposits
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_caravaneers
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_subterranean_civilization
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_astral_rifts
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_astral_rifts_rockworms
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/astral_rifts/cdpd_the_lattice
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/astral_rifts/cdpd_tiny_planet
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies_nanosand
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_drops_in_the_ocean
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_isolated_ruin
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_single_minded
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_toy_factory
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_spontaneous_explosions
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_wetware_computer
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies_2_abandoned_settlements
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies_2_cornucopicturesque
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies_2_abandoned_harvesters
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_watery_grave
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_rapid_desertification
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_signs_of_ancient_life
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/anomalies/cdpd_overgrown_ruins
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_anomalies_3
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/subject_events/cdpd_bulwark
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_hidden_vault
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_shimmering_structure
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_junkyard_orbit
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_escape_from_the_moon
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_underground_vault
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_crystal_kraken
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_blue_lotus
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_nemma
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_migrating_forests
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_irradiated_planet
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_tomb_world
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_abandoned_terraforming_equipment
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_feral_overload
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_myrmeku_activity
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_odd_factory
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_strange_sands
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_glacial_crisis
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_dancing_plague
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_mushroom_picking
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_bogplants
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_dark_matter_eruption
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_metallic_puddles
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/colony_events/cdpd_the_doorway
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/nomads/cdpd_arkship_events
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/pre_ftl_civilizations/cdpd_land_grabs
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/pre_ftl_civilizations/cdpd_trade_agreements
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/pre_ftl_civilizations/cdpd_asteroid_impact
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/federations/hegemony/cdpd_joint_operation
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/situations/cdpd_unusual_snow
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/situations/cdpd_the_mysterious_labyrinth
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/situations/cdpd_geomagnetic_storm
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/cdpd_horizon_signal
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/the_shroud/cdpd_eater_of_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/the_shroud/whisperers_in_the_void/cdpd_arkships
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/leaders/cdpd_th_aal_hask_guron
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/event_deposits/machine_ascension/cdpd_transformation
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_deposits/ordinary/cdpd_rare_fauna
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_deposits/civics/cdpd_genesis_guides_and_its_variants
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_deposits/cdpd_minor_artifacts
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_deposits/cdpd_by_planet_modifier
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_by_civic
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_species_trait/cdpd_exotic_metabolism
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/habitats/cdpd_federations_end
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_unique_planetary_deposits
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_earth_and_its_story_copy
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_ratling_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_unique_planetary_deposits_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_keides_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/keides_worlds/cdpd_taprib
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_zanaam
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/sol_system/cdpd_europa
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/sol_system/cdpd_geocentric_variant
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/arkships/cdpd_cosmogenesis
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_parvus_iii
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/cdpd_relic_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_broken_shackles
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_knights_of_the_toxic_god
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/knights_of_the_toxic_god/cdpd_order_planetary_decisions
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/knights_of_the_toxic_god/cdpd_homeworld
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/knights_of_the_toxic_god/cdpd_knight_quest_rewards
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/payback/cdpd_habitat
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_cosmic_dawn
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_progenitor_hive
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_resource_consolidation
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_under_one_rule
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_treasure_hunters
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/treasure_hunters/cdpd_black_needle
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/treasure_hunters/black_needle/cdpd_after_the_raid
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_treasure_hunters_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_sacred_path
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_here_be_dragons
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/unique_planetary_deposits/by_origin/cdpd_shroud_forged
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_ring_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/ring_worlds/cdpd_cryonic_clones
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_archaeology
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_decisions/cdpd_tidal_locking
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_planetary_decisions
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_decisions/relics/cdpd_the_last_baol
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_decisions/cdpd_ecumenopolis_restoration
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_decisions/cdpd_galactic_community
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/planetary_decisions/cdpd_prospectorium
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/origins/cdpd_calamitous_birth
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/origins/cdpd_tree_of_life
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/natural/cdpd_cold_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/cdpd_natural
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/natural/cdpd_dry_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/cdpd_natural_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/natural/cdpd_wet_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/cdpd_natural_3
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/ordinary/cdpd_tomb_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/terraforming/cdpd_detox
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/terraforming/cdpd_terraforming_complications
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/terraforming/cdpd_world_toxification
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/situations/cdpd_synthetic_ascension
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/situations/cdpd_strategic_resource_shortages
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/anomalies/cdpd_gamma_ray_burst
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/anomalies/cdpd_paridayda_and_the_mardak_vol
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_anomalies
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/unique_habitats/cdpd_star_mall
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_relic_worlds
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_here_be_dragons
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/wilderness/cdpd_change_of_ownership
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_wilderness
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_payback
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_starlit_citadel
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_resource_consolidation
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_synthetic_fertility
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_calamitous_birth
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/unplugged/cdpd_machine_legacy
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/by_origin/cdpd_cosmic_dawn
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/subjects/scholarium/cdpd_destructive_research
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_war_damage
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/unique_planets/deneb/cdpd_unity
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/unique_planets/cdpd_earth
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/unique_planets/cdpd_trial_of_survival
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/unique_planets/cdpd_fevor
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/ring_worlds/cdpd_shattered_ring
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/ring_worlds/cdpd_ancient_rubble
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/ring_worlds/cdpd_pre_ftl_civilizations
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting_blockers/cdpd_lithoids
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting_blockers/cdpd_machine_intelligence
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting_blockers/cdpd_determined_exterminator_and_hard_reset
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting_blockers/cdpd_standard
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting_blockers/cdpd_hive_mind
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/colony_events/cdpd_glacial_crisis
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/colony_events/cdpd_impacts
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/colony_events/cdpd_junkyard_orbit
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/colony_events/cdpd_bleeding_world
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/colony_events/cdpd_subterranean_civilization
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/terravores/cdpd_planet_consumption
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/nomads/arkship_events/cdpd_a_forgotten_level
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/nomads/cdpd_deep_sleep
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/nomads/cdpd_missions
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/pre_ftl_civilizations/cdpd_epidemics
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/crises/cdpd_behemoth_fury
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/civics/cdpd_determined_exterminator
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/civics/cdpd_rogue_servitor
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/civics/cdpd_driven_assimilator
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/civics/cdpd_environmentalist
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/leviathans/cdpd_voidspawn
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting/cdpd_machine_empires_and_unplugged
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/starting/cdpd_post_apocalyptic_origins
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_fire_cult
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/overlord_holdings/cdpd_experimental_crater
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_shroud
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/shroud/cdpd_psionic_ascension
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_shroud_2
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_seed_bombing
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/espionage/cdpd_wilderness
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_seismic_carpet_bombing
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/unusual/cdpd_nanotech
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/cdpd_volcanic
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/cdpd_utility
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/blockers/cdpd_blocker_clearing_results
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = cdpd/catalog/cdpd_remove_only
+	PASS = $PASS$
+	MODE = remove
+	SCREEN = $SCREEN$
+}

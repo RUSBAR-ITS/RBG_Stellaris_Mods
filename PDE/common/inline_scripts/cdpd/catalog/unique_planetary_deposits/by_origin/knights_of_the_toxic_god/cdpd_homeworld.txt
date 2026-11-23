@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_blight_upon_the_land
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_blight_upon_the_land"
+	LABEL = cdpd_$MODE$_toxic_god_blight_upon_the_land_label
+	TIP = cdpd_$MODE$_toxic_god_blight_upon_the_land_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_blight_upon_the_land_visible
+	ACTION = cdpd_$MODE$_toxic_god_blight_upon_the_land
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_deitys_swarms
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_deitys_swarms"
+	LABEL = cdpd_$MODE$_toxic_god_deitys_swarms_label
+	TIP = cdpd_$MODE$_toxic_god_deitys_swarms_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_deitys_swarms_visible
+	ACTION = cdpd_$MODE$_toxic_god_deitys_swarms
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_envenomed_seas
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_envenomed_seas"
+	LABEL = cdpd_$MODE$_toxic_god_envenomed_seas_label
+	TIP = cdpd_$MODE$_toxic_god_envenomed_seas_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_envenomed_seas_visible
+	ACTION = cdpd_$MODE$_toxic_god_envenomed_seas
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_pestilential_wasteland
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_pestilential_wasteland"
+	LABEL = cdpd_$MODE$_toxic_god_pestilential_wasteland_label
+	TIP = cdpd_$MODE$_toxic_god_pestilential_wasteland_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_pestilential_wasteland_visible
+	ACTION = cdpd_$MODE$_toxic_god_pestilential_wasteland
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_pools_most_venemous
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_pools_most_venemous"
+	LABEL = cdpd_$MODE$_toxic_god_pools_most_venemous_label
+	TIP = cdpd_$MODE$_toxic_god_pools_most_venemous_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_pools_most_venemous_visible
+	ACTION = cdpd_$MODE$_toxic_god_pools_most_venemous
+	SCREEN = $SCREEN$
+}

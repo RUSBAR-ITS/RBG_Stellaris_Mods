@@ -1,0 +1,17 @@
+# Shared option fields for regular and preview tooltips.
+name = $LABEL$
+trigger = {
+	check_variable = { which = $ID$_rank value > cdpd_offset }
+	check_variable = { which = $ID$_rank value <= cdpd_last }
+}
+custom_tooltip = $TIP$
+hidden_effect = {
+	if = {
+		limit = {
+			cdpd_live_target = yes
+			event_target:cdpd_target = { $VISIBLE$ = yes }
+		}
+		event_target:cdpd_target = { $ACTION$ = yes }
+	}
+	cdpd_visit = { SCREEN = $SCREEN$ }
+}

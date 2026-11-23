@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_processing_pens
+	NATIVE_PREVIEW = "add_deposit = d_processing_pens"
+	LABEL = cdpd_$MODE$_processing_pens_label
+	TIP = cdpd_$MODE$_processing_pens_tip
+	VISIBLE = cdpd_$MODE$_processing_pens_visible
+	ACTION = cdpd_$MODE$_processing_pens
+	SCREEN = $SCREEN$
+}

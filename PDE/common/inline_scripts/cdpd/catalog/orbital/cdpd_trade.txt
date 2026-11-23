@@ -1,0 +1,109 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_1
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_1 custom_tooltip = cdpd_trade_value_1_properties"
+	LABEL = cdpd_$MODE$_trade_value_1_label
+	TIP = cdpd_$MODE$_trade_value_1_tip
+	VISIBLE = cdpd_$MODE$_trade_value_1_visible
+	ACTION = cdpd_$MODE$_trade_value_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_2
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_2 custom_tooltip = cdpd_trade_value_2_properties"
+	LABEL = cdpd_$MODE$_trade_value_2_label
+	TIP = cdpd_$MODE$_trade_value_2_tip
+	VISIBLE = cdpd_$MODE$_trade_value_2_visible
+	ACTION = cdpd_$MODE$_trade_value_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_3
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_3 custom_tooltip = cdpd_trade_value_3_properties"
+	LABEL = cdpd_$MODE$_trade_value_3_label
+	TIP = cdpd_$MODE$_trade_value_3_tip
+	VISIBLE = cdpd_$MODE$_trade_value_3_visible
+	ACTION = cdpd_$MODE$_trade_value_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_4
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_4 custom_tooltip = cdpd_trade_value_4_properties"
+	LABEL = cdpd_$MODE$_trade_value_4_label
+	TIP = cdpd_$MODE$_trade_value_4_tip
+	VISIBLE = cdpd_$MODE$_trade_value_4_visible
+	ACTION = cdpd_$MODE$_trade_value_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_5
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_5 custom_tooltip = cdpd_trade_value_5_properties"
+	LABEL = cdpd_$MODE$_trade_value_5_label
+	TIP = cdpd_$MODE$_trade_value_5_tip
+	VISIBLE = cdpd_$MODE$_trade_value_5_visible
+	ACTION = cdpd_$MODE$_trade_value_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_6
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_6 custom_tooltip = cdpd_trade_value_6_properties"
+	LABEL = cdpd_$MODE$_trade_value_6_label
+	TIP = cdpd_$MODE$_trade_value_6_tip
+	VISIBLE = cdpd_$MODE$_trade_value_6_visible
+	ACTION = cdpd_$MODE$_trade_value_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_7
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_7 custom_tooltip = cdpd_trade_value_7_properties"
+	LABEL = cdpd_$MODE$_trade_value_7_label
+	TIP = cdpd_$MODE$_trade_value_7_tip
+	VISIBLE = cdpd_$MODE$_trade_value_7_visible
+	ACTION = cdpd_$MODE$_trade_value_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_8
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_8 custom_tooltip = cdpd_trade_value_8_properties"
+	LABEL = cdpd_$MODE$_trade_value_8_label
+	TIP = cdpd_$MODE$_trade_value_8_tip
+	VISIBLE = cdpd_$MODE$_trade_value_8_visible
+	ACTION = cdpd_$MODE$_trade_value_8
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_9
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_9 custom_tooltip = cdpd_trade_value_9_properties"
+	LABEL = cdpd_$MODE$_trade_value_9_label
+	TIP = cdpd_$MODE$_trade_value_9_tip
+	VISIBLE = cdpd_$MODE$_trade_value_9_visible
+	ACTION = cdpd_$MODE$_trade_value_9
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trade_value_10
+	NATIVE_PREVIEW = "add_deposit = d_trade_value_10 custom_tooltip = cdpd_trade_value_10_properties"
+	LABEL = cdpd_$MODE$_trade_value_10_label
+	TIP = cdpd_$MODE$_trade_value_10_tip
+	VISIBLE = cdpd_$MODE$_trade_value_10_visible
+	ACTION = cdpd_$MODE$_trade_value_10
+	SCREEN = $SCREEN$
+}

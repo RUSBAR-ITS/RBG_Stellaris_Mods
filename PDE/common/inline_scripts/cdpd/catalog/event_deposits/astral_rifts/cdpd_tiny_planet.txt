@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_microplanet_memorial
+	NATIVE_PREVIEW = "add_deposit = d_microplanet_memorial"
+	LABEL = cdpd_$MODE$_microplanet_memorial_label
+	TIP = cdpd_$MODE$_microplanet_memorial_tip
+	VISIBLE = cdpd_$MODE$_microplanet_memorial_visible
+	ACTION = cdpd_$MODE$_microplanet_memorial
+	SCREEN = $SCREEN$
+}

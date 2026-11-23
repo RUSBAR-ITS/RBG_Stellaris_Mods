@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dark_matter_deposit_1
+	NATIVE_PREVIEW = "add_deposit = d_dark_matter_deposit_1 custom_tooltip = cdpd_dark_matter_deposit_1_properties"
+	LABEL = cdpd_$MODE$_dark_matter_deposit_1_label
+	TIP = cdpd_$MODE$_dark_matter_deposit_1_tip
+	VISIBLE = cdpd_$MODE$_dark_matter_deposit_1_visible
+	ACTION = cdpd_$MODE$_dark_matter_deposit_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dark_matter_deposit_2
+	NATIVE_PREVIEW = "add_deposit = d_dark_matter_deposit_2 custom_tooltip = cdpd_dark_matter_deposit_2_properties"
+	LABEL = cdpd_$MODE$_dark_matter_deposit_2_label
+	TIP = cdpd_$MODE$_dark_matter_deposit_2_tip
+	VISIBLE = cdpd_$MODE$_dark_matter_deposit_2_visible
+	ACTION = cdpd_$MODE$_dark_matter_deposit_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dark_matter_deposit_3
+	NATIVE_PREVIEW = "add_deposit = d_dark_matter_deposit_3 custom_tooltip = cdpd_dark_matter_deposit_3_properties"
+	LABEL = cdpd_$MODE$_dark_matter_deposit_3_label
+	TIP = cdpd_$MODE$_dark_matter_deposit_3_tip
+	VISIBLE = cdpd_$MODE$_dark_matter_deposit_3_visible
+	ACTION = cdpd_$MODE$_dark_matter_deposit_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dark_matter_deposit_10
+	NATIVE_PREVIEW = "add_deposit = d_dark_matter_deposit_10 custom_tooltip = cdpd_dark_matter_deposit_10_properties"
+	LABEL = cdpd_$MODE$_dark_matter_deposit_10_label
+	TIP = cdpd_$MODE$_dark_matter_deposit_10_tip
+	VISIBLE = cdpd_$MODE$_dark_matter_deposit_10_visible
+	ACTION = cdpd_$MODE$_dark_matter_deposit_10
+	SCREEN = $SCREEN$
+}

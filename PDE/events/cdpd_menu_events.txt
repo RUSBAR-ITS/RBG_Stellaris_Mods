@@ -1,0 +1,111 @@
+namespace = CDPD
+
+country_event = {
+	id = CDPD.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		NOT = { has_country_flag = cdpd_session_open }
+		exists = event_target:cdpd_target
+		event_target:cdpd_target = { cdpd_target_in_borders = { COUNTRY = root } }
+	}
+	immediate = {
+		set_country_flag = cdpd_session_open
+		set_variable = { which = cdpd_page value = 1 }
+		country_event = { id = CDPD.1002 }
+	}
+}
+
+country_event = {
+	id = CDPD.3
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		cdpd_end_session = yes
+	}
+}
+
+country_event = {
+	id = CDPD.1002
+	is_triggered_only = yes
+	hide_window = yes
+	immediate = {
+		if = {
+			limit = {
+				cdpd_live_target = yes
+			}
+			country_event = { id = CDPD.2 }
+		}
+		else = {
+			country_event = { id = CDPD.3 }
+		}
+	}
+}
+
+country_event = {
+	id = CDPD.2
+	title = cdpd_root_label
+	desc = {
+		trigger = { check_variable = { which = cdpd_count value > 0 } }
+		text = cdpd_page_desc
+	}
+	desc = {
+		trigger = { check_variable = { which = cdpd_count value = 0 } }
+		text = cdpd_empty_desc
+	}
+	picture = GFX_evt_alien_planet
+	is_triggered_only = yes
+	immediate = {
+		cdpd_begin_count = { SIZE = 10 }
+		inline_script = {
+			script = cdpd/menu/cdpd_rank
+			ID = cdpd_section_planetary_deposits
+			VISIBLE = cdpd_section_planetary_deposits_available
+		}
+		inline_script = {
+			script = cdpd/menu/cdpd_rank
+			ID = cdpd_section_orbital_deposits
+			VISIBLE = cdpd_section_orbital_deposits_available
+		}
+		inline_script = {
+			script = cdpd/menu/cdpd_rank
+			ID = cdpd_section_blockers
+			VISIBLE = cdpd_section_blockers_available
+		}
+		inline_script = {
+			script = cdpd/menu/cdpd_rank
+			ID = cdpd_section_remove
+			VISIBLE = cdpd_section_remove_available
+		}
+		cdpd_set_bounds = yes
+	}
+	inline_script = {
+		script = cdpd/menu/cdpd_section_option
+		ID = cdpd_section_planetary_deposits
+		LABEL = cdpd_section_planetary_deposits_label
+		SCREEN = CDPD.1127
+	}
+	inline_script = {
+		script = cdpd/menu/cdpd_section_option
+		ID = cdpd_section_orbital_deposits
+		LABEL = cdpd_section_orbital_deposits_label
+		SCREEN = CDPD.1018
+	}
+	inline_script = {
+		script = cdpd/menu/cdpd_section_option
+		ID = cdpd_section_blockers
+		LABEL = cdpd_section_blockers_label
+		SCREEN = CDPD.1183
+	}
+	inline_script = {
+		script = cdpd/menu/cdpd_section_option
+		ID = cdpd_section_remove
+		LABEL = cdpd_section_remove_label
+		SCREEN = CDPD.1004
+	}
+	inline_script = {
+		script = cdpd/menu/cdpd_root_navigation
+		SCREEN = CDPD.1002
+	}
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fallen_orbital_shipyard
+	NATIVE_PREVIEW = "add_deposit = d_fallen_orbital_shipyard custom_tooltip = cdpd_fallen_orbital_shipyard_additional"
+	LABEL = cdpd_$MODE$_fallen_orbital_shipyard_label
+	TIP = cdpd_$MODE$_fallen_orbital_shipyard_tip
+	VISIBLE = cdpd_$MODE$_fallen_orbital_shipyard_visible
+	ACTION = cdpd_$MODE$_fallen_orbital_shipyard
+	SCREEN = $SCREEN$
+}

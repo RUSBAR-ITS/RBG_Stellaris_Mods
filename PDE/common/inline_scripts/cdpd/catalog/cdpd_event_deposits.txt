@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_geothermal_hotspot
+	NATIVE_PREVIEW = "add_deposit = d_geothermal_hotspot"
+	LABEL = cdpd_$MODE$_geothermal_hotspot_label
+	TIP = cdpd_$MODE$_geothermal_hotspot_tip
+	VISIBLE = cdpd_$MODE$_geothermal_hotspot_visible
+	ACTION = cdpd_$MODE$_geothermal_hotspot
+	SCREEN = $SCREEN$
+}

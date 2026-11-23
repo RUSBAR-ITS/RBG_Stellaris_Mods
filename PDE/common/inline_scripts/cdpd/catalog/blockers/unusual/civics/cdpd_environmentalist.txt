@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_big_nature_preserve_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_big_nature_preserve_blocker blocked_deposit = none } custom_tooltip = cdpd_big_nature_preserve_blocker_additional"
+	LABEL = cdpd_$MODE$_big_nature_preserve_blocker_label
+	TIP = cdpd_$MODE$_big_nature_preserve_blocker_tip
+	VISIBLE = cdpd_$MODE$_big_nature_preserve_blocker_visible
+	ACTION = cdpd_$MODE$_big_nature_preserve_blocker
+	SCREEN = $SCREEN$
+}

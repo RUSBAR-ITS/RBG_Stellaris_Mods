@@ -1,0 +1,84 @@
+# Planet scope. The event country owns the selection for this session.
+rb_sdm_demo_01_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_01_selected } }
+}
+
+rb_sdm_demo_02_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_02_selected } }
+}
+
+rb_sdm_demo_03_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_03_selected } }
+}
+
+rb_sdm_demo_04_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_04_selected } }
+}
+
+rb_sdm_demo_05_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_05_selected } }
+}
+
+rb_sdm_demo_06_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_06_selected } }
+}
+
+rb_sdm_demo_07_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_07_selected } }
+}
+
+rb_sdm_demo_08_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_08_selected } }
+}
+
+rb_sdm_demo_09_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_09_selected } }
+}
+
+rb_sdm_demo_10_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_10_selected } }
+}
+
+rb_sdm_demo_11_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_11_selected } }
+}
+
+rb_sdm_demo_12_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_12_selected } }
+}
+
+rb_sdm_demo_13_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_13_selected } }
+}
+
+rb_sdm_demo_14_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_14_selected } }
+}
+
+rb_sdm_demo_15_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_15_selected } }
+}
+
+rb_sdm_demo_16_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_16_selected } }
+}
+
+rb_sdm_demo_17_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_17_selected } }
+}
+
+rb_sdm_demo_18_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_18_selected } }
+}
+
+rb_sdm_demo_19_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_19_selected } }
+}
+
+rb_sdm_demo_20_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_20_selected } }
+}
+
+rb_sdm_demo_21_visible = {
+	root = { NOT = { has_country_flag = rb_sdm_demo_21_selected } }
+}

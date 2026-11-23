@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_baol_growth
+	NATIVE_PREVIEW = "add_deposit = d_baol_growth"
+	LABEL = cdpd_$MODE$_baol_growth_label
+	TIP = cdpd_$MODE$_baol_growth_tip
+	VISIBLE = cdpd_$MODE$_baol_growth_visible
+	ACTION = cdpd_$MODE$_baol_growth
+	SCREEN = $SCREEN$
+}

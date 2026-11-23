@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_envenomed_seas_upgraded
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_envenomed_seas_upgraded custom_tooltip = cdpd_toxic_god_envenomed_seas_upgraded_additional"
+	LABEL = cdpd_$MODE$_toxic_god_envenomed_seas_upgraded_label
+	TIP = cdpd_$MODE$_toxic_god_envenomed_seas_upgraded_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_envenomed_seas_upgraded_visible
+	ACTION = cdpd_$MODE$_toxic_god_envenomed_seas_upgraded
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_blight_upon_the_land_upgraded
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_blight_upon_the_land_upgraded custom_tooltip = cdpd_toxic_god_blight_upon_the_land_upgraded_properties"
+	LABEL = cdpd_$MODE$_toxic_god_blight_upon_the_land_upgraded_label
+	TIP = cdpd_$MODE$_toxic_god_blight_upon_the_land_upgraded_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_blight_upon_the_land_upgraded_visible
+	ACTION = cdpd_$MODE$_toxic_god_blight_upon_the_land_upgraded
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_deitys_swarms_upgraded
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_deitys_swarms_upgraded custom_tooltip = cdpd_toxic_god_deitys_swarms_upgraded_additional"
+	LABEL = cdpd_$MODE$_toxic_god_deitys_swarms_upgraded_label
+	TIP = cdpd_$MODE$_toxic_god_deitys_swarms_upgraded_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_deitys_swarms_upgraded_visible
+	ACTION = cdpd_$MODE$_toxic_god_deitys_swarms_upgraded
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_pestilential_wasteland_upgraded
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_pestilential_wasteland_upgraded"
+	LABEL = cdpd_$MODE$_toxic_god_pestilential_wasteland_upgraded_label
+	TIP = cdpd_$MODE$_toxic_god_pestilential_wasteland_upgraded_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_pestilential_wasteland_upgraded_visible
+	ACTION = cdpd_$MODE$_toxic_god_pestilential_wasteland_upgraded
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_god_pools_most_venemous_upgraded
+	NATIVE_PREVIEW = "add_deposit = d_toxic_god_pools_most_venemous_upgraded custom_tooltip = cdpd_toxic_god_pools_most_venemous_upgraded_properties"
+	LABEL = cdpd_$MODE$_toxic_god_pools_most_venemous_upgraded_label
+	TIP = cdpd_$MODE$_toxic_god_pools_most_venemous_upgraded_tip
+	VISIBLE = cdpd_$MODE$_toxic_god_pools_most_venemous_upgraded_visible
+	ACTION = cdpd_$MODE$_toxic_god_pools_most_venemous_upgraded
+	SCREEN = $SCREEN$
+}

@@ -1,6 +1,0 @@
-cdpd_after_add_blocker = {
-	if = {
-		limit = { exists = owner }
-		add_research_options_for_natural_blockers = yes
-	}
-}

@@ -1,0 +1,65 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_dried_lavariver
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_dried_lavariver"
+	LABEL = cdpd_$MODE$_volcanic_dried_lavariver_label
+	TIP = cdpd_$MODE$_volcanic_dried_lavariver_tip
+	VISIBLE = cdpd_$MODE$_volcanic_dried_lavariver_visible
+	ACTION = cdpd_$MODE$_volcanic_dried_lavariver
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_basalt_plains
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_basalt_plains"
+	LABEL = cdpd_$MODE$_volcanic_basalt_plains_label
+	TIP = cdpd_$MODE$_volcanic_basalt_plains_tip
+	VISIBLE = cdpd_$MODE$_volcanic_basalt_plains_visible
+	ACTION = cdpd_$MODE$_volcanic_basalt_plains
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_intraplate
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_intraplate"
+	LABEL = cdpd_$MODE$_volcanic_intraplate_label
+	TIP = cdpd_$MODE$_volcanic_intraplate_tip
+	VISIBLE = cdpd_$MODE$_volcanic_intraplate_visible
+	ACTION = cdpd_$MODE$_volcanic_intraplate
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_stable_plateaus
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_stable_plateaus"
+	LABEL = cdpd_$MODE$_volcanic_stable_plateaus_label
+	TIP = cdpd_$MODE$_volcanic_stable_plateaus_tip
+	VISIBLE = cdpd_$MODE$_volcanic_stable_plateaus_visible
+	ACTION = cdpd_$MODE$_volcanic_stable_plateaus
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_tranquil_flatlands
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_tranquil_flatlands"
+	LABEL = cdpd_$MODE$_volcanic_tranquil_flatlands_label
+	TIP = cdpd_$MODE$_volcanic_tranquil_flatlands_tip
+	VISIBLE = cdpd_$MODE$_volcanic_tranquil_flatlands_visible
+	ACTION = cdpd_$MODE$_volcanic_tranquil_flatlands
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_tunnels
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_tunnels"
+	LABEL = cdpd_$MODE$_volcanic_tunnels_label
+	TIP = cdpd_$MODE$_volcanic_tunnels_tip
+	VISIBLE = cdpd_$MODE$_volcanic_tunnels_visible
+	ACTION = cdpd_$MODE$_volcanic_tunnels
+	SCREEN = $SCREEN$
+}

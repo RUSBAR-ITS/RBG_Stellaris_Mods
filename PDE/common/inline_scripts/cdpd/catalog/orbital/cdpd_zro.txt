@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_zro_deposit_1
+	NATIVE_PREVIEW = "add_deposit = d_zro_deposit_1 custom_tooltip = cdpd_zro_deposit_1_properties"
+	LABEL = cdpd_$MODE$_zro_deposit_1_label
+	TIP = cdpd_$MODE$_zro_deposit_1_tip
+	VISIBLE = cdpd_$MODE$_zro_deposit_1_visible
+	ACTION = cdpd_$MODE$_zro_deposit_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_zro_deposit_2
+	NATIVE_PREVIEW = "add_deposit = d_zro_deposit_2 custom_tooltip = cdpd_zro_deposit_2_properties"
+	LABEL = cdpd_$MODE$_zro_deposit_2_label
+	TIP = cdpd_$MODE$_zro_deposit_2_tip
+	VISIBLE = cdpd_$MODE$_zro_deposit_2_visible
+	ACTION = cdpd_$MODE$_zro_deposit_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_zro_deposit_3
+	NATIVE_PREVIEW = "add_deposit = d_zro_deposit_3 custom_tooltip = cdpd_zro_deposit_3_properties"
+	LABEL = cdpd_$MODE$_zro_deposit_3_label
+	TIP = cdpd_$MODE$_zro_deposit_3_tip
+	VISIBLE = cdpd_$MODE$_zro_deposit_3_visible
+	ACTION = cdpd_$MODE$_zro_deposit_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_zro_deposit_4
+	NATIVE_PREVIEW = "add_deposit = d_zro_deposit_4 custom_tooltip = cdpd_zro_deposit_4_properties"
+	LABEL = cdpd_$MODE$_zro_deposit_4_label
+	TIP = cdpd_$MODE$_zro_deposit_4_tip
+	VISIBLE = cdpd_$MODE$_zro_deposit_4_visible
+	ACTION = cdpd_$MODE$_zro_deposit_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_zro_deposit_5
+	NATIVE_PREVIEW = "add_deposit = d_zro_deposit_5 custom_tooltip = cdpd_zro_deposit_5_properties"
+	LABEL = cdpd_$MODE$_zro_deposit_5_label
+	TIP = cdpd_$MODE$_zro_deposit_5_tip
+	VISIBLE = cdpd_$MODE$_zro_deposit_5_visible
+	ACTION = cdpd_$MODE$_zro_deposit_5
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rockworm_hive
+	NATIVE_PREVIEW = "add_deposit = d_rockworm_hive"
+	LABEL = cdpd_$MODE$_rockworm_hive_label
+	TIP = cdpd_$MODE$_rockworm_hive_tip
+	VISIBLE = cdpd_$MODE$_rockworm_hive_visible
+	ACTION = cdpd_$MODE$_rockworm_hive
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rockworm_hive_volcanic
+	NATIVE_PREVIEW = "add_deposit = d_rockworm_hive_volcanic custom_tooltip = cdpd_rockworm_hive_volcanic_additional"
+	LABEL = cdpd_$MODE$_rockworm_hive_volcanic_label
+	TIP = cdpd_$MODE$_rockworm_hive_volcanic_tip
+	VISIBLE = cdpd_$MODE$_rockworm_hive_volcanic_visible
+	ACTION = cdpd_$MODE$_rockworm_hive_volcanic
+	SCREEN = $SCREEN$
+}

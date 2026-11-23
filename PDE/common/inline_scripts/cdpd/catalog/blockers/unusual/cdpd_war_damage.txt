@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ruined_district
+	NATIVE_PREVIEW = "add_blocker = { type = d_ruined_district blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_ruined_district_label
+	TIP = cdpd_$MODE$_ruined_district_tip
+	VISIBLE = cdpd_$MODE$_ruined_district_visible
+	ACTION = cdpd_$MODE$_ruined_district
+	SCREEN = $SCREEN$
+}

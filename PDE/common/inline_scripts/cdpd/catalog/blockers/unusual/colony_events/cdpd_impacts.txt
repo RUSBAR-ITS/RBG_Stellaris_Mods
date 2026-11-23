@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crater
+	NATIVE_PREVIEW = "add_blocker = { type = d_crater blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_crater_label
+	TIP = cdpd_$MODE$_crater_tip
+	VISIBLE = cdpd_$MODE$_crater_visible
+	ACTION = cdpd_$MODE$_crater
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_generator
+	NATIVE_PREVIEW = "add_deposit = d_underground_generator"
+	LABEL = cdpd_$MODE$_underground_generator_label
+	TIP = cdpd_$MODE$_underground_generator_tip
+	VISIBLE = cdpd_$MODE$_underground_generator_visible
+	ACTION = cdpd_$MODE$_underground_generator
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_mine
+	NATIVE_PREVIEW = "add_deposit = d_underground_mine"
+	LABEL = cdpd_$MODE$_underground_mine_label
+	TIP = cdpd_$MODE$_underground_mine_tip
+	VISIBLE = cdpd_$MODE$_underground_mine_visible
+	ACTION = cdpd_$MODE$_underground_mine
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_contact_zone
+	NATIVE_PREVIEW = "add_deposit = d_underground_contact_zone custom_tooltip = cdpd_underground_contact_zone_additional"
+	LABEL = cdpd_$MODE$_underground_contact_zone_label
+	TIP = cdpd_$MODE$_underground_contact_zone_tip
+	VISIBLE = cdpd_$MODE$_underground_contact_zone_visible
+	ACTION = cdpd_$MODE$_underground_contact_zone
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_farm
+	NATIVE_PREVIEW = "add_deposit = d_underground_farm"
+	LABEL = cdpd_$MODE$_underground_farm_label
+	TIP = cdpd_$MODE$_underground_farm_tip
+	VISIBLE = cdpd_$MODE$_underground_farm_visible
+	ACTION = cdpd_$MODE$_underground_farm
+	SCREEN = $SCREEN$
+}

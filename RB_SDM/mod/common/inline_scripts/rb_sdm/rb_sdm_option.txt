@@ -1,0 +1,18 @@
+option = {
+	name = $LABEL$
+	trigger = {
+		check_variable = { which = $ID$_rank value > rb_sdm_offset }
+		check_variable = { which = $ID$_rank value <= rb_sdm_last }
+	}
+	custom_tooltip = $TIP$
+	hidden_effect = {
+		if = {
+			limit = {
+				exists = event_target:rb_sdm_target
+				event_target:rb_sdm_target = { $VISIBLE$ = yes }
+			}
+			event_target:rb_sdm_target = { $ACTION$ = yes }
+		}
+		rb_sdm_visit = { SCREEN = $SCREEN$ }
+	}
+}

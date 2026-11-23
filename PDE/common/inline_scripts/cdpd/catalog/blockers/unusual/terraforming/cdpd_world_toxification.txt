@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_georadiation_displacement
+	NATIVE_PREVIEW = "add_blocker = { type = d_georadiation_displacement blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_georadiation_displacement_label
+	TIP = cdpd_$MODE$_georadiation_displacement_tip
+	VISIBLE = cdpd_$MODE$_georadiation_displacement_visible
+	ACTION = cdpd_$MODE$_georadiation_displacement
+	SCREEN = $SCREEN$
+}

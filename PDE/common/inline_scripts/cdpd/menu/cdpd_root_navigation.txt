@@ -1,0 +1,17 @@
+option = {
+	name = cdpd_previous
+	trigger = { check_variable = { which = cdpd_page value > 1 } }
+	hidden_effect = {
+		change_variable = { which = cdpd_page value = -1 }
+		cdpd_visit = { SCREEN = $SCREEN$ }
+	}
+}
+option = {
+	name = cdpd_next
+	trigger = { check_variable = { which = cdpd_page value < cdpd_pages } }
+	hidden_effect = {
+		change_variable = { which = cdpd_page value = 1 }
+		cdpd_visit = { SCREEN = $SCREEN$ }
+	}
+}
+inline_script = cdpd/menu/cdpd_close

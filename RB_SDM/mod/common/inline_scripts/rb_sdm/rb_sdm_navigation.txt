@@ -1,0 +1,21 @@
+option = {
+	name = rb_sdm_previous
+	trigger = { check_variable = { which = rb_sdm_page value > 1 } }
+	hidden_effect = {
+		change_variable = { which = rb_sdm_page value = -1 }
+		rb_sdm_visit = { SCREEN = $SCREEN$ }
+	}
+}
+option = {
+	name = rb_sdm_next
+	trigger = { check_variable = { which = rb_sdm_page value < rb_sdm_pages } }
+	hidden_effect = {
+		change_variable = { which = rb_sdm_page value = 1 }
+		rb_sdm_visit = { SCREEN = $SCREEN$ }
+	}
+}
+option = {
+	name = rb_sdm_back
+	hidden_effect = { rb_sdm_visit = { SCREEN = $PARENT$ } }
+}
+inline_script = rb_sdm/rb_sdm_close

@@ -1,0 +1,4569 @@
+cdpd_increment_counter = {
+	if = {
+		limit = {
+			is_variable_set = $COUNTER$
+		}
+		change_variable = { which = $COUNTER$ value = 1 }
+	}
+	else = {
+		set_variable = { which = $COUNTER$ value = 1 }
+	}
+}
+
+cdpd_decrement_counter = {
+	if = {
+		limit = {
+			is_variable_set = $COUNTER$
+		}
+		if = {
+			limit = {
+				check_variable = { which = $COUNTER$ value > 1 }
+			}
+			change_variable = { which = $COUNTER$ value = -1 }
+		}
+		else = {
+			clear_variable = $COUNTER$
+		}
+	}
+}
+
+cdpd_remove_instance = {
+	random_deposit = {
+		limit = { is_deposit_type = $DEPOSIT$ }
+		remove_deposit = yes
+	}
+}
+
+cdpd_add_abandoned_black_needle_base = {
+	add_deposit = d_abandoned_black_needle_base
+}
+
+cdpd_remove_abandoned_black_needle_base = {
+	cdpd_remove_instance = { DEPOSIT = d_abandoned_black_needle_base }
+}
+
+cdpd_add_abandoned_cities = {
+	add_blocker = { type = d_abandoned_cities blocked_deposit = none }
+}
+
+cdpd_remove_abandoned_cities = {
+	cdpd_remove_instance = { DEPOSIT = d_abandoned_cities }
+}
+
+cdpd_add_abandoned_mining_tunnels = {
+	add_deposit = d_abandoned_mining_tunnels
+}
+
+cdpd_remove_abandoned_mining_tunnels = {
+	cdpd_remove_instance = { DEPOSIT = d_abandoned_mining_tunnels }
+}
+
+cdpd_add_abandoned_primitive_homesteads = {
+	add_deposit = d_abandoned_primitive_homesteads
+}
+
+cdpd_remove_abandoned_primitive_homesteads = {
+	cdpd_remove_instance = { DEPOSIT = d_abandoned_primitive_homesteads }
+}
+
+cdpd_add_active_volcano = {
+	add_blocker = { type = d_active_volcano blocked_deposit = none }
+}
+
+cdpd_remove_active_volcano = {
+	cdpd_remove_instance = { DEPOSIT = d_active_volcano }
+}
+
+cdpd_add_admirals_bickering_crashed_cargo_ship = {
+	add_deposit = d_admirals_bickering_crashed_cargo_ship
+}
+
+cdpd_remove_admirals_bickering_crashed_cargo_ship = {
+	cdpd_remove_instance = { DEPOSIT = d_admirals_bickering_crashed_cargo_ship }
+}
+
+cdpd_add_alien_pets_deposit = {
+	add_deposit = d_alien_pets_deposit
+}
+
+cdpd_remove_alien_pets_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_alien_pets_deposit }
+}
+
+cdpd_add_alien_sanctuary = {
+	add_deposit = d_alien_sanctuary
+}
+
+cdpd_remove_alien_sanctuary = {
+	cdpd_remove_instance = { DEPOSIT = d_alien_sanctuary }
+}
+
+cdpd_add_alloys_1 = {
+	add_deposit = d_alloys_1
+}
+
+cdpd_remove_alloys_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_1 }
+}
+
+cdpd_add_alloys_10 = {
+	add_deposit = d_alloys_10
+}
+
+cdpd_remove_alloys_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_10 }
+}
+
+cdpd_add_alloys_2 = {
+	add_deposit = d_alloys_2
+}
+
+cdpd_remove_alloys_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_2 }
+}
+
+cdpd_add_alloys_25 = {
+	add_deposit = d_alloys_25
+}
+
+cdpd_remove_alloys_25 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_25 }
+}
+
+cdpd_add_alloys_3 = {
+	add_deposit = d_alloys_3
+}
+
+cdpd_remove_alloys_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_3 }
+}
+
+cdpd_add_alloys_4 = {
+	add_deposit = d_alloys_4
+}
+
+cdpd_remove_alloys_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_4 }
+}
+
+cdpd_add_alloys_5 = {
+	add_deposit = d_alloys_5
+}
+
+cdpd_remove_alloys_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_alloys_5 }
+}
+
+cdpd_add_ancient_battlefield = {
+	add_deposit = d_ancient_battlefield
+}
+
+cdpd_remove_ancient_battlefield = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_battlefield }
+}
+
+cdpd_add_ancient_bombardment_craters = {
+	add_deposit = d_ancient_bombardment_craters
+}
+
+cdpd_remove_ancient_bombardment_craters = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_bombardment_craters }
+}
+
+cdpd_add_ancient_cloaking_array = {
+	add_deposit = d_ancient_cloaking_array
+}
+
+cdpd_remove_ancient_cloaking_array = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_cloaking_array }
+}
+
+cdpd_add_ancient_facilities = {
+	add_deposit = d_ancient_facilities
+}
+
+cdpd_remove_ancient_facilities = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_facilities }
+}
+
+cdpd_add_ancient_manufactorium_crater = {
+	add_deposit = d_ancient_manufactorium_crater
+}
+
+cdpd_remove_ancient_manufactorium_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_manufactorium_crater }
+}
+
+cdpd_add_ancient_manufactorium_scrapyard = {
+	add_deposit = d_ancient_manufactorium_scrapyard
+}
+
+cdpd_remove_ancient_manufactorium_scrapyard = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_manufactorium_scrapyard }
+}
+
+cdpd_remove_ancient_manufactorium_vaultexploration = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_manufactorium_vaultexploration }
+}
+
+cdpd_add_ancient_manufactorium_working = {
+	add_deposit = d_ancient_manufactorium_working
+}
+
+cdpd_remove_ancient_manufactorium_working = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_manufactorium_working }
+}
+
+cdpd_add_ancient_mining_site = {
+	add_deposit = d_ancient_mining_site
+}
+
+cdpd_remove_ancient_mining_site = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_mining_site }
+}
+
+cdpd_add_ancient_one = {
+	add_deposit = d_ancient_one
+}
+
+cdpd_remove_ancient_one = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_one }
+}
+
+cdpd_add_ancient_particle_accelerator = {
+	add_deposit = d_ancient_particle_accelerator
+}
+
+cdpd_remove_ancient_particle_accelerator = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_particle_accelerator }
+}
+
+cdpd_add_ancient_reactor_pits = {
+	add_deposit = d_ancient_reactor_pits
+}
+
+cdpd_remove_ancient_reactor_pits = {
+	cdpd_remove_instance = { DEPOSIT = d_ancient_reactor_pits }
+}
+
+cdpd_add_andisol_soil = {
+	add_deposit = d_andisol_soil
+}
+
+cdpd_remove_andisol_soil = {
+	cdpd_remove_instance = { DEPOSIT = d_andisol_soil }
+}
+
+cdpd_remove_arc_furnace_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_arc_furnace_1 }
+}
+
+cdpd_remove_arc_furnace_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_arc_furnace_2 }
+}
+
+cdpd_remove_arc_furnace_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_arc_furnace_3 }
+}
+
+cdpd_remove_arc_furnace_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_arc_furnace_4 }
+}
+
+cdpd_add_arcane_device = {
+	add_deposit = d_arcane_device
+}
+
+cdpd_remove_arcane_device = {
+	cdpd_remove_instance = { DEPOSIT = d_arcane_device }
+}
+
+cdpd_add_arcane_generator = {
+	add_deposit = d_arcane_generator
+}
+
+cdpd_remove_arcane_generator = {
+	cdpd_remove_instance = { DEPOSIT = d_arcane_generator }
+}
+
+cdpd_add_arcane_replicator = {
+	add_deposit = d_arcane_replicator
+}
+
+cdpd_remove_arcane_replicator = {
+	cdpd_remove_instance = { DEPOSIT = d_arcane_replicator }
+}
+
+cdpd_remove_archaeological_site = {
+	cdpd_remove_instance = { DEPOSIT = d_archaeological_site }
+}
+
+cdpd_add_arid_highlands = {
+	add_deposit = d_arid_highlands
+}
+
+cdpd_remove_arid_highlands = {
+	cdpd_remove_instance = { DEPOSIT = d_arid_highlands }
+}
+
+cdpd_add_artifacts_mining_1 = {
+	add_deposit = d_artifacts_mining_1
+}
+
+cdpd_remove_artifacts_mining_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_mining_1 }
+}
+
+cdpd_add_artifacts_mining_2 = {
+	add_deposit = d_artifacts_mining_2
+}
+
+cdpd_remove_artifacts_mining_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_mining_2 }
+}
+
+cdpd_add_artifacts_mining_3 = {
+	add_deposit = d_artifacts_mining_3
+}
+
+cdpd_remove_artifacts_mining_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_mining_3 }
+}
+
+cdpd_add_artifacts_planet_1 = {
+	add_deposit = d_artifacts_planet_1
+}
+
+cdpd_remove_artifacts_planet_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_planet_1 }
+}
+
+cdpd_add_artifacts_planet_2 = {
+	add_deposit = d_artifacts_planet_2
+}
+
+cdpd_remove_artifacts_planet_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_planet_2 }
+}
+
+cdpd_add_artifacts_planet_3 = {
+	add_deposit = d_artifacts_planet_3
+}
+
+cdpd_remove_artifacts_planet_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_planet_3 }
+}
+
+cdpd_add_artifacts_research_1 = {
+	add_deposit = d_artifacts_research_1
+}
+
+cdpd_remove_artifacts_research_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_research_1 }
+}
+
+cdpd_add_artifacts_research_2 = {
+	add_deposit = d_artifacts_research_2
+}
+
+cdpd_remove_artifacts_research_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_research_2 }
+}
+
+cdpd_add_artifacts_research_3 = {
+	add_deposit = d_artifacts_research_3
+}
+
+cdpd_remove_artifacts_research_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_artifacts_research_3 }
+}
+
+cdpd_add_ash_storms = {
+	add_blocker = { type = d_ash_storms blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_remove_ash_storms = {
+	cdpd_remove_instance = { DEPOSIT = d_ash_storms }
+	cdpd_decrement_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_add_assimilators_ruins = {
+	add_blocker = { type = d_assimilators_ruins blocked_deposit = none }
+}
+
+cdpd_remove_assimilators_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_assimilators_ruins }
+}
+
+cdpd_add_astral_threads_deposit_1 = {
+	add_deposit = d_astral_threads_deposit_1
+}
+
+cdpd_remove_astral_threads_deposit_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_astral_threads_deposit_1 }
+}
+
+cdpd_remove_astral_threads_deposit_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_astral_threads_deposit_2 }
+}
+
+cdpd_add_astral_threads_deposit_3 = {
+	add_deposit = d_astral_threads_deposit_3
+}
+
+cdpd_remove_astral_threads_deposit_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_astral_threads_deposit_3 }
+}
+
+cdpd_add_astrogarbage_collector = {
+	add_deposit = d_astrogarbage_collector
+}
+
+cdpd_remove_astrogarbage_collector = {
+	cdpd_remove_instance = { DEPOSIT = d_astrogarbage_collector }
+}
+
+cdpd_add_aura_blocker = {
+	add_blocker = { type = d_aura_blocker blocked_deposit = none }
+}
+
+cdpd_remove_aura_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_aura_blocker }
+}
+
+cdpd_add_avian_reserve = {
+	add_deposit = d_avian_reserve
+}
+
+cdpd_remove_avian_reserve = {
+	cdpd_remove_instance = { DEPOSIT = d_avian_reserve }
+}
+
+cdpd_add_baol_growth = {
+	add_deposit = d_baol_growth
+}
+
+cdpd_remove_baol_growth = {
+	cdpd_remove_instance = { DEPOSIT = d_baol_growth }
+}
+
+cdpd_add_betharian_deposit = {
+	add_deposit = d_betharian_deposit
+}
+
+cdpd_remove_betharian_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_betharian_deposit }
+}
+
+cdpd_add_big_nature_preserve_blocker = {
+	add_blocker = { type = d_big_nature_preserve_blocker blocked_deposit = none }
+}
+
+cdpd_remove_big_nature_preserve_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_big_nature_preserve_blocker }
+}
+
+cdpd_add_biological_enclaves = {
+	add_blocker = { type = d_biological_enclaves blocked_deposit = none }
+}
+
+cdpd_remove_biological_enclaves = {
+	cdpd_remove_instance = { DEPOSIT = d_biological_enclaves }
+}
+
+cdpd_add_bioship_remains = {
+	add_blocker = { type = d_bioship_remains blocked_deposit = none }
+}
+
+cdpd_remove_bioship_remains = {
+	cdpd_remove_instance = { DEPOSIT = d_bioship_remains }
+}
+
+cdpd_add_black_needle_base = {
+	add_deposit = d_black_needle_base
+}
+
+cdpd_remove_black_needle_base = {
+	cdpd_remove_instance = { DEPOSIT = d_black_needle_base }
+}
+
+cdpd_add_black_soil = {
+	add_deposit = d_black_soil
+}
+
+cdpd_remove_black_soil = {
+	cdpd_remove_instance = { DEPOSIT = d_black_soil }
+}
+
+cdpd_add_blue_lava = {
+	add_deposit = d_blue_lava
+}
+
+cdpd_remove_blue_lava = {
+	cdpd_remove_instance = { DEPOSIT = d_blue_lava }
+}
+
+cdpd_add_bluelotus = {
+	add_deposit = d_bluelotus
+}
+
+cdpd_remove_bluelotus = {
+	cdpd_remove_instance = { DEPOSIT = d_bluelotus }
+}
+
+cdpd_add_bluelotus2 = {
+	add_deposit = d_bluelotus2
+}
+
+cdpd_remove_bluelotus2 = {
+	cdpd_remove_instance = { DEPOSIT = d_bluelotus2 }
+}
+
+cdpd_add_boggy_fens = {
+	add_deposit = d_boggy_fens
+}
+
+cdpd_remove_boggy_fens = {
+	cdpd_remove_instance = { DEPOSIT = d_boggy_fens }
+}
+
+cdpd_add_bogplants = {
+	add_deposit = d_bogplants
+}
+
+cdpd_remove_bogplants = {
+	cdpd_remove_instance = { DEPOSIT = d_bogplants }
+}
+
+cdpd_add_bomb_crater = {
+	add_blocker = { type = d_bomb_crater blocked_deposit = none }
+}
+
+cdpd_remove_bomb_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_bomb_crater }
+}
+
+cdpd_add_boswash_metropolitan_axis = {
+	add_deposit = d_boswash_metropolitan_axis
+}
+
+cdpd_remove_boswash_metropolitan_axis = {
+	cdpd_remove_instance = { DEPOSIT = d_boswash_metropolitan_axis }
+}
+
+cdpd_add_bountiful_plains = {
+	add_deposit = d_bountiful_plains
+}
+
+cdpd_remove_bountiful_plains = {
+	cdpd_remove_instance = { DEPOSIT = d_bountiful_plains }
+}
+
+cdpd_add_bubbling_swamp = {
+	add_deposit = d_bubbling_swamp
+}
+
+cdpd_remove_bubbling_swamp = {
+	cdpd_remove_instance = { DEPOSIT = d_bubbling_swamp }
+}
+
+cdpd_add_buried_lithoids = {
+	add_blocker = { type = d_buried_lithoids blocked_deposit = none }
+}
+
+cdpd_remove_buried_lithoids = {
+	cdpd_remove_instance = { DEPOSIT = d_buried_lithoids }
+}
+
+cdpd_add_buried_lithoids_overlord = {
+	add_blocker = { type = d_buried_lithoids_overlord blocked_deposit = none }
+}
+
+cdpd_remove_buried_lithoids_overlord = {
+	cdpd_remove_instance = { DEPOSIT = d_buried_lithoids_overlord }
+}
+
+cdpd_add_buzzing_plains = {
+	add_deposit = d_buzzing_plains
+}
+
+cdpd_remove_buzzing_plains = {
+	cdpd_remove_instance = { DEPOSIT = d_buzzing_plains }
+}
+
+cdpd_add_cave_shroom_veins = {
+	add_deposit = d_cave_shroom_veins
+}
+
+cdpd_remove_cave_shroom_veins = {
+	cdpd_remove_instance = { DEPOSIT = d_cave_shroom_veins }
+}
+
+cdpd_add_cd_ancient_tunnels = {
+	add_deposit = d_cd_ancient_tunnels
+}
+
+cdpd_remove_cd_ancient_tunnels = {
+	cdpd_remove_instance = { DEPOSIT = d_cd_ancient_tunnels }
+}
+
+cdpd_add_celestial_storm_1_mines = {
+	add_deposit = d_celestial_storm_1_mines
+}
+
+cdpd_remove_celestial_storm_1_mines = {
+	cdpd_remove_instance = { DEPOSIT = d_celestial_storm_1_mines }
+}
+
+cdpd_add_celestial_storm_2_society = {
+	add_deposit = d_celestial_storm_2_society
+}
+
+cdpd_remove_celestial_storm_2_society = {
+	cdpd_remove_instance = { DEPOSIT = d_celestial_storm_2_society }
+}
+
+cdpd_add_celestial_storm_3_crystal = {
+	add_deposit = d_celestial_storm_3_crystal
+}
+
+cdpd_remove_celestial_storm_3_crystal = {
+	cdpd_remove_instance = { DEPOSIT = d_celestial_storm_3_crystal }
+}
+
+cdpd_remove_central_spire = {
+	cdpd_remove_instance = { DEPOSIT = d_central_spire }
+}
+
+cdpd_add_charged_atmosphere = {
+	add_blocker = { type = d_charged_atmosphere blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_remove_charged_atmosphere = {
+	cdpd_remove_instance = { DEPOSIT = d_charged_atmosphere }
+	cdpd_decrement_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_add_city_ruins = {
+	add_blocker = { type = d_city_ruins blocked_deposit = none }
+}
+
+cdpd_remove_city_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_city_ruins }
+}
+
+cdpd_add_cluttered_hangar_bay = {
+	add_blocker = { type = d_cluttered_hangar_bay blocked_deposit = none }
+}
+
+cdpd_remove_cluttered_hangar_bay = {
+	cdpd_remove_instance = { DEPOSIT = d_cluttered_hangar_bay }
+}
+
+cdpd_add_coagulated_landscape = {
+	add_blocker = { type = d_coagulated_landscape blocked_deposit = none }
+}
+
+cdpd_remove_coagulated_landscape = {
+	cdpd_remove_instance = { DEPOSIT = d_coagulated_landscape }
+}
+
+cdpd_add_collapsed_burrows = {
+	add_blocker = { type = d_collapsed_burrows blocked_deposit = none }
+}
+
+cdpd_remove_collapsed_burrows = {
+	cdpd_remove_instance = { DEPOSIT = d_collapsed_burrows }
+}
+
+cdpd_add_collapsed_spire = {
+	add_blocker = { type = d_collapsed_spire blocked_deposit = none }
+}
+
+cdpd_remove_collapsed_spire = {
+	cdpd_remove_instance = { DEPOSIT = d_collapsed_spire }
+}
+
+cdpd_add_compact_modules = {
+	add_deposit = d_compact_modules
+}
+
+cdpd_remove_compact_modules = {
+	cdpd_remove_instance = { DEPOSIT = d_compact_modules }
+}
+
+cdpd_add_consumer_goods_obsessional_directive = {
+	add_deposit = d_consumer_goods_obsessional_directive
+}
+
+cdpd_remove_consumer_goods_obsessional_directive = {
+	cdpd_remove_instance = { DEPOSIT = d_consumer_goods_obsessional_directive }
+}
+
+cdpd_add_crashed_slaver_ship = {
+	add_deposit = d_crashed_slaver_ship
+}
+
+cdpd_remove_crashed_slaver_ship = {
+	cdpd_remove_instance = { DEPOSIT = d_crashed_slaver_ship }
+}
+
+cdpd_remove_crashed_slaver_ship_memorial = {
+	cdpd_remove_instance = { DEPOSIT = d_crashed_slaver_ship_memorial }
+}
+
+cdpd_add_crater = {
+	add_blocker = { type = d_crater blocked_deposit = none }
+}
+
+cdpd_remove_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_crater }
+}
+
+cdpd_add_crater_bluelotus = {
+	add_deposit = d_crater_bluelotus
+}
+
+cdpd_remove_crater_bluelotus = {
+	cdpd_remove_instance = { DEPOSIT = d_crater_bluelotus }
+}
+
+cdpd_add_crumbling_mining_tunnels = {
+	add_blocker = { type = d_crumbling_mining_tunnels blocked_deposit = none }
+}
+
+cdpd_remove_crumbling_mining_tunnels = {
+	cdpd_remove_instance = { DEPOSIT = d_crumbling_mining_tunnels }
+}
+
+cdpd_add_cryonic_clones = {
+	add_deposit = d_cryonic_clones
+}
+
+cdpd_remove_cryonic_clones = {
+	cdpd_remove_instance = { DEPOSIT = d_cryonic_clones }
+}
+
+cdpd_add_crystal_forest = {
+	add_deposit = d_crystal_forest
+}
+
+cdpd_remove_crystal_forest = {
+	cdpd_remove_instance = { DEPOSIT = d_crystal_forest }
+}
+
+cdpd_add_crystal_kraken_body = {
+	add_deposit = d_crystal_kraken_body
+}
+
+cdpd_remove_crystal_kraken_body = {
+	cdpd_remove_instance = { DEPOSIT = d_crystal_kraken_body }
+}
+
+cdpd_add_crystal_kraken_body_bombed = {
+	add_deposit = d_crystal_kraken_body_bombed
+}
+
+cdpd_remove_crystal_kraken_body_bombed = {
+	cdpd_remove_instance = { DEPOSIT = d_crystal_kraken_body_bombed }
+}
+
+cdpd_add_crystal_reef = {
+	add_deposit = d_crystal_reef
+}
+
+cdpd_remove_crystal_reef = {
+	cdpd_remove_instance = { DEPOSIT = d_crystal_reef }
+}
+
+cdpd_remove_crystal_rift = {
+	cdpd_remove_instance = { DEPOSIT = d_crystal_rift }
+}
+
+cdpd_add_crystaline_growths = {
+	add_deposit = d_crystaline_growths
+}
+
+cdpd_remove_crystaline_growths = {
+	cdpd_remove_instance = { DEPOSIT = d_crystaline_growths }
+}
+
+cdpd_add_crystalline_caverns = {
+	add_deposit = d_crystalline_caverns
+}
+
+cdpd_remove_crystalline_caverns = {
+	cdpd_remove_instance = { DEPOSIT = d_crystalline_caverns }
+}
+
+cdpd_add_crystalline_glacier = {
+	add_deposit = d_crystalline_glacier
+}
+
+cdpd_remove_crystalline_glacier = {
+	cdpd_remove_instance = { DEPOSIT = d_crystalline_glacier }
+}
+
+cdpd_add_dangerous_wildlife_blocker = {
+	add_blocker = { type = d_dangerous_wildlife_blocker blocked_deposit = none }
+}
+
+cdpd_remove_dangerous_wildlife_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_dangerous_wildlife_blocker }
+}
+
+cdpd_add_dark_matter_deposit_1 = {
+	add_deposit = d_dark_matter_deposit_1
+}
+
+cdpd_remove_dark_matter_deposit_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_dark_matter_deposit_1 }
+}
+
+cdpd_add_dark_matter_deposit_10 = {
+	add_deposit = d_dark_matter_deposit_10
+}
+
+cdpd_remove_dark_matter_deposit_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_dark_matter_deposit_10 }
+}
+
+cdpd_add_dark_matter_deposit_2 = {
+	add_deposit = d_dark_matter_deposit_2
+}
+
+cdpd_remove_dark_matter_deposit_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_dark_matter_deposit_2 }
+}
+
+cdpd_add_dark_matter_deposit_3 = {
+	add_deposit = d_dark_matter_deposit_3
+}
+
+cdpd_remove_dark_matter_deposit_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_dark_matter_deposit_3 }
+}
+
+cdpd_add_dark_matter_monolith = {
+	add_deposit = d_dark_matter_monolith
+}
+
+cdpd_remove_dark_matter_monolith = {
+	cdpd_remove_instance = { DEPOSIT = d_dark_matter_monolith }
+}
+
+cdpd_add_dayside_farm = {
+	add_deposit = d_dayside_farm
+}
+
+cdpd_remove_dayside_farm = {
+	cdpd_remove_instance = { DEPOSIT = d_dayside_farm }
+}
+
+cdpd_add_decrepit_dwellings = {
+	add_blocker = { type = d_decrepit_dwellings blocked_deposit = none }
+}
+
+cdpd_remove_decrepit_dwellings = {
+	cdpd_remove_instance = { DEPOSIT = d_decrepit_dwellings }
+}
+
+cdpd_add_decrepit_tunnels_1 = {
+	add_blocker = { type = d_decrepit_tunnels_1 blocked_deposit = none }
+}
+
+cdpd_remove_decrepit_tunnels_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_decrepit_tunnels_1 }
+}
+
+cdpd_add_decrepit_tunnels_2 = {
+	add_blocker = { type = d_decrepit_tunnels_2 blocked_deposit = none }
+}
+
+cdpd_remove_decrepit_tunnels_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_decrepit_tunnels_2 }
+}
+
+cdpd_remove_decrepit_tunnels_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_decrepit_tunnels_3 }
+}
+
+cdpd_add_deep_sinkhole = {
+	add_blocker = { type = d_deep_sinkhole blocked_deposit = none }
+}
+
+cdpd_remove_deep_sinkhole = {
+	cdpd_remove_instance = { DEPOSIT = d_deep_sinkhole }
+}
+
+cdpd_add_deep_sleep_cryo_pods = {
+	add_blocker = { type = d_deep_sleep_cryo_pods blocked_deposit = none }
+}
+
+cdpd_remove_deep_sleep_cryo_pods = {
+	cdpd_remove_instance = { DEPOSIT = d_deep_sleep_cryo_pods }
+}
+
+cdpd_add_deep_sleep_cryo_pods_renewed = {
+	add_deposit = d_deep_sleep_cryo_pods_renewed
+}
+
+cdpd_remove_deep_sleep_cryo_pods_renewed = {
+	cdpd_remove_instance = { DEPOSIT = d_deep_sleep_cryo_pods_renewed }
+}
+
+cdpd_add_delhi_sprawl = {
+	add_deposit = d_delhi_sprawl
+}
+
+cdpd_remove_delhi_sprawl = {
+	cdpd_remove_instance = { DEPOSIT = d_delhi_sprawl }
+}
+
+cdpd_add_dense_jungle = {
+	add_blocker = { type = d_dense_jungle blocked_deposit = none }
+}
+
+cdpd_remove_dense_jungle = {
+	cdpd_remove_instance = { DEPOSIT = d_dense_jungle }
+}
+
+cdpd_add_desertling_infestation = {
+	add_deposit = d_desertling_infestation
+}
+
+cdpd_remove_desertling_infestation = {
+	cdpd_remove_instance = { DEPOSIT = d_desertling_infestation }
+}
+
+cdpd_add_devastated_cities = {
+	add_blocker = { type = d_devastated_cities blocked_deposit = none }
+}
+
+cdpd_remove_devastated_cities = {
+	cdpd_remove_instance = { DEPOSIT = d_devastated_cities }
+}
+
+cdpd_add_devoured_continent = {
+	add_blocker = { type = d_devoured_continent blocked_deposit = none }
+}
+
+cdpd_remove_devoured_continent = {
+	cdpd_remove_instance = { DEPOSIT = d_devoured_continent }
+}
+
+cdpd_add_dimensional_manipulation_device = {
+	add_deposit = d_dimensional_manipulation_device
+}
+
+cdpd_remove_dimensional_manipulation_device = {
+	cdpd_remove_instance = { DEPOSIT = d_dimensional_manipulation_device }
+}
+
+cdpd_add_disco_planet = {
+	add_deposit = d_disco_planet
+}
+
+cdpd_remove_disco_planet = {
+	cdpd_remove_instance = { DEPOSIT = d_disco_planet }
+}
+
+cdpd_add_disco_planet2 = {
+	add_deposit = d_disco_planet2
+}
+
+cdpd_remove_disco_planet2 = {
+	cdpd_remove_instance = { DEPOSIT = d_disco_planet2 }
+}
+
+cdpd_remove_dragon_monument = {
+	cdpd_remove_instance = { DEPOSIT = d_dragon_monument }
+}
+
+cdpd_add_dust_caverns = {
+	add_deposit = d_dust_caverns
+}
+
+cdpd_remove_dust_caverns = {
+	cdpd_remove_instance = { DEPOSIT = d_dust_caverns }
+}
+
+cdpd_add_dust_desert = {
+	add_deposit = d_dust_desert
+}
+
+cdpd_remove_dust_desert = {
+	cdpd_remove_instance = { DEPOSIT = d_dust_desert }
+}
+
+cdpd_add_eater_deposit = {
+	add_deposit = d_eater_deposit
+}
+
+cdpd_remove_eater_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_eater_deposit }
+}
+
+cdpd_add_egg_cracking = {
+	add_blocker = { type = d_egg_cracking blocked_deposit = none }
+}
+
+cdpd_remove_egg_cracking = {
+	cdpd_remove_instance = { DEPOSIT = d_egg_cracking }
+}
+
+cdpd_add_electric_storm_1_engineering = {
+	add_deposit = d_electric_storm_1_engineering
+}
+
+cdpd_remove_electric_storm_1_engineering = {
+	cdpd_remove_instance = { DEPOSIT = d_electric_storm_1_engineering }
+}
+
+cdpd_add_electric_storm_2_unity = {
+	add_deposit = d_electric_storm_2_unity
+}
+
+cdpd_remove_electric_storm_2_unity = {
+	cdpd_remove_instance = { DEPOSIT = d_electric_storm_2_unity }
+}
+
+cdpd_add_electric_storm_3_physics = {
+	add_deposit = d_electric_storm_3_physics
+}
+
+cdpd_remove_electric_storm_3_physics = {
+	cdpd_remove_instance = { DEPOSIT = d_electric_storm_3_physics }
+}
+
+cdpd_add_electrified_oceans = {
+	add_deposit = d_electrified_oceans
+}
+
+cdpd_remove_electrified_oceans = {
+	cdpd_remove_instance = { DEPOSIT = d_electrified_oceans }
+}
+
+cdpd_add_empty_quarry = {
+	add_blocker = { type = d_empty_quarry blocked_deposit = none }
+}
+
+cdpd_remove_empty_quarry = {
+	cdpd_remove_instance = { DEPOSIT = d_empty_quarry }
+}
+
+cdpd_add_energy_1 = {
+	add_deposit = d_energy_1
+}
+
+cdpd_remove_energy_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_1 }
+}
+
+cdpd_add_energy_10 = {
+	add_deposit = d_energy_10
+}
+
+cdpd_remove_energy_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_10 }
+}
+
+cdpd_add_energy_2 = {
+	add_deposit = d_energy_2
+}
+
+cdpd_remove_energy_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_2 }
+}
+
+cdpd_add_energy_3 = {
+	add_deposit = d_energy_3
+}
+
+cdpd_remove_energy_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_3 }
+}
+
+cdpd_add_energy_4 = {
+	add_deposit = d_energy_4
+}
+
+cdpd_remove_energy_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_4 }
+}
+
+cdpd_add_energy_5 = {
+	add_deposit = d_energy_5
+}
+
+cdpd_remove_energy_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_5 }
+}
+
+cdpd_add_energy_6 = {
+	add_deposit = d_energy_6
+}
+
+cdpd_remove_energy_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_6 }
+}
+
+cdpd_add_energy_7 = {
+	add_deposit = d_energy_7
+}
+
+cdpd_remove_energy_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_7 }
+}
+
+cdpd_add_energy_8 = {
+	add_deposit = d_energy_8
+}
+
+cdpd_remove_energy_8 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_8 }
+}
+
+cdpd_add_energy_9 = {
+	add_deposit = d_energy_9
+}
+
+cdpd_remove_energy_9 = {
+	cdpd_remove_instance = { DEPOSIT = d_energy_9 }
+}
+
+cdpd_add_engineering_1 = {
+	add_deposit = d_engineering_1
+}
+
+cdpd_remove_engineering_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_1 }
+}
+
+cdpd_add_engineering_10 = {
+	add_deposit = d_engineering_10
+}
+
+cdpd_remove_engineering_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_10 }
+}
+
+cdpd_add_engineering_2 = {
+	add_deposit = d_engineering_2
+}
+
+cdpd_remove_engineering_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_2 }
+}
+
+cdpd_add_engineering_25 = {
+	add_deposit = d_engineering_25
+}
+
+cdpd_remove_engineering_25 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_25 }
+}
+
+cdpd_add_engineering_3 = {
+	add_deposit = d_engineering_3
+}
+
+cdpd_remove_engineering_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_3 }
+}
+
+cdpd_add_engineering_4 = {
+	add_deposit = d_engineering_4
+}
+
+cdpd_remove_engineering_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_4 }
+}
+
+cdpd_add_engineering_5 = {
+	add_deposit = d_engineering_5
+}
+
+cdpd_remove_engineering_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_5 }
+}
+
+cdpd_add_engineering_6 = {
+	add_deposit = d_engineering_6
+}
+
+cdpd_remove_engineering_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_6 }
+}
+
+cdpd_add_engineering_7 = {
+	add_deposit = d_engineering_7
+}
+
+cdpd_remove_engineering_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_7 }
+}
+
+cdpd_add_engineering_8 = {
+	add_deposit = d_engineering_8
+}
+
+cdpd_remove_engineering_8 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_8 }
+}
+
+cdpd_add_engineering_9 = {
+	add_deposit = d_engineering_9
+}
+
+cdpd_remove_engineering_9 = {
+	cdpd_remove_instance = { DEPOSIT = d_engineering_9 }
+}
+
+cdpd_add_exotic_gases_1 = {
+	add_deposit = d_exotic_gases_1
+}
+
+cdpd_remove_exotic_gases_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_exotic_gases_1 }
+}
+
+cdpd_add_exotic_gases_2 = {
+	add_deposit = d_exotic_gases_2
+}
+
+cdpd_remove_exotic_gases_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_exotic_gases_2 }
+}
+
+cdpd_add_exotic_gases_3 = {
+	add_deposit = d_exotic_gases_3
+}
+
+cdpd_remove_exotic_gases_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_exotic_gases_3 }
+}
+
+cdpd_add_exotic_gases_4 = {
+	add_deposit = d_exotic_gases_4
+}
+
+cdpd_remove_exotic_gases_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_exotic_gases_4 }
+}
+
+cdpd_add_exotic_gases_5 = {
+	add_deposit = d_exotic_gases_5
+}
+
+cdpd_remove_exotic_gases_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_exotic_gases_5 }
+}
+
+cdpd_add_exotic_mountain = {
+	add_deposit = d_exotic_mountain
+}
+
+cdpd_remove_exotic_mountain = {
+	cdpd_remove_instance = { DEPOSIT = d_exotic_mountain }
+}
+
+cdpd_add_exploited_deposit_blocker = {
+	add_blocker = { type = d_exploited_deposit_blocker blocked_deposit = none }
+}
+
+cdpd_remove_exploited_deposit_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_exploited_deposit_blocker }
+}
+
+cdpd_add_explosive_atmosphere = {
+	add_deposit = d_explosive_atmosphere
+}
+
+cdpd_remove_explosive_atmosphere = {
+	cdpd_remove_instance = { DEPOSIT = d_explosive_atmosphere }
+}
+
+cdpd_add_exterminators_ruins = {
+	add_blocker = { type = d_exterminators_ruins blocked_deposit = none }
+}
+
+cdpd_remove_exterminators_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_exterminators_ruins }
+}
+
+cdpd_add_failing_infrastructure = {
+	add_blocker = { type = d_failing_infrastructure blocked_deposit = none }
+}
+
+cdpd_remove_failing_infrastructure = {
+	cdpd_remove_instance = { DEPOSIT = d_failing_infrastructure }
+}
+
+cdpd_add_failing_infrastructure_earth = {
+	add_blocker = { type = d_failing_infrastructure_earth blocked_deposit = none }
+}
+
+cdpd_remove_failing_infrastructure_earth = {
+	cdpd_remove_instance = { DEPOSIT = d_failing_infrastructure_earth }
+}
+
+cdpd_add_fallen_empire_arkship = {
+	add_deposit = d_fallen_empire_arkship
+}
+
+cdpd_remove_fallen_empire_arkship = {
+	cdpd_remove_instance = { DEPOSIT = d_fallen_empire_arkship }
+}
+
+cdpd_add_fallen_orbital_shipyard = {
+	add_deposit = d_fallen_orbital_shipyard
+}
+
+cdpd_remove_fallen_orbital_shipyard = {
+	cdpd_remove_instance = { DEPOSIT = d_fallen_orbital_shipyard }
+}
+
+cdpd_add_federation_hegemony_monument_1 = {
+	add_deposit = d_federation_hegemony_monument_1
+}
+
+cdpd_remove_federation_hegemony_monument_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_federation_hegemony_monument_1 }
+}
+
+cdpd_add_federation_hegemony_monument_2 = {
+	add_deposit = d_federation_hegemony_monument_2
+}
+
+cdpd_remove_federation_hegemony_monument_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_federation_hegemony_monument_2 }
+}
+
+cdpd_add_fertile_lands = {
+	add_deposit = d_fertile_lands
+}
+
+cdpd_remove_fertile_lands = {
+	cdpd_remove_instance = { DEPOSIT = d_fertile_lands }
+}
+
+cdpd_add_flooded_mounds = {
+	add_deposit = d_flooded_mounds
+}
+
+cdpd_remove_flooded_mounds = {
+	cdpd_remove_instance = { DEPOSIT = d_flooded_mounds }
+}
+
+cdpd_add_flooded_reactor_pits = {
+	add_blocker = { type = d_flooded_reactor_pits blocked_deposit = none }
+}
+
+cdpd_remove_flooded_reactor_pits = {
+	cdpd_remove_instance = { DEPOSIT = d_flooded_reactor_pits }
+}
+
+cdpd_add_floodplains = {
+	add_blocker = { type = d_floodplains blocked_deposit = none }
+}
+
+cdpd_remove_floodplains = {
+	cdpd_remove_instance = { DEPOSIT = d_floodplains }
+}
+
+cdpd_add_food_10 = {
+	add_deposit = d_food_10
+}
+
+cdpd_remove_food_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_food_10 }
+}
+
+cdpd_add_food_3 = {
+	add_deposit = d_food_3
+}
+
+cdpd_remove_food_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_food_3 }
+}
+
+cdpd_add_food_4 = {
+	add_deposit = d_food_4
+}
+
+cdpd_remove_food_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_food_4 }
+}
+
+cdpd_add_food_5 = {
+	add_deposit = d_food_5
+}
+
+cdpd_remove_food_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_food_5 }
+}
+
+cdpd_add_food_6 = {
+	add_deposit = d_food_6
+}
+
+cdpd_remove_food_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_food_6 }
+}
+
+cdpd_add_food_7 = {
+	add_deposit = d_food_7
+}
+
+cdpd_remove_food_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_food_7 }
+}
+
+cdpd_add_forceful_winds = {
+	add_deposit = d_forceful_winds
+}
+
+cdpd_remove_forceful_winds = {
+	cdpd_remove_instance = { DEPOSIT = d_forceful_winds }
+}
+
+cdpd_add_forgiving_tundra = {
+	add_deposit = d_forgiving_tundra
+}
+
+cdpd_remove_forgiving_tundra = {
+	cdpd_remove_instance = { DEPOSIT = d_forgiving_tundra }
+}
+
+cdpd_add_forgotten_civilization = {
+	add_blocker = { type = d_forgotten_civilization blocked_deposit = none }
+}
+
+cdpd_remove_forgotten_civilization = {
+	cdpd_remove_instance = { DEPOSIT = d_forgotten_civilization }
+}
+
+cdpd_add_forgotten_level = {
+	add_deposit = d_forgotten_level
+}
+
+cdpd_remove_forgotten_level = {
+	cdpd_remove_instance = { DEPOSIT = d_forgotten_level }
+}
+
+cdpd_add_forgotten_level_blocker = {
+	add_blocker = { type = d_forgotten_level_blocker blocked_deposit = none }
+}
+
+cdpd_remove_forgotten_level_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_forgotten_level_blocker }
+}
+
+cdpd_add_former_battlefield = {
+	add_blocker = { type = d_former_battlefield blocked_deposit = none }
+}
+
+cdpd_remove_former_battlefield = {
+	cdpd_remove_instance = { DEPOSIT = d_former_battlefield }
+}
+
+cdpd_add_former_relic_world = {
+	add_deposit = d_former_relic_world
+}
+
+cdpd_remove_former_relic_world = {
+	cdpd_remove_instance = { DEPOSIT = d_former_relic_world }
+}
+
+cdpd_add_fractal_seed = {
+	add_deposit = d_fractal_seed
+}
+
+cdpd_remove_fractal_seed = {
+	cdpd_remove_instance = { DEPOSIT = d_fractal_seed }
+}
+
+cdpd_add_freeports = {
+	add_deposit = d_freeports
+}
+
+cdpd_remove_freeports = {
+	cdpd_remove_instance = { DEPOSIT = d_freeports }
+}
+
+cdpd_add_frozen_gas_lake = {
+	add_deposit = d_frozen_gas_lake
+}
+
+cdpd_remove_frozen_gas_lake = {
+	cdpd_remove_instance = { DEPOSIT = d_frozen_gas_lake }
+}
+
+cdpd_add_fuming_bog = {
+	add_deposit = d_fuming_bog
+}
+
+cdpd_remove_fuming_bog = {
+	cdpd_remove_instance = { DEPOSIT = d_fuming_bog }
+}
+
+cdpd_add_fungal_caves = {
+	add_deposit = d_fungal_caves
+}
+
+cdpd_remove_fungal_caves = {
+	cdpd_remove_instance = { DEPOSIT = d_fungal_caves }
+}
+
+cdpd_add_fungal_forest = {
+	add_deposit = d_fungal_forest
+}
+
+cdpd_remove_fungal_forest = {
+	cdpd_remove_instance = { DEPOSIT = d_fungal_forest }
+}
+
+cdpd_add_fungal_study_zone = {
+	add_deposit = d_fungal_study_zone
+}
+
+cdpd_remove_fungal_study_zone = {
+	cdpd_remove_instance = { DEPOSIT = d_fungal_study_zone }
+}
+
+cdpd_add_fungoid_extermination = {
+	add_blocker = { type = d_fungoid_extermination blocked_deposit = none }
+}
+
+cdpd_remove_fungoid_extermination = {
+	cdpd_remove_instance = { DEPOSIT = d_fungoid_extermination }
+}
+
+cdpd_add_galvanic_living_metal = {
+	add_deposit = d_galvanic_living_metal
+}
+
+cdpd_remove_galvanic_living_metal = {
+	cdpd_remove_instance = { DEPOSIT = d_galvanic_living_metal }
+}
+
+cdpd_add_genesis_monument = {
+	add_deposit = d_genesis_monument
+}
+
+cdpd_remove_genesis_monument = {
+	cdpd_remove_instance = { DEPOSIT = d_genesis_monument }
+}
+
+cdpd_add_genesis_preserve = {
+	add_deposit = d_genesis_preserve
+}
+
+cdpd_remove_genesis_preserve = {
+	cdpd_remove_instance = { DEPOSIT = d_genesis_preserve }
+}
+
+cdpd_add_geocentric_experiment = {
+	add_deposit = d_geocentric_experiment
+}
+
+cdpd_remove_geocentric_experiment = {
+	cdpd_remove_instance = { DEPOSIT = d_geocentric_experiment }
+}
+
+cdpd_add_georadiation_displacement = {
+	add_blocker = { type = d_georadiation_displacement blocked_deposit = none }
+}
+
+cdpd_remove_georadiation_displacement = {
+	cdpd_remove_instance = { DEPOSIT = d_georadiation_displacement }
+}
+
+cdpd_add_geothermal_hotspot = {
+	add_deposit = d_geothermal_hotspot
+}
+
+cdpd_remove_geothermal_hotspot = {
+	cdpd_remove_instance = { DEPOSIT = d_geothermal_hotspot }
+}
+
+cdpd_add_geothermal_vent = {
+	add_deposit = d_geothermal_vent
+}
+
+cdpd_remove_geothermal_vent = {
+	cdpd_remove_instance = { DEPOSIT = d_geothermal_vent }
+}
+
+cdpd_add_ghostly_canyon = {
+	add_deposit = d_ghostly_canyon
+}
+
+cdpd_remove_ghostly_canyon = {
+	cdpd_remove_instance = { DEPOSIT = d_ghostly_canyon }
+}
+
+cdpd_add_gravity_storm_1_districts = {
+	add_deposit = d_gravity_storm_1_districts
+}
+
+cdpd_remove_gravity_storm_1_districts = {
+	cdpd_remove_instance = { DEPOSIT = d_gravity_storm_1_districts }
+}
+
+cdpd_add_gravity_storm_2_unity = {
+	add_deposit = d_gravity_storm_2_unity
+}
+
+cdpd_remove_gravity_storm_2_unity = {
+	cdpd_remove_instance = { DEPOSIT = d_gravity_storm_2_unity }
+}
+
+cdpd_add_gravity_storm_3_engineering = {
+	add_deposit = d_gravity_storm_3_engineering
+}
+
+cdpd_remove_gravity_storm_3_engineering = {
+	cdpd_remove_instance = { DEPOSIT = d_gravity_storm_3_engineering }
+}
+
+cdpd_add_great_albertan_crater = {
+	add_deposit = d_great_albertan_crater
+}
+
+cdpd_remove_great_albertan_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_great_albertan_crater }
+}
+
+cdpd_add_great_pacific_garbage_patch = {
+	add_blocker = { type = d_great_pacific_garbage_patch blocked_deposit = none }
+}
+
+cdpd_remove_great_pacific_garbage_patch = {
+	cdpd_remove_instance = { DEPOSIT = d_great_pacific_garbage_patch }
+}
+
+cdpd_add_great_river = {
+	add_deposit = d_great_river
+}
+
+cdpd_remove_great_river = {
+	cdpd_remove_instance = { DEPOSIT = d_great_river }
+}
+
+cdpd_add_green_hills = {
+	add_deposit = d_green_hills
+}
+
+cdpd_remove_green_hills = {
+	cdpd_remove_instance = { DEPOSIT = d_green_hills }
+}
+
+cdpd_add_guardian_dragon_hoard = {
+	add_deposit = d_guardian_dragon_hoard
+}
+
+cdpd_remove_guardian_dragon_hoard = {
+	cdpd_remove_instance = { DEPOSIT = d_guardian_dragon_hoard }
+}
+
+cdpd_remove_hab_alloy_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_1 }
+}
+
+cdpd_remove_hab_alloy_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_10 }
+}
+
+cdpd_remove_hab_alloy_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_2 }
+}
+
+cdpd_remove_hab_alloy_25 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_25 }
+}
+
+cdpd_remove_hab_alloy_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_3 }
+}
+
+cdpd_remove_hab_alloy_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_4 }
+}
+
+cdpd_remove_hab_alloy_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_alloy_5 }
+}
+
+cdpd_remove_hab_astral_threads_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_astral_threads_1 }
+}
+
+cdpd_remove_hab_astral_threads_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_astral_threads_2 }
+}
+
+cdpd_remove_hab_astral_threads_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_astral_threads_3 }
+}
+
+cdpd_remove_hab_consumer_goods_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_consumer_goods_2 }
+}
+
+cdpd_remove_hab_crystal_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_crystal_1 }
+}
+
+cdpd_remove_hab_crystal_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_crystal_2 }
+}
+
+cdpd_remove_hab_crystal_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_crystal_3 }
+}
+
+cdpd_remove_hab_crystal_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_crystal_4 }
+}
+
+cdpd_remove_hab_crystal_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_crystal_5 }
+}
+
+cdpd_remove_hab_dark_matter_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_dark_matter_1 }
+}
+
+cdpd_remove_hab_dark_matter_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_dark_matter_10 }
+}
+
+cdpd_remove_hab_dark_matter_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_dark_matter_2 }
+}
+
+cdpd_remove_hab_dark_matter_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_dark_matter_3 }
+}
+
+cdpd_remove_hab_gas_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_gas_1 }
+}
+
+cdpd_remove_hab_gas_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_gas_2 }
+}
+
+cdpd_remove_hab_gas_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_gas_3 }
+}
+
+cdpd_remove_hab_gas_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_gas_4 }
+}
+
+cdpd_remove_hab_gas_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_gas_5 }
+}
+
+cdpd_remove_hab_harvester_nanites_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_harvester_nanites_1 }
+}
+
+cdpd_remove_hab_harvester_nanites_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_harvester_nanites_2 }
+}
+
+cdpd_remove_hab_harvester_nanites_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_harvester_nanites_3 }
+}
+
+cdpd_remove_hab_living_metal_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_living_metal_1 }
+}
+
+cdpd_add_hab_lonely_bot_deposit = {
+	add_deposit = d_hab_lonely_bot_deposit
+}
+
+cdpd_remove_hab_lonely_bot_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_lonely_bot_deposit }
+}
+
+cdpd_add_hab_lonely_bot_deposit_2 = {
+	add_deposit = d_hab_lonely_bot_deposit_2
+}
+
+cdpd_remove_hab_lonely_bot_deposit_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_lonely_bot_deposit_2 }
+}
+
+cdpd_add_hab_lonely_bot_deposit_3 = {
+	add_deposit = d_hab_lonely_bot_deposit_3
+}
+
+cdpd_remove_hab_lonely_bot_deposit_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_lonely_bot_deposit_3 }
+}
+
+cdpd_remove_hab_mote_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_mote_1 }
+}
+
+cdpd_remove_hab_mote_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_mote_2 }
+}
+
+cdpd_remove_hab_mote_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_mote_3 }
+}
+
+cdpd_remove_hab_mote_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_mote_4 }
+}
+
+cdpd_remove_hab_mote_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_mote_5 }
+}
+
+cdpd_remove_hab_nanites_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_nanites_3 }
+}
+
+cdpd_remove_hab_zro_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_zro_1 }
+}
+
+cdpd_remove_hab_zro_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_zro_2 }
+}
+
+cdpd_remove_hab_zro_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_zro_3 }
+}
+
+cdpd_remove_hab_zro_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_zro_4 }
+}
+
+cdpd_remove_hab_zro_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_hab_zro_5 }
+}
+
+cdpd_add_harvester_fields = {
+	add_deposit = d_harvester_fields
+}
+
+cdpd_remove_harvester_fields = {
+	cdpd_remove_instance = { DEPOSIT = d_harvester_fields }
+}
+
+cdpd_add_hibernating_lithoids = {
+	add_blocker = { type = d_hibernating_lithoids blocked_deposit = none }
+}
+
+cdpd_remove_hibernating_lithoids = {
+	cdpd_remove_instance = { DEPOSIT = d_hibernating_lithoids }
+}
+
+cdpd_add_hive_dwelling = {
+	add_deposit = d_hive_dwelling
+}
+
+cdpd_remove_hive_dwelling = {
+	cdpd_remove_instance = { DEPOSIT = d_hive_dwelling }
+}
+
+cdpd_add_hostile_fauna = {
+	add_deposit = d_hostile_fauna
+}
+
+cdpd_remove_hostile_fauna = {
+	cdpd_remove_instance = { DEPOSIT = d_hostile_fauna }
+}
+
+cdpd_add_hostile_flora = {
+	add_deposit = d_hostile_flora
+}
+
+cdpd_remove_hostile_flora = {
+	cdpd_remove_instance = { DEPOSIT = d_hostile_flora }
+}
+
+cdpd_add_hot_springs = {
+	add_deposit = d_hot_springs
+}
+
+cdpd_remove_hot_springs = {
+	cdpd_remove_instance = { DEPOSIT = d_hot_springs }
+}
+
+cdpd_add_house_turtle = {
+	add_deposit = d_house_turtle
+}
+
+cdpd_remove_house_turtle = {
+	cdpd_remove_instance = { DEPOSIT = d_house_turtle }
+}
+
+cdpd_add_hydroactive_eggs = {
+	add_deposit = d_hydroactive_eggs
+}
+
+cdpd_remove_hydroactive_eggs = {
+	cdpd_remove_instance = { DEPOSIT = d_hydroactive_eggs }
+}
+
+cdpd_add_hyperfertile_valley = {
+	add_deposit = d_hyperfertile_valley
+}
+
+cdpd_remove_hyperfertile_valley = {
+	cdpd_remove_instance = { DEPOSIT = d_hyperfertile_valley }
+}
+
+cdpd_add_immense_solar_array = {
+	add_deposit = d_immense_solar_array
+}
+
+cdpd_remove_immense_solar_array = {
+	cdpd_remove_instance = { DEPOSIT = d_immense_solar_array }
+}
+
+cdpd_add_impact_crater = {
+	add_deposit = d_impact_crater
+}
+
+cdpd_remove_impact_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_impact_crater }
+}
+
+cdpd_add_impossiblecorrie = {
+	add_deposit = d_impossiblecorrie
+}
+
+cdpd_remove_impossiblecorrie = {
+	cdpd_remove_instance = { DEPOSIT = d_impossiblecorrie }
+}
+
+cdpd_add_industrial_sector = {
+	add_deposit = d_industrial_sector
+}
+
+cdpd_remove_industrial_sector = {
+	cdpd_remove_instance = { DEPOSIT = d_industrial_sector }
+}
+
+cdpd_add_invasion_site = {
+	add_blocker = { type = d_invasion_site blocked_deposit = none }
+}
+
+cdpd_remove_invasion_site = {
+	cdpd_remove_instance = { DEPOSIT = d_invasion_site }
+}
+
+cdpd_add_irradiated_ruins = {
+	add_deposit = d_irradiated_ruins
+}
+
+cdpd_remove_irradiated_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_irradiated_ruins }
+}
+
+cdpd_add_irradiated_valley = {
+	add_deposit = d_irradiated_valley
+}
+
+cdpd_remove_irradiated_valley = {
+	cdpd_remove_instance = { DEPOSIT = d_irradiated_valley }
+}
+
+cdpd_add_junk_canals = {
+	add_deposit = d_junk_canals
+}
+
+cdpd_remove_junk_canals = {
+	cdpd_remove_instance = { DEPOSIT = d_junk_canals }
+}
+
+cdpd_add_junk_hollows = {
+	add_deposit = d_junk_hollows
+}
+
+cdpd_remove_junk_hollows = {
+	cdpd_remove_instance = { DEPOSIT = d_junk_hollows }
+}
+
+cdpd_add_junk_wastes = {
+	add_deposit = d_junk_wastes
+}
+
+cdpd_remove_junk_wastes = {
+	cdpd_remove_instance = { DEPOSIT = d_junk_wastes }
+}
+
+cdpd_add_kaiju_lair = {
+	add_blocker = { type = d_kaiju_lair blocked_deposit = none }
+}
+
+cdpd_remove_kaiju_lair = {
+	cdpd_remove_instance = { DEPOSIT = d_kaiju_lair }
+}
+
+cdpd_add_knights_calibrator = {
+	add_deposit = d_knights_calibrator
+}
+
+cdpd_remove_knights_calibrator = {
+	cdpd_remove_instance = { DEPOSIT = d_knights_calibrator }
+}
+
+cdpd_add_landed_dragon = {
+	add_deposit = d_landed_dragon
+}
+
+cdpd_remove_landed_dragon = {
+	cdpd_remove_instance = { DEPOSIT = d_landed_dragon }
+}
+
+cdpd_add_landgrab_blocker = {
+	add_deposit = d_landgrab_blocker
+}
+
+cdpd_remove_landgrab_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_landgrab_blocker }
+}
+
+cdpd_add_landgrab_foreign_holdings = {
+	add_deposit = d_landgrab_foreign_holdings
+}
+
+cdpd_remove_landgrab_foreign_holdings = {
+	cdpd_remove_instance = { DEPOSIT = d_landgrab_foreign_holdings }
+}
+
+cdpd_add_large_volcano = {
+	add_blocker = { type = d_large_volcano blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_remove_large_volcano = {
+	cdpd_remove_instance = { DEPOSIT = d_large_volcano }
+	cdpd_decrement_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_add_lava_flooding = {
+	add_blocker = { type = d_lava_flooding blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_remove_lava_flooding = {
+	cdpd_remove_instance = { DEPOSIT = d_lava_flooding }
+	cdpd_decrement_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_add_lava_tubes = {
+	add_deposit = d_lava_tubes
+}
+
+cdpd_remove_lava_tubes = {
+	cdpd_remove_instance = { DEPOSIT = d_lava_tubes }
+}
+
+cdpd_add_lethal_ecosphere_blocker = {
+	add_blocker = { type = d_lethal_ecosphere_blocker blocked_deposit = none }
+}
+
+cdpd_remove_lethal_ecosphere_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_lethal_ecosphere_blocker }
+}
+
+cdpd_add_lichen_fields = {
+	add_deposit = d_lichen_fields
+}
+
+cdpd_remove_lichen_fields = {
+	cdpd_remove_instance = { DEPOSIT = d_lichen_fields }
+}
+
+cdpd_add_liquid_dark_matter = {
+	add_deposit = d_liquid_dark_matter
+}
+
+cdpd_remove_liquid_dark_matter = {
+	cdpd_remove_instance = { DEPOSIT = d_liquid_dark_matter }
+}
+
+cdpd_add_lithoid_crater = {
+	add_deposit = d_lithoid_crater
+}
+
+cdpd_remove_lithoid_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_lithoid_crater }
+}
+
+cdpd_add_lithoid_devastation = {
+	add_blocker = { type = d_lithoid_devastation blocked_deposit = none }
+}
+
+cdpd_remove_lithoid_devastation = {
+	cdpd_remove_instance = { DEPOSIT = d_lithoid_devastation }
+}
+
+cdpd_add_living_metal_deposit = {
+	add_deposit = d_living_metal_deposit
+}
+
+cdpd_remove_living_metal_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_living_metal_deposit }
+}
+
+cdpd_add_living_metal_medium = {
+	add_deposit = d_living_metal_medium
+}
+
+cdpd_remove_living_metal_medium = {
+	cdpd_remove_instance = { DEPOSIT = d_living_metal_medium }
+}
+
+cdpd_add_living_metal_small = {
+	add_deposit = d_living_metal_small
+}
+
+cdpd_remove_living_metal_small = {
+	cdpd_remove_instance = { DEPOSIT = d_living_metal_small }
+}
+
+cdpd_add_living_metal_tiny = {
+	add_deposit = d_living_metal_tiny
+}
+
+cdpd_remove_living_metal_tiny = {
+	cdpd_remove_instance = { DEPOSIT = d_living_metal_tiny }
+}
+
+cdpd_add_living_snow_reserve = {
+	add_deposit = d_living_snow_reserve
+}
+
+cdpd_remove_living_snow_reserve = {
+	cdpd_remove_instance = { DEPOSIT = d_living_snow_reserve }
+}
+
+cdpd_add_lush_jungle = {
+	add_deposit = d_lush_jungle
+}
+
+cdpd_remove_lush_jungle = {
+	cdpd_remove_instance = { DEPOSIT = d_lush_jungle }
+}
+
+cdpd_add_machine_care_home = {
+	add_deposit = d_machine_care_home
+}
+
+cdpd_remove_machine_care_home = {
+	cdpd_remove_instance = { DEPOSIT = d_machine_care_home }
+}
+
+cdpd_add_machine_empire_ruins = {
+	add_blocker = { type = d_machine_empire_ruins blocked_deposit = none }
+}
+
+cdpd_remove_machine_empire_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_machine_empire_ruins }
+}
+
+cdpd_add_machine_minerals = {
+	add_deposit = d_machine_minerals
+}
+
+cdpd_remove_machine_minerals = {
+	cdpd_remove_instance = { DEPOSIT = d_machine_minerals }
+}
+
+cdpd_add_machine_ongoing_construction = {
+	add_blocker = { type = d_machine_ongoing_construction blocked_deposit = none }
+}
+
+cdpd_remove_machine_ongoing_construction = {
+	cdpd_remove_instance = { DEPOSIT = d_machine_ongoing_construction }
+}
+
+cdpd_add_machine_prototype_pc_machine = {
+	add_blocker = { type = d_machine_prototype_pc_machine blocked_deposit = none }
+}
+
+cdpd_remove_machine_prototype_pc_machine = {
+	cdpd_remove_instance = { DEPOSIT = d_machine_prototype_pc_machine }
+}
+
+cdpd_add_magnetic_storm_1_minerals = {
+	add_deposit = d_magnetic_storm_1_minerals
+}
+
+cdpd_remove_magnetic_storm_1_minerals = {
+	cdpd_remove_instance = { DEPOSIT = d_magnetic_storm_1_minerals }
+}
+
+cdpd_add_magnetic_storm_2_alloys = {
+	add_deposit = d_magnetic_storm_2_alloys
+}
+
+cdpd_remove_magnetic_storm_2_alloys = {
+	cdpd_remove_instance = { DEPOSIT = d_magnetic_storm_2_alloys }
+}
+
+cdpd_add_magnetic_storm_3_mix = {
+	add_deposit = d_magnetic_storm_3_mix
+}
+
+cdpd_remove_magnetic_storm_3_mix = {
+	cdpd_remove_instance = { DEPOSIT = d_magnetic_storm_3_mix }
+}
+
+cdpd_add_malfunctioning_reactor = {
+	add_blocker = { type = d_malfunctioning_reactor blocked_deposit = none }
+}
+
+cdpd_remove_malfunctioning_reactor = {
+	cdpd_remove_instance = { DEPOSIT = d_malfunctioning_reactor }
+}
+
+cdpd_add_marvelous_oasis = {
+	add_deposit = d_marvelous_oasis
+}
+
+cdpd_remove_marvelous_oasis = {
+	cdpd_remove_instance = { DEPOSIT = d_marvelous_oasis }
+}
+
+cdpd_add_mass_graves = {
+	add_blocker = { type = d_mass_graves blocked_deposit = none }
+}
+
+cdpd_remove_mass_graves = {
+	cdpd_remove_instance = { DEPOSIT = d_mass_graves }
+}
+
+cdpd_add_massive_crevice = {
+	add_blocker = { type = d_massive_crevice blocked_deposit = none }
+}
+
+cdpd_remove_massive_crevice = {
+	cdpd_remove_instance = { DEPOSIT = d_massive_crevice }
+}
+
+cdpd_add_massive_glacier = {
+	add_blocker = { type = d_massive_glacier blocked_deposit = none }
+}
+
+cdpd_remove_massive_glacier = {
+	cdpd_remove_instance = { DEPOSIT = d_massive_glacier }
+}
+
+cdpd_add_mauritanian_security_zone = {
+	add_deposit = d_mauritanian_security_zone
+}
+
+cdpd_remove_mauritanian_security_zone = {
+	cdpd_remove_instance = { DEPOSIT = d_mauritanian_security_zone }
+}
+
+cdpd_add_meals_in_pods = {
+	add_deposit = d_meals_in_pods
+}
+
+cdpd_remove_meals_in_pods = {
+	cdpd_remove_instance = { DEPOSIT = d_meals_in_pods }
+}
+
+cdpd_add_mechsiah_mainframe = {
+	add_deposit = d_mechsiah_mainframe
+}
+
+cdpd_remove_mechsiah_mainframe = {
+	cdpd_remove_instance = { DEPOSIT = d_mechsiah_mainframe }
+}
+
+cdpd_add_mesopotamian_urban_corridor = {
+	add_deposit = d_mesopotamian_urban_corridor
+}
+
+cdpd_remove_mesopotamian_urban_corridor = {
+	cdpd_remove_instance = { DEPOSIT = d_mesopotamian_urban_corridor }
+}
+
+cdpd_add_metal_boneyard = {
+	add_deposit = d_metal_boneyard
+}
+
+cdpd_remove_metal_boneyard = {
+	cdpd_remove_instance = { DEPOSIT = d_metal_boneyard }
+}
+
+cdpd_add_metallic_puddles = {
+	add_deposit = d_metallic_puddles
+}
+
+cdpd_remove_metallic_puddles = {
+	cdpd_remove_instance = { DEPOSIT = d_metallic_puddles }
+}
+
+cdpd_add_microplanet_memorial = {
+	add_deposit = d_microplanet_memorial
+}
+
+cdpd_remove_microplanet_memorial = {
+	cdpd_remove_instance = { DEPOSIT = d_microplanet_memorial }
+}
+
+cdpd_add_migrating_forest_reserve = {
+	add_deposit = d_migrating_forest_reserve
+}
+
+cdpd_remove_migrating_forest_reserve = {
+	cdpd_remove_instance = { DEPOSIT = d_migrating_forest_reserve }
+}
+
+cdpd_add_migrating_forests = {
+	add_deposit = d_migrating_forests
+}
+
+cdpd_remove_migrating_forests = {
+	cdpd_remove_instance = { DEPOSIT = d_migrating_forests }
+}
+
+cdpd_add_mineral_fields = {
+	add_deposit = d_mineral_fields
+}
+
+cdpd_remove_mineral_fields = {
+	cdpd_remove_instance = { DEPOSIT = d_mineral_fields }
+}
+
+cdpd_add_mineral_seabed = {
+	add_deposit = d_mineral_seabed
+}
+
+cdpd_remove_mineral_seabed = {
+	cdpd_remove_instance = { DEPOSIT = d_mineral_seabed }
+}
+
+cdpd_add_mineral_striations = {
+	add_deposit = d_mineral_striations
+}
+
+cdpd_remove_mineral_striations = {
+	cdpd_remove_instance = { DEPOSIT = d_mineral_striations }
+}
+
+cdpd_add_minerals_1 = {
+	add_deposit = d_minerals_1
+}
+
+cdpd_remove_minerals_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_1 }
+}
+
+cdpd_add_minerals_10 = {
+	add_deposit = d_minerals_10
+}
+
+cdpd_remove_minerals_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_10 }
+}
+
+cdpd_add_minerals_2 = {
+	add_deposit = d_minerals_2
+}
+
+cdpd_remove_minerals_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_2 }
+}
+
+cdpd_add_minerals_3 = {
+	add_deposit = d_minerals_3
+}
+
+cdpd_remove_minerals_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_3 }
+}
+
+cdpd_add_minerals_4 = {
+	add_deposit = d_minerals_4
+}
+
+cdpd_remove_minerals_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_4 }
+}
+
+cdpd_add_minerals_5 = {
+	add_deposit = d_minerals_5
+}
+
+cdpd_remove_minerals_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_5 }
+}
+
+cdpd_add_minerals_6 = {
+	add_deposit = d_minerals_6
+}
+
+cdpd_remove_minerals_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_6 }
+}
+
+cdpd_add_minerals_7 = {
+	add_deposit = d_minerals_7
+}
+
+cdpd_remove_minerals_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_7 }
+}
+
+cdpd_add_minerals_8 = {
+	add_deposit = d_minerals_8
+}
+
+cdpd_remove_minerals_8 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_8 }
+}
+
+cdpd_add_minerals_9 = {
+	add_deposit = d_minerals_9
+}
+
+cdpd_remove_minerals_9 = {
+	cdpd_remove_instance = { DEPOSIT = d_minerals_9 }
+}
+
+cdpd_add_mothballed_facilities = {
+	add_blocker = { type = d_mothballed_facilities blocked_deposit = none }
+}
+
+cdpd_remove_mothballed_facilities = {
+	cdpd_remove_instance = { DEPOSIT = d_mothballed_facilities }
+}
+
+cdpd_add_mountain_range = {
+	add_blocker = { type = d_mountain_range blocked_deposit = none }
+}
+
+cdpd_remove_mountain_range = {
+	cdpd_remove_instance = { DEPOSIT = d_mountain_range }
+}
+
+cdpd_add_mountains_of_steel = {
+	add_deposit = d_mountains_of_steel
+}
+
+cdpd_remove_mountains_of_steel = {
+	cdpd_remove_instance = { DEPOSIT = d_mountains_of_steel }
+}
+
+cdpd_add_msi_air_freshener = {
+	add_deposit = d_msi_air_freshener
+}
+
+cdpd_remove_msi_air_freshener = {
+	cdpd_remove_instance = { DEPOSIT = d_msi_air_freshener }
+}
+
+cdpd_add_mutant_landfill = {
+	add_deposit = d_mutant_landfill
+}
+
+cdpd_remove_mutant_landfill = {
+	cdpd_remove_instance = { DEPOSIT = d_mutant_landfill }
+}
+
+cdpd_add_mutation_vats = {
+	add_deposit = d_mutation_vats
+}
+
+cdpd_remove_mutation_vats = {
+	cdpd_remove_instance = { DEPOSIT = d_mutation_vats }
+}
+
+cdpd_add_myrmeku_power_farms = {
+	add_deposit = d_myrmeku_power_farms
+}
+
+cdpd_remove_myrmeku_power_farms = {
+	cdpd_remove_instance = { DEPOSIT = d_myrmeku_power_farms }
+}
+
+cdpd_add_nanite_harvester_deposit = {
+	add_deposit = d_nanite_harvester_deposit
+}
+
+cdpd_remove_nanite_harvester_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_nanite_harvester_deposit }
+}
+
+cdpd_add_nanite_harvester_deposit_large = {
+	add_deposit = d_nanite_harvester_deposit_large
+}
+
+cdpd_remove_nanite_harvester_deposit_large = {
+	cdpd_remove_instance = { DEPOSIT = d_nanite_harvester_deposit_large }
+}
+
+cdpd_add_nanite_harvester_deposit_regular = {
+	add_deposit = d_nanite_harvester_deposit_regular
+}
+
+cdpd_remove_nanite_harvester_deposit_regular = {
+	cdpd_remove_instance = { DEPOSIT = d_nanite_harvester_deposit_regular }
+}
+
+cdpd_add_nanites_deposit = {
+	add_deposit = d_nanites_deposit
+}
+
+cdpd_remove_nanites_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_nanites_deposit }
+}
+
+cdpd_add_nanites_medium = {
+	add_deposit = d_nanites_medium
+}
+
+cdpd_remove_nanites_medium = {
+	cdpd_remove_instance = { DEPOSIT = d_nanites_medium }
+}
+
+cdpd_add_nanites_small = {
+	add_deposit = d_nanites_small
+}
+
+cdpd_remove_nanites_small = {
+	cdpd_remove_instance = { DEPOSIT = d_nanites_small }
+}
+
+cdpd_add_nanites_tiny = {
+	add_deposit = d_nanites_tiny
+}
+
+cdpd_remove_nanites_tiny = {
+	cdpd_remove_instance = { DEPOSIT = d_nanites_tiny }
+}
+
+cdpd_add_nano_corpses = {
+	add_deposit = d_nano_corpses
+}
+
+cdpd_remove_nano_corpses = {
+	cdpd_remove_instance = { DEPOSIT = d_nano_corpses }
+}
+
+cdpd_add_nanosands = {
+	add_deposit = d_nanosands
+}
+
+cdpd_remove_nanosands = {
+	cdpd_remove_instance = { DEPOSIT = d_nanosands }
+}
+
+cdpd_add_nanotech_devastation = {
+	add_blocker = { type = d_nanotech_devastation blocked_deposit = none }
+}
+
+cdpd_remove_nanotech_devastation = {
+	cdpd_remove_instance = { DEPOSIT = d_nanotech_devastation }
+}
+
+cdpd_add_natural_farmland = {
+	add_deposit = d_natural_farmland
+}
+
+cdpd_remove_natural_farmland = {
+	cdpd_remove_instance = { DEPOSIT = d_natural_farmland }
+}
+
+cdpd_add_nature_preserve_blocker = {
+	add_blocker = { type = d_nature_preserve_blocker blocked_deposit = none }
+}
+
+cdpd_remove_nature_preserve_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_nature_preserve_blocker }
+}
+
+cdpd_add_noxious_swamp = {
+	add_blocker = { type = d_noxious_swamp blocked_deposit = none }
+}
+
+cdpd_remove_noxious_swamp = {
+	cdpd_remove_instance = { DEPOSIT = d_noxious_swamp }
+}
+
+cdpd_add_numas_breath = {
+	add_deposit = d_numas_breath
+}
+
+cdpd_remove_numas_breath = {
+	cdpd_remove_instance = { DEPOSIT = d_numas_breath }
+}
+
+cdpd_add_nutritious_mudland = {
+	add_deposit = d_nutritious_mudland
+}
+
+cdpd_remove_nutritious_mudland = {
+	cdpd_remove_instance = { DEPOSIT = d_nutritious_mudland }
+}
+
+cdpd_add_odd_factory = {
+	add_deposit = d_odd_factory
+}
+
+cdpd_remove_odd_factory = {
+	cdpd_remove_instance = { DEPOSIT = d_odd_factory }
+}
+
+cdpd_add_old_towns = {
+	add_blocker = { type = d_old_towns blocked_deposit = none }
+}
+
+cdpd_remove_old_towns = {
+	cdpd_remove_instance = { DEPOSIT = d_old_towns }
+}
+
+cdpd_add_ore_rich_caverns = {
+	add_deposit = d_ore_rich_caverns
+}
+
+cdpd_remove_ore_rich_caverns = {
+	cdpd_remove_instance = { DEPOSIT = d_ore_rich_caverns }
+}
+
+cdpd_add_organic_landfill = {
+	add_deposit = d_organic_landfill
+}
+
+cdpd_remove_organic_landfill = {
+	cdpd_remove_instance = { DEPOSIT = d_organic_landfill }
+}
+
+cdpd_add_organic_slurry = {
+	add_deposit = d_organic_slurry
+}
+
+cdpd_remove_organic_slurry = {
+	cdpd_remove_instance = { DEPOSIT = d_organic_slurry }
+}
+
+cdpd_add_pacific_algae_tracts = {
+	add_deposit = d_pacific_algae_tracts
+}
+
+cdpd_remove_pacific_algae_tracts = {
+	cdpd_remove_instance = { DEPOSIT = d_pacific_algae_tracts }
+}
+
+cdpd_add_particle_storm_1_society = {
+	add_deposit = d_particle_storm_1_society
+}
+
+cdpd_remove_particle_storm_1_society = {
+	cdpd_remove_instance = { DEPOSIT = d_particle_storm_1_society }
+}
+
+cdpd_add_particle_storm_2_unity = {
+	add_deposit = d_particle_storm_2_unity
+}
+
+cdpd_remove_particle_storm_2_unity = {
+	cdpd_remove_instance = { DEPOSIT = d_particle_storm_2_unity }
+}
+
+cdpd_add_particle_storm_3_motes = {
+	add_deposit = d_particle_storm_3_motes
+}
+
+cdpd_remove_particle_storm_3_motes = {
+	cdpd_remove_instance = { DEPOSIT = d_particle_storm_3_motes }
+}
+
+cdpd_add_payback_habitat_research = {
+	add_deposit = d_payback_habitat_research
+}
+
+cdpd_remove_payback_habitat_research = {
+	cdpd_remove_instance = { DEPOSIT = d_payback_habitat_research }
+}
+
+cdpd_add_pearl_river_agglomerate = {
+	add_deposit = d_pearl_river_agglomerate
+}
+
+cdpd_remove_pearl_river_agglomerate = {
+	cdpd_remove_instance = { DEPOSIT = d_pearl_river_agglomerate }
+}
+
+cdpd_add_physics_1 = {
+	add_deposit = d_physics_1
+}
+
+cdpd_remove_physics_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_1 }
+}
+
+cdpd_add_physics_10 = {
+	add_deposit = d_physics_10
+}
+
+cdpd_remove_physics_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_10 }
+}
+
+cdpd_add_physics_2 = {
+	add_deposit = d_physics_2
+}
+
+cdpd_remove_physics_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_2 }
+}
+
+cdpd_add_physics_25 = {
+	add_deposit = d_physics_25
+}
+
+cdpd_remove_physics_25 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_25 }
+}
+
+cdpd_add_physics_3 = {
+	add_deposit = d_physics_3
+}
+
+cdpd_remove_physics_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_3 }
+}
+
+cdpd_add_physics_4 = {
+	add_deposit = d_physics_4
+}
+
+cdpd_remove_physics_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_4 }
+}
+
+cdpd_add_physics_5 = {
+	add_deposit = d_physics_5
+}
+
+cdpd_remove_physics_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_5 }
+}
+
+cdpd_add_physics_6 = {
+	add_deposit = d_physics_6
+}
+
+cdpd_remove_physics_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_6 }
+}
+
+cdpd_add_physics_7 = {
+	add_deposit = d_physics_7
+}
+
+cdpd_remove_physics_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_7 }
+}
+
+cdpd_add_physics_8 = {
+	add_deposit = d_physics_8
+}
+
+cdpd_remove_physics_8 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_8 }
+}
+
+cdpd_add_physics_9 = {
+	add_deposit = d_physics_9
+}
+
+cdpd_remove_physics_9 = {
+	cdpd_remove_instance = { DEPOSIT = d_physics_9 }
+}
+
+cdpd_add_planet_stripmine = {
+	add_deposit = d_planet_stripmine
+}
+
+cdpd_remove_planet_stripmine = {
+	cdpd_remove_instance = { DEPOSIT = d_planet_stripmine }
+}
+
+cdpd_add_poisonous_algae = {
+	add_blocker = { type = d_poisonous_algae blocked_deposit = none }
+}
+
+cdpd_remove_poisonous_algae = {
+	cdpd_remove_instance = { DEPOSIT = d_poisonous_algae }
+}
+
+cdpd_add_polaris_city = {
+	add_deposit = d_polaris_city
+}
+
+cdpd_remove_polaris_city = {
+	cdpd_remove_instance = { DEPOSIT = d_polaris_city }
+}
+
+cdpd_add_portal_research_zone = {
+	add_deposit = d_portal_research_zone
+}
+
+cdpd_remove_portal_research_zone = {
+	cdpd_remove_instance = { DEPOSIT = d_portal_research_zone }
+}
+
+cdpd_add_prisoner_intergration = {
+	add_deposit = d_prisoner_intergration
+}
+
+cdpd_remove_prisoner_intergration = {
+	cdpd_remove_instance = { DEPOSIT = d_prisoner_intergration }
+}
+
+cdpd_add_processing_pens = {
+	add_deposit = d_processing_pens
+}
+
+cdpd_remove_processing_pens = {
+	cdpd_remove_instance = { DEPOSIT = d_processing_pens }
+}
+
+cdpd_add_progenitor = {
+	add_deposit = d_progenitor
+}
+
+cdpd_remove_progenitor = {
+	cdpd_remove_instance = { DEPOSIT = d_progenitor }
+}
+
+cdpd_add_progenitor_empty = {
+	add_deposit = d_progenitor_empty
+}
+
+cdpd_remove_progenitor_empty = {
+	cdpd_remove_instance = { DEPOSIT = d_progenitor_empty }
+}
+
+cdpd_add_project_cornucopia = {
+	add_deposit = d_project_cornucopia
+}
+
+cdpd_remove_project_cornucopia = {
+	cdpd_remove_instance = { DEPOSIT = d_project_cornucopia }
+}
+
+cdpd_add_prospectorium_strip_mine = {
+	add_deposit = d_prospectorium_strip_mine
+}
+
+cdpd_remove_prospectorium_strip_mine = {
+	cdpd_remove_instance = { DEPOSIT = d_prospectorium_strip_mine }
+}
+
+cdpd_add_prosperous_mesa = {
+	add_deposit = d_prosperous_mesa
+}
+
+cdpd_remove_prosperous_mesa = {
+	cdpd_remove_instance = { DEPOSIT = d_prosperous_mesa }
+}
+
+cdpd_add_protostar = {
+	add_deposit = d_protostar
+}
+
+cdpd_remove_protostar = {
+	cdpd_remove_instance = { DEPOSIT = d_protostar }
+}
+
+cdpd_add_psionic_sands = {
+	add_deposit = d_psionic_sands
+}
+
+cdpd_remove_psionic_sands = {
+	cdpd_remove_instance = { DEPOSIT = d_psionic_sands }
+}
+
+cdpd_add_pulsar_scarred = {
+	add_deposit = d_pulsar_scarred
+}
+
+cdpd_remove_pulsar_scarred = {
+	cdpd_remove_instance = { DEPOSIT = d_pulsar_scarred }
+}
+
+cdpd_add_quicksand_basin = {
+	add_blocker = { type = d_quicksand_basin blocked_deposit = none }
+}
+
+cdpd_remove_quicksand_basin = {
+	cdpd_remove_instance = { DEPOSIT = d_quicksand_basin }
+}
+
+cdpd_add_radioactive_ruins = {
+	add_blocker = { type = d_radioactive_ruins blocked_deposit = none }
+}
+
+cdpd_remove_radioactive_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_radioactive_ruins }
+}
+
+cdpd_add_radioactive_wasteland = {
+	add_blocker = { type = d_radioactive_wasteland blocked_deposit = none }
+}
+
+cdpd_remove_radioactive_wasteland = {
+	cdpd_remove_instance = { DEPOSIT = d_radioactive_wasteland }
+}
+
+cdpd_add_radiotrophic_preserve = {
+	add_deposit = d_radiotrophic_preserve
+}
+
+cdpd_remove_radiotrophic_preserve = {
+	cdpd_remove_instance = { DEPOSIT = d_radiotrophic_preserve }
+}
+
+cdpd_add_raging_lavafalls = {
+	add_blocker = { type = d_raging_lavafalls blocked_deposit = none }
+}
+
+cdpd_remove_raging_lavafalls = {
+	cdpd_remove_instance = { DEPOSIT = d_raging_lavafalls }
+}
+
+cdpd_add_rare_crystals_1 = {
+	add_deposit = d_rare_crystals_1
+}
+
+cdpd_remove_rare_crystals_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_rare_crystals_1 }
+}
+
+cdpd_add_rare_crystals_2 = {
+	add_deposit = d_rare_crystals_2
+}
+
+cdpd_remove_rare_crystals_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_rare_crystals_2 }
+}
+
+cdpd_add_rare_crystals_3 = {
+	add_deposit = d_rare_crystals_3
+}
+
+cdpd_remove_rare_crystals_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_rare_crystals_3 }
+}
+
+cdpd_add_rare_crystals_4 = {
+	add_deposit = d_rare_crystals_4
+}
+
+cdpd_remove_rare_crystals_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_rare_crystals_4 }
+}
+
+cdpd_add_rare_crystals_5 = {
+	add_deposit = d_rare_crystals_5
+}
+
+cdpd_remove_rare_crystals_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_rare_crystals_5 }
+}
+
+cdpd_add_red_desert = {
+	add_deposit = d_red_desert
+}
+
+cdpd_remove_red_desert = {
+	cdpd_remove_instance = { DEPOSIT = d_red_desert }
+}
+
+cdpd_add_red_giant_dm = {
+	add_deposit = d_red_giant_dm
+}
+
+cdpd_remove_red_giant_dm = {
+	cdpd_remove_instance = { DEPOSIT = d_red_giant_dm }
+}
+
+cdpd_add_red_giant_unstable = {
+	add_deposit = d_red_giant_unstable
+}
+
+cdpd_remove_red_giant_unstable = {
+	cdpd_remove_instance = { DEPOSIT = d_red_giant_unstable }
+}
+
+cdpd_add_relic_arkship = {
+	add_deposit = d_relic_arkship
+}
+
+cdpd_remove_relic_arkship = {
+	cdpd_remove_instance = { DEPOSIT = d_relic_arkship }
+}
+
+cdpd_add_relic_dense_ruins = {
+	add_deposit = d_relic_dense_ruins
+}
+
+cdpd_remove_relic_dense_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_relic_dense_ruins }
+}
+
+cdpd_add_relic_metal_boneyard = {
+	add_deposit = d_relic_metal_boneyard
+}
+
+cdpd_remove_relic_metal_boneyard = {
+	cdpd_remove_instance = { DEPOSIT = d_relic_metal_boneyard }
+}
+
+cdpd_add_resource_consolidation_1 = {
+	add_blocker = { type = d_resource_consolidation_1 blocked_deposit = none }
+}
+
+cdpd_remove_resource_consolidation_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_resource_consolidation_1 }
+}
+
+cdpd_add_rich_mountain = {
+	add_deposit = d_rich_mountain
+}
+
+cdpd_remove_rich_mountain = {
+	cdpd_remove_instance = { DEPOSIT = d_rich_mountain }
+}
+
+cdpd_add_rockworm_hive = {
+	add_deposit = d_rockworm_hive
+}
+
+cdpd_remove_rockworm_hive = {
+	cdpd_remove_instance = { DEPOSIT = d_rockworm_hive }
+}
+
+cdpd_add_rockworm_hive_volcanic = {
+	add_deposit = d_rockworm_hive_volcanic
+}
+
+cdpd_remove_rockworm_hive_volcanic = {
+	cdpd_remove_instance = { DEPOSIT = d_rockworm_hive_volcanic }
+}
+
+cdpd_add_rotten_soil = {
+	add_blocker = { type = d_rotten_soil blocked_deposit = none }
+}
+
+cdpd_remove_rotten_soil = {
+	cdpd_remove_instance = { DEPOSIT = d_rotten_soil }
+}
+
+cdpd_add_rugged_landscape = {
+	add_blocker = { type = d_rugged_landscape blocked_deposit = none }
+}
+
+cdpd_remove_rugged_landscape = {
+	cdpd_remove_instance = { DEPOSIT = d_rugged_landscape }
+}
+
+cdpd_add_rugged_woods = {
+	add_deposit = d_rugged_woods
+}
+
+cdpd_remove_rugged_woods = {
+	cdpd_remove_instance = { DEPOSIT = d_rugged_woods }
+}
+
+cdpd_add_ruin_bluelotus = {
+	add_deposit = d_ruin_bluelotus
+}
+
+cdpd_remove_ruin_bluelotus = {
+	cdpd_remove_instance = { DEPOSIT = d_ruin_bluelotus }
+}
+
+cdpd_add_ruined_arcology = {
+	add_blocker = { type = d_ruined_arcology blocked_deposit = none }
+}
+
+cdpd_remove_ruined_arcology = {
+	cdpd_remove_instance = { DEPOSIT = d_ruined_arcology }
+}
+
+cdpd_add_ruined_building_blocker = {
+	add_blocker = { type = d_ruined_building_blocker blocked_deposit = none }
+}
+
+cdpd_remove_ruined_building_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_ruined_building_blocker }
+}
+
+cdpd_add_ruined_district = {
+	add_blocker = { type = d_ruined_district blocked_deposit = none }
+}
+
+cdpd_remove_ruined_district = {
+	cdpd_remove_instance = { DEPOSIT = d_ruined_district }
+}
+
+cdpd_add_ruined_hatchery = {
+	add_blocker = { type = d_ruined_hatchery blocked_deposit = none }
+}
+
+cdpd_remove_ruined_hatchery = {
+	cdpd_remove_instance = { DEPOSIT = d_ruined_hatchery }
+}
+
+cdpd_add_ruined_hive_dwelling = {
+	add_deposit = d_ruined_hive_dwelling
+}
+
+cdpd_remove_ruined_hive_dwelling = {
+	cdpd_remove_instance = { DEPOSIT = d_ruined_hive_dwelling }
+}
+
+cdpd_add_ruined_sanctum_of_the_lost = {
+	add_blocker = { type = d_ruined_sanctum_of_the_lost blocked_deposit = none }
+}
+
+cdpd_remove_ruined_sanctum_of_the_lost = {
+	cdpd_remove_instance = { DEPOSIT = d_ruined_sanctum_of_the_lost }
+}
+
+cdpd_add_rushing_waterfalls = {
+	add_deposit = d_rushing_waterfalls
+}
+
+cdpd_remove_rushing_waterfalls = {
+	cdpd_remove_instance = { DEPOSIT = d_rushing_waterfalls }
+}
+
+cdpd_add_saharan_irrigation_project = {
+	add_deposit = d_saharan_irrigation_project
+}
+
+cdpd_remove_saharan_irrigation_project = {
+	cdpd_remove_instance = { DEPOSIT = d_saharan_irrigation_project }
+}
+
+cdpd_add_savage_wildlands = {
+	add_deposit = d_savage_wildlands
+}
+
+cdpd_remove_savage_wildlands = {
+	cdpd_remove_instance = { DEPOSIT = d_savage_wildlands }
+}
+
+cdpd_add_scandinavian_reclamation_sector = {
+	add_deposit = d_scandinavian_reclamation_sector
+}
+
+cdpd_remove_scandinavian_reclamation_sector = {
+	cdpd_remove_instance = { DEPOSIT = d_scandinavian_reclamation_sector }
+}
+
+cdpd_add_scorched_plains = {
+	add_blocker = { type = d_scorched_plains blocked_deposit = none }
+}
+
+cdpd_remove_scorched_plains = {
+	cdpd_remove_instance = { DEPOSIT = d_scorched_plains }
+}
+
+cdpd_add_searing_desert = {
+	add_deposit = d_searing_desert
+}
+
+cdpd_remove_searing_desert = {
+	cdpd_remove_instance = { DEPOSIT = d_searing_desert }
+}
+
+cdpd_add_seed_bombing_fungoid_blocker = {
+	add_blocker = { type = d_seed_bombing_fungoid_blocker blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = seed_bomb_blockers }
+}
+
+cdpd_remove_seed_bombing_fungoid_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_seed_bombing_fungoid_blocker }
+	cdpd_decrement_counter = { COUNTER = seed_bomb_blockers }
+}
+
+cdpd_add_seed_bombing_plantoid_blocker = {
+	add_blocker = { type = d_seed_bombing_plantoid_blocker blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = seed_bomb_blockers }
+}
+
+cdpd_remove_seed_bombing_plantoid_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_seed_bombing_plantoid_blocker }
+	cdpd_decrement_counter = { COUNTER = seed_bomb_blockers }
+}
+
+cdpd_add_segment_rubble_1 = {
+	add_blocker = { type = d_segment_rubble_1 blocked_deposit = none }
+}
+
+cdpd_remove_segment_rubble_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_segment_rubble_1 }
+}
+
+cdpd_add_segment_rubble_1_small = {
+	add_blocker = { type = d_segment_rubble_1_small blocked_deposit = none }
+}
+
+cdpd_remove_segment_rubble_1_small = {
+	cdpd_remove_instance = { DEPOSIT = d_segment_rubble_1_small }
+}
+
+cdpd_add_segment_rubble_2 = {
+	add_blocker = { type = d_segment_rubble_2 blocked_deposit = none }
+}
+
+cdpd_remove_segment_rubble_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_segment_rubble_2 }
+}
+
+cdpd_add_segment_rubble_3 = {
+	add_blocker = { type = d_segment_rubble_3 blocked_deposit = none }
+}
+
+cdpd_remove_segment_rubble_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_segment_rubble_3 }
+}
+
+cdpd_add_segment_rubble_4 = {
+	add_blocker = { type = d_segment_rubble_4 blocked_deposit = none }
+}
+
+cdpd_remove_segment_rubble_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_segment_rubble_4 }
+}
+
+cdpd_add_seismic_bombing_crater = {
+	add_blocker = { type = d_seismic_bombing_crater blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = seismic_bombing_var }
+}
+
+cdpd_remove_seismic_bombing_crater = {
+	cdpd_remove_instance = { DEPOSIT = d_seismic_bombing_crater }
+	cdpd_decrement_counter = { COUNTER = seismic_bombing_var }
+}
+
+cdpd_add_sentinels = {
+	add_deposit = d_sentinels
+}
+
+cdpd_remove_sentinels = {
+	cdpd_remove_instance = { DEPOSIT = d_sentinels }
+}
+
+cdpd_add_sentinels_metal = {
+	add_deposit = d_sentinels_metal
+}
+
+cdpd_remove_sentinels_metal = {
+	cdpd_remove_instance = { DEPOSIT = d_sentinels_metal }
+}
+
+cdpd_remove_sentinels_monument = {
+	cdpd_remove_instance = { DEPOSIT = d_sentinels_monument }
+}
+
+cdpd_add_shattered_solar_array = {
+	add_blocker = { type = d_shattered_solar_array blocked_deposit = none }
+}
+
+cdpd_remove_shattered_solar_array = {
+	cdpd_remove_instance = { DEPOSIT = d_shattered_solar_array }
+}
+
+cdpd_remove_shimmering_structure = {
+	cdpd_remove_instance = { DEPOSIT = d_shimmering_structure }
+}
+
+cdpd_remove_ship_debris_broken_shackles_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_ship_debris_broken_shackles_blocker }
+}
+
+cdpd_add_ship_debris_payback_blocker = {
+	add_blocker = { type = d_ship_debris_payback_blocker blocked_deposit = none }
+}
+
+cdpd_remove_ship_debris_payback_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_ship_debris_payback_blocker }
+}
+
+cdpd_add_shroud_flora_deposit = {
+	add_deposit = d_shroud_flora_deposit
+}
+
+cdpd_remove_shroud_flora_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_shroud_flora_deposit }
+}
+
+cdpd_add_shroud_rift_deposit = {
+	add_deposit = d_shroud_rift_deposit
+}
+
+cdpd_remove_shroud_rift_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_shroud_rift_deposit }
+}
+
+cdpd_add_shroud_storm_1_society = {
+	add_deposit = d_shroud_storm_1_society
+}
+
+cdpd_remove_shroud_storm_1_society = {
+	cdpd_remove_instance = { DEPOSIT = d_shroud_storm_1_society }
+}
+
+cdpd_add_shroud_storm_2_zro = {
+	add_deposit = d_shroud_storm_2_zro
+}
+
+cdpd_remove_shroud_storm_2_zro = {
+	cdpd_remove_instance = { DEPOSIT = d_shroud_storm_2_zro }
+}
+
+cdpd_add_shroud_storm_3_happy = {
+	add_deposit = d_shroud_storm_3_happy
+}
+
+cdpd_remove_shroud_storm_3_happy = {
+	cdpd_remove_instance = { DEPOSIT = d_shroud_storm_3_happy }
+}
+
+cdpd_add_shroudfall = {
+	add_blocker = { type = d_shroudfall blocked_deposit = none }
+}
+
+cdpd_remove_shroudfall = {
+	cdpd_remove_instance = { DEPOSIT = d_shroudfall }
+}
+
+cdpd_add_shroudgate = {
+	add_blocker = { type = d_shroudgate blocked_deposit = none }
+}
+
+cdpd_remove_shroudgate = {
+	cdpd_remove_instance = { DEPOSIT = d_shroudgate }
+}
+
+cdpd_add_shroudstone = {
+	add_blocker = { type = d_shroudstone blocked_deposit = none }
+}
+
+cdpd_remove_shroudstone = {
+	cdpd_remove_instance = { DEPOSIT = d_shroudstone }
+}
+
+cdpd_add_sinkhole_subterraneans = {
+	add_blocker = { type = d_sinkhole_subterraneans blocked_deposit = none }
+}
+
+cdpd_remove_sinkhole_subterraneans = {
+	cdpd_remove_instance = { DEPOSIT = d_sinkhole_subterraneans }
+}
+
+cdpd_add_sky_mountain = {
+	add_deposit = d_sky_mountain
+}
+
+cdpd_remove_sky_mountain = {
+	cdpd_remove_instance = { DEPOSIT = d_sky_mountain }
+}
+
+cdpd_add_society_1 = {
+	add_deposit = d_society_1
+}
+
+cdpd_remove_society_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_1 }
+}
+
+cdpd_add_society_10 = {
+	add_deposit = d_society_10
+}
+
+cdpd_remove_society_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_10 }
+}
+
+cdpd_add_society_15 = {
+	add_deposit = d_society_15
+}
+
+cdpd_remove_society_15 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_15 }
+}
+
+cdpd_add_society_2 = {
+	add_deposit = d_society_2
+}
+
+cdpd_remove_society_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_2 }
+}
+
+cdpd_add_society_25 = {
+	add_deposit = d_society_25
+}
+
+cdpd_remove_society_25 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_25 }
+}
+
+cdpd_add_society_3 = {
+	add_deposit = d_society_3
+}
+
+cdpd_remove_society_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_3 }
+}
+
+cdpd_add_society_4 = {
+	add_deposit = d_society_4
+}
+
+cdpd_remove_society_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_4 }
+}
+
+cdpd_add_society_5 = {
+	add_deposit = d_society_5
+}
+
+cdpd_remove_society_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_5 }
+}
+
+cdpd_add_society_6 = {
+	add_deposit = d_society_6
+}
+
+cdpd_remove_society_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_6 }
+}
+
+cdpd_add_society_7 = {
+	add_deposit = d_society_7
+}
+
+cdpd_remove_society_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_7 }
+}
+
+cdpd_add_society_8 = {
+	add_deposit = d_society_8
+}
+
+cdpd_remove_society_8 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_8 }
+}
+
+cdpd_add_society_9 = {
+	add_deposit = d_society_9
+}
+
+cdpd_remove_society_9 = {
+	cdpd_remove_instance = { DEPOSIT = d_society_9 }
+}
+
+cdpd_add_solar_storm_1_energy = {
+	add_deposit = d_solar_storm_1_energy
+}
+
+cdpd_remove_solar_storm_1_energy = {
+	cdpd_remove_instance = { DEPOSIT = d_solar_storm_1_energy }
+}
+
+cdpd_add_solar_storm_2_districts = {
+	add_deposit = d_solar_storm_2_districts
+}
+
+cdpd_remove_solar_storm_2_districts = {
+	cdpd_remove_instance = { DEPOSIT = d_solar_storm_2_districts }
+}
+
+cdpd_add_solar_storm_3_output = {
+	add_deposit = d_solar_storm_3_output
+}
+
+cdpd_remove_solar_storm_3_output = {
+	cdpd_remove_instance = { DEPOSIT = d_solar_storm_3_output }
+}
+
+cdpd_add_space_junk_hazards = {
+	add_deposit = d_space_junk_hazards
+}
+
+cdpd_remove_space_junk_hazards = {
+	cdpd_remove_instance = { DEPOSIT = d_space_junk_hazards }
+}
+
+cdpd_add_space_ship_graveyard = {
+	add_deposit = d_space_ship_graveyard
+}
+
+cdpd_remove_space_ship_graveyard = {
+	cdpd_remove_instance = { DEPOSIT = d_space_ship_graveyard }
+}
+
+cdpd_add_space_time_anomaly = {
+	add_deposit = d_space_time_anomaly
+}
+
+cdpd_remove_space_time_anomaly = {
+	cdpd_remove_instance = { DEPOSIT = d_space_time_anomaly }
+}
+
+cdpd_add_spawning_complex_blocker = {
+	add_blocker = { type = d_spawning_complex_blocker blocked_deposit = none }
+}
+
+cdpd_remove_spawning_complex_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_spawning_complex_blocker }
+}
+
+cdpd_remove_splinter_hive_link = {
+	cdpd_remove_instance = { DEPOSIT = d_splinter_hive_link }
+}
+
+cdpd_add_spore_vents = {
+	add_deposit = d_spore_vents
+}
+
+cdpd_remove_spore_vents = {
+	cdpd_remove_instance = { DEPOSIT = d_spore_vents }
+}
+
+cdpd_add_sprawling_landfill_blocker = {
+	add_blocker = { type = d_sprawling_landfill_blocker blocked_deposit = none }
+}
+
+cdpd_remove_sprawling_landfill_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_sprawling_landfill_blocker }
+}
+
+cdpd_add_sr_diurnal_regulator = {
+	add_blocker = { type = d_sr_diurnal_regulator blocked_deposit = none }
+}
+
+cdpd_remove_sr_diurnal_regulator = {
+	cdpd_remove_instance = { DEPOSIT = d_sr_diurnal_regulator }
+}
+
+cdpd_add_sr_power_grid = {
+	add_blocker = { type = d_sr_power_grid blocked_deposit = none }
+}
+
+cdpd_remove_sr_power_grid = {
+	cdpd_remove_instance = { DEPOSIT = d_sr_power_grid }
+}
+
+cdpd_add_sr_ring_gyros = {
+	add_blocker = { type = d_sr_ring_gyros blocked_deposit = none }
+}
+
+cdpd_remove_sr_ring_gyros = {
+	cdpd_remove_instance = { DEPOSIT = d_sr_ring_gyros }
+}
+
+cdpd_add_sr_vacuum_fields = {
+	add_blocker = { type = d_sr_vacuum_fields blocked_deposit = none }
+}
+
+cdpd_remove_sr_vacuum_fields = {
+	cdpd_remove_instance = { DEPOSIT = d_sr_vacuum_fields }
+}
+
+cdpd_add_star_mall_blocker = {
+	add_blocker = { type = d_star_mall_blocker blocked_deposit = none }
+}
+
+cdpd_remove_star_mall_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_star_mall_blocker }
+}
+
+cdpd_add_star_mall_promenade = {
+	add_deposit = d_star_mall_promenade
+}
+
+cdpd_remove_star_mall_promenade = {
+	cdpd_remove_instance = { DEPOSIT = d_star_mall_promenade }
+}
+
+cdpd_add_star_mall_promenade_blocker = {
+	add_blocker = { type = d_star_mall_promenade_blocker blocked_deposit = none }
+}
+
+cdpd_remove_star_mall_promenade_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_star_mall_promenade_blocker }
+}
+
+cdpd_add_stasis_pods = {
+	add_blocker = { type = d_stasis_pods blocked_deposit = none }
+}
+
+cdpd_remove_stasis_pods = {
+	cdpd_remove_instance = { DEPOSIT = d_stasis_pods }
+}
+
+cdpd_add_stasis_prison = {
+	add_deposit = d_stasis_prison
+}
+
+cdpd_remove_stasis_prison = {
+	cdpd_remove_instance = { DEPOSIT = d_stasis_prison }
+}
+
+cdpd_remove_stellarite_trophy = {
+	cdpd_remove_instance = { DEPOSIT = d_stellarite_trophy }
+}
+
+cdpd_add_stormfall_electric = {
+	add_deposit = d_stormfall_electric
+}
+
+cdpd_remove_stormfall_electric = {
+	cdpd_remove_instance = { DEPOSIT = d_stormfall_electric }
+}
+
+cdpd_add_stormfall_gravity = {
+	add_deposit = d_stormfall_gravity
+}
+
+cdpd_remove_stormfall_gravity = {
+	cdpd_remove_instance = { DEPOSIT = d_stormfall_gravity }
+}
+
+cdpd_add_stormfall_magnetic = {
+	add_deposit = d_stormfall_magnetic
+}
+
+cdpd_remove_stormfall_magnetic = {
+	cdpd_remove_instance = { DEPOSIT = d_stormfall_magnetic }
+}
+
+cdpd_add_strip_mine = {
+	add_blocker = { type = d_strip_mine blocked_deposit = none }
+}
+
+cdpd_remove_strip_mine = {
+	cdpd_remove_instance = { DEPOSIT = d_strip_mine }
+}
+
+cdpd_add_submerged_ore_veins = {
+	add_deposit = d_submerged_ore_veins
+}
+
+cdpd_remove_submerged_ore_veins = {
+	cdpd_remove_instance = { DEPOSIT = d_submerged_ore_veins }
+}
+
+cdpd_add_tainted_snowcaps = {
+	add_blocker = { type = d_tainted_snowcaps blocked_deposit = none }
+}
+
+cdpd_remove_tainted_snowcaps = {
+	cdpd_remove_instance = { DEPOSIT = d_tainted_snowcaps }
+}
+
+cdpd_add_technocracy_barren_lands_blocker = {
+	add_blocker = { type = d_technocracy_barren_lands_blocker blocked_deposit = none }
+}
+
+cdpd_remove_technocracy_barren_lands_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_technocracy_barren_lands_blocker }
+}
+
+cdpd_add_technocracy_molten_waste_blocker = {
+	add_blocker = { type = d_technocracy_molten_waste_blocker blocked_deposit = none }
+}
+
+cdpd_remove_technocracy_molten_waste_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_technocracy_molten_waste_blocker }
+}
+
+cdpd_add_technocracy_toxic_ocean_blocker = {
+	add_blocker = { type = d_technocracy_toxic_ocean_blocker blocked_deposit = none }
+}
+
+cdpd_remove_technocracy_toxic_ocean_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_technocracy_toxic_ocean_blocker }
+}
+
+cdpd_add_technocracy_toxic_waste_blocker = {
+	add_blocker = { type = d_technocracy_toxic_waste_blocker blocked_deposit = none }
+}
+
+cdpd_remove_technocracy_toxic_waste_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_technocracy_toxic_waste_blocker }
+}
+
+cdpd_add_teeming_reef = {
+	add_deposit = d_teeming_reef
+}
+
+cdpd_remove_teeming_reef = {
+	cdpd_remove_instance = { DEPOSIT = d_teeming_reef }
+}
+
+cdpd_add_tempestous_mountain = {
+	add_deposit = d_tempestous_mountain
+}
+
+cdpd_remove_tempestous_mountain = {
+	cdpd_remove_instance = { DEPOSIT = d_tempestous_mountain }
+}
+
+cdpd_add_terraforming_blocker = {
+	add_blocker = { type = d_terraforming_blocker blocked_deposit = none }
+}
+
+cdpd_remove_terraforming_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_terraforming_blocker }
+}
+
+cdpd_add_the_zone = {
+	add_deposit = d_the_zone
+}
+
+cdpd_remove_the_zone = {
+	cdpd_remove_instance = { DEPOSIT = d_the_zone }
+}
+
+cdpd_add_titanic_life_blocker = {
+	if = {
+		limit = {
+			NOT = { has_deposit = d_titanic_life_blocker }
+		}
+		if = {
+			limit = {
+				has_modifier = titanic_life
+			}
+			set_carrier_flag = cdpd_titanic_life_independent
+		}
+		else = {
+			remove_carrier_flag = cdpd_titanic_life_independent
+		}
+	}
+	add_deposit = d_titanic_life_blocker
+	if = {
+		limit = {
+			NOT = { has_modifier = titanic_life }
+		}
+		remove_carrier_flag = cdpd_titanic_life_independent
+		add_modifier = { modifier = titanic_life days = -1 }
+	}
+}
+
+cdpd_remove_titanic_life_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_titanic_life_blocker }
+	if = {
+		limit = {
+			NOT = { has_deposit = d_titanic_life_blocker }
+		}
+		if = {
+			limit = {
+				has_modifier = titanic_life
+				NOT = { has_carrier_flag = cdpd_titanic_life_independent }
+			}
+			remove_modifier = titanic_life
+		}
+		remove_carrier_flag = cdpd_titanic_life_independent
+	}
+}
+
+cdpd_add_tomb_world_ruins = {
+	add_blocker = { type = d_tomb_world_ruins blocked_deposit = none }
+}
+
+cdpd_remove_tomb_world_ruins = {
+	cdpd_remove_instance = { DEPOSIT = d_tomb_world_ruins }
+}
+
+cdpd_add_tomb_world_wasteland = {
+	add_blocker = { type = d_tomb_world_wasteland blocked_deposit = none }
+}
+
+cdpd_remove_tomb_world_wasteland = {
+	cdpd_remove_instance = { DEPOSIT = d_tomb_world_wasteland }
+}
+
+cdpd_add_toxic_atmosphere = {
+	add_blocker = { type = d_toxic_atmosphere blocked_deposit = none }
+	cdpd_increment_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_remove_toxic_atmosphere = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_atmosphere }
+	cdpd_decrement_counter = { COUNTER = pyrolatry_var }
+}
+
+cdpd_add_toxic_god_blight_upon_the_land = {
+	add_deposit = d_toxic_god_blight_upon_the_land
+}
+
+cdpd_remove_toxic_god_blight_upon_the_land = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_blight_upon_the_land }
+}
+
+cdpd_add_toxic_god_blight_upon_the_land_upgraded = {
+	add_deposit = d_toxic_god_blight_upon_the_land_upgraded
+}
+
+cdpd_remove_toxic_god_blight_upon_the_land_upgraded = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_blight_upon_the_land_upgraded }
+}
+
+cdpd_add_toxic_god_deitys_swarms = {
+	add_deposit = d_toxic_god_deitys_swarms
+}
+
+cdpd_remove_toxic_god_deitys_swarms = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_deitys_swarms }
+}
+
+cdpd_add_toxic_god_deitys_swarms_upgraded = {
+	add_deposit = d_toxic_god_deitys_swarms_upgraded
+}
+
+cdpd_remove_toxic_god_deitys_swarms_upgraded = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_deitys_swarms_upgraded }
+}
+
+cdpd_add_toxic_god_envenomed_seas = {
+	add_deposit = d_toxic_god_envenomed_seas
+}
+
+cdpd_remove_toxic_god_envenomed_seas = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_envenomed_seas }
+}
+
+cdpd_add_toxic_god_envenomed_seas_upgraded = {
+	add_deposit = d_toxic_god_envenomed_seas_upgraded
+}
+
+cdpd_remove_toxic_god_envenomed_seas_upgraded = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_envenomed_seas_upgraded }
+}
+
+cdpd_add_toxic_god_pestilential_wasteland = {
+	add_deposit = d_toxic_god_pestilential_wasteland
+}
+
+cdpd_remove_toxic_god_pestilential_wasteland = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_pestilential_wasteland }
+}
+
+cdpd_add_toxic_god_pestilential_wasteland_upgraded = {
+	add_deposit = d_toxic_god_pestilential_wasteland_upgraded
+}
+
+cdpd_remove_toxic_god_pestilential_wasteland_upgraded = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_pestilential_wasteland_upgraded }
+}
+
+cdpd_add_toxic_god_pools_most_venemous = {
+	add_deposit = d_toxic_god_pools_most_venemous
+}
+
+cdpd_remove_toxic_god_pools_most_venemous = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_pools_most_venemous }
+}
+
+cdpd_add_toxic_god_pools_most_venemous_upgraded = {
+	add_deposit = d_toxic_god_pools_most_venemous_upgraded
+}
+
+cdpd_remove_toxic_god_pools_most_venemous_upgraded = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_god_pools_most_venemous_upgraded }
+}
+
+cdpd_add_toxic_kelp = {
+	add_blocker = { type = d_toxic_kelp blocked_deposit = none }
+}
+
+cdpd_remove_toxic_kelp = {
+	cdpd_remove_instance = { DEPOSIT = d_toxic_kelp }
+}
+
+cdpd_add_toy_factory_complex = {
+	add_deposit = d_toy_factory_complex
+}
+
+cdpd_remove_toy_factory_complex = {
+	cdpd_remove_instance = { DEPOSIT = d_toy_factory_complex }
+}
+
+cdpd_add_trade_value_1 = {
+	add_deposit = d_trade_value_1
+}
+
+cdpd_remove_trade_value_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_1 }
+}
+
+cdpd_add_trade_value_10 = {
+	add_deposit = d_trade_value_10
+}
+
+cdpd_remove_trade_value_10 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_10 }
+}
+
+cdpd_add_trade_value_2 = {
+	add_deposit = d_trade_value_2
+}
+
+cdpd_remove_trade_value_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_2 }
+}
+
+cdpd_add_trade_value_3 = {
+	add_deposit = d_trade_value_3
+}
+
+cdpd_remove_trade_value_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_3 }
+}
+
+cdpd_add_trade_value_4 = {
+	add_deposit = d_trade_value_4
+}
+
+cdpd_remove_trade_value_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_4 }
+}
+
+cdpd_add_trade_value_5 = {
+	add_deposit = d_trade_value_5
+}
+
+cdpd_remove_trade_value_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_5 }
+}
+
+cdpd_add_trade_value_6 = {
+	add_deposit = d_trade_value_6
+}
+
+cdpd_remove_trade_value_6 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_6 }
+}
+
+cdpd_add_trade_value_7 = {
+	add_deposit = d_trade_value_7
+}
+
+cdpd_remove_trade_value_7 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_7 }
+}
+
+cdpd_add_trade_value_8 = {
+	add_deposit = d_trade_value_8
+}
+
+cdpd_remove_trade_value_8 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_8 }
+}
+
+cdpd_add_trade_value_9 = {
+	add_deposit = d_trade_value_9
+}
+
+cdpd_remove_trade_value_9 = {
+	cdpd_remove_instance = { DEPOSIT = d_trade_value_9 }
+}
+
+cdpd_add_treasure_planet = {
+	add_deposit = d_treasure_planet
+}
+
+cdpd_remove_treasure_planet = {
+	cdpd_remove_instance = { DEPOSIT = d_treasure_planet }
+}
+
+cdpd_add_tree_of_life_colony = {
+	add_deposit = d_tree_of_life_colony
+}
+
+cdpd_remove_tree_of_life_colony = {
+	cdpd_remove_instance = { DEPOSIT = d_tree_of_life_colony }
+}
+
+cdpd_add_tree_of_life_home = {
+	add_deposit = d_tree_of_life_home
+}
+
+cdpd_remove_tree_of_life_home = {
+	cdpd_remove_instance = { DEPOSIT = d_tree_of_life_home }
+}
+
+cdpd_add_trophy_hall = {
+	add_deposit = d_trophy_hall
+}
+
+cdpd_remove_trophy_hall = {
+	cdpd_remove_instance = { DEPOSIT = d_trophy_hall }
+}
+
+cdpd_add_tropical_island = {
+	add_deposit = d_tropical_island
+}
+
+cdpd_remove_tropical_island = {
+	cdpd_remove_instance = { DEPOSIT = d_tropical_island }
+}
+
+cdpd_add_turtle_corpse = {
+	add_deposit = d_turtle_corpse
+}
+
+cdpd_remove_turtle_corpse = {
+	cdpd_remove_instance = { DEPOSIT = d_turtle_corpse }
+}
+
+cdpd_add_turtle_miner = {
+	add_deposit = d_turtle_miner
+}
+
+cdpd_remove_turtle_miner = {
+	cdpd_remove_instance = { DEPOSIT = d_turtle_miner }
+}
+
+cdpd_add_underground_contact_zone = {
+	add_deposit = d_underground_contact_zone
+}
+
+cdpd_remove_underground_contact_zone = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_contact_zone }
+}
+
+cdpd_add_underground_farm = {
+	add_deposit = d_underground_farm
+}
+
+cdpd_remove_underground_farm = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_farm }
+}
+
+cdpd_remove_underground_farm_blocked = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_farm_blocked }
+}
+
+cdpd_add_underground_farm_dead = {
+	add_blocker = { type = d_underground_farm_dead blocked_deposit = none }
+}
+
+cdpd_remove_underground_farm_dead = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_farm_dead }
+}
+
+cdpd_add_underground_generator = {
+	add_deposit = d_underground_generator
+}
+
+cdpd_remove_underground_generator = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_generator }
+}
+
+cdpd_remove_underground_generator_blocked = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_generator_blocked }
+}
+
+cdpd_add_underground_generator_dead = {
+	add_blocker = { type = d_underground_generator_dead blocked_deposit = none }
+}
+
+cdpd_remove_underground_generator_dead = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_generator_dead }
+}
+
+cdpd_add_underground_mine = {
+	add_deposit = d_underground_mine
+}
+
+cdpd_remove_underground_mine = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_mine }
+}
+
+cdpd_remove_underground_mine_blocked = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_mine_blocked }
+}
+
+cdpd_add_underground_mine_dead = {
+	add_blocker = { type = d_underground_mine_dead blocked_deposit = none }
+}
+
+cdpd_remove_underground_mine_dead = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_mine_dead }
+}
+
+cdpd_add_underground_vault = {
+	add_deposit = d_underground_vault
+}
+
+cdpd_remove_underground_vault = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_vault }
+}
+
+cdpd_add_underground_vault_2 = {
+	add_deposit = d_underground_vault_2
+}
+
+cdpd_remove_underground_vault_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_underground_vault_2 }
+}
+
+cdpd_add_underwater_vent = {
+	add_deposit = d_underwater_vent
+}
+
+cdpd_remove_underwater_vent = {
+	cdpd_remove_instance = { DEPOSIT = d_underwater_vent }
+}
+
+cdpd_add_unpleasant_atmosphere = {
+	add_blocker = { type = d_unpleasant_atmosphere blocked_deposit = none }
+}
+
+cdpd_remove_unpleasant_atmosphere = {
+	cdpd_remove_instance = { DEPOSIT = d_unpleasant_atmosphere }
+}
+
+cdpd_add_unplugged_assimilator_hulk = {
+	add_blocker = { type = d_unplugged_assimilator_hulk blocked_deposit = none }
+}
+
+cdpd_remove_unplugged_assimilator_hulk = {
+	cdpd_remove_instance = { DEPOSIT = d_unplugged_assimilator_hulk }
+}
+
+cdpd_add_unsupervised_settlement = {
+	add_blocker = { type = d_unsupervised_settlement blocked_deposit = none }
+}
+
+cdpd_remove_unsupervised_settlement = {
+	cdpd_remove_instance = { DEPOSIT = d_unsupervised_settlement }
+}
+
+cdpd_add_valley_of_zanaam = {
+	add_deposit = d_valley_of_zanaam
+}
+
+cdpd_remove_valley_of_zanaam = {
+	cdpd_remove_instance = { DEPOSIT = d_valley_of_zanaam }
+}
+
+cdpd_add_vast_unity_deposit = {
+	add_deposit = d_vast_unity_deposit
+}
+
+cdpd_remove_vast_unity_deposit = {
+	cdpd_remove_instance = { DEPOSIT = d_vast_unity_deposit }
+}
+
+cdpd_add_veiny_cliffs = {
+	add_deposit = d_veiny_cliffs
+}
+
+cdpd_remove_veiny_cliffs = {
+	cdpd_remove_instance = { DEPOSIT = d_veiny_cliffs }
+}
+
+cdpd_add_venomous_insects = {
+	add_blocker = { type = d_venomous_insects blocked_deposit = none }
+}
+
+cdpd_remove_venomous_insects = {
+	cdpd_remove_instance = { DEPOSIT = d_venomous_insects }
+}
+
+cdpd_add_virtual_power_medium = {
+	add_deposit = d_virtual_power_medium
+}
+
+cdpd_remove_virtual_power_medium = {
+	cdpd_remove_instance = { DEPOSIT = d_virtual_power_medium }
+}
+
+cdpd_add_virtual_power_small = {
+	add_deposit = d_virtual_power_small
+}
+
+cdpd_remove_virtual_power_small = {
+	cdpd_remove_instance = { DEPOSIT = d_virtual_power_small }
+}
+
+cdpd_add_virtual_power_tiny = {
+	add_deposit = d_virtual_power_tiny
+}
+
+cdpd_remove_virtual_power_tiny = {
+	cdpd_remove_instance = { DEPOSIT = d_virtual_power_tiny }
+}
+
+cdpd_add_volatile_motes_1 = {
+	add_deposit = d_volatile_motes_1
+}
+
+cdpd_remove_volatile_motes_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_volatile_motes_1 }
+}
+
+cdpd_add_volatile_motes_2 = {
+	add_deposit = d_volatile_motes_2
+}
+
+cdpd_remove_volatile_motes_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_volatile_motes_2 }
+}
+
+cdpd_add_volatile_motes_3 = {
+	add_deposit = d_volatile_motes_3
+}
+
+cdpd_remove_volatile_motes_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_volatile_motes_3 }
+}
+
+cdpd_add_volatile_motes_4 = {
+	add_deposit = d_volatile_motes_4
+}
+
+cdpd_remove_volatile_motes_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_volatile_motes_4 }
+}
+
+cdpd_add_volatile_motes_5 = {
+	add_deposit = d_volatile_motes_5
+}
+
+cdpd_remove_volatile_motes_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_volatile_motes_5 }
+}
+
+cdpd_add_volcanic_active_planet = {
+	add_deposit = d_volcanic_active_planet
+}
+
+cdpd_remove_volcanic_active_planet = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_active_planet }
+}
+
+cdpd_add_volcanic_basalt_plains = {
+	add_deposit = d_volcanic_basalt_plains
+}
+
+cdpd_remove_volcanic_basalt_plains = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_basalt_plains }
+}
+
+cdpd_add_volcanic_dried_lavariver = {
+	add_deposit = d_volcanic_dried_lavariver
+}
+
+cdpd_remove_volcanic_dried_lavariver = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_dried_lavariver }
+}
+
+cdpd_add_volcanic_fumarole = {
+	add_deposit = d_volcanic_fumarole
+}
+
+cdpd_remove_volcanic_fumarole = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_fumarole }
+}
+
+cdpd_add_volcanic_intraplate = {
+	add_deposit = d_volcanic_intraplate
+}
+
+cdpd_remove_volcanic_intraplate = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_intraplate }
+}
+
+cdpd_add_volcanic_lava_river = {
+	add_deposit = d_volcanic_lava_river
+}
+
+cdpd_remove_volcanic_lava_river = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_lava_river }
+}
+
+cdpd_add_volcanic_mineral_fields = {
+	add_deposit = d_volcanic_mineral_fields
+}
+
+cdpd_remove_volcanic_mineral_fields = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_mineral_fields }
+}
+
+cdpd_add_volcanic_mineral_hills = {
+	add_deposit = d_volcanic_mineral_hills
+}
+
+cdpd_remove_volcanic_mineral_hills = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_mineral_hills }
+}
+
+cdpd_add_volcanic_mineral_layers = {
+	add_deposit = d_volcanic_mineral_layers
+}
+
+cdpd_remove_volcanic_mineral_layers = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_mineral_layers }
+}
+
+cdpd_add_volcanic_ore_caverns = {
+	add_deposit = d_volcanic_ore_caverns
+}
+
+cdpd_remove_volcanic_ore_caverns = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_ore_caverns }
+}
+
+cdpd_add_volcanic_ore_veins = {
+	add_deposit = d_volcanic_ore_veins
+}
+
+cdpd_remove_volcanic_ore_veins = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_ore_veins }
+}
+
+cdpd_add_volcanic_rich_mountain = {
+	add_deposit = d_volcanic_rich_mountain
+}
+
+cdpd_remove_volcanic_rich_mountain = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_rich_mountain }
+}
+
+cdpd_add_volcanic_stable_plateaus = {
+	add_deposit = d_volcanic_stable_plateaus
+}
+
+cdpd_remove_volcanic_stable_plateaus = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_stable_plateaus }
+}
+
+cdpd_add_volcanic_stifling_atmosphere = {
+	add_deposit = d_volcanic_stifling_atmosphere
+}
+
+cdpd_remove_volcanic_stifling_atmosphere = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_stifling_atmosphere }
+}
+
+cdpd_add_volcanic_sulfur_lava = {
+	add_deposit = d_volcanic_sulfur_lava
+}
+
+cdpd_remove_volcanic_sulfur_lava = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_sulfur_lava }
+}
+
+cdpd_add_volcanic_tranquil_flatlands = {
+	add_deposit = d_volcanic_tranquil_flatlands
+}
+
+cdpd_remove_volcanic_tranquil_flatlands = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_tranquil_flatlands }
+}
+
+cdpd_add_volcanic_tunnels = {
+	add_deposit = d_volcanic_tunnels
+}
+
+cdpd_remove_volcanic_tunnels = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_tunnels }
+}
+
+cdpd_add_volcanic_weak_crust = {
+	add_deposit = d_volcanic_weak_crust
+}
+
+cdpd_remove_volcanic_weak_crust = {
+	cdpd_remove_instance = { DEPOSIT = d_volcanic_weak_crust }
+}
+
+cdpd_remove_wandering_forests = {
+	cdpd_remove_instance = { DEPOSIT = d_wandering_forests }
+}
+
+cdpd_add_weapon_extraction_facility = {
+	add_deposit = d_weapon_extraction_facility
+}
+
+cdpd_remove_weapon_extraction_facility = {
+	cdpd_remove_instance = { DEPOSIT = d_weapon_extraction_facility }
+}
+
+cdpd_add_wetware_computer = {
+	add_deposit = d_wetware_computer
+}
+
+cdpd_remove_wetware_computer = {
+	cdpd_remove_instance = { DEPOSIT = d_wetware_computer }
+}
+
+cdpd_add_wilderness_city = {
+	add_blocker = { type = d_wilderness_city blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_city = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_city }
+}
+
+cdpd_add_wilderness_city_2 = {
+	add_blocker = { type = d_wilderness_city_2 blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_city_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_city_2 }
+}
+
+cdpd_add_wilderness_farming = {
+	add_blocker = { type = d_wilderness_farming blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_farming = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_farming }
+}
+
+cdpd_add_wilderness_farming_2 = {
+	add_blocker = { type = d_wilderness_farming_2 blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_farming_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_farming_2 }
+}
+
+cdpd_add_wilderness_generator = {
+	add_blocker = { type = d_wilderness_generator blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_generator = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_generator }
+}
+
+cdpd_add_wilderness_generator_2 = {
+	add_blocker = { type = d_wilderness_generator_2 blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_generator_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_generator_2 }
+}
+
+cdpd_add_wilderness_glade_blocker = {
+	add_blocker = { type = d_wilderness_glade_blocker blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_glade_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_glade_blocker }
+}
+
+cdpd_remove_wilderness_industrial = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_industrial }
+}
+
+cdpd_remove_wilderness_industrial_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_industrial_2 }
+}
+
+cdpd_add_wilderness_mining = {
+	add_blocker = { type = d_wilderness_mining blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_mining = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_mining }
+}
+
+cdpd_add_wilderness_mining_2 = {
+	add_blocker = { type = d_wilderness_mining_2 blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_mining_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_mining_2 }
+}
+
+cdpd_add_wilderness_root_blocker = {
+	add_blocker = { type = d_wilderness_root_blocker blocked_deposit = none }
+}
+
+cdpd_remove_wilderness_root_blocker = {
+	cdpd_remove_instance = { DEPOSIT = d_wilderness_root_blocker }
+}
+
+cdpd_add_worm_farm = {
+	add_deposit = d_worm_farm
+}
+
+cdpd_remove_worm_farm = {
+	cdpd_remove_instance = { DEPOSIT = d_worm_farm }
+}
+
+cdpd_add_worm_mine = {
+	add_deposit = d_worm_mine
+}
+
+cdpd_remove_worm_mine = {
+	cdpd_remove_instance = { DEPOSIT = d_worm_mine }
+}
+
+cdpd_add_zro_deposit_1 = {
+	add_deposit = d_zro_deposit_1
+}
+
+cdpd_remove_zro_deposit_1 = {
+	cdpd_remove_instance = { DEPOSIT = d_zro_deposit_1 }
+}
+
+cdpd_add_zro_deposit_2 = {
+	add_deposit = d_zro_deposit_2
+}
+
+cdpd_remove_zro_deposit_2 = {
+	cdpd_remove_instance = { DEPOSIT = d_zro_deposit_2 }
+}
+
+cdpd_add_zro_deposit_3 = {
+	add_deposit = d_zro_deposit_3
+}
+
+cdpd_remove_zro_deposit_3 = {
+	cdpd_remove_instance = { DEPOSIT = d_zro_deposit_3 }
+}
+
+cdpd_add_zro_deposit_4 = {
+	add_deposit = d_zro_deposit_4
+}
+
+cdpd_remove_zro_deposit_4 = {
+	cdpd_remove_instance = { DEPOSIT = d_zro_deposit_4 }
+}
+
+cdpd_add_zro_deposit_5 = {
+	add_deposit = d_zro_deposit_5
+}
+
+cdpd_remove_zro_deposit_5 = {
+	cdpd_remove_instance = { DEPOSIT = d_zro_deposit_5 }
+}

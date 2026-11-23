@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_blue_lava
+	NATIVE_PREVIEW = "add_deposit = d_blue_lava"
+	LABEL = cdpd_$MODE$_blue_lava_label
+	TIP = cdpd_$MODE$_blue_lava_tip
+	VISIBLE = cdpd_$MODE$_blue_lava_visible
+	ACTION = cdpd_$MODE$_blue_lava
+	SCREEN = $SCREEN$
+}

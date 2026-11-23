@@ -1,0 +1,97 @@
+namespace = rb_sdm
+
+# Public entry point. ROOT is the human country, rb_sdm_target the selected object.
+country_event = {
+	id = rb_sdm.1
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = no
+		exists = event_target:rb_sdm_target
+		NOT = { has_country_flag = rb_sdm_session_open }
+	}
+	immediate = {
+		set_country_flag = rb_sdm_session_open
+		country_event = { id = rb_sdm.2 }
+	}
+}
+
+country_event = {
+	id = rb_sdm.2
+	title = rb_sdm_title
+	desc = rb_sdm_root_desc
+	picture = GFX_evt_alien_planet
+	is_triggered_only = yes
+	option = {
+		name = rb_sdm_demo_section
+		trigger = { exists = event_target:rb_sdm_target }
+		hidden_effect = {
+			set_variable = { which = rb_sdm_page value = 1 }
+			rb_sdm_visit = { SCREEN = rb_sdm.3 }
+		}
+	}
+	inline_script = rb_sdm/rb_sdm_close
+}
+
+country_event = {
+	id = rb_sdm.3
+	title = rb_sdm_demo_section
+	desc = {
+		trigger = { check_variable = { which = rb_sdm_count value > 0 } }
+		text = rb_sdm_page_desc
+	}
+	desc = {
+		trigger = { check_variable = { which = rb_sdm_count value = 0 } }
+		text = rb_sdm_empty_desc
+	}
+	picture = GFX_evt_alien_planet
+	is_triggered_only = yes
+	immediate = {
+		rb_sdm_begin_count = { SIZE = 10 }
+		inline_script = {
+			script = rb_sdm/rb_sdm_catalog_demo
+			PASS = rank
+			SCREEN = rb_sdm.3
+		}
+		rb_sdm_set_bounds = yes
+	}
+	inline_script = {
+		script = rb_sdm/rb_sdm_catalog_demo
+		PASS = option
+		SCREEN = rb_sdm.3
+	}
+	inline_script = {
+		script = rb_sdm/rb_sdm_navigation
+		SCREEN = rb_sdm.3
+		PARENT = rb_sdm.2
+	}
+}
+
+country_event = {
+	id = rb_sdm.4
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		is_ai = yes
+		rb_sdm_open_menu_ai_enabled = yes
+		exists = event_target:rb_sdm_target
+		NOT = { has_country_flag = rb_sdm_session_open }
+	}
+	immediate = {
+		inline_script = {
+			script = rb_sdm/rb_sdm_catalog_demo
+			PASS = demo_ai
+			SCREEN = rb_sdm.3
+		}
+		remove_country_flag = rb_sdm_ai_picked
+		country_event = { id = rb_sdm.5 }
+	}
+}
+
+# A separate event keeps catalog cleanup outside the expansion of a catalog entry.
+country_event = {
+	id = rb_sdm.5
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = { rb_sdm_end_session = yes }
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_space_time_anomaly
+	NATIVE_PREVIEW = "add_deposit = d_space_time_anomaly custom_tooltip = cdpd_space_time_anomaly_properties"
+	LABEL = cdpd_$MODE$_space_time_anomaly_label
+	TIP = cdpd_$MODE$_space_time_anomaly_tip
+	VISIBLE = cdpd_$MODE$_space_time_anomaly_visible
+	ACTION = cdpd_$MODE$_space_time_anomaly
+	SCREEN = $SCREEN$
+}

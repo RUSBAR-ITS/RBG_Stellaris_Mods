@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_knights_calibrator
+	NATIVE_PREVIEW = "add_deposit = d_knights_calibrator"
+	LABEL = cdpd_$MODE$_knights_calibrator_label
+	TIP = cdpd_$MODE$_knights_calibrator_tip
+	VISIBLE = cdpd_$MODE$_knights_calibrator_visible
+	ACTION = cdpd_$MODE$_knights_calibrator
+	SCREEN = $SCREEN$
+}

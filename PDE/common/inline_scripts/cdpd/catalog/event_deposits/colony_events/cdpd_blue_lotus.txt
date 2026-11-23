@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crater_bluelotus
+	NATIVE_PREVIEW = "add_deposit = d_crater_bluelotus"
+	LABEL = cdpd_$MODE$_crater_bluelotus_label
+	TIP = cdpd_$MODE$_crater_bluelotus_tip
+	VISIBLE = cdpd_$MODE$_crater_bluelotus_visible
+	ACTION = cdpd_$MODE$_crater_bluelotus
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_impossiblecorrie
+	NATIVE_PREVIEW = "add_deposit = d_impossiblecorrie"
+	LABEL = cdpd_$MODE$_impossiblecorrie_label
+	TIP = cdpd_$MODE$_impossiblecorrie_tip
+	VISIBLE = cdpd_$MODE$_impossiblecorrie_visible
+	ACTION = cdpd_$MODE$_impossiblecorrie
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_bluelotus
+	NATIVE_PREVIEW = "add_deposit = d_bluelotus custom_tooltip = cdpd_bluelotus_additional"
+	LABEL = cdpd_$MODE$_bluelotus_label
+	TIP = cdpd_$MODE$_bluelotus_tip
+	VISIBLE = cdpd_$MODE$_bluelotus_visible
+	ACTION = cdpd_$MODE$_bluelotus
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_bluelotus2
+	NATIVE_PREVIEW = "add_deposit = d_bluelotus2 custom_tooltip = cdpd_bluelotus2_additional"
+	LABEL = cdpd_$MODE$_bluelotus2_label
+	TIP = cdpd_$MODE$_bluelotus2_tip
+	VISIBLE = cdpd_$MODE$_bluelotus2_visible
+	ACTION = cdpd_$MODE$_bluelotus2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ruin_bluelotus
+	NATIVE_PREVIEW = "add_deposit = d_ruin_bluelotus"
+	LABEL = cdpd_$MODE$_ruin_bluelotus_label
+	TIP = cdpd_$MODE$_ruin_bluelotus_tip
+	VISIBLE = cdpd_$MODE$_ruin_bluelotus_visible
+	ACTION = cdpd_$MODE$_ruin_bluelotus
+	SCREEN = $SCREEN$
+}

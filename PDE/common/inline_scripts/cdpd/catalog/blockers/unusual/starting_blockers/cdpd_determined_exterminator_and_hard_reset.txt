@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_former_battlefield
+	NATIVE_PREVIEW = "add_blocker = { type = d_former_battlefield blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_former_battlefield_label
+	TIP = cdpd_$MODE$_former_battlefield_tip
+	VISIBLE = cdpd_$MODE$_former_battlefield_visible
+	ACTION = cdpd_$MODE$_former_battlefield
+	SCREEN = $SCREEN$
+}

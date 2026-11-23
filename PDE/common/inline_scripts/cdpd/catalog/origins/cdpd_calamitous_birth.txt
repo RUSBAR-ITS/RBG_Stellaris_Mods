@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_lithoid_crater
+	NATIVE_PREVIEW = "add_deposit = d_lithoid_crater custom_tooltip = cdpd_lithoid_crater_additional"
+	LABEL = cdpd_$MODE$_lithoid_crater_label
+	TIP = cdpd_$MODE$_lithoid_crater_tip
+	VISIBLE = cdpd_$MODE$_lithoid_crater_visible
+	ACTION = cdpd_$MODE$_lithoid_crater
+	SCREEN = $SCREEN$
+}

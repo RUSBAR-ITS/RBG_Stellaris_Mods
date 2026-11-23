@@ -1,0 +1,65 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_food_3
+	NATIVE_PREVIEW = "add_deposit = d_food_3 custom_tooltip = cdpd_food_3_properties"
+	LABEL = cdpd_$MODE$_food_3_label
+	TIP = cdpd_$MODE$_food_3_tip
+	VISIBLE = cdpd_$MODE$_food_3_visible
+	ACTION = cdpd_$MODE$_food_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_food_4
+	NATIVE_PREVIEW = "add_deposit = d_food_4 custom_tooltip = cdpd_food_4_properties"
+	LABEL = cdpd_$MODE$_food_4_label
+	TIP = cdpd_$MODE$_food_4_tip
+	VISIBLE = cdpd_$MODE$_food_4_visible
+	ACTION = cdpd_$MODE$_food_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_food_5
+	NATIVE_PREVIEW = "add_deposit = d_food_5 custom_tooltip = cdpd_food_5_properties"
+	LABEL = cdpd_$MODE$_food_5_label
+	TIP = cdpd_$MODE$_food_5_tip
+	VISIBLE = cdpd_$MODE$_food_5_visible
+	ACTION = cdpd_$MODE$_food_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_food_6
+	NATIVE_PREVIEW = "add_deposit = d_food_6 custom_tooltip = cdpd_food_6_properties"
+	LABEL = cdpd_$MODE$_food_6_label
+	TIP = cdpd_$MODE$_food_6_tip
+	VISIBLE = cdpd_$MODE$_food_6_visible
+	ACTION = cdpd_$MODE$_food_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_food_7
+	NATIVE_PREVIEW = "add_deposit = d_food_7 custom_tooltip = cdpd_food_7_properties"
+	LABEL = cdpd_$MODE$_food_7_label
+	TIP = cdpd_$MODE$_food_7_tip
+	VISIBLE = cdpd_$MODE$_food_7_visible
+	ACTION = cdpd_$MODE$_food_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_food_10
+	NATIVE_PREVIEW = "add_deposit = d_food_10 custom_tooltip = cdpd_food_10_properties"
+	LABEL = cdpd_$MODE$_food_10_label
+	TIP = cdpd_$MODE$_food_10_tip
+	VISIBLE = cdpd_$MODE$_food_10_visible
+	ACTION = cdpd_$MODE$_food_10
+	SCREEN = $SCREEN$
+}

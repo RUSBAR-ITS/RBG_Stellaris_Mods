@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_living_metal_deposit
+	NATIVE_PREVIEW = "add_deposit = d_living_metal_deposit custom_tooltip = cdpd_living_metal_deposit_properties"
+	LABEL = cdpd_$MODE$_living_metal_deposit_label
+	TIP = cdpd_$MODE$_living_metal_deposit_tip
+	VISIBLE = cdpd_$MODE$_living_metal_deposit_visible
+	ACTION = cdpd_$MODE$_living_metal_deposit
+	SCREEN = $SCREEN$
+}

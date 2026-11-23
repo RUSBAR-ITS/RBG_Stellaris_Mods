@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ruined_hive_dwelling
+	NATIVE_PREVIEW = "add_deposit = d_ruined_hive_dwelling"
+	LABEL = cdpd_$MODE$_ruined_hive_dwelling_label
+	TIP = cdpd_$MODE$_ruined_hive_dwelling_tip
+	VISIBLE = cdpd_$MODE$_ruined_hive_dwelling_visible
+	ACTION = cdpd_$MODE$_ruined_hive_dwelling
+	SCREEN = $SCREEN$
+}

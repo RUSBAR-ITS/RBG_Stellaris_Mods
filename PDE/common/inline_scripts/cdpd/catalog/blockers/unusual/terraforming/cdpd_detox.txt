@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_tainted_snowcaps
+	NATIVE_PREVIEW = "add_blocker = { type = d_tainted_snowcaps blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_tainted_snowcaps_label
+	TIP = cdpd_$MODE$_tainted_snowcaps_tip
+	VISIBLE = cdpd_$MODE$_tainted_snowcaps_visible
+	ACTION = cdpd_$MODE$_tainted_snowcaps
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_unpleasant_atmosphere
+	NATIVE_PREVIEW = "add_blocker = { type = d_unpleasant_atmosphere blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_unpleasant_atmosphere_label
+	TIP = cdpd_$MODE$_unpleasant_atmosphere_tip
+	VISIBLE = cdpd_$MODE$_unpleasant_atmosphere_visible
+	ACTION = cdpd_$MODE$_unpleasant_atmosphere
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_venomous_insects
+	NATIVE_PREVIEW = "add_blocker = { type = d_venomous_insects blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_venomous_insects_label
+	TIP = cdpd_$MODE$_venomous_insects_tip
+	VISIBLE = cdpd_$MODE$_venomous_insects_visible
+	ACTION = cdpd_$MODE$_venomous_insects
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_poisonous_algae
+	NATIVE_PREVIEW = "add_blocker = { type = d_poisonous_algae blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_poisonous_algae_label
+	TIP = cdpd_$MODE$_poisonous_algae_tip
+	VISIBLE = cdpd_$MODE$_poisonous_algae_visible
+	ACTION = cdpd_$MODE$_poisonous_algae
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rotten_soil
+	NATIVE_PREVIEW = "add_blocker = { type = d_rotten_soil blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_rotten_soil_label
+	TIP = cdpd_$MODE$_rotten_soil_tip
+	VISIBLE = cdpd_$MODE$_rotten_soil_visible
+	ACTION = cdpd_$MODE$_rotten_soil
+	SCREEN = $SCREEN$
+}

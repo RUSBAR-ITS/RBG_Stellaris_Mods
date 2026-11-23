@@ -1,0 +1,131 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_1
+	NATIVE_PREVIEW = "add_deposit = d_society_1 custom_tooltip = cdpd_society_1_properties"
+	LABEL = cdpd_$MODE$_society_1_label
+	TIP = cdpd_$MODE$_society_1_tip
+	VISIBLE = cdpd_$MODE$_society_1_visible
+	ACTION = cdpd_$MODE$_society_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_2
+	NATIVE_PREVIEW = "add_deposit = d_society_2 custom_tooltip = cdpd_society_2_properties"
+	LABEL = cdpd_$MODE$_society_2_label
+	TIP = cdpd_$MODE$_society_2_tip
+	VISIBLE = cdpd_$MODE$_society_2_visible
+	ACTION = cdpd_$MODE$_society_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_3
+	NATIVE_PREVIEW = "add_deposit = d_society_3 custom_tooltip = cdpd_society_3_properties"
+	LABEL = cdpd_$MODE$_society_3_label
+	TIP = cdpd_$MODE$_society_3_tip
+	VISIBLE = cdpd_$MODE$_society_3_visible
+	ACTION = cdpd_$MODE$_society_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_4
+	NATIVE_PREVIEW = "add_deposit = d_society_4 custom_tooltip = cdpd_society_4_properties"
+	LABEL = cdpd_$MODE$_society_4_label
+	TIP = cdpd_$MODE$_society_4_tip
+	VISIBLE = cdpd_$MODE$_society_4_visible
+	ACTION = cdpd_$MODE$_society_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_5
+	NATIVE_PREVIEW = "add_deposit = d_society_5 custom_tooltip = cdpd_society_5_properties"
+	LABEL = cdpd_$MODE$_society_5_label
+	TIP = cdpd_$MODE$_society_5_tip
+	VISIBLE = cdpd_$MODE$_society_5_visible
+	ACTION = cdpd_$MODE$_society_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_6
+	NATIVE_PREVIEW = "add_deposit = d_society_6 custom_tooltip = cdpd_society_6_properties"
+	LABEL = cdpd_$MODE$_society_6_label
+	TIP = cdpd_$MODE$_society_6_tip
+	VISIBLE = cdpd_$MODE$_society_6_visible
+	ACTION = cdpd_$MODE$_society_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_7
+	NATIVE_PREVIEW = "add_deposit = d_society_7 custom_tooltip = cdpd_society_7_properties"
+	LABEL = cdpd_$MODE$_society_7_label
+	TIP = cdpd_$MODE$_society_7_tip
+	VISIBLE = cdpd_$MODE$_society_7_visible
+	ACTION = cdpd_$MODE$_society_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_8
+	NATIVE_PREVIEW = "add_deposit = d_society_8 custom_tooltip = cdpd_society_8_properties"
+	LABEL = cdpd_$MODE$_society_8_label
+	TIP = cdpd_$MODE$_society_8_tip
+	VISIBLE = cdpd_$MODE$_society_8_visible
+	ACTION = cdpd_$MODE$_society_8
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_9
+	NATIVE_PREVIEW = "add_deposit = d_society_9 custom_tooltip = cdpd_society_9_properties"
+	LABEL = cdpd_$MODE$_society_9_label
+	TIP = cdpd_$MODE$_society_9_tip
+	VISIBLE = cdpd_$MODE$_society_9_visible
+	ACTION = cdpd_$MODE$_society_9
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_10
+	NATIVE_PREVIEW = "add_deposit = d_society_10 custom_tooltip = cdpd_society_10_properties"
+	LABEL = cdpd_$MODE$_society_10_label
+	TIP = cdpd_$MODE$_society_10_tip
+	VISIBLE = cdpd_$MODE$_society_10_visible
+	ACTION = cdpd_$MODE$_society_10
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_15
+	NATIVE_PREVIEW = "add_deposit = d_society_15 custom_tooltip = cdpd_society_15_properties"
+	LABEL = cdpd_$MODE$_society_15_label
+	TIP = cdpd_$MODE$_society_15_tip
+	VISIBLE = cdpd_$MODE$_society_15_visible
+	ACTION = cdpd_$MODE$_society_15
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_society_25
+	NATIVE_PREVIEW = "add_deposit = d_society_25 custom_tooltip = cdpd_society_25_properties"
+	LABEL = cdpd_$MODE$_society_25_label
+	TIP = cdpd_$MODE$_society_25_tip
+	VISIBLE = cdpd_$MODE$_society_25_visible
+	ACTION = cdpd_$MODE$_society_25
+	SCREEN = $SCREEN$
+}

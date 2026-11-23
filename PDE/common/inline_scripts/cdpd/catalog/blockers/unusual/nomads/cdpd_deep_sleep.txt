@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_deep_sleep_cryo_pods
+	NATIVE_PREVIEW = "add_blocker = { type = d_deep_sleep_cryo_pods blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_deep_sleep_cryo_pods_label
+	TIP = cdpd_$MODE$_deep_sleep_cryo_pods_tip
+	VISIBLE = cdpd_$MODE$_deep_sleep_cryo_pods_visible
+	ACTION = cdpd_$MODE$_deep_sleep_cryo_pods
+	SCREEN = $SCREEN$
+}

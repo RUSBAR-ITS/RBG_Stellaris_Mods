@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_massive_glacier
+	NATIVE_PREVIEW = "add_blocker = { type = d_massive_glacier blocked_deposit = none } custom_tooltip = cdpd_massive_glacier_additional"
+	LABEL = cdpd_$MODE$_massive_glacier_label
+	TIP = cdpd_$MODE$_massive_glacier_tip
+	VISIBLE = cdpd_$MODE$_massive_glacier_visible
+	ACTION = cdpd_$MODE$_massive_glacier
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_noxious_swamp
+	NATIVE_PREVIEW = "add_blocker = { type = d_noxious_swamp blocked_deposit = none } custom_tooltip = cdpd_noxious_swamp_additional"
+	LABEL = cdpd_$MODE$_noxious_swamp_label
+	TIP = cdpd_$MODE$_noxious_swamp_tip
+	VISIBLE = cdpd_$MODE$_noxious_swamp_visible
+	ACTION = cdpd_$MODE$_noxious_swamp
+	SCREEN = $SCREEN$
+}

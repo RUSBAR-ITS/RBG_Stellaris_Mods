@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fallen_empire_arkship
+	NATIVE_PREVIEW = "add_deposit = d_fallen_empire_arkship"
+	LABEL = cdpd_$MODE$_fallen_empire_arkship_label
+	TIP = cdpd_$MODE$_fallen_empire_arkship_tip
+	VISIBLE = cdpd_$MODE$_fallen_empire_arkship_visible
+	ACTION = cdpd_$MODE$_fallen_empire_arkship
+	SCREEN = $SCREEN$
+}

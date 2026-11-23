@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sprawling_landfill_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_sprawling_landfill_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_sprawling_landfill_blocker_label
+	TIP = cdpd_$MODE$_sprawling_landfill_blocker_tip
+	VISIBLE = cdpd_$MODE$_sprawling_landfill_blocker_visible
+	ACTION = cdpd_$MODE$_sprawling_landfill_blocker
+	SCREEN = $SCREEN$
+}

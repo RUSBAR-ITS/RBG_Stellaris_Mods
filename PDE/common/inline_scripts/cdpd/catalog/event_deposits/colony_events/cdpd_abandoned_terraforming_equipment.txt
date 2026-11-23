@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mutant_landfill
+	NATIVE_PREVIEW = "add_deposit = d_mutant_landfill custom_tooltip = cdpd_mutant_landfill_additional"
+	LABEL = cdpd_$MODE$_mutant_landfill_label
+	TIP = cdpd_$MODE$_mutant_landfill_tip
+	VISIBLE = cdpd_$MODE$_mutant_landfill_visible
+	ACTION = cdpd_$MODE$_mutant_landfill
+	SCREEN = $SCREEN$
+}

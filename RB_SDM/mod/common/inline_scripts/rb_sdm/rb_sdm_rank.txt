@@ -1,0 +1,8 @@
+if = {
+	limit = {
+		exists = event_target:rb_sdm_target
+		event_target:rb_sdm_target = { $VISIBLE$ = yes }
+	}
+	rb_sdm_assign_rank = { ID = $ID$ }
+}
+else = { set_variable = { which = $ID$_rank value = 0 } }

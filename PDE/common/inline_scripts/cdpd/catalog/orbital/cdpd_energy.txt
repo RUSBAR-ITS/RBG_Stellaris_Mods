@@ -1,0 +1,109 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_1
+	NATIVE_PREVIEW = "add_deposit = d_energy_1 custom_tooltip = cdpd_energy_1_properties"
+	LABEL = cdpd_$MODE$_energy_1_label
+	TIP = cdpd_$MODE$_energy_1_tip
+	VISIBLE = cdpd_$MODE$_energy_1_visible
+	ACTION = cdpd_$MODE$_energy_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_2
+	NATIVE_PREVIEW = "add_deposit = d_energy_2 custom_tooltip = cdpd_energy_2_properties"
+	LABEL = cdpd_$MODE$_energy_2_label
+	TIP = cdpd_$MODE$_energy_2_tip
+	VISIBLE = cdpd_$MODE$_energy_2_visible
+	ACTION = cdpd_$MODE$_energy_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_3
+	NATIVE_PREVIEW = "add_deposit = d_energy_3 custom_tooltip = cdpd_energy_3_properties"
+	LABEL = cdpd_$MODE$_energy_3_label
+	TIP = cdpd_$MODE$_energy_3_tip
+	VISIBLE = cdpd_$MODE$_energy_3_visible
+	ACTION = cdpd_$MODE$_energy_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_4
+	NATIVE_PREVIEW = "add_deposit = d_energy_4 custom_tooltip = cdpd_energy_4_properties"
+	LABEL = cdpd_$MODE$_energy_4_label
+	TIP = cdpd_$MODE$_energy_4_tip
+	VISIBLE = cdpd_$MODE$_energy_4_visible
+	ACTION = cdpd_$MODE$_energy_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_5
+	NATIVE_PREVIEW = "add_deposit = d_energy_5 custom_tooltip = cdpd_energy_5_properties"
+	LABEL = cdpd_$MODE$_energy_5_label
+	TIP = cdpd_$MODE$_energy_5_tip
+	VISIBLE = cdpd_$MODE$_energy_5_visible
+	ACTION = cdpd_$MODE$_energy_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_6
+	NATIVE_PREVIEW = "add_deposit = d_energy_6 custom_tooltip = cdpd_energy_6_properties"
+	LABEL = cdpd_$MODE$_energy_6_label
+	TIP = cdpd_$MODE$_energy_6_tip
+	VISIBLE = cdpd_$MODE$_energy_6_visible
+	ACTION = cdpd_$MODE$_energy_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_7
+	NATIVE_PREVIEW = "add_deposit = d_energy_7 custom_tooltip = cdpd_energy_7_properties"
+	LABEL = cdpd_$MODE$_energy_7_label
+	TIP = cdpd_$MODE$_energy_7_tip
+	VISIBLE = cdpd_$MODE$_energy_7_visible
+	ACTION = cdpd_$MODE$_energy_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_8
+	NATIVE_PREVIEW = "add_deposit = d_energy_8 custom_tooltip = cdpd_energy_8_properties"
+	LABEL = cdpd_$MODE$_energy_8_label
+	TIP = cdpd_$MODE$_energy_8_tip
+	VISIBLE = cdpd_$MODE$_energy_8_visible
+	ACTION = cdpd_$MODE$_energy_8
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_9
+	NATIVE_PREVIEW = "add_deposit = d_energy_9 custom_tooltip = cdpd_energy_9_properties"
+	LABEL = cdpd_$MODE$_energy_9_label
+	TIP = cdpd_$MODE$_energy_9_tip
+	VISIBLE = cdpd_$MODE$_energy_9_visible
+	ACTION = cdpd_$MODE$_energy_9
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_energy_10
+	NATIVE_PREVIEW = "add_deposit = d_energy_10 custom_tooltip = cdpd_energy_10_properties"
+	LABEL = cdpd_$MODE$_energy_10_label
+	TIP = cdpd_$MODE$_energy_10_tip
+	VISIBLE = cdpd_$MODE$_energy_10_visible
+	ACTION = cdpd_$MODE$_energy_10
+	SCREEN = $SCREEN$
+}

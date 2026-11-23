@@ -1,0 +1,5 @@
+option = {
+	name = cdpd_close
+	default_hide_option = yes
+	hidden_effect = { country_event = { id = CDPD.3 } }
+}

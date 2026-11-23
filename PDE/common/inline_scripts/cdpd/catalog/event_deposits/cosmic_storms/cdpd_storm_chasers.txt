@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_stormfall_electric
+	NATIVE_PREVIEW = "add_deposit = d_stormfall_electric custom_tooltip = cdpd_stormfall_electric_additional"
+	LABEL = cdpd_$MODE$_stormfall_electric_label
+	TIP = cdpd_$MODE$_stormfall_electric_tip
+	VISIBLE = cdpd_$MODE$_stormfall_electric_visible
+	ACTION = cdpd_$MODE$_stormfall_electric
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_stormfall_magnetic
+	NATIVE_PREVIEW = "add_deposit = d_stormfall_magnetic custom_tooltip = cdpd_stormfall_magnetic_additional"
+	LABEL = cdpd_$MODE$_stormfall_magnetic_label
+	TIP = cdpd_$MODE$_stormfall_magnetic_tip
+	VISIBLE = cdpd_$MODE$_stormfall_magnetic_visible
+	ACTION = cdpd_$MODE$_stormfall_magnetic
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_stormfall_gravity
+	NATIVE_PREVIEW = "add_deposit = d_stormfall_gravity custom_tooltip = cdpd_stormfall_gravity_additional"
+	LABEL = cdpd_$MODE$_stormfall_gravity_label
+	TIP = cdpd_$MODE$_stormfall_gravity_tip
+	VISIBLE = cdpd_$MODE$_stormfall_gravity_visible
+	ACTION = cdpd_$MODE$_stormfall_gravity
+	SCREEN = $SCREEN$
+}

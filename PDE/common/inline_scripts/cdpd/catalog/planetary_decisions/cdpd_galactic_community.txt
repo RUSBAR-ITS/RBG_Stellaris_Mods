@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_project_cornucopia
+	NATIVE_PREVIEW = "add_deposit = d_project_cornucopia"
+	LABEL = cdpd_$MODE$_project_cornucopia_label
+	TIP = cdpd_$MODE$_project_cornucopia_tip
+	VISIBLE = cdpd_$MODE$_project_cornucopia_visible
+	ACTION = cdpd_$MODE$_project_cornucopia
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_manufactorium_crater
+	NATIVE_PREVIEW = "add_deposit = d_ancient_manufactorium_crater"
+	LABEL = cdpd_$MODE$_ancient_manufactorium_crater_label
+	TIP = cdpd_$MODE$_ancient_manufactorium_crater_tip
+	VISIBLE = cdpd_$MODE$_ancient_manufactorium_crater_visible
+	ACTION = cdpd_$MODE$_ancient_manufactorium_crater
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_manufactorium_scrapyard
+	NATIVE_PREVIEW = "add_deposit = d_ancient_manufactorium_scrapyard custom_tooltip = cdpd_ancient_manufactorium_scrapyard_additional"
+	LABEL = cdpd_$MODE$_ancient_manufactorium_scrapyard_label
+	TIP = cdpd_$MODE$_ancient_manufactorium_scrapyard_tip
+	VISIBLE = cdpd_$MODE$_ancient_manufactorium_scrapyard_visible
+	ACTION = cdpd_$MODE$_ancient_manufactorium_scrapyard
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_manufactorium_working
+	NATIVE_PREVIEW = "add_deposit = d_ancient_manufactorium_working custom_tooltip = cdpd_ancient_manufactorium_working_properties"
+	LABEL = cdpd_$MODE$_ancient_manufactorium_working_label
+	TIP = cdpd_$MODE$_ancient_manufactorium_working_tip
+	VISIBLE = cdpd_$MODE$_ancient_manufactorium_working_visible
+	ACTION = cdpd_$MODE$_ancient_manufactorium_working
+	SCREEN = $SCREEN$
+}

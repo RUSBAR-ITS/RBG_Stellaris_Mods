@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crashed_slaver_ship
+	NATIVE_PREVIEW = "add_deposit = d_crashed_slaver_ship custom_tooltip = cdpd_crashed_slaver_ship_additional"
+	LABEL = cdpd_$MODE$_crashed_slaver_ship_label
+	TIP = cdpd_$MODE$_crashed_slaver_ship_tip
+	VISIBLE = cdpd_$MODE$_crashed_slaver_ship_visible
+	ACTION = cdpd_$MODE$_crashed_slaver_ship
+	SCREEN = $SCREEN$
+}

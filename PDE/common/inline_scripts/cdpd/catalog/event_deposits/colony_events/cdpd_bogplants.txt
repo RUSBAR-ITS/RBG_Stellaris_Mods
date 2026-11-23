@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_bogplants
+	NATIVE_PREVIEW = "add_deposit = d_bogplants custom_tooltip = cdpd_bogplants_additional"
+	LABEL = cdpd_$MODE$_bogplants_label
+	TIP = cdpd_$MODE$_bogplants_tip
+	VISIBLE = cdpd_$MODE$_bogplants_visible
+	ACTION = cdpd_$MODE$_bogplants
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,208 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_lichen_fields
+	NATIVE_PREVIEW = "add_deposit = d_lichen_fields"
+	LABEL = cdpd_$MODE$_lichen_fields_label
+	TIP = cdpd_$MODE$_lichen_fields_tip
+	VISIBLE = cdpd_$MODE$_lichen_fields_visible
+	ACTION = cdpd_$MODE$_lichen_fields
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_bountiful_plains
+	NATIVE_PREVIEW = "add_deposit = d_bountiful_plains"
+	LABEL = cdpd_$MODE$_bountiful_plains_label
+	TIP = cdpd_$MODE$_bountiful_plains_tip
+	VISIBLE = cdpd_$MODE$_bountiful_plains_visible
+	ACTION = cdpd_$MODE$_bountiful_plains
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rugged_woods
+	NATIVE_PREVIEW = "add_deposit = d_rugged_woods"
+	LABEL = cdpd_$MODE$_rugged_woods_label
+	TIP = cdpd_$MODE$_rugged_woods_tip
+	VISIBLE = cdpd_$MODE$_rugged_woods_visible
+	ACTION = cdpd_$MODE$_rugged_woods
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_green_hills
+	NATIVE_PREVIEW = "add_deposit = d_green_hills"
+	LABEL = cdpd_$MODE$_green_hills_label
+	TIP = cdpd_$MODE$_green_hills_tip
+	VISIBLE = cdpd_$MODE$_green_hills_visible
+	ACTION = cdpd_$MODE$_green_hills
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_forgiving_tundra
+	NATIVE_PREVIEW = "add_deposit = d_forgiving_tundra"
+	LABEL = cdpd_$MODE$_forgiving_tundra_label
+	TIP = cdpd_$MODE$_forgiving_tundra_tip
+	VISIBLE = cdpd_$MODE$_forgiving_tundra_visible
+	ACTION = cdpd_$MODE$_forgiving_tundra
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_boggy_fens
+	NATIVE_PREVIEW = "add_deposit = d_boggy_fens"
+	LABEL = cdpd_$MODE$_boggy_fens_label
+	TIP = cdpd_$MODE$_boggy_fens_tip
+	VISIBLE = cdpd_$MODE$_boggy_fens_visible
+	ACTION = cdpd_$MODE$_boggy_fens
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nutritious_mudland
+	NATIVE_PREVIEW = "add_deposit = d_nutritious_mudland"
+	LABEL = cdpd_$MODE$_nutritious_mudland_label
+	TIP = cdpd_$MODE$_nutritious_mudland_tip
+	VISIBLE = cdpd_$MODE$_nutritious_mudland_visible
+	ACTION = cdpd_$MODE$_nutritious_mudland
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_natural_farmland
+	NATIVE_PREVIEW = "add_deposit = d_natural_farmland"
+	LABEL = cdpd_$MODE$_natural_farmland_label
+	TIP = cdpd_$MODE$_natural_farmland_tip
+	VISIBLE = cdpd_$MODE$_natural_farmland_visible
+	ACTION = cdpd_$MODE$_natural_farmland
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fungal_caves
+	NATIVE_PREVIEW = "add_deposit = d_fungal_caves"
+	LABEL = cdpd_$MODE$_fungal_caves_label
+	TIP = cdpd_$MODE$_fungal_caves_tip
+	VISIBLE = cdpd_$MODE$_fungal_caves_visible
+	ACTION = cdpd_$MODE$_fungal_caves
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_lush_jungle
+	NATIVE_PREVIEW = "add_deposit = d_lush_jungle"
+	LABEL = cdpd_$MODE$_lush_jungle_label
+	TIP = cdpd_$MODE$_lush_jungle_tip
+	VISIBLE = cdpd_$MODE$_lush_jungle_visible
+	ACTION = cdpd_$MODE$_lush_jungle
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fertile_lands
+	NATIVE_PREVIEW = "add_deposit = d_fertile_lands"
+	LABEL = cdpd_$MODE$_fertile_lands_label
+	TIP = cdpd_$MODE$_fertile_lands_tip
+	VISIBLE = cdpd_$MODE$_fertile_lands_visible
+	ACTION = cdpd_$MODE$_fertile_lands
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_great_river
+	NATIVE_PREVIEW = "add_deposit = d_great_river"
+	LABEL = cdpd_$MODE$_great_river_label
+	TIP = cdpd_$MODE$_great_river_tip
+	VISIBLE = cdpd_$MODE$_great_river_visible
+	ACTION = cdpd_$MODE$_great_river
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_black_soil
+	NATIVE_PREVIEW = "add_deposit = d_black_soil"
+	LABEL = cdpd_$MODE$_black_soil_label
+	TIP = cdpd_$MODE$_black_soil_tip
+	VISIBLE = cdpd_$MODE$_black_soil_visible
+	ACTION = cdpd_$MODE$_black_soil
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_teeming_reef
+	NATIVE_PREVIEW = "add_deposit = d_teeming_reef"
+	LABEL = cdpd_$MODE$_teeming_reef_label
+	TIP = cdpd_$MODE$_teeming_reef_tip
+	VISIBLE = cdpd_$MODE$_teeming_reef_visible
+	ACTION = cdpd_$MODE$_teeming_reef
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_marvelous_oasis
+	NATIVE_PREVIEW = "add_deposit = d_marvelous_oasis"
+	LABEL = cdpd_$MODE$_marvelous_oasis_label
+	TIP = cdpd_$MODE$_marvelous_oasis_tip
+	VISIBLE = cdpd_$MODE$_marvelous_oasis_visible
+	ACTION = cdpd_$MODE$_marvelous_oasis
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_tropical_island
+	NATIVE_PREVIEW = "add_deposit = d_tropical_island"
+	LABEL = cdpd_$MODE$_tropical_island_label
+	TIP = cdpd_$MODE$_tropical_island_tip
+	VISIBLE = cdpd_$MODE$_tropical_island_visible
+	ACTION = cdpd_$MODE$_tropical_island
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fungal_forest
+	NATIVE_PREVIEW = "add_deposit = d_fungal_forest"
+	LABEL = cdpd_$MODE$_fungal_forest_label
+	TIP = cdpd_$MODE$_fungal_forest_tip
+	VISIBLE = cdpd_$MODE$_fungal_forest_visible
+	ACTION = cdpd_$MODE$_fungal_forest
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_bubbling_swamp
+	NATIVE_PREVIEW = "add_deposit = d_bubbling_swamp custom_tooltip = cdpd_bubbling_swamp_additional"
+	LABEL = cdpd_$MODE$_bubbling_swamp_label
+	TIP = cdpd_$MODE$_bubbling_swamp_tip
+	VISIBLE = cdpd_$MODE$_bubbling_swamp_visible
+	ACTION = cdpd_$MODE$_bubbling_swamp
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fuming_bog
+	NATIVE_PREVIEW = "add_deposit = d_fuming_bog custom_tooltip = cdpd_fuming_bog_additional"
+	LABEL = cdpd_$MODE$_fuming_bog_label
+	TIP = cdpd_$MODE$_fuming_bog_tip
+	VISIBLE = cdpd_$MODE$_fuming_bog_visible
+	ACTION = cdpd_$MODE$_fuming_bog
+	SCREEN = $SCREEN$
+}

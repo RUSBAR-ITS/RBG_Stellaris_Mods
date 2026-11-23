@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wetware_computer
+	NATIVE_PREVIEW = "add_deposit = d_wetware_computer custom_tooltip = cdpd_wetware_computer_additional"
+	LABEL = cdpd_$MODE$_wetware_computer_label
+	TIP = cdpd_$MODE$_wetware_computer_tip
+	VISIBLE = cdpd_$MODE$_wetware_computer_visible
+	ACTION = cdpd_$MODE$_wetware_computer
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,22 @@
+cdpd_target_in_borders = {
+	exists = space_owner
+	space_owner = { is_same_value = $COUNTRY$ }
+	OR = {
+		AND = {
+			is_colony = yes
+			exists = colony.owner
+			colony.owner = { is_same_value = $COUNTRY$ }
+		}
+		AND = {
+			carrier_is_type = planet
+			is_colony = no
+		}
+	}
+}
+
+cdpd_live_target = {
+	is_ai = no
+	has_country_flag = cdpd_session_open
+	exists = event_target:cdpd_target
+	event_target:cdpd_target = { cdpd_target_in_borders = { COUNTRY = root } }
+}

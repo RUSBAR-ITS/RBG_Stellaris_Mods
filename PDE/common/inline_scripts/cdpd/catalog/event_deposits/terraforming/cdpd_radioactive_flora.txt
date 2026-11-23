@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_radiotrophic_preserve
+	NATIVE_PREVIEW = "add_deposit = d_radiotrophic_preserve custom_tooltip = cdpd_radiotrophic_preserve_additional"
+	LABEL = cdpd_$MODE$_radiotrophic_preserve_label
+	TIP = cdpd_$MODE$_radiotrophic_preserve_tip
+	VISIBLE = cdpd_$MODE$_radiotrophic_preserve_visible
+	ACTION = cdpd_$MODE$_radiotrophic_preserve
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_decrepit_tunnels_1
+	NATIVE_PREVIEW = "add_blocker = { type = d_decrepit_tunnels_1 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_decrepit_tunnels_1_label
+	TIP = cdpd_$MODE$_decrepit_tunnels_1_tip
+	VISIBLE = cdpd_$MODE$_decrepit_tunnels_1_visible
+	ACTION = cdpd_$MODE$_decrepit_tunnels_1
+	SCREEN = $SCREEN$
+}

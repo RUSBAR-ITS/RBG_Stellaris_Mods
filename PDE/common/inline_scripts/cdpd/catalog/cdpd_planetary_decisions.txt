@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_planet_stripmine
+	NATIVE_PREVIEW = "add_deposit = d_planet_stripmine"
+	LABEL = cdpd_$MODE$_planet_stripmine_label
+	TIP = cdpd_$MODE$_planet_stripmine_tip
+	VISIBLE = cdpd_$MODE$_planet_stripmine_visible
+	ACTION = cdpd_$MODE$_planet_stripmine
+	SCREEN = $SCREEN$
+}

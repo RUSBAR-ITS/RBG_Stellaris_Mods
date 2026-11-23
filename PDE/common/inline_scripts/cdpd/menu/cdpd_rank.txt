@@ -1,0 +1,8 @@
+if = {
+	limit = {
+		exists = event_target:cdpd_target
+		event_target:cdpd_target = { $VISIBLE$ = yes }
+	}
+	cdpd_assign_rank = { ID = $ID$ }
+}
+else = { set_variable = { which = $ID$_rank value = 0 } }

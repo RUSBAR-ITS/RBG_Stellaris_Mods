@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rare_crystals_1
+	NATIVE_PREVIEW = "add_deposit = d_rare_crystals_1 custom_tooltip = cdpd_rare_crystals_1_properties"
+	LABEL = cdpd_$MODE$_rare_crystals_1_label
+	TIP = cdpd_$MODE$_rare_crystals_1_tip
+	VISIBLE = cdpd_$MODE$_rare_crystals_1_visible
+	ACTION = cdpd_$MODE$_rare_crystals_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rare_crystals_2
+	NATIVE_PREVIEW = "add_deposit = d_rare_crystals_2 custom_tooltip = cdpd_rare_crystals_2_properties"
+	LABEL = cdpd_$MODE$_rare_crystals_2_label
+	TIP = cdpd_$MODE$_rare_crystals_2_tip
+	VISIBLE = cdpd_$MODE$_rare_crystals_2_visible
+	ACTION = cdpd_$MODE$_rare_crystals_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rare_crystals_3
+	NATIVE_PREVIEW = "add_deposit = d_rare_crystals_3 custom_tooltip = cdpd_rare_crystals_3_properties"
+	LABEL = cdpd_$MODE$_rare_crystals_3_label
+	TIP = cdpd_$MODE$_rare_crystals_3_tip
+	VISIBLE = cdpd_$MODE$_rare_crystals_3_visible
+	ACTION = cdpd_$MODE$_rare_crystals_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rare_crystals_4
+	NATIVE_PREVIEW = "add_deposit = d_rare_crystals_4 custom_tooltip = cdpd_rare_crystals_4_properties"
+	LABEL = cdpd_$MODE$_rare_crystals_4_label
+	TIP = cdpd_$MODE$_rare_crystals_4_tip
+	VISIBLE = cdpd_$MODE$_rare_crystals_4_visible
+	ACTION = cdpd_$MODE$_rare_crystals_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rare_crystals_5
+	NATIVE_PREVIEW = "add_deposit = d_rare_crystals_5 custom_tooltip = cdpd_rare_crystals_5_properties"
+	LABEL = cdpd_$MODE$_rare_crystals_5_label
+	TIP = cdpd_$MODE$_rare_crystals_5_tip
+	VISIBLE = cdpd_$MODE$_rare_crystals_5_visible
+	ACTION = cdpd_$MODE$_rare_crystals_5
+	SCREEN = $SCREEN$
+}

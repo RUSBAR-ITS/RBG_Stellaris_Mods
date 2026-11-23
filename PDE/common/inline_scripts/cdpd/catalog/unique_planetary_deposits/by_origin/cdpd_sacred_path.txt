@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mechsiah_mainframe
+	NATIVE_PREVIEW = "add_deposit = d_mechsiah_mainframe"
+	LABEL = cdpd_$MODE$_mechsiah_mainframe_label
+	TIP = cdpd_$MODE$_mechsiah_mainframe_tip
+	VISIBLE = cdpd_$MODE$_mechsiah_mainframe_visible
+	ACTION = cdpd_$MODE$_mechsiah_mainframe
+	SCREEN = $SCREEN$
+}

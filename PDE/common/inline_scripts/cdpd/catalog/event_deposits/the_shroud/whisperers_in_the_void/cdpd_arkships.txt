@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_relic_arkship
+	NATIVE_PREVIEW = "add_deposit = d_relic_arkship custom_tooltip = cdpd_relic_arkship_additional"
+	LABEL = cdpd_$MODE$_relic_arkship_label
+	TIP = cdpd_$MODE$_relic_arkship_tip
+	VISIBLE = cdpd_$MODE$_relic_arkship_visible
+	ACTION = cdpd_$MODE$_relic_arkship
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,98 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_boswash_metropolitan_axis
+	NATIVE_PREVIEW = "add_deposit = d_boswash_metropolitan_axis"
+	LABEL = cdpd_$MODE$_boswash_metropolitan_axis_label
+	TIP = cdpd_$MODE$_boswash_metropolitan_axis_tip
+	VISIBLE = cdpd_$MODE$_boswash_metropolitan_axis_visible
+	ACTION = cdpd_$MODE$_boswash_metropolitan_axis
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_delhi_sprawl
+	NATIVE_PREVIEW = "add_deposit = d_delhi_sprawl"
+	LABEL = cdpd_$MODE$_delhi_sprawl_label
+	TIP = cdpd_$MODE$_delhi_sprawl_tip
+	VISIBLE = cdpd_$MODE$_delhi_sprawl_visible
+	ACTION = cdpd_$MODE$_delhi_sprawl
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_pearl_river_agglomerate
+	NATIVE_PREVIEW = "add_deposit = d_pearl_river_agglomerate"
+	LABEL = cdpd_$MODE$_pearl_river_agglomerate_label
+	TIP = cdpd_$MODE$_pearl_river_agglomerate_tip
+	VISIBLE = cdpd_$MODE$_pearl_river_agglomerate_visible
+	ACTION = cdpd_$MODE$_pearl_river_agglomerate
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_great_albertan_crater
+	NATIVE_PREVIEW = "add_deposit = d_great_albertan_crater"
+	LABEL = cdpd_$MODE$_great_albertan_crater_label
+	TIP = cdpd_$MODE$_great_albertan_crater_tip
+	VISIBLE = cdpd_$MODE$_great_albertan_crater_visible
+	ACTION = cdpd_$MODE$_great_albertan_crater
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mauritanian_security_zone
+	NATIVE_PREVIEW = "add_deposit = d_mauritanian_security_zone"
+	LABEL = cdpd_$MODE$_mauritanian_security_zone_label
+	TIP = cdpd_$MODE$_mauritanian_security_zone_tip
+	VISIBLE = cdpd_$MODE$_mauritanian_security_zone_visible
+	ACTION = cdpd_$MODE$_mauritanian_security_zone
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mesopotamian_urban_corridor
+	NATIVE_PREVIEW = "add_deposit = d_mesopotamian_urban_corridor"
+	LABEL = cdpd_$MODE$_mesopotamian_urban_corridor_label
+	TIP = cdpd_$MODE$_mesopotamian_urban_corridor_tip
+	VISIBLE = cdpd_$MODE$_mesopotamian_urban_corridor_visible
+	ACTION = cdpd_$MODE$_mesopotamian_urban_corridor
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_scandinavian_reclamation_sector
+	NATIVE_PREVIEW = "add_deposit = d_scandinavian_reclamation_sector"
+	LABEL = cdpd_$MODE$_scandinavian_reclamation_sector_label
+	TIP = cdpd_$MODE$_scandinavian_reclamation_sector_tip
+	VISIBLE = cdpd_$MODE$_scandinavian_reclamation_sector_visible
+	ACTION = cdpd_$MODE$_scandinavian_reclamation_sector
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_saharan_irrigation_project
+	NATIVE_PREVIEW = "add_deposit = d_saharan_irrigation_project"
+	LABEL = cdpd_$MODE$_saharan_irrigation_project_label
+	TIP = cdpd_$MODE$_saharan_irrigation_project_tip
+	VISIBLE = cdpd_$MODE$_saharan_irrigation_project_visible
+	ACTION = cdpd_$MODE$_saharan_irrigation_project
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_pacific_algae_tracts
+	NATIVE_PREVIEW = "add_deposit = d_pacific_algae_tracts"
+	LABEL = cdpd_$MODE$_pacific_algae_tracts_label
+	TIP = cdpd_$MODE$_pacific_algae_tracts_tip
+	VISIBLE = cdpd_$MODE$_pacific_algae_tracts_visible
+	ACTION = cdpd_$MODE$_pacific_algae_tracts
+	SCREEN = $SCREEN$
+}

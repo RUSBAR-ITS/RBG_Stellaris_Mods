@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_collapsed_burrows
+	NATIVE_PREVIEW = "add_blocker = { type = d_collapsed_burrows blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_collapsed_burrows_label
+	TIP = cdpd_$MODE$_collapsed_burrows_tip
+	VISIBLE = cdpd_$MODE$_collapsed_burrows_visible
+	ACTION = cdpd_$MODE$_collapsed_burrows
+	SCREEN = $SCREEN$
+}

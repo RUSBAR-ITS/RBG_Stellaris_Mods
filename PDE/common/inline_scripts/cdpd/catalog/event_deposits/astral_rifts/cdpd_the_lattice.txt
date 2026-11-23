@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fractal_seed
+	NATIVE_PREVIEW = "add_deposit = d_fractal_seed"
+	LABEL = cdpd_$MODE$_fractal_seed_label
+	TIP = cdpd_$MODE$_fractal_seed_tip
+	VISIBLE = cdpd_$MODE$_fractal_seed_visible
+	ACTION = cdpd_$MODE$_fractal_seed
+	SCREEN = $SCREEN$
+}

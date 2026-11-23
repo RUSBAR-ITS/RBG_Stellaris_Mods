@@ -1,0 +1,109 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_1
+	NATIVE_PREVIEW = "add_deposit = d_minerals_1 custom_tooltip = cdpd_minerals_1_properties"
+	LABEL = cdpd_$MODE$_minerals_1_label
+	TIP = cdpd_$MODE$_minerals_1_tip
+	VISIBLE = cdpd_$MODE$_minerals_1_visible
+	ACTION = cdpd_$MODE$_minerals_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_2
+	NATIVE_PREVIEW = "add_deposit = d_minerals_2 custom_tooltip = cdpd_minerals_2_properties"
+	LABEL = cdpd_$MODE$_minerals_2_label
+	TIP = cdpd_$MODE$_minerals_2_tip
+	VISIBLE = cdpd_$MODE$_minerals_2_visible
+	ACTION = cdpd_$MODE$_minerals_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_3
+	NATIVE_PREVIEW = "add_deposit = d_minerals_3 custom_tooltip = cdpd_minerals_3_properties"
+	LABEL = cdpd_$MODE$_minerals_3_label
+	TIP = cdpd_$MODE$_minerals_3_tip
+	VISIBLE = cdpd_$MODE$_minerals_3_visible
+	ACTION = cdpd_$MODE$_minerals_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_4
+	NATIVE_PREVIEW = "add_deposit = d_minerals_4 custom_tooltip = cdpd_minerals_4_properties"
+	LABEL = cdpd_$MODE$_minerals_4_label
+	TIP = cdpd_$MODE$_minerals_4_tip
+	VISIBLE = cdpd_$MODE$_minerals_4_visible
+	ACTION = cdpd_$MODE$_minerals_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_5
+	NATIVE_PREVIEW = "add_deposit = d_minerals_5 custom_tooltip = cdpd_minerals_5_properties"
+	LABEL = cdpd_$MODE$_minerals_5_label
+	TIP = cdpd_$MODE$_minerals_5_tip
+	VISIBLE = cdpd_$MODE$_minerals_5_visible
+	ACTION = cdpd_$MODE$_minerals_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_6
+	NATIVE_PREVIEW = "add_deposit = d_minerals_6 custom_tooltip = cdpd_minerals_6_properties"
+	LABEL = cdpd_$MODE$_minerals_6_label
+	TIP = cdpd_$MODE$_minerals_6_tip
+	VISIBLE = cdpd_$MODE$_minerals_6_visible
+	ACTION = cdpd_$MODE$_minerals_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_7
+	NATIVE_PREVIEW = "add_deposit = d_minerals_7 custom_tooltip = cdpd_minerals_7_properties"
+	LABEL = cdpd_$MODE$_minerals_7_label
+	TIP = cdpd_$MODE$_minerals_7_tip
+	VISIBLE = cdpd_$MODE$_minerals_7_visible
+	ACTION = cdpd_$MODE$_minerals_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_8
+	NATIVE_PREVIEW = "add_deposit = d_minerals_8 custom_tooltip = cdpd_minerals_8_properties"
+	LABEL = cdpd_$MODE$_minerals_8_label
+	TIP = cdpd_$MODE$_minerals_8_tip
+	VISIBLE = cdpd_$MODE$_minerals_8_visible
+	ACTION = cdpd_$MODE$_minerals_8
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_9
+	NATIVE_PREVIEW = "add_deposit = d_minerals_9 custom_tooltip = cdpd_minerals_9_properties"
+	LABEL = cdpd_$MODE$_minerals_9_label
+	TIP = cdpd_$MODE$_minerals_9_tip
+	VISIBLE = cdpd_$MODE$_minerals_9_visible
+	ACTION = cdpd_$MODE$_minerals_9
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_minerals_10
+	NATIVE_PREVIEW = "add_deposit = d_minerals_10 custom_tooltip = cdpd_minerals_10_properties"
+	LABEL = cdpd_$MODE$_minerals_10_label
+	TIP = cdpd_$MODE$_minerals_10_tip
+	VISIBLE = cdpd_$MODE$_minerals_10_visible
+	ACTION = cdpd_$MODE$_minerals_10
+	SCREEN = $SCREEN$
+}

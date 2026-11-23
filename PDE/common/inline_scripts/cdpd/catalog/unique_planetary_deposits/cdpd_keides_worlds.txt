@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_space_ship_graveyard
+	NATIVE_PREVIEW = "add_deposit = d_space_ship_graveyard custom_tooltip = cdpd_space_ship_graveyard_additional"
+	LABEL = cdpd_$MODE$_space_ship_graveyard_label
+	TIP = cdpd_$MODE$_space_ship_graveyard_tip
+	VISIBLE = cdpd_$MODE$_space_ship_graveyard_visible
+	ACTION = cdpd_$MODE$_space_ship_graveyard
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_pulsar_scarred
+	NATIVE_PREVIEW = "add_deposit = d_pulsar_scarred"
+	LABEL = cdpd_$MODE$_pulsar_scarred_label
+	TIP = cdpd_$MODE$_pulsar_scarred_tip
+	VISIBLE = cdpd_$MODE$_pulsar_scarred_visible
+	ACTION = cdpd_$MODE$_pulsar_scarred
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_active_planet
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_active_planet"
+	LABEL = cdpd_$MODE$_volcanic_active_planet_label
+	TIP = cdpd_$MODE$_volcanic_active_planet_tip
+	VISIBLE = cdpd_$MODE$_volcanic_active_planet_visible
+	ACTION = cdpd_$MODE$_volcanic_active_planet
+	SCREEN = $SCREEN$
+}

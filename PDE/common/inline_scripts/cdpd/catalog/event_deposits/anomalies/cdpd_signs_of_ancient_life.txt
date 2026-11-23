@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_lonely_bot_deposit
+	NATIVE_PREVIEW = "add_deposit = d_hab_lonely_bot_deposit"
+	LABEL = cdpd_$MODE$_hab_lonely_bot_deposit_label
+	TIP = cdpd_$MODE$_hab_lonely_bot_deposit_tip
+	VISIBLE = cdpd_$MODE$_hab_lonely_bot_deposit_visible
+	ACTION = cdpd_$MODE$_hab_lonely_bot_deposit
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_lonely_bot_deposit_2
+	NATIVE_PREVIEW = "add_deposit = d_hab_lonely_bot_deposit_2"
+	LABEL = cdpd_$MODE$_hab_lonely_bot_deposit_2_label
+	TIP = cdpd_$MODE$_hab_lonely_bot_deposit_2_tip
+	VISIBLE = cdpd_$MODE$_hab_lonely_bot_deposit_2_visible
+	ACTION = cdpd_$MODE$_hab_lonely_bot_deposit_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_lonely_bot_deposit_3
+	NATIVE_PREVIEW = "add_deposit = d_hab_lonely_bot_deposit_3 custom_tooltip = cdpd_hab_lonely_bot_deposit_3_additional"
+	LABEL = cdpd_$MODE$_hab_lonely_bot_deposit_3_label
+	TIP = cdpd_$MODE$_hab_lonely_bot_deposit_3_tip
+	VISIBLE = cdpd_$MODE$_hab_lonely_bot_deposit_3_visible
+	ACTION = cdpd_$MODE$_hab_lonely_bot_deposit_3
+	SCREEN = $SCREEN$
+}

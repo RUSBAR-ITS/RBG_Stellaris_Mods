@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_forgotten_civilization
+	NATIVE_PREVIEW = "add_blocker = { type = d_forgotten_civilization blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_forgotten_civilization_label
+	TIP = cdpd_$MODE$_forgotten_civilization_tip
+	VISIBLE = cdpd_$MODE$_forgotten_civilization_visible
+	ACTION = cdpd_$MODE$_forgotten_civilization
+	SCREEN = $SCREEN$
+}

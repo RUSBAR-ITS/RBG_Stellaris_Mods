@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_raging_lavafalls
+	NATIVE_PREVIEW = "add_blocker = { type = d_raging_lavafalls blocked_deposit = none } custom_tooltip = cdpd_raging_lavafalls_additional"
+	LABEL = cdpd_$MODE$_raging_lavafalls_label
+	TIP = cdpd_$MODE$_raging_lavafalls_tip
+	VISIBLE = cdpd_$MODE$_raging_lavafalls_visible
+	ACTION = cdpd_$MODE$_raging_lavafalls
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rugged_landscape
+	NATIVE_PREVIEW = "add_blocker = { type = d_rugged_landscape blocked_deposit = none } custom_tooltip = cdpd_rugged_landscape_additional"
+	LABEL = cdpd_$MODE$_rugged_landscape_label
+	TIP = cdpd_$MODE$_rugged_landscape_tip
+	VISIBLE = cdpd_$MODE$_rugged_landscape_visible
+	ACTION = cdpd_$MODE$_rugged_landscape
+	SCREEN = $SCREEN$
+}

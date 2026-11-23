@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_tomb_world_ruins
+	NATIVE_PREVIEW = "add_blocker = { type = d_tomb_world_ruins blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_tomb_world_ruins_label
+	TIP = cdpd_$MODE$_tomb_world_ruins_tip
+	VISIBLE = cdpd_$MODE$_tomb_world_ruins_visible
+	ACTION = cdpd_$MODE$_tomb_world_ruins
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_tomb_world_wasteland
+	NATIVE_PREVIEW = "add_blocker = { type = d_tomb_world_wasteland blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_tomb_world_wasteland_label
+	TIP = cdpd_$MODE$_tomb_world_wasteland_tip
+	VISIBLE = cdpd_$MODE$_tomb_world_wasteland_visible
+	ACTION = cdpd_$MODE$_tomb_world_wasteland
+	SCREEN = $SCREEN$
+}

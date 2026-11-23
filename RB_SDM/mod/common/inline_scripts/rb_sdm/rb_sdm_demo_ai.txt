@@ -1,0 +1,9 @@
+if = {
+	limit = {
+		NOT = { has_country_flag = rb_sdm_ai_picked }
+		exists = event_target:rb_sdm_target
+		event_target:rb_sdm_target = { $VISIBLE$ = yes }
+	}
+	set_country_flag = rb_sdm_ai_picked
+	event_target:rb_sdm_target = { $ACTION$ = yes }
+}

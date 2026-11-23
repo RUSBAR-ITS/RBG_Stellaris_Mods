@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_arcane_generator
+	NATIVE_PREVIEW = "add_deposit = d_arcane_generator custom_tooltip = cdpd_arcane_generator_additional"
+	LABEL = cdpd_$MODE$_arcane_generator_label
+	TIP = cdpd_$MODE$_arcane_generator_tip
+	VISIBLE = cdpd_$MODE$_arcane_generator_visible
+	ACTION = cdpd_$MODE$_arcane_generator
+	SCREEN = $SCREEN$
+}

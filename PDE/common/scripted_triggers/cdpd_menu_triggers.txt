@@ -1,0 +1,2194 @@
+cdpd_section_planetary_deposits_available = {
+	OR = {
+		cdpd_add_volcanic_ore_veins_visible = yes
+		cdpd_add_arid_highlands_visible = yes
+		cdpd_add_hot_springs_visible = yes
+		cdpd_add_buzzing_plains_visible = yes
+		cdpd_add_frozen_gas_lake_visible = yes
+		cdpd_add_rushing_waterfalls_visible = yes
+		cdpd_add_searing_desert_visible = yes
+		cdpd_add_dust_caverns_visible = yes
+		cdpd_add_dust_desert_visible = yes
+		cdpd_add_geothermal_vent_visible = yes
+		cdpd_add_tempestous_mountain_visible = yes
+		cdpd_add_underwater_vent_visible = yes
+		cdpd_add_veiny_cliffs_visible = yes
+		cdpd_add_mineral_fields_visible = yes
+		cdpd_add_prosperous_mesa_visible = yes
+		cdpd_add_ore_rich_caverns_visible = yes
+		cdpd_add_rich_mountain_visible = yes
+		cdpd_add_submerged_ore_veins_visible = yes
+		cdpd_add_crystal_forest_visible = yes
+		cdpd_add_crystal_reef_visible = yes
+		cdpd_add_lichen_fields_visible = yes
+		cdpd_add_bountiful_plains_visible = yes
+		cdpd_add_rugged_woods_visible = yes
+		cdpd_add_green_hills_visible = yes
+		cdpd_add_forgiving_tundra_visible = yes
+		cdpd_add_boggy_fens_visible = yes
+		cdpd_add_nutritious_mudland_visible = yes
+		cdpd_add_fungal_caves_visible = yes
+		cdpd_add_lush_jungle_visible = yes
+		cdpd_add_fertile_lands_visible = yes
+		cdpd_add_great_river_visible = yes
+		cdpd_add_black_soil_visible = yes
+		cdpd_add_teeming_reef_visible = yes
+		cdpd_add_tropical_island_visible = yes
+		cdpd_add_fungal_forest_visible = yes
+		cdpd_add_explosive_atmosphere_visible = yes
+		cdpd_add_hydroactive_eggs_visible = yes
+		cdpd_add_organic_slurry_visible = yes
+		cdpd_add_space_junk_hazards_visible = yes
+		cdpd_add_lava_tubes_visible = yes
+		cdpd_add_crystaline_growths_visible = yes
+		cdpd_add_electrified_oceans_visible = yes
+		cdpd_add_solar_storm_2_districts_visible = yes
+		cdpd_add_stormfall_electric_visible = yes
+		cdpd_add_numas_breath_visible = yes
+		cdpd_add_underground_generator_visible = yes
+		cdpd_add_rockworm_hive_visible = yes
+		cdpd_add_ancient_mining_site_visible = yes
+		cdpd_add_nanosands_visible = yes
+		cdpd_add_the_zone_visible = yes
+		cdpd_add_weapon_extraction_facility_visible = yes
+		cdpd_add_harvester_fields_visible = yes
+		cdpd_add_processing_pens_visible = yes
+		cdpd_add_ancient_manufactorium_crater_visible = yes
+		cdpd_add_meals_in_pods_visible = yes
+		cdpd_add_crater_bluelotus_visible = yes
+		cdpd_add_turtle_corpse_visible = yes
+		cdpd_add_migrating_forests_visible = yes
+		cdpd_add_ancient_battlefield_visible = yes
+		cdpd_add_irradiated_ruins_visible = yes
+		cdpd_add_ancient_particle_accelerator_visible = yes
+		cdpd_add_cave_shroom_veins_visible = yes
+		cdpd_add_myrmeku_power_farms_visible = yes
+		cdpd_add_crystalline_glacier_visible = yes
+		cdpd_add_disco_planet_visible = yes
+		cdpd_add_fungal_study_zone_visible = yes
+		cdpd_add_bogplants_visible = yes
+		cdpd_add_metallic_puddles_visible = yes
+		cdpd_add_worm_mine_visible = yes
+		cdpd_add_alien_pets_deposit_visible = yes
+		cdpd_add_artifacts_planet_1_visible = yes
+		cdpd_add_titanic_life_blocker_visible = yes
+		cdpd_add_arcane_replicator_visible = yes
+		cdpd_add_boswash_metropolitan_axis_visible = yes
+		cdpd_add_fallen_orbital_shipyard_visible = yes
+		cdpd_add_pulsar_scarred_visible = yes
+		cdpd_add_volcanic_active_planet_visible = yes
+		cdpd_add_hostile_fauna_visible = yes
+		cdpd_add_dimensional_manipulation_device_visible = yes
+		cdpd_add_toxic_god_blight_upon_the_land_visible = yes
+		cdpd_add_toxic_god_envenomed_seas_upgraded_visible = yes
+		cdpd_add_hive_dwelling_visible = yes
+		cdpd_add_black_needle_base_visible = yes
+		cdpd_add_arcane_generator_visible = yes
+		cdpd_add_cryonic_clones_visible = yes
+		cdpd_add_sentinels_metal_visible = yes
+		cdpd_add_dayside_farm_visible = yes
+		cdpd_add_baol_growth_visible = yes
+		cdpd_add_former_relic_world_visible = yes
+		cdpd_add_project_cornucopia_visible = yes
+		cdpd_add_prospectorium_strip_mine_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_ordinary_planetary_features_available = {
+	OR = {
+		cdpd_add_arid_highlands_visible = yes
+		cdpd_add_hot_springs_visible = yes
+		cdpd_add_buzzing_plains_visible = yes
+		cdpd_add_frozen_gas_lake_visible = yes
+		cdpd_add_rushing_waterfalls_visible = yes
+		cdpd_add_searing_desert_visible = yes
+		cdpd_add_dust_caverns_visible = yes
+		cdpd_add_dust_desert_visible = yes
+		cdpd_add_geothermal_vent_visible = yes
+		cdpd_add_tempestous_mountain_visible = yes
+		cdpd_add_underwater_vent_visible = yes
+		cdpd_add_veiny_cliffs_visible = yes
+		cdpd_add_mineral_fields_visible = yes
+		cdpd_add_prosperous_mesa_visible = yes
+		cdpd_add_ore_rich_caverns_visible = yes
+		cdpd_add_rich_mountain_visible = yes
+		cdpd_add_submerged_ore_veins_visible = yes
+		cdpd_add_crystal_forest_visible = yes
+		cdpd_add_crystal_reef_visible = yes
+		cdpd_add_lichen_fields_visible = yes
+		cdpd_add_bountiful_plains_visible = yes
+		cdpd_add_rugged_woods_visible = yes
+		cdpd_add_green_hills_visible = yes
+		cdpd_add_forgiving_tundra_visible = yes
+		cdpd_add_boggy_fens_visible = yes
+		cdpd_add_nutritious_mudland_visible = yes
+		cdpd_add_fungal_caves_visible = yes
+		cdpd_add_lush_jungle_visible = yes
+		cdpd_add_fertile_lands_visible = yes
+		cdpd_add_great_river_visible = yes
+		cdpd_add_black_soil_visible = yes
+		cdpd_add_teeming_reef_visible = yes
+		cdpd_add_tropical_island_visible = yes
+		cdpd_add_fungal_forest_visible = yes
+		cdpd_add_alien_pets_deposit_visible = yes
+		cdpd_add_titanic_life_blocker_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_ordinary_planetary_features_generator_districts_available = {
+	OR = {
+		cdpd_add_arid_highlands_visible = yes
+		cdpd_add_hot_springs_visible = yes
+		cdpd_add_buzzing_plains_visible = yes
+		cdpd_add_frozen_gas_lake_visible = yes
+		cdpd_add_rushing_waterfalls_visible = yes
+		cdpd_add_searing_desert_visible = yes
+		cdpd_add_dust_caverns_visible = yes
+		cdpd_add_dust_desert_visible = yes
+		cdpd_add_geothermal_vent_visible = yes
+		cdpd_add_tempestous_mountain_visible = yes
+		cdpd_add_underwater_vent_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_ordinary_planetary_features_mining_districts_available = {
+	OR = {
+		cdpd_add_veiny_cliffs_visible = yes
+		cdpd_add_mineral_fields_visible = yes
+		cdpd_add_mineral_striations_visible = yes
+		cdpd_add_prosperous_mesa_visible = yes
+		cdpd_add_ore_rich_caverns_visible = yes
+		cdpd_add_rich_mountain_visible = yes
+		cdpd_add_submerged_ore_veins_visible = yes
+		cdpd_add_crystalline_caverns_visible = yes
+		cdpd_add_crystal_forest_visible = yes
+		cdpd_add_crystal_reef_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_ordinary_planetary_features_agriculture_districts_available = {
+	OR = {
+		cdpd_add_lichen_fields_visible = yes
+		cdpd_add_bountiful_plains_visible = yes
+		cdpd_add_rugged_woods_visible = yes
+		cdpd_add_green_hills_visible = yes
+		cdpd_add_forgiving_tundra_visible = yes
+		cdpd_add_boggy_fens_visible = yes
+		cdpd_add_nutritious_mudland_visible = yes
+		cdpd_add_natural_farmland_visible = yes
+		cdpd_add_fungal_caves_visible = yes
+		cdpd_add_lush_jungle_visible = yes
+		cdpd_add_fertile_lands_visible = yes
+		cdpd_add_great_river_visible = yes
+		cdpd_add_black_soil_visible = yes
+		cdpd_add_teeming_reef_visible = yes
+		cdpd_add_tropical_island_visible = yes
+		cdpd_add_fungal_forest_visible = yes
+		cdpd_add_bubbling_swamp_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_ordinary_rare_fauna_available = {
+	cdpd_add_alien_pets_deposit_visible = yes
+}
+
+cdpd_section_planetary_deposits_by_planet_modifier_available = {
+	cdpd_add_titanic_life_blocker_visible = yes
+}
+
+cdpd_section_planetary_deposits_volcanic_worlds_available = {
+	cdpd_add_volcanic_ore_veins_visible = yes
+}
+
+cdpd_section_volcanic_worlds_mining_available = {
+	cdpd_add_volcanic_ore_veins_visible = yes
+}
+
+cdpd_section_volcanic_worlds_thermotechnic_additional_available = {
+	cdpd_add_volcanic_dried_lavariver_visible = yes
+}
+
+cdpd_section_volcanic_worlds_mixed_available = {
+	cdpd_add_volcanic_sulfur_lava_visible = yes
+}
+
+cdpd_section_volcanic_worlds_starting_features_available = {
+	cdpd_add_andisol_soil_visible = yes
+}
+
+cdpd_section_event_deposits_available = {
+	OR = {
+		cdpd_add_explosive_atmosphere_visible = yes
+		cdpd_add_hydroactive_eggs_visible = yes
+		cdpd_add_organic_slurry_visible = yes
+		cdpd_add_space_junk_hazards_visible = yes
+		cdpd_add_lava_tubes_visible = yes
+		cdpd_add_crystaline_growths_visible = yes
+		cdpd_add_electrified_oceans_visible = yes
+		cdpd_add_solar_storm_2_districts_visible = yes
+		cdpd_add_numas_breath_visible = yes
+		cdpd_add_underground_generator_visible = yes
+		cdpd_add_rockworm_hive_visible = yes
+		cdpd_add_rockworm_hive_volcanic_visible = yes
+		cdpd_add_ancient_mining_site_visible = yes
+		cdpd_add_nanosands_visible = yes
+		cdpd_add_ancient_one_visible = yes
+		cdpd_add_the_zone_visible = yes
+		cdpd_add_weapon_extraction_facility_visible = yes
+		cdpd_add_red_desert_visible = yes
+		cdpd_add_harvester_fields_visible = yes
+		cdpd_add_processing_pens_visible = yes
+		cdpd_add_ancient_manufactorium_crater_visible = yes
+		cdpd_add_meals_in_pods_visible = yes
+		cdpd_add_crater_bluelotus_visible = yes
+		cdpd_add_turtle_corpse_visible = yes
+		cdpd_add_migrating_forests_visible = yes
+		cdpd_add_ancient_battlefield_visible = yes
+		cdpd_add_irradiated_ruins_visible = yes
+		cdpd_add_ancient_particle_accelerator_visible = yes
+		cdpd_add_cave_shroom_veins_visible = yes
+		cdpd_add_myrmeku_power_farms_visible = yes
+		cdpd_add_crystalline_glacier_visible = yes
+		cdpd_add_disco_planet_visible = yes
+		cdpd_add_fungal_study_zone_visible = yes
+		cdpd_add_bogplants_visible = yes
+		cdpd_add_metallic_puddles_visible = yes
+		cdpd_add_living_snow_reserve_visible = yes
+		cdpd_add_worm_mine_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_anomalies_available = {
+	OR = {
+		cdpd_add_ancient_mining_site_visible = yes
+		cdpd_add_nanosands_visible = yes
+		cdpd_add_ancient_one_visible = yes
+		cdpd_add_the_zone_visible = yes
+		cdpd_add_weapon_extraction_facility_visible = yes
+		cdpd_add_red_desert_visible = yes
+		cdpd_add_hyperfertile_valley_visible = yes
+		cdpd_add_harvester_fields_visible = yes
+		cdpd_add_desertling_infestation_visible = yes
+		cdpd_add_hab_lonely_bot_deposit_visible = yes
+		cdpd_add_processing_pens_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_anomalies_drops_in_the_ocean_available = {
+	cdpd_add_ancient_one_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_isolated_ruin_available = {
+	cdpd_add_the_zone_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_overgrown_ruins_available = {
+	cdpd_add_processing_pens_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_rapid_desertification_available = {
+	OR = {
+		cdpd_add_red_desert_visible = yes
+		cdpd_add_desertling_infestation_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_anomalies_signs_of_ancient_life_available = {
+	cdpd_add_hab_lonely_bot_deposit_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_single_minded_available = {
+	cdpd_add_savage_wildlands_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_spontaneous_explosions_available = {
+	cdpd_add_weapon_extraction_facility_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_toy_factory_available = {
+	cdpd_add_toy_factory_complex_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_watery_grave_available = {
+	cdpd_add_flooded_mounds_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_wetware_computer_available = {
+	cdpd_add_wetware_computer_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_mineral_factorial_and_ancient_automata_available = {
+	cdpd_add_ancient_mining_site_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_nanosand_available = {
+	cdpd_add_nanosands_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_abandoned_settlements_available = {
+	cdpd_add_abandoned_primitive_homesteads_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_cornucopicturesque_available = {
+	cdpd_add_hyperfertile_valley_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_abandoned_harvesters_available = {
+	cdpd_add_harvester_fields_visible = yes
+}
+
+cdpd_section_event_deposits_anomalies_leviathan_down_available = {
+	cdpd_add_metal_boneyard_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_available = {
+	OR = {
+		cdpd_add_geothermal_hotspot_visible = yes
+		cdpd_add_underground_generator_visible = yes
+		cdpd_add_ancient_manufactorium_crater_visible = yes
+		cdpd_add_meals_in_pods_visible = yes
+		cdpd_add_underground_vault_2_visible = yes
+		cdpd_add_crystal_kraken_body_visible = yes
+		cdpd_add_crater_bluelotus_visible = yes
+		cdpd_add_turtle_corpse_visible = yes
+		cdpd_add_migrating_forests_visible = yes
+		cdpd_add_ancient_battlefield_visible = yes
+		cdpd_add_irradiated_ruins_visible = yes
+		cdpd_add_ancient_particle_accelerator_visible = yes
+		cdpd_add_mutant_landfill_visible = yes
+		cdpd_add_cave_shroom_veins_visible = yes
+		cdpd_add_myrmeku_power_farms_visible = yes
+		cdpd_add_psionic_sands_visible = yes
+		cdpd_add_crystalline_glacier_visible = yes
+		cdpd_add_mineral_seabed_visible = yes
+		cdpd_add_disco_planet_visible = yes
+		cdpd_add_fungal_study_zone_visible = yes
+		cdpd_add_bogplants_visible = yes
+		cdpd_add_metallic_puddles_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_colony_events_runaway_reaction_available = {
+	cdpd_add_geothermal_hotspot_visible = yes
+}
+
+cdpd_section_event_deposits_subterranean_civilization_available = {
+	cdpd_add_underground_generator_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_abandoned_terraforming_equipment_available = {
+	cdpd_add_mutant_landfill_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_blue_lotus_available = {
+	cdpd_add_crater_bluelotus_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_bogplants_available = {
+	cdpd_add_bogplants_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_crystal_kraken_available = {
+	cdpd_add_crystal_kraken_body_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_dancing_plague_available = {
+	cdpd_add_disco_planet_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_dark_matter_eruption_available = {
+	cdpd_add_liquid_dark_matter_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_escape_from_the_moon_available = {
+	cdpd_add_meals_in_pods_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_feral_overload_available = {
+	cdpd_add_cave_shroom_veins_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_glacial_crisis_available = {
+	OR = {
+		cdpd_add_crystalline_glacier_visible = yes
+		cdpd_add_mineral_seabed_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_colony_events_hidden_vault_available = {
+	cdpd_add_ancient_manufactorium_crater_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_irradiated_planet_available = {
+	OR = {
+		cdpd_add_ancient_battlefield_visible = yes
+		cdpd_add_irradiated_ruins_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_colony_events_junkyard_orbit_available = {
+	cdpd_add_astrogarbage_collector_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_metallic_puddles_available = {
+	cdpd_add_metallic_puddles_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_migrating_forests_available = {
+	cdpd_add_migrating_forests_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_mushroom_picking_available = {
+	cdpd_add_fungal_study_zone_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_myrmeku_activity_available = {
+	cdpd_add_myrmeku_power_farms_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_nemma_available = {
+	cdpd_add_turtle_corpse_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_odd_factory_available = {
+	cdpd_add_odd_factory_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_shimmering_structure_available = {
+	cdpd_add_ancient_cloaking_array_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_strange_sands_available = {
+	cdpd_add_psionic_sands_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_the_doorway_available = {
+	cdpd_add_portal_research_zone_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_tomb_world_available = {
+	cdpd_add_ancient_particle_accelerator_visible = yes
+}
+
+cdpd_section_event_deposits_colony_events_underground_vault_available = {
+	cdpd_add_underground_vault_2_visible = yes
+}
+
+cdpd_section_event_deposits_terraforming_available = {
+	OR = {
+		cdpd_add_explosive_atmosphere_visible = yes
+		cdpd_add_hydroactive_eggs_visible = yes
+		cdpd_add_organic_slurry_visible = yes
+		cdpd_add_space_junk_hazards_visible = yes
+		cdpd_add_lava_tubes_visible = yes
+		cdpd_add_crystaline_growths_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_terraforming_atmosphere_and_biosphere_changes_available = {
+	OR = {
+		cdpd_add_explosive_atmosphere_visible = yes
+		cdpd_add_hydroactive_eggs_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_terraforming_geological_changes_available = {
+	OR = {
+		cdpd_add_blue_lava_visible = yes
+		cdpd_add_lava_tubes_visible = yes
+		cdpd_add_crystaline_growths_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_terraforming_machine_world_available = {
+	cdpd_add_organic_slurry_visible = yes
+}
+
+cdpd_section_event_deposits_terraforming_orbital_debris_available = {
+	cdpd_add_space_junk_hazards_visible = yes
+}
+
+cdpd_section_event_deposits_terraforming_radioactive_flora_available = {
+	cdpd_add_radiotrophic_preserve_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_available = {
+	OR = {
+		cdpd_add_electrified_oceans_visible = yes
+		cdpd_add_solar_storm_2_districts_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_cosmic_storms_electric_storm_available = {
+	OR = {
+		cdpd_add_electrified_oceans_visible = yes
+		cdpd_add_electric_storm_1_engineering_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_cosmic_storms_radiant_storm_available = {
+	cdpd_add_solar_storm_2_districts_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_magnetic_storm_available = {
+	cdpd_add_magnetic_storm_1_minerals_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_gravity_storm_available = {
+	cdpd_add_sky_mountain_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_particle_storm_available = {
+	cdpd_add_particle_storm_1_society_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_shroud_storm_available = {
+	cdpd_add_ghostly_canyon_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_stardust_storm_available = {
+	cdpd_add_celestial_storm_1_mines_visible = yes
+}
+
+cdpd_section_event_deposits_astral_rifts_available = {
+	OR = {
+		cdpd_add_forceful_winds_visible = yes
+		cdpd_add_rockworm_hive_visible = yes
+		cdpd_add_rockworm_hive_volcanic_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_astral_rifts_the_lattice_available = {
+	cdpd_add_fractal_seed_visible = yes
+}
+
+cdpd_section_event_deposits_astral_rifts_tiny_planet_available = {
+	cdpd_add_microplanet_memorial_visible = yes
+}
+
+cdpd_section_event_deposits_astral_rifts_windswept_planet_available = {
+	cdpd_add_forceful_winds_visible = yes
+}
+
+cdpd_section_event_deposits_astral_rifts_rockworms_available = {
+	OR = {
+		cdpd_add_rockworm_hive_visible = yes
+		cdpd_add_rockworm_hive_volcanic_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_situations_available = {
+	OR = {
+		cdpd_add_living_snow_reserve_visible = yes
+		cdpd_add_space_time_anomaly_visible = yes
+		cdpd_add_machine_care_home_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_situations_geomagnetic_storm_available = {
+	cdpd_add_machine_care_home_visible = yes
+}
+
+cdpd_section_event_deposits_situations_the_mysterious_labyrinth_available = {
+	cdpd_add_space_time_anomaly_visible = yes
+}
+
+cdpd_section_event_deposits_situations_unusual_snow_available = {
+	cdpd_add_living_snow_reserve_visible = yes
+}
+
+cdpd_section_event_deposits_pre_ftl_civilizations_available = {
+	cdpd_add_landgrab_blocker_visible = yes
+}
+
+cdpd_section_event_deposits_pre_ftl_civilizations_asteroid_impact_available = {
+	cdpd_add_impact_crater_visible = yes
+}
+
+cdpd_section_event_deposits_pre_ftl_civilizations_land_grabs_available = {
+	cdpd_add_landgrab_blocker_visible = yes
+}
+
+cdpd_section_event_deposits_pre_ftl_civilizations_trade_agreements_available = {
+	cdpd_add_freeports_visible = yes
+}
+
+cdpd_section_event_deposits_empires_and_diplomacy_available = {
+	cdpd_add_numas_breath_visible = yes
+}
+
+cdpd_section_event_deposits_caravaneers_available = {
+	cdpd_add_numas_breath_visible = yes
+}
+
+cdpd_section_event_deposits_federations_available = {
+	cdpd_add_federation_hegemony_monument_1_visible = yes
+}
+
+cdpd_section_event_deposits_federations_hegemony_available = {
+	cdpd_add_federation_hegemony_monument_1_visible = yes
+}
+
+cdpd_section_event_deposits_federations_hegemony_joint_operation_available = {
+	cdpd_add_federation_hegemony_monument_1_visible = yes
+}
+
+cdpd_section_event_deposits_leaders_available = {
+	cdpd_add_trophy_hall_visible = yes
+}
+
+cdpd_section_event_deposits_leaders_th_aal_hask_guron_available = {
+	cdpd_add_trophy_hall_visible = yes
+}
+
+cdpd_section_event_deposits_subject_events_available = {
+	cdpd_add_admirals_bickering_crashed_cargo_ship_visible = yes
+}
+
+cdpd_section_event_deposits_subject_events_bulwark_available = {
+	cdpd_add_admirals_bickering_crashed_cargo_ship_visible = yes
+}
+
+cdpd_section_event_deposits_the_shroud_available = {
+	cdpd_add_eater_deposit_visible = yes
+}
+
+cdpd_section_event_deposits_story_chains_available = {
+	OR = {
+		cdpd_add_worm_mine_visible = yes
+		cdpd_add_nanites_medium_visible = yes
+	}
+}
+
+cdpd_section_event_deposits_horizon_signal_available = {
+	cdpd_add_worm_mine_visible = yes
+}
+
+cdpd_section_event_deposits_machine_ascension_available = {
+	cdpd_add_nanites_medium_visible = yes
+}
+
+cdpd_section_archaeology_available = {
+	OR = {
+		cdpd_add_artifacts_planet_1_visible = yes
+		cdpd_add_sentinels_metal_visible = yes
+		cdpd_add_mutation_vats_visible = yes
+		cdpd_add_ancient_facilities_visible = yes
+		cdpd_add_polaris_city_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_unique_world_features_available = {
+	OR = {
+		cdpd_add_irradiated_valley_visible = yes
+		cdpd_add_boswash_metropolitan_axis_visible = yes
+		cdpd_add_fallen_orbital_shipyard_visible = yes
+		cdpd_add_space_ship_graveyard_visible = yes
+		cdpd_add_pulsar_scarred_visible = yes
+		cdpd_add_volcanic_active_planet_visible = yes
+		cdpd_add_hostile_fauna_visible = yes
+		cdpd_add_valley_of_zanaam_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_available = {
+	OR = {
+		cdpd_add_boswash_metropolitan_axis_visible = yes
+		cdpd_add_geocentric_experiment_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_earth_features_available = {
+	cdpd_add_boswash_metropolitan_axis_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_sol_system_geocentric_variant_available = {
+	cdpd_add_geocentric_experiment_visible = yes
+}
+
+cdpd_section_planetary_deposits_unique_world_features_other_worlds_in_the_sol_system_available = {
+	cdpd_add_dark_matter_monolith_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_sol_system_europa_available = {
+	cdpd_add_dark_matter_monolith_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_relic_worlds_available = {
+	cdpd_add_ancient_reactor_pits_visible = yes
+}
+
+cdpd_section_planetary_deposits_unique_world_features_ratling_worlds_available = {
+	cdpd_add_junk_hollows_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_keides_worlds_available = {
+	OR = {
+		cdpd_add_fallen_orbital_shipyard_visible = yes
+		cdpd_add_space_ship_graveyard_visible = yes
+		cdpd_add_pulsar_scarred_visible = yes
+		cdpd_add_volcanic_active_planet_visible = yes
+		cdpd_add_hostile_fauna_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_keides_worlds_other_worlds_of_keides_available = {
+	OR = {
+		cdpd_add_fallen_orbital_shipyard_visible = yes
+		cdpd_add_space_ship_graveyard_visible = yes
+		cdpd_add_pulsar_scarred_visible = yes
+		cdpd_add_volcanic_active_planet_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_keides_worlds_taprib_available = {
+	cdpd_add_hostile_fauna_visible = yes
+}
+
+cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_available = {
+	OR = {
+		cdpd_add_irradiated_valley_visible = yes
+		cdpd_add_valley_of_zanaam_visible = yes
+		cdpd_add_nano_corpses_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_grunur_prime_and_the_superflare_system_available = {
+	cdpd_add_irradiated_valley_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_parvus_iii_available = {
+	cdpd_add_nano_corpses_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_zanaam_available = {
+	cdpd_add_valley_of_zanaam_visible = yes
+}
+
+cdpd_section_planetary_deposits_origins_civics_and_species_traits_available = {
+	OR = {
+		cdpd_add_genesis_preserve_visible = yes
+		cdpd_add_dimensional_manipulation_device_visible = yes
+		cdpd_add_toxic_god_blight_upon_the_land_visible = yes
+		cdpd_add_toxic_god_envenomed_seas_upgraded_visible = yes
+		cdpd_add_cd_ancient_tunnels_visible = yes
+		cdpd_add_machine_minerals_visible = yes
+		cdpd_add_hive_dwelling_visible = yes
+		cdpd_add_black_needle_base_visible = yes
+		cdpd_add_shroud_rift_deposit_visible = yes
+	}
+}
+
+cdpd_section_origins_available = {
+	OR = {
+		cdpd_add_crashed_slaver_ship_visible = yes
+		cdpd_add_dimensional_manipulation_device_visible = yes
+		cdpd_add_toxic_god_blight_upon_the_land_visible = yes
+		cdpd_add_toxic_god_envenomed_seas_upgraded_visible = yes
+		cdpd_add_cd_ancient_tunnels_visible = yes
+		cdpd_add_machine_minerals_visible = yes
+		cdpd_add_hive_dwelling_visible = yes
+		cdpd_add_black_needle_base_visible = yes
+		cdpd_add_shroud_rift_deposit_visible = yes
+	}
+}
+
+cdpd_section_origins_calamitous_birth_available = {
+	cdpd_add_lithoid_crater_visible = yes
+}
+
+cdpd_section_origins_tree_of_life_available = {
+	cdpd_add_tree_of_life_home_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_broken_shackles_available = {
+	cdpd_add_crashed_slaver_ship_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_cosmic_dawn_available = {
+	cdpd_add_cd_ancient_tunnels_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_here_be_dragons_available = {
+	cdpd_add_landed_dragon_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_progenitor_hive_available = {
+	cdpd_add_progenitor_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_resource_consolidation_available = {
+	cdpd_add_machine_minerals_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_shroud_forged_available = {
+	OR = {
+		cdpd_add_shroud_rift_deposit_visible = yes
+		cdpd_add_shroud_flora_deposit_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_available = {
+	OR = {
+		cdpd_add_hive_dwelling_visible = yes
+		cdpd_add_treasure_planet_visible = yes
+		cdpd_add_black_needle_base_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_worlds_and_treasures_available = {
+	OR = {
+		cdpd_add_hive_dwelling_visible = yes
+		cdpd_add_treasure_planet_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_black_needle_available = {
+	cdpd_add_black_needle_base_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_under_one_rule_available = {
+	cdpd_add_arcane_device_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_available = {
+	OR = {
+		cdpd_add_dimensional_manipulation_device_visible = yes
+		cdpd_add_toxic_god_blight_upon_the_land_visible = yes
+		cdpd_add_toxic_god_envenomed_seas_upgraded_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_homeworld_available = {
+	cdpd_add_toxic_god_blight_upon_the_land_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_knight_quest_rewards_available = {
+	cdpd_add_toxic_god_envenomed_seas_upgraded_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_order_planetary_decisions_available = {
+	cdpd_add_dimensional_manipulation_device_visible = yes
+}
+
+cdpd_section_planetary_deposits_civics_available = {
+	cdpd_add_genesis_preserve_visible = yes
+}
+
+cdpd_section_planetary_deposits_civics_genesis_guides_and_its_variants_available = {
+	cdpd_add_genesis_preserve_visible = yes
+}
+
+cdpd_section_planetary_deposits_civics_living_metal_civics_available = {
+	cdpd_add_galvanic_living_metal_visible = yes
+}
+
+cdpd_section_planetary_deposits_origins_civics_and_species_traits_species_traits_available = {
+	cdpd_add_exotic_mountain_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_species_trait_exotic_metabolism_available = {
+	cdpd_add_exotic_mountain_visible = yes
+}
+
+cdpd_section_planetary_deposits_deposits_from_planetary_decisions_available = {
+	OR = {
+		cdpd_add_dayside_farm_visible = yes
+		cdpd_add_planet_stripmine_visible = yes
+		cdpd_add_baol_growth_visible = yes
+		cdpd_add_former_relic_world_visible = yes
+		cdpd_add_project_cornucopia_visible = yes
+		cdpd_add_prospectorium_strip_mine_visible = yes
+	}
+}
+
+cdpd_section_planetary_deposits_ring_worlds_habitats_and_arkships_available = {
+	OR = {
+		cdpd_add_stormfall_electric_visible = yes
+		cdpd_add_arcane_replicator_visible = yes
+		cdpd_add_arcane_generator_visible = yes
+		cdpd_add_cryonic_clones_visible = yes
+	}
+}
+
+cdpd_section_ring_worlds_available = {
+	OR = {
+		cdpd_add_arcane_generator_visible = yes
+		cdpd_add_cryonic_clones_visible = yes
+	}
+}
+
+cdpd_section_unique_planetary_deposits_habitats_available = {
+	cdpd_add_arcane_replicator_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_habitats_knights_of_the_toxic_god_available = {
+	cdpd_add_knights_calibrator_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_payback_available = {
+	cdpd_add_payback_habitat_research_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_habitats_federations_end_available = {
+	cdpd_add_arcane_replicator_visible = yes
+}
+
+cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_arkships_available = {
+	cdpd_add_stormfall_electric_visible = yes
+}
+
+cdpd_section_event_deposits_cosmic_storms_storm_chasers_available = {
+	cdpd_add_stormfall_electric_visible = yes
+}
+
+cdpd_section_event_deposits_nomads_arkship_events_available = {
+	cdpd_add_compact_modules_visible = yes
+}
+
+cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_available = {
+	cdpd_add_relic_arkship_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_arkships_cosmogenesis_available = {
+	cdpd_add_fallen_empire_arkship_visible = yes
+}
+
+cdpd_section_unique_planetary_deposits_by_origin_sacred_path_available = {
+	cdpd_add_mechsiah_mainframe_visible = yes
+}
+
+cdpd_section_orbital_deposits_available = {
+	OR = {
+		cdpd_add_energy_1_visible = yes
+		cdpd_add_minerals_1_visible = yes
+		cdpd_add_food_3_visible = yes
+		cdpd_add_alloys_1_visible = yes
+		cdpd_add_trade_value_1_visible = yes
+		cdpd_add_volatile_motes_1_visible = yes
+		cdpd_add_exotic_gases_1_visible = yes
+		cdpd_add_rare_crystals_1_visible = yes
+		cdpd_add_living_metal_deposit_visible = yes
+		cdpd_add_zro_deposit_1_visible = yes
+		cdpd_add_dark_matter_deposit_1_visible = yes
+		cdpd_add_nanites_deposit_visible = yes
+		cdpd_add_physics_1_visible = yes
+		cdpd_add_society_1_visible = yes
+		cdpd_add_engineering_1_visible = yes
+		cdpd_add_artifacts_mining_1_visible = yes
+		cdpd_add_artifacts_research_1_visible = yes
+		cdpd_add_astral_threads_deposit_1_visible = yes
+		cdpd_add_astral_threads_deposit_3_visible = yes
+		cdpd_add_vast_unity_deposit_visible = yes
+		cdpd_add_consumer_goods_obsessional_directive_visible = yes
+		cdpd_add_guardian_dragon_hoard_visible = yes
+		cdpd_add_protostar_visible = yes
+		cdpd_add_red_giant_unstable_visible = yes
+	}
+}
+
+cdpd_section_orbital_deposits_energy_available = {
+	cdpd_add_energy_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_minerals_available = {
+	cdpd_add_minerals_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_food_available = {
+	cdpd_add_food_3_visible = yes
+}
+
+cdpd_section_orbital_deposits_alloys_available = {
+	cdpd_add_alloys_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_trade_available = {
+	cdpd_add_trade_value_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_volatile_motes_available = {
+	cdpd_add_volatile_motes_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_exotic_gases_available = {
+	cdpd_add_exotic_gases_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_rare_crystals_available = {
+	cdpd_add_rare_crystals_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_living_metal_available = {
+	cdpd_add_living_metal_deposit_visible = yes
+}
+
+cdpd_section_orbital_deposits_zro_available = {
+	cdpd_add_zro_deposit_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_dark_matter_available = {
+	cdpd_add_dark_matter_deposit_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_nanites_available = {
+	cdpd_add_nanites_deposit_visible = yes
+}
+
+cdpd_section_orbital_deposits_physics_research_available = {
+	cdpd_add_physics_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_society_research_available = {
+	cdpd_add_society_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_engineering_research_available = {
+	cdpd_add_engineering_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_minor_artifacts_available = {
+	OR = {
+		cdpd_add_artifacts_mining_1_visible = yes
+		cdpd_add_artifacts_research_1_visible = yes
+	}
+}
+
+cdpd_section_orbital_deposits_minor_artifacts_mining_station_available = {
+	cdpd_add_artifacts_mining_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_minor_artifacts_research_station_available = {
+	cdpd_add_artifacts_research_1_visible = yes
+}
+
+cdpd_section_orbital_deposits_astral_threads_available = {
+	OR = {
+		cdpd_add_astral_threads_deposit_1_visible = yes
+		cdpd_add_astral_threads_deposit_3_visible = yes
+	}
+}
+
+cdpd_section_orbital_deposits_from_events_available = {
+	cdpd_add_vast_unity_deposit_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_available = {
+	OR = {
+		cdpd_add_consumer_goods_obsessional_directive_visible = yes
+		cdpd_add_guardian_dragon_hoard_visible = yes
+		cdpd_add_protostar_visible = yes
+		cdpd_add_red_giant_unstable_visible = yes
+		cdpd_add_nanite_harvester_deposit_visible = yes
+	}
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_available = {
+	cdpd_add_red_giant_unstable_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_available = {
+	cdpd_add_red_giant_unstable_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_before_the_supernova_available = {
+	cdpd_add_red_giant_unstable_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_supernova_available = {
+	cdpd_add_red_giant_dm_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_nanotech_available = {
+	cdpd_add_nanite_harvester_deposit_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_obsessional_directive_available = {
+	cdpd_add_consumer_goods_obsessional_directive_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_available = {
+	cdpd_add_guardian_dragon_hoard_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_ether_drake_available = {
+	cdpd_add_guardian_dragon_hoard_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_available = {
+	cdpd_add_protostar_visible = yes
+}
+
+cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_stellar_ignition_available = {
+	cdpd_add_protostar_visible = yes
+}
+
+cdpd_section_blockers_available = {
+	OR = {
+		cdpd_add_massive_glacier_visible = yes
+		cdpd_add_mountain_range_visible = yes
+		cdpd_add_quicksand_basin_visible = yes
+		cdpd_add_dangerous_wildlife_blocker_visible = yes
+		cdpd_add_toxic_kelp_visible = yes
+		cdpd_add_radioactive_wasteland_visible = yes
+		cdpd_add_tainted_snowcaps_visible = yes
+		cdpd_add_terraforming_blocker_visible = yes
+		cdpd_add_georadiation_displacement_visible = yes
+		cdpd_add_city_ruins_visible = yes
+		cdpd_add_star_mall_blocker_visible = yes
+		cdpd_add_ruined_arcology_visible = yes
+		cdpd_add_massive_crevice_visible = yes
+		cdpd_add_ruined_hatchery_visible = yes
+		cdpd_add_machine_ongoing_construction_visible = yes
+		cdpd_add_stasis_pods_visible = yes
+		cdpd_add_technocracy_toxic_waste_blocker_visible = yes
+		cdpd_add_forgotten_civilization_visible = yes
+		cdpd_add_great_pacific_garbage_patch_visible = yes
+		cdpd_add_empty_quarry_visible = yes
+		cdpd_add_sr_diurnal_regulator_visible = yes
+		cdpd_add_floodplains_visible = yes
+		cdpd_add_sinkhole_subterraneans_visible = yes
+		cdpd_add_lithoid_devastation_visible = yes
+		cdpd_add_forgotten_level_blocker_visible = yes
+		cdpd_add_big_nature_preserve_blocker_visible = yes
+		cdpd_add_egg_cracking_visible = yes
+		cdpd_add_toxic_atmosphere_visible = yes
+		cdpd_add_shroudstone_visible = yes
+		cdpd_add_mothballed_facilities_visible = yes
+	}
+}
+
+cdpd_section_blockers_ordinary_available = {
+	OR = {
+		cdpd_add_massive_glacier_visible = yes
+		cdpd_add_mountain_range_visible = yes
+		cdpd_add_quicksand_basin_visible = yes
+		cdpd_add_dangerous_wildlife_blocker_visible = yes
+		cdpd_add_toxic_kelp_visible = yes
+		cdpd_add_radioactive_wasteland_visible = yes
+	}
+}
+
+cdpd_section_blockers_ordinary_natural_available = {
+	OR = {
+		cdpd_add_massive_glacier_visible = yes
+		cdpd_add_mountain_range_visible = yes
+		cdpd_add_quicksand_basin_visible = yes
+		cdpd_add_dangerous_wildlife_blocker_visible = yes
+		cdpd_add_toxic_kelp_visible = yes
+	}
+}
+
+cdpd_section_blockers_ordinary_tomb_worlds_available = {
+	cdpd_add_radioactive_wasteland_visible = yes
+}
+
+cdpd_section_blockers_volcanic_available = {
+	cdpd_add_raging_lavafalls_visible = yes
+}
+
+cdpd_section_blockers_unusual_available = {
+	OR = {
+		cdpd_add_tainted_snowcaps_visible = yes
+		cdpd_add_terraforming_blocker_visible = yes
+		cdpd_add_georadiation_displacement_visible = yes
+		cdpd_add_old_towns_visible = yes
+		cdpd_add_radioactive_ruins_visible = yes
+		cdpd_add_city_ruins_visible = yes
+		cdpd_add_star_mall_blocker_visible = yes
+		cdpd_add_ruined_arcology_visible = yes
+		cdpd_add_massive_crevice_visible = yes
+		cdpd_add_ruined_hatchery_visible = yes
+		cdpd_add_machine_ongoing_construction_visible = yes
+		cdpd_add_stasis_pods_visible = yes
+		cdpd_add_technocracy_toxic_waste_blocker_visible = yes
+		cdpd_add_forgotten_civilization_visible = yes
+		cdpd_add_great_pacific_garbage_patch_visible = yes
+		cdpd_add_empty_quarry_visible = yes
+		cdpd_add_sr_diurnal_regulator_visible = yes
+		cdpd_add_floodplains_visible = yes
+		cdpd_add_sinkhole_subterraneans_visible = yes
+		cdpd_add_lithoid_devastation_visible = yes
+		cdpd_add_forgotten_level_blocker_visible = yes
+		cdpd_add_big_nature_preserve_blocker_visible = yes
+		cdpd_add_egg_cracking_visible = yes
+		cdpd_add_toxic_atmosphere_visible = yes
+		cdpd_add_shroudstone_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_anomalies_available = {
+	OR = {
+		cdpd_add_radioactive_ruins_visible = yes
+		cdpd_add_fungoid_extermination_visible = yes
+		cdpd_add_city_ruins_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_by_origin_available = {
+	OR = {
+		cdpd_add_ruined_building_blocker_visible = yes
+		cdpd_add_ruined_hatchery_visible = yes
+		cdpd_add_machine_ongoing_construction_visible = yes
+		cdpd_add_stasis_pods_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_by_origin_calamitous_birth_available = {
+	cdpd_add_buried_lithoids_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_cosmic_dawn_available = {
+	cdpd_add_stasis_pods_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_here_be_dragons_available = {
+	cdpd_add_ruined_building_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_payback_available = {
+	cdpd_add_ship_debris_payback_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_resource_consolidation_available = {
+	cdpd_add_machine_ongoing_construction_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_starlit_citadel_available = {
+	OR = {
+		cdpd_add_ruined_hatchery_visible = yes
+		cdpd_add_invasion_site_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_by_origin_synthetic_fertility_available = {
+	cdpd_add_abandoned_cities_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_wilderness_available = {
+	cdpd_add_wilderness_city_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_wilderness_scorched_terrain_available = {
+	cdpd_add_scorched_plains_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_wilderness_change_of_ownership_available = {
+	cdpd_add_wilderness_city_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_unplugged_available = {
+	cdpd_add_unplugged_assimilator_hulk_visible = yes
+}
+
+cdpd_section_blockers_unusual_by_origin_unplugged_machine_legacy_available = {
+	cdpd_add_unplugged_assimilator_hulk_visible = yes
+}
+
+cdpd_section_blockers_unusual_fire_cult_available = {
+	cdpd_add_toxic_atmosphere_visible = yes
+}
+
+cdpd_section_blockers_unusual_nanotech_available = {
+	cdpd_add_nanotech_devastation_visible = yes
+}
+
+cdpd_section_blockers_unusual_relic_worlds_available = {
+	OR = {
+		cdpd_add_ruined_arcology_visible = yes
+		cdpd_add_massive_crevice_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_seed_bombing_available = {
+	cdpd_add_seed_bombing_fungoid_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_seismic_carpet_bombing_available = {
+	cdpd_add_seismic_bombing_crater_visible = yes
+}
+
+cdpd_section_blockers_unusual_shroud_available = {
+	OR = {
+		cdpd_add_shroudstone_visible = yes
+		cdpd_add_shroudfall_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_shroud_planetary_shroud_manifestations_available = {
+	OR = {
+		cdpd_add_shroudstone_visible = yes
+		cdpd_add_aura_blocker_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_shroud_psionic_ascension_available = {
+	cdpd_add_shroudfall_visible = yes
+}
+
+cdpd_section_blockers_unusual_war_damage_available = {
+	cdpd_add_ruined_district_visible = yes
+}
+
+cdpd_section_blockers_unusual_civics_available = {
+	OR = {
+		cdpd_add_exterminators_ruins_visible = yes
+		cdpd_add_big_nature_preserve_blocker_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_civics_determined_exterminator_available = {
+	cdpd_add_exterminators_ruins_visible = yes
+}
+
+cdpd_section_blockers_unusual_civics_driven_assimilator_available = {
+	cdpd_add_assimilators_ruins_visible = yes
+}
+
+cdpd_section_blockers_unusual_civics_environmentalist_available = {
+	cdpd_add_big_nature_preserve_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_civics_rogue_servitor_available = {
+	cdpd_add_unsupervised_settlement_visible = yes
+}
+
+cdpd_section_blockers_unusual_colony_events_available = {
+	OR = {
+		cdpd_add_floodplains_visible = yes
+		cdpd_add_crater_visible = yes
+		cdpd_add_sprawling_landfill_blocker_visible = yes
+		cdpd_add_sinkhole_subterraneans_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_colony_events_bleeding_world_available = {
+	cdpd_add_coagulated_landscape_visible = yes
+}
+
+cdpd_section_blockers_unusual_colony_events_glacial_crisis_available = {
+	cdpd_add_floodplains_visible = yes
+}
+
+cdpd_section_blockers_unusual_colony_events_impacts_available = {
+	cdpd_add_crater_visible = yes
+}
+
+cdpd_section_blockers_unusual_colony_events_junkyard_orbit_available = {
+	cdpd_add_sprawling_landfill_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_colony_events_subterranean_civilization_available = {
+	cdpd_add_sinkhole_subterraneans_visible = yes
+}
+
+cdpd_section_blockers_unusual_crises_available = {
+	cdpd_add_kaiju_lair_visible = yes
+}
+
+cdpd_section_blockers_unusual_crises_behemoth_fury_available = {
+	cdpd_add_kaiju_lair_visible = yes
+}
+
+cdpd_section_blockers_unusual_espionage_available = {
+	cdpd_add_wilderness_root_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_espionage_wilderness_available = {
+	cdpd_add_wilderness_root_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_leviathans_available = {
+	cdpd_add_egg_cracking_visible = yes
+}
+
+cdpd_section_blockers_unusual_leviathans_voidspawn_available = {
+	cdpd_add_egg_cracking_visible = yes
+}
+
+cdpd_section_blockers_unusual_nomads_available = {
+	cdpd_add_forgotten_level_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_nomads_arkship_events_available = {
+	cdpd_add_forgotten_level_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_nomads_arkship_events_a_forgotten_level_available = {
+	cdpd_add_forgotten_level_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_nomads_deep_sleep_available = {
+	cdpd_add_deep_sleep_cryo_pods_visible = yes
+}
+
+cdpd_section_blockers_unusual_nomads_missions_available = {
+	cdpd_add_cluttered_hangar_bay_visible = yes
+}
+
+cdpd_section_blockers_unusual_overlord_holdings_available = {
+	cdpd_add_buried_lithoids_overlord_visible = yes
+}
+
+cdpd_section_blockers_unusual_overlord_holdings_experimental_crater_available = {
+	cdpd_add_buried_lithoids_overlord_visible = yes
+}
+
+cdpd_section_blockers_unusual_pre_ftl_civilizations_available = {
+	cdpd_add_mass_graves_visible = yes
+}
+
+cdpd_section_blockers_unusual_pre_ftl_civilizations_epidemics_available = {
+	cdpd_add_mass_graves_visible = yes
+}
+
+cdpd_section_blockers_unusual_ring_worlds_available = {
+	cdpd_add_sr_diurnal_regulator_visible = yes
+}
+
+cdpd_section_blockers_unusual_ring_worlds_ancient_rubble_available = {
+	cdpd_add_segment_rubble_1_visible = yes
+}
+
+cdpd_section_blockers_unusual_ring_worlds_pre_ftl_civilizations_available = {
+	cdpd_add_decrepit_tunnels_1_visible = yes
+}
+
+cdpd_section_blockers_unusual_ring_worlds_shattered_ring_available = {
+	cdpd_add_sr_diurnal_regulator_visible = yes
+}
+
+cdpd_section_blockers_unusual_situations_available = {
+	cdpd_add_old_towns_visible = yes
+}
+
+cdpd_section_blockers_unusual_situations_strategic_resource_shortages_available = {
+	cdpd_add_exploited_deposit_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_situations_synthetic_ascension_available = {
+	cdpd_add_old_towns_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_blockers_available = {
+	OR = {
+		cdpd_add_hibernating_lithoids_visible = yes
+		cdpd_add_tomb_world_ruins_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_starting_machine_empires_and_unplugged_available = {
+	cdpd_add_strip_mine_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_post_apocalyptic_origins_available = {
+	cdpd_add_tomb_world_ruins_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_blockers_determined_exterminator_and_hard_reset_available = {
+	cdpd_add_former_battlefield_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_blockers_hive_mind_available = {
+	cdpd_add_collapsed_burrows_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_blockers_lithoids_available = {
+	cdpd_add_hibernating_lithoids_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_blockers_machine_intelligence_available = {
+	cdpd_add_machine_empire_ruins_visible = yes
+}
+
+cdpd_section_blockers_unusual_starting_blockers_standard_available = {
+	cdpd_add_decrepit_dwellings_visible = yes
+}
+
+cdpd_section_blockers_unusual_subjects_available = {
+	cdpd_add_technocracy_toxic_waste_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_subjects_scholarium_available = {
+	cdpd_add_technocracy_toxic_waste_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_subjects_scholarium_destructive_research_available = {
+	cdpd_add_technocracy_toxic_waste_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_terraforming_available = {
+	OR = {
+		cdpd_add_tainted_snowcaps_visible = yes
+		cdpd_add_terraforming_blocker_visible = yes
+		cdpd_add_georadiation_displacement_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_terraforming_detox_available = {
+	cdpd_add_tainted_snowcaps_visible = yes
+}
+
+cdpd_section_blockers_unusual_terraforming_terraforming_complications_available = {
+	cdpd_add_terraforming_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_terraforming_world_toxification_available = {
+	cdpd_add_georadiation_displacement_visible = yes
+}
+
+cdpd_section_blockers_unusual_terravores_available = {
+	cdpd_add_lithoid_devastation_visible = yes
+}
+
+cdpd_section_blockers_unusual_terravores_planet_consumption_available = {
+	cdpd_add_lithoid_devastation_visible = yes
+}
+
+cdpd_section_blockers_unusual_unique_habitats_available = {
+	cdpd_add_star_mall_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_unique_habitats_star_mall_available = {
+	cdpd_add_star_mall_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_unique_planets_available = {
+	OR = {
+		cdpd_add_forgotten_civilization_visible = yes
+		cdpd_add_great_pacific_garbage_patch_visible = yes
+		cdpd_add_lethal_ecosphere_blocker_visible = yes
+		cdpd_add_empty_quarry_visible = yes
+	}
+}
+
+cdpd_section_blockers_unusual_unique_planets_earth_available = {
+	cdpd_add_great_pacific_garbage_patch_visible = yes
+}
+
+cdpd_section_blockers_unusual_unique_planets_fevor_available = {
+	cdpd_add_empty_quarry_visible = yes
+}
+
+cdpd_section_blockers_unusual_unique_planets_trial_of_survival_available = {
+	cdpd_add_lethal_ecosphere_blocker_visible = yes
+}
+
+cdpd_section_blockers_unusual_unique_planets_folder_deneb_unity_available = {
+	cdpd_add_forgotten_civilization_visible = yes
+}
+
+cdpd_section_blockers_utility_available = {
+	OR = {
+		cdpd_add_mothballed_facilities_visible = yes
+		cdpd_add_spawning_complex_blocker_visible = yes
+		cdpd_add_resource_consolidation_1_visible = yes
+	}
+}
+
+cdpd_section_blockers_blocker_clearance_results_available = {
+	OR = {
+		cdpd_add_organic_landfill_visible = yes
+		cdpd_add_star_mall_promenade_visible = yes
+		cdpd_add_forgotten_level_visible = yes
+	}
+}
+
+cdpd_section_remove_available = {
+	any_deposit = {
+		OR = {
+			is_deposit_type = d_abandoned_black_needle_base
+			is_deposit_type = d_abandoned_cities
+			is_deposit_type = d_abandoned_mining_tunnels
+			is_deposit_type = d_abandoned_primitive_homesteads
+			is_deposit_type = d_active_volcano
+			is_deposit_type = d_admirals_bickering_crashed_cargo_ship
+			is_deposit_type = d_alien_pets_deposit
+			is_deposit_type = d_alien_sanctuary
+			is_deposit_type = d_alloys_1
+			is_deposit_type = d_alloys_10
+			is_deposit_type = d_alloys_2
+			is_deposit_type = d_alloys_25
+			is_deposit_type = d_alloys_3
+			is_deposit_type = d_alloys_4
+			is_deposit_type = d_alloys_5
+			is_deposit_type = d_ancient_battlefield
+			is_deposit_type = d_ancient_bombardment_craters
+			is_deposit_type = d_ancient_cloaking_array
+			is_deposit_type = d_ancient_facilities
+			is_deposit_type = d_ancient_manufactorium_crater
+			is_deposit_type = d_ancient_manufactorium_scrapyard
+			is_deposit_type = d_ancient_manufactorium_vaultexploration
+			is_deposit_type = d_ancient_manufactorium_working
+			is_deposit_type = d_ancient_mining_site
+			is_deposit_type = d_ancient_one
+			is_deposit_type = d_ancient_particle_accelerator
+			is_deposit_type = d_ancient_reactor_pits
+			is_deposit_type = d_andisol_soil
+			is_deposit_type = d_arc_furnace_1
+			is_deposit_type = d_arc_furnace_2
+			is_deposit_type = d_arc_furnace_3
+			is_deposit_type = d_arc_furnace_4
+			is_deposit_type = d_arcane_device
+			is_deposit_type = d_arcane_generator
+			is_deposit_type = d_arcane_replicator
+			is_deposit_type = d_archaeological_site
+			is_deposit_type = d_arid_highlands
+			is_deposit_type = d_artifacts_mining_1
+			is_deposit_type = d_artifacts_mining_2
+			is_deposit_type = d_artifacts_mining_3
+			is_deposit_type = d_artifacts_planet_1
+			is_deposit_type = d_artifacts_planet_2
+			is_deposit_type = d_artifacts_planet_3
+			is_deposit_type = d_artifacts_research_1
+			is_deposit_type = d_artifacts_research_2
+			is_deposit_type = d_artifacts_research_3
+			is_deposit_type = d_ash_storms
+			is_deposit_type = d_assimilators_ruins
+			is_deposit_type = d_astral_threads_deposit_1
+			is_deposit_type = d_astral_threads_deposit_2
+			is_deposit_type = d_astral_threads_deposit_3
+			is_deposit_type = d_astrogarbage_collector
+			is_deposit_type = d_aura_blocker
+			is_deposit_type = d_avian_reserve
+			is_deposit_type = d_baol_growth
+			is_deposit_type = d_betharian_deposit
+			is_deposit_type = d_big_nature_preserve_blocker
+			is_deposit_type = d_biological_enclaves
+			is_deposit_type = d_bioship_remains
+			is_deposit_type = d_black_needle_base
+			is_deposit_type = d_black_soil
+			is_deposit_type = d_blue_lava
+			is_deposit_type = d_bluelotus
+			is_deposit_type = d_bluelotus2
+			is_deposit_type = d_boggy_fens
+			is_deposit_type = d_bogplants
+			is_deposit_type = d_bomb_crater
+			is_deposit_type = d_boswash_metropolitan_axis
+			is_deposit_type = d_bountiful_plains
+			is_deposit_type = d_bubbling_swamp
+			is_deposit_type = d_buried_lithoids
+			is_deposit_type = d_buried_lithoids_overlord
+			is_deposit_type = d_buzzing_plains
+			is_deposit_type = d_cave_shroom_veins
+			is_deposit_type = d_cd_ancient_tunnels
+			is_deposit_type = d_celestial_storm_1_mines
+			is_deposit_type = d_celestial_storm_2_society
+			is_deposit_type = d_celestial_storm_3_crystal
+			is_deposit_type = d_central_spire
+			is_deposit_type = d_charged_atmosphere
+			is_deposit_type = d_city_ruins
+			is_deposit_type = d_cluttered_hangar_bay
+			is_deposit_type = d_coagulated_landscape
+			is_deposit_type = d_collapsed_burrows
+			is_deposit_type = d_collapsed_spire
+			is_deposit_type = d_compact_modules
+			is_deposit_type = d_consumer_goods_obsessional_directive
+			is_deposit_type = d_crashed_slaver_ship
+			is_deposit_type = d_crashed_slaver_ship_memorial
+			is_deposit_type = d_crater
+			is_deposit_type = d_crater_bluelotus
+			is_deposit_type = d_crumbling_mining_tunnels
+			is_deposit_type = d_cryonic_clones
+			is_deposit_type = d_crystal_forest
+			is_deposit_type = d_crystal_kraken_body
+			is_deposit_type = d_crystal_kraken_body_bombed
+			is_deposit_type = d_crystal_reef
+			is_deposit_type = d_crystal_rift
+			is_deposit_type = d_crystaline_growths
+			is_deposit_type = d_crystalline_caverns
+			is_deposit_type = d_crystalline_glacier
+			is_deposit_type = d_dangerous_wildlife_blocker
+			is_deposit_type = d_dark_matter_deposit_1
+			is_deposit_type = d_dark_matter_deposit_10
+			is_deposit_type = d_dark_matter_deposit_2
+			is_deposit_type = d_dark_matter_deposit_3
+			is_deposit_type = d_dark_matter_monolith
+			is_deposit_type = d_dayside_farm
+			is_deposit_type = d_decrepit_dwellings
+			is_deposit_type = d_decrepit_tunnels_1
+			is_deposit_type = d_decrepit_tunnels_2
+			is_deposit_type = d_decrepit_tunnels_3
+			is_deposit_type = d_deep_sinkhole
+			is_deposit_type = d_deep_sleep_cryo_pods
+			is_deposit_type = d_deep_sleep_cryo_pods_renewed
+			is_deposit_type = d_delhi_sprawl
+			is_deposit_type = d_dense_jungle
+			is_deposit_type = d_desertling_infestation
+			is_deposit_type = d_devastated_cities
+			is_deposit_type = d_devoured_continent
+			is_deposit_type = d_dimensional_manipulation_device
+			is_deposit_type = d_disco_planet
+			is_deposit_type = d_disco_planet2
+			is_deposit_type = d_dragon_monument
+			is_deposit_type = d_dust_caverns
+			is_deposit_type = d_dust_desert
+			is_deposit_type = d_eater_deposit
+			is_deposit_type = d_egg_cracking
+			is_deposit_type = d_electric_storm_1_engineering
+			is_deposit_type = d_electric_storm_2_unity
+			is_deposit_type = d_electric_storm_3_physics
+			is_deposit_type = d_electrified_oceans
+			is_deposit_type = d_empty_quarry
+			is_deposit_type = d_energy_1
+			is_deposit_type = d_energy_10
+			is_deposit_type = d_energy_2
+			is_deposit_type = d_energy_3
+			is_deposit_type = d_energy_4
+			is_deposit_type = d_energy_5
+			is_deposit_type = d_energy_6
+			is_deposit_type = d_energy_7
+			is_deposit_type = d_energy_8
+			is_deposit_type = d_energy_9
+			is_deposit_type = d_engineering_1
+			is_deposit_type = d_engineering_10
+			is_deposit_type = d_engineering_2
+			is_deposit_type = d_engineering_25
+			is_deposit_type = d_engineering_3
+			is_deposit_type = d_engineering_4
+			is_deposit_type = d_engineering_5
+			is_deposit_type = d_engineering_6
+			is_deposit_type = d_engineering_7
+			is_deposit_type = d_engineering_8
+			is_deposit_type = d_engineering_9
+			is_deposit_type = d_exotic_gases_1
+			is_deposit_type = d_exotic_gases_2
+			is_deposit_type = d_exotic_gases_3
+			is_deposit_type = d_exotic_gases_4
+			is_deposit_type = d_exotic_gases_5
+			is_deposit_type = d_exotic_mountain
+			is_deposit_type = d_exploited_deposit_blocker
+			is_deposit_type = d_explosive_atmosphere
+			is_deposit_type = d_exterminators_ruins
+			is_deposit_type = d_failing_infrastructure
+			is_deposit_type = d_failing_infrastructure_earth
+			is_deposit_type = d_fallen_empire_arkship
+			is_deposit_type = d_fallen_orbital_shipyard
+			is_deposit_type = d_federation_hegemony_monument_1
+			is_deposit_type = d_federation_hegemony_monument_2
+			is_deposit_type = d_fertile_lands
+			is_deposit_type = d_flooded_mounds
+			is_deposit_type = d_flooded_reactor_pits
+			is_deposit_type = d_floodplains
+			is_deposit_type = d_food_10
+			is_deposit_type = d_food_3
+			is_deposit_type = d_food_4
+			is_deposit_type = d_food_5
+			is_deposit_type = d_food_6
+			is_deposit_type = d_food_7
+			is_deposit_type = d_forceful_winds
+			is_deposit_type = d_forgiving_tundra
+			is_deposit_type = d_forgotten_civilization
+			is_deposit_type = d_forgotten_level
+			is_deposit_type = d_forgotten_level_blocker
+			is_deposit_type = d_former_battlefield
+			is_deposit_type = d_former_relic_world
+			is_deposit_type = d_fractal_seed
+			is_deposit_type = d_freeports
+			is_deposit_type = d_frozen_gas_lake
+			is_deposit_type = d_fuming_bog
+			is_deposit_type = d_fungal_caves
+			is_deposit_type = d_fungal_forest
+			is_deposit_type = d_fungal_study_zone
+			is_deposit_type = d_fungoid_extermination
+			is_deposit_type = d_galvanic_living_metal
+			is_deposit_type = d_genesis_monument
+			is_deposit_type = d_genesis_preserve
+			is_deposit_type = d_geocentric_experiment
+			is_deposit_type = d_georadiation_displacement
+			is_deposit_type = d_geothermal_hotspot
+			is_deposit_type = d_geothermal_vent
+			is_deposit_type = d_ghostly_canyon
+			is_deposit_type = d_gravity_storm_1_districts
+			is_deposit_type = d_gravity_storm_2_unity
+			is_deposit_type = d_gravity_storm_3_engineering
+			is_deposit_type = d_great_albertan_crater
+			is_deposit_type = d_great_pacific_garbage_patch
+			is_deposit_type = d_great_river
+			is_deposit_type = d_green_hills
+			is_deposit_type = d_guardian_dragon_hoard
+			is_deposit_type = d_hab_alloy_1
+			is_deposit_type = d_hab_alloy_10
+			is_deposit_type = d_hab_alloy_2
+			is_deposit_type = d_hab_alloy_25
+			is_deposit_type = d_hab_alloy_3
+			is_deposit_type = d_hab_alloy_4
+			is_deposit_type = d_hab_alloy_5
+			is_deposit_type = d_hab_astral_threads_1
+			is_deposit_type = d_hab_astral_threads_2
+			is_deposit_type = d_hab_astral_threads_3
+			is_deposit_type = d_hab_consumer_goods_2
+			is_deposit_type = d_hab_crystal_1
+			is_deposit_type = d_hab_crystal_2
+			is_deposit_type = d_hab_crystal_3
+			is_deposit_type = d_hab_crystal_4
+			is_deposit_type = d_hab_crystal_5
+			is_deposit_type = d_hab_dark_matter_1
+			is_deposit_type = d_hab_dark_matter_10
+			is_deposit_type = d_hab_dark_matter_2
+			is_deposit_type = d_hab_dark_matter_3
+			is_deposit_type = d_hab_gas_1
+			is_deposit_type = d_hab_gas_2
+			is_deposit_type = d_hab_gas_3
+			is_deposit_type = d_hab_gas_4
+			is_deposit_type = d_hab_gas_5
+			is_deposit_type = d_hab_harvester_nanites_1
+			is_deposit_type = d_hab_harvester_nanites_2
+			is_deposit_type = d_hab_harvester_nanites_3
+			is_deposit_type = d_hab_living_metal_1
+			is_deposit_type = d_hab_lonely_bot_deposit
+			is_deposit_type = d_hab_lonely_bot_deposit_2
+			is_deposit_type = d_hab_lonely_bot_deposit_3
+			is_deposit_type = d_hab_mote_1
+			is_deposit_type = d_hab_mote_2
+			is_deposit_type = d_hab_mote_3
+			is_deposit_type = d_hab_mote_4
+			is_deposit_type = d_hab_mote_5
+			is_deposit_type = d_hab_nanites_3
+			is_deposit_type = d_hab_zro_1
+			is_deposit_type = d_hab_zro_2
+			is_deposit_type = d_hab_zro_3
+			is_deposit_type = d_hab_zro_4
+			is_deposit_type = d_hab_zro_5
+			is_deposit_type = d_harvester_fields
+			is_deposit_type = d_hibernating_lithoids
+			is_deposit_type = d_hive_dwelling
+			is_deposit_type = d_hostile_fauna
+			is_deposit_type = d_hostile_flora
+			is_deposit_type = d_hot_springs
+			is_deposit_type = d_house_turtle
+			is_deposit_type = d_hydroactive_eggs
+			is_deposit_type = d_hyperfertile_valley
+			is_deposit_type = d_immense_solar_array
+			is_deposit_type = d_impact_crater
+			is_deposit_type = d_impossiblecorrie
+			is_deposit_type = d_industrial_sector
+			is_deposit_type = d_invasion_site
+			is_deposit_type = d_irradiated_ruins
+			is_deposit_type = d_irradiated_valley
+			is_deposit_type = d_junk_canals
+			is_deposit_type = d_junk_hollows
+			is_deposit_type = d_junk_wastes
+			is_deposit_type = d_kaiju_lair
+			is_deposit_type = d_knights_calibrator
+			is_deposit_type = d_landed_dragon
+			is_deposit_type = d_landgrab_blocker
+			is_deposit_type = d_landgrab_foreign_holdings
+			is_deposit_type = d_large_volcano
+			is_deposit_type = d_lava_flooding
+			is_deposit_type = d_lava_tubes
+			is_deposit_type = d_lethal_ecosphere_blocker
+			is_deposit_type = d_lichen_fields
+			is_deposit_type = d_liquid_dark_matter
+			is_deposit_type = d_lithoid_crater
+			is_deposit_type = d_lithoid_devastation
+			is_deposit_type = d_living_metal_deposit
+			is_deposit_type = d_living_metal_medium
+			is_deposit_type = d_living_metal_small
+			is_deposit_type = d_living_metal_tiny
+			is_deposit_type = d_living_snow_reserve
+			is_deposit_type = d_lush_jungle
+			is_deposit_type = d_machine_care_home
+			is_deposit_type = d_machine_empire_ruins
+			is_deposit_type = d_machine_minerals
+			is_deposit_type = d_machine_ongoing_construction
+			is_deposit_type = d_machine_prototype_pc_machine
+			is_deposit_type = d_magnetic_storm_1_minerals
+			is_deposit_type = d_magnetic_storm_2_alloys
+			is_deposit_type = d_magnetic_storm_3_mix
+			is_deposit_type = d_malfunctioning_reactor
+			is_deposit_type = d_marvelous_oasis
+			is_deposit_type = d_mass_graves
+			is_deposit_type = d_massive_crevice
+			is_deposit_type = d_massive_glacier
+			is_deposit_type = d_mauritanian_security_zone
+			is_deposit_type = d_meals_in_pods
+			is_deposit_type = d_mechsiah_mainframe
+			is_deposit_type = d_mesopotamian_urban_corridor
+			is_deposit_type = d_metal_boneyard
+			is_deposit_type = d_metallic_puddles
+			is_deposit_type = d_microplanet_memorial
+			is_deposit_type = d_migrating_forest_reserve
+			is_deposit_type = d_migrating_forests
+			is_deposit_type = d_mineral_fields
+			is_deposit_type = d_mineral_seabed
+			is_deposit_type = d_mineral_striations
+			is_deposit_type = d_minerals_1
+			is_deposit_type = d_minerals_10
+			is_deposit_type = d_minerals_2
+			is_deposit_type = d_minerals_3
+			is_deposit_type = d_minerals_4
+			is_deposit_type = d_minerals_5
+			is_deposit_type = d_minerals_6
+			is_deposit_type = d_minerals_7
+			is_deposit_type = d_minerals_8
+			is_deposit_type = d_minerals_9
+			is_deposit_type = d_mothballed_facilities
+			is_deposit_type = d_mountain_range
+			is_deposit_type = d_mountains_of_steel
+			is_deposit_type = d_msi_air_freshener
+			is_deposit_type = d_mutant_landfill
+			is_deposit_type = d_mutation_vats
+			is_deposit_type = d_myrmeku_power_farms
+			is_deposit_type = d_nanite_harvester_deposit
+			is_deposit_type = d_nanite_harvester_deposit_large
+			is_deposit_type = d_nanite_harvester_deposit_regular
+			is_deposit_type = d_nanites_deposit
+			is_deposit_type = d_nanites_medium
+			is_deposit_type = d_nanites_small
+			is_deposit_type = d_nanites_tiny
+			is_deposit_type = d_nano_corpses
+			is_deposit_type = d_nanosands
+			is_deposit_type = d_nanotech_devastation
+			is_deposit_type = d_natural_farmland
+			is_deposit_type = d_nature_preserve_blocker
+			is_deposit_type = d_noxious_swamp
+			is_deposit_type = d_numas_breath
+			is_deposit_type = d_nutritious_mudland
+			is_deposit_type = d_odd_factory
+			is_deposit_type = d_old_towns
+			is_deposit_type = d_ore_rich_caverns
+			is_deposit_type = d_organic_landfill
+			is_deposit_type = d_organic_slurry
+			is_deposit_type = d_pacific_algae_tracts
+			is_deposit_type = d_particle_storm_1_society
+			is_deposit_type = d_particle_storm_2_unity
+			is_deposit_type = d_particle_storm_3_motes
+			is_deposit_type = d_payback_habitat_research
+			is_deposit_type = d_pearl_river_agglomerate
+			is_deposit_type = d_physics_1
+			is_deposit_type = d_physics_10
+			is_deposit_type = d_physics_2
+			is_deposit_type = d_physics_25
+			is_deposit_type = d_physics_3
+			is_deposit_type = d_physics_4
+			is_deposit_type = d_physics_5
+			is_deposit_type = d_physics_6
+			is_deposit_type = d_physics_7
+			is_deposit_type = d_physics_8
+			is_deposit_type = d_physics_9
+			is_deposit_type = d_planet_stripmine
+			is_deposit_type = d_poisonous_algae
+			is_deposit_type = d_polaris_city
+			is_deposit_type = d_portal_research_zone
+			is_deposit_type = d_prisoner_intergration
+			is_deposit_type = d_processing_pens
+			is_deposit_type = d_progenitor
+			is_deposit_type = d_progenitor_empty
+			is_deposit_type = d_project_cornucopia
+			is_deposit_type = d_prospectorium_strip_mine
+			is_deposit_type = d_prosperous_mesa
+			is_deposit_type = d_protostar
+			is_deposit_type = d_psionic_sands
+			is_deposit_type = d_pulsar_scarred
+			is_deposit_type = d_quicksand_basin
+			is_deposit_type = d_radioactive_ruins
+			is_deposit_type = d_radioactive_wasteland
+			is_deposit_type = d_radiotrophic_preserve
+			is_deposit_type = d_raging_lavafalls
+			is_deposit_type = d_rare_crystals_1
+			is_deposit_type = d_rare_crystals_2
+			is_deposit_type = d_rare_crystals_3
+			is_deposit_type = d_rare_crystals_4
+			is_deposit_type = d_rare_crystals_5
+			is_deposit_type = d_red_desert
+			is_deposit_type = d_red_giant_dm
+			is_deposit_type = d_red_giant_unstable
+			is_deposit_type = d_relic_arkship
+			is_deposit_type = d_relic_dense_ruins
+			is_deposit_type = d_relic_metal_boneyard
+			is_deposit_type = d_resource_consolidation_1
+			is_deposit_type = d_rich_mountain
+			is_deposit_type = d_rockworm_hive
+			is_deposit_type = d_rockworm_hive_volcanic
+			is_deposit_type = d_rotten_soil
+			is_deposit_type = d_rugged_landscape
+			is_deposit_type = d_rugged_woods
+			is_deposit_type = d_ruin_bluelotus
+			is_deposit_type = d_ruined_arcology
+			is_deposit_type = d_ruined_building_blocker
+			is_deposit_type = d_ruined_district
+			is_deposit_type = d_ruined_hatchery
+			is_deposit_type = d_ruined_hive_dwelling
+			is_deposit_type = d_ruined_sanctum_of_the_lost
+			is_deposit_type = d_rushing_waterfalls
+			is_deposit_type = d_saharan_irrigation_project
+			is_deposit_type = d_savage_wildlands
+			is_deposit_type = d_scandinavian_reclamation_sector
+			is_deposit_type = d_scorched_plains
+			is_deposit_type = d_searing_desert
+			is_deposit_type = d_seed_bombing_fungoid_blocker
+			is_deposit_type = d_seed_bombing_plantoid_blocker
+			is_deposit_type = d_segment_rubble_1
+			is_deposit_type = d_segment_rubble_1_small
+			is_deposit_type = d_segment_rubble_2
+			is_deposit_type = d_segment_rubble_3
+			is_deposit_type = d_segment_rubble_4
+			is_deposit_type = d_seismic_bombing_crater
+			is_deposit_type = d_sentinels
+			is_deposit_type = d_sentinels_metal
+			is_deposit_type = d_sentinels_monument
+			is_deposit_type = d_shattered_solar_array
+			is_deposit_type = d_shimmering_structure
+			is_deposit_type = d_ship_debris_broken_shackles_blocker
+			is_deposit_type = d_ship_debris_payback_blocker
+			is_deposit_type = d_shroud_flora_deposit
+			is_deposit_type = d_shroud_rift_deposit
+			is_deposit_type = d_shroud_storm_1_society
+			is_deposit_type = d_shroud_storm_2_zro
+			is_deposit_type = d_shroud_storm_3_happy
+			is_deposit_type = d_shroudfall
+			is_deposit_type = d_shroudgate
+			is_deposit_type = d_shroudstone
+			is_deposit_type = d_sinkhole_subterraneans
+			is_deposit_type = d_sky_mountain
+			is_deposit_type = d_society_1
+			is_deposit_type = d_society_10
+			is_deposit_type = d_society_15
+			is_deposit_type = d_society_2
+			is_deposit_type = d_society_25
+			is_deposit_type = d_society_3
+			is_deposit_type = d_society_4
+			is_deposit_type = d_society_5
+			is_deposit_type = d_society_6
+			is_deposit_type = d_society_7
+			is_deposit_type = d_society_8
+			is_deposit_type = d_society_9
+			is_deposit_type = d_solar_storm_1_energy
+			is_deposit_type = d_solar_storm_2_districts
+			is_deposit_type = d_solar_storm_3_output
+			is_deposit_type = d_space_junk_hazards
+			is_deposit_type = d_space_ship_graveyard
+			is_deposit_type = d_space_time_anomaly
+			is_deposit_type = d_spawning_complex_blocker
+			is_deposit_type = d_splinter_hive_link
+			is_deposit_type = d_spore_vents
+			is_deposit_type = d_sprawling_landfill_blocker
+			is_deposit_type = d_sr_diurnal_regulator
+			is_deposit_type = d_sr_power_grid
+			is_deposit_type = d_sr_ring_gyros
+			is_deposit_type = d_sr_vacuum_fields
+			is_deposit_type = d_star_mall_blocker
+			is_deposit_type = d_star_mall_promenade
+			is_deposit_type = d_star_mall_promenade_blocker
+			is_deposit_type = d_stasis_pods
+			is_deposit_type = d_stasis_prison
+			is_deposit_type = d_stellarite_trophy
+			is_deposit_type = d_stormfall_electric
+			is_deposit_type = d_stormfall_gravity
+			is_deposit_type = d_stormfall_magnetic
+			is_deposit_type = d_strip_mine
+			is_deposit_type = d_submerged_ore_veins
+			is_deposit_type = d_tainted_snowcaps
+			is_deposit_type = d_technocracy_barren_lands_blocker
+			is_deposit_type = d_technocracy_molten_waste_blocker
+			is_deposit_type = d_technocracy_toxic_ocean_blocker
+			is_deposit_type = d_technocracy_toxic_waste_blocker
+			is_deposit_type = d_teeming_reef
+			is_deposit_type = d_tempestous_mountain
+			is_deposit_type = d_terraforming_blocker
+			is_deposit_type = d_the_zone
+			is_deposit_type = d_titanic_life_blocker
+			is_deposit_type = d_tomb_world_ruins
+			is_deposit_type = d_tomb_world_wasteland
+			is_deposit_type = d_toxic_atmosphere
+			is_deposit_type = d_toxic_god_blight_upon_the_land
+			is_deposit_type = d_toxic_god_blight_upon_the_land_upgraded
+			is_deposit_type = d_toxic_god_deitys_swarms
+			is_deposit_type = d_toxic_god_deitys_swarms_upgraded
+			is_deposit_type = d_toxic_god_envenomed_seas
+			is_deposit_type = d_toxic_god_envenomed_seas_upgraded
+			is_deposit_type = d_toxic_god_pestilential_wasteland
+			is_deposit_type = d_toxic_god_pestilential_wasteland_upgraded
+			is_deposit_type = d_toxic_god_pools_most_venemous
+			is_deposit_type = d_toxic_god_pools_most_venemous_upgraded
+			is_deposit_type = d_toxic_kelp
+			is_deposit_type = d_toy_factory_complex
+			is_deposit_type = d_trade_value_1
+			is_deposit_type = d_trade_value_10
+			is_deposit_type = d_trade_value_2
+			is_deposit_type = d_trade_value_3
+			is_deposit_type = d_trade_value_4
+			is_deposit_type = d_trade_value_5
+			is_deposit_type = d_trade_value_6
+			is_deposit_type = d_trade_value_7
+			is_deposit_type = d_trade_value_8
+			is_deposit_type = d_trade_value_9
+			is_deposit_type = d_treasure_planet
+			is_deposit_type = d_tree_of_life_colony
+			is_deposit_type = d_tree_of_life_home
+			is_deposit_type = d_trophy_hall
+			is_deposit_type = d_tropical_island
+			is_deposit_type = d_turtle_corpse
+			is_deposit_type = d_turtle_miner
+			is_deposit_type = d_underground_contact_zone
+			is_deposit_type = d_underground_farm
+			is_deposit_type = d_underground_farm_blocked
+			is_deposit_type = d_underground_farm_dead
+			is_deposit_type = d_underground_generator
+			is_deposit_type = d_underground_generator_blocked
+			is_deposit_type = d_underground_generator_dead
+			is_deposit_type = d_underground_mine
+			is_deposit_type = d_underground_mine_blocked
+			is_deposit_type = d_underground_mine_dead
+			is_deposit_type = d_underground_vault
+			is_deposit_type = d_underground_vault_2
+			is_deposit_type = d_underwater_vent
+			is_deposit_type = d_unpleasant_atmosphere
+			is_deposit_type = d_unplugged_assimilator_hulk
+			is_deposit_type = d_unsupervised_settlement
+			is_deposit_type = d_valley_of_zanaam
+			is_deposit_type = d_vast_unity_deposit
+			is_deposit_type = d_veiny_cliffs
+			is_deposit_type = d_venomous_insects
+			is_deposit_type = d_virtual_power_medium
+			is_deposit_type = d_virtual_power_small
+			is_deposit_type = d_virtual_power_tiny
+			is_deposit_type = d_volatile_motes_1
+			is_deposit_type = d_volatile_motes_2
+			is_deposit_type = d_volatile_motes_3
+			is_deposit_type = d_volatile_motes_4
+			is_deposit_type = d_volatile_motes_5
+			is_deposit_type = d_volcanic_active_planet
+			is_deposit_type = d_volcanic_basalt_plains
+			is_deposit_type = d_volcanic_dried_lavariver
+			is_deposit_type = d_volcanic_fumarole
+			is_deposit_type = d_volcanic_intraplate
+			is_deposit_type = d_volcanic_lava_river
+			is_deposit_type = d_volcanic_mineral_fields
+			is_deposit_type = d_volcanic_mineral_hills
+			is_deposit_type = d_volcanic_mineral_layers
+			is_deposit_type = d_volcanic_ore_caverns
+			is_deposit_type = d_volcanic_ore_veins
+			is_deposit_type = d_volcanic_rich_mountain
+			is_deposit_type = d_volcanic_stable_plateaus
+			is_deposit_type = d_volcanic_stifling_atmosphere
+			is_deposit_type = d_volcanic_sulfur_lava
+			is_deposit_type = d_volcanic_tranquil_flatlands
+			is_deposit_type = d_volcanic_tunnels
+			is_deposit_type = d_volcanic_weak_crust
+			is_deposit_type = d_wandering_forests
+			is_deposit_type = d_weapon_extraction_facility
+			is_deposit_type = d_wetware_computer
+			is_deposit_type = d_wilderness_city
+			is_deposit_type = d_wilderness_city_2
+			is_deposit_type = d_wilderness_farming
+			is_deposit_type = d_wilderness_farming_2
+			is_deposit_type = d_wilderness_generator
+			is_deposit_type = d_wilderness_generator_2
+			is_deposit_type = d_wilderness_glade_blocker
+			is_deposit_type = d_wilderness_industrial
+			is_deposit_type = d_wilderness_industrial_2
+			is_deposit_type = d_wilderness_mining
+			is_deposit_type = d_wilderness_mining_2
+			is_deposit_type = d_wilderness_root_blocker
+			is_deposit_type = d_worm_farm
+			is_deposit_type = d_worm_mine
+			is_deposit_type = d_zro_deposit_1
+			is_deposit_type = d_zro_deposit_2
+			is_deposit_type = d_zro_deposit_3
+			is_deposit_type = d_zro_deposit_4
+			is_deposit_type = d_zro_deposit_5
+		}
+	}
+}

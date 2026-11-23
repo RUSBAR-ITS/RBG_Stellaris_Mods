@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_trophy_hall
+	NATIVE_PREVIEW = "add_deposit = d_trophy_hall custom_tooltip = cdpd_trophy_hall_properties"
+	LABEL = cdpd_$MODE$_trophy_hall_label
+	TIP = cdpd_$MODE$_trophy_hall_tip
+	VISIBLE = cdpd_$MODE$_trophy_hall_visible
+	ACTION = cdpd_$MODE$_trophy_hall
+	SCREEN = $SCREEN$
+}

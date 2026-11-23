@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_cloaking_array
+	NATIVE_PREVIEW = "add_deposit = d_ancient_cloaking_array"
+	LABEL = cdpd_$MODE$_ancient_cloaking_array_label
+	TIP = cdpd_$MODE$_ancient_cloaking_array_tip
+	VISIBLE = cdpd_$MODE$_ancient_cloaking_array_visible
+	ACTION = cdpd_$MODE$_ancient_cloaking_array
+	SCREEN = $SCREEN$
+}

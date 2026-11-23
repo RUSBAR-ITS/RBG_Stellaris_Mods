@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_consumer_goods_obsessional_directive
+	NATIVE_PREVIEW = "add_deposit = d_consumer_goods_obsessional_directive custom_tooltip = cdpd_consumer_goods_obsessional_directive_properties"
+	LABEL = cdpd_$MODE$_consumer_goods_obsessional_directive_label
+	TIP = cdpd_$MODE$_consumer_goods_obsessional_directive_tip
+	VISIBLE = cdpd_$MODE$_consumer_goods_obsessional_directive_visible
+	ACTION = cdpd_$MODE$_consumer_goods_obsessional_directive
+	SCREEN = $SCREEN$
+}

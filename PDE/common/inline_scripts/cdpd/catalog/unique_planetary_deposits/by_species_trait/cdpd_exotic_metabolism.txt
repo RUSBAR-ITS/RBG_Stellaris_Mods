@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_exotic_mountain
+	NATIVE_PREVIEW = "add_deposit = d_exotic_mountain"
+	LABEL = cdpd_$MODE$_exotic_mountain_label
+	TIP = cdpd_$MODE$_exotic_mountain_tip
+	VISIBLE = cdpd_$MODE$_exotic_mountain_visible
+	ACTION = cdpd_$MODE$_exotic_mountain
+	SCREEN = $SCREEN$
+}

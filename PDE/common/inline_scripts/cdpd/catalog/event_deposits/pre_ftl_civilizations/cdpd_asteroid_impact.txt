@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_impact_crater
+	NATIVE_PREVIEW = "add_deposit = d_impact_crater"
+	LABEL = cdpd_$MODE$_impact_crater_label
+	TIP = cdpd_$MODE$_impact_crater_tip
+	VISIBLE = cdpd_$MODE$_impact_crater_visible
+	ACTION = cdpd_$MODE$_impact_crater
+	SCREEN = $SCREEN$
+}

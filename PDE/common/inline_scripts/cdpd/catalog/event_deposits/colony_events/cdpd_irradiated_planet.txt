@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_battlefield
+	NATIVE_PREVIEW = "add_deposit = d_ancient_battlefield custom_tooltip = cdpd_ancient_battlefield_additional"
+	LABEL = cdpd_$MODE$_ancient_battlefield_label
+	TIP = cdpd_$MODE$_ancient_battlefield_tip
+	VISIBLE = cdpd_$MODE$_ancient_battlefield_visible
+	ACTION = cdpd_$MODE$_ancient_battlefield
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_bombardment_craters
+	NATIVE_PREVIEW = "add_deposit = d_ancient_bombardment_craters custom_tooltip = cdpd_ancient_bombardment_craters_additional"
+	LABEL = cdpd_$MODE$_ancient_bombardment_craters_label
+	TIP = cdpd_$MODE$_ancient_bombardment_craters_tip
+	VISIBLE = cdpd_$MODE$_ancient_bombardment_craters_visible
+	ACTION = cdpd_$MODE$_ancient_bombardment_craters
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_irradiated_ruins
+	NATIVE_PREVIEW = "add_deposit = d_irradiated_ruins custom_tooltip = cdpd_irradiated_ruins_additional"
+	LABEL = cdpd_$MODE$_irradiated_ruins_label
+	TIP = cdpd_$MODE$_irradiated_ruins_tip
+	VISIBLE = cdpd_$MODE$_irradiated_ruins_visible
+	ACTION = cdpd_$MODE$_irradiated_ruins
+	SCREEN = $SCREEN$
+}

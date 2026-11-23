@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_liquid_dark_matter
+	NATIVE_PREVIEW = "add_deposit = d_liquid_dark_matter"
+	LABEL = cdpd_$MODE$_liquid_dark_matter_label
+	TIP = cdpd_$MODE$_liquid_dark_matter_tip
+	VISIBLE = cdpd_$MODE$_liquid_dark_matter_visible
+	ACTION = cdpd_$MODE$_liquid_dark_matter
+	SCREEN = $SCREEN$
+}

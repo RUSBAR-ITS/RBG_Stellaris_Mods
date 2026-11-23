@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_toxic_atmosphere
+	NATIVE_PREVIEW = "add_blocker = { type = d_toxic_atmosphere blocked_deposit = none } custom_tooltip = cdpd_toxic_atmosphere_additional"
+	LABEL = cdpd_$MODE$_toxic_atmosphere_label
+	TIP = cdpd_$MODE$_toxic_atmosphere_tip
+	VISIBLE = cdpd_$MODE$_toxic_atmosphere_visible
+	ACTION = cdpd_$MODE$_toxic_atmosphere
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ash_storms
+	NATIVE_PREVIEW = "add_blocker = { type = d_ash_storms blocked_deposit = none } custom_tooltip = cdpd_ash_storms_additional"
+	LABEL = cdpd_$MODE$_ash_storms_label
+	TIP = cdpd_$MODE$_ash_storms_tip
+	VISIBLE = cdpd_$MODE$_ash_storms_visible
+	ACTION = cdpd_$MODE$_ash_storms
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_charged_atmosphere
+	NATIVE_PREVIEW = "add_blocker = { type = d_charged_atmosphere blocked_deposit = none } custom_tooltip = cdpd_charged_atmosphere_additional"
+	LABEL = cdpd_$MODE$_charged_atmosphere_label
+	TIP = cdpd_$MODE$_charged_atmosphere_tip
+	VISIBLE = cdpd_$MODE$_charged_atmosphere_visible
+	ACTION = cdpd_$MODE$_charged_atmosphere
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_lava_flooding
+	NATIVE_PREVIEW = "add_blocker = { type = d_lava_flooding blocked_deposit = none } custom_tooltip = cdpd_lava_flooding_additional"
+	LABEL = cdpd_$MODE$_lava_flooding_label
+	TIP = cdpd_$MODE$_lava_flooding_tip
+	VISIBLE = cdpd_$MODE$_lava_flooding_visible
+	ACTION = cdpd_$MODE$_lava_flooding
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_large_volcano
+	NATIVE_PREVIEW = "add_blocker = { type = d_large_volcano blocked_deposit = none } custom_tooltip = cdpd_large_volcano_additional"
+	LABEL = cdpd_$MODE$_large_volcano_label
+	TIP = cdpd_$MODE$_large_volcano_tip
+	VISIBLE = cdpd_$MODE$_large_volcano_visible
+	ACTION = cdpd_$MODE$_large_volcano
+	SCREEN = $SCREEN$
+}

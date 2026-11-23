@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_segment_rubble_1
+	NATIVE_PREVIEW = "add_blocker = { type = d_segment_rubble_1 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_segment_rubble_1_label
+	TIP = cdpd_$MODE$_segment_rubble_1_tip
+	VISIBLE = cdpd_$MODE$_segment_rubble_1_visible
+	ACTION = cdpd_$MODE$_segment_rubble_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_segment_rubble_1_small
+	NATIVE_PREVIEW = "add_blocker = { type = d_segment_rubble_1_small blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_segment_rubble_1_small_label
+	TIP = cdpd_$MODE$_segment_rubble_1_small_tip
+	VISIBLE = cdpd_$MODE$_segment_rubble_1_small_visible
+	ACTION = cdpd_$MODE$_segment_rubble_1_small
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_segment_rubble_2
+	NATIVE_PREVIEW = "add_blocker = { type = d_segment_rubble_2 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_segment_rubble_2_label
+	TIP = cdpd_$MODE$_segment_rubble_2_tip
+	VISIBLE = cdpd_$MODE$_segment_rubble_2_visible
+	ACTION = cdpd_$MODE$_segment_rubble_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_segment_rubble_3
+	NATIVE_PREVIEW = "add_blocker = { type = d_segment_rubble_3 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_segment_rubble_3_label
+	TIP = cdpd_$MODE$_segment_rubble_3_tip
+	VISIBLE = cdpd_$MODE$_segment_rubble_3_visible
+	ACTION = cdpd_$MODE$_segment_rubble_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_segment_rubble_4
+	NATIVE_PREVIEW = "add_blocker = { type = d_segment_rubble_4 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_segment_rubble_4_label
+	TIP = cdpd_$MODE$_segment_rubble_4_tip
+	VISIBLE = cdpd_$MODE$_segment_rubble_4_visible
+	ACTION = cdpd_$MODE$_segment_rubble_4
+	SCREEN = $SCREEN$
+}

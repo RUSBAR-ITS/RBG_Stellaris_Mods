@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_astrogarbage_collector
+	NATIVE_PREVIEW = "add_deposit = d_astrogarbage_collector custom_tooltip = cdpd_astrogarbage_collector_properties"
+	LABEL = cdpd_$MODE$_astrogarbage_collector_label
+	TIP = cdpd_$MODE$_astrogarbage_collector_tip
+	VISIBLE = cdpd_$MODE$_astrogarbage_collector_visible
+	ACTION = cdpd_$MODE$_astrogarbage_collector
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_technocracy_toxic_waste_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_technocracy_toxic_waste_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_technocracy_toxic_waste_blocker_label
+	TIP = cdpd_$MODE$_technocracy_toxic_waste_blocker_tip
+	VISIBLE = cdpd_$MODE$_technocracy_toxic_waste_blocker_visible
+	ACTION = cdpd_$MODE$_technocracy_toxic_waste_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_technocracy_barren_lands_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_technocracy_barren_lands_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_technocracy_barren_lands_blocker_label
+	TIP = cdpd_$MODE$_technocracy_barren_lands_blocker_tip
+	VISIBLE = cdpd_$MODE$_technocracy_barren_lands_blocker_visible
+	ACTION = cdpd_$MODE$_technocracy_barren_lands_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_technocracy_toxic_ocean_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_technocracy_toxic_ocean_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_technocracy_toxic_ocean_blocker_label
+	TIP = cdpd_$MODE$_technocracy_toxic_ocean_blocker_tip
+	VISIBLE = cdpd_$MODE$_technocracy_toxic_ocean_blocker_visible
+	ACTION = cdpd_$MODE$_technocracy_toxic_ocean_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_technocracy_molten_waste_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_technocracy_molten_waste_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_technocracy_molten_waste_blocker_label
+	TIP = cdpd_$MODE$_technocracy_molten_waste_blocker_tip
+	VISIBLE = cdpd_$MODE$_technocracy_molten_waste_blocker_visible
+	ACTION = cdpd_$MODE$_technocracy_molten_waste_blocker
+	SCREEN = $SCREEN$
+}

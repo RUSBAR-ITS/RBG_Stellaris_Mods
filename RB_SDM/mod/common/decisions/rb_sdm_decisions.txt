@@ -1,0 +1,49 @@
+rb_sdm_open_menu = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_resources
+	enactment_time = 0
+	resources = { category = decisions }
+
+	potential = {
+		is_colony = yes
+		exists = owner
+		owner = { is_same_value = from }
+		from = {
+			OR = {
+				is_ai = no
+				rb_sdm_open_menu_ai_enabled = yes
+			}
+		}
+	}
+	allow = {
+		from = { NOT = { has_country_flag = rb_sdm_session_open } }
+	}
+	effect = {
+		if = {
+			limit = {
+				is_colony = yes
+				exists = owner
+				owner = { is_same_value = from }
+			}
+			save_event_target_as = rb_sdm_target
+			from = {
+				if = {
+					limit = { is_ai = no }
+					country_event = { id = rb_sdm.1 }
+				}
+				else_if = {
+					limit = { rb_sdm_open_menu_ai_enabled = yes }
+					country_event = { id = rb_sdm.4 }
+				}
+			}
+		}
+	}
+	ai_weight = {
+		weight = 1
+		modifier = {
+			factor = 0
+			from = { rb_sdm_open_menu_ai_enabled = no }
+		}
+	}
+}

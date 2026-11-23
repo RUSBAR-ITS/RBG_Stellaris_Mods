@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dense_jungle
+	NATIVE_PREVIEW = "add_blocker = { type = d_dense_jungle blocked_deposit = none } custom_tooltip = cdpd_dense_jungle_additional"
+	LABEL = cdpd_$MODE$_dense_jungle_label
+	TIP = cdpd_$MODE$_dense_jungle_tip
+	VISIBLE = cdpd_$MODE$_dense_jungle_visible
+	ACTION = cdpd_$MODE$_dense_jungle
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_active_volcano
+	NATIVE_PREVIEW = "add_blocker = { type = d_active_volcano blocked_deposit = none } custom_tooltip = cdpd_active_volcano_additional"
+	LABEL = cdpd_$MODE$_active_volcano_label
+	TIP = cdpd_$MODE$_active_volcano_tip
+	VISIBLE = cdpd_$MODE$_active_volcano_visible
+	ACTION = cdpd_$MODE$_active_volcano
+	SCREEN = $SCREEN$
+}

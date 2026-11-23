@@ -1,0 +1,2 @@
+clear_variable = $ID$_rank
+remove_country_flag = $ID$_selected

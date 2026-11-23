@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ghostly_canyon
+	NATIVE_PREVIEW = "add_deposit = d_ghostly_canyon custom_tooltip = cdpd_ghostly_canyon_additional"
+	LABEL = cdpd_$MODE$_ghostly_canyon_label
+	TIP = cdpd_$MODE$_ghostly_canyon_tip
+	VISIBLE = cdpd_$MODE$_ghostly_canyon_visible
+	ACTION = cdpd_$MODE$_ghostly_canyon
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shroud_storm_2_zro
+	NATIVE_PREVIEW = "add_deposit = d_shroud_storm_2_zro"
+	LABEL = cdpd_$MODE$_shroud_storm_2_zro_label
+	TIP = cdpd_$MODE$_shroud_storm_2_zro_tip
+	VISIBLE = cdpd_$MODE$_shroud_storm_2_zro_visible
+	ACTION = cdpd_$MODE$_shroud_storm_2_zro
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shroud_storm_1_society
+	NATIVE_PREVIEW = "add_deposit = d_shroud_storm_1_society"
+	LABEL = cdpd_$MODE$_shroud_storm_1_society_label
+	TIP = cdpd_$MODE$_shroud_storm_1_society_tip
+	VISIBLE = cdpd_$MODE$_shroud_storm_1_society_visible
+	ACTION = cdpd_$MODE$_shroud_storm_1_society
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shroud_storm_3_happy
+	NATIVE_PREVIEW = "add_deposit = d_shroud_storm_3_happy"
+	LABEL = cdpd_$MODE$_shroud_storm_3_happy_label
+	TIP = cdpd_$MODE$_shroud_storm_3_happy_tip
+	VISIBLE = cdpd_$MODE$_shroud_storm_3_happy_visible
+	ACTION = cdpd_$MODE$_shroud_storm_3_happy
+	SCREEN = $SCREEN$
+}

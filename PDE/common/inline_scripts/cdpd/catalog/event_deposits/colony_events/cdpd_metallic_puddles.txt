@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_metallic_puddles
+	NATIVE_PREVIEW = "add_deposit = d_metallic_puddles custom_tooltip = cdpd_metallic_puddles_additional"
+	LABEL = cdpd_$MODE$_metallic_puddles_label
+	TIP = cdpd_$MODE$_metallic_puddles_tip
+	VISIBLE = cdpd_$MODE$_metallic_puddles_visible
+	ACTION = cdpd_$MODE$_metallic_puddles
+	SCREEN = $SCREEN$
+}

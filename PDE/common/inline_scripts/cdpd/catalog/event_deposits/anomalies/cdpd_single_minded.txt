@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_savage_wildlands
+	NATIVE_PREVIEW = "add_deposit = d_savage_wildlands custom_tooltip = cdpd_savage_wildlands_additional"
+	LABEL = cdpd_$MODE$_savage_wildlands_label
+	TIP = cdpd_$MODE$_savage_wildlands_tip
+	VISIBLE = cdpd_$MODE$_savage_wildlands_visible
+	ACTION = cdpd_$MODE$_savage_wildlands
+	SCREEN = $SCREEN$
+}

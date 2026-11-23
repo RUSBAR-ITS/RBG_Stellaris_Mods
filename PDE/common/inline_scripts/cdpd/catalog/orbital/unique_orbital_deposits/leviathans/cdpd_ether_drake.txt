@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_guardian_dragon_hoard
+	NATIVE_PREVIEW = "add_deposit = d_guardian_dragon_hoard custom_tooltip = cdpd_guardian_dragon_hoard_properties"
+	LABEL = cdpd_$MODE$_guardian_dragon_hoard_label
+	TIP = cdpd_$MODE$_guardian_dragon_hoard_tip
+	VISIBLE = cdpd_$MODE$_guardian_dragon_hoard_visible
+	ACTION = cdpd_$MODE$_guardian_dragon_hoard
+	SCREEN = $SCREEN$
+}

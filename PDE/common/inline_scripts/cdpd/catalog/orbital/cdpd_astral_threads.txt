@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_astral_threads_deposit_1
+	NATIVE_PREVIEW = "add_deposit = d_astral_threads_deposit_1 custom_tooltip = cdpd_astral_threads_deposit_1_properties"
+	LABEL = cdpd_$MODE$_astral_threads_deposit_1_label
+	TIP = cdpd_$MODE$_astral_threads_deposit_1_tip
+	VISIBLE = cdpd_$MODE$_astral_threads_deposit_1_visible
+	ACTION = cdpd_$MODE$_astral_threads_deposit_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_astral_threads_deposit_3
+	NATIVE_PREVIEW = "add_deposit = d_astral_threads_deposit_3 custom_tooltip = cdpd_astral_threads_deposit_3_properties"
+	LABEL = cdpd_$MODE$_astral_threads_deposit_3_label
+	TIP = cdpd_$MODE$_astral_threads_deposit_3_tip
+	VISIBLE = cdpd_$MODE$_astral_threads_deposit_3_visible
+	ACTION = cdpd_$MODE$_astral_threads_deposit_3
+	SCREEN = $SCREEN$
+}

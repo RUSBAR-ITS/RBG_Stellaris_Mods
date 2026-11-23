@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fungal_study_zone
+	NATIVE_PREVIEW = "add_deposit = d_fungal_study_zone"
+	LABEL = cdpd_$MODE$_fungal_study_zone_label
+	TIP = cdpd_$MODE$_fungal_study_zone_tip
+	VISIBLE = cdpd_$MODE$_fungal_study_zone_visible
+	ACTION = cdpd_$MODE$_fungal_study_zone
+	SCREEN = $SCREEN$
+}

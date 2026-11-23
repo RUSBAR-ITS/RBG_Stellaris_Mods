@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_artifacts_mining_1
+	NATIVE_PREVIEW = "add_deposit = d_artifacts_mining_1 custom_tooltip = cdpd_artifacts_mining_1_properties"
+	LABEL = cdpd_$MODE$_artifacts_mining_1_label
+	TIP = cdpd_$MODE$_artifacts_mining_1_tip
+	VISIBLE = cdpd_$MODE$_artifacts_mining_1_visible
+	ACTION = cdpd_$MODE$_artifacts_mining_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_artifacts_mining_2
+	NATIVE_PREVIEW = "add_deposit = d_artifacts_mining_2 custom_tooltip = cdpd_artifacts_mining_2_properties"
+	LABEL = cdpd_$MODE$_artifacts_mining_2_label
+	TIP = cdpd_$MODE$_artifacts_mining_2_tip
+	VISIBLE = cdpd_$MODE$_artifacts_mining_2_visible
+	ACTION = cdpd_$MODE$_artifacts_mining_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_artifacts_mining_3
+	NATIVE_PREVIEW = "add_deposit = d_artifacts_mining_3 custom_tooltip = cdpd_artifacts_mining_3_properties"
+	LABEL = cdpd_$MODE$_artifacts_mining_3_label
+	TIP = cdpd_$MODE$_artifacts_mining_3_tip
+	VISIBLE = cdpd_$MODE$_artifacts_mining_3_visible
+	ACTION = cdpd_$MODE$_artifacts_mining_3
+	SCREEN = $SCREEN$
+}

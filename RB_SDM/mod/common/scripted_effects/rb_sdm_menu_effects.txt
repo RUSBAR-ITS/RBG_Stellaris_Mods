@@ -1,0 +1,71 @@
+# Country scope throughout. The event chain carries the target independently.
+rb_sdm_end_session = {
+	inline_script = {
+		script = rb_sdm/rb_sdm_catalog_demo
+		PASS = demo_clear
+		SCREEN = rb_sdm.3
+	}
+	remove_country_flag = rb_sdm_session_open
+	clear_variable = rb_sdm_page
+	clear_variable = rb_sdm_size
+	clear_variable = rb_sdm_count
+	clear_variable = rb_sdm_pages
+	clear_variable = rb_sdm_used_slots
+	clear_variable = rb_sdm_offset
+	clear_variable = rb_sdm_last
+}
+
+rb_sdm_visit = {
+	if = {
+		limit = { exists = event_target:rb_sdm_target }
+		country_event = { id = $SCREEN$ }
+	}
+	else = { country_event = { id = rb_sdm.5 } }
+}
+
+rb_sdm_begin_count = {
+	set_variable = { which = rb_sdm_size value = $SIZE$ }
+	set_variable = { which = rb_sdm_count value = 0 }
+	set_variable = { which = rb_sdm_pages value = 0 }
+	set_variable = { which = rb_sdm_used_slots value = 0 }
+}
+
+rb_sdm_assign_rank = {
+	change_variable = { which = rb_sdm_count value = 1 }
+	set_variable = { which = $ID$_rank value = rb_sdm_count }
+	# Count pages at their first entry, using only integer operations.
+	if = {
+		limit = { check_variable = { which = rb_sdm_used_slots value = 0 } }
+		change_variable = { which = rb_sdm_pages value = 1 }
+	}
+	change_variable = { which = rb_sdm_used_slots value = 1 }
+	if = {
+		limit = { check_variable = { which = rb_sdm_used_slots value = rb_sdm_size } }
+		set_variable = { which = rb_sdm_used_slots value = 0 }
+	}
+}
+
+rb_sdm_set_bounds = {
+	if = {
+		limit = { check_variable = { which = rb_sdm_page value > rb_sdm_pages } }
+		set_variable = { which = rb_sdm_page value = rb_sdm_pages }
+	}
+	set_variable = { which = rb_sdm_offset value = 0 }
+	set_variable = { which = rb_sdm_last value = 0 }
+	if = {
+		limit = { check_variable = { which = rb_sdm_pages value > 0 } }
+		if = {
+			limit = { check_variable = { which = rb_sdm_page value < 1 } }
+			set_variable = { which = rb_sdm_page value = 1 }
+		}
+		set_variable = { which = rb_sdm_offset value = rb_sdm_page }
+		change_variable = { which = rb_sdm_offset value = -1 }
+		multiply_variable = { which = rb_sdm_offset value = rb_sdm_size }
+		set_variable = { which = rb_sdm_last value = rb_sdm_offset }
+		change_variable = { which = rb_sdm_last value = rb_sdm_size }
+		if = {
+			limit = { check_variable = { which = rb_sdm_last value > rb_sdm_count } }
+			set_variable = { which = rb_sdm_last value = rb_sdm_count }
+		}
+	}
+}

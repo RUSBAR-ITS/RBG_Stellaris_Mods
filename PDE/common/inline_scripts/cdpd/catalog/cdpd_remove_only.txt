@@ -1,0 +1,629 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_manufactorium_vaultexploration
+	LABEL = cdpd_$MODE$_ancient_manufactorium_vaultexploration_label
+	TIP = cdpd_$MODE$_ancient_manufactorium_vaultexploration_tip
+	VISIBLE = cdpd_$MODE$_ancient_manufactorium_vaultexploration_visible
+	ACTION = cdpd_$MODE$_ancient_manufactorium_vaultexploration
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_arc_furnace_1
+	LABEL = cdpd_$MODE$_arc_furnace_1_label
+	TIP = cdpd_$MODE$_arc_furnace_1_tip
+	VISIBLE = cdpd_$MODE$_arc_furnace_1_visible
+	ACTION = cdpd_$MODE$_arc_furnace_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_arc_furnace_2
+	LABEL = cdpd_$MODE$_arc_furnace_2_label
+	TIP = cdpd_$MODE$_arc_furnace_2_tip
+	VISIBLE = cdpd_$MODE$_arc_furnace_2_visible
+	ACTION = cdpd_$MODE$_arc_furnace_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_arc_furnace_3
+	LABEL = cdpd_$MODE$_arc_furnace_3_label
+	TIP = cdpd_$MODE$_arc_furnace_3_tip
+	VISIBLE = cdpd_$MODE$_arc_furnace_3_visible
+	ACTION = cdpd_$MODE$_arc_furnace_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_arc_furnace_4
+	LABEL = cdpd_$MODE$_arc_furnace_4_label
+	TIP = cdpd_$MODE$_arc_furnace_4_tip
+	VISIBLE = cdpd_$MODE$_arc_furnace_4_visible
+	ACTION = cdpd_$MODE$_arc_furnace_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_archaeological_site
+	LABEL = cdpd_$MODE$_archaeological_site_label
+	TIP = cdpd_$MODE$_archaeological_site_tip
+	VISIBLE = cdpd_$MODE$_archaeological_site_visible
+	ACTION = cdpd_$MODE$_archaeological_site
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_astral_threads_deposit_2
+	LABEL = cdpd_$MODE$_astral_threads_deposit_2_label
+	TIP = cdpd_$MODE$_astral_threads_deposit_2_tip
+	VISIBLE = cdpd_$MODE$_astral_threads_deposit_2_visible
+	ACTION = cdpd_$MODE$_astral_threads_deposit_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_central_spire
+	LABEL = cdpd_$MODE$_central_spire_label
+	TIP = cdpd_$MODE$_central_spire_tip
+	VISIBLE = cdpd_$MODE$_central_spire_visible
+	ACTION = cdpd_$MODE$_central_spire
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crashed_slaver_ship_memorial
+	LABEL = cdpd_$MODE$_crashed_slaver_ship_memorial_label
+	TIP = cdpd_$MODE$_crashed_slaver_ship_memorial_tip
+	VISIBLE = cdpd_$MODE$_crashed_slaver_ship_memorial_visible
+	ACTION = cdpd_$MODE$_crashed_slaver_ship_memorial
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystal_rift
+	LABEL = cdpd_$MODE$_crystal_rift_label
+	TIP = cdpd_$MODE$_crystal_rift_tip
+	VISIBLE = cdpd_$MODE$_crystal_rift_visible
+	ACTION = cdpd_$MODE$_crystal_rift
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_decrepit_tunnels_3
+	LABEL = cdpd_$MODE$_decrepit_tunnels_3_label
+	TIP = cdpd_$MODE$_decrepit_tunnels_3_tip
+	VISIBLE = cdpd_$MODE$_decrepit_tunnels_3_visible
+	ACTION = cdpd_$MODE$_decrepit_tunnels_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dragon_monument
+	LABEL = cdpd_$MODE$_dragon_monument_label
+	TIP = cdpd_$MODE$_dragon_monument_tip
+	VISIBLE = cdpd_$MODE$_dragon_monument_visible
+	ACTION = cdpd_$MODE$_dragon_monument
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_1
+	LABEL = cdpd_$MODE$_hab_alloy_1_label
+	TIP = cdpd_$MODE$_hab_alloy_1_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_1_visible
+	ACTION = cdpd_$MODE$_hab_alloy_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_10
+	LABEL = cdpd_$MODE$_hab_alloy_10_label
+	TIP = cdpd_$MODE$_hab_alloy_10_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_10_visible
+	ACTION = cdpd_$MODE$_hab_alloy_10
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_2
+	LABEL = cdpd_$MODE$_hab_alloy_2_label
+	TIP = cdpd_$MODE$_hab_alloy_2_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_2_visible
+	ACTION = cdpd_$MODE$_hab_alloy_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_25
+	LABEL = cdpd_$MODE$_hab_alloy_25_label
+	TIP = cdpd_$MODE$_hab_alloy_25_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_25_visible
+	ACTION = cdpd_$MODE$_hab_alloy_25
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_3
+	LABEL = cdpd_$MODE$_hab_alloy_3_label
+	TIP = cdpd_$MODE$_hab_alloy_3_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_3_visible
+	ACTION = cdpd_$MODE$_hab_alloy_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_4
+	LABEL = cdpd_$MODE$_hab_alloy_4_label
+	TIP = cdpd_$MODE$_hab_alloy_4_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_4_visible
+	ACTION = cdpd_$MODE$_hab_alloy_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_alloy_5
+	LABEL = cdpd_$MODE$_hab_alloy_5_label
+	TIP = cdpd_$MODE$_hab_alloy_5_tip
+	VISIBLE = cdpd_$MODE$_hab_alloy_5_visible
+	ACTION = cdpd_$MODE$_hab_alloy_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_astral_threads_1
+	LABEL = cdpd_$MODE$_hab_astral_threads_1_label
+	TIP = cdpd_$MODE$_hab_astral_threads_1_tip
+	VISIBLE = cdpd_$MODE$_hab_astral_threads_1_visible
+	ACTION = cdpd_$MODE$_hab_astral_threads_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_astral_threads_2
+	LABEL = cdpd_$MODE$_hab_astral_threads_2_label
+	TIP = cdpd_$MODE$_hab_astral_threads_2_tip
+	VISIBLE = cdpd_$MODE$_hab_astral_threads_2_visible
+	ACTION = cdpd_$MODE$_hab_astral_threads_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_astral_threads_3
+	LABEL = cdpd_$MODE$_hab_astral_threads_3_label
+	TIP = cdpd_$MODE$_hab_astral_threads_3_tip
+	VISIBLE = cdpd_$MODE$_hab_astral_threads_3_visible
+	ACTION = cdpd_$MODE$_hab_astral_threads_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_consumer_goods_2
+	LABEL = cdpd_$MODE$_hab_consumer_goods_2_label
+	TIP = cdpd_$MODE$_hab_consumer_goods_2_tip
+	VISIBLE = cdpd_$MODE$_hab_consumer_goods_2_visible
+	ACTION = cdpd_$MODE$_hab_consumer_goods_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_crystal_1
+	LABEL = cdpd_$MODE$_hab_crystal_1_label
+	TIP = cdpd_$MODE$_hab_crystal_1_tip
+	VISIBLE = cdpd_$MODE$_hab_crystal_1_visible
+	ACTION = cdpd_$MODE$_hab_crystal_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_crystal_2
+	LABEL = cdpd_$MODE$_hab_crystal_2_label
+	TIP = cdpd_$MODE$_hab_crystal_2_tip
+	VISIBLE = cdpd_$MODE$_hab_crystal_2_visible
+	ACTION = cdpd_$MODE$_hab_crystal_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_crystal_3
+	LABEL = cdpd_$MODE$_hab_crystal_3_label
+	TIP = cdpd_$MODE$_hab_crystal_3_tip
+	VISIBLE = cdpd_$MODE$_hab_crystal_3_visible
+	ACTION = cdpd_$MODE$_hab_crystal_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_crystal_4
+	LABEL = cdpd_$MODE$_hab_crystal_4_label
+	TIP = cdpd_$MODE$_hab_crystal_4_tip
+	VISIBLE = cdpd_$MODE$_hab_crystal_4_visible
+	ACTION = cdpd_$MODE$_hab_crystal_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_crystal_5
+	LABEL = cdpd_$MODE$_hab_crystal_5_label
+	TIP = cdpd_$MODE$_hab_crystal_5_tip
+	VISIBLE = cdpd_$MODE$_hab_crystal_5_visible
+	ACTION = cdpd_$MODE$_hab_crystal_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_dark_matter_1
+	LABEL = cdpd_$MODE$_hab_dark_matter_1_label
+	TIP = cdpd_$MODE$_hab_dark_matter_1_tip
+	VISIBLE = cdpd_$MODE$_hab_dark_matter_1_visible
+	ACTION = cdpd_$MODE$_hab_dark_matter_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_dark_matter_10
+	LABEL = cdpd_$MODE$_hab_dark_matter_10_label
+	TIP = cdpd_$MODE$_hab_dark_matter_10_tip
+	VISIBLE = cdpd_$MODE$_hab_dark_matter_10_visible
+	ACTION = cdpd_$MODE$_hab_dark_matter_10
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_dark_matter_2
+	LABEL = cdpd_$MODE$_hab_dark_matter_2_label
+	TIP = cdpd_$MODE$_hab_dark_matter_2_tip
+	VISIBLE = cdpd_$MODE$_hab_dark_matter_2_visible
+	ACTION = cdpd_$MODE$_hab_dark_matter_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_dark_matter_3
+	LABEL = cdpd_$MODE$_hab_dark_matter_3_label
+	TIP = cdpd_$MODE$_hab_dark_matter_3_tip
+	VISIBLE = cdpd_$MODE$_hab_dark_matter_3_visible
+	ACTION = cdpd_$MODE$_hab_dark_matter_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_gas_1
+	LABEL = cdpd_$MODE$_hab_gas_1_label
+	TIP = cdpd_$MODE$_hab_gas_1_tip
+	VISIBLE = cdpd_$MODE$_hab_gas_1_visible
+	ACTION = cdpd_$MODE$_hab_gas_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_gas_2
+	LABEL = cdpd_$MODE$_hab_gas_2_label
+	TIP = cdpd_$MODE$_hab_gas_2_tip
+	VISIBLE = cdpd_$MODE$_hab_gas_2_visible
+	ACTION = cdpd_$MODE$_hab_gas_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_gas_3
+	LABEL = cdpd_$MODE$_hab_gas_3_label
+	TIP = cdpd_$MODE$_hab_gas_3_tip
+	VISIBLE = cdpd_$MODE$_hab_gas_3_visible
+	ACTION = cdpd_$MODE$_hab_gas_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_gas_4
+	LABEL = cdpd_$MODE$_hab_gas_4_label
+	TIP = cdpd_$MODE$_hab_gas_4_tip
+	VISIBLE = cdpd_$MODE$_hab_gas_4_visible
+	ACTION = cdpd_$MODE$_hab_gas_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_gas_5
+	LABEL = cdpd_$MODE$_hab_gas_5_label
+	TIP = cdpd_$MODE$_hab_gas_5_tip
+	VISIBLE = cdpd_$MODE$_hab_gas_5_visible
+	ACTION = cdpd_$MODE$_hab_gas_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_harvester_nanites_1
+	LABEL = cdpd_$MODE$_hab_harvester_nanites_1_label
+	TIP = cdpd_$MODE$_hab_harvester_nanites_1_tip
+	VISIBLE = cdpd_$MODE$_hab_harvester_nanites_1_visible
+	ACTION = cdpd_$MODE$_hab_harvester_nanites_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_harvester_nanites_2
+	LABEL = cdpd_$MODE$_hab_harvester_nanites_2_label
+	TIP = cdpd_$MODE$_hab_harvester_nanites_2_tip
+	VISIBLE = cdpd_$MODE$_hab_harvester_nanites_2_visible
+	ACTION = cdpd_$MODE$_hab_harvester_nanites_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_harvester_nanites_3
+	LABEL = cdpd_$MODE$_hab_harvester_nanites_3_label
+	TIP = cdpd_$MODE$_hab_harvester_nanites_3_tip
+	VISIBLE = cdpd_$MODE$_hab_harvester_nanites_3_visible
+	ACTION = cdpd_$MODE$_hab_harvester_nanites_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_living_metal_1
+	LABEL = cdpd_$MODE$_hab_living_metal_1_label
+	TIP = cdpd_$MODE$_hab_living_metal_1_tip
+	VISIBLE = cdpd_$MODE$_hab_living_metal_1_visible
+	ACTION = cdpd_$MODE$_hab_living_metal_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_mote_1
+	LABEL = cdpd_$MODE$_hab_mote_1_label
+	TIP = cdpd_$MODE$_hab_mote_1_tip
+	VISIBLE = cdpd_$MODE$_hab_mote_1_visible
+	ACTION = cdpd_$MODE$_hab_mote_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_mote_2
+	LABEL = cdpd_$MODE$_hab_mote_2_label
+	TIP = cdpd_$MODE$_hab_mote_2_tip
+	VISIBLE = cdpd_$MODE$_hab_mote_2_visible
+	ACTION = cdpd_$MODE$_hab_mote_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_mote_3
+	LABEL = cdpd_$MODE$_hab_mote_3_label
+	TIP = cdpd_$MODE$_hab_mote_3_tip
+	VISIBLE = cdpd_$MODE$_hab_mote_3_visible
+	ACTION = cdpd_$MODE$_hab_mote_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_mote_4
+	LABEL = cdpd_$MODE$_hab_mote_4_label
+	TIP = cdpd_$MODE$_hab_mote_4_tip
+	VISIBLE = cdpd_$MODE$_hab_mote_4_visible
+	ACTION = cdpd_$MODE$_hab_mote_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_mote_5
+	LABEL = cdpd_$MODE$_hab_mote_5_label
+	TIP = cdpd_$MODE$_hab_mote_5_tip
+	VISIBLE = cdpd_$MODE$_hab_mote_5_visible
+	ACTION = cdpd_$MODE$_hab_mote_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_nanites_3
+	LABEL = cdpd_$MODE$_hab_nanites_3_label
+	TIP = cdpd_$MODE$_hab_nanites_3_tip
+	VISIBLE = cdpd_$MODE$_hab_nanites_3_visible
+	ACTION = cdpd_$MODE$_hab_nanites_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_zro_1
+	LABEL = cdpd_$MODE$_hab_zro_1_label
+	TIP = cdpd_$MODE$_hab_zro_1_tip
+	VISIBLE = cdpd_$MODE$_hab_zro_1_visible
+	ACTION = cdpd_$MODE$_hab_zro_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_zro_2
+	LABEL = cdpd_$MODE$_hab_zro_2_label
+	TIP = cdpd_$MODE$_hab_zro_2_tip
+	VISIBLE = cdpd_$MODE$_hab_zro_2_visible
+	ACTION = cdpd_$MODE$_hab_zro_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_zro_3
+	LABEL = cdpd_$MODE$_hab_zro_3_label
+	TIP = cdpd_$MODE$_hab_zro_3_tip
+	VISIBLE = cdpd_$MODE$_hab_zro_3_visible
+	ACTION = cdpd_$MODE$_hab_zro_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_zro_4
+	LABEL = cdpd_$MODE$_hab_zro_4_label
+	TIP = cdpd_$MODE$_hab_zro_4_tip
+	VISIBLE = cdpd_$MODE$_hab_zro_4_visible
+	ACTION = cdpd_$MODE$_hab_zro_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_hab_zro_5
+	LABEL = cdpd_$MODE$_hab_zro_5_label
+	TIP = cdpd_$MODE$_hab_zro_5_tip
+	VISIBLE = cdpd_$MODE$_hab_zro_5_visible
+	ACTION = cdpd_$MODE$_hab_zro_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sentinels_monument
+	LABEL = cdpd_$MODE$_sentinels_monument_label
+	TIP = cdpd_$MODE$_sentinels_monument_tip
+	VISIBLE = cdpd_$MODE$_sentinels_monument_visible
+	ACTION = cdpd_$MODE$_sentinels_monument
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shimmering_structure
+	LABEL = cdpd_$MODE$_shimmering_structure_label
+	TIP = cdpd_$MODE$_shimmering_structure_tip
+	VISIBLE = cdpd_$MODE$_shimmering_structure_visible
+	ACTION = cdpd_$MODE$_shimmering_structure
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ship_debris_broken_shackles_blocker
+	LABEL = cdpd_$MODE$_ship_debris_broken_shackles_blocker_label
+	TIP = cdpd_$MODE$_ship_debris_broken_shackles_blocker_tip
+	VISIBLE = cdpd_$MODE$_ship_debris_broken_shackles_blocker_visible
+	ACTION = cdpd_$MODE$_ship_debris_broken_shackles_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_splinter_hive_link
+	LABEL = cdpd_$MODE$_splinter_hive_link_label
+	TIP = cdpd_$MODE$_splinter_hive_link_tip
+	VISIBLE = cdpd_$MODE$_splinter_hive_link_visible
+	ACTION = cdpd_$MODE$_splinter_hive_link
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_stellarite_trophy
+	LABEL = cdpd_$MODE$_stellarite_trophy_label
+	TIP = cdpd_$MODE$_stellarite_trophy_tip
+	VISIBLE = cdpd_$MODE$_stellarite_trophy_visible
+	ACTION = cdpd_$MODE$_stellarite_trophy
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_farm_blocked
+	LABEL = cdpd_$MODE$_underground_farm_blocked_label
+	TIP = cdpd_$MODE$_underground_farm_blocked_tip
+	VISIBLE = cdpd_$MODE$_underground_farm_blocked_visible
+	ACTION = cdpd_$MODE$_underground_farm_blocked
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_generator_blocked
+	LABEL = cdpd_$MODE$_underground_generator_blocked_label
+	TIP = cdpd_$MODE$_underground_generator_blocked_tip
+	VISIBLE = cdpd_$MODE$_underground_generator_blocked_visible
+	ACTION = cdpd_$MODE$_underground_generator_blocked
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_mine_blocked
+	LABEL = cdpd_$MODE$_underground_mine_blocked_label
+	TIP = cdpd_$MODE$_underground_mine_blocked_tip
+	VISIBLE = cdpd_$MODE$_underground_mine_blocked_visible
+	ACTION = cdpd_$MODE$_underground_mine_blocked
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wandering_forests
+	LABEL = cdpd_$MODE$_wandering_forests_label
+	TIP = cdpd_$MODE$_wandering_forests_tip
+	VISIBLE = cdpd_$MODE$_wandering_forests_visible
+	ACTION = cdpd_$MODE$_wandering_forests
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_industrial
+	LABEL = cdpd_$MODE$_wilderness_industrial_label
+	TIP = cdpd_$MODE$_wilderness_industrial_tip
+	VISIBLE = cdpd_$MODE$_wilderness_industrial_visible
+	ACTION = cdpd_$MODE$_wilderness_industrial
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_industrial_2
+	LABEL = cdpd_$MODE$_wilderness_industrial_2_label
+	TIP = cdpd_$MODE$_wilderness_industrial_2_tip
+	VISIBLE = cdpd_$MODE$_wilderness_industrial_2_visible
+	ACTION = cdpd_$MODE$_wilderness_industrial_2
+	SCREEN = $SCREEN$
+}

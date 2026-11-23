@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_the_zone
+	NATIVE_PREVIEW = "add_deposit = d_the_zone custom_tooltip = cdpd_the_zone_additional"
+	LABEL = cdpd_$MODE$_the_zone_label
+	TIP = cdpd_$MODE$_the_zone_tip
+	VISIBLE = cdpd_$MODE$_the_zone_visible
+	ACTION = cdpd_$MODE$_the_zone
+	SCREEN = $SCREEN$
+}

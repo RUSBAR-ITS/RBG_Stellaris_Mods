@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_machine_ongoing_construction
+	NATIVE_PREVIEW = "add_blocker = { type = d_machine_ongoing_construction blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_machine_ongoing_construction_label
+	TIP = cdpd_$MODE$_machine_ongoing_construction_tip
+	VISIBLE = cdpd_$MODE$_machine_ongoing_construction_visible
+	ACTION = cdpd_$MODE$_machine_ongoing_construction
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_machine_prototype_pc_machine
+	NATIVE_PREVIEW = "add_blocker = { type = d_machine_prototype_pc_machine blocked_deposit = none } custom_tooltip = cdpd_machine_prototype_pc_machine_additional"
+	LABEL = cdpd_$MODE$_machine_prototype_pc_machine_label
+	TIP = cdpd_$MODE$_machine_prototype_pc_machine_tip
+	VISIBLE = cdpd_$MODE$_machine_prototype_pc_machine_visible
+	ACTION = cdpd_$MODE$_machine_prototype_pc_machine
+	SCREEN = $SCREEN$
+}

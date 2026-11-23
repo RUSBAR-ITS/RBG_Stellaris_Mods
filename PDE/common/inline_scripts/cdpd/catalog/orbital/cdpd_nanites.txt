@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nanites_deposit
+	NATIVE_PREVIEW = "add_deposit = d_nanites_deposit custom_tooltip = cdpd_nanites_deposit_properties"
+	LABEL = cdpd_$MODE$_nanites_deposit_label
+	TIP = cdpd_$MODE$_nanites_deposit_tip
+	VISIBLE = cdpd_$MODE$_nanites_deposit_visible
+	ACTION = cdpd_$MODE$_nanites_deposit
+	SCREEN = $SCREEN$
+}

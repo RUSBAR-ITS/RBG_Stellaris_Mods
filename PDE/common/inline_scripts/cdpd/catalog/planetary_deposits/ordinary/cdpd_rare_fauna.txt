@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alien_pets_deposit
+	NATIVE_PREVIEW = "add_deposit = d_alien_pets_deposit custom_tooltip = cdpd_alien_pets_deposit_properties"
+	LABEL = cdpd_$MODE$_alien_pets_deposit_label
+	TIP = cdpd_$MODE$_alien_pets_deposit_tip
+	VISIBLE = cdpd_$MODE$_alien_pets_deposit_visible
+	ACTION = cdpd_$MODE$_alien_pets_deposit
+	SCREEN = $SCREEN$
+}

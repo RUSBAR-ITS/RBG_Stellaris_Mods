@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_celestial_storm_1_mines
+	NATIVE_PREVIEW = "add_deposit = d_celestial_storm_1_mines custom_tooltip = cdpd_celestial_storm_1_mines_additional"
+	LABEL = cdpd_$MODE$_celestial_storm_1_mines_label
+	TIP = cdpd_$MODE$_celestial_storm_1_mines_tip
+	VISIBLE = cdpd_$MODE$_celestial_storm_1_mines_visible
+	ACTION = cdpd_$MODE$_celestial_storm_1_mines
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_celestial_storm_2_society
+	NATIVE_PREVIEW = "add_deposit = d_celestial_storm_2_society"
+	LABEL = cdpd_$MODE$_celestial_storm_2_society_label
+	TIP = cdpd_$MODE$_celestial_storm_2_society_tip
+	VISIBLE = cdpd_$MODE$_celestial_storm_2_society_visible
+	ACTION = cdpd_$MODE$_celestial_storm_2_society
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_celestial_storm_3_crystal
+	NATIVE_PREVIEW = "add_deposit = d_celestial_storm_3_crystal custom_tooltip = cdpd_celestial_storm_3_crystal_additional"
+	LABEL = cdpd_$MODE$_celestial_storm_3_crystal_label
+	TIP = cdpd_$MODE$_celestial_storm_3_crystal_tip
+	VISIBLE = cdpd_$MODE$_celestial_storm_3_crystal_visible
+	ACTION = cdpd_$MODE$_celestial_storm_3_crystal
+	SCREEN = $SCREEN$
+}

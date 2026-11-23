@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_odd_factory
+	NATIVE_PREVIEW = "add_deposit = d_odd_factory custom_tooltip = cdpd_odd_factory_properties"
+	LABEL = cdpd_$MODE$_odd_factory_label
+	TIP = cdpd_$MODE$_odd_factory_tip
+	VISIBLE = cdpd_$MODE$_odd_factory_visible
+	ACTION = cdpd_$MODE$_odd_factory
+	SCREEN = $SCREEN$
+}

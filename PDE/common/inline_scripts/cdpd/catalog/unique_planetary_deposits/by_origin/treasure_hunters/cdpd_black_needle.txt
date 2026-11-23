@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_black_needle_base
+	NATIVE_PREVIEW = "add_deposit = d_black_needle_base custom_tooltip = cdpd_black_needle_base_properties"
+	LABEL = cdpd_$MODE$_black_needle_base_label
+	TIP = cdpd_$MODE$_black_needle_base_tip
+	VISIBLE = cdpd_$MODE$_black_needle_base_visible
+	ACTION = cdpd_$MODE$_black_needle_base
+	SCREEN = $SCREEN$
+}

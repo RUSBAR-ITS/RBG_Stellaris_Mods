@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_fungoid_extermination
+	NATIVE_PREVIEW = "add_blocker = { type = d_fungoid_extermination blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_fungoid_extermination_label
+	TIP = cdpd_$MODE$_fungoid_extermination_tip
+	VISIBLE = cdpd_$MODE$_fungoid_extermination_visible
+	ACTION = cdpd_$MODE$_fungoid_extermination
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_irradiated_valley
+	NATIVE_PREVIEW = "add_deposit = d_irradiated_valley"
+	LABEL = cdpd_$MODE$_irradiated_valley_label
+	TIP = cdpd_$MODE$_irradiated_valley_tip
+	VISIBLE = cdpd_$MODE$_irradiated_valley_visible
+	ACTION = cdpd_$MODE$_irradiated_valley
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_protostar
+	NATIVE_PREVIEW = "add_deposit = d_protostar custom_tooltip = cdpd_protostar_properties"
+	LABEL = cdpd_$MODE$_protostar_label
+	TIP = cdpd_$MODE$_protostar_tip
+	VISIBLE = cdpd_$MODE$_protostar_visible
+	ACTION = cdpd_$MODE$_protostar
+	SCREEN = $SCREEN$
+}

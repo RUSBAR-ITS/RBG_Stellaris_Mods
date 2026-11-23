@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_cd_ancient_tunnels
+	NATIVE_PREVIEW = "add_deposit = d_cd_ancient_tunnels custom_tooltip = cdpd_cd_ancient_tunnels_properties"
+	LABEL = cdpd_$MODE$_cd_ancient_tunnels_label
+	TIP = cdpd_$MODE$_cd_ancient_tunnels_tip
+	VISIBLE = cdpd_$MODE$_cd_ancient_tunnels_visible
+	ACTION = cdpd_$MODE$_cd_ancient_tunnels
+	SCREEN = $SCREEN$
+}

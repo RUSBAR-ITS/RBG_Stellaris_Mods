@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_machine_minerals
+	NATIVE_PREVIEW = "add_deposit = d_machine_minerals"
+	LABEL = cdpd_$MODE$_machine_minerals_label
+	TIP = cdpd_$MODE$_machine_minerals_tip
+	VISIBLE = cdpd_$MODE$_machine_minerals_visible
+	ACTION = cdpd_$MODE$_machine_minerals
+	SCREEN = $SCREEN$
+}

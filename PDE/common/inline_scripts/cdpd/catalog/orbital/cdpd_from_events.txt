@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_vast_unity_deposit
+	NATIVE_PREVIEW = "add_deposit = d_vast_unity_deposit custom_tooltip = cdpd_vast_unity_deposit_properties"
+	LABEL = cdpd_$MODE$_vast_unity_deposit_label
+	TIP = cdpd_$MODE$_vast_unity_deposit_tip
+	VISIBLE = cdpd_$MODE$_vast_unity_deposit_visible
+	ACTION = cdpd_$MODE$_vast_unity_deposit
+	SCREEN = $SCREEN$
+}

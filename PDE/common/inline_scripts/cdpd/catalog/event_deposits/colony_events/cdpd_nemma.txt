@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_turtle_corpse
+	NATIVE_PREVIEW = "add_deposit = d_turtle_corpse"
+	LABEL = cdpd_$MODE$_turtle_corpse_label
+	TIP = cdpd_$MODE$_turtle_corpse_tip
+	VISIBLE = cdpd_$MODE$_turtle_corpse_visible
+	ACTION = cdpd_$MODE$_turtle_corpse
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_house_turtle
+	NATIVE_PREVIEW = "add_deposit = d_house_turtle"
+	LABEL = cdpd_$MODE$_house_turtle_label
+	TIP = cdpd_$MODE$_house_turtle_tip
+	VISIBLE = cdpd_$MODE$_house_turtle_visible
+	ACTION = cdpd_$MODE$_house_turtle
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_turtle_miner
+	NATIVE_PREVIEW = "add_deposit = d_turtle_miner custom_tooltip = cdpd_turtle_miner_properties"
+	LABEL = cdpd_$MODE$_turtle_miner_label
+	TIP = cdpd_$MODE$_turtle_miner_tip
+	VISIBLE = cdpd_$MODE$_turtle_miner_visible
+	ACTION = cdpd_$MODE$_turtle_miner
+	SCREEN = $SCREEN$
+}

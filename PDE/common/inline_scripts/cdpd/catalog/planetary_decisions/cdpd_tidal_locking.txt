@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dayside_farm
+	NATIVE_PREVIEW = "add_deposit = d_dayside_farm custom_tooltip = cdpd_dayside_farm_additional"
+	LABEL = cdpd_$MODE$_dayside_farm_label
+	TIP = cdpd_$MODE$_dayside_farm_tip
+	VISIBLE = cdpd_$MODE$_dayside_farm_visible
+	ACTION = cdpd_$MODE$_dayside_farm
+	SCREEN = $SCREEN$
+}

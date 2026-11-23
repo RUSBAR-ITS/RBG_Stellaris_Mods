@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shroudfall
+	NATIVE_PREVIEW = "add_blocker = { type = d_shroudfall blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_shroudfall_label
+	TIP = cdpd_$MODE$_shroudfall_tip
+	VISIBLE = cdpd_$MODE$_shroudfall_visible
+	ACTION = cdpd_$MODE$_shroudfall
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shroudgate
+	NATIVE_PREVIEW = "add_blocker = { type = d_shroudgate blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_shroudgate_label
+	TIP = cdpd_$MODE$_shroudgate_tip
+	VISIBLE = cdpd_$MODE$_shroudgate_visible
+	ACTION = cdpd_$MODE$_shroudgate
+	SCREEN = $SCREEN$
+}

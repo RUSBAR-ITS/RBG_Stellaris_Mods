@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sinkhole_subterraneans
+	NATIVE_PREVIEW = "add_blocker = { type = d_sinkhole_subterraneans blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_sinkhole_subterraneans_label
+	TIP = cdpd_$MODE$_sinkhole_subterraneans_tip
+	VISIBLE = cdpd_$MODE$_sinkhole_subterraneans_visible
+	ACTION = cdpd_$MODE$_sinkhole_subterraneans
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_farm_dead
+	NATIVE_PREVIEW = "add_blocker = { type = d_underground_farm_dead blocked_deposit = none } custom_tooltip = cdpd_underground_farm_dead_properties"
+	LABEL = cdpd_$MODE$_underground_farm_dead_label
+	TIP = cdpd_$MODE$_underground_farm_dead_tip
+	VISIBLE = cdpd_$MODE$_underground_farm_dead_visible
+	ACTION = cdpd_$MODE$_underground_farm_dead
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_generator_dead
+	NATIVE_PREVIEW = "add_blocker = { type = d_underground_generator_dead blocked_deposit = none } custom_tooltip = cdpd_underground_generator_dead_properties"
+	LABEL = cdpd_$MODE$_underground_generator_dead_label
+	TIP = cdpd_$MODE$_underground_generator_dead_tip
+	VISIBLE = cdpd_$MODE$_underground_generator_dead_visible
+	ACTION = cdpd_$MODE$_underground_generator_dead
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_underground_mine_dead
+	NATIVE_PREVIEW = "add_blocker = { type = d_underground_mine_dead blocked_deposit = none } custom_tooltip = cdpd_underground_mine_dead_properties"
+	LABEL = cdpd_$MODE$_underground_mine_dead_label
+	TIP = cdpd_$MODE$_underground_mine_dead_tip
+	VISIBLE = cdpd_$MODE$_underground_mine_dead_visible
+	ACTION = cdpd_$MODE$_underground_mine_dead
+	SCREEN = $SCREEN$
+}

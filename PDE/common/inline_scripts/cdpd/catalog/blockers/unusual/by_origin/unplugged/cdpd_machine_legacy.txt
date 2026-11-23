@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_unplugged_assimilator_hulk
+	NATIVE_PREVIEW = "add_blocker = { type = d_unplugged_assimilator_hulk blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_unplugged_assimilator_hulk_label
+	TIP = cdpd_$MODE$_unplugged_assimilator_hulk_tip
+	VISIBLE = cdpd_$MODE$_unplugged_assimilator_hulk_visible
+	ACTION = cdpd_$MODE$_unplugged_assimilator_hulk
+	SCREEN = $SCREEN$
+}

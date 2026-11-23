@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystal_kraken_body
+	NATIVE_PREVIEW = "add_deposit = d_crystal_kraken_body custom_tooltip = cdpd_crystal_kraken_body_additional"
+	LABEL = cdpd_$MODE$_crystal_kraken_body_label
+	TIP = cdpd_$MODE$_crystal_kraken_body_tip
+	VISIBLE = cdpd_$MODE$_crystal_kraken_body_visible
+	ACTION = cdpd_$MODE$_crystal_kraken_body
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystal_kraken_body_bombed
+	NATIVE_PREVIEW = "add_deposit = d_crystal_kraken_body_bombed custom_tooltip = cdpd_crystal_kraken_body_bombed_additional"
+	LABEL = cdpd_$MODE$_crystal_kraken_body_bombed_label
+	TIP = cdpd_$MODE$_crystal_kraken_body_bombed_tip
+	VISIBLE = cdpd_$MODE$_crystal_kraken_body_bombed_visible
+	ACTION = cdpd_$MODE$_crystal_kraken_body_bombed
+	SCREEN = $SCREEN$
+}

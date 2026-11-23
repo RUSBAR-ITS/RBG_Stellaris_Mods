@@ -1,0 +1,109 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_ore_veins
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_ore_veins"
+	LABEL = cdpd_$MODE$_volcanic_ore_veins_label
+	TIP = cdpd_$MODE$_volcanic_ore_veins_tip
+	VISIBLE = cdpd_$MODE$_volcanic_ore_veins_visible
+	ACTION = cdpd_$MODE$_volcanic_ore_veins
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_mineral_hills
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_mineral_hills"
+	LABEL = cdpd_$MODE$_volcanic_mineral_hills_label
+	TIP = cdpd_$MODE$_volcanic_mineral_hills_tip
+	VISIBLE = cdpd_$MODE$_volcanic_mineral_hills_visible
+	ACTION = cdpd_$MODE$_volcanic_mineral_hills
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_rich_mountain
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_rich_mountain"
+	LABEL = cdpd_$MODE$_volcanic_rich_mountain_label
+	TIP = cdpd_$MODE$_volcanic_rich_mountain_tip
+	VISIBLE = cdpd_$MODE$_volcanic_rich_mountain_visible
+	ACTION = cdpd_$MODE$_volcanic_rich_mountain
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_ore_caverns
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_ore_caverns"
+	LABEL = cdpd_$MODE$_volcanic_ore_caverns_label
+	TIP = cdpd_$MODE$_volcanic_ore_caverns_tip
+	VISIBLE = cdpd_$MODE$_volcanic_ore_caverns_visible
+	ACTION = cdpd_$MODE$_volcanic_ore_caverns
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_mineral_fields
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_mineral_fields"
+	LABEL = cdpd_$MODE$_volcanic_mineral_fields_label
+	TIP = cdpd_$MODE$_volcanic_mineral_fields_tip
+	VISIBLE = cdpd_$MODE$_volcanic_mineral_fields_visible
+	ACTION = cdpd_$MODE$_volcanic_mineral_fields
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_mineral_layers
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_mineral_layers"
+	LABEL = cdpd_$MODE$_volcanic_mineral_layers_label
+	TIP = cdpd_$MODE$_volcanic_mineral_layers_tip
+	VISIBLE = cdpd_$MODE$_volcanic_mineral_layers_visible
+	ACTION = cdpd_$MODE$_volcanic_mineral_layers
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_weak_crust
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_weak_crust"
+	LABEL = cdpd_$MODE$_volcanic_weak_crust_label
+	TIP = cdpd_$MODE$_volcanic_weak_crust_tip
+	VISIBLE = cdpd_$MODE$_volcanic_weak_crust_visible
+	ACTION = cdpd_$MODE$_volcanic_weak_crust
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_lava_river
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_lava_river"
+	LABEL = cdpd_$MODE$_volcanic_lava_river_label
+	TIP = cdpd_$MODE$_volcanic_lava_river_tip
+	VISIBLE = cdpd_$MODE$_volcanic_lava_river_visible
+	ACTION = cdpd_$MODE$_volcanic_lava_river
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_fumarole
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_fumarole custom_tooltip = cdpd_volcanic_fumarole_additional"
+	LABEL = cdpd_$MODE$_volcanic_fumarole_label
+	TIP = cdpd_$MODE$_volcanic_fumarole_tip
+	VISIBLE = cdpd_$MODE$_volcanic_fumarole_visible
+	ACTION = cdpd_$MODE$_volcanic_fumarole
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_stifling_atmosphere
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_stifling_atmosphere custom_tooltip = cdpd_volcanic_stifling_atmosphere_additional"
+	LABEL = cdpd_$MODE$_volcanic_stifling_atmosphere_label
+	TIP = cdpd_$MODE$_volcanic_stifling_atmosphere_tip
+	VISIBLE = cdpd_$MODE$_volcanic_stifling_atmosphere_visible
+	ACTION = cdpd_$MODE$_volcanic_stifling_atmosphere
+	SCREEN = $SCREEN$
+}

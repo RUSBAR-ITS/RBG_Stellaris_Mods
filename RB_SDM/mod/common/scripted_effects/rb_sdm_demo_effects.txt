@@ -1,0 +1,84 @@
+# Planet scope. The demo changes only the human or AI country's temporary selection.
+rb_sdm_demo_01_select = {
+	root = { set_country_flag = rb_sdm_demo_01_selected }
+}
+
+rb_sdm_demo_02_select = {
+	root = { set_country_flag = rb_sdm_demo_02_selected }
+}
+
+rb_sdm_demo_03_select = {
+	root = { set_country_flag = rb_sdm_demo_03_selected }
+}
+
+rb_sdm_demo_04_select = {
+	root = { set_country_flag = rb_sdm_demo_04_selected }
+}
+
+rb_sdm_demo_05_select = {
+	root = { set_country_flag = rb_sdm_demo_05_selected }
+}
+
+rb_sdm_demo_06_select = {
+	root = { set_country_flag = rb_sdm_demo_06_selected }
+}
+
+rb_sdm_demo_07_select = {
+	root = { set_country_flag = rb_sdm_demo_07_selected }
+}
+
+rb_sdm_demo_08_select = {
+	root = { set_country_flag = rb_sdm_demo_08_selected }
+}
+
+rb_sdm_demo_09_select = {
+	root = { set_country_flag = rb_sdm_demo_09_selected }
+}
+
+rb_sdm_demo_10_select = {
+	root = { set_country_flag = rb_sdm_demo_10_selected }
+}
+
+rb_sdm_demo_11_select = {
+	root = { set_country_flag = rb_sdm_demo_11_selected }
+}
+
+rb_sdm_demo_12_select = {
+	root = { set_country_flag = rb_sdm_demo_12_selected }
+}
+
+rb_sdm_demo_13_select = {
+	root = { set_country_flag = rb_sdm_demo_13_selected }
+}
+
+rb_sdm_demo_14_select = {
+	root = { set_country_flag = rb_sdm_demo_14_selected }
+}
+
+rb_sdm_demo_15_select = {
+	root = { set_country_flag = rb_sdm_demo_15_selected }
+}
+
+rb_sdm_demo_16_select = {
+	root = { set_country_flag = rb_sdm_demo_16_selected }
+}
+
+rb_sdm_demo_17_select = {
+	root = { set_country_flag = rb_sdm_demo_17_selected }
+}
+
+rb_sdm_demo_18_select = {
+	root = { set_country_flag = rb_sdm_demo_18_selected }
+}
+
+rb_sdm_demo_19_select = {
+	root = { set_country_flag = rb_sdm_demo_19_selected }
+}
+
+rb_sdm_demo_20_select = {
+	root = { set_country_flag = rb_sdm_demo_20_selected }
+}
+
+rb_sdm_demo_21_select = {
+	root = { set_country_flag = rb_sdm_demo_21_selected }
+}

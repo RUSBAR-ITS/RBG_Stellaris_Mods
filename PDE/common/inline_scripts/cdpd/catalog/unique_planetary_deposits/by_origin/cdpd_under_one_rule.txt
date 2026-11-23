@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_arcane_device
+	NATIVE_PREVIEW = "add_deposit = d_arcane_device"
+	LABEL = cdpd_$MODE$_arcane_device_label
+	TIP = cdpd_$MODE$_arcane_device_tip
+	VISIBLE = cdpd_$MODE$_arcane_device_visible
+	ACTION = cdpd_$MODE$_arcane_device
+	SCREEN = $SCREEN$
+}

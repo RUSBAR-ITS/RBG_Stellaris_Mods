@@ -1,0 +1,65 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_reactor_pits
+	NATIVE_PREVIEW = "add_deposit = d_ancient_reactor_pits"
+	LABEL = cdpd_$MODE$_ancient_reactor_pits_label
+	TIP = cdpd_$MODE$_ancient_reactor_pits_tip
+	VISIBLE = cdpd_$MODE$_ancient_reactor_pits_visible
+	ACTION = cdpd_$MODE$_ancient_reactor_pits
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_relic_dense_ruins
+	NATIVE_PREVIEW = "add_deposit = d_relic_dense_ruins"
+	LABEL = cdpd_$MODE$_relic_dense_ruins_label
+	TIP = cdpd_$MODE$_relic_dense_ruins_tip
+	VISIBLE = cdpd_$MODE$_relic_dense_ruins_visible
+	ACTION = cdpd_$MODE$_relic_dense_ruins
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_immense_solar_array
+	NATIVE_PREVIEW = "add_deposit = d_immense_solar_array"
+	LABEL = cdpd_$MODE$_immense_solar_array_label
+	TIP = cdpd_$MODE$_immense_solar_array_tip
+	VISIBLE = cdpd_$MODE$_immense_solar_array_visible
+	ACTION = cdpd_$MODE$_immense_solar_array
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_abandoned_mining_tunnels
+	NATIVE_PREVIEW = "add_deposit = d_abandoned_mining_tunnels"
+	LABEL = cdpd_$MODE$_abandoned_mining_tunnels_label
+	TIP = cdpd_$MODE$_abandoned_mining_tunnels_tip
+	VISIBLE = cdpd_$MODE$_abandoned_mining_tunnels_visible
+	ACTION = cdpd_$MODE$_abandoned_mining_tunnels
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_relic_metal_boneyard
+	NATIVE_PREVIEW = "add_deposit = d_relic_metal_boneyard"
+	LABEL = cdpd_$MODE$_relic_metal_boneyard_label
+	TIP = cdpd_$MODE$_relic_metal_boneyard_tip
+	VISIBLE = cdpd_$MODE$_relic_metal_boneyard_visible
+	ACTION = cdpd_$MODE$_relic_metal_boneyard
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_industrial_sector
+	NATIVE_PREVIEW = "add_deposit = d_industrial_sector"
+	LABEL = cdpd_$MODE$_industrial_sector_label
+	TIP = cdpd_$MODE$_industrial_sector_tip
+	VISIBLE = cdpd_$MODE$_industrial_sector_visible
+	ACTION = cdpd_$MODE$_industrial_sector
+	SCREEN = $SCREEN$
+}

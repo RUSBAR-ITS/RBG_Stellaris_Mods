@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_solar_storm_2_districts
+	NATIVE_PREVIEW = "add_deposit = d_solar_storm_2_districts"
+	LABEL = cdpd_$MODE$_solar_storm_2_districts_label
+	TIP = cdpd_$MODE$_solar_storm_2_districts_tip
+	VISIBLE = cdpd_$MODE$_solar_storm_2_districts_visible
+	ACTION = cdpd_$MODE$_solar_storm_2_districts
+	SCREEN = $SCREEN$
+}

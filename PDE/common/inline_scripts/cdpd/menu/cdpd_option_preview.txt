@@ -1,0 +1,14 @@
+option = {
+	inline_script = {
+		script = cdpd/menu/cdpd_deposit_button
+		ID = $ID$
+		LABEL = $LABEL$
+		TIP = $TIP$
+		VISIBLE = $VISIBLE$
+		ACTION = $ACTION$
+		SCREEN = $SCREEN$
+	}
+	tooltip = {
+		event_target:cdpd_target = { $NATIVE_PREVIEW$ }
+	}
+}

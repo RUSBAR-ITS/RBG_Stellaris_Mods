@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_space_junk_hazards
+	NATIVE_PREVIEW = "add_deposit = d_space_junk_hazards custom_tooltip = cdpd_space_junk_hazards_properties"
+	LABEL = cdpd_$MODE$_space_junk_hazards_label
+	TIP = cdpd_$MODE$_space_junk_hazards_tip
+	VISIBLE = cdpd_$MODE$_space_junk_hazards_visible
+	ACTION = cdpd_$MODE$_space_junk_hazards
+	SCREEN = $SCREEN$
+}

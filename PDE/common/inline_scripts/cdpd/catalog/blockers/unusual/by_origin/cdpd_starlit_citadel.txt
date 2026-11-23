@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ruined_hatchery
+	NATIVE_PREVIEW = "add_blocker = { type = d_ruined_hatchery blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_ruined_hatchery_label
+	TIP = cdpd_$MODE$_ruined_hatchery_tip
+	VISIBLE = cdpd_$MODE$_ruined_hatchery_visible
+	ACTION = cdpd_$MODE$_ruined_hatchery
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_invasion_site
+	NATIVE_PREVIEW = "add_blocker = { type = d_invasion_site blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_invasion_site_label
+	TIP = cdpd_$MODE$_invasion_site_tip
+	VISIBLE = cdpd_$MODE$_invasion_site_visible
+	ACTION = cdpd_$MODE$_invasion_site
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_bioship_remains
+	NATIVE_PREVIEW = "add_blocker = { type = d_bioship_remains blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_bioship_remains_label
+	TIP = cdpd_$MODE$_bioship_remains_tip
+	VISIBLE = cdpd_$MODE$_bioship_remains_visible
+	ACTION = cdpd_$MODE$_bioship_remains
+	SCREEN = $SCREEN$
+}

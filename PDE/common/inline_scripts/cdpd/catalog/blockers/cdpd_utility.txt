@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mothballed_facilities
+	NATIVE_PREVIEW = "add_blocker = { type = d_mothballed_facilities blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_mothballed_facilities_label
+	TIP = cdpd_$MODE$_mothballed_facilities_tip
+	VISIBLE = cdpd_$MODE$_mothballed_facilities_visible
+	ACTION = cdpd_$MODE$_mothballed_facilities
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_spawning_complex_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_spawning_complex_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_spawning_complex_blocker_label
+	TIP = cdpd_$MODE$_spawning_complex_blocker_tip
+	VISIBLE = cdpd_$MODE$_spawning_complex_blocker_visible
+	ACTION = cdpd_$MODE$_spawning_complex_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_wilderness_glade_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_wilderness_glade_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_wilderness_glade_blocker_label
+	TIP = cdpd_$MODE$_wilderness_glade_blocker_tip
+	VISIBLE = cdpd_$MODE$_wilderness_glade_blocker_visible
+	ACTION = cdpd_$MODE$_wilderness_glade_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nature_preserve_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_nature_preserve_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_nature_preserve_blocker_label
+	TIP = cdpd_$MODE$_nature_preserve_blocker_tip
+	VISIBLE = cdpd_$MODE$_nature_preserve_blocker_visible
+	ACTION = cdpd_$MODE$_nature_preserve_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_resource_consolidation_1
+	NATIVE_PREVIEW = "add_blocker = { type = d_resource_consolidation_1 blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_resource_consolidation_1_label
+	TIP = cdpd_$MODE$_resource_consolidation_1_tip
+	VISIBLE = cdpd_$MODE$_resource_consolidation_1_visible
+	ACTION = cdpd_$MODE$_resource_consolidation_1
+	SCREEN = $SCREEN$
+}

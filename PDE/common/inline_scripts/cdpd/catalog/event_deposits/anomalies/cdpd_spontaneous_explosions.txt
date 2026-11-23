@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_weapon_extraction_facility
+	NATIVE_PREVIEW = "add_deposit = d_weapon_extraction_facility custom_tooltip = cdpd_weapon_extraction_facility_additional"
+	LABEL = cdpd_$MODE$_weapon_extraction_facility_label
+	TIP = cdpd_$MODE$_weapon_extraction_facility_tip
+	VISIBLE = cdpd_$MODE$_weapon_extraction_facility_visible
+	ACTION = cdpd_$MODE$_weapon_extraction_facility
+	SCREEN = $SCREEN$
+}

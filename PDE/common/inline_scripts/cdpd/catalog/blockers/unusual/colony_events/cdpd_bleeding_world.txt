@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_coagulated_landscape
+	NATIVE_PREVIEW = "add_blocker = { type = d_coagulated_landscape blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_coagulated_landscape_label
+	TIP = cdpd_$MODE$_coagulated_landscape_tip
+	VISIBLE = cdpd_$MODE$_coagulated_landscape_visible
+	ACTION = cdpd_$MODE$_coagulated_landscape
+	SCREEN = $SCREEN$
+}

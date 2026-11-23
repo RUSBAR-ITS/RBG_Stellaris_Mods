@@ -1,0 +1,76 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_1
+	NATIVE_PREVIEW = "add_deposit = d_alloys_1 custom_tooltip = cdpd_alloys_1_properties"
+	LABEL = cdpd_$MODE$_alloys_1_label
+	TIP = cdpd_$MODE$_alloys_1_tip
+	VISIBLE = cdpd_$MODE$_alloys_1_visible
+	ACTION = cdpd_$MODE$_alloys_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_2
+	NATIVE_PREVIEW = "add_deposit = d_alloys_2 custom_tooltip = cdpd_alloys_2_properties"
+	LABEL = cdpd_$MODE$_alloys_2_label
+	TIP = cdpd_$MODE$_alloys_2_tip
+	VISIBLE = cdpd_$MODE$_alloys_2_visible
+	ACTION = cdpd_$MODE$_alloys_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_3
+	NATIVE_PREVIEW = "add_deposit = d_alloys_3 custom_tooltip = cdpd_alloys_3_properties"
+	LABEL = cdpd_$MODE$_alloys_3_label
+	TIP = cdpd_$MODE$_alloys_3_tip
+	VISIBLE = cdpd_$MODE$_alloys_3_visible
+	ACTION = cdpd_$MODE$_alloys_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_4
+	NATIVE_PREVIEW = "add_deposit = d_alloys_4 custom_tooltip = cdpd_alloys_4_properties"
+	LABEL = cdpd_$MODE$_alloys_4_label
+	TIP = cdpd_$MODE$_alloys_4_tip
+	VISIBLE = cdpd_$MODE$_alloys_4_visible
+	ACTION = cdpd_$MODE$_alloys_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_5
+	NATIVE_PREVIEW = "add_deposit = d_alloys_5 custom_tooltip = cdpd_alloys_5_properties"
+	LABEL = cdpd_$MODE$_alloys_5_label
+	TIP = cdpd_$MODE$_alloys_5_tip
+	VISIBLE = cdpd_$MODE$_alloys_5_visible
+	ACTION = cdpd_$MODE$_alloys_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_10
+	NATIVE_PREVIEW = "add_deposit = d_alloys_10 custom_tooltip = cdpd_alloys_10_properties"
+	LABEL = cdpd_$MODE$_alloys_10_label
+	TIP = cdpd_$MODE$_alloys_10_tip
+	VISIBLE = cdpd_$MODE$_alloys_10_visible
+	ACTION = cdpd_$MODE$_alloys_10
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_alloys_25
+	NATIVE_PREVIEW = "add_deposit = d_alloys_25 custom_tooltip = cdpd_alloys_25_properties"
+	LABEL = cdpd_$MODE$_alloys_25_label
+	TIP = cdpd_$MODE$_alloys_25_tip
+	VISIBLE = cdpd_$MODE$_alloys_25_visible
+	ACTION = cdpd_$MODE$_alloys_25
+	SCREEN = $SCREEN$
+}

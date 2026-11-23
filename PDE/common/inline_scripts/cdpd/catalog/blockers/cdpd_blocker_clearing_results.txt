@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_organic_landfill
+	NATIVE_PREVIEW = "add_deposit = d_organic_landfill"
+	LABEL = cdpd_$MODE$_organic_landfill_label
+	TIP = cdpd_$MODE$_organic_landfill_tip
+	VISIBLE = cdpd_$MODE$_organic_landfill_visible
+	ACTION = cdpd_$MODE$_organic_landfill
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_star_mall_promenade
+	NATIVE_PREVIEW = "add_deposit = d_star_mall_promenade custom_tooltip = cdpd_star_mall_promenade_properties"
+	LABEL = cdpd_$MODE$_star_mall_promenade_label
+	TIP = cdpd_$MODE$_star_mall_promenade_tip
+	VISIBLE = cdpd_$MODE$_star_mall_promenade_visible
+	ACTION = cdpd_$MODE$_star_mall_promenade
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_forgotten_level
+	NATIVE_PREVIEW = "add_deposit = d_forgotten_level"
+	LABEL = cdpd_$MODE$_forgotten_level_label
+	TIP = cdpd_$MODE$_forgotten_level_tip
+	VISIBLE = cdpd_$MODE$_forgotten_level_visible
+	ACTION = cdpd_$MODE$_forgotten_level
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_deep_sleep_cryo_pods_renewed
+	NATIVE_PREVIEW = "add_deposit = d_deep_sleep_cryo_pods_renewed custom_tooltip = cdpd_deep_sleep_cryo_pods_renewed_additional"
+	LABEL = cdpd_$MODE$_deep_sleep_cryo_pods_renewed_label
+	TIP = cdpd_$MODE$_deep_sleep_cryo_pods_renewed_tip
+	VISIBLE = cdpd_$MODE$_deep_sleep_cryo_pods_renewed_visible
+	ACTION = cdpd_$MODE$_deep_sleep_cryo_pods_renewed
+	SCREEN = $SCREEN$
+}

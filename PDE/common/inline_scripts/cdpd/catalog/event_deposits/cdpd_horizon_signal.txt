@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_worm_mine
+	NATIVE_PREVIEW = "add_deposit = d_worm_mine"
+	LABEL = cdpd_$MODE$_worm_mine_label
+	TIP = cdpd_$MODE$_worm_mine_tip
+	VISIBLE = cdpd_$MODE$_worm_mine_visible
+	ACTION = cdpd_$MODE$_worm_mine
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_worm_farm
+	NATIVE_PREVIEW = "add_deposit = d_worm_farm"
+	LABEL = cdpd_$MODE$_worm_farm_label
+	TIP = cdpd_$MODE$_worm_farm_tip
+	VISIBLE = cdpd_$MODE$_worm_farm_visible
+	ACTION = cdpd_$MODE$_worm_farm
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_lethal_ecosphere_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_lethal_ecosphere_blocker blocked_deposit = none } custom_tooltip = cdpd_lethal_ecosphere_blocker_additional"
+	LABEL = cdpd_$MODE$_lethal_ecosphere_blocker_label
+	TIP = cdpd_$MODE$_lethal_ecosphere_blocker_tip
+	VISIBLE = cdpd_$MODE$_lethal_ecosphere_blocker_visible
+	ACTION = cdpd_$MODE$_lethal_ecosphere_blocker
+	SCREEN = $SCREEN$
+}

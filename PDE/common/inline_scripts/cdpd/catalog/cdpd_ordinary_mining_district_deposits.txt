@@ -1,0 +1,120 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_veiny_cliffs
+	NATIVE_PREVIEW = "add_deposit = d_veiny_cliffs"
+	LABEL = cdpd_$MODE$_veiny_cliffs_label
+	TIP = cdpd_$MODE$_veiny_cliffs_tip
+	VISIBLE = cdpd_$MODE$_veiny_cliffs_visible
+	ACTION = cdpd_$MODE$_veiny_cliffs
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mineral_fields
+	NATIVE_PREVIEW = "add_deposit = d_mineral_fields"
+	LABEL = cdpd_$MODE$_mineral_fields_label
+	TIP = cdpd_$MODE$_mineral_fields_tip
+	VISIBLE = cdpd_$MODE$_mineral_fields_visible
+	ACTION = cdpd_$MODE$_mineral_fields
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mineral_striations
+	NATIVE_PREVIEW = "add_deposit = d_mineral_striations"
+	LABEL = cdpd_$MODE$_mineral_striations_label
+	TIP = cdpd_$MODE$_mineral_striations_tip
+	VISIBLE = cdpd_$MODE$_mineral_striations_visible
+	ACTION = cdpd_$MODE$_mineral_striations
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_prosperous_mesa
+	NATIVE_PREVIEW = "add_deposit = d_prosperous_mesa"
+	LABEL = cdpd_$MODE$_prosperous_mesa_label
+	TIP = cdpd_$MODE$_prosperous_mesa_tip
+	VISIBLE = cdpd_$MODE$_prosperous_mesa_visible
+	ACTION = cdpd_$MODE$_prosperous_mesa
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ore_rich_caverns
+	NATIVE_PREVIEW = "add_deposit = d_ore_rich_caverns custom_tooltip = cdpd_ore_rich_caverns_additional"
+	LABEL = cdpd_$MODE$_ore_rich_caverns_label
+	TIP = cdpd_$MODE$_ore_rich_caverns_tip
+	VISIBLE = cdpd_$MODE$_ore_rich_caverns_visible
+	ACTION = cdpd_$MODE$_ore_rich_caverns
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_rich_mountain
+	NATIVE_PREVIEW = "add_deposit = d_rich_mountain"
+	LABEL = cdpd_$MODE$_rich_mountain_label
+	TIP = cdpd_$MODE$_rich_mountain_tip
+	VISIBLE = cdpd_$MODE$_rich_mountain_visible
+	ACTION = cdpd_$MODE$_rich_mountain
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_submerged_ore_veins
+	NATIVE_PREVIEW = "add_deposit = d_submerged_ore_veins"
+	LABEL = cdpd_$MODE$_submerged_ore_veins_label
+	TIP = cdpd_$MODE$_submerged_ore_veins_tip
+	VISIBLE = cdpd_$MODE$_submerged_ore_veins_visible
+	ACTION = cdpd_$MODE$_submerged_ore_veins
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystalline_caverns
+	NATIVE_PREVIEW = "add_deposit = d_crystalline_caverns custom_tooltip = cdpd_crystalline_caverns_additional"
+	LABEL = cdpd_$MODE$_crystalline_caverns_label
+	TIP = cdpd_$MODE$_crystalline_caverns_tip
+	VISIBLE = cdpd_$MODE$_crystalline_caverns_visible
+	ACTION = cdpd_$MODE$_crystalline_caverns
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystal_forest
+	NATIVE_PREVIEW = "add_deposit = d_crystal_forest custom_tooltip = cdpd_crystal_forest_additional"
+	LABEL = cdpd_$MODE$_crystal_forest_label
+	TIP = cdpd_$MODE$_crystal_forest_tip
+	VISIBLE = cdpd_$MODE$_crystal_forest_visible
+	ACTION = cdpd_$MODE$_crystal_forest
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystal_reef
+	NATIVE_PREVIEW = "add_deposit = d_crystal_reef custom_tooltip = cdpd_crystal_reef_additional"
+	LABEL = cdpd_$MODE$_crystal_reef_label
+	TIP = cdpd_$MODE$_crystal_reef_tip
+	VISIBLE = cdpd_$MODE$_crystal_reef_visible
+	ACTION = cdpd_$MODE$_crystal_reef
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_betharian_deposit
+	NATIVE_PREVIEW = "add_deposit = d_betharian_deposit custom_tooltip = cdpd_betharian_deposit_additional"
+	LABEL = cdpd_$MODE$_betharian_deposit_label
+	TIP = cdpd_$MODE$_betharian_deposit_tip
+	VISIBLE = cdpd_$MODE$_betharian_deposit_visible
+	ACTION = cdpd_$MODE$_betharian_deposit
+	SCREEN = $SCREEN$
+}

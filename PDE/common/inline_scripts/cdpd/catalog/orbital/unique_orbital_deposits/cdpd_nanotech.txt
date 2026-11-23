@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nanite_harvester_deposit
+	NATIVE_PREVIEW = "add_deposit = d_nanite_harvester_deposit custom_tooltip = cdpd_nanite_harvester_deposit_properties"
+	LABEL = cdpd_$MODE$_nanite_harvester_deposit_label
+	TIP = cdpd_$MODE$_nanite_harvester_deposit_tip
+	VISIBLE = cdpd_$MODE$_nanite_harvester_deposit_visible
+	ACTION = cdpd_$MODE$_nanite_harvester_deposit
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nanite_harvester_deposit_regular
+	NATIVE_PREVIEW = "add_deposit = d_nanite_harvester_deposit_regular custom_tooltip = cdpd_nanite_harvester_deposit_regular_properties"
+	LABEL = cdpd_$MODE$_nanite_harvester_deposit_regular_label
+	TIP = cdpd_$MODE$_nanite_harvester_deposit_regular_tip
+	VISIBLE = cdpd_$MODE$_nanite_harvester_deposit_regular_visible
+	ACTION = cdpd_$MODE$_nanite_harvester_deposit_regular
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nanite_harvester_deposit_large
+	NATIVE_PREVIEW = "add_deposit = d_nanite_harvester_deposit_large custom_tooltip = cdpd_nanite_harvester_deposit_large_properties"
+	LABEL = cdpd_$MODE$_nanite_harvester_deposit_large_label
+	TIP = cdpd_$MODE$_nanite_harvester_deposit_large_tip
+	VISIBLE = cdpd_$MODE$_nanite_harvester_deposit_large_visible
+	ACTION = cdpd_$MODE$_nanite_harvester_deposit_large
+	SCREEN = $SCREEN$
+}

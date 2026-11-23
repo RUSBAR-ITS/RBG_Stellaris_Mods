@@ -1,0 +1,43 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_gravity_storm_1_districts
+	NATIVE_PREVIEW = "add_deposit = d_gravity_storm_1_districts"
+	LABEL = cdpd_$MODE$_gravity_storm_1_districts_label
+	TIP = cdpd_$MODE$_gravity_storm_1_districts_tip
+	VISIBLE = cdpd_$MODE$_gravity_storm_1_districts_visible
+	ACTION = cdpd_$MODE$_gravity_storm_1_districts
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_gravity_storm_2_unity
+	NATIVE_PREVIEW = "add_deposit = d_gravity_storm_2_unity"
+	LABEL = cdpd_$MODE$_gravity_storm_2_unity_label
+	TIP = cdpd_$MODE$_gravity_storm_2_unity_tip
+	VISIBLE = cdpd_$MODE$_gravity_storm_2_unity_visible
+	ACTION = cdpd_$MODE$_gravity_storm_2_unity
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_gravity_storm_3_engineering
+	NATIVE_PREVIEW = "add_deposit = d_gravity_storm_3_engineering"
+	LABEL = cdpd_$MODE$_gravity_storm_3_engineering_label
+	TIP = cdpd_$MODE$_gravity_storm_3_engineering_tip
+	VISIBLE = cdpd_$MODE$_gravity_storm_3_engineering_visible
+	ACTION = cdpd_$MODE$_gravity_storm_3_engineering
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_avian_reserve
+	NATIVE_PREVIEW = "add_deposit = d_avian_reserve custom_tooltip = cdpd_avian_reserve_additional"
+	LABEL = cdpd_$MODE$_avian_reserve_label
+	TIP = cdpd_$MODE$_avian_reserve_tip
+	VISIBLE = cdpd_$MODE$_avian_reserve_visible
+	ACTION = cdpd_$MODE$_avian_reserve
+	SCREEN = $SCREEN$
+}

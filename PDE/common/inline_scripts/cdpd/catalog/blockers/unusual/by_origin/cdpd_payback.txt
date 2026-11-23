@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ship_debris_payback_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_ship_debris_payback_blocker blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_ship_debris_payback_blocker_label
+	TIP = cdpd_$MODE$_ship_debris_payback_blocker_tip
+	VISIBLE = cdpd_$MODE$_ship_debris_payback_blocker_visible
+	ACTION = cdpd_$MODE$_ship_debris_payback_blocker
+	SCREEN = $SCREEN$
+}

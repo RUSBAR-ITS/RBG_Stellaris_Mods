@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mountain_range
+	NATIVE_PREVIEW = "add_blocker = { type = d_mountain_range blocked_deposit = none } custom_tooltip = cdpd_mountain_range_additional"
+	LABEL = cdpd_$MODE$_mountain_range_label
+	TIP = cdpd_$MODE$_mountain_range_tip
+	VISIBLE = cdpd_$MODE$_mountain_range_visible
+	ACTION = cdpd_$MODE$_mountain_range
+	SCREEN = $SCREEN$
+}

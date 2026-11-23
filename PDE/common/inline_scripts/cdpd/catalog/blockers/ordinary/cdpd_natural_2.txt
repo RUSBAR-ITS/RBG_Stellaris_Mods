@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_dangerous_wildlife_blocker
+	NATIVE_PREVIEW = "add_blocker = { type = d_dangerous_wildlife_blocker blocked_deposit = none } custom_tooltip = cdpd_dangerous_wildlife_blocker_additional"
+	LABEL = cdpd_$MODE$_dangerous_wildlife_blocker_label
+	TIP = cdpd_$MODE$_dangerous_wildlife_blocker_tip
+	VISIBLE = cdpd_$MODE$_dangerous_wildlife_blocker_visible
+	ACTION = cdpd_$MODE$_dangerous_wildlife_blocker
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_deep_sinkhole
+	NATIVE_PREVIEW = "add_blocker = { type = d_deep_sinkhole blocked_deposit = none } custom_tooltip = cdpd_deep_sinkhole_properties"
+	LABEL = cdpd_$MODE$_deep_sinkhole_label
+	TIP = cdpd_$MODE$_deep_sinkhole_tip
+	VISIBLE = cdpd_$MODE$_deep_sinkhole_visible
+	ACTION = cdpd_$MODE$_deep_sinkhole
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,120 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_1
+	NATIVE_PREVIEW = "add_deposit = d_physics_1 custom_tooltip = cdpd_physics_1_properties"
+	LABEL = cdpd_$MODE$_physics_1_label
+	TIP = cdpd_$MODE$_physics_1_tip
+	VISIBLE = cdpd_$MODE$_physics_1_visible
+	ACTION = cdpd_$MODE$_physics_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_2
+	NATIVE_PREVIEW = "add_deposit = d_physics_2 custom_tooltip = cdpd_physics_2_properties"
+	LABEL = cdpd_$MODE$_physics_2_label
+	TIP = cdpd_$MODE$_physics_2_tip
+	VISIBLE = cdpd_$MODE$_physics_2_visible
+	ACTION = cdpd_$MODE$_physics_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_3
+	NATIVE_PREVIEW = "add_deposit = d_physics_3 custom_tooltip = cdpd_physics_3_properties"
+	LABEL = cdpd_$MODE$_physics_3_label
+	TIP = cdpd_$MODE$_physics_3_tip
+	VISIBLE = cdpd_$MODE$_physics_3_visible
+	ACTION = cdpd_$MODE$_physics_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_4
+	NATIVE_PREVIEW = "add_deposit = d_physics_4 custom_tooltip = cdpd_physics_4_properties"
+	LABEL = cdpd_$MODE$_physics_4_label
+	TIP = cdpd_$MODE$_physics_4_tip
+	VISIBLE = cdpd_$MODE$_physics_4_visible
+	ACTION = cdpd_$MODE$_physics_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_5
+	NATIVE_PREVIEW = "add_deposit = d_physics_5 custom_tooltip = cdpd_physics_5_properties"
+	LABEL = cdpd_$MODE$_physics_5_label
+	TIP = cdpd_$MODE$_physics_5_tip
+	VISIBLE = cdpd_$MODE$_physics_5_visible
+	ACTION = cdpd_$MODE$_physics_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_6
+	NATIVE_PREVIEW = "add_deposit = d_physics_6 custom_tooltip = cdpd_physics_6_properties"
+	LABEL = cdpd_$MODE$_physics_6_label
+	TIP = cdpd_$MODE$_physics_6_tip
+	VISIBLE = cdpd_$MODE$_physics_6_visible
+	ACTION = cdpd_$MODE$_physics_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_7
+	NATIVE_PREVIEW = "add_deposit = d_physics_7 custom_tooltip = cdpd_physics_7_properties"
+	LABEL = cdpd_$MODE$_physics_7_label
+	TIP = cdpd_$MODE$_physics_7_tip
+	VISIBLE = cdpd_$MODE$_physics_7_visible
+	ACTION = cdpd_$MODE$_physics_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_8
+	NATIVE_PREVIEW = "add_deposit = d_physics_8 custom_tooltip = cdpd_physics_8_properties"
+	LABEL = cdpd_$MODE$_physics_8_label
+	TIP = cdpd_$MODE$_physics_8_tip
+	VISIBLE = cdpd_$MODE$_physics_8_visible
+	ACTION = cdpd_$MODE$_physics_8
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_9
+	NATIVE_PREVIEW = "add_deposit = d_physics_9 custom_tooltip = cdpd_physics_9_properties"
+	LABEL = cdpd_$MODE$_physics_9_label
+	TIP = cdpd_$MODE$_physics_9_tip
+	VISIBLE = cdpd_$MODE$_physics_9_visible
+	ACTION = cdpd_$MODE$_physics_9
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_10
+	NATIVE_PREVIEW = "add_deposit = d_physics_10 custom_tooltip = cdpd_physics_10_properties"
+	LABEL = cdpd_$MODE$_physics_10_label
+	TIP = cdpd_$MODE$_physics_10_tip
+	VISIBLE = cdpd_$MODE$_physics_10_visible
+	ACTION = cdpd_$MODE$_physics_10
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_physics_25
+	NATIVE_PREVIEW = "add_deposit = d_physics_25 custom_tooltip = cdpd_physics_25_properties"
+	LABEL = cdpd_$MODE$_physics_25_label
+	TIP = cdpd_$MODE$_physics_25_tip
+	VISIBLE = cdpd_$MODE$_physics_25_visible
+	ACTION = cdpd_$MODE$_physics_25
+	SCREEN = $SCREEN$
+}

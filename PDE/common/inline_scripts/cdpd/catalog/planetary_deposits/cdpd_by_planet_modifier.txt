@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_titanic_life_blocker
+	NATIVE_PREVIEW = "add_deposit = d_titanic_life_blocker custom_tooltip = cdpd_titanic_life_shared"
+	LABEL = cdpd_$MODE$_titanic_life_blocker_label
+	TIP = cdpd_$MODE$_titanic_life_blocker_tip
+	VISIBLE = cdpd_$MODE$_titanic_life_blocker_visible
+	ACTION = cdpd_$MODE$_titanic_life_blocker
+	SCREEN = $SCREEN$
+}

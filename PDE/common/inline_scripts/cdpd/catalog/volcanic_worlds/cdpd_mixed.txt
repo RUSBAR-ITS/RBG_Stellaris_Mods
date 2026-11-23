@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_volcanic_sulfur_lava
+	NATIVE_PREVIEW = "add_deposit = d_volcanic_sulfur_lava"
+	LABEL = cdpd_$MODE$_volcanic_sulfur_lava_label
+	TIP = cdpd_$MODE$_volcanic_sulfur_lava_tip
+	VISIBLE = cdpd_$MODE$_volcanic_sulfur_lava_visible
+	ACTION = cdpd_$MODE$_volcanic_sulfur_lava
+	SCREEN = $SCREEN$
+}

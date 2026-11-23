@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shroudstone
+	NATIVE_PREVIEW = "add_blocker = { type = d_shroudstone blocked_deposit = none } custom_tooltip = cdpd_shroudstone_additional"
+	LABEL = cdpd_$MODE$_shroudstone_label
+	TIP = cdpd_$MODE$_shroudstone_tip
+	VISIBLE = cdpd_$MODE$_shroudstone_visible
+	ACTION = cdpd_$MODE$_shroudstone
+	SCREEN = $SCREEN$
+}

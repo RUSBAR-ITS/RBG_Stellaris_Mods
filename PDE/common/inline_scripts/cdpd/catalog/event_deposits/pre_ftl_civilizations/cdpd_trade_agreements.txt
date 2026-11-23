@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_freeports
+	NATIVE_PREVIEW = "add_deposit = d_freeports custom_tooltip = cdpd_freeports_properties"
+	LABEL = cdpd_$MODE$_freeports_label
+	TIP = cdpd_$MODE$_freeports_tip
+	VISIBLE = cdpd_$MODE$_freeports_visible
+	ACTION = cdpd_$MODE$_freeports
+	SCREEN = $SCREEN$
+}

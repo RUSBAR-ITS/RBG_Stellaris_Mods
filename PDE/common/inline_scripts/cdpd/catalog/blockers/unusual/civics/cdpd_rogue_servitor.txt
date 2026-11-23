@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_unsupervised_settlement
+	NATIVE_PREVIEW = "add_blocker = { type = d_unsupervised_settlement blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_unsupervised_settlement_label
+	TIP = cdpd_$MODE$_unsupervised_settlement_tip
+	VISIBLE = cdpd_$MODE$_unsupervised_settlement_visible
+	ACTION = cdpd_$MODE$_unsupervised_settlement
+	SCREEN = $SCREEN$
+}

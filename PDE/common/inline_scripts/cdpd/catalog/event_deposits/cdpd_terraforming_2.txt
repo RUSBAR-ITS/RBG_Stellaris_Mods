@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_lava_tubes
+	NATIVE_PREVIEW = "add_deposit = d_lava_tubes"
+	LABEL = cdpd_$MODE$_lava_tubes_label
+	TIP = cdpd_$MODE$_lava_tubes_tip
+	VISIBLE = cdpd_$MODE$_lava_tubes_visible
+	ACTION = cdpd_$MODE$_lava_tubes
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crystaline_growths
+	NATIVE_PREVIEW = "add_deposit = d_crystaline_growths custom_tooltip = cdpd_crystaline_growths_additional"
+	LABEL = cdpd_$MODE$_crystaline_growths_label
+	TIP = cdpd_$MODE$_crystaline_growths_tip
+	VISIBLE = cdpd_$MODE$_crystaline_growths_visible
+	ACTION = cdpd_$MODE$_crystaline_growths
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mountains_of_steel
+	NATIVE_PREVIEW = "add_deposit = d_mountains_of_steel"
+	LABEL = cdpd_$MODE$_mountains_of_steel_label
+	TIP = cdpd_$MODE$_mountains_of_steel_tip
+	VISIBLE = cdpd_$MODE$_mountains_of_steel_visible
+	ACTION = cdpd_$MODE$_mountains_of_steel
+	SCREEN = $SCREEN$
+}

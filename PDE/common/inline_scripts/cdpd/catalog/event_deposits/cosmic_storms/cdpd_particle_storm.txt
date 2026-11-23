@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_particle_storm_1_society
+	NATIVE_PREVIEW = "add_deposit = d_particle_storm_1_society"
+	LABEL = cdpd_$MODE$_particle_storm_1_society_label
+	TIP = cdpd_$MODE$_particle_storm_1_society_tip
+	VISIBLE = cdpd_$MODE$_particle_storm_1_society_visible
+	ACTION = cdpd_$MODE$_particle_storm_1_society
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_particle_storm_2_unity
+	NATIVE_PREVIEW = "add_deposit = d_particle_storm_2_unity"
+	LABEL = cdpd_$MODE$_particle_storm_2_unity_label
+	TIP = cdpd_$MODE$_particle_storm_2_unity_tip
+	VISIBLE = cdpd_$MODE$_particle_storm_2_unity_visible
+	ACTION = cdpd_$MODE$_particle_storm_2_unity
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_particle_storm_3_motes
+	NATIVE_PREVIEW = "add_deposit = d_particle_storm_3_motes custom_tooltip = cdpd_particle_storm_3_motes_additional"
+	LABEL = cdpd_$MODE$_particle_storm_3_motes_label
+	TIP = cdpd_$MODE$_particle_storm_3_motes_tip
+	VISIBLE = cdpd_$MODE$_particle_storm_3_motes_visible
+	ACTION = cdpd_$MODE$_particle_storm_3_motes
+	SCREEN = $SCREEN$
+}

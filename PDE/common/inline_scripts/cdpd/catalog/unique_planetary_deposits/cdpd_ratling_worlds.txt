@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_junk_hollows
+	NATIVE_PREVIEW = "add_deposit = d_junk_hollows"
+	LABEL = cdpd_$MODE$_junk_hollows_label
+	TIP = cdpd_$MODE$_junk_hollows_tip
+	VISIBLE = cdpd_$MODE$_junk_hollows_visible
+	ACTION = cdpd_$MODE$_junk_hollows
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_junk_wastes
+	NATIVE_PREVIEW = "add_deposit = d_junk_wastes"
+	LABEL = cdpd_$MODE$_junk_wastes_label
+	TIP = cdpd_$MODE$_junk_wastes_tip
+	VISIBLE = cdpd_$MODE$_junk_wastes_visible
+	ACTION = cdpd_$MODE$_junk_wastes
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_junk_canals
+	NATIVE_PREVIEW = "add_deposit = d_junk_canals"
+	LABEL = cdpd_$MODE$_junk_canals_label
+	TIP = cdpd_$MODE$_junk_canals_tip
+	VISIBLE = cdpd_$MODE$_junk_canals_visible
+	ACTION = cdpd_$MODE$_junk_canals
+	SCREEN = $SCREEN$
+}

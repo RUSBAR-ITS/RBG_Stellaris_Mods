@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_forceful_winds
+	NATIVE_PREVIEW = "add_deposit = d_forceful_winds custom_tooltip = cdpd_forceful_winds_additional"
+	LABEL = cdpd_$MODE$_forceful_winds_label
+	TIP = cdpd_$MODE$_forceful_winds_tip
+	VISIBLE = cdpd_$MODE$_forceful_winds_visible
+	ACTION = cdpd_$MODE$_forceful_winds
+	SCREEN = $SCREEN$
+}

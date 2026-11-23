@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_myrmeku_power_farms
+	NATIVE_PREVIEW = "add_deposit = d_myrmeku_power_farms custom_tooltip = cdpd_myrmeku_power_farms_properties"
+	LABEL = cdpd_$MODE$_myrmeku_power_farms_label
+	TIP = cdpd_$MODE$_myrmeku_power_farms_tip
+	VISIBLE = cdpd_$MODE$_myrmeku_power_farms_visible
+	ACTION = cdpd_$MODE$_myrmeku_power_farms
+	SCREEN = $SCREEN$
+}

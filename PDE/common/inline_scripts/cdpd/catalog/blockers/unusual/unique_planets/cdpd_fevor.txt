@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_empty_quarry
+	NATIVE_PREVIEW = "add_blocker = { type = d_empty_quarry blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_empty_quarry_label
+	TIP = cdpd_$MODE$_empty_quarry_tip
+	VISIBLE = cdpd_$MODE$_empty_quarry_visible
+	ACTION = cdpd_$MODE$_empty_quarry
+	SCREEN = $SCREEN$
+}

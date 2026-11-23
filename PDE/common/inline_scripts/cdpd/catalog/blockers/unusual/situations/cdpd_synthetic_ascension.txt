@@ -1,0 +1,21 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_old_towns
+	NATIVE_PREVIEW = "add_blocker = { type = d_old_towns blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_old_towns_label
+	TIP = cdpd_$MODE$_old_towns_tip
+	VISIBLE = cdpd_$MODE$_old_towns_visible
+	ACTION = cdpd_$MODE$_old_towns
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_biological_enclaves
+	NATIVE_PREVIEW = "add_blocker = { type = d_biological_enclaves blocked_deposit = none } custom_tooltip = cdpd_biological_enclaves_additional"
+	LABEL = cdpd_$MODE$_biological_enclaves_label
+	TIP = cdpd_$MODE$_biological_enclaves_tip
+	VISIBLE = cdpd_$MODE$_biological_enclaves_visible
+	ACTION = cdpd_$MODE$_biological_enclaves
+	SCREEN = $SCREEN$
+}

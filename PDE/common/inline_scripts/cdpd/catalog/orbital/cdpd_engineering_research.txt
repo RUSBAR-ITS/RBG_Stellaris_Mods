@@ -1,0 +1,120 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_1
+	NATIVE_PREVIEW = "add_deposit = d_engineering_1 custom_tooltip = cdpd_engineering_1_properties"
+	LABEL = cdpd_$MODE$_engineering_1_label
+	TIP = cdpd_$MODE$_engineering_1_tip
+	VISIBLE = cdpd_$MODE$_engineering_1_visible
+	ACTION = cdpd_$MODE$_engineering_1
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_2
+	NATIVE_PREVIEW = "add_deposit = d_engineering_2 custom_tooltip = cdpd_engineering_2_properties"
+	LABEL = cdpd_$MODE$_engineering_2_label
+	TIP = cdpd_$MODE$_engineering_2_tip
+	VISIBLE = cdpd_$MODE$_engineering_2_visible
+	ACTION = cdpd_$MODE$_engineering_2
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_3
+	NATIVE_PREVIEW = "add_deposit = d_engineering_3 custom_tooltip = cdpd_engineering_3_properties"
+	LABEL = cdpd_$MODE$_engineering_3_label
+	TIP = cdpd_$MODE$_engineering_3_tip
+	VISIBLE = cdpd_$MODE$_engineering_3_visible
+	ACTION = cdpd_$MODE$_engineering_3
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_4
+	NATIVE_PREVIEW = "add_deposit = d_engineering_4 custom_tooltip = cdpd_engineering_4_properties"
+	LABEL = cdpd_$MODE$_engineering_4_label
+	TIP = cdpd_$MODE$_engineering_4_tip
+	VISIBLE = cdpd_$MODE$_engineering_4_visible
+	ACTION = cdpd_$MODE$_engineering_4
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_5
+	NATIVE_PREVIEW = "add_deposit = d_engineering_5 custom_tooltip = cdpd_engineering_5_properties"
+	LABEL = cdpd_$MODE$_engineering_5_label
+	TIP = cdpd_$MODE$_engineering_5_tip
+	VISIBLE = cdpd_$MODE$_engineering_5_visible
+	ACTION = cdpd_$MODE$_engineering_5
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_6
+	NATIVE_PREVIEW = "add_deposit = d_engineering_6 custom_tooltip = cdpd_engineering_6_properties"
+	LABEL = cdpd_$MODE$_engineering_6_label
+	TIP = cdpd_$MODE$_engineering_6_tip
+	VISIBLE = cdpd_$MODE$_engineering_6_visible
+	ACTION = cdpd_$MODE$_engineering_6
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_7
+	NATIVE_PREVIEW = "add_deposit = d_engineering_7 custom_tooltip = cdpd_engineering_7_properties"
+	LABEL = cdpd_$MODE$_engineering_7_label
+	TIP = cdpd_$MODE$_engineering_7_tip
+	VISIBLE = cdpd_$MODE$_engineering_7_visible
+	ACTION = cdpd_$MODE$_engineering_7
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_8
+	NATIVE_PREVIEW = "add_deposit = d_engineering_8 custom_tooltip = cdpd_engineering_8_properties"
+	LABEL = cdpd_$MODE$_engineering_8_label
+	TIP = cdpd_$MODE$_engineering_8_tip
+	VISIBLE = cdpd_$MODE$_engineering_8_visible
+	ACTION = cdpd_$MODE$_engineering_8
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_9
+	NATIVE_PREVIEW = "add_deposit = d_engineering_9 custom_tooltip = cdpd_engineering_9_properties"
+	LABEL = cdpd_$MODE$_engineering_9_label
+	TIP = cdpd_$MODE$_engineering_9_tip
+	VISIBLE = cdpd_$MODE$_engineering_9_visible
+	ACTION = cdpd_$MODE$_engineering_9
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_10
+	NATIVE_PREVIEW = "add_deposit = d_engineering_10 custom_tooltip = cdpd_engineering_10_properties"
+	LABEL = cdpd_$MODE$_engineering_10_label
+	TIP = cdpd_$MODE$_engineering_10_tip
+	VISIBLE = cdpd_$MODE$_engineering_10_visible
+	ACTION = cdpd_$MODE$_engineering_10
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_engineering_25
+	NATIVE_PREVIEW = "add_deposit = d_engineering_25 custom_tooltip = cdpd_engineering_25_properties"
+	LABEL = cdpd_$MODE$_engineering_25_label
+	TIP = cdpd_$MODE$_engineering_25_tip
+	VISIBLE = cdpd_$MODE$_engineering_25_visible
+	ACTION = cdpd_$MODE$_engineering_25
+	SCREEN = $SCREEN$
+}

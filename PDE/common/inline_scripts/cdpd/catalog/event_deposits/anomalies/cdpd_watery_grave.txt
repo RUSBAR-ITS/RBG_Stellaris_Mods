@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_flooded_mounds
+	NATIVE_PREVIEW = "add_deposit = d_flooded_mounds custom_tooltip = cdpd_flooded_mounds_additional"
+	LABEL = cdpd_$MODE$_flooded_mounds_label
+	TIP = cdpd_$MODE$_flooded_mounds_tip
+	VISIBLE = cdpd_$MODE$_flooded_mounds_visible
+	ACTION = cdpd_$MODE$_flooded_mounds
+	SCREEN = $SCREEN$
+}

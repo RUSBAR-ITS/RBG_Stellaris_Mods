@@ -1,0 +1,65 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ruined_arcology
+	NATIVE_PREVIEW = "add_blocker = { type = d_ruined_arcology blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_ruined_arcology_label
+	TIP = cdpd_$MODE$_ruined_arcology_tip
+	VISIBLE = cdpd_$MODE$_ruined_arcology_visible
+	ACTION = cdpd_$MODE$_ruined_arcology
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_massive_crevice
+	NATIVE_PREVIEW = "add_blocker = { type = d_massive_crevice blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_massive_crevice_label
+	TIP = cdpd_$MODE$_massive_crevice_tip
+	VISIBLE = cdpd_$MODE$_massive_crevice_visible
+	ACTION = cdpd_$MODE$_massive_crevice
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_collapsed_spire
+	NATIVE_PREVIEW = "add_blocker = { type = d_collapsed_spire blocked_deposit = none } custom_tooltip = cdpd_collapsed_spire_additional"
+	LABEL = cdpd_$MODE$_collapsed_spire_label
+	TIP = cdpd_$MODE$_collapsed_spire_tip
+	VISIBLE = cdpd_$MODE$_collapsed_spire_visible
+	ACTION = cdpd_$MODE$_collapsed_spire
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_crumbling_mining_tunnels
+	NATIVE_PREVIEW = "add_blocker = { type = d_crumbling_mining_tunnels blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_crumbling_mining_tunnels_label
+	TIP = cdpd_$MODE$_crumbling_mining_tunnels_tip
+	VISIBLE = cdpd_$MODE$_crumbling_mining_tunnels_visible
+	ACTION = cdpd_$MODE$_crumbling_mining_tunnels
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_shattered_solar_array
+	NATIVE_PREVIEW = "add_blocker = { type = d_shattered_solar_array blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_shattered_solar_array_label
+	TIP = cdpd_$MODE$_shattered_solar_array_tip
+	VISIBLE = cdpd_$MODE$_shattered_solar_array_visible
+	ACTION = cdpd_$MODE$_shattered_solar_array
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_flooded_reactor_pits
+	NATIVE_PREVIEW = "add_blocker = { type = d_flooded_reactor_pits blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_flooded_reactor_pits_label
+	TIP = cdpd_$MODE$_flooded_reactor_pits_tip
+	VISIBLE = cdpd_$MODE$_flooded_reactor_pits_visible
+	ACTION = cdpd_$MODE$_flooded_reactor_pits
+	SCREEN = $SCREEN$
+}

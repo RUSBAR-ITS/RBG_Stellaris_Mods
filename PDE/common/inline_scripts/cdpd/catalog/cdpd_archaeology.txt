@@ -1,0 +1,54 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sentinels_metal
+	NATIVE_PREVIEW = "add_deposit = d_sentinels_metal"
+	LABEL = cdpd_$MODE$_sentinels_metal_label
+	TIP = cdpd_$MODE$_sentinels_metal_tip
+	VISIBLE = cdpd_$MODE$_sentinels_metal_visible
+	ACTION = cdpd_$MODE$_sentinels_metal
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_mutation_vats
+	NATIVE_PREVIEW = "add_deposit = d_mutation_vats"
+	LABEL = cdpd_$MODE$_mutation_vats_label
+	TIP = cdpd_$MODE$_mutation_vats_tip
+	VISIBLE = cdpd_$MODE$_mutation_vats_visible
+	ACTION = cdpd_$MODE$_mutation_vats
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_ancient_facilities
+	NATIVE_PREVIEW = "add_deposit = d_ancient_facilities custom_tooltip = cdpd_ancient_facilities_additional"
+	LABEL = cdpd_$MODE$_ancient_facilities_label
+	TIP = cdpd_$MODE$_ancient_facilities_tip
+	VISIBLE = cdpd_$MODE$_ancient_facilities_visible
+	ACTION = cdpd_$MODE$_ancient_facilities
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_sentinels
+	NATIVE_PREVIEW = "add_deposit = d_sentinels"
+	LABEL = cdpd_$MODE$_sentinels_label
+	TIP = cdpd_$MODE$_sentinels_tip
+	VISIBLE = cdpd_$MODE$_sentinels_visible
+	ACTION = cdpd_$MODE$_sentinels
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_polaris_city
+	NATIVE_PREVIEW = "add_deposit = d_polaris_city"
+	LABEL = cdpd_$MODE$_polaris_city_label
+	TIP = cdpd_$MODE$_polaris_city_tip
+	VISIBLE = cdpd_$MODE$_polaris_city_visible
+	ACTION = cdpd_$MODE$_polaris_city
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_floodplains
+	NATIVE_PREVIEW = "add_blocker = { type = d_floodplains blocked_deposit = none }"
+	LABEL = cdpd_$MODE$_floodplains_label
+	TIP = cdpd_$MODE$_floodplains_tip
+	VISIBLE = cdpd_$MODE$_floodplains_visible
+	ACTION = cdpd_$MODE$_floodplains
+	SCREEN = $SCREEN$
+}

@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_metal_boneyard
+	NATIVE_PREVIEW = "add_deposit = d_metal_boneyard"
+	LABEL = cdpd_$MODE$_metal_boneyard_label
+	TIP = cdpd_$MODE$_metal_boneyard_tip
+	VISIBLE = cdpd_$MODE$_metal_boneyard_visible
+	ACTION = cdpd_$MODE$_metal_boneyard
+	SCREEN = $SCREEN$
+}

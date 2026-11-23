@@ -1,0 +1,140 @@
+{
+  "terms": [
+    {
+      "english": "Back",
+      "russian": "Назад",
+      "sources": [
+        {
+          "key": "BACK",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 1677,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 1677,
+          "priority": 2
+        },
+        {
+          "key": "FRONT_BACK",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 588,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 588,
+          "priority": 2
+        },
+        {
+          "key": "SETTINGS_BACK",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 3395,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 3395,
+          "priority": 2
+        },
+        {
+          "key": "BACK",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 1677,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 1621,
+          "priority": 3
+        },
+        {
+          "key": "FRONT_BACK",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 588,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 536,
+          "priority": 3
+        },
+        {
+          "key": "SETTINGS_BACK",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 3395,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_2_l_russian.yml",
+          "russian_line": 3246,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Close",
+      "russian": "Закрыть",
+      "sources": [
+        {
+          "key": "CLOSE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 617,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 617,
+          "priority": 2
+        },
+        {
+          "key": "CLOSE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 617,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 565,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Previous",
+      "russian": "Пред.",
+      "sources": [
+        {
+          "key": "PREV",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 697,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 697,
+          "priority": 2
+        },
+        {
+          "key": "MUSICPLAYER_PREV",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/musicplayer_l_english.yml",
+          "english_line": 6,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/musicplayer_l_russian.yml",
+          "russian_line": 6,
+          "priority": 2
+        },
+        {
+          "key": "PREV",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 697,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 645,
+          "priority": 3
+        },
+        {
+          "key": "MUSICPLAYER_PREV",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/musicplayer_l_english.yml",
+          "english_line": 6,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/musicplayer_l_russian.yml",
+          "russian_line": 4,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Next",
+      "russian": "Далее",
+      "sources": [
+        {
+          "key": "NEXT",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 698,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 698,
+          "priority": 2
+        },
+        {
+          "key": "NEXT",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 698,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 646,
+          "priority": 3
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_meals_in_pods
+	NATIVE_PREVIEW = "add_deposit = d_meals_in_pods custom_tooltip = cdpd_meals_in_pods_properties"
+	LABEL = cdpd_$MODE$_meals_in_pods_label
+	TIP = cdpd_$MODE$_meals_in_pods_tip
+	VISIBLE = cdpd_$MODE$_meals_in_pods_visible
+	ACTION = cdpd_$MODE$_meals_in_pods
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_prisoner_intergration
+	NATIVE_PREVIEW = "add_deposit = d_prisoner_intergration custom_tooltip = cdpd_prisoner_intergration_properties"
+	LABEL = cdpd_$MODE$_prisoner_intergration_label
+	TIP = cdpd_$MODE$_prisoner_intergration_tip
+	VISIBLE = cdpd_$MODE$_prisoner_intergration_visible
+	ACTION = cdpd_$MODE$_prisoner_intergration
+	SCREEN = $SCREEN$
+}
+
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_stasis_prison
+	NATIVE_PREVIEW = "add_deposit = d_stasis_prison custom_tooltip = cdpd_stasis_prison_properties"
+	LABEL = cdpd_$MODE$_stasis_prison_label
+	TIP = cdpd_$MODE$_stasis_prison_tip
+	VISIBLE = cdpd_$MODE$_stasis_prison_visible
+	ACTION = cdpd_$MODE$_stasis_prison
+	SCREEN = $SCREEN$
+}

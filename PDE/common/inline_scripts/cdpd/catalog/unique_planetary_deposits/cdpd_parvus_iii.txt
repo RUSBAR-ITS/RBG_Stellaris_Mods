@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_nano_corpses
+	NATIVE_PREVIEW = "add_deposit = d_nano_corpses"
+	LABEL = cdpd_$MODE$_nano_corpses_label
+	TIP = cdpd_$MODE$_nano_corpses_tip
+	VISIBLE = cdpd_$MODE$_nano_corpses_visible
+	ACTION = cdpd_$MODE$_nano_corpses
+	SCREEN = $SCREEN$
+}

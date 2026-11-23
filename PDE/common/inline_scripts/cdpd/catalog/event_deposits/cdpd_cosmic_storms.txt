@@ -1,0 +1,10 @@
+inline_script = {
+	script = "cdpd/menu/cdpd_$PASS$"
+	ID = cdpd_electrified_oceans
+	NATIVE_PREVIEW = "add_deposit = d_electrified_oceans custom_tooltip = cdpd_electrified_oceans_additional"
+	LABEL = cdpd_$MODE$_electrified_oceans_label
+	TIP = cdpd_$MODE$_electrified_oceans_tip
+	VISIBLE = cdpd_$MODE$_electrified_oceans_visible
+	ACTION = cdpd_$MODE$_electrified_oceans
+	SCREEN = $SCREEN$
+}
