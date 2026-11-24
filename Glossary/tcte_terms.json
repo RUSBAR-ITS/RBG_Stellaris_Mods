@@ -1043,6 +1043,34 @@
           "priority": 3
         }
       ]
+    },
+    {
+      "english": "Willpower",
+      "russian": "Сила воли",
+      "sources": [
+        {
+          "key": "willpower",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/forceofwill_l_english.yml",
+          "english_line": 5288,
+          "russian_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/russian/forceofwill_l_russian.yml",
+          "russian_line": 4363,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Force of Will",
+      "russian": "Сила воли",
+      "sources": [
+        {
+          "key": "ap_force_of_will",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/forceofwill_l_english.yml",
+          "english_line": 5260,
+          "russian_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/russian/forceofwill_l_russian.yml",
+          "russian_line": 4338,
+          "priority": 3
+        }
+      ]
     }
   ]
 }

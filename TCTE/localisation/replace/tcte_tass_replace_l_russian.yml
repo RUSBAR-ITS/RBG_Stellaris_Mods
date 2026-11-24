@@ -26,6 +26,7 @@
  mod_country_feral_insight_produces_mult: "£feral_insight£ $feral_insight$"
  mod_country_entropy_crystals_produces_mult: "£entropy_crystals£ $entropy_crystals$"
  mod_country_integrity_produces_mult: "£integrity£ $integrity$"
+ mod_country_willpower_produces_mult: "£willpower£ $willpower$"
  
  mod_country_base_energy_produces_add: "Ежемесячно £energy£"
  mod_country_base_minerals_produces_add: "Ежемесячно £minerals£"

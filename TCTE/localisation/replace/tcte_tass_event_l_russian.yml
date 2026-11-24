@@ -103,6 +103,7 @@
  tass_cheat.4.feral_insight: "1000£feral_insight£"
  tass_cheat.4.entropy_crystals: "1000£entropy_crystals£"
  tass_cheat.4.integrity: "1000£integrity£"
+ tass_cheat.4.willpower: "1000£willpower£"
  tass_cheat.4.exit: "§YНазад§!"
  
 #Technology
@@ -131,6 +132,7 @@
  tass_cheat.6.synthetic_evolution: "§GПуть: §!$ap_synthetic_evolution$"
  tass_cheat.6.mind_over_matter: "§GПуть: §!$ap_mind_over_matter$"
  tass_cheat.6.synthetic_age: "§GПуть: §!$ap_synthetic_age$"
+ tass_cheat.6.force_of_will: "§YАмбиция: §!$ap_force_of_will$"
  tass_cheat.6.defender_of_the_galaxy_nomads: "§YАмбиция: §!$ap_defender_of_the_galaxy_nomads$"
  tass_cheat.6.defender_of_the_galaxy: "§YАмбиция: §!$ap_defender_of_the_galaxy$"
  tass_cheat.6.become_the_crisis: "§YАмбиция: §!$ap_become_the_crisis$"

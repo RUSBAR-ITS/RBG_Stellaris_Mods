@@ -46,15 +46,8 @@ country_event = {
 country_event = {
 	id = CDPD.2
 	title = cdpd_root_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_root_panel
+	picture = GFX_cdpd_evt_main_menu_basin
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }

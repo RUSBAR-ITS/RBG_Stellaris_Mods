@@ -11,13 +11,16 @@ decision_cdpd_open_editor = {
 	}
 	allow = { from = { NOT = { has_country_flag = cdpd_session_open } } }
 	effect = {
-		if = {
-			limit = {
-				from = { is_ai = no NOT = { has_country_flag = cdpd_session_open } }
-				cdpd_target_in_borders = { COUNTRY = from }
+		custom_tooltip = cdpd_open_editor_effect
+		hidden_effect = {
+			if = {
+				limit = {
+					from = { is_ai = no NOT = { has_country_flag = cdpd_session_open } }
+					cdpd_target_in_borders = { COUNTRY = from }
+				}
+				save_event_target_as = cdpd_target
+				from = { country_event = { id = CDPD.1 } }
 			}
-			save_event_target_as = cdpd_target
-			from = { country_event = { id = CDPD.1 } }
 		}
 	}
 	ai_weight = { weight = 0 }

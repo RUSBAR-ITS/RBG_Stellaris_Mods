@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [0.0.9 — 2026-11-24](#009--2026-11-24)
 - [0.0.8 — 2026-11-15](#008--2026-11-15)
 - [Draft specification: envoys — 2026-11-15](#draft-specification-envoys--2026-11-15)
 - [0.0.7 — 2026-11-15](#007--2026-11-15)
@@ -16,6 +17,12 @@
 - [0.0.1 — 2026-11-14](#001--2026-11-14)
 - [Specification extension: descriptions and substitutions — 2026-11-14](#specification-extension-descriptions-and-substitutions--2026-11-14)
 - [Specification preparation — 2026-11-14](#specification-preparation--2026-11-14)
+
+## 0.0.9 — 2026-11-24
+
+- Updated for Tass Cheat Tool `20261124` and Stellaris `v4.6.*`. Added Willpower to the end of Special path resources with six standard grant amounts and the `ap_force_of_will` requirement.
+- All ten active Ambitions levels include Willpower production and accept the Force of Will perk. Added three Russian Tass strings, updated the icon and tooltips, and localized the grant menu in both languages.
+- Verified 585 original and 629 extended policy options, 162 grants and Russian translations for all 1669 source keys. Packaged the release and updated the connected copy of all 116 runtime files. In-game verification is pending. [0.0.9 validation](../../TMP/TCTE/compatibility_0.0.9.json).
 
 ## 0.0.8 — 2026-11-15
 

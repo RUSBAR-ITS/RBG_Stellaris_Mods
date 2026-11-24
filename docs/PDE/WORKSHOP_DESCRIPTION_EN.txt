@@ -1,0 +1,17 @@
+[b]Updated for Stellaris v4.6.*[/b]
+
+Planetary Deposits Editor lets you add and remove planetary features, blockers and orbital deposits. Select one of your colonies or an uncolonized body within your borders, open Decisions and choose “Planetary Deposits Editor”. Changes take effect as soon as you choose an action in the editor. Only players can use the decision.
+
+[h2]Main features[/h2]
+
+[list]
+[*][b]New dynamic menu.[/b] The editor shows only the sections and actions available for the selected body. Empty branches are hidden. Each page holds up to 10 entries, and page controls appear only when the list needs another page.
+[*][b]Placement by world type.[/b] Available features depend on the body's class and, where relevant, the planet's climate. Orbital deposits can be added to suitable bodies that cannot be colonized.
+[*][b]529 types available to add.[/b] Choose from features that increase district capacity, blockers, orbital resource and research deposits, archaeological and event features, and features tied to origins, terraforming, ring worlds and habitats.
+[*][b]Dedicated removal menu.[/b] The “Remove deposits” section recognizes 592 types and lists only those present on the selected body. Each click removes one instance. Removing a blocker is immediate and grants no clearing rewards.
+[*][b]Feature effects and story consequences.[/b] Tooltips show what a feature does. The editor handles required planetary modifiers, including the one associated with Titanic Lifeforms. Adding a story feature does not start its quest. A red tooltip warning flags removals that could disrupt a quest already in progress.
+[/list]
+
+[h2]Feedback[/h2]
+
+Reports of missing features, placement issues, inaccurate tooltips and translation errors are welcome. If something goes wrong, please include the body's class, the feature name and the action you selected. A screenshot is especially helpful for rare event features.

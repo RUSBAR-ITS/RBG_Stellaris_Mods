@@ -1,4 +1,4 @@
-# PDE 2.0.4 — ванильные файлы и функции
+# PDE 2.1.2 — ванильные файлы и функции
 
 ## Оглавление
 
@@ -8,12 +8,15 @@
 
 ## Область изменений
 
-PDE 2.0.4 использует собственные скрипты и ключи. Зависимости сверены с установленной Stellaris 4.6.0. Штатные решения, определения депозитов и события используются без переопределения ванильных файлов. Ниже указаны зависимости проекта, которые нужно сверять при смене версии игры. [ТЗ](TZ_RU.md)
+PDE 2.1.2 использует собственные скрипты и ключи. Зависимости сверены с установленной Stellaris 4.6.0. Штатные решения, определения депозитов и события используются без переопределения ванильных файлов. Ниже указаны зависимости проекта, которые нужно сверять при смене версии игры. [ТЗ](TZ_RU.md)
 
 ## Решение и депозиты
 
 | Механизм | Применение и источник |
 | --- | --- |
+| Текст эффекта решения | `custom_tooltip` задаёт текст карточки. В `hidden_effect` выполняются повторная проверка доступа и открытие редактора. [Ванильный пример](E:/SteamLibrary/steamapps/common/Stellaris/common/decisions/15_nomads_dlc_decisions.txt:251) |
+| Карточка цели | Панель использует `GetClassName`, `GetName` и `solar_system`. Климат проверяется на целевом теле через `has_climate`, номера страниц берутся из переменных державы. [Классы небесных тел](E:/SteamLibrary/steamapps/common/Stellaris/common/planet_classes/00_planet_classes.txt) · [Пример подстановок](E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/cosmic_storms_l_english.yml:2244) |
+| Иллюстрации пульта | Спрайты PDE используют ванильную маску `gfx/interface/situation_log/event_mask.dds` по образцу `GFX_evt_alien_planet`. [Регистрация в игре](E:/SteamLibrary/steamapps/common/Stellaris/interface/eventpictures.gfx:900) |
 | Доступ к планетарным решениям | Штатные условия для своей колонии и незаселённого тела. PDE сверяет владельца системы (`space_owner`) и игрока-инициатора (`from`), а для колонии также проверяет `colony.owner`. Тип носителя определяет `carrier_is_type`. [Источник](E:/SteamLibrary/steamapps/common/Stellaris/common/game_rules/00_rules.txt:4779) |
 | Добавление экземпляра | Для обычной особенности PDE вызывает `add_deposit`. Для блокера использует `add_blocker = { type = … blocked_deposit = none }`, чтобы игра не создавала случайную особенность под блокером. [Эффекты PDE](../../PDE/common/scripted_effects/cdpd_deposit_effects.txt) |
 | Выбор одного экземпляра | На выбранном теле `random_deposit` и `is_deposit_type` ограничивают выбор экземплярами заданного ID. [Источник](E:/SteamLibrary/steamapps/common/Stellaris/common/scripted_effects/01_start_of_game_effects.txt:3323) |

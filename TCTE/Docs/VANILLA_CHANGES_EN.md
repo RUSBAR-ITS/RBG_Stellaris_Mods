@@ -10,7 +10,7 @@
 
 ## Current state
 
-Version 0.0.8 changes one vanilla trigger: `can_remove_beneficial_genetic_traits`. The set of 54 shared localization keys is preserved. New options, events, and keys use the `tcte_` prefix; Tass Cheat Tool overrides are listed separately in [BASE_MOD_CHANGES_EN.md](BASE_MOD_CHANGES_EN.md). The resource menu uses standard `add_resource` and references existing names; vanilla resource definitions and capacities remain unchanged.
+Version 0.0.9 changes one vanilla trigger: `can_remove_beneficial_genetic_traits`. Russian localization supplies 55 shared modifier labels. New options, events, and keys use the `tcte_` prefix; Tass Cheat Tool overrides are listed separately in [BASE_MOD_CHANGES_EN.md](BASE_MOD_CHANGES_EN.md). The resource menu uses standard `add_resource` and references existing names; vanilla resource definitions and capacities remain unchanged.
 
 Version 0.0.1, implemented on 2026-11-14 under the approved [specification](TZ_EN.md). All 54 shared keys listed below are included. Russian labels change; gameplay functions and effects are not overridden. Physical game and Workshop files remain unchanged.
 
@@ -72,6 +72,7 @@ English sources reside in `E:/SteamLibrary/steamapps/common/Stellaris/localisati
 | `mod_country_feral_insight_produces_mult` | Not found |
 | `mod_country_entropy_crystals_produces_mult` | Not found |
 | `mod_country_integrity_produces_mult` | Not found |
+| `mod_country_willpower_produces_mult` | Tass 20261124. The resource name uses `$willpower$` from the game’s 4.6 `forceofwill_l_russian.yml`. |
 | `mod_country_base_energy_produces_add` | `modifiers_1_l_russian.yml:674` |
 | `mod_country_base_minerals_produces_add` | `modifiers_1_l_russian.yml:675` |
 | `mod_country_base_food_produces_add` | `modifiers_1_l_russian.yml:676` |
@@ -104,7 +105,7 @@ English sources reside in `E:/SteamLibrary/steamapps/common/Stellaris/localisati
 
 ## Change boundaries
 
-All 54 keys override or add localization for shared modifiers; they are not new TCTE functions. `mod_fleet_command_limit_add` replaces its unresolved reference with `$MOD_COMMAND_LIMIT_ADD$`; `MOD_COMMAND_LIMIT_ADD` itself is not overridden.
+All 55 keys override or add localization for shared modifiers; they are not new TCTE functions. `mod_fleet_command_limit_add` replaces its unresolved reference with `$MOD_COMMAND_LIMIT_ADD$`; `MOD_COMMAND_LIMIT_ADD` itself is not overridden.
 
 The other 1,612 source Tass keys do not overlap explicitly defined keys in the inspected vanilla localization. The additional `TASS_CHEAT_WORMHOLE` serves an existing base-mod bypass type and references `$BYPASS_TASS_CHEAT_WORMHOLE$`.
 

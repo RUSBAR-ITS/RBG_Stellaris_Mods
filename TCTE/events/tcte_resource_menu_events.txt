@@ -272,6 +272,15 @@ country_event = {
 		hidden_effect = { country_event = { id = tcte_resources.126 } }
 	}
 	option = {
+		name = tcte_resource_willpower
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
+	}
+	option = {
 		name = tcte_resource_back
 		default_hide_option = yes
 		ai_chance = { factor = 100 }
@@ -1940,6 +1949,82 @@ country_event = {
 		}
 		add_resource = { integrity = 1000000 }
 		hidden_effect = { country_event = { id = tcte_resources.126 } }
+	}
+	option = {
+		name = tcte_resource_back
+		default_hide_option = yes
+		ai_chance = { factor = 100 }
+		hidden_effect = { country_event = { id = tcte_resources.6 } }
+	}
+}
+
+# willpower grants.
+country_event = {
+	id = tcte_resources.127
+	title = tcte_resource_willpower_title
+	desc = tcte_resource_amount_desc
+	is_triggered_only = yes
+	trigger = { is_ai = no }
+	picture = GFX_evt_treasure_pile
+	option = {
+		name = tcte_resource_willpower_1000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		add_resource = { willpower = 1000 }
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
+	}
+	option = {
+		name = tcte_resource_willpower_5000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		add_resource = { willpower = 5000 }
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
+	}
+	option = {
+		name = tcte_resource_willpower_10000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		add_resource = { willpower = 10000 }
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
+	}
+	option = {
+		name = tcte_resource_willpower_50000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		add_resource = { willpower = 50000 }
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
+	}
+	option = {
+		name = tcte_resource_willpower_100000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		add_resource = { willpower = 100000 }
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
+	}
+	option = {
+		name = tcte_resource_willpower_1000000
+		ai_chance = { factor = 0 }
+		trigger = { is_ai = no }
+		allow = {
+			has_ascension_perk = ap_force_of_will
+		}
+		add_resource = { willpower = 1000000 }
+		hidden_effect = { country_event = { id = tcte_resources.127 } }
 	}
 	option = {
 		name = tcte_resource_back

@@ -8,6 +8,7 @@
 - [4. Policy overrides](#4-policy-overrides)
 - [5. Localization and documentation](#5-localization-and-documentation)
 - [6. Validation and acceptance](#6-validation-and-acceptance)
+- [Update for Tass 20261124](#update-for-tass-20261124)
 
 ## 1. Status and user decisions
 
@@ -105,3 +106,7 @@ User testing in-game:
 Result: 94 overrides, 112 tracks, and 1214 options; added 629 options and 1258 strings in each of Russian and English. Verified 1200 numeric components of new options. All 585 existing options and 1667 Russian values are preserved. Report: [level validation](../../TMP/TCTE/level_validation_report.json); [override inventory](BASE_MOD_CHANGES_EN.md).
 
 Research material: [track audit](../../TMP/TCTE/level_extension_audit.json), [new level evidence](../../TMP/TCTE/level_sources.json). [Русское ТЗ](TZ_LEVELS_RU.md).
+
+## Update for Tass 20261124
+
+For Stellaris `v4.6.*` each of the ten active Ambitions policy levels includes `country_willpower_produces_mult` and accepts `ap_force_of_will` as an alternative prerequisite. Levels 1–5 follow Tass and levels 6–10 double each preceding coefficient. Verify all ten coefficients, each active level’s prerequisites, the neutral option and localization references.

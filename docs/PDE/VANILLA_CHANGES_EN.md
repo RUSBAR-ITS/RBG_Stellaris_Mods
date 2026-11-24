@@ -1,4 +1,4 @@
-# PDE 2.0.4 vanilla files and functions
+# PDE 2.1.2 vanilla files and functions
 
 ## Contents
 
@@ -8,12 +8,15 @@
 
 ## Scope
 
-The release dependencies were checked against the installed Stellaris 4.6.0. Version 2.0.4 uses PDE-owned scripts and keys and relies on the vanilla decision interface, deposit definitions and events without overriding vanilla files. Review these dependencies when updating the game version. [Specification](TZ_EN.md)
+The release dependencies were checked against the installed Stellaris 4.6.0. Version 2.1.2 uses PDE-owned scripts and keys and relies on the vanilla decision interface, deposit definitions and events without overriding vanilla files. Review these dependencies when updating the game version. [Specification](TZ_EN.md)
 
 ## Decision and deposits
 
 | Mechanism | Use and source |
 | --- | --- |
+| Decision effect text | `custom_tooltip` sets the text on the decision card. The `hidden_effect` block rechecks access and opens the editor. [Vanilla example](E:/SteamLibrary/steamapps/common/Stellaris/common/decisions/15_nomads_dlc_decisions.txt:251) |
+| Target details | The panel uses `GetClassName`, `GetName` and `solar_system`. It checks `has_climate` on the body and reads the page variables on the country. [Body classes](E:/SteamLibrary/steamapps/common/Stellaris/common/planet_classes/00_planet_classes.txt) · [Example substitutions](E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/cosmic_storms_l_english.yml:2244) |
+| Console pictures | PDE sprites use the vanilla mask `gfx/interface/situation_log/event_mask.dds` following `GFX_evt_alien_planet`. [Vanilla registration](E:/SteamLibrary/steamapps/common/Stellaris/interface/eventpictures.gfx:900) |
 | Access to planetary decisions | Vanilla access for owned colonies and uncolonized bodies. PDE checks the system owner (`space_owner`), the acting player (`from`) and, for a colony, `colony.owner`. It checks the carrier type with `carrier_is_type`. [Source](E:/SteamLibrary/steamapps/common/Stellaris/common/game_rules/00_rules.txt:4779) |
 | Adding one instance | PDE calls `add_deposit` for a regular feature and `add_blocker = { type = … blocked_deposit = none }` for a blocker. This prevents creation of a random feature beneath the blocker. [PDE effects](../../PDE/common/scripted_effects/cdpd_deposit_effects.txt) |
 | Selecting one instance | On the selected body, `random_deposit` and `is_deposit_type` restrict the choice to instances of one ID. [Source](E:/SteamLibrary/steamapps/common/Stellaris/common/scripted_effects/01_start_of_game_effects.txt:3323) |

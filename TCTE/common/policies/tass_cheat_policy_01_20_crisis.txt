@@ -21,6 +21,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 1
 			country_entropy_crystals_produces_mult = 1
 			country_integrity_produces_mult = 1
+			country_willpower_produces_mult = 1
 		}
 		ai_weight = {
 			weight = 0
@@ -32,6 +33,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -43,6 +45,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 2
 			country_entropy_crystals_produces_mult = 2
 			country_integrity_produces_mult = 2
+			country_willpower_produces_mult = 2
 		}
 		ai_weight = {
 			weight = 0
@@ -54,6 +57,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -65,6 +69,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 5
 			country_entropy_crystals_produces_mult = 5
 			country_integrity_produces_mult = 5
+			country_willpower_produces_mult = 5
 		}
 		ai_weight = {
 			weight = 0
@@ -76,6 +81,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -87,6 +93,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 10
 			country_entropy_crystals_produces_mult = 10
 			country_integrity_produces_mult = 10
+			country_willpower_produces_mult = 10
 		}
 		ai_weight = {
 			weight = 0
@@ -98,6 +105,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -109,6 +117,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 100
 			country_entropy_crystals_produces_mult = 100
 			country_integrity_produces_mult = 100
+			country_willpower_produces_mult = 100
 		}
 		ai_weight = {
 			weight = 0
@@ -120,6 +129,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -131,6 +141,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 200
 			country_entropy_crystals_produces_mult = 200
 			country_integrity_produces_mult = 200
+			country_willpower_produces_mult = 200
 		}
 		ai_weight = {
 			weight = 0
@@ -142,6 +153,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -153,6 +165,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 400
 			country_entropy_crystals_produces_mult = 400
 			country_integrity_produces_mult = 400
+			country_willpower_produces_mult = 400
 		}
 		ai_weight = {
 			weight = 0
@@ -164,6 +177,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -175,6 +189,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 800
 			country_entropy_crystals_produces_mult = 800
 			country_integrity_produces_mult = 800
+			country_willpower_produces_mult = 800
 		}
 		ai_weight = {
 			weight = 0
@@ -186,6 +201,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -197,6 +213,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 1600
 			country_entropy_crystals_produces_mult = 1600
 			country_integrity_produces_mult = 1600
+			country_willpower_produces_mult = 1600
 		}
 		ai_weight = {
 			weight = 0
@@ -208,6 +225,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}
@@ -219,6 +237,7 @@ tass_policy_cheat_crisis = {
 			country_feral_insight_produces_mult = 3200
 			country_entropy_crystals_produces_mult = 3200
 			country_integrity_produces_mult = 3200
+			country_willpower_produces_mult = 3200
 		}
 		ai_weight = {
 			weight = 0
@@ -230,6 +249,7 @@ tass_policy_cheat_crisis = {
 				has_ascension_perk = ap_behemoths
 				has_ascension_perk = ap_galactic_hyperthermia
 				has_ascension_perk = ap_defender_of_the_galaxy_nomads
+				has_ascension_perk = ap_force_of_will
 			}
 		}
 	}

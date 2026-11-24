@@ -1,4 +1,4 @@
-# PDE 2.0.4 directory and file layout
+# PDE 2.1.2 directory and file layout
 
 ## Contents
 
@@ -10,7 +10,7 @@
 
 ## Mod root
 
-The mod root is `PDE/`. It contains the descriptor, thumbnail and decision icon. The release fields are `version="2.0.4"` and `supported_version="v4.6.*"`. The verification baseline is Stellaris 4.6.0. New game keys use the existing `cdpd_` prefix and events use the `CDPD` namespace. [Current descriptor](../../PDE/descriptor.mod) · [PDE events](../../PDE/events/cdpd_menu_events.txt)
+The mod root is `PDE/`. It contains the descriptor, thumbnail and decision icon. The release fields are `version="2.1.2"` and `supported_version="v4.6.*"`. The verification baseline is Stellaris 4.6.0. New game keys use the existing `cdpd_` prefix and events use the `CDPD` namespace. [Current descriptor](../../PDE/descriptor.mod) · [PDE events](../../PDE/events/cdpd_menu_events.txt)
 
 Project documents live in `docs/PDE/`, including requirements, classification, the warning register and the changelog. This directory also contains the [2.0.0 specification](TZ_EN.md) and the [vanilla files and functions register](VANILLA_CHANGES_EN.md). Research data and individual run outputs live in `TMP/PDE/<game version>/`. PDE embeds the RB_SDM menu under its own identifiers. Players install PDE as a standalone mod. [Requirements](REQUIREMENTS_EN.md) · [RB_SDM guide](../../RB_SDM/README_EN.md#copy-a-section-into-your-mod)
 
@@ -25,6 +25,7 @@ PDE/
 ├── common/
 │   ├── decisions/
 │   │   └── cdpd_decisions.txt
+│   ├── scripted_loc/cdpd_panel_loc.txt
 │   ├── scripted_triggers/
 │   │   ├── cdpd_access_triggers.txt
 │   │   ├── cdpd_placement_triggers.txt
@@ -51,19 +52,26 @@ PDE/
 │   ├── cdpd_menu_events.txt
 │   ├── cdpd_add_events.txt
 │   └── cdpd_remove_events.txt
+├── interface/cdpd_event_pictures.gfx
+├── gfx/event_pictures/
+│   └── cdpd_*.dds
 ├── gfx/interface/icons/decisions/
 │   └── decision_cdpd_editor.dds
 └── localisation/
     ├── russian/
+    │   ├── cdpd_panel_l_russian.yml
     │   ├── cdpd_menu_l_russian.yml
     │   └── cdpd_deposits_l_russian.yml
     └── english/
+        ├── cdpd_panel_l_english.yml
         ├── cdpd_menu_l_english.yml
         └── cdpd_deposits_l_english.yml
 ```
 
 | Files | Responsibility |
 | --- | --- |
+| `cdpd_panel_loc.txt`, `cdpd_panel_l_*.yml` | Target details, the current section name and the conditions for showing climate and pagination. |
+| `cdpd_event_pictures.gfx`, `gfx/event_pictures/` | Register the 27 textures. Each visible event names its own or its nearest illustrated parent's sprite in `picture`. [Section illustrations](TZ_EVENT_PANEL_EN.md#section-illustrations) |
 | `cdpd_decisions.txt`, `cdpd_access_triggers.txt` | Planetary decision, access within borders and a player-only initiator check. The decision saves the selected body and hands control to an event for the acting country, `from`. An owned colony and an uncolonized body in owned space use the standard interface. Vanilla restricts access to foreign colonies, including pre-FTL colonies in owned space. [PDE decision](../../PDE/common/decisions/cdpd_decisions.txt) · [Game rule](E:/SteamLibrary/steamapps/common/Stellaris/common/game_rules/00_rules.txt:4698) |
 | `cdpd_placement_triggers.txt`, `cdpd_menu_triggers.txt` | The former defines valid placement targets, including body type, class and climate. The latter shows a section when at least one descendant is available. A removal entry requires only the presence of its ID on the selected body. |
 | `cdpd_menu_events.txt`, `cdpd_add_events.txt`, `cdpd_remove_events.txt` | Entry, session and main menu, placement section screens, and one flat screen for the top-level “Remove deposits” entry. Next and previous pages reuse the current list event. |

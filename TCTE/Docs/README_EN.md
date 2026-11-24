@@ -16,9 +16,9 @@
 
 ## Purpose and requirements
 
-**Tass Cheat Tool Extender**, ID **TCTE**, version **0.0.8**. The mod localizes Tass Cheat Tool into Russian, extends policies to ten levels, adds resource and cumulative envoy menus, and provides a species modification toggle with additional permission to remove beneficial traits.
+**Tass Cheat Tool Extender**, ID **TCTE**, version **0.0.9**. The mod localizes Tass Cheat Tool into Russian, extends policies to ten levels, adds resource and cumulative envoy menus, and provides a species modification toggle with additional permission to remove beneficial traits.
 
-The required dependency is **Tass Cheat Tool**, Workshop ID `682851228`, verified version `20261012`. The target Stellaris version is `v4.5.*`; the installed baseline was Cygnus `v4.5.4 (1b4f)`. Load TCTE after the base mod. Russian Localization Fix RE supplied preferred terminology and is not a mandatory dependency.
+The required dependency is **Tass Cheat Tool**, Workshop ID `682851228`, verified version `20261124`. The target Stellaris version is `v4.6.*`; the installed baseline was Corona Borealis `v4.6.0 (3d1a)`. Load TCTE after the base mod. Russian Localization Fix RE supplied preferred terminology and is not a mandatory dependency.
 
 ## Policy levels
 
@@ -32,7 +32,7 @@ TCTE overrides 94 base-mod files under `common/policies/`. Inventory: [Tass Chea
 
 ## Resource grants
 
-Path: planetary decision → main cheat menu → Add resources. Select one of six categories, then a resource and an amount. All 26 resources from the original menu are included. Each grant reopens the same resource's amount menu; Back returns one level.
+Path: planetary decision → main cheat menu → Add resources. Select one of six categories, then a resource and an amount. All 27 resources from the original menu are included. Each grant reopens the same resource's amount menu; Back returns one level.
 
 | Resources | Six one-time grant amounts |
 | --- | --- |
@@ -41,7 +41,7 @@ Path: planetary decision → main cheat menu → Add resources. Select one of si
 | Minor Artifacts | 100, 250, 500, 1000, 1500, 2000 |
 | Astral Threads | 25, 50, 100, 200, 300, 500 |
 
-Tass conditions for DLC, empire type, and special paths are preserved. Amounts specify one grant call; storage capacity is not increased. Full categories and acceptance criteria: [resource menu specification](TZ_RESOURCES_EN.md).
+Tass conditions for DLC, empire type, and special paths are preserved. Amounts specify one grant call; storage capacity is not increased. Full categories and acceptance criteria: [resource menu specification](TZ_RESOURCES_EN.md). Willpower appears under Special path resources and requires the Force of Will ascension perk.
 
 ## Advanced species modification
 
@@ -62,20 +62,20 @@ The game creates assignable envoys after capacity changes. Updates while paused,
 | File under `localisation/replace/` | Entries |
 | --- | ---: |
 | `tcte_tass_l_russian.yml` | 53 |
-| `tcte_tass_event_l_russian.yml` | 154 |
+| `tcte_tass_event_l_russian.yml` | 156 |
 | `tcte_tass_names_l_russian.yml` | 19 |
 | `tcte_tass_policy_l_russian.yml` | 1386 |
-| `tcte_tass_replace_l_russian.yml` | 54 |
+| `tcte_tass_replace_l_russian.yml` | 55 |
 | `tcte_fixes_l_russian.yml` | 1 |
 | `tcte_policy_levels_l_russian.yml` | 1258 |
-| `tcte_resource_menu_l_russian.yml` | 224 |
+| `tcte_resource_menu_l_russian.yml` | 232 |
 | `tcte_species_modding_l_russian.yml` | 3 |
 | `tcte_envoy_menu_l_russian.yml` | 18 |
-| **Russian total** | **3170** |
+| **Russian total** | **3181** |
 
-New options receive 1258 English names and descriptions in `localisation/english/tcte_policy_levels_l_english.yml`; the resource menu adds 224 keys in `localisation/english/tcte_resource_menu_l_english.yml`. Version 0.0.6 adds three keys per language in `tcte_species_modding_l_russian.yml` and `tcte_species_modding_l_english.yml`. All ten localization files from 0.0.5 remain byte-identical; the enable option uses the updated +100/+30 tooltip instead of the old +50/+5 text. Version 0.0.8 adds 18 keys in each of `tcte_envoy_menu_l_russian.yml` and `tcte_envoy_menu_l_english.yml`; the previous twelve files remain byte-identical. The distribution contains ten Russian and four English files, with 3170 RU and 1503 EN keys.
+TCTE 0.0.9 delivers 3181 keys in ten Russian files and 1511 extension keys in four English files. All 1669 English keys from Tass 20261124 have Russian translations.
 
-All 729 original values containing alphabetic text are translated; the Tass brand is retained. **704 descriptions** were authored: 13 categories, 94 policies, 585 options, 4 decisions, 7 edicts, and 1 colony deposit. Only `NAME_leader_tass` and the commented-out test edict's `edict_tass_edict_cheat_test_desc` intentionally remain empty.
+In 0.0.1 all 729 original values containing alphabetic text are translated; the Tass brand is retained. **704 descriptions** were authored: 13 categories, 94 policies, 585 options, 4 decisions, 7 edicts, and 1 colony deposit. Only `NAME_leader_tass` and the commented-out test edict's `edict_tass_edict_cheat_test_desc` intentionally remain empty.
 
 Original keys, order, entry shells, control tokens, and numbers in nonempty originals are preserved. Files use UTF-8 BOM; the names file retains CRLF and the others use LF. New descriptions reuse existing localization references for names and terms. Their numbers are supported by code literals; no new variable getters were needed.
 
@@ -85,7 +85,7 @@ Version 0.0.2 fixes five precursor buttons that exposed Russian Localization Fix
 
 In 0.0.3, the four authored planetary decision descriptions are shortened to one sentence of at most 12 words after reference expansion. Detailed tooltips are preserved. The Effects block in the decision list uses tooltips, so shortening `_desc` does not change that text.
 
-54 shared modifier labels also apply outside Tass menus. Their list, including 32 explicit vanilla overlaps, is recorded in [VANILLA_CHANGES_EN.md](VANILLA_CHANGES_EN.md).
+TCTE supplies 55 shared modifier labels, including Willpower production. [Shared key list](VANILLA_CHANGES_EN.md).
 
 ## Installation
 
@@ -93,7 +93,7 @@ The local runtime is installed at `C:/Users/RUSBAR/Documents/Paradox Interactive
 
 For testing, the user adds **Tass Cheat Tool Extender** to the desired playset after **Tass Cheat Tool** and selects Russian as the game language. The agent did not modify playsets.
 
-[TCTE_0.0.8.zip](../../TMP/TCTE/TCTE_0.0.8.zip) contains 116 runtime files: the descriptor, 94 policy files, four event files, one static-modifier file, one trigger file, one technology file, and fourteen localization files. For manual transfer, extract it into a user mod directory and create an external `TCTE.mod` containing the manifest metadata and a `path` pointing to that directory. Documentation, the glossary, and temporary reports are excluded.
+[TCTE_0.0.9.zip](../../TMP/TCTE/TCTE_0.0.9.zip) contains 116 runtime files: the descriptor, 94 policy files, four event files, one static-modifier file, one trigger file, one technology file, and fourteen localization files. For manual transfer, extract it into a user mod directory and create an external `TCTE.mod` containing the manifest metadata and a `path` pointing to that directory. Documentation, the glossary, and temporary reports are excluded.
 
 When updating manually from 0.0.6, remove the previous `common/scripted_triggers/05_scripted_triggers_traits.txt` from the user mod directory. Version 0.0.7 instead provides `common/scripted_triggers/tcte_species_traits_triggers.txt` with only the modified trigger.
 
@@ -115,7 +115,9 @@ Version 0.0.7 replaces the full vanilla-file copy with a standalone override of 
 
 Version 0.0.8 checks six envoy grants, 176 sequences in an arithmetic model, reopening and Back, a technology without ownership restrictions or automatic grants, 18 new strings per language, and references against three baselines. Other main-menu blocks and 110 previous runtime files remain byte-identical. [Envoy validation](../../TMP/TCTE/envoy_menu_validation.json). The arithmetic model does not replace engine testing of technology stacking.
 
-Reports: [species modification](../../TMP/TCTE/species_modding_validation.json), [resource menu](../../TMP/TCTE/resource_menu_validation.json), [original localization](../../TMP/TCTE/validation_report.json), [levels and new localization](../../TMP/TCTE/level_validation_report.json), [precursor regression](../../TMP/TCTE/precursor_regression.json), [decision description changes](../../TMP/TCTE/decision_regression.json), [description evidence](../../TMP/TCTE/description_sources.json), [level evidence](../../TMP/TCTE/level_sources.json), [installation](../../TMP/TCTE/installation_report.json), [documentation](../../TMP/TCTE/documentation_validation.json). **Changes in versions 0.0.2–0.0.8 have not yet been confirmed in-game.** Restart the game after updating and perform the checks below.
+[0.0.9 validation](../../TMP/TCTE/compatibility_0.0.9.json).
+
+Reports: [species modification](../../TMP/TCTE/species_modding_validation.json), [resource menu](../../TMP/TCTE/resource_menu_validation.json), [original localization](../../TMP/TCTE/validation_report.json), [levels and new localization](../../TMP/TCTE/level_validation_report.json), [precursor regression](../../TMP/TCTE/precursor_regression.json), [decision description changes](../../TMP/TCTE/decision_regression.json), [description evidence](../../TMP/TCTE/description_sources.json), [level evidence](../../TMP/TCTE/level_sources.json), [installation](../../TMP/TCTE/installation_report.json), [documentation](../../TMP/TCTE/documentation_validation.json). **Changes in versions 0.0.2–0.0.9 have not yet been confirmed in-game.** Restart the game after updating and perform the checks below.
 
 ## In-game testing
 
@@ -131,6 +133,8 @@ Reports: [species modification](../../TMP/TCTE/species_modding_validation.json),
 8. Check +100/+30 for all three archetypes, button changes on enabling and removing the modifier, an already-active modifier, and re-enabling. Using Quick Learners without a permitting tradition, test all four technology/cheat combinations; with the tradition, permission must remain without the cheat. Check existing species templates after disabling the bonuses.
 
 9. In the envoy menu, test all six grants, +500 twice, +5/+10/+25, Back, and reopening without extra grants. Test assignment, pause/tick updates, save/load, envoy death and replacement, regular and gestalt empires, and the old +20 bonus. Check there are no notifications, normal research offers for the service technology, or changes to current research. [Full checklist](TZ_ENVOYS_EN.md#6-validation-and-acceptance).
+
+10. Check Special path resources → Willpower before and after gaining Force of Will, repeat a grant and return to the category. Check Ambitions at levels 1 and 10 and switch back to Unmodified.
 
 Complete checklists are in the [localization specification](TZ_EN.md#11-in-game-testing), [level specification](TZ_LEVELS_EN.md#6-validation-and-acceptance), [resource specification](TZ_RESOURCES_EN.md#7-validation-and-acceptance), and [species modification specification](TZ_SPECIES_EN.md#5-validation-and-acceptance). GUI changes are outside this stage.
 

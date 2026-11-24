@@ -1,7 +1,7 @@
 ﻿l_english:
  decision_cdpd_open_editor: "Planetary Deposits Editor"
  decision_cdpd_open_editor_desc: "Add or remove deposits and blockers on the selected body."
- cdpd_page_desc: "[cdpd_target.GetName] — Page [Root.cdpd_page] / [Root.cdpd_pages]"
+ cdpd_open_editor_effect: "Opens the menu for adding or removing deposits and blockers on the selected body."
  cdpd_empty_desc: "No actions available."
  cdpd_previous: "« $PREV$"
  cdpd_next: "$NEXT$ »"

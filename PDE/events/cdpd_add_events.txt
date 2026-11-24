@@ -31,15 +31,8 @@ country_event = {
 country_event = {
 	id = CDPD.127
 	title = cdpd_section_planetary_deposits_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -171,15 +164,8 @@ country_event = {
 country_event = {
 	id = CDPD.276
 	title = cdpd_section_planetary_deposits_ordinary_planetary_features_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_ordinary_planetary_features_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -278,15 +264,8 @@ country_event = {
 country_event = {
 	id = CDPD.277
 	title = cdpd_section_planetary_deposits_ordinary_planetary_features_generator_districts_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_ordinary_planetary_features_generator_districts_panel
+	picture = GFX_cdpd_evt_generator_districts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -342,15 +321,8 @@ country_event = {
 country_event = {
 	id = CDPD.278
 	title = cdpd_section_planetary_deposits_ordinary_planetary_features_mining_districts_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_ordinary_planetary_features_mining_districts_panel
+	picture = GFX_cdpd_evt_mining_districts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -406,15 +378,8 @@ country_event = {
 country_event = {
 	id = CDPD.279
 	title = cdpd_section_planetary_deposits_ordinary_planetary_features_agriculture_districts_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_ordinary_planetary_features_agriculture_districts_panel
+	picture = GFX_cdpd_evt_agriculture_districts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -470,15 +435,8 @@ country_event = {
 country_event = {
 	id = CDPD.129
 	title = cdpd_section_planetary_deposits_ordinary_rare_fauna_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_ordinary_rare_fauna_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -534,15 +492,8 @@ country_event = {
 country_event = {
 	id = CDPD.133
 	title = cdpd_section_planetary_deposits_by_planet_modifier_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_by_planet_modifier_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -598,15 +549,8 @@ country_event = {
 country_event = {
 	id = CDPD.280
 	title = cdpd_section_planetary_deposits_volcanic_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_volcanic_worlds_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -694,15 +638,8 @@ country_event = {
 country_event = {
 	id = CDPD.11
 	title = cdpd_section_volcanic_worlds_mining_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_volcanic_worlds_mining_panel
+	picture = GFX_cdpd_evt_mining_districts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -758,15 +695,8 @@ country_event = {
 country_event = {
 	id = CDPD.12
 	title = cdpd_section_volcanic_worlds_thermotechnic_additional_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_volcanic_worlds_thermotechnic_additional_panel
+	picture = GFX_cdpd_evt_thermotechnic_districts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -822,15 +752,8 @@ country_event = {
 country_event = {
 	id = CDPD.13
 	title = cdpd_section_volcanic_worlds_mixed_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_volcanic_worlds_mixed_panel
+	picture = GFX_cdpd_evt_mixed_volcanic_districts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -886,15 +809,8 @@ country_event = {
 country_event = {
 	id = CDPD.14
 	title = cdpd_section_volcanic_worlds_starting_features_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_volcanic_worlds_starting_features_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -950,15 +866,8 @@ country_event = {
 country_event = {
 	id = CDPD.49
 	title = cdpd_section_event_deposits_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1112,15 +1021,8 @@ country_event = {
 country_event = {
 	id = CDPD.60
 	title = cdpd_section_event_deposits_anomalies_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1340,15 +1242,8 @@ country_event = {
 country_event = {
 	id = CDPD.61
 	title = cdpd_section_event_deposits_anomalies_drops_in_the_ocean_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_drops_in_the_ocean_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1404,15 +1299,8 @@ country_event = {
 country_event = {
 	id = CDPD.62
 	title = cdpd_section_event_deposits_anomalies_isolated_ruin_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_isolated_ruin_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1468,15 +1356,8 @@ country_event = {
 country_event = {
 	id = CDPD.112
 	title = cdpd_section_event_deposits_anomalies_overgrown_ruins_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_overgrown_ruins_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1532,15 +1413,8 @@ country_event = {
 country_event = {
 	id = CDPD.100
 	title = cdpd_section_event_deposits_anomalies_rapid_desertification_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_rapid_desertification_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1608,15 +1482,8 @@ country_event = {
 country_event = {
 	id = CDPD.111
 	title = cdpd_section_event_deposits_anomalies_signs_of_ancient_life_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_signs_of_ancient_life_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1672,15 +1539,8 @@ country_event = {
 country_event = {
 	id = CDPD.63
 	title = cdpd_section_event_deposits_anomalies_single_minded_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_single_minded_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1736,15 +1596,8 @@ country_event = {
 country_event = {
 	id = CDPD.65
 	title = cdpd_section_event_deposits_anomalies_spontaneous_explosions_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_spontaneous_explosions_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1800,15 +1653,8 @@ country_event = {
 country_event = {
 	id = CDPD.64
 	title = cdpd_section_event_deposits_anomalies_toy_factory_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_toy_factory_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1864,15 +1710,8 @@ country_event = {
 country_event = {
 	id = CDPD.99
 	title = cdpd_section_event_deposits_anomalies_watery_grave_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_watery_grave_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1928,15 +1767,8 @@ country_event = {
 country_event = {
 	id = CDPD.66
 	title = cdpd_section_event_deposits_anomalies_wetware_computer_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_wetware_computer_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -1992,15 +1824,8 @@ country_event = {
 country_event = {
 	id = CDPD.281
 	title = cdpd_section_event_deposits_anomalies_mineral_factorial_and_ancient_automata_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_mineral_factorial_and_ancient_automata_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2056,15 +1881,8 @@ country_event = {
 country_event = {
 	id = CDPD.282
 	title = cdpd_section_event_deposits_anomalies_nanosand_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_nanosand_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2120,15 +1938,8 @@ country_event = {
 country_event = {
 	id = CDPD.283
 	title = cdpd_section_event_deposits_anomalies_abandoned_settlements_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_abandoned_settlements_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2184,15 +1995,8 @@ country_event = {
 country_event = {
 	id = CDPD.284
 	title = cdpd_section_event_deposits_anomalies_cornucopicturesque_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_cornucopicturesque_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2248,15 +2052,8 @@ country_event = {
 country_event = {
 	id = CDPD.285
 	title = cdpd_section_event_deposits_anomalies_abandoned_harvesters_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_abandoned_harvesters_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2312,15 +2109,8 @@ country_event = {
 country_event = {
 	id = CDPD.286
 	title = cdpd_section_event_deposits_anomalies_leviathan_down_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_anomalies_leviathan_down_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2376,15 +2166,8 @@ country_event = {
 country_event = {
 	id = CDPD.70
 	title = cdpd_section_event_deposits_colony_events_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2703,15 +2486,8 @@ country_event = {
 country_event = {
 	id = CDPD.287
 	title = cdpd_section_event_deposits_colony_events_runaway_reaction_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_runaway_reaction_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2767,15 +2543,8 @@ country_event = {
 country_event = {
 	id = CDPD.58
 	title = cdpd_section_event_deposits_subterranean_civilization_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_subterranean_civilization_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2831,15 +2600,8 @@ country_event = {
 country_event = {
 	id = CDPD.103
 	title = cdpd_section_event_deposits_colony_events_abandoned_terraforming_equipment_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_abandoned_terraforming_equipment_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2895,15 +2657,8 @@ country_event = {
 country_event = {
 	id = CDPD.77
 	title = cdpd_section_event_deposits_colony_events_blue_lotus_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_blue_lotus_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -2959,15 +2714,8 @@ country_event = {
 country_event = {
 	id = CDPD.114
 	title = cdpd_section_event_deposits_colony_events_bogplants_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_bogplants_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3023,15 +2771,8 @@ country_event = {
 country_event = {
 	id = CDPD.76
 	title = cdpd_section_event_deposits_colony_events_crystal_kraken_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_crystal_kraken_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3087,15 +2828,8 @@ country_event = {
 country_event = {
 	id = CDPD.109
 	title = cdpd_section_event_deposits_colony_events_dancing_plague_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_dancing_plague_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3151,15 +2885,8 @@ country_event = {
 country_event = {
 	id = CDPD.115
 	title = cdpd_section_event_deposits_colony_events_dark_matter_eruption_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_dark_matter_eruption_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3215,15 +2942,8 @@ country_event = {
 country_event = {
 	id = CDPD.74
 	title = cdpd_section_event_deposits_colony_events_escape_from_the_moon_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_escape_from_the_moon_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3279,15 +2999,8 @@ country_event = {
 country_event = {
 	id = CDPD.104
 	title = cdpd_section_event_deposits_colony_events_feral_overload_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_feral_overload_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3343,15 +3056,8 @@ country_event = {
 country_event = {
 	id = CDPD.108
 	title = cdpd_section_event_deposits_colony_events_glacial_crisis_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_glacial_crisis_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3407,15 +3113,8 @@ country_event = {
 country_event = {
 	id = CDPD.71
 	title = cdpd_section_event_deposits_colony_events_hidden_vault_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_hidden_vault_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3471,15 +3170,8 @@ country_event = {
 country_event = {
 	id = CDPD.101
 	title = cdpd_section_event_deposits_colony_events_irradiated_planet_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_irradiated_planet_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3535,15 +3227,8 @@ country_event = {
 country_event = {
 	id = CDPD.73
 	title = cdpd_section_event_deposits_colony_events_junkyard_orbit_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_junkyard_orbit_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3599,15 +3284,8 @@ country_event = {
 country_event = {
 	id = CDPD.122
 	title = cdpd_section_event_deposits_colony_events_metallic_puddles_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_metallic_puddles_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3663,15 +3341,8 @@ country_event = {
 country_event = {
 	id = CDPD.79
 	title = cdpd_section_event_deposits_colony_events_migrating_forests_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_migrating_forests_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3727,15 +3398,8 @@ country_event = {
 country_event = {
 	id = CDPD.110
 	title = cdpd_section_event_deposits_colony_events_mushroom_picking_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_mushroom_picking_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3791,15 +3455,8 @@ country_event = {
 country_event = {
 	id = CDPD.105
 	title = cdpd_section_event_deposits_colony_events_myrmeku_activity_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_myrmeku_activity_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3855,15 +3512,8 @@ country_event = {
 country_event = {
 	id = CDPD.78
 	title = cdpd_section_event_deposits_colony_events_nemma_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_nemma_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3919,15 +3569,8 @@ country_event = {
 country_event = {
 	id = CDPD.106
 	title = cdpd_section_event_deposits_colony_events_odd_factory_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_odd_factory_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -3983,15 +3626,8 @@ country_event = {
 country_event = {
 	id = CDPD.72
 	title = cdpd_section_event_deposits_colony_events_shimmering_structure_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_shimmering_structure_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4047,15 +3683,8 @@ country_event = {
 country_event = {
 	id = CDPD.107
 	title = cdpd_section_event_deposits_colony_events_strange_sands_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_strange_sands_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4111,15 +3740,8 @@ country_event = {
 country_event = {
 	id = CDPD.124
 	title = cdpd_section_event_deposits_colony_events_the_doorway_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_the_doorway_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4175,15 +3797,8 @@ country_event = {
 country_event = {
 	id = CDPD.102
 	title = cdpd_section_event_deposits_colony_events_tomb_world_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_tomb_world_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4239,15 +3854,8 @@ country_event = {
 country_event = {
 	id = CDPD.75
 	title = cdpd_section_event_deposits_colony_events_underground_vault_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_colony_events_underground_vault_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4303,15 +3911,8 @@ country_event = {
 country_event = {
 	id = CDPD.50
 	title = cdpd_section_event_deposits_terraforming_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_terraforming_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4410,15 +4011,8 @@ country_event = {
 country_event = {
 	id = CDPD.288
 	title = cdpd_section_event_deposits_terraforming_atmosphere_and_biosphere_changes_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_terraforming_atmosphere_and_biosphere_changes_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4474,15 +4068,8 @@ country_event = {
 country_event = {
 	id = CDPD.289
 	title = cdpd_section_event_deposits_terraforming_geological_changes_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_terraforming_geological_changes_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4550,15 +4137,8 @@ country_event = {
 country_event = {
 	id = CDPD.51
 	title = cdpd_section_event_deposits_terraforming_machine_world_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_terraforming_machine_world_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4614,15 +4194,8 @@ country_event = {
 country_event = {
 	id = CDPD.53
 	title = cdpd_section_event_deposits_terraforming_orbital_debris_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_terraforming_orbital_debris_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4678,15 +4251,8 @@ country_event = {
 country_event = {
 	id = CDPD.52
 	title = cdpd_section_event_deposits_terraforming_radioactive_flora_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_terraforming_radioactive_flora_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4742,15 +4308,8 @@ country_event = {
 country_event = {
 	id = CDPD.54
 	title = cdpd_section_event_deposits_cosmic_storms_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4871,15 +4430,8 @@ country_event = {
 country_event = {
 	id = CDPD.86
 	title = cdpd_section_event_deposits_cosmic_storms_electric_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_electric_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -4947,15 +4499,8 @@ country_event = {
 country_event = {
 	id = CDPD.55
 	title = cdpd_section_event_deposits_cosmic_storms_radiant_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_radiant_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5023,15 +4568,8 @@ country_event = {
 country_event = {
 	id = CDPD.67
 	title = cdpd_section_event_deposits_cosmic_storms_magnetic_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_magnetic_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5111,15 +4649,8 @@ country_event = {
 country_event = {
 	id = CDPD.84
 	title = cdpd_section_event_deposits_cosmic_storms_gravity_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_gravity_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5187,15 +4718,8 @@ country_event = {
 country_event = {
 	id = CDPD.97
 	title = cdpd_section_event_deposits_cosmic_storms_particle_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_particle_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5251,15 +4775,8 @@ country_event = {
 country_event = {
 	id = CDPD.56
 	title = cdpd_section_event_deposits_cosmic_storms_shroud_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_shroud_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5315,15 +4832,8 @@ country_event = {
 country_event = {
 	id = CDPD.85
 	title = cdpd_section_event_deposits_cosmic_storms_stardust_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_stardust_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5379,15 +4889,8 @@ country_event = {
 country_event = {
 	id = CDPD.59
 	title = cdpd_section_event_deposits_astral_rifts_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_astral_rifts_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5475,15 +4978,8 @@ country_event = {
 country_event = {
 	id = CDPD.82
 	title = cdpd_section_event_deposits_astral_rifts_the_lattice_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_astral_rifts_the_lattice_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5539,15 +5035,8 @@ country_event = {
 country_event = {
 	id = CDPD.83
 	title = cdpd_section_event_deposits_astral_rifts_tiny_planet_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_astral_rifts_tiny_planet_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5603,15 +5092,8 @@ country_event = {
 country_event = {
 	id = CDPD.290
 	title = cdpd_section_event_deposits_astral_rifts_windswept_planet_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_astral_rifts_windswept_planet_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5667,15 +5149,8 @@ country_event = {
 country_event = {
 	id = CDPD.291
 	title = cdpd_section_event_deposits_astral_rifts_rockworms_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_astral_rifts_rockworms_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5731,15 +5206,8 @@ country_event = {
 country_event = {
 	id = CDPD.93
 	title = cdpd_section_event_deposits_situations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_situations_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5816,15 +5284,8 @@ country_event = {
 country_event = {
 	id = CDPD.96
 	title = cdpd_section_event_deposits_situations_geomagnetic_storm_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_situations_geomagnetic_storm_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5880,15 +5341,8 @@ country_event = {
 country_event = {
 	id = CDPD.95
 	title = cdpd_section_event_deposits_situations_the_mysterious_labyrinth_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_situations_the_mysterious_labyrinth_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -5944,15 +5398,8 @@ country_event = {
 country_event = {
 	id = CDPD.94
 	title = cdpd_section_event_deposits_situations_unusual_snow_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_situations_unusual_snow_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6008,15 +5455,8 @@ country_event = {
 country_event = {
 	id = CDPD.87
 	title = cdpd_section_event_deposits_pre_ftl_civilizations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_pre_ftl_civilizations_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6093,15 +5533,8 @@ country_event = {
 country_event = {
 	id = CDPD.113
 	title = cdpd_section_event_deposits_pre_ftl_civilizations_asteroid_impact_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_pre_ftl_civilizations_asteroid_impact_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6157,15 +5590,8 @@ country_event = {
 country_event = {
 	id = CDPD.88
 	title = cdpd_section_event_deposits_pre_ftl_civilizations_land_grabs_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_pre_ftl_civilizations_land_grabs_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6221,15 +5647,8 @@ country_event = {
 country_event = {
 	id = CDPD.89
 	title = cdpd_section_event_deposits_pre_ftl_civilizations_trade_agreements_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_pre_ftl_civilizations_trade_agreements_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6285,15 +5704,8 @@ country_event = {
 country_event = {
 	id = CDPD.292
 	title = cdpd_section_event_deposits_empires_and_diplomacy_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_empires_and_diplomacy_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6381,15 +5793,8 @@ country_event = {
 country_event = {
 	id = CDPD.57
 	title = cdpd_section_event_deposits_caravaneers_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_caravaneers_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6445,15 +5850,8 @@ country_event = {
 country_event = {
 	id = CDPD.90
 	title = cdpd_section_event_deposits_federations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_federations_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6508,15 +5906,8 @@ country_event = {
 country_event = {
 	id = CDPD.91
 	title = cdpd_section_event_deposits_federations_hegemony_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_federations_hegemony_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6571,15 +5962,8 @@ country_event = {
 country_event = {
 	id = CDPD.92
 	title = cdpd_section_event_deposits_federations_hegemony_joint_operation_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_federations_hegemony_joint_operation_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6635,15 +6019,8 @@ country_event = {
 country_event = {
 	id = CDPD.120
 	title = cdpd_section_event_deposits_leaders_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_leaders_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6698,15 +6075,8 @@ country_event = {
 country_event = {
 	id = CDPD.121
 	title = cdpd_section_event_deposits_leaders_th_aal_hask_guron_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_leaders_th_aal_hask_guron_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6762,15 +6132,8 @@ country_event = {
 country_event = {
 	id = CDPD.68
 	title = cdpd_section_event_deposits_subject_events_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_subject_events_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6825,15 +6188,8 @@ country_event = {
 country_event = {
 	id = CDPD.69
 	title = cdpd_section_event_deposits_subject_events_bulwark_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_subject_events_bulwark_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6889,15 +6245,8 @@ country_event = {
 country_event = {
 	id = CDPD.116
 	title = cdpd_section_event_deposits_the_shroud_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_the_shroud_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -6953,15 +6302,8 @@ country_event = {
 country_event = {
 	id = CDPD.293
 	title = cdpd_section_event_deposits_story_chains_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_story_chains_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7027,15 +6369,8 @@ country_event = {
 country_event = {
 	id = CDPD.98
 	title = cdpd_section_event_deposits_horizon_signal_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_horizon_signal_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7091,15 +6426,8 @@ country_event = {
 country_event = {
 	id = CDPD.125
 	title = cdpd_section_event_deposits_machine_ascension_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_machine_ascension_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7155,15 +6483,8 @@ country_event = {
 country_event = {
 	id = CDPD.172
 	title = cdpd_section_archaeology_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_archaeology_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7231,15 +6552,8 @@ country_event = {
 country_event = {
 	id = CDPD.294
 	title = cdpd_section_planetary_deposits_unique_world_features_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7349,15 +6663,8 @@ country_event = {
 country_event = {
 	id = CDPD.295
 	title = cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7423,15 +6730,8 @@ country_event = {
 country_event = {
 	id = CDPD.296
 	title = cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_earth_features_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_earth_and_its_story_counterpart_earth_features_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7487,15 +6787,8 @@ country_event = {
 country_event = {
 	id = CDPD.146
 	title = cdpd_section_unique_planetary_deposits_sol_system_geocentric_variant_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_sol_system_geocentric_variant_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7551,15 +6844,8 @@ country_event = {
 country_event = {
 	id = CDPD.297
 	title = cdpd_section_planetary_deposits_unique_world_features_other_worlds_in_the_sol_system_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_other_worlds_in_the_sol_system_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7614,15 +6900,8 @@ country_event = {
 country_event = {
 	id = CDPD.145
 	title = cdpd_section_unique_planetary_deposits_sol_system_europa_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_sol_system_europa_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7678,15 +6957,8 @@ country_event = {
 country_event = {
 	id = CDPD.151
 	title = cdpd_section_unique_planetary_deposits_relic_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_relic_worlds_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7742,15 +7014,8 @@ country_event = {
 country_event = {
 	id = CDPD.298
 	title = cdpd_section_planetary_deposits_unique_world_features_ratling_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_ratling_worlds_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7806,15 +7071,8 @@ country_event = {
 country_event = {
 	id = CDPD.142
 	title = cdpd_section_unique_planetary_deposits_keides_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_keides_worlds_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7880,15 +7138,8 @@ country_event = {
 country_event = {
 	id = CDPD.299
 	title = cdpd_section_unique_planetary_deposits_keides_worlds_other_worlds_of_keides_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_keides_worlds_other_worlds_of_keides_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -7956,15 +7207,8 @@ country_event = {
 country_event = {
 	id = CDPD.150
 	title = cdpd_section_unique_planetary_deposits_keides_worlds_taprib_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_keides_worlds_taprib_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8020,15 +7264,8 @@ country_event = {
 country_event = {
 	id = CDPD.300
 	title = cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8105,15 +7342,8 @@ country_event = {
 country_event = {
 	id = CDPD.301
 	title = cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_grunur_prime_and_the_superflare_system_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_unique_world_features_other_unique_worlds_grunur_prime_and_the_superflare_system_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8169,15 +7399,8 @@ country_event = {
 country_event = {
 	id = CDPD.149
 	title = cdpd_section_unique_planetary_deposits_parvus_iii_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_parvus_iii_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8233,15 +7456,8 @@ country_event = {
 country_event = {
 	id = CDPD.143
 	title = cdpd_section_unique_planetary_deposits_zanaam_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_zanaam_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8297,15 +7513,8 @@ country_event = {
 country_event = {
 	id = CDPD.302
 	title = cdpd_section_planetary_deposits_origins_civics_and_species_traits_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_origins_civics_and_species_traits_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8382,15 +7591,8 @@ country_event = {
 country_event = {
 	id = CDPD.180
 	title = cdpd_section_origins_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_origins_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8555,15 +7757,8 @@ country_event = {
 country_event = {
 	id = CDPD.181
 	title = cdpd_section_origins_calamitous_birth_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_origins_calamitous_birth_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8619,15 +7814,8 @@ country_event = {
 country_event = {
 	id = CDPD.182
 	title = cdpd_section_origins_tree_of_life_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_origins_tree_of_life_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8683,15 +7871,8 @@ country_event = {
 country_event = {
 	id = CDPD.153
 	title = cdpd_section_unique_planetary_deposits_by_origin_broken_shackles_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_broken_shackles_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8747,15 +7928,8 @@ country_event = {
 country_event = {
 	id = CDPD.157
 	title = cdpd_section_unique_planetary_deposits_by_origin_cosmic_dawn_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_cosmic_dawn_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8811,15 +7985,8 @@ country_event = {
 country_event = {
 	id = CDPD.168
 	title = cdpd_section_unique_planetary_deposits_by_origin_here_be_dragons_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_here_be_dragons_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8875,15 +8042,8 @@ country_event = {
 country_event = {
 	id = CDPD.158
 	title = cdpd_section_unique_planetary_deposits_by_origin_progenitor_hive_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_progenitor_hive_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -8939,15 +8099,8 @@ country_event = {
 country_event = {
 	id = CDPD.162
 	title = cdpd_section_unique_planetary_deposits_by_origin_resource_consolidation_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_resource_consolidation_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9003,15 +8156,8 @@ country_event = {
 country_event = {
 	id = CDPD.169
 	title = cdpd_section_unique_planetary_deposits_by_origin_shroud_forged_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_shroud_forged_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9067,15 +8213,8 @@ country_event = {
 country_event = {
 	id = CDPD.164
 	title = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9141,15 +8280,8 @@ country_event = {
 country_event = {
 	id = CDPD.303
 	title = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_worlds_and_treasures_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_worlds_and_treasures_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9217,15 +8349,8 @@ country_event = {
 country_event = {
 	id = CDPD.166
 	title = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_black_needle_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_treasure_hunters_black_needle_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9293,15 +8418,8 @@ country_event = {
 country_event = {
 	id = CDPD.163
 	title = cdpd_section_unique_planetary_deposits_by_origin_under_one_rule_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_under_one_rule_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9357,15 +8475,8 @@ country_event = {
 country_event = {
 	id = CDPD.154
 	title = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9442,15 +8553,8 @@ country_event = {
 country_event = {
 	id = CDPD.160
 	title = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_homeworld_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_homeworld_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9506,15 +8610,8 @@ country_event = {
 country_event = {
 	id = CDPD.161
 	title = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_knight_quest_rewards_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_knight_quest_rewards_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9570,15 +8667,8 @@ country_event = {
 country_event = {
 	id = CDPD.159
 	title = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_order_planetary_decisions_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_knights_of_the_toxic_god_order_planetary_decisions_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9634,15 +8724,8 @@ country_event = {
 country_event = {
 	id = CDPD.130
 	title = cdpd_section_planetary_deposits_civics_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_civics_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9708,15 +8791,8 @@ country_event = {
 country_event = {
 	id = CDPD.131
 	title = cdpd_section_planetary_deposits_civics_genesis_guides_and_its_variants_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_civics_genesis_guides_and_its_variants_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9772,15 +8848,8 @@ country_event = {
 country_event = {
 	id = CDPD.304
 	title = cdpd_section_planetary_deposits_civics_living_metal_civics_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_civics_living_metal_civics_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9836,15 +8905,8 @@ country_event = {
 country_event = {
 	id = CDPD.305
 	title = cdpd_section_planetary_deposits_origins_civics_and_species_traits_species_traits_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_origins_civics_and_species_traits_species_traits_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9899,15 +8961,8 @@ country_event = {
 country_event = {
 	id = CDPD.137
 	title = cdpd_section_unique_planetary_deposits_by_species_trait_exotic_metabolism_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_species_trait_exotic_metabolism_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -9963,15 +9018,8 @@ country_event = {
 country_event = {
 	id = CDPD.306
 	title = cdpd_section_planetary_deposits_deposits_from_planetary_decisions_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_deposits_from_planetary_decisions_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10087,15 +9135,8 @@ country_event = {
 country_event = {
 	id = CDPD.307
 	title = cdpd_section_planetary_deposits_ring_worlds_habitats_and_arkships_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_planetary_deposits_ring_worlds_habitats_and_arkships_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10172,15 +9213,8 @@ country_event = {
 country_event = {
 	id = CDPD.170
 	title = cdpd_section_ring_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_ring_worlds_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10248,15 +9282,8 @@ country_event = {
 country_event = {
 	id = CDPD.138
 	title = cdpd_section_unique_planetary_deposits_habitats_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_habitats_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10333,15 +9360,8 @@ country_event = {
 country_event = {
 	id = CDPD.308
 	title = cdpd_section_unique_planetary_deposits_habitats_knights_of_the_toxic_god_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_habitats_knights_of_the_toxic_god_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10397,15 +9417,8 @@ country_event = {
 country_event = {
 	id = CDPD.155
 	title = cdpd_section_unique_planetary_deposits_by_origin_payback_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_payback_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10461,15 +9474,8 @@ country_event = {
 country_event = {
 	id = CDPD.139
 	title = cdpd_section_unique_planetary_deposits_habitats_federations_end_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_habitats_federations_end_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10525,15 +9531,8 @@ country_event = {
 country_event = {
 	id = CDPD.119
 	title = cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_arkships_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_arkships_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10632,15 +9631,8 @@ country_event = {
 country_event = {
 	id = CDPD.123
 	title = cdpd_section_event_deposits_cosmic_storms_storm_chasers_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_cosmic_storms_storm_chasers_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10696,15 +9688,8 @@ country_event = {
 country_event = {
 	id = CDPD.81
 	title = cdpd_section_event_deposits_nomads_arkship_events_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_nomads_arkship_events_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10760,15 +9745,8 @@ country_event = {
 country_event = {
 	id = CDPD.118
 	title = cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_event_deposits_the_shroud_whisperers_in_the_void_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10824,15 +9802,8 @@ country_event = {
 country_event = {
 	id = CDPD.148
 	title = cdpd_section_unique_planetary_deposits_arkships_cosmogenesis_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_arkships_cosmogenesis_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10888,15 +9859,8 @@ country_event = {
 country_event = {
 	id = CDPD.165
 	title = cdpd_section_unique_planetary_deposits_by_origin_sacred_path_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_unique_planetary_deposits_by_origin_sacred_path_panel
+	picture = GFX_cdpd_evt_planetary_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -10952,15 +9916,8 @@ country_event = {
 country_event = {
 	id = CDPD.18
 	title = cdpd_section_orbital_deposits_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11213,15 +10170,8 @@ country_event = {
 country_event = {
 	id = CDPD.19
 	title = cdpd_section_orbital_deposits_energy_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_energy_panel
+	picture = GFX_cdpd_evt_orbital_energy
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11277,15 +10227,8 @@ country_event = {
 country_event = {
 	id = CDPD.20
 	title = cdpd_section_orbital_deposits_minerals_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_minerals_panel
+	picture = GFX_cdpd_evt_orbital_minerals
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11341,15 +10284,8 @@ country_event = {
 country_event = {
 	id = CDPD.21
 	title = cdpd_section_orbital_deposits_food_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_food_panel
+	picture = GFX_cdpd_evt_orbital_food
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11405,15 +10341,8 @@ country_event = {
 country_event = {
 	id = CDPD.22
 	title = cdpd_section_orbital_deposits_alloys_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_alloys_panel
+	picture = GFX_cdpd_evt_orbital_alloys
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11469,15 +10398,8 @@ country_event = {
 country_event = {
 	id = CDPD.23
 	title = cdpd_section_orbital_deposits_trade_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_trade_panel
+	picture = GFX_cdpd_evt_orbital_trade
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11533,15 +10455,8 @@ country_event = {
 country_event = {
 	id = CDPD.24
 	title = cdpd_section_orbital_deposits_volatile_motes_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_volatile_motes_panel
+	picture = GFX_cdpd_evt_orbital_volatile_motes
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11597,15 +10512,8 @@ country_event = {
 country_event = {
 	id = CDPD.25
 	title = cdpd_section_orbital_deposits_exotic_gases_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_exotic_gases_panel
+	picture = GFX_cdpd_evt_orbital_exotic_gases
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11661,15 +10569,8 @@ country_event = {
 country_event = {
 	id = CDPD.26
 	title = cdpd_section_orbital_deposits_rare_crystals_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_rare_crystals_panel
+	picture = GFX_cdpd_evt_orbital_rare_crystals
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11725,15 +10626,8 @@ country_event = {
 country_event = {
 	id = CDPD.27
 	title = cdpd_section_orbital_deposits_living_metal_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_living_metal_panel
+	picture = GFX_cdpd_evt_orbital_living_metal
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11789,15 +10683,8 @@ country_event = {
 country_event = {
 	id = CDPD.28
 	title = cdpd_section_orbital_deposits_zro_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_zro_panel
+	picture = GFX_cdpd_evt_orbital_zro
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11853,15 +10740,8 @@ country_event = {
 country_event = {
 	id = CDPD.29
 	title = cdpd_section_orbital_deposits_dark_matter_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_dark_matter_panel
+	picture = GFX_cdpd_evt_orbital_dark_matter
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11917,15 +10797,8 @@ country_event = {
 country_event = {
 	id = CDPD.30
 	title = cdpd_section_orbital_deposits_nanites_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_nanites_panel
+	picture = GFX_cdpd_evt_orbital_nanites
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -11981,15 +10854,8 @@ country_event = {
 country_event = {
 	id = CDPD.31
 	title = cdpd_section_orbital_deposits_physics_research_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_physics_research_panel
+	picture = GFX_cdpd_evt_orbital_physics
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12045,15 +10911,8 @@ country_event = {
 country_event = {
 	id = CDPD.32
 	title = cdpd_section_orbital_deposits_society_research_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_society_research_panel
+	picture = GFX_cdpd_evt_orbital_society
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12109,15 +10968,8 @@ country_event = {
 country_event = {
 	id = CDPD.33
 	title = cdpd_section_orbital_deposits_engineering_research_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_engineering_research_panel
+	picture = GFX_cdpd_evt_orbital_engineering
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12173,15 +11025,8 @@ country_event = {
 country_event = {
 	id = CDPD.34
 	title = cdpd_section_orbital_deposits_minor_artifacts_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_minor_artifacts_panel
+	picture = GFX_cdpd_evt_orbital_minor_artifacts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12247,15 +11092,8 @@ country_event = {
 country_event = {
 	id = CDPD.35
 	title = cdpd_section_orbital_deposits_minor_artifacts_mining_station_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_minor_artifacts_mining_station_panel
+	picture = GFX_cdpd_evt_orbital_minor_artifacts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12311,15 +11149,8 @@ country_event = {
 country_event = {
 	id = CDPD.36
 	title = cdpd_section_orbital_deposits_minor_artifacts_research_station_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_minor_artifacts_research_station_panel
+	picture = GFX_cdpd_evt_orbital_minor_artifacts
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12375,15 +11206,8 @@ country_event = {
 country_event = {
 	id = CDPD.37
 	title = cdpd_section_orbital_deposits_astral_threads_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_astral_threads_panel
+	picture = GFX_cdpd_evt_orbital_astral_threads
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12439,15 +11263,8 @@ country_event = {
 country_event = {
 	id = CDPD.38
 	title = cdpd_section_orbital_deposits_from_events_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_from_events_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12503,15 +11320,8 @@ country_event = {
 country_event = {
 	id = CDPD.39
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12610,15 +11420,8 @@ country_event = {
 country_event = {
 	id = CDPD.45
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12673,15 +11476,8 @@ country_event = {
 country_event = {
 	id = CDPD.46
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12747,15 +11543,8 @@ country_event = {
 country_event = {
 	id = CDPD.309
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_before_the_supernova_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_before_the_supernova_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12811,15 +11600,8 @@ country_event = {
 country_event = {
 	id = CDPD.47
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_supernova_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_by_origin_red_giant_supernova_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12875,15 +11657,8 @@ country_event = {
 country_event = {
 	id = CDPD.48
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_nanotech_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_nanotech_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -12939,15 +11714,8 @@ country_event = {
 country_event = {
 	id = CDPD.40
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_obsessional_directive_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_obsessional_directive_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13003,15 +11771,8 @@ country_event = {
 country_event = {
 	id = CDPD.41
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13066,15 +11827,8 @@ country_event = {
 country_event = {
 	id = CDPD.42
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_ether_drake_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_leviathans_ether_drake_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13130,15 +11884,8 @@ country_event = {
 country_event = {
 	id = CDPD.43
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13193,15 +11940,8 @@ country_event = {
 country_event = {
 	id = CDPD.44
 	title = cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_stellar_ignition_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_orbital_deposits_unique_orbital_deposits_nomads_stellar_ignition_panel
+	picture = GFX_cdpd_evt_orbital_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13257,15 +11997,8 @@ country_event = {
 country_event = {
 	id = CDPD.183
 	title = cdpd_section_blockers_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13364,15 +12097,8 @@ country_event = {
 country_event = {
 	id = CDPD.184
 	title = cdpd_section_blockers_ordinary_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_ordinary_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13438,15 +12164,8 @@ country_event = {
 country_event = {
 	id = CDPD.185
 	title = cdpd_section_blockers_ordinary_natural_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_ordinary_natural_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13562,15 +12281,8 @@ country_event = {
 country_event = {
 	id = CDPD.188
 	title = cdpd_section_blockers_ordinary_tomb_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_ordinary_tomb_worlds_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13626,15 +12338,8 @@ country_event = {
 country_event = {
 	id = CDPD.273
 	title = cdpd_section_blockers_volcanic_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_volcanic_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -13690,15 +12395,8 @@ country_event = {
 country_event = {
 	id = CDPD.189
 	title = cdpd_section_blockers_unusual_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14017,15 +12715,8 @@ country_event = {
 country_event = {
 	id = CDPD.195
 	title = cdpd_section_blockers_unusual_anomalies_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_anomalies_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14105,15 +12796,8 @@ country_event = {
 country_event = {
 	id = CDPD.200
 	title = cdpd_section_blockers_unusual_by_origin_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14256,15 +12940,8 @@ country_event = {
 country_event = {
 	id = CDPD.248
 	title = cdpd_section_blockers_unusual_by_origin_calamitous_birth_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_calamitous_birth_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14320,15 +12997,8 @@ country_event = {
 country_event = {
 	id = CDPD.266
 	title = cdpd_section_blockers_unusual_by_origin_cosmic_dawn_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_cosmic_dawn_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14384,15 +13054,8 @@ country_event = {
 country_event = {
 	id = CDPD.201
 	title = cdpd_section_blockers_unusual_by_origin_here_be_dragons_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_here_be_dragons_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14448,15 +13111,8 @@ country_event = {
 country_event = {
 	id = CDPD.208
 	title = cdpd_section_blockers_unusual_by_origin_payback_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_payback_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14512,15 +13168,8 @@ country_event = {
 country_event = {
 	id = CDPD.221
 	title = cdpd_section_blockers_unusual_by_origin_resource_consolidation_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_resource_consolidation_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14576,15 +13225,8 @@ country_event = {
 country_event = {
 	id = CDPD.209
 	title = cdpd_section_blockers_unusual_by_origin_starlit_citadel_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_starlit_citadel_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14640,15 +13282,8 @@ country_event = {
 country_event = {
 	id = CDPD.247
 	title = cdpd_section_blockers_unusual_by_origin_synthetic_fertility_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_synthetic_fertility_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14704,15 +13339,8 @@ country_event = {
 country_event = {
 	id = CDPD.206
 	title = cdpd_section_blockers_unusual_by_origin_wilderness_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_wilderness_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14778,15 +13406,8 @@ country_event = {
 country_event = {
 	id = CDPD.310
 	title = cdpd_section_blockers_unusual_by_origin_wilderness_scorched_terrain_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_wilderness_scorched_terrain_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14842,15 +13463,8 @@ country_event = {
 country_event = {
 	id = CDPD.207
 	title = cdpd_section_blockers_unusual_by_origin_wilderness_change_of_ownership_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_wilderness_change_of_ownership_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14906,15 +13520,8 @@ country_event = {
 country_event = {
 	id = CDPD.264
 	title = cdpd_section_blockers_unusual_by_origin_unplugged_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_unplugged_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -14969,15 +13576,8 @@ country_event = {
 country_event = {
 	id = CDPD.265
 	title = cdpd_section_blockers_unusual_by_origin_unplugged_machine_legacy_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_by_origin_unplugged_machine_legacy_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15033,15 +13633,8 @@ country_event = {
 country_event = {
 	id = CDPD.255
 	title = cdpd_section_blockers_unusual_fire_cult_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_fire_cult_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15097,15 +13690,8 @@ country_event = {
 country_event = {
 	id = CDPD.272
 	title = cdpd_section_blockers_unusual_nanotech_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_nanotech_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15161,15 +13747,8 @@ country_event = {
 country_event = {
 	id = CDPD.199
 	title = cdpd_section_blockers_unusual_relic_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_relic_worlds_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15225,15 +13804,8 @@ country_event = {
 country_event = {
 	id = CDPD.268
 	title = cdpd_section_blockers_unusual_seed_bombing_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_seed_bombing_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15289,15 +13861,8 @@ country_event = {
 country_event = {
 	id = CDPD.271
 	title = cdpd_section_blockers_unusual_seismic_carpet_bombing_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_seismic_carpet_bombing_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15353,15 +13918,8 @@ country_event = {
 country_event = {
 	id = CDPD.262
 	title = cdpd_section_blockers_unusual_shroud_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_shroud_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15427,15 +13985,8 @@ country_event = {
 country_event = {
 	id = CDPD.311
 	title = cdpd_section_blockers_unusual_shroud_planetary_shroud_manifestations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_shroud_planetary_shroud_manifestations_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15503,15 +14054,8 @@ country_event = {
 country_event = {
 	id = CDPD.267
 	title = cdpd_section_blockers_unusual_shroud_psionic_ascension_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_shroud_psionic_ascension_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15567,15 +14111,8 @@ country_event = {
 country_event = {
 	id = CDPD.205
 	title = cdpd_section_blockers_unusual_war_damage_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_war_damage_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15631,15 +14168,8 @@ country_event = {
 country_event = {
 	id = CDPD.239
 	title = cdpd_section_blockers_unusual_civics_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_civics_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15727,15 +14257,8 @@ country_event = {
 country_event = {
 	id = CDPD.240
 	title = cdpd_section_blockers_unusual_civics_determined_exterminator_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_civics_determined_exterminator_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15791,15 +14314,8 @@ country_event = {
 country_event = {
 	id = CDPD.253
 	title = cdpd_section_blockers_unusual_civics_driven_assimilator_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_civics_driven_assimilator_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15855,15 +14371,8 @@ country_event = {
 country_event = {
 	id = CDPD.256
 	title = cdpd_section_blockers_unusual_civics_environmentalist_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_civics_environmentalist_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15919,15 +14428,8 @@ country_event = {
 country_event = {
 	id = CDPD.252
 	title = cdpd_section_blockers_unusual_civics_rogue_servitor_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_civics_rogue_servitor_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -15983,15 +14485,8 @@ country_event = {
 country_event = {
 	id = CDPD.222
 	title = cdpd_section_blockers_unusual_colony_events_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_colony_events_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16090,15 +14585,8 @@ country_event = {
 country_event = {
 	id = CDPD.261
 	title = cdpd_section_blockers_unusual_colony_events_bleeding_world_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_colony_events_bleeding_world_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16154,15 +14642,8 @@ country_event = {
 country_event = {
 	id = CDPD.223
 	title = cdpd_section_blockers_unusual_colony_events_glacial_crisis_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_colony_events_glacial_crisis_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16218,15 +14699,8 @@ country_event = {
 country_event = {
 	id = CDPD.241
 	title = cdpd_section_blockers_unusual_colony_events_impacts_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_colony_events_impacts_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16282,15 +14756,8 @@ country_event = {
 country_event = {
 	id = CDPD.260
 	title = cdpd_section_blockers_unusual_colony_events_junkyard_orbit_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_colony_events_junkyard_orbit_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16346,15 +14813,8 @@ country_event = {
 country_event = {
 	id = CDPD.263
 	title = cdpd_section_blockers_unusual_colony_events_subterranean_civilization_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_colony_events_subterranean_civilization_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16410,15 +14870,8 @@ country_event = {
 country_event = {
 	id = CDPD.233
 	title = cdpd_section_blockers_unusual_crises_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_crises_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16473,15 +14926,8 @@ country_event = {
 country_event = {
 	id = CDPD.234
 	title = cdpd_section_blockers_unusual_crises_behemoth_fury_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_crises_behemoth_fury_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16537,15 +14983,8 @@ country_event = {
 country_event = {
 	id = CDPD.269
 	title = cdpd_section_blockers_unusual_espionage_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_espionage_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16600,15 +15039,8 @@ country_event = {
 country_event = {
 	id = CDPD.270
 	title = cdpd_section_blockers_unusual_espionage_wilderness_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_espionage_wilderness_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16664,15 +15096,8 @@ country_event = {
 country_event = {
 	id = CDPD.243
 	title = cdpd_section_blockers_unusual_leviathans_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_leviathans_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16727,15 +15152,8 @@ country_event = {
 country_event = {
 	id = CDPD.244
 	title = cdpd_section_blockers_unusual_leviathans_voidspawn_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_leviathans_voidspawn_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16791,15 +15209,8 @@ country_event = {
 country_event = {
 	id = CDPD.228
 	title = cdpd_section_blockers_unusual_nomads_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_nomads_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16876,15 +15287,8 @@ country_event = {
 country_event = {
 	id = CDPD.229
 	title = cdpd_section_blockers_unusual_nomads_arkship_events_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_nomads_arkship_events_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -16939,15 +15343,8 @@ country_event = {
 country_event = {
 	id = CDPD.230
 	title = cdpd_section_blockers_unusual_nomads_arkship_events_a_forgotten_level_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_nomads_arkship_events_a_forgotten_level_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17003,15 +15400,8 @@ country_event = {
 country_event = {
 	id = CDPD.242
 	title = cdpd_section_blockers_unusual_nomads_deep_sleep_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_nomads_deep_sleep_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17067,15 +15457,8 @@ country_event = {
 country_event = {
 	id = CDPD.259
 	title = cdpd_section_blockers_unusual_nomads_missions_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_nomads_missions_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17131,15 +15514,8 @@ country_event = {
 country_event = {
 	id = CDPD.257
 	title = cdpd_section_blockers_unusual_overlord_holdings_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_overlord_holdings_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17194,15 +15570,8 @@ country_event = {
 country_event = {
 	id = CDPD.258
 	title = cdpd_section_blockers_unusual_overlord_holdings_experimental_crater_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_overlord_holdings_experimental_crater_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17258,15 +15627,8 @@ country_event = {
 country_event = {
 	id = CDPD.231
 	title = cdpd_section_blockers_unusual_pre_ftl_civilizations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_pre_ftl_civilizations_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17321,15 +15683,8 @@ country_event = {
 country_event = {
 	id = CDPD.232
 	title = cdpd_section_blockers_unusual_pre_ftl_civilizations_epidemics_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_pre_ftl_civilizations_epidemics_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17385,15 +15740,8 @@ country_event = {
 country_event = {
 	id = CDPD.215
 	title = cdpd_section_blockers_unusual_ring_worlds_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_ring_worlds_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17470,15 +15818,8 @@ country_event = {
 country_event = {
 	id = CDPD.236
 	title = cdpd_section_blockers_unusual_ring_worlds_ancient_rubble_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_ring_worlds_ancient_rubble_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17534,15 +15875,8 @@ country_event = {
 country_event = {
 	id = CDPD.237
 	title = cdpd_section_blockers_unusual_ring_worlds_pre_ftl_civilizations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_ring_worlds_pre_ftl_civilizations_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17598,15 +15932,8 @@ country_event = {
 country_event = {
 	id = CDPD.216
 	title = cdpd_section_blockers_unusual_ring_worlds_shattered_ring_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_ring_worlds_shattered_ring_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17662,15 +15989,8 @@ country_event = {
 country_event = {
 	id = CDPD.193
 	title = cdpd_section_blockers_unusual_situations_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_situations_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17736,15 +16056,8 @@ country_event = {
 country_event = {
 	id = CDPD.246
 	title = cdpd_section_blockers_unusual_situations_strategic_resource_shortages_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_situations_strategic_resource_shortages_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17800,15 +16113,8 @@ country_event = {
 country_event = {
 	id = CDPD.194
 	title = cdpd_section_blockers_unusual_situations_synthetic_ascension_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_situations_synthetic_ascension_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17864,15 +16170,8 @@ country_event = {
 country_event = {
 	id = CDPD.217
 	title = cdpd_section_blockers_unusual_starting_blockers_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_blockers_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -17993,15 +16292,8 @@ country_event = {
 country_event = {
 	id = CDPD.250
 	title = cdpd_section_blockers_unusual_starting_machine_empires_and_unplugged_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_machine_empires_and_unplugged_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18057,15 +16349,8 @@ country_event = {
 country_event = {
 	id = CDPD.251
 	title = cdpd_section_blockers_unusual_starting_post_apocalyptic_origins_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_post_apocalyptic_origins_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18121,15 +16406,8 @@ country_event = {
 country_event = {
 	id = CDPD.220
 	title = cdpd_section_blockers_unusual_starting_blockers_determined_exterminator_and_hard_reset_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_blockers_determined_exterminator_and_hard_reset_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18185,15 +16463,8 @@ country_event = {
 country_event = {
 	id = CDPD.254
 	title = cdpd_section_blockers_unusual_starting_blockers_hive_mind_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_blockers_hive_mind_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18249,15 +16520,8 @@ country_event = {
 country_event = {
 	id = CDPD.218
 	title = cdpd_section_blockers_unusual_starting_blockers_lithoids_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_blockers_lithoids_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18313,15 +16577,8 @@ country_event = {
 country_event = {
 	id = CDPD.219
 	title = cdpd_section_blockers_unusual_starting_blockers_machine_intelligence_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_blockers_machine_intelligence_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18377,15 +16634,8 @@ country_event = {
 country_event = {
 	id = CDPD.238
 	title = cdpd_section_blockers_unusual_starting_blockers_standard_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_starting_blockers_standard_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18441,15 +16691,8 @@ country_event = {
 country_event = {
 	id = CDPD.202
 	title = cdpd_section_blockers_unusual_subjects_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_subjects_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18504,15 +16747,8 @@ country_event = {
 country_event = {
 	id = CDPD.203
 	title = cdpd_section_blockers_unusual_subjects_scholarium_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_subjects_scholarium_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18567,15 +16803,8 @@ country_event = {
 country_event = {
 	id = CDPD.204
 	title = cdpd_section_blockers_unusual_subjects_scholarium_destructive_research_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_subjects_scholarium_destructive_research_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18631,15 +16860,8 @@ country_event = {
 country_event = {
 	id = CDPD.190
 	title = cdpd_section_blockers_unusual_terraforming_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_terraforming_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18716,15 +16938,8 @@ country_event = {
 country_event = {
 	id = CDPD.191
 	title = cdpd_section_blockers_unusual_terraforming_detox_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_terraforming_detox_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18780,15 +16995,8 @@ country_event = {
 country_event = {
 	id = CDPD.192
 	title = cdpd_section_blockers_unusual_terraforming_terraforming_complications_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_terraforming_terraforming_complications_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18844,15 +17052,8 @@ country_event = {
 country_event = {
 	id = CDPD.225
 	title = cdpd_section_blockers_unusual_terraforming_world_toxification_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_terraforming_world_toxification_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18908,15 +17109,8 @@ country_event = {
 country_event = {
 	id = CDPD.226
 	title = cdpd_section_blockers_unusual_terravores_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_terravores_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -18971,15 +17165,8 @@ country_event = {
 country_event = {
 	id = CDPD.227
 	title = cdpd_section_blockers_unusual_terravores_planet_consumption_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_terravores_planet_consumption_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19035,15 +17222,8 @@ country_event = {
 country_event = {
 	id = CDPD.197
 	title = cdpd_section_blockers_unusual_unique_habitats_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_habitats_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19098,15 +17278,8 @@ country_event = {
 country_event = {
 	id = CDPD.198
 	title = cdpd_section_blockers_unusual_unique_habitats_star_mall_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_habitats_star_mall_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19162,15 +17335,8 @@ country_event = {
 country_event = {
 	id = CDPD.210
 	title = cdpd_section_blockers_unusual_unique_planets_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_planets_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19258,15 +17424,8 @@ country_event = {
 country_event = {
 	id = CDPD.213
 	title = cdpd_section_blockers_unusual_unique_planets_earth_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_planets_earth_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19322,15 +17481,8 @@ country_event = {
 country_event = {
 	id = CDPD.245
 	title = cdpd_section_blockers_unusual_unique_planets_fevor_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_planets_fevor_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19386,15 +17538,8 @@ country_event = {
 country_event = {
 	id = CDPD.214
 	title = cdpd_section_blockers_unusual_unique_planets_trial_of_survival_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_planets_trial_of_survival_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19450,15 +17595,8 @@ country_event = {
 country_event = {
 	id = CDPD.312
 	title = cdpd_section_blockers_unusual_unique_planets_folder_deneb_unity_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_unusual_unique_planets_folder_deneb_unity_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19514,15 +17652,8 @@ country_event = {
 country_event = {
 	id = CDPD.274
 	title = cdpd_section_blockers_utility_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_utility_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }
@@ -19578,15 +17709,8 @@ country_event = {
 country_event = {
 	id = CDPD.313
 	title = cdpd_section_blockers_blocker_clearance_results_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_blockers_blocker_clearance_results_panel
+	picture = GFX_cdpd_evt_blockers
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }

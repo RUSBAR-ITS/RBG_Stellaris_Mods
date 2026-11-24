@@ -2,20 +2,20 @@
 
 ## Contents
 
-- [Version 0.0.8 scope](#version-008-scope)
+- [Version 0.0.9 scope](#version-009-scope)
 - [Files and policies](#files-and-policies)
 - [Resource menu](#resource-menu)
 - [Species modification](#species-modification)
 - [Extra envoys](#extra-envoys)
 - [Preserved behavior and validation](#preserved-behavior-and-validation)
 
-## Version 0.0.8 scope
+## Version 0.0.9 scope
 
 TCTE overrides 97 Tass files: 94 policy files, two event files, and one static-modifier file. The standalone override of one vanilla trigger is recorded separately in [VANILLA_CHANGES_EN.md](VANILLA_CHANGES_EN.md).
 
-Under the approved [specification](TZ_LEVELS_EN.md), TCTE overrides 94 policy files from Tass Cheat Tool version `20261012`. Workshop originals are unchanged. Each file uses the same relative path `common/policies/<filename>` inside TCTE; source policy IDs are preserved. New options use `tcte_policy_<name>_<regular|monthly>_<level>`.
+Under the approved [specification](TZ_LEVELS_EN.md), TCTE overrides 94 policy files from Tass Cheat Tool version `20261124`. Workshop originals are unchanged. Each file uses the same relative path `common/policies/<filename>` inside TCTE; source policy IDs are preserved. New options use `tcte_policy_<name>_<regular|monthly>_<level>`.
 
-All 94 policies contain ten regular levels; 18 resource policies also contain ten monthly levels. The Unmodified option is retained separately. Totals: 112 tracks and 1214 options, including 629 new options. Each new level doubles the preceding level's numeric modifiers within its own track.
+All 94 policies contain ten regular levels; 18 resource policies also contain ten monthly levels. The Unmodified option is retained separately. Totals: 112 tracks and 1214 options, including 629 new options. Each new level doubles the preceding level's numeric modifiers within its own track. All ten Ambitions levels include Willpower production and accept `ap_force_of_will`.
 
 ## Files and policies
 
@@ -122,9 +122,9 @@ Table paths are relative to `common/policies/` in both Tass and TCTE. Option cou
 
 Under the [resource menu specification](TZ_RESOURCES_EN.md), override `events/tass_cheat_events_4_resources.txt`, whose only event is `tass_cheat.4`. It opens six categories instead of a flat grant list. The existing call from `tass_cheat.1` remains intact, including in 0.0.6 with the species modification toggle.
 
-The new `events/tcte_resource_menu_events.txt` adds categories `tcte_resources.1`–`.6` and amount menus `tcte_resources.101`–`.126`. Each of 26 resources has six amounts; granting an amount reopens the same menu. Original restrictions, country scope, illustration, and main-menu flag behavior are retained. New RU/EN strings are added in `tcte_resource_menu_l_russian.yml` and `tcte_resource_menu_l_english.yml`.
+The new `events/tcte_resource_menu_events.txt` adds categories `tcte_resources.1`–`.6` and amount menus `tcte_resources.101`–`.127`. Each of 27 resources has six amounts; granting an amount reopens the same menu. Original restrictions, country scope, illustration, and main-menu flag behavior are retained. New RU/EN strings are added in `tcte_resource_menu_l_russian.yml` and `tcte_resource_menu_l_english.yml`.
 
-Checked every transition, 156 grants, nine conditions, and localization references. These events do not change capacities or add automatic grants. Evidence and exact ID map: [resource_menu_sources.json](../../TMP/TCTE/resource_menu_sources.json); [validation](../../TMP/TCTE/resource_menu_validation.json).
+Version 0.0.9 checks 162 grants and the restrictions on ten resources. Willpower is the last entry under Special path resources. [0.0.9 validation](../../TMP/TCTE/compatibility_0.0.9.json).
 
 ## Species modification
 

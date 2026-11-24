@@ -10,7 +10,7 @@
 
 ## Текущее состояние
 
-В версии 0.0.8 изменён один ванильный триггер — `can_remove_beneficial_genetic_traits`. Состав 54 общих ключей локализации сохранён. Новые варианты, события и ключи используют префикс `tcte_`; переопределения Tass Cheat Tool перечислены отдельно в [BASE_MOD_CHANGES_RU.md](BASE_MOD_CHANGES_RU.md). Меню ресурсов использует штатный `add_resource` и ссылки на существующие названия; ванильные определения ресурсов и их вместимость не изменяются.
+В версии 0.0.9 изменён один ванильный триггер — `can_remove_beneficial_genetic_traits`. Для 55 общих подписей модификаторов задана русская локализация. Новые варианты, события и ключи используют префикс `tcte_`; переопределения Tass Cheat Tool перечислены отдельно в [BASE_MOD_CHANGES_RU.md](BASE_MOD_CHANGES_RU.md). Меню ресурсов использует штатный `add_resource` и ссылки на существующие названия; ванильные определения ресурсов и их вместимость не изменяются.
 
 Реализация 0.0.1 от 2026-11-14 по утверждённому [ТЗ](TZ_RU.md). В поставку включены все 54 общих ключа из таблицы. Изменяются русские подписи; игровые функции и эффекты не переопределяются. Физические файлы игры и Workshop не изменены.
 
@@ -72,6 +72,7 @@
 | `mod_country_feral_insight_produces_mult` | Не найден |
 | `mod_country_entropy_crystals_produces_mult` | Не найден |
 | `mod_country_integrity_produces_mult` | Не найден |
+| `mod_country_willpower_produces_mult` | Tass 20261124. Название ресурса — `$willpower$` в `forceofwill_l_russian.yml` игры 4.6. |
 | `mod_country_base_energy_produces_add` | `modifiers_1_l_russian.yml:674` |
 | `mod_country_base_minerals_produces_add` | `modifiers_1_l_russian.yml:675` |
 | `mod_country_base_food_produces_add` | `modifiers_1_l_russian.yml:676` |
@@ -104,7 +105,7 @@
 
 ## Границы изменений
 
-Все 54 ключа являются переопределениями или дополнениями локализации общих модификаторов, а не новыми функциями TCTE. Для `mod_fleet_command_limit_add` неверная ссылка заменена на `$MOD_COMMAND_LIMIT_ADD$`; сам ключ `MOD_COMMAND_LIMIT_ADD` не переопределяется.
+Все 55 ключей являются переопределениями или дополнениями локализации общих модификаторов, а не новыми функциями TCTE. Для `mod_fleet_command_limit_add` неверная ссылка заменена на `$MOD_COMMAND_LIMIT_ADD$`; сам ключ `MOD_COMMAND_LIMIT_ADD` не переопределяется.
 
 Остальные 1 612 исходных ключей Tass не пересекаются с явно определёнными ключами просмотренной ванильной локализации. Дополнительный `TASS_CHEAT_WORMHOLE` обслуживает уже существующий тип обходного пути базового мода и ссылается на `$BYPASS_TASS_CHEAT_WORMHOLE$`.
 

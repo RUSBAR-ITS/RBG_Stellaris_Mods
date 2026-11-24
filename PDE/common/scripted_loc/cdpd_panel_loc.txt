@@ -1,0 +1,53 @@
+# Called on the selected celestial body. Stars have luminosity classes in this field.
+defined_text = {
+	name = cdpd_panel_climate
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { has_climate = dry }
+		localization_key = cdpd_panel_climate_dry
+	}
+	text = {
+		trigger = { has_climate = wet }
+		localization_key = cdpd_panel_climate_wet
+	}
+	text = {
+		trigger = { has_climate = cold }
+		localization_key = cdpd_panel_climate_cold
+	}
+	text = {
+		trigger = { has_climate = artificial }
+		localization_key = cdpd_panel_climate_artificial
+	}
+}
+
+# Called on the country after counting visible entries and clamping the page.
+defined_text = {
+	name = cdpd_panel_footer
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { check_variable = { which = cdpd_pages value > 1 } }
+		localization_key = cdpd_panel_page_line
+	}
+	text = {
+		trigger = { check_variable = { which = cdpd_count value = 0 } }
+		localization_key = cdpd_panel_empty_line
+	}
+}
+
+# The root has no section label. Start a new paragraph only if it has a footer.
+defined_text = {
+	name = cdpd_panel_root_footer
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { which = cdpd_pages value > 1 }
+				check_variable = { which = cdpd_count value = 0 }
+			}
+		}
+		localization_key = cdpd_panel_footer_paragraph
+	}
+}

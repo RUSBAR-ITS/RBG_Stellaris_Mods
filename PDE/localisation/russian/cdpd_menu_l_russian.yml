@@ -1,7 +1,7 @@
 ﻿l_russian:
  decision_cdpd_open_editor: "Редактор планетарных особенностей"
  decision_cdpd_open_editor_desc: "Позволяет добавлять и удалять депозиты и блокеры на выбранном теле."
- cdpd_page_desc: "[cdpd_target.GetName] — Страница [Root.cdpd_page] / [Root.cdpd_pages]"
+ cdpd_open_editor_effect: "Открывает меню, где можно добавить или удалить депозиты и блокеры на выбранном небесном теле."
  cdpd_empty_desc: "Нет доступных действий."
  cdpd_previous: "« $PREV$"
  cdpd_next: "$NEXT$ »"

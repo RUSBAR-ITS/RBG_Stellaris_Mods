@@ -27,6 +27,8 @@ Compatibility with Tass Cheat Tool is mandatory: the extender runs alongside the
 
 Compatibility patches for other mods and support for older Tass Cheat Tool versions are outside this stage. Russian Localization Fix RE supplies preferred terminology but does not become a mandatory TCTE dependency.
 
+The 0.0.9 update for Stellaris `v4.6.*` and Tass `20261124` covers the three new source keys and the Ambitions label and descriptions. Preserve `$willpower$`, `$ap_force_of_will$` and `£willpower£`. [Resource grants](TZ_RESOURCES_EN.md#update-for-stellaris-46) · [Policy](TZ_LEVELS_EN.md#update-for-tass-20261124).
+
 ## 2. Source baseline and scope
 
 - Base mod: `E:/SteamLibrary/steamapps/workshop/content/281990/682851228/`.

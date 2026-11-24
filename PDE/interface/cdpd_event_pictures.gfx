@@ -1,0 +1,164 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_cdpd_evt_agriculture_districts"
+		texturefile = "gfx/event_pictures/cdpd_agriculture_districts.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_blockers"
+		texturefile = "gfx/event_pictures/cdpd_blockers.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_generator_districts"
+		texturefile = "gfx/event_pictures/cdpd_generator_districts.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_main_menu_basin"
+		texturefile = "gfx/event_pictures/cdpd_main_menu_basin.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_mining_districts"
+		texturefile = "gfx/event_pictures/cdpd_mining_districts.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_mixed_volcanic_districts"
+		texturefile = "gfx/event_pictures/cdpd_mixed_volcanic_districts.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_alloys"
+		texturefile = "gfx/event_pictures/cdpd_orbital_alloys.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_astral_threads"
+		texturefile = "gfx/event_pictures/cdpd_orbital_astral_threads.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_dark_matter"
+		texturefile = "gfx/event_pictures/cdpd_orbital_dark_matter.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_deposits"
+		texturefile = "gfx/event_pictures/cdpd_orbital_deposits.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_energy"
+		texturefile = "gfx/event_pictures/cdpd_orbital_energy.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_engineering"
+		texturefile = "gfx/event_pictures/cdpd_orbital_engineering.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_exotic_gases"
+		texturefile = "gfx/event_pictures/cdpd_orbital_exotic_gases.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_food"
+		texturefile = "gfx/event_pictures/cdpd_orbital_food.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_living_metal"
+		texturefile = "gfx/event_pictures/cdpd_orbital_living_metal.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_minerals"
+		texturefile = "gfx/event_pictures/cdpd_orbital_minerals.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_minor_artifacts"
+		texturefile = "gfx/event_pictures/cdpd_orbital_minor_artifacts.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_nanites"
+		texturefile = "gfx/event_pictures/cdpd_orbital_nanites.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_physics"
+		texturefile = "gfx/event_pictures/cdpd_orbital_physics.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_rare_crystals"
+		texturefile = "gfx/event_pictures/cdpd_orbital_rare_crystals.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_society"
+		texturefile = "gfx/event_pictures/cdpd_orbital_society.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_trade"
+		texturefile = "gfx/event_pictures/cdpd_orbital_trade.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_volatile_motes"
+		texturefile = "gfx/event_pictures/cdpd_orbital_volatile_motes.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_orbital_zro"
+		texturefile = "gfx/event_pictures/cdpd_orbital_zro.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_planetary_deposits"
+		texturefile = "gfx/event_pictures/cdpd_planetary_deposits.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_remove_deposits"
+		texturefile = "gfx/event_pictures/cdpd_remove_deposits.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_cdpd_evt_thermotechnic_districts"
+		texturefile = "gfx/event_pictures/cdpd_thermotechnic_districts.dds"
+		masking_texture = "gfx/interface/situation_log/event_mask.dds"
+		alwaystransparent = yes
+	}
+}

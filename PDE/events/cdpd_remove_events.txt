@@ -31,15 +31,8 @@ country_event = {
 country_event = {
 	id = CDPD.4
 	title = cdpd_section_remove_label
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value > 0 } }
-		text = cdpd_page_desc
-	}
-	desc = {
-		trigger = { check_variable = { which = cdpd_count value = 0 } }
-		text = cdpd_empty_desc
-	}
-	picture = GFX_evt_alien_planet
+	desc = cdpd_section_remove_panel
+	picture = GFX_cdpd_evt_remove_deposits
 	is_triggered_only = yes
 	immediate = {
 		cdpd_begin_count = { SIZE = 10 }

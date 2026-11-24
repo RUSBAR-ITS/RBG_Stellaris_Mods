@@ -2,6 +2,12 @@
 
 ## Contents
 
+- [2026-11-24 — Steam Workshop description](#2026-11-24--steam-workshop-description)
+- [2026-11-24 — PDE 2.1.2](#2026-11-24--pde-212)
+- [2026-11-24 — PDE 2.1.1](#2026-11-24--pde-211)
+- [2026-11-24 — PDE 2.1.0](#2026-11-24--pde-210)
+- [2026-11-24 — Console description draft](#2026-11-24--console-description-draft)
+- [2026-11-24 — Cover and decision icon concepts](#2026-11-24--cover-and-decision-icon-concepts)
 - [2026-11-23 — PDE 2.0.4](#2026-11-23--pde-204)
 - [2026-11-23 — PDE review for Stellaris 4.6.0](#2026-11-23--pde-review-for-stellaris-460)
 - [2026-11-23 — Blocker review for Stellaris 4.6.0](#2026-11-23--blocker-review-for-stellaris-460)
@@ -65,6 +71,64 @@
 - [2026-11-22 — Broken Shackles](#2026-11-22--broken-shackles)
 - [2026-11-22 — Volcanic worlds](#2026-11-22--volcanic-worlds)
 - [2026-11-22 — Agriculture deposit classification](#2026-11-22--agriculture-deposit-classification)
+
+## 2026-11-24 — Steam Workshop description
+
+Prepared Russian and English descriptions in Steam markup covering Stellaris v4.6.* support, dynamic menu behavior and the number of types available for placement and removal. [English description](WORKSHOP_DESCRIPTION_EN.txt) · [Russian description](WORKSHOP_DESCRIPTION_RU.txt)
+
+## 2026-11-24 — PDE 2.1.2
+
+The Effects text in the planetary decisions list now explains that the decision opens a menu for adding or removing deposits and blockers on the selected body. [PDE decision](../../PDE/common/decisions/cdpd_decisions.txt)
+
+## 2026-11-24 — PDE 2.1.1
+
+The mod cover and planetary decision icon revisit the main menu’s “Filling the Basin” scene. The 512 × 512 cover shows the full instrument. The button has its own illustration of the amber globe, brass stylus and turquoise basin. [Cover](../../PDE/thumbnail.png) · [Decision icon at its native 45 × 45 size](artwork/cdpd_decision_editor_45x45.png)
+
+## 2026-11-24 — PDE 2.1.0
+
+The main menu opens with “Filling the Basin”. The 270 menu screens use 27 panoramas at 450 × 150 pixels. District and orbital resource sections have dedicated pictures. Other branches inherit the nearest parent's picture. The release includes the final two textures for minor artifacts and astral threads.
+
+Every screen greets the operator and shows the selected body's class, name, climate where applicable, and system. Submenus show their section name below the target details. The page indicator appears when the filtered list spans at least two pages. [Console layout and in-game checks](TZ_EVENT_PANEL_EN.md)
+
+Verified picture bindings for every screen, matched the game textures to the approved PNGs, and checked 144 combinations of language, climate and list state across root and nested screens. The mod and local launcher descriptors now report 2.1.0. Rendering in the game window awaits an in-game check.
+
+## 2026-11-24 — Console description draft
+
+Drafted the console layout for Stellaris 4.6. The greeting repeats on every page. Submenus show the current section and optional page number one blank line below the target details. Added examples of single-page and multi-page sections. [Full console text](TZ_EVENT_PANEL_EN.md)
+
+The console specification now covers 27 section illustrations, how submenus inherit them and visual references from vanilla Stellaris events. It specifies a horizontal 3:1 aspect ratio and a final texture size of 450 × 150 pixels for the entire series. [Section illustrations](TZ_EVENT_PANEL_EN.md#section-illustrations)
+
+Created three 3:1 main menu concepts depicting a green phosphor CRT, an armillary sphere and a field observatory. Each is available at its original resolution and at the 450 × 150 pixel event picture size. [Compare the concepts](../../TMP/PDE/art_concepts/2026-11-24/main_menu/comparison.png)
+
+Two variations on the shipboard observatory concept show the globe raising a mountain range and filling a basin. [Compare at game size](../../TMP/PDE/art_concepts/2026-11-24/main_menu/comparison_armillary.png)
+
+“Filling the Basin” (variant 05) was approved for the main menu. The original and the game-size image are stored alongside the specification. [Approved illustration](artwork/cdpd_main_menu_basin.png)
+
+Added the “Filling the Basin” texture to the mod's event pictures for later use in the main menu. It matches the vanilla event picture format of 450 × 150 pixels in uncompressed RGB24 DDS. [Texture](../../PDE/gfx/event_pictures/cdpd_main_menu_basin.dds)
+
+Prepared a geological cross section for the Planetary deposits screen and an orbital survey for the Orbital deposits screen. The comparison sheet shows both concepts alongside the approved main menu image at 450 × 150 pixels. [Compare the concepts](../../TMP/PDE/art_concepts/2026-11-24/deposit_sections/comparison.png)
+
+Archived the approved planetary and orbital deposit illustrations alongside the specification and prepared 450 × 150 RGB24 DDS textures for later integration. Created concepts for the Blockers and Remove deposits sections. [All five main screens at game size](../../TMP/PDE/art_concepts/2026-11-24/blockers_and_removal/comparison.png)
+
+Approved the Blockers and Remove deposits illustrations and verified both 450 × 150 RGB24 DDS textures against the approved PNGs pixel for pixel. Created concepts for generator, mining and agriculture districts. [Compare district illustrations](../../TMP/PDE/art_concepts/2026-11-24/ordinary_districts/comparison.png)
+
+Approved the generator, mining and agriculture illustrations and verified their 450 × 150 RGB24 DDS textures against the PNGs pixel for pixel. New concepts depict a heat exchanger over a magma chamber for thermotechnic districts and an ore vein above a lava river for mixed volcanic districts. [Compare the volcanic districts](../../TMP/PDE/art_concepts/2026-11-24/volcanic_districts/comparison.png)
+
+Approved the thermotechnic and mixed volcanic illustrations and verified both 450 × 150 RGB24 DDS textures against the PNGs pixel for pixel. Created the first three orbital resource concepts for energy credits, minerals and food. [Compare the orbital resources](../../TMP/PDE/art_concepts/2026-11-24/orbital_basic_resources/comparison.png)
+
+Approved the orbital energy credits, minerals and food illustrations and verified all three 450 × 150 RGB24 DDS textures against their PNGs pixel for pixel. New concepts show a metallic asteroid sample under examination for alloys and a container transfer above a gas giant for trade. [Alloys and trade at game size](../../TMP/PDE/art_concepts/2026-11-24/orbital_alloys_trade/comparison.png)
+
+Approved the orbital alloys and trade illustrations and verified both 450 × 150 RGB24 DDS textures against their PNGs pixel for pixel. Created concepts for volatile motes, exotic gases and rare crystals using the vanilla resource icon colors. [Compare the three strategic resources](../../TMP/PDE/art_concepts/2026-11-24/orbital_strategic_resources_1/comparison.png)
+
+Approved the volatile motes, exotic gases and rare crystals illustrations and verified all three 450 × 150 RGB24 DDS textures against their PNGs pixel for pixel. Created orbital concepts for living metal, zro, dark matter and nanites. [Compare the four concepts](../../TMP/PDE/art_concepts/2026-11-24/orbital_strategic_resources_2/comparison.png)
+
+Approved the orbital living metal, zro, dark matter and nanite illustrations and verified all four 450 × 150 RGB24 DDS textures against their PNGs pixel for pixel. Created orbital concepts for physics, society and engineering research. [Compare the research disciplines](../../TMP/PDE/art_concepts/2026-11-24/orbital_research/comparison.png)
+
+Approved all three orbital research illustrations and verified their 450 × 150 RGB24 DDS textures against the PNGs pixel for pixel. The final two concepts depict minor artifacts for both station branches and astral threads. [Final two concepts](../../TMP/PDE/art_concepts/2026-11-24/orbital_artifacts_threads/comparison.png) · [All 27 illustrations at review time](../../TMP/PDE/art_concepts/2026-11-24/orbital_artifacts_threads/all_27.png)
+
+## 2026-11-24 — Cover and decision icon concepts
+
+Three cover and decision icon pairs are available for review. They depict an orbital survey, an asteroid sample and a surface expedition. Each pair includes a 512×512 cover and a 45×45 DDS decision icon. The comparison shows the icons enlarged and at game size. [Compare concepts](../../TMP/PDE/art_concepts/2026-11-24/comparison.png)
 
 ## 2026-11-23 — PDE 2.0.4
 

@@ -1,4 +1,4 @@
-# PDE 2.0.4 — структура каталогов и файлов
+# PDE 2.1.2 — структура каталогов и файлов
 
 ## Оглавление
 
@@ -10,7 +10,7 @@
 
 ## Корень поставки
 
-Корень мода — `PDE/`. В нём находятся дескриптор, обложка и значок решения. В дескрипторе выпуска указаны `version="2.0.4"` и `supported_version="v4.6.*"`. Базовая версия проверки — Stellaris 4.6.0. Новые игровые ключи получают принятый в PDE префикс `cdpd_`, события используют пространство имён `CDPD`. [Текущий дескриптор](../../PDE/descriptor.mod) · [События PDE](../../PDE/events/cdpd_menu_events.txt)
+Корень мода — `PDE/`. В нём находятся дескриптор, обложка и значок решения. В дескрипторе выпуска указаны `version="2.1.2"` и `supported_version="v4.6.*"`. Базовая версия проверки — Stellaris 4.6.0. Новые игровые ключи получают принятый в PDE префикс `cdpd_`, события используют пространство имён `CDPD`. [Текущий дескриптор](../../PDE/descriptor.mod) · [События PDE](../../PDE/events/cdpd_menu_events.txt)
 
 Документы проекта находятся в `docs/PDE/`: требования, классификация, реестр предупреждений и журнал изменений. Здесь же находятся [ТЗ 2.0.0](TZ_RU.md) и [список ванильных файлов и функций](VANILLA_CHANGES_RU.md). Входные данные для исследования и результаты отдельных прогонов находятся в `TMP/PDE/<версия игры>/`. PDE использует встроенную копию механизма меню RB_SDM под собственными именами. Игроку достаточно установить PDE. [Требования](REQUIREMENTS_RU.md) · [Руководство RB_SDM](../../RB_SDM/README_RU.md#как-перенести-раздел-в-свой-мод)
 
@@ -25,6 +25,7 @@ PDE/
 ├── common/
 │   ├── decisions/
 │   │   └── cdpd_decisions.txt
+│   ├── scripted_loc/cdpd_panel_loc.txt
 │   ├── scripted_triggers/
 │   │   ├── cdpd_access_triggers.txt
 │   │   ├── cdpd_placement_triggers.txt
@@ -51,19 +52,26 @@ PDE/
 │   ├── cdpd_menu_events.txt
 │   ├── cdpd_add_events.txt
 │   └── cdpd_remove_events.txt
+├── interface/cdpd_event_pictures.gfx
+├── gfx/event_pictures/
+│   └── cdpd_*.dds
 ├── gfx/interface/icons/decisions/
 │   └── decision_cdpd_editor.dds
 └── localisation/
     ├── russian/
+    │   ├── cdpd_panel_l_russian.yml
     │   ├── cdpd_menu_l_russian.yml
     │   └── cdpd_deposits_l_russian.yml
     └── english/
+        ├── cdpd_panel_l_english.yml
         ├── cdpd_menu_l_english.yml
         └── cdpd_deposits_l_english.yml
 ```
 
 | Файлы | Ответственность |
 | --- | --- |
+| `cdpd_panel_loc.txt`, `cdpd_panel_l_*.yml` | Карточка цели, название текущего раздела и условия показа климата и номера страницы. |
+| `cdpd_event_pictures.gfx`, `gfx/event_pictures/` | Регистрация 27 текстур. Поле `picture` каждого видимого события указывает на рисунок раздела или его ближайшего родителя с иллюстрацией. [Иллюстрации](TZ_EVENT_PANEL_RU.md#иллюстрации-разделов) |
 | `cdpd_decisions.txt`, `cdpd_access_triggers.txt` | Планетарное решение, доступ в пределах границ, проверка игрока-инициатора. Решение сохраняет выбранное тело и передаёт управление событию державы `from`. Для собственной колонии и незаселённого тела в своей системе используется штатный интерфейс. Для чужой колонии, включая досветовую в своей системе, ваниль ограничивает доступ. [Решение PDE](../../PDE/common/decisions/cdpd_decisions.txt) · [Правило игры](E:/SteamLibrary/steamapps/common/Stellaris/common/game_rules/00_rules.txt:4698) |
 | `cdpd_placement_triggers.txt`, `cdpd_menu_triggers.txt` | Первый файл определяет допустимую цель для каждого вида размещения, включая тип тела, класс и климат. Второй определяет видимость раздела по наличию хотя бы одного доступного потомка. Для кнопки удаления достаточно наличия соответствующего ID на выбранном теле. |
 | `cdpd_menu_events.txt`, `cdpd_add_events.txt`, `cdpd_remove_events.txt` | Вход, сеанс и главное меню, экраны разделов добавления и один плоский экран для пункта верхнего уровня «Удалить депозиты». Следующая и предыдущая страницы переиспользуют текущее событие списка. |
