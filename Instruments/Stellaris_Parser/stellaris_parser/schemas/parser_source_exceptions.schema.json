@@ -289,6 +289,52 @@
               "action"
             ],
             "type": "object"
+          },
+          {
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "kind": {
+                "const": "missing_library_block_separator"
+              },
+              "match": {
+                "additionalProperties": false,
+                "properties": {
+                  "field": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "root_files": {
+                    "items": {
+                      "pattern": "^(?![A-Za-z]:)(?![/\\\\])(?!.*(?:^|[/\\\\])\\.\\.(?:[/\\\\]|$)).+$",
+                      "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array",
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "root_files",
+                  "field"
+                ],
+                "type": "object"
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "reason",
+              "match"
+            ],
+            "type": "object"
           }
         ]
       },

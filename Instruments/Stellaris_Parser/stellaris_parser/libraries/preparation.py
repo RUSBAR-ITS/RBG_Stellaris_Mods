@@ -17,11 +17,17 @@ from .runtime import Templates
 
 _SYNTAX = None
 _ENCODING = None
+_ROOT_BLOCK_RULES = {}
 
 
-def initialize(syntax, encoding):
-    global _SYNTAX, _ENCODING
+def initialize(syntax, encoding, rules=()):
+    global _SYNTAX, _ENCODING, _ROOT_BLOCK_RULES
     _SYNTAX, _ENCODING = syntax, encoding
+    _ROOT_BLOCK_RULES = {}
+    for rule in rules:
+        if rule['kind'] == 'missing_library_block_separator':
+            for path in rule['match']['root_files']:
+                _ROOT_BLOCK_RULES.setdefault(path.casefold(), set()).add(rule['match']['field'])
 
 
 def read_file(job):
@@ -34,7 +40,7 @@ def read_file(job):
             items = source.plan['items']
         else:
             source = Source(text, job.relative)
-            items = parse_source(source, _SYNTAX).items
+            items = parse_source(source, _SYNTAX, root_block_rules=_ROOT_BLOCK_RULES.get(job.relative.casefold())).items
         return job.row(sha256(raw).hexdigest()), {'source': source, 'items': items}
     except (BuildError, ValueError, OSError) as exc:
         # Send a plain exception across the spawn boundary.
@@ -56,7 +62,8 @@ def capture_history(file, document, catalog, index):
 
 
 def prepare_libraries(settings, jobs, workers):
-    parsed = dict(run_jobs(jobs, workers, read_file, initialize, (settings.syntax, settings.reading['encoding'])))
+    options = (settings.syntax, settings.reading['encoding'], settings.corrections['rules'])
+    parsed = dict(run_jobs(jobs, workers, read_file, initialize, options))
     catalogs = {kind: {'files': {}, 'definitions': {}} for kind in KINDS}
     inline = catalogs['inline_script']['definitions']
     table = Table(settings.rules)

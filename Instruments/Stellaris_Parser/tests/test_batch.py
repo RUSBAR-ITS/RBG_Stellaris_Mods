@@ -44,6 +44,31 @@ class BatchTests(unittest.TestCase):
     def manifest(self):
         return json.loads(self.settings.outputs['manifest'].read_bytes())
 
+    def test_willpower_library_separator_is_scoped(self):
+        from stellaris_parser.libraries.inventory import LibraryFile
+        from stellaris_parser.libraries.preparation import initialize, read_file
+
+        initialize(self.settings.syntax, 'utf-8', self.settings.corrections['rules'])
+        path = self.root / 'effect.txt'
+        name = 'increase_pop_political_power'
+        relative = 'common/scripted_effects/forceofwill_scripted_effects.txt'
+        def read(text, filename=relative):
+            path.write_bytes(text.encode())
+            return read_file(LibraryFile(filename, path, path.stat().st_size, 'scripted_effect', None))
+
+        for separator in (' ', ' = '):
+            text = name + separator + '{ amount = 2 }'
+            metadata, file = read(text)
+            node, = file['items']
+            self.assertIsInstance(node, nodes.Assignment)
+            self.assertEqual(file['source'].text, text)
+            self.assertEqual(metadata['sha256'], sha256(text.encode()).hexdigest())
+            self.assertEqual(node.value.span.start, text.index('{'))
+        for text, filename in ((name + ' {}', 'other.txt'), ('other {}', relative),
+                               ('wrapper = { ' + name + ' {} }', relative)):
+            with self.assertRaisesRegex(ValueError, 'without an operator'):
+                read(text, filename)
+
     def check_outputs(self):
         actual = {p.relative_to(self.output).as_posix() for p in self.output.rglob('*.json')}
         expected = {Path(name).with_suffix('.json').as_posix() for name in DIRECT}

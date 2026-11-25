@@ -2,6 +2,30 @@
   "format_version": 1,
   "rules": [
     {
+      "id": "sttv_willpower_political_power_separator",
+      "kind": "missing_library_block_separator",
+      "match": {
+        "root_files": ["common/scripted_effects/forceofwill_scripted_effects.txt"],
+        "field": "increase_pop_political_power"
+      },
+      "reason": "Stellaris 4.6.0 omits the assignment operator before this top-level effect body."
+    },
+    {
+      "id": "sttv_willpower_relocation_default",
+      "kind": "missing_parameter",
+      "match": {
+        "root_files": ["events/forceofwill_events.txt"],
+        "call_kind": "scripted_effect",
+        "definition_file": "common/scripted_effects/forceofwill_scripted_effects.txt",
+        "call_name": "move_galactic_halls",
+        "reference": "$IS_FROM_RELOCATE$",
+        "missing_parameter": "IS_FROM_RELOCATE",
+        "required_parameters": ["OWNER", "PLANET"]
+      },
+      "action": {"parameter_literal": "no"},
+      "reason": "Use the existing militarist branch default when the event omits the relocation argument."
+    },
+    {
       "id": "sttv_event_job_amenities_separator",
       "kind": "script_value_reference",
       "match": {
@@ -131,7 +155,8 @@
           "common/traits/08_ancrel_traits.txt",
           "common/traits/12_astral_planes_traits.txt",
           "common/traits/16_infernals_traits.txt",
-          "common/traits/17_shroud_leader_traits.txt"
+          "common/traits/17_shroud_leader_traits.txt",
+          "common/traits/19_forceofwill_leader_traits.txt"
         ],
         "call_kind": "inline_script",
         "definition_file": "common/inline_scripts/trait/icon_element/council_no.txt",

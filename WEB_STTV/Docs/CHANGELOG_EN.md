@@ -2,6 +2,8 @@
 
 ## Contents
 
+- [2026-11-25 — Specification for 4.6.0 sources and conditions](#2026-11-25--specification-for-460-sources-and-conditions)
+- [2026-11-25 — Parser support for the Willpower effect](#2026-11-25--parser-support-for-the-willpower-effect)
 - [2026-11-22 — Event technologies and participants in conditions](#2026-11-22--event-technologies-and-participants-in-conditions)
 - [2026-11-22 — Draft event acquisition and condition wording rules](#2026-11-22--draft-event-acquisition-and-condition-wording-rules)
 - [2026-11-22 — Mixed branches and event technology visibility](#2026-11-22--mixed-branches-and-event-technology-visibility)
@@ -261,6 +263,22 @@
 - [2026-11-15 — technology tree research](#2026-11-15--technology-tree-research)
 - [2026-11-15 — first specification part](#2026-11-15--first-specification-part)
 - [2026-11-15 — initial concept](#2026-11-15--initial-concept)
+
+## 2026-11-25 — Specification for 4.6.0 sources and conditions
+
+The [draft specification](TZ_STELLARIS_4_6_0_SOURCES_AND_CONDITIONS_EN.md) covers importing crisis perks and ideology tenets, tracing their technology awards and rendering new conditions in RU and EN. Local parsing of both directories found 200 objects and eight direct reward commands after expansion.
+
+Disabling exceptions individually confirmed that each parser rule is needed and identified eight redundant paths for the outer icon template. [Parser exception checks](STELLARIS_4_6_0_ACCEPTANCE_EN.md#parser-exception-checks)
+
+The next collection stage now covers leader classes, trait selection rules and levels, grant sources and layered icon assets. The specification adds checks for localization links across 797 traits and texture resolution for 485 graphics references. [Data for the leader trait reference](TZ_STELLARIS_4_6_0_SOURCES_AND_CONDITIONS_EN.md#data-for-the-leader-trait-reference)
+
+## 2026-11-25 — Parser support for the Willpower effect
+
+The parser accepts the missing `=` in the Stellaris 4.6.0 library declaration of `increase_pop_political_power`. The exception matches the file, effect name and top-level scope. Checks cover original source positions and checksum, plus expansion of the three council agenda calls with arguments 2, 3 and 4.
+
+Two additional exceptions brought script coverage to all 845 input files. Checks confirmed that `forceofwill.4020` omits the relocation flag, the eight branches of `forceofwill.4050` set it, and the new trait file resolves 21 `council_no_leader` icons.
+
+The full database replacement, ten tree profiles and all 1,366 language pages were checked. [4.6.0 acceptance results](STELLARIS_4_6_0_ACCEPTANCE_EN.md)
 
 ## 2026-11-22 — Event technologies and participants in conditions
 

@@ -66,6 +66,10 @@ python -m stellaris_parser parse --config parser.json --reuse-libraries --output
 
 ## Library preparation
 
+In Stellaris 4.6.0, accept the missing assignment operator before the top-level `increase_pop_political_power` block only in `common/scripted_effects/forceofwill_scripted_effects.txt`. Preserve the original text, offsets and source checksum. Already valid declarations follow normal parsing.
+
+When expanding `move_galactic_halls` in Willpower events, use `no` if `IS_FROM_RELOCATE` is missing. Preserve explicit arguments. Apply the existing class forwarding rule to the nested `council_no` icon in `19_forceofwill_leader_traits.txt`.
+
 Both commands require exactly one mode flag. Traversal of the main script directories begins once the libraries have been successfully prepared or verified.
 
 - `--rebuild-libraries` collects definitions from the current sources. After successful preparation it writes the five JSON files and publishes the manifest last.

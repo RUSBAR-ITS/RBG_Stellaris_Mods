@@ -88,7 +88,7 @@ class Parser:
                            token.raw[len(spec["open"]):-len(spec["close"])], token.span)
         self.source.fail("missing_value", "Expected a scalar, formula or block", token.span.start)
 
-    def item(self, token):
+    def item(self, token, root_block_rules=None):
         if token.kind == "conditional":
             return self.conditional(token)
         if token.kind == "open":
@@ -98,6 +98,10 @@ class Parser:
         if token.kind not in ("atom", "string", "formula"):
             self.source.fail("unexpected_token", f"Unexpected token: {token.raw}", token.span.start)
         following = self.peek()
+        if (root_block_rules and token.kind == "atom" and token.raw in root_block_rules
+                and following and following.kind == "open"):
+            value = self.block(self.take())
+            return Assignment(self.scalar(token), "=", value, self.span(token, value))
         if following and following.kind == "operator":
             if token.kind == "formula":
                 self.source.fail("invalid_key", "A formula cannot be a key", token.span.start)
@@ -115,13 +119,13 @@ class Parser:
             self.source.fail("disabled_form", "Standalone values are disabled", token.span.start)
         return value
 
-    def sequence(self, end=None, opening=None):
+    def sequence(self, end=None, opening=None, root_block_rules=None):
         items, forms = [], set()
         while self.peek() is not None:
             token = self.take()
             if token.kind == end:
                 return items, token
-            node = self.item(token)
+            node = self.item(token, root_block_rules)
             nodes = node if isinstance(node, list) else [node]
             items.extend(nodes)
             forms.update(isinstance(item, (Assignment, LogicalOperation)) for item in nodes)
@@ -133,7 +137,7 @@ class Parser:
         return items, None
 
 
-def parse_source(source, syntax, specials=True):
+def parse_source(source, syntax, specials=True, *, root_block_rules=None):
     from .metrics import ACTIVE
     from time import perf_counter
     metrics, start = ACTIVE.get(), perf_counter()
@@ -147,7 +151,7 @@ def parse_source(source, syntax, specials=True):
         metrics.count('dynamic_parses' if dynamic else 'source_parses')
     parser = Parser(source, syntax, specials)
     try:
-        items, _ = parser.sequence()
+        items, _ = parser.sequence(root_block_rules=root_block_rules)
     except RecursionError:
         token = parser.peek()
         source.fail("nesting_depth", "Nesting exceeds parser capacity",
