@@ -865,6 +865,8 @@
  factions.1.desc.unplugged_xenoist: "Члены этой фракции упорно добиваются установления дружеских отношений с инопланетными расами невзирая на прошлое, проведённое под гнётом Машины.\n\n" # 'Machine' as an adjective in reference to the intelligence that once assimilated us
 
  factions.2000.title: "Смена принципов в [TargetFaction.Owner.GetName&prep]"
+ factions.2000.desc_default: "Государство §Y[TargetFaction.Owner.GetName]§! поддержало фракцию §Y«[TargetFaction.GetName]»§!. Её принцип §H«[TargetFaction.GetPopsGuidingEthic]»§! теперь сильнее влияет на политику государства.\n\n$LEFT_CLICK_TO_OPEN_DIPLOMACY$"
+ factions.2000.desc_type: "Государство §Y[TargetFaction.Owner.GetName]§! поддержало фракцию типа §H«[TargetFaction.GetType]»§!. Её принцип §H«[TargetFaction.GetPopsGuidingEthic]»§! теперь сильнее влияет на политику государства.\n\n$LEFT_CLICK_TO_OPEN_DIPLOMACY$"
  factions.2000.desc.start: "Фракция §Y[TargetFaction.GetName]§! в [TargetFaction.Owner.GetName&prep] долгое время набирала популярность, и это государство наконец приняло её вместе с основными ценностями и политикой."
  factions.2000.desc_short: "§Y[TargetFaction.Owner.GetName]§! [TargetFaction.Owner.GetName::принял<end_a>] фракцию §H[TargetFaction.GetFactionType]§! и [TargetFaction.Owner.GetName::приблизи<end_lsya>] к принципу §H[TargetFaction.GetEthicEquivelent]§!."
  MESSAGE_FACTION_EMBRACED_TITLE: "Смена руководящих принципов"

@@ -74,6 +74,15 @@
  adj_NNod: "*an $1$"
  adj_NNud: "*an $1$"
  adj_NNyd: "*an $1$"
+ pref_format: "*$1$"
+ pref_NNa: "*&!vowel_ended"
+ pref_NNe: "*&!vowel_ended"
+ pref_NNi: "*&!vowel_ended"
+ pref_NNo: "*&!vowel_ended"
+ pref_NNu: "*&!vowel_ended"
+ pref_NNy: "*&!vowel_ended"
+ ideology_single_word_format: "$1$"
+ ideology_ajd_keyword: "$1$ $2$"
 
  ## SEQUENTIAL NAMES
 

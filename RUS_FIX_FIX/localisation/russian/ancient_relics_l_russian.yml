@@ -227,6 +227,7 @@
 
  EXCAVATION_PROGRESS_TOOLTIP: "§HЭтап раскопок§!\nАрхеологические раскопки проводятся поэтапно, и в конце каждого этапа выполняется бросок кубиков прогресса.\n\nСледующий этап завершится через £time£ $DAYS|Y$"
  LEADER_MODIFIERS: "§HМодификаторы лидера§!"
+ LEADER_MODIFIER_TITLE: "§EМодификаторы лидера:§!"
 
  ARCHAEOLOGICAL_SITE: "Место археологических раскопок"
  ARCHAEOLOGICAL_SITE_IN_SYSTEM: "В этой системе как минимум одно место раскопок"
@@ -342,6 +343,8 @@
  artifact_precursor_clue_desc: "С помощью этих артефактов можно выявить координаты ранее неизвестного места активности Предтеч."
  artifact_precursor_clue_effect: "Выявить координаты места активности Предтеч.\n\nПерезарядка: £time£§Y1800§!"
  artifact_precursor_insight_cooldown: "$artifact_precursor_clue$ Перезарядка"
+ artifact_precursor_clue_failtext: "$TRIGGER_FAIL$§RВ наших границах нужна система предтеч с обследованной непригодной для жизни планетой без владельца и аномалии.§!"
+ artifact_precursor_clue_failtext_nomad: "$TRIGGER_FAIL$§RВ системе предтеч нужна обследованная непригодная для жизни планета без владельца и аномалии. Наша маршрутная станция должна находиться в этой системе или в соседней.§!"
 
  artifact_action_locked: "§L??????§!"
  artifact_action_locked_desc: "Должно быть что-то ещё, что мы можем сделать с нашими £minor_artifacts£ малыми артефактами."

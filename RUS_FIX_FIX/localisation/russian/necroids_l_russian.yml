@@ -87,8 +87,9 @@
  mod_job_mortal_initiate_per_pop: "§G+1§! должность [mortal_initiate_rinfix.GetName] за каждые $VALUE$ поселений"
  mod_job_mortal_initiate_per_pop_short: "\n§G+1§! £mod_job_mortal_initiate_add£ за каждые $VALUE$ £pop£"
  jobs_death_priest_and_mortal_initiate_effect_desc: "$job_death_priest_effect_desc$\n$job_mortal_initiate_effect_desc$"
+ tenet_sacrifism_additional_bonus_tt: "\nКаждая жертва также повышает шанс получить дополнительный прирост показателя «$IDEOLOGY_STRENGTH$»."
 
- edict_sacrifice_unity_boost: "\n\nУвеличивает £unity£ единство, которое производят £job_death_priest£ жрецы смерти при активном указе.\n"
+ edict_sacrifice_unity_boost: "[GetSacrifismEffect]\n\nУвеличивает £unity£ единство, которое производят £job_death_priest£ жрецы смерти при активном указе.\n"
 
  edict_sacrifice_dummy: "Жертвоприношения"
  edict_sacrifice_dummy_desc: "Самые преданные среди нас готовы встретить свою судьбу, уверенные, что их жертва станет залогом нашего благополучия. С жертвоприношениями §HЕдинение§!, §HГармония§! и §HИзобилие§! им больше не нужно ждать."

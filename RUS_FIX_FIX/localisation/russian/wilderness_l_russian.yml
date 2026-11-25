@@ -246,6 +246,7 @@
  district_orchard_forests_uncapped_plural: "$district_orchard_forests_plural$"
  district_orchard_forests_uncapped_desc: "$district_orchard_forests_desc$"
  mod_district_orchard_forests_uncapped_max_add: "$mod_district_orchard_forests_max_add$"
+ mod_district_orchard_forests_uncapped_max: "$mod_district_orchard_forests_max_add$"
  mod_planet_district_orchard_forests_uncapped_build_speed_mult: "$mod_planet_district_orchard_forests_build_speed_mult$"
 
  #district_metallic_dew_plains: "Metallic Seam Biome"
@@ -760,3 +761,4 @@
 
  council_agenda_agenda_superior_colonies_wilderness_name: "Превосходные ростки"
  council_agenda_agenda_superior_colonies_wilderness_desc: "$council_agenda_agenda_superior_colonies_desc$"
+ wilderness_pre_sapient_defence_army_plural: "$wilderness_pre_sapient_defense_army_plural$"

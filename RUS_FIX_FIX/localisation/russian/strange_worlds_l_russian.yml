@@ -628,3 +628,5 @@
 
  pre_ftl_regresses_one_age_effect: "[event_target:pre_ftl_country.GetName] откатывается к предыдущей эпохе"
  pre_ftl_progresses_one_age_effect: "[event_target:pre_ftl_country.GetName] переходит к следующей эпохе"
+ pm_catalytic_excrement_ct: "$pm_catalytic_excrement_desc$"
+ pm_strange_sandstorm_ct: "$pm_strange_sandstorm_desc$"

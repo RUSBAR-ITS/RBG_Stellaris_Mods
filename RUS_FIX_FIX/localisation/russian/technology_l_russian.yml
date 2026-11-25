@@ -1001,6 +1001,7 @@
  tech_colonial_centralization_desc: "Эти твёрдые основы для местного управления созданы для каждого случая в отдельности, чтобы удовлетворить нужды каждой колонии."
  tech_galactic_administration: "Галактическая администрация"
  tech_galactic_administration_desc: "Административные потребности звёздной империи столь же многочисленны, как и сложны. Мы не ударим в грязь лицом."
+ tech_galactic_administration_effect: "$MOD_COUNTRY_GOVERNMENT_CIVIC_POINTS_ADD$: §G+1§!\nПредел мест в совете: §G+1§!"
  tech_living_state: "Живое государство"
  tech_living_state_desc: "Государство живёт, государство дышит. Пусть мы являемся органами его тела, но не пристало левой руке знать, что делает правая." # Our Empire is a living thing, all of us vital organs in its future well-being. OR At some point the system took on a purpose of its own.
  tech_autonomous_agents: "Автономные агенты"

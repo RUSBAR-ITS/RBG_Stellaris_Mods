@@ -37,7 +37,8 @@
  government_view_tab_council: "§H$COUNCIL$§!"
  government_view_tab_factions: "§H$FACTIONS$§!"
  government_view_tab_policies_and_edicts: "§H$EDICTS_AND_POLICIES$§!"
- concept_government_view_tabs: "- $government_view_tab_council$: просмотр ['concept_council', совета] и его ['concept_agendas', программ]\n- $government_view_tab_factions$: перечень ['concept_factions', фракций]\n- $government_view_tab_policies_and_edicts$: выбор ['concept_policies', политик] и ['concept_edicts', указов]"
+ government_view_tab_ideologies: "§H$IDEOLOGY_PLURAL$§!"
+ concept_government_view_tabs: "- $government_view_tab_council$: просмотр ['concept_council', совета] и его ['concept_agendas', программ]\n- $government_view_tab_factions$: перечень ['concept_factions', фракций]\n- $government_view_tab_policies_and_edicts$: выбор ['concept_policies', политик] и ['concept_edicts', указов]\n- $government_view_tab_ideologies$: просмотр ['concept_ideologies', идеологий] и управление ими"
 
  # View: £interface£ ['concept_society_management_view'] or £interface£ §H$concept_society_management_view$§!
  concept_society_management_view: "Обзор управления обществом"	# Use this alias when referring to the concept

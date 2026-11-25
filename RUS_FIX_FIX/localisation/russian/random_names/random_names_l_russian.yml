@@ -333,6 +333,17 @@
  BuokMariski: "Буок'Мариски&!fem"
  NevG00: "Нев-Г-00&!fem"
  SeBerg: "Се'Берг&!masc|||prep:Се'Берге|||inst:Се'Бергом|||acc:Се'Берг|||dat:Се'Бергу|||gen:Се'Берга"
+ ADryan: "А'Дриан&!masc|||prep:А'Дриане|||inst:А'Дрианом|||acc:А'Дриан|||dat:А'Дриану|||gen:А'Дриана"
+ VEri: "В'Эри&!neut"
+ Erethan: "Эретан&!masc|||prep:Эретане|||inst:Эретаном|||acc:Эретан|||dat:Эретану|||gen:Эретана"
+ XinTao: "Синь'Тао&!neut"
+ GailDo: "Гайль-До&!neut"
+ Ahnstedt: "А'нштедт&!masc|||prep:А'нштедте|||inst:А'нштедтом|||acc:А'нштедт|||dat:А'нштедту|||gen:А'нштедта"
+ WiLar: "Ви-Лар&!masc|||prep:Ви-Ларе|||inst:Ви-Ларом|||acc:Ви-Лар|||dat:Ви-Лару|||gen:Ви-Лара"
+ Klenes: "Кле'нес&!masc|||prep:Кле'несе|||inst:Кле'несом|||acc:Кле'нес|||dat:Кле'несу|||gen:Кле'неса"
+ Marus: "Ма'рус&!masc|||prep:Ма'русе|||inst:Ма'русом|||acc:Ма'рус|||dat:Ма'русу|||gen:Ма'руса"
+ Skydra: "Скидра&!fem|||prep:Скидре|||inst:Скидрой|||acc:Скидру|||dat:Скидре|||gen:Скидры"
+ 35Khlro: "3-5-Хлро&!neut"
 
 # Stars/star systems (deities & mythology)
  Aesir: "Айсир&!masc|||prep:Айсире|||inst:Айсиром|||acc:Айсир|||dat:Айсиру|||gen:Айсира" # Norse

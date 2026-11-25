@@ -802,7 +802,7 @@
  spliced_adaptability_tooltip: "Приспособленность: §G+20%§!"
  trait_juiced_power: "Мощный коктейль"
  trait_juiced_power_desc: "§LВозможность по желанию выделять адреналин и мощные гормоны роста привели к значительному росту силы. Главное — не обращать внимания на внутренние разрывы.§!"
- juiced_power_tooltip: "$BONUS_WORKFORCE_FOR$ $pop_cat_worker_plural_gen$: §G+5%§!\n$t$- $soldier_jobs_bonus_workforce_mult$: §G+15%§!"
+ juiced_power_tooltip: "$BONUS_WORKFORCE_FOR$ категории «$WORKERS_NO_ICON$»: §G+5%§!\n$t$- $soldier_jobs_bonus_workforce_mult$: §G+15%§!"
  trait_crack_miner: "Урождённый шахтёр"
  trait_crack_miner_desc: "§LПревосходная координация, почти неограниченная выносливость и самоочищающиеся лёгкие позволили создать идеальные бригады шахтёров. Увы, без солнечного света они становятся нервными.§!"
  crack_miner_tooltip: "Эффективность ['concept_planet_miners', шахтёрских] должностей: §G+15%§!"

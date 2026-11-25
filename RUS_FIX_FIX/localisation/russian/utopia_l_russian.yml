@@ -298,7 +298,9 @@
  trait_self_modified_desc: "§LПредставители этой побочной расы спонтанно изменили свой набор генов, чтобы получить преимущество.§!"
 
  leader_trait_shroud_age: "Увеличенная продолжительность жизни"
- leader_trait_shroud_age_desc: "Мощная псионическая энергия Покрова замедлила [GetAgingLoc::естественный <1>|||neut:естественное <1>] этого [GetLeaderLoc&gen]."
+ leader_trait_shroud_age_desc: "[GetShroudAgeDesc]"
+ leader_trait_shroud_age_desc_default: "Мощная псионическая энергия Покрова замедлила [GetAgingLoc::естественный <1>|||neut:естественное <1>] этого [GetLeaderLoc&gen]."
+ leader_trait_shroud_age_desc_golden_generation: "Экспериментальное лечение сочетает обращение метаболических изменений, обновление клеток и применение сенолитиков. Всё это замедляет [GetAgingLoc] этого [GetLeaderLoc&gen]."
 
  leader_trait_reformer: "Реформатор"
  leader_trait_reformer_desc: "Этот лидер — реформатор, посвятивший себя построению общества будущего."

@@ -541,6 +541,7 @@
  galcom.110.c: "Чудовище должно было умереть."
  opinion_killed_tiyanki_fleet_1: "Убийца тиянки"
  opinion_killed_tiyanki_fleet_2: "$opinion_killed_tiyanki_fleet_1$"
+ opinion_killed_tiyanki_fleet_3: "$opinion_killed_tiyanki_fleet_1$"
  opinion_killed_all_tiyanki_1: "Истребитель последних тиянки в галактике"
  opinion_killed_all_tiyanki_2: "$opinion_killed_all_tiyanki_1$"
  opinion_killed_all_tiyanki_3: "$opinion_killed_all_tiyanki_1$"

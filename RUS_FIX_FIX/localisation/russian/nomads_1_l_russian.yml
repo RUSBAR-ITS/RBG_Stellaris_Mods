@@ -1588,6 +1588,7 @@
  blessings_joyous_enlightenment_tt: "Благословения от счастья просветления"
  bonus_middle_path_tt: "Бонус от Срединного пути"
  bonus_sacred_site_tt: "Бонус от святого места"
+ bonus_tenet_dimensionalism_tt: "Бонус от догмата «$tenet_dimensionalism$»"
  embrace_chaos_waystations_tt: "Усиленный эффект от Объятий хаоса"
 
  # Jobs, Districts and so forth
@@ -2097,6 +2098,7 @@
  waystation: "$starbase_waystation_1$"
  waystation_plural: "Маршрутные станции"
  waystation_desc: "§YМаршрутные станции§! собирают космические ресурсы и прокладывают межзвёздные торговые пути."
+ waystation_MEGASTRUCTURE_DETAILS: ""
  tech_waystation_1: "$waystation_plural$"
  tech_waystation_1_desc: "$waystation_desc$"
  allow_waystations: "§HТип станций:§! $tech_waystation_1$\n§HДоступен контракт:§! $contract_build_waystation$"
@@ -2488,6 +2490,7 @@
  mod_starbase_collected_system_volatile_motes_mult: "Эффективность сбора £volatile_motes£"
  mod_starbase_collected_system_exotic_gases_mult: "Эффективность сбора £exotic_gases£"
  mod_starbase_collected_system_rare_crystals_mult: "Эффективность сбора £rare_crystals£"
+ mod_starbase_collected_system_unity_mult: "Эффективность сбора £unity£"
 
  tech_space_mining_nomads_tt: "$tech_space_mining_nomads_mult$: §G+10%§!"
  tech_space_mining_nomads_mult: "Эффективность сбора £minerals£ £consumer_goods£ £alloys£"
@@ -2511,6 +2514,7 @@
  mod_starbase_waystations_upkeep_mult: "Стоимость содержания маршрутной станции"
  starbase_waystations_modules: "Модули маршрутной станции"
  mod_starbase_waystations_modules_upkeep_mult: "Стоимость содержания модулей маршрутной станции"
+ mod_starbase_waystations_modules_cost_mult: "Стоимость модулей маршрутной станции"
  starbase_arkship_upgrades: "Модули и системы корабля-ковчега"
  mod_starbase_arkship_upgrades_cost_mult: "Стоимость модулей и систем корабля-ковчега"
 
@@ -2985,6 +2989,7 @@
  mod_arkship_harvest_resources_nanites_produces_mult: "£nanites£ при сборе"
  mod_arkship_harvest_resources_sr_zro_produces_mult: "£sr_zro£ при сборе"
  mod_arkship_harvest_resources_sr_living_metal_produces_mult: "£sr_living_metal£ при сборе"
+ mod_arkship_harvest_resources_depletion_time_mult: "Длительность операции «$harvested_resources_mining$»"
 
  tech_nomads_mechanized_mining: "Стратегическая добыча"
  tech_nomads_mechanized_mining_desc: "Извлечение стратегических ресурсов — один из важнейших аспектов деятельности корабля-ковчега."
@@ -5832,7 +5837,7 @@
  trait_solar_cells_desc: "Эта раса разработала специализированные солнечные батареи, способные поглощать различные виды звёздного излучения. Каждый звёздный класс даёт её представителям уникальные преимущества."
  concept_trait_photoadaptive_stars: "Классы звёзд"
  concept_trait_photoadaptive_stars_desc: "Некоторые расы получают модификатор к эффективности за должности $pop_cat_worker_plural_gen$ и $pop_cat_simple_drone_plural_gen$ в зависимости от ['concept_star_luminosity', светимости] звёзд. \n\n- Пульсары или нейтронные звёзды: §G+15%§! \n- Звёзды класса B, A или F: §G+10%§! \n- Звёзды класса G или K: §G+5%§! \n- Звёзды класса M: §R-5%§! \n- Коричневые карлики, протозвёзды или чёрные дыры: §R-15%§!"
- trait_photoadaptive_effects: "$MOD_POP_BONUS_WORKFORCE_MULT$ от ['concept_trait_photoadaptive_stars', класса звёзд]:\n$tt$- Рабочие и простые единицы: от §R-15%§! до §G+15%§!\n$tt$- §Y$pc_black_hole_plural$§! для физиков: §G+15%§!\n$tt$- §Y$pc_m_star_plural$§! для инженеров: §G+15%§!"
+ trait_photoadaptive_effects: "$MOD_POP_BONUS_WORKFORCE_MULT$ от ['concept_trait_photoadaptive_stars', класса звёзд]:\n$tt$- Категории «$WORKERS_NO_ICON$» и «$pop_cat_simple_drone_plural$»: от §R-15%§! до §G+15%§!\n$tt$- §Y$pc_black_hole_plural$§! для физиков: §G+15%§!\n$tt$- §Y$pc_m_star_plural$§! для инженеров: §G+15%§!"
 
  trait_recursive_learners: "Рекурсивное обучение"
  trait_recursive_learners_desc: "Корабль-ковчег — родной дом этой расы. Её представители поколение за поколением совершенствуют полученные от предков знания, чтобы справляться с трудностями жизни на ковчеге."

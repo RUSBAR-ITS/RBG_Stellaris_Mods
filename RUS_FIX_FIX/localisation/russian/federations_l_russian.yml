@@ -1165,21 +1165,26 @@
  resolution_ecology_repeal_5_effect_success: "Аннулирует резолюцию §Y$resolution_ecology_paradise_initiative$§!, тем самым внедряя галактический закон §Y$resolution_ecology_environmental_control_board$§!.\n\n"
 
  resolution_ecology_recycling_initiatives: "Галактическая инициатива по утилизации"
+ resolution_ecology_recycling_initiatives_good: "$resolution_ecology_recycling_initiatives$"
  resolution_ecology_recycling_initiatives_desc: "Мы все выигрываем от уменьшения числа отходов и их переработки. Протоколы утилизации, общие для всех участников [global_event_country.GetGalCommunityOrGalImperium_rinfix&gen], принесут пользу всем."
 
  resolution_ecology_natural_sanctuaries: "Памятники природы"
+ resolution_ecology_natural_sanctuaries_good: "$resolution_ecology_natural_sanctuaries$"
  resolution_ecology_natural_sanctuaries_desc: "Мы сохраним уголки природы в виде парков, в которых граждане смогут скрыться от своих проблем. Потребуются небольшие ограничения на тяжёлую промышленность, но это невысокая цена."
 
  resolution_ecology_integrated_gardens: "Интегрированные сады"
+ resolution_ecology_integrated_gardens_good: "$resolution_ecology_integrated_gardens$"
  resolution_ecology_integrated_gardens_desc: "Стимулируя наших граждан самим выращивать себе еду и упростив правила использования гидропонных систем, мы сможем уменьшить влияние на населённые миры и насладиться большим количеством зелени."
  resolution_ecology_integrated_gardens_tooltip: "£unity£ $unity$ от естественных препятствий для §Yгосударств с моделью «$civic_environmentalist$»§!: §G+1§! £unity£"
  resolution_ecology_environmental_control_board: "Комитет по надзору за средой"
+ resolution_ecology_environmental_control_board_good: "$resolution_ecology_environmental_control_board$"
  in_breach_of_resolution_ecology_environmental_control_board: "Нарушение резолюции «$resolution_ecology_environmental_control_board$»"
  resolution_ecology_environmental_control_board_desc: "Промышленность сама себя регулировать не станет. Нам нужен международный комитет по надзору за окружающей средой, в чьи полномочия будет входить контроль над промышленностью и прекращение насилия над природой."
  resolution_ecology_environmental_control_board_tooltip: "§RЗапрещено§! превращать планеты в §Yэкуменополисы§!, §Yтерраформировать§! их не в §Yидеальные миры§!, использовать §Yзвёздное зажигание§! и §Yзвёздную пушку§!, изменяющую температуру планеты.\n£unity£ $unity$ от естественных препятствий для государств с моделью §Y$civic_environmentalist$§!: §G+2§! £unity£"
  resolution_ecology_paradise_initiative_tooltip: "£unity£ $unity$ от естественных препятствий для §Yгосударств с моделью «$civic_environmentalist$»§!: §G+3§! £unity£\n\nДолжности £job_ranger£ рейнджеров от естественных препятствий для §Yгосударств с моделью «$civic_environmentalist$»§!: §G+1§! £job_ranger£"
 
  resolution_ecology_paradise_initiative: "Инициатива «Рай»"
+ resolution_ecology_paradise_initiative_good: "$resolution_ecology_paradise_initiative$"
  resolution_ecology_paradise_initiative_desc: "Мы сможем жить в экологический гармонии благодаря тщательному присмотру за своими мирами. Мы стремимся к тому, чтобы единственными следами нашего присутствия были воспоминания."
 
  # Galactic Studies
@@ -1349,13 +1354,16 @@
  resolution_greatergood_repeal_5_effect_success: "Аннулирует резолюцию §Y$resolution_greatergood_universal_prosperity_mandate$§!, тем самым внедряя галактический закон §Y$resolution_greatergood_balance_in_the_middle$§!.\n\n"
 
  resolution_greatergood_workers_rights: "Хартия прав рабочих"
+ resolution_greatergood_workers_rights_good: "$resolution_greatergood_workers_rights$"
  resolution_greatergood_workers_rights_desc: "Мы поступим правильно, создав кодекс прав рабочих, чтобы защитить их от притеснений."
 
  resolution_greatergood_five_year_plans: "Пятилетки"
+ resolution_greatergood_five_year_plans_good: "$resolution_greatergood_five_year_plans$"
  resolution_greatergood_five_year_plans_desc: "Губернаторам наших миров нужно дать свободу, необходимую для предложения и проведения радикальных реформ ради общего блага."
  resolution_greatergood_five_year_plans_tooltip: "Аграрные миры, энергетические миры и добывающие миры получают дополнительные бонусы.\n\n§RЗапрещено§! использовать уровень жизни §YПрожиточный минимум§!."
 
  resolution_greatergood_greater_than_ourselves: "Больше нас"
+ resolution_greatergood_greater_than_ourselves_good: "$resolution_greatergood_greater_than_ourselves$"
  resolution_greatergood_greater_than_ourselves_desc: "Мы о многом просим свой народ, но иногда вынуждены просить о большем. Нужно вознаграждать тех, кто готов поставить нужды государства превыше собственных и отправиться на фронтир."
  resolution_greatergood_greater_than_ourselves_tooltip: "Доступен указ, поощряющий добровольное переселение свободных безработных поселений на подходящие планеты с работой и жильём, если они находятся в пределах нашего государства.\n\n§RЗапрещено§! использовать уровни жизни §YПрожиточный минимум§! и §YСтратифицированная экономика§!.\n\n§RЗапрещено§! использовать следующие типы рабства: §YРабский труд§!, §YСкот§! и §YСлияние с сетью§!."
  edict_greater_than_ourselves: "$resolution_greatergood_greater_than_ourselves$"
@@ -1367,10 +1375,12 @@
  federations.10010.desc_wilderness: "[global_event_country.GetGalCommunityOrGalImperium_rinfix::<1> принял|||neut:<1> приняло]] принимает положения, наделяющие рабочих дополнительными привилегиями.\n\nИ хотя для нас это решение не имеет особого значения, мы, по крайней мере, можем получить какую-то номинальную выгоду от созданной ими инфраструктуры для переселения неактивных единиц и рабочих."
 
  resolution_greatergood_balance_in_the_middle: "Золотая середина"
+ resolution_greatergood_balance_in_the_middle_good: "$resolution_greatergood_balance_in_the_middle$"
  resolution_greatergood_balance_in_the_middle_desc: "Мы должны бороться со всеми проявлениями неравенства и насаждать справедливость любыми методами. К чему пировать, если ты уже насытился, и зачем выбрасывать излишки, когда твой сосед голодает?"
  resolution_greatergood_balance_in_the_middle_tooltip: "§RЗапрещены§! уровни жизни §YПрожиточный минимум§!, §YСтратифицированная экономика§!, §YДостойные условия§! и §YАкадемическая привилегия§!.\n\n§RЗапрещены§! все типы §Yрабства§!."
 
  resolution_greatergood_universal_prosperity_mandate: "Мандат о всеобщем процветании"
+ resolution_greatergood_universal_prosperity_mandate_good: "$resolution_greatergood_universal_prosperity_mandate$"
  resolution_greatergood_universal_prosperity_mandate_desc: "Если галактическая цивилизация не в состоянии обеспечить собственное население, то она подвела его. Нет оправданий для неудовлетворённых потребностей. Мы должны распределять излишки доходов ради всеобщего блага."
  resolution_greatergood_universal_prosperity_mandate_tooltip: "§RЗапрещены§! все уровни жизни, кроме §YРазделения тягот§!, §YАкционирования сотрудников§!, §YУтопического изобилия§!, §YХимического блаженства§! и §YОбязательного потакания§!.\n\n§RЗапрещена§! ассимиляция органиков §Yманиакальным ассимилятором§! или §Yколлективным разумом§!.\n\nГосударства, не являющиеся §Yэгалитаристами§! или §Yвзбунтовавшимися служителями§!, возможно, не сумеют выполнить эти требования и §Rнарушат галактический закон§!!"
 
@@ -1943,6 +1953,7 @@
 
  VETO: "Наложить вето"
  EMERGENCY_MEASURE: "Чрезвычайная мера"
+ EMERGENCY_MEASURE_PLURAL: "Чрезвычайные меры"
  WITHDRAW_PROPOSED: "Отозвать"
 
  CLICK_TO_VIEW_GALACTIC_COMMUNITY: "§GЩёлкните, чтобы открыть [global_event_country.GetGalCommunityOrGalImperium].§!"
@@ -2141,6 +2152,7 @@
  federation_law_category_separate_treaties_cooldown: "$federation_centralization_cooldown$"
  federation_law_category_commercial_pact_cooldown: "$federation_centralization_cooldown$"
  federation_law_category_research_pact_cooldown: "$federation_centralization_cooldown$"
+ federation_law_category_official_ideology_cooldown: "$federation_law_category_centralization_cooldown$"
 
  ### Feral Overload Colony Event Chain text
  feral_overload_00: "Громкое меньшинство"

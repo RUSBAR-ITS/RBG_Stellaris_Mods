@@ -27,6 +27,7 @@
  requires_syn_dawn: "$dlc_requirement_string$ §ISynthetic Dawn§!"
  requires_megacorp: "$dlc_requirement_string$ §IMegaCorp§!"
  requires_dis_stars: "$dlc_requirement_string$ §IDistant Stars Story Pack§!"
+ requires_willpower: "$dlc_requirement_string$ §IWillpower§!"
 
  tt_gain: "\n\nКак получить:\n"
  tt_use: "\n\nПрименение:\n"
@@ -372,6 +373,14 @@
  concept_ship_upkeep: "Содержание кораблей"
  concept_logistics_upkeep: "Логистические затраты"
  concept_ship_upkeep_desc: "§H$concept_ship_upkeep$§! отражает затраты ресурсов на поддержание межзвёздных кораблей в рабочем состоянии, будь то гражданские или военные корабли.\n\nБольшинству из них для содержания требуется сразу несколько разных ресурсов, а объёмы затрат определяются классом корабля и установленными компонентами. Однако если превысить ['concept_naval_capacity', вместимость флота] государства, затраты на содержание всех кораблей значительно возрастут."
+ concept_regeneration: "Восстановление"
+ concept_regeneration_desc: "§H$concept_regeneration$§! постепенно восполняет запас прочности корпуса, брони и щитов ['concept_ship', корабля]. §H$concept_regeneration$§! рассчитывается по двум показателям:\n- §YЕжедневное восстановление§! возвращает фиксированное число единиц прочности в сутки.\n- Каждая единица §Yрейтинга восстановления§! возвращает за сутки §Y0,01%§! от максимальной прочности того элемента, к которому относится рейтинг.\n\nВне боя §H$concept_ships$§! получают бонус к скорости восстановления:\n- $SHIP_STAT_HITPOINTS$: §G+400%§!\n- $SHIP_STAT_ARMOR$: §G+400%§!\n- $SHIP_STAT_SHIELDS$: §G+400%§!\n\n§H$concept_ship$§! на орбите ['concept_starbase', космической базы] или другой верфи также проходит ['concept_shipyard_repairs', ремонт на верфи]. §H$concept_starbase$§! и ['concept_defense_platform', оборонительная платформа] после повреждения восстанавливаются самостоятельно за счёт ['concept_station_repairs', ремонта станции].$tt_gain$- Некоторые ['concept_components', компоненты кораблей]\n- Некоторые ['concept_leader_traits', черты лидеров]"
+ concept_shipyard_repair: "Ремонт на верфи"
+ concept_shipyard_repairs: "$concept_shipyard_repair$"
+ concept_shipyard_repairs_desc: "§H$concept_shipyard_repairs$§! доступен у союзных ['concept_starbases', космических баз] и ['concept_shipyards', верфей]. Его проходят §H$concept_ships$§! на их орбите и у их причалов. §H$concept_shipyard_repairs$§! повышает рейтинг восстановления:\n- $SHIP_STAT_HITPOINTS$: §G+40§!\n- $SHIP_STAT_ARMOR$: §G+40§!\n\n§H$concept_shipyard_repairs$§! возможен только вне боя, поэтому на него всегда действует бонус к скорости ['concept_regeneration', восстановления] (§G+400%§!)."
+ concept_station_repair: "Ремонт станции"
+ concept_station_repairs: "$concept_station_repair$"
+ concept_station_repairs_desc: "§H$concept_station_repairs$§! восстанавливает повреждённую ['concept_starbase', космическую базу] или ['concept_defense_platform', оборонительную платформу]. После последнего повреждения до начала ремонта должно пройти:\n- §H$concept_starbase$§! — §Y30§! дней.\n- §H$concept_defense_platform$§! — §Y10§! дней.\n\nПока идёт §H$concept_station_repairs$§!, действуют прибавки к рейтингу восстановления:\n- $SHIP_STAT_HITPOINTS$: §G+20§!\n- $SHIP_STAT_ARMOR$: §G+20§!\n\nКаждое новое повреждение запускает отсчёт заново. Пока в системе есть враждебный флот, ремонт приостановлен. Вне боя §H$concept_station_repairs$§! получает бонус к скорости ['concept_regeneration', восстановления] (§G+400%§!)."
 
  # Singular: ['concept_colony_upkeep'] or §H$concept_colony_upkeep$§!
  # Plural: -

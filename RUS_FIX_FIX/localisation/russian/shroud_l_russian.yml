@@ -2309,6 +2309,7 @@
 
  proxy_war: "$concept_proxy_war$"
  mod_proxy_war_cost_mult: "Расход влияния на прокси-войну"
+ per_owned_pop: "$NAME$ за каждые $pop_group_unit$ £pops£ поселений: $VALUE$"
 
 # Cycle of Fortune
  cycle_of_fortune: "Цикл удачи"

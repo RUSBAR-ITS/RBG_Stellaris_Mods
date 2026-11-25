@@ -27,7 +27,8 @@
 
  admiral_subclass_tt: "§GВетеранский класс, специализирующийся на командовании флотилиями§!"
  general_subclass_tt: "§GВетеранский класс, специализирующийся на командовании армиями§!"
- delegate_subclass_tt: "§GВетеранский класс, специализирующийся на представлении нас в федерации или [GetGalCommunityOrGalImperium_rinfix&prep]§!"
+ delegate_subclass_base_tt: "§GВетеранский класс, специализирующийся на представлении нас в федерации или [GetGalCommunityOrGalImperium_rinfix&prep]§!"
+ delegate_subclass_tt: "[GetDelegateSubclassSubtitle]"
  explorer_subclass_tt: "§GВетеранский класс, специализирующийся на исследовании и изучении§!"
  scholar_subclass_tt: "§GВетеранский класс, специализирующийся на изучении аномалий и раскопок§!"
  governor_subclass_tt: "§GВетеранский класс, специализирующийся на чертах губернаторов§!"

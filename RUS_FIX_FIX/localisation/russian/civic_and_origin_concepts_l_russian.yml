@@ -60,7 +60,7 @@
  concept_robot_assembly_plant_desc: "- Должности [roboticist.GetIcon] ['concept_roboticist', [roboticist_rinfix.GetName]]: §G+100§!\n\n§L$building_robot_assembly_plant_desc$§!"
 
  concept_powered_exoskeletons: "$tech_powered_exoskeletons$"
- concept_powered_exoskeletons_desc: "- $MOD_ARMY_DAMAGE_MULT$: §G+5%§!\n- Эффективность $pop_cat_worker_plural_gen$: §G+5%§!\n\n§L$tech_powered_exoskeletons_desc$§!"
+ concept_powered_exoskeletons_desc: "- $MOD_ARMY_DAMAGE_MULT$: §G+5%§!\n- Эффективность категории «$WORKER_NO_ICON$»: §G+5%§!\n\n§L$tech_powered_exoskeletons_desc$§!"
 
  concept_robotic_workers: "$tech_robotic_workers$"
  concept_robotic_workers_desc: "- $i_unlocks_building$ $building_robot_assembly_plant$\n- $i_unlocks_feature$ $feature_robots$\n\n§L$tech_robotic_workers_desc$§!"
@@ -679,3 +679,5 @@
  concept_experimental_testing_hive_mind_desc: "$concept_experimental_testing_desc$"
  concept_experimental_testing_corporate: "$concept_experimental_testing$"
  concept_experimental_testing_corporate_desc: "$concept_experimental_testing_desc$"
+ concept_lost_makers_site: "$lost_makers_precursor_site$"
+ concept_lost_makers_site_desc: "§LВ нашей родной системе обнаружено подземное сооружение. Его конструкция напоминает древнюю сетевую структуру, когда-то существовавшую в нашем родном мире, однако никаких записей о его строительстве не сохранилось.\n\nПодтвердить нашу связь с ним не представляется возможным.§!"

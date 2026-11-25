@@ -30,6 +30,7 @@
  MOD_COUNTRY_TRUST_CAP_MULT: "Максимум доверия"
  MOD_COUNTRY_SUBJECT_POWER_PENALTY: "Штраф власти над подданными"
  MOD_COUNTRY_SUBJECT_TRUST_CAP_ADD: "Максимум доверия подданных"
+ MOD_COUNTRY_DIASPORA_TENET_TRUST_CAP_ADD: "$MOD_COUNTRY_TRUST_CAP_ADD$"
  MOD_COUNTRY_SPECIALIST_SUBJECT_CONVERSION_TIME_MULT: "Время смены специализации подданного"
  MOD_COUNTRY_SYNTHETIC_TRUST_CAP_ADD: "Максимум доверия для синтетиков"
  MOD_COUNTRY_ORGANIC_TRUST_CAP_ADD: "Максимум доверия для органиков"
@@ -72,6 +73,9 @@
  mod_country_base_consumer_goods_produces_add: "Производство товаров массового спроса государством"
  mod_country_base_alloys_produces_add: "Производство сплавов государством"
  mod_country_base_nanites_produces_add: "Производство нанитов государством"
+ mod_country_base_physics_research_produces_add: "£physics_research£ $physics_research$ ежемесячно"
+ mod_country_base_society_research_produces_add: "£society_research£ $society_research$ ежемесячно"
+ mod_country_base_engineering_research_produces_add: "£engineering_research£ $engineering_research$ ежемесячно"
  MOD_ASSIST_RESEARCH_MULT: "Эффективность помощи в исследованиях"
  MOD_COUNTRY_NUM_TECH_ALTERNATIVES_ADD: "Альтернативные исследования"
  MOD_COUNTRY_PREVIOUS_DEALS: "Предыдущие договоры"
@@ -158,6 +162,7 @@
  MOD_COUNTRY_SCAVENGE_DEBRIS_MULT: "Полученные за разборку обломков ресурсы"
  MOD_ADD_BASE_COUNTRY_INTEL: "Базовый уровень разведки"
  MOD_COUNTRY_RESEARCH_SHARING_MULT: "Обмен знаниями от соглашений"
+ MOD_COUNTRY_RESEARCH_SHARING_DIASPORA_TENET_MULT: "$MOD_COUNTRY_RESEARCH_SHARING_MULT$"
 
  #Pop
  MOD_POP_FERTILITY: "Репродуктивность"
@@ -388,6 +393,7 @@
  MOD_SHIP_NAVAL_CAP_USAGE_MULT: "$MOD_SHIP_NAVAL_CAP_USAGE_ADD$"
  MOD_SHIP_REPAIR_HULL_MULT: "Скорость ремонта корпуса пристыкованных кораблей"
  MOD_SHIP_REPAIR_ARMOR_MULT: "Скорость ремонта брони пристыкованных кораблей"
+ MOD_SHIP_REPAIR_SHIELD_MULT: "Скорость восстановления щитов"
  MOD_SHIP_REACTOR_POWER_ADD: "Мощность реактора"
  MOD_SHIP_REACTOR_POWER_MULT: "$MOD_SHIP_REACTOR_POWER_ADD$"
  MOD_SHIP_CLOAKING_STRENGTH_ADD: "Сила маскировки"
@@ -455,6 +461,7 @@
  MOD_SHIP_ORBITAL_BOMBARDMENT_MULT: "$MOD_PLANET_ORBITAL_BOMBARDMENT_DAMAGE$"
  MOD_SHIP_ORBITAL_BOMBARDMENT_ARMY_DAMAGE_MULT: "Урон армии от орбитальной бомбардировки"
  MOD_SHIP_ORBITAL_BOMBARDMENT_POP_DAMAGE_MULT: "Урон поселениям от орбитальной бомбардировки"
+ MOD_SHIP_ORBITAL_BOMBARDMENT_PLANET_DAMAGE_MULT: "Урон планете от орбитальной бомбардировки"
  MOD_PLANET_ADD_SPACEPORT: "Дополнительная ячейка для орбитальных сооружений"
  MOD_PLANET_SENSOR_RANGE_ADD: "Дальность действия сенсоров колонии"
  MOD_PLANET_SENSOR_RANGE_MULT: "Дальность действия сенсоров колонии"
@@ -491,6 +498,7 @@
  mod_planet_buildings_energy_upkeep_mult: "Затраты £energy£ энергии на содержание сооружений"
  mod_planet_districts_cost_mult: "Стоимость районов"
  mod_planet_districts_upkeep_mult: "Содержание районов"
+ mod_planet_districts_produces_mult: "Производство районов"
  mod_planet_districts_energy_upkeep_mult: "Энергия на содержание районов"
  mod_planet_districts_cities_upkeep_mult: "Содержание городских районов"
  mod_planet_districts_mines_cost_mult: "Стоимость горнодобывающих районов"
@@ -509,6 +517,7 @@
  mod_planet_buildings_factories_cost_mult: "Стоимость фабрик"
  mod_planet_buildings_refineries_cost_mult: "Стоимость фабрик переработки"
  mod_planet_buildings_strongholds_cost_mult: "Стоимость крепостей"
+ mod_planet_buildings_temples_cost_mult: "$planet_buildings_temples$ — $COST$"
  mod_planet_district_mining_build_speed_mult: "Скорость строительства горнодобывающих районов"
  mod_planet_district_melting_build_speed_mult: "Скорость строительства проводников магмы"
  mod_planet_district_farming_build_speed_mult: "Скорость строительства аграрных районов"
@@ -575,6 +584,8 @@
  MOD_LEADER_SKILL_LEVELS: "Максимальный уровень лидера"
  MOD_LEADER_LIFESPAN_ADD: "Продолжительность жизни лидера"
  MOD_LEADER_LIFESPAN_MULT: "$MOD_LEADER_LIFESPAN_ADD$"
+ MOD_LEADER_LIFESPAN_MIN: "Минимальная продолжительность жизни лидера"
+ MOD_LEADER_SPECIES_WEIGHT_MULT: "Вес этой расы при подборе кандидатов в лидеры"
 
  MOD_LEADER_STARTING_AGE_ADD: "Начальный возраст лидеров"
  MOD_LEADER_STARTING_AGE_MULT: "Начальный возраст лидеров"
@@ -582,6 +593,14 @@
  MOD_RULER_STARTING_AGE_MULT: "Начальный возраст правителя"
  MOD_HEIR_STARTING_AGE_ADD: "Начальный возраст наследника"
  MOD_HEIR_STARTING_AGE_MULT: "Начальный возраст наследника"
+ mod_commander_starting_age_add: "Начальный возраст ($commander_with_icon$)"
+ mod_scientist_starting_age_add: "Начальный возраст ($scientist_with_icon$)"
+ mod_official_starting_age_add: "Начальный возраст ($official_with_icon$)"
+ mod_envoy_starting_age_add: "Начальный возраст ($envoy_with_icon$)"
+ mod_commander_starting_age_mult: "$mod_commander_starting_age_add$"
+ mod_scientist_starting_age_mult: "$mod_scientist_starting_age_add$"
+ mod_official_starting_age_mult: "$mod_official_starting_age_add$"
+ mod_envoy_starting_age_mult: "$mod_envoy_starting_age_add$"
 
  MOD_LEADER_ADMIRAL_SKILL_LEVELS: "Максимальный уровень адмиралов"
  MOD_LEADER_GENERAL_SKILL_LEVELS: "Максимальный уровень генералов"
@@ -618,6 +637,12 @@
  mod_country_general_cap_add: "Лимит $general_plural_with_icon_gen$"
  mod_country_scientist_cap_add: "Лимит $scientist_plural_with_icon_gen$"
  mod_country_official_cap_add: "Лимит $official_plural_with_icon_gen$"
+ mod_country_commander_pool_size_add: "$RECRUITABLE_LEADERS$ ($commander_with_icon$)"
+ mod_country_scientist_pool_size_add: "$RECRUITABLE_LEADERS$ ($scientist_with_icon$)"
+ mod_country_official_pool_size_add: "$RECRUITABLE_LEADERS$ ($official_with_icon$)"
+ mod_country_commander_external_pool_size_add: "$EXTERNAL_RECRUITABLE_LEADERS$ ($commander_with_icon$)"
+ mod_country_scientist_external_pool_size_add: "$EXTERNAL_RECRUITABLE_LEADERS$ ($scientist_with_icon$)"
+ mod_country_official_external_pool_size_add: "$EXTERNAL_RECRUITABLE_LEADERS$ ($official_with_icon$)"
 
  #Component
  MOD_COMPONENT_RANGE_MULT: "Радиус действия компонентов"
@@ -664,9 +689,11 @@
  MOD_COUNTRY_ENCLAVE_CAPACITY_MULT: "Лимит анклавов"
  mod_starbase_buildings_cost_mult: "Стоимость станций"
  mod_starbase_modules_cost_mult: "Стоимость модулей станций"
+ mod_starbase_defenses_build_cost_mult: "Стоимость оборонительных сооружений станции"
 
  #Star System
  SYSTEM_MODIFIER: "Модификаторы системы"
+ SYSTEM_MODIFIER_TITLE: "§E$SYSTEM_MODIFIER$:§!"
 
  ####################################
  # Economy Modifiers
@@ -814,14 +841,25 @@
  mod_resolution_category_intergalacticdirective_vote_strength_mult: "Сила голоса за резолюции в категории §Y$resolution_category_intergalacticdirective$§!"
  mod_resolution_category_bureaucraticsurveillance_vote_strength_mult: "Сила голоса за резолюции в категории §Y$resolution_category_bureaucraticsurveillance$§!"
  mod_resolution_category_pre_ftl_stances_vote_strength_mult: "Сила голоса за резолюции в категории §Y$resolution_category_pre_ftl_stances$§!"
+ ETHICS_ATTRACTION: "Привлекательность принципов"
+ MOD_POP_ETHIC_ATTRACTION_ADD: "$ETHICS_ATTRACTION$ (все принципы)"
+ MOD_POP_ETHIC_ATTRACTION_MULT: "$MOD_POP_ETHIC_ATTRACTION_ADD$"
+ mod_pop_ethic_pacifist_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_pacifist$)"
 
  mod_pop_ethic_pacifist_attraction_mult: "Привлекательность пацифизма"
+ mod_pop_ethic_militarist_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_militarist$)"
  mod_pop_ethic_militarist_attraction_mult: "Привлекательность милитаризма"
+ mod_pop_ethic_materialist_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_materialist$)"
  mod_pop_ethic_materialist_attraction_mult: "Привлекательность материализма"
+ mod_pop_ethic_spiritualist_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_spiritualist$)"
  mod_pop_ethic_spiritualist_attraction_mult: "Привлекательность спиритуализма"
+ mod_pop_ethic_xenophile_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_xenophile$)"
  mod_pop_ethic_xenophile_attraction_mult: "Привлекательность ксенофилии"
+ mod_pop_ethic_xenophobe_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_xenophobe$)"
  mod_pop_ethic_xenophobe_attraction_mult: "Привлекательность ксенофобии"
+ mod_pop_ethic_egalitarian_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_egalitarian$)"
  mod_pop_ethic_egalitarian_attraction_mult: "Привлекательность эгалитаризма"
+ mod_pop_ethic_authoritarian_attraction_add: "$ETHICS_ATTRACTION$ ($ethic_authoritarian$)"
  mod_pop_ethic_authoritarian_attraction_mult: "Привлекательность авторитаризма"
 
  mod_shipsize_starbase_outpost_build_speed_mult: "Скорость строительства форпостов"
@@ -915,6 +953,7 @@
  mod_shipsize_ion_cannon_target_weight_mult: "Привлечение внимания ионными пушками"
 
  mod_shipclass_military_station_damage_mult: "Урон оборонительных платформ"
+ mod_shipclass_military_station_armor_mult: "Броня оборонительной платформы"
  mod_shipclass_military_station_hull_mult: "Корпус оборонительных платформ"
  mod_shipclass_military_station_build_cost_mult: "Стоимость оборонительных платформ"
 
@@ -1272,8 +1311,10 @@
  triggered_opinion_both_servitors: "Тоже служители"
  triggered_materialist_opinion_of_machine_empires: "Замысловатые машины"
  triggered_fanatic_materialist_opinion_of_machine_empires: "Замысловатые машины"
+ triggered_absolute_materialist_opinion_of_machine_empires: "$triggered_fanatic_materialist_opinion_of_machine_empires$"
  triggered_spiritualist_opinion_of_machine_empires: "$opinion_synthetics_fanatic$"
  triggered_fanatic_spiritualist_opinion_of_machine_empires: "$opinion_synthetics_fanatic$"
+ triggered_absolute_spiritualist_opinion_of_machine_empires: "$opinion_synthetics_fanatic$"
  triggered_spiritualist_fe_opinion_of_machine_empires: "$opinion_synthetics_fanatic$"
  triggered_decadent_opinion_of_servitors: "Добровольные слуги"
  triggered_negative_opinion_of_assimilators: "Грозные ассимиляторы"
@@ -1293,6 +1334,7 @@
  triggered_individual_machine_opinion_of_individual_machine_empires: "Самостоятельные машины"
  triggered_spiritualist_opinion_of_spiritualists_machine_empires: "$opinion_synthetics_fanatic$"
  triggered_fanatic_spiritualist_opinion_of_spiritualists_machine_empires: "$opinion_synthetics_fanatic$"
+ triggered_absolute_spiritualist_opinion_of_spiritualists_machine_empires: "$opinion_synthetics_fanatic$"
 
  ## ETHOS
  triggered_opinion_xenophobia: "Ксенофобия"
@@ -1309,6 +1351,8 @@
  triggered_opinion_of_pacifist_pos: "Просвещённые пацифисты"
  triggered_opinion_of_egalitarian: "Толпа эгалитаристов"
  triggered_opinion_of_authoritarian: "Авторитарные тираны"
+ triggered_opinion_of_militarist: "Воинственные варвары"
+ triggered_opinion_of_militarist_pos: "Прагматичные милитаристы"
  opinion_from_personality: "Тип личности «[Root.GetPersonalityName]»"
  opinion_desecrated_holy_world: "Осквернённая священная планета"
  opinion_desecrated_tomb_world: "Осквернённый опустошённый мир"
@@ -1691,12 +1735,18 @@
  skill_scientist: "Навык ученого"
  skill_governor: "Навык губернаторов" #Unused
  skill_official: "Навык чиновников"
+ skill_official_colony_governor: "$skill_governor$"
+ skill_scientist_colony_governor: "$skill_governor$"
+ skill_commander_colony_governor: "$skill_governor$"
  skill_official_planet_governor: "Навык губернаторов"
  skill_scientist_planet_governor: "Навык губернаторов"
  skill_commander_planet_governor: "Навык губернаторов"
  skill_official_sector_governor: "Навык губернатора сектора"
  skill_scientist_sector_governor: "Навык губернатора сектора"
  skill_commander_sector_governor: "Навык губернатора сектора"
+ skill_official_background_colony_governor: "Управление родной колонией"
+ skill_scientist_background_colony_governor: "$skill_official_background_colony_governor$"
+ skill_commander_background_colony_governor: "$skill_official_background_colony_governor$"
  skill_official_background_planet_governor: "Управление родной планетой"
  skill_scientist_background_planet_governor: "Управление родной планетой"
  skill_commander_background_planet_governor: "Управление родной планетой"
@@ -1707,8 +1757,10 @@
  skill_commander_army: "Навык командиров"
 
  skill_official_delegate_tt: "§EЭффекты в роли представителя в федерации:§!\n$t$- $MOD_FEDERATION_COHESION_ADD$: §G+1§!\n\n§EЭффекты в роли делегата в [global_event_country.GetGalCommunityOrGalImperium_rinfix&prep]:§!\n$t$- $MOD_DIPLO_WEIGHT_MULT$: §G+10%§!"
+ skill_official_colony_governor_tt: "$t$- $w_basic_plural$ от должностей: §G+$@planet_job_mult|0%$§!$TABBED_NEW_LINE$- $w_advanced_plural$ от должностей: §G+$@planet_job_mult|0%$§!$TABBED_NEW_LINE$- $w_strategic_plural$ от должностей: §G+$@planet_job_mult|0%$§!$TABBED_NEW_LINE$- $MOD_SPECIES_EMPIRE_SIZE_MULT$: §G$@planet_empire_size|0%$§!"
  skill_official_planet_governor_tt: "- $w_basic_plural$ от должностей: §G+$@planet_job_mult|0%$§!\n- $w_advanced_plural$ от должностей: §G+$@planet_job_mult|0%$§!\n- $w_strategic_plural$ от должностей: §G+$@planet_job_mult|0%$§!\n- $MOD_SPECIES_EMPIRE_SIZE_MULT$: §G$@planet_empire_size|0%$§!"
  skill_official_sector_governor_tt: "- $w_basic_plural$ от должностей: §G+$@sector_job_mult|%$§!\n- $w_advanced_plural$ от должностей: §G+$@sector_job_mult|%$§!\n- $w_strategic_plural$ от должностей: §G+$@sector_job_mult|%$§!\n- $MOD_SPECIES_EMPIRE_SIZE_MULT$: §G$@sector_empire_size|0%$§!"
+ governing_home_colony_effect: "£planet£ §YГубернатор родной колонии§! — §Eэффекты за каждый§! §Yуровень навыка§!:"
 
  governing_homeplanet_effect: "§EЭффекты при управлении родной планетой:§!"
  governing_homearkship_effect: "§EЭффекты при управлении родным кораблём-ковчегом:§!"
@@ -1716,6 +1768,7 @@
  governing_sector_effect: "§EЭффекты при управлении сектором:§!"
  commanding_army_effect: "§EЭффекты при командовании армией:§!"
  commanding_navy_effect: "§EЭффекты при командовании флотилией:§!"
+ commanding_science_ship_effect: "£science_ship£ §Y$SCIENCE_SHIP$§! — §Eэффекты за каждый§! §Yуровень навыка§!:"
 
  inhibition_relase: "Снятие ограничений"
  powered_exoskeletons: "Активные экзоскелеты"
@@ -1911,6 +1964,7 @@
  MOD_ENGINEERING_TECH_COST_MULT: "Стоимость £engineering£ §Yинженерных§! исследований"
 
  mod_megastructure_dismantle_refund_mult: "Возмещение за мегасооружение"
+ mod_megastructures_unity_cost_mult: "Стоимость мегасооружений в единицах единства"
  mod_colony_start_urban_districts_add: "Городские районы при основании колоний"
 
  NAME_COLON: "$NAME$: "

@@ -805,3 +805,4 @@
 
  FLEET_TEMPLATE_COMMAND_MAX_MULTIPLE: "Добавив корабли ($NUM|Y$), вы превысите предел управления флотилии."
  FLEET_TEMPLATE_COMMAND_MIN_MULTIPLE: "Из этого шаблона флотилии нельзя удалить необходимое количество кораблей ($NUM|Y$)"
+ STARBASE_RETURN_CONTROL_IS_NOT_CONTROLLER: "$STARBASE_RETURN_CONTROL_IS_CONTROLLER$"

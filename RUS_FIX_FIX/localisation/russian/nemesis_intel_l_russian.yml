@@ -1059,8 +1059,10 @@
  opinion_first_contact_admirer_of_poetry: "Ценитель поэзии"
  opinion_first_contact_poetic_flatterer: "Поэтический льстец"
  opinion_first_contact_trial_fanatic_good: "Испытание Первого контакта" # The Trial
+ opinion_first_contact_trial_absolute_good: "$opinion_first_contact_trial_fanatic_good$"
  opinion_first_contact_trial_very_good: "$opinion_first_contact_trial_fanatic_good$"
  opinion_first_contact_trial_good: "$opinion_first_contact_trial_fanatic_good$"
+ opinion_first_contact_trial_absolute_bad: "$opinion_first_contact_trial_fanatic_good$"
  opinion_first_contact_trial_fanatic_bad: "$opinion_first_contact_trial_fanatic_good$"
  opinion_first_contact_trial_very_bad: "$opinion_first_contact_trial_fanatic_good$"
  opinion_first_contact_trial_bad: "$opinion_first_contact_trial_fanatic_good$"

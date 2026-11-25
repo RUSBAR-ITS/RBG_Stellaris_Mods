@@ -44,7 +44,7 @@
 
  trait_hollow_bones: "Полые кости"
  trait_hollow_bones_desc: "Благодаря хрупким костям представители этой расы перемещаются изящно и легко, однако гравитация родной планеты действует на них сильнее."
- trait_hollow_bones_effect: "$BONUS_WORKFORCE_FOR$ $pop_cat_worker_plural_gen$, $pop_cat_simple_drone_plural_gen$ и солдатских должностей за каждую единицу размера планеты: §R-0.67%§!"
+ trait_hollow_bones_effect: "$BONUS_WORKFORCE_FOR$ категорий «$WORKERS_NO_ICON$» и «$pop_cat_simple_drone_plural$», а также солдатских должностей за каждую единицу размера планеты: §R-0.67%§!"
 
  trait_rooted: "Укоренившиеся"
  trait_rooted_desc: "Эта раса в любой среде в буквальном смысле пускает корни, а извлечение этих корней происходит крайне болезненно."
@@ -2172,6 +2172,7 @@
  civic_crowdsourcing: "Привлечение общественности"
  civic_crowdsourcing_desc: "Граждане этого общества осознают, что вдохновение отдельно взятых личностей — залог всеобщего развития. Общедоступные патенты, открытый образ мышления, спонтанные сотрудничества и премии за инновации толкают прогресс вперёд."
  civic_crowdsourcing_effects: "$t$- Фракции производят $r_research_acc$ вместо $r_unity_gen$\n$t$- Фракции появляются вскоре после начала игры, но в первые десять лет производят меньше ресурсов"
+ civic_crowdsourcing_negative_effects: "$t$$BULLET_POINT$Нельзя принять фракцию, принципы которой совпадают с принципами текущего правительства"
  civic_corporate_crowdsourcing: "Децентрализованные НИОКР"
  civic_corporate_crowdsourcing_desc: "Постоянные состязания между отделами в области инновационных разработок побуждают инженеров и конструкторов этой корпорации создавать что-то новое."
  civic_corporate_crowdsourcing_effects: "$civic_crowdsourcing_effects$\n$t$- $BRANCH_OFFICE_BUILDING$ £building£ ['building:building_private_research_initiative'] $megacorp_civic_branch_office_building_effect$"

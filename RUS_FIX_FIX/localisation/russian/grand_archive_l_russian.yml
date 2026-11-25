@@ -2026,6 +2026,8 @@
  MOD_SPACE_FAUNA_EXPERIENCE_GAIN_MULT: "Прирост опыта особей космической фауны"
  MOD_SPACE_FAUNA_SHIP_SIZE_SHIELD_ADD: "$space_fauna_shield$"
  MOD_SPACE_FAUNA_SHIP_SIZE_SHIELD_REGEN_ADD: "Восстановление щита особей космической фауны"
+ MOD_SPACE_FAUNA_SHIP_SIZE_HULL_REGEN_ADD: "Восстановление корпуса особей космической фауны"
+ MOD_SPACE_FAUNA_SHIP_SIZE_ARMOR_REGEN_ADD: "Восстановление брони особей космической фауны"
 
  mod_planet_zoo_keepers_produces_mult: "Ресурсы от £job_xeno_zoo_keeper£ смотрителей за животными"
  planet_zoo_keepers: "Должности смотрителей за животными"

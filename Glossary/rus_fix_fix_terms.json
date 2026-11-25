@@ -1,0 +1,710 @@
+{
+  "terms": [
+    {
+      "english": "Commander",
+      "russian": "Командир",
+      "sources": [
+        {
+          "key": "RT_CENTRAL_CRYSTAL_COMMANDER",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/events_6_l_english.yml",
+          "english_line": 600,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/events_6_l_russian.yml",
+          "russian_line": 479,
+          "priority": 3
+        },
+        {
+          "key": "commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2426,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2412,
+          "priority": 2
+        },
+        {
+          "key": "commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2426,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2319,
+          "priority": 3
+        },
+        {
+          "key": "default_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2472,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2458,
+          "priority": 2
+        },
+        {
+          "key": "default_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2472,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2359,
+          "priority": 3
+        },
+        {
+          "key": "faction_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2480,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2466,
+          "priority": 2
+        },
+        {
+          "key": "faction_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2480,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2366,
+          "priority": 3
+        },
+        {
+          "key": "adversary_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2488,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2474,
+          "priority": 2
+        },
+        {
+          "key": "adversary_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2488,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2373,
+          "priority": 3
+        },
+        {
+          "key": "fallen_empire_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2496,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2482,
+          "priority": 2
+        },
+        {
+          "key": "fallen_empire_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2496,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2380,
+          "priority": 3
+        },
+        {
+          "key": "awakened_fallen_empire_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2504,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2490,
+          "priority": 2
+        },
+        {
+          "key": "awakened_fallen_empire_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2504,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2387,
+          "priority": 3
+        },
+        {
+          "key": "awakened_marauders_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2512,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2498,
+          "priority": 2
+        },
+        {
+          "key": "awakened_marauders_commander",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2512,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2394,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Governor",
+      "russian": "Губернатор",
+      "sources": [
+        {
+          "key": "governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2428,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2414,
+          "priority": 2
+        },
+        {
+          "key": "governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2428,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2321,
+          "priority": 3
+        },
+        {
+          "key": "default_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2476,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2462,
+          "priority": 2
+        },
+        {
+          "key": "default_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2476,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2363,
+          "priority": 3
+        },
+        {
+          "key": "faction_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2484,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2470,
+          "priority": 2
+        },
+        {
+          "key": "faction_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2484,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2370,
+          "priority": 3
+        },
+        {
+          "key": "adversary_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2492,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2478,
+          "priority": 2
+        },
+        {
+          "key": "adversary_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2492,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2377,
+          "priority": 3
+        },
+        {
+          "key": "fallen_empire_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2500,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2486,
+          "priority": 2
+        },
+        {
+          "key": "fallen_empire_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2500,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2384,
+          "priority": 3
+        },
+        {
+          "key": "awakened_fallen_empire_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2508,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2494,
+          "priority": 2
+        },
+        {
+          "key": "awakened_fallen_empire_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2508,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2391,
+          "priority": 3
+        },
+        {
+          "key": "awakened_marauders_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2516,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2502,
+          "priority": 2
+        },
+        {
+          "key": "awakened_marauders_governor",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2516,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2398,
+          "priority": 3
+        },
+        {
+          "key": "GOVERNOR_TITLE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/megacorp_l_english.yml",
+          "english_line": 493,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/megacorp_l_russian.yml",
+          "russian_line": 492,
+          "priority": 2
+        },
+        {
+          "key": "GOVERNOR_TITLE",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/megacorp_l_english.yml",
+          "english_line": 493,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/megacorp_l_russian.yml",
+          "russian_line": 466,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Heir",
+      "russian": "Преемник",
+      "sources": [
+        {
+          "key": "HEIR",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 2105,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 2087,
+          "priority": 2
+        },
+        {
+          "key": "HEIR",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 2105,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_2_l_russian.yml",
+          "russian_line": 1999,
+          "priority": 3
+        },
+        {
+          "key": "INTEL_INFO_heir",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nemesis_intel_l_english.yml",
+          "english_line": 65,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/nemesis_intel_l_russian.yml",
+          "russian_line": 65,
+          "priority": 2
+        },
+        {
+          "key": "INTEL_INFO_heir",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nemesis_intel_l_english.yml",
+          "english_line": 65,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/nemesis_intel_l_russian.yml",
+          "russian_line": 63,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Official",
+      "russian": "Чиновник",
+      "sources": [
+        {
+          "key": "official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2429,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2415,
+          "priority": 2
+        },
+        {
+          "key": "official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2429,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2322,
+          "priority": 3
+        },
+        {
+          "key": "default_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2477,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2463,
+          "priority": 2
+        },
+        {
+          "key": "default_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2477,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2364,
+          "priority": 3
+        },
+        {
+          "key": "faction_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2485,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2471,
+          "priority": 2
+        },
+        {
+          "key": "faction_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2485,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2371,
+          "priority": 3
+        },
+        {
+          "key": "adversary_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2493,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2479,
+          "priority": 2
+        },
+        {
+          "key": "adversary_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2493,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2378,
+          "priority": 3
+        },
+        {
+          "key": "fallen_empire_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2501,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2487,
+          "priority": 2
+        },
+        {
+          "key": "fallen_empire_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2501,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2385,
+          "priority": 3
+        },
+        {
+          "key": "awakened_fallen_empire_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2509,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2495,
+          "priority": 2
+        },
+        {
+          "key": "awakened_fallen_empire_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2509,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2392,
+          "priority": 3
+        },
+        {
+          "key": "awakened_marauders_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2517,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2503,
+          "priority": 2
+        },
+        {
+          "key": "awakened_marauders_official",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2517,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 2399,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Science Ship",
+      "russian": "Научный корабль",
+      "sources": [
+        {
+          "key": "science",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 3856,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 3840,
+          "priority": 2
+        },
+        {
+          "key": "science",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 3856,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 3699,
+          "priority": 3
+        },
+        {
+          "key": "hot_rod_ship",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 3858,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 3842,
+          "priority": 2
+        },
+        {
+          "key": "hot_rod_ship",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 3858,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 3701,
+          "priority": 3
+        },
+        {
+          "key": "SCIENCE_SHIP",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 4273,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 4257,
+          "priority": 2
+        },
+        {
+          "key": "SCIENCE_SHIP",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 4273,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_1_l_russian.yml",
+          "russian_line": 4107,
+          "priority": 3
+        },
+        {
+          "key": "shipclass_science_ship",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 1673,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 1656,
+          "priority": 2
+        },
+        {
+          "key": "shipclass_science_ship",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 1673,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_2_l_russian.yml",
+          "russian_line": 1588,
+          "priority": 3
+        },
+        {
+          "key": "shipclass_science",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 1690,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_2_l_russian.yml",
+          "russian_line": 1673,
+          "priority": 2
+        },
+        {
+          "key": "shipclass_science",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_2_l_english.yml",
+          "english_line": 1690,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/main_2_l_russian.yml",
+          "russian_line": 1605,
+          "priority": 3
+        },
+        {
+          "key": "SCIENCE_MID_M1S1",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/ship_sections_l_english.yml",
+          "english_line": 97,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/ship_sections_l_russian.yml",
+          "russian_line": 97,
+          "priority": 2
+        },
+        {
+          "key": "SCIENCE_MID_M1S1",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/ship_sections_l_english.yml",
+          "english_line": 97,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/ship_sections_l_russian.yml",
+          "russian_line": 83,
+          "priority": 3
+        },
+        {
+          "key": "DEFAULT_SCIENCESHIP_SECTION",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/ship_sections_l_english.yml",
+          "english_line": 122,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/ship_sections_l_russian.yml",
+          "russian_line": 122,
+          "priority": 2
+        },
+        {
+          "key": "DEFAULT_SCIENCESHIP_SECTION",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/ship_sections_l_english.yml",
+          "english_line": 122,
+          "russian_file": "Localisation_Base/2-Prio_Vanilla/russian/ship_sections_l_russian.yml",
+          "russian_line": 106,
+          "priority": 3
+        }
+      ]
+    },
+    {
+      "english": "Scientist",
+      "russian": "Учёный",
+      "sources": [
+        {
+          "key": "job_low_tech_researcher",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/first_contact_l_english.yml",
+          "english_line": 965,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/first_contact_l_russian.yml",
+          "russian_line": 965,
+          "priority": 2
+        },
+        {
+          "key": "scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2427,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2413,
+          "priority": 2
+        },
+        {
+          "key": "default_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2475,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2461,
+          "priority": 2
+        },
+        {
+          "key": "faction_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2483,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2469,
+          "priority": 2
+        },
+        {
+          "key": "adversary_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2491,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2477,
+          "priority": 2
+        },
+        {
+          "key": "fallen_empire_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2499,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2485,
+          "priority": 2
+        },
+        {
+          "key": "awakened_fallen_empire_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2507,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2493,
+          "priority": 2
+        },
+        {
+          "key": "awakened_marauders_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/main_1_l_english.yml",
+          "english_line": 2515,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/main_1_l_russian.yml",
+          "russian_line": 2501,
+          "priority": 2
+        },
+        {
+          "key": "asset_scientist",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/nemesis_espionage_l_english.yml",
+          "english_line": 329,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/nemesis_espionage_l_russian.yml",
+          "russian_line": 329,
+          "priority": 2
+        },
+        {
+          "key": "getscientist_normal_capital",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/scripted_loc_l_english.yml",
+          "english_line": 104,
+          "russian_file": "Localisation_Base/1-Prio_Russian_Localization_Fix_RE/russian/scripted_loc_l_russian.yml",
+          "russian_line": 104,
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "english": "Regeneration",
+      "russian": "Восстановление",
+      "sources": [
+        {
+          "key": "concept_regeneration",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 379,
+          "russian_file": "RUS_FIX_FIX/localisation/russian/concepts_l_russian.yml",
+          "russian_line": 376,
+          "source_kind": "local_translation"
+        }
+      ]
+    },
+    {
+      "english": "Shipyard Repair",
+      "russian": "Ремонт на верфи",
+      "sources": [
+        {
+          "key": "concept_shipyard_repair",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 384,
+          "russian_file": "RUS_FIX_FIX/localisation/russian/concepts_l_russian.yml",
+          "russian_line": 378,
+          "source_kind": "local_translation"
+        },
+        {
+          "key": "concept_shipyard_repairs",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 385,
+          "russian_file": "RUS_FIX_FIX/localisation/russian/concepts_l_russian.yml",
+          "russian_line": 379,
+          "source_kind": "local_translation"
+        }
+      ]
+    },
+    {
+      "english": "Station Repair",
+      "russian": "Ремонт станции",
+      "sources": [
+        {
+          "key": "concept_station_repair",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 390,
+          "russian_file": "RUS_FIX_FIX/localisation/russian/concepts_l_russian.yml",
+          "russian_line": 381,
+          "source_kind": "local_translation"
+        },
+        {
+          "key": "concept_station_repairs",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/concepts_l_english.yml",
+          "english_line": 391,
+          "russian_file": "RUS_FIX_FIX/localisation/russian/concepts_l_russian.yml",
+          "russian_line": 382,
+          "source_kind": "local_translation"
+        }
+      ]
+    },
+    {
+      "english": "Ideological Rival",
+      "russian": "Идеологический соперник",
+      "sources": [
+        {
+          "key": "IDEOLOGICAL_RIVAL",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/forceofwill_l_english.yml",
+          "english_line": 609,
+          "russian_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/russian/forceofwill_l_russian.yml",
+          "russian_line": 502,
+          "source_kind": "installed_vanilla_4.6"
+        }
+      ]
+    },
+    {
+      "english": "Ideological Strength",
+      "russian": "Сила идеологии",
+      "sources": [
+        {
+          "key": "IDEOLOGY_STRENGTH",
+          "english_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/english/forceofwill_l_english.yml",
+          "english_line": 4982,
+          "russian_file": "E:/SteamLibrary/steamapps/common/Stellaris/localisation/russian/forceofwill_l_russian.yml",
+          "russian_line": 4096,
+          "source_kind": "installed_vanilla_4.6"
+        }
+      ]
+    }
+  ]
+}
