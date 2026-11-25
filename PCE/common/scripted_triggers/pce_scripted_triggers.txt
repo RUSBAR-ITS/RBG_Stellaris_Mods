@@ -1,15 +1,86 @@
-pce_is_artificial_district_world = {
-    OR = {
-        is_planet_class = pc_habitat
-        is_planet_class = pc_ringworld_habitable
-        is_planet_class = pc_shattered_ring_habitable
-    }
+# The decision and every menu action are restricted to the initiating human owner.
+pce_valid_colony = {
+	exists = colony
+	owner = { is_ai = no }
 }
 
-pce_is_valid_capacity_target = {
-    is_colony = yes
-    exists = owner
-    owner = {
-        is_ai = no
-    }
+pce_valid_session = {
+	exists = event_target:pce_operator
+	is_owned_by = event_target:pce_operator
+	pce_valid_colony = yes
+}
+
+pce_has_capacity = {
+	is_variable_set = pce_extra_districts
+	check_variable = { which = pce_extra_districts value > 0 }
+}
+
+pce_amount_available = {
+	pce_valid_session = yes
+	OR = {
+		always = $INCREASE$
+		AND = {
+			pce_has_capacity = yes
+			check_variable = { which = pce_extra_districts value >= $AMOUNT$ }
+		}
+	}
+}
+
+pce_active_order = {
+	has_origin = origin_toxic_knights
+	NOT = { has_country_flag = quest_abandoned }
+}
+
+pce_is_capacity_feature = {
+	OR = {
+		is_deposit_type = pce_multilayered_cities
+		is_deposit_type = pce_tiered_nests
+		is_deposit_type = pce_modular_quarters
+		is_deposit_type = pce_distributed_nodes
+		is_deposit_type = pce_biosphere_layers
+		is_deposit_type = pce_volcanic_multilayered_cities
+		is_deposit_type = pce_volcanic_tiered_nests
+		is_deposit_type = pce_volcanic_modular_quarters
+		is_deposit_type = pce_volcanic_distributed_nodes
+		is_deposit_type = pce_ecumenopolis_upper_city
+		is_deposit_type = pce_ecumenopolis_modular_arcologies
+		is_deposit_type = pce_ecumenopolis_nest_towers
+		is_deposit_type = pce_ecumenopolis_assembly_towers
+		is_deposit_type = pce_ecumenopolis_garden_arcologies
+		is_deposit_type = pce_hive_world_deep_hive_cells
+		is_deposit_type = pce_hive_world_reclaimed_galleries
+		is_deposit_type = pce_machine_world_layers_of_the_planetary_machine
+		is_deposit_type = pce_machine_world_quiet_decks
+		is_deposit_type = pce_machine_world_artisans_quarters
+		is_deposit_type = pce_machine_world_habitation_sections
+		is_deposit_type = pce_machine_world_heat_exchanger_nests
+		is_deposit_type = pce_nanite_tiers
+		is_deposit_type = pce_habitat_modular_quarters
+		is_deposit_type = pce_habitat_brood_compartments
+		is_deposit_type = pce_habitat_rack_mounted_decks
+		is_deposit_type = pce_habitat_airlock_workshops
+		is_deposit_type = pce_habitat_starlight_cabins
+		is_deposit_type = pce_habitat_galleries_of_the_order
+		is_deposit_type = pce_ringworld_cities_above_the_main_line
+		is_deposit_type = pce_ringworld_nests_in_the_ring_frame
+		is_deposit_type = pce_ringworld_maintenance_tiers
+		is_deposit_type = pce_ringworld_settlements_on_the_outer_rim
+		is_deposit_type = pce_ringworld_garden_quays
+		is_deposit_type = pce_synaptic_lathe_pod_galleries
+		is_deposit_type = pce_arkship_streets_between_decks
+		is_deposit_type = pce_arkship_brood_nests_under_way
+		is_deposit_type = pce_arkship_rotary_racks
+		is_deposit_type = pce_arkship_custom_built_cabins
+		is_deposit_type = pce_arkship_family_decks
+		is_deposit_type = pce_arkship_promenade_decks
+		is_deposit_type = pce_arkship_cabins_with_a_private_dawn
+		is_deposit_type = pce_arkship_pilgrims_courts
+		is_deposit_type = pce_arkship_galleries_of_the_order
+		is_deposit_type = pce_resort_terraces
+		is_deposit_type = pce_resort_spectrum_galleries
+		is_deposit_type = pce_penal_tiered_prison_yards
+		is_deposit_type = pce_penal_subterranean_cell_blocks
+		is_deposit_type = pce_thrall_barrack_tiers
+		is_deposit_type = pce_thrall_numbered_barracks
+	}
 }

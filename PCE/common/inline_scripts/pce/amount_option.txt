@@ -1,0 +1,19 @@
+option = {
+	name = pce_$OP$_$AMOUNT$
+	trigger = { pce_amount_available = { INCREASE = $INCREASE$ AMOUNT = $AMOUNT$ } }
+	custom_tooltip_with_params = {
+		description = pce_$OP$_tt
+		description_parameters = { RESULT = pce_after_$OP$_$AMOUNT$ }
+	}
+	hidden_effect = {
+		if = {
+			limit = { pce_valid_session = yes }
+			pce_apply_change = { OP = $OP$ INCREASE = $INCREASE$ AMOUNT = $AMOUNT$ }
+			if = {
+				limit = { OR = { always = $INCREASE$ pce_has_capacity = yes } }
+				carrier_event = { id = $SCREEN$ }
+			}
+			else = { carrier_event = { id = pce.1 } }
+		}
+	}
+}

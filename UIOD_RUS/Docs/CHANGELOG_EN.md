@@ -2,10 +2,25 @@
 
 ## Contents
 
+- [0.0.4 (2026-11-25)](#004-2026-11-25)
+- [Ascension Slots patch proposal](#ascension-slots-patch-proposal)
 - [0.0.3 (2026-11-14)](#003-2026-11-14)
 - [0.0.2 (2026-11-14)](#002-2026-11-14)
 - [0.0.1 (2026-11-14)](#001-2026-11-14)
 - [Specification preparation — 2026-11-14](#specification-preparation--2026-11-14)
+
+## 0.0.4 (2026-11-25)
+
+- Updated the supported game version to `v4.6.*`.
+- The launcher descriptor `mod/UIOD_RUS.mod` loads version `0.0.4` for `v4.6.*` directly from `D:/Repos/RBG_Stellaris_Mods/UIOD_RUS`. The former `0.0.3` copy and its launcher descriptor are backed up in `TMP/UIOD_RUS/before_repo_connection_0.0.3/`.
+- An Instrument of Desire surge raises an eligible planet or arkship by one tier up to the Ascension Slots limit. Restored the vanilla ten-year cooldown per colony and notification routing to the aura owner.
+- Removed the obsolete `ai_update_type = all` field from the repeatable Ascension Slots technology. Each completion still grants one ascension perk slot.
+- Packaged three scripts with the existing translations. Badges for tiers above 10 are deferred pending a separate decision.
+
+## Ascension Slots patch proposal
+
+Drafted the [Stellaris 4.6 patch specification](TZ_ASCENSION_SLOTS_46_EN.md) for the Instrument of Desire aura and the repeatable technology.
+Added exact colony tier badges up to tier 100 and an in-game check of frame selection beyond tier 10 to the proposal.
 
 ## 0.0.3 (2026-11-14)
 

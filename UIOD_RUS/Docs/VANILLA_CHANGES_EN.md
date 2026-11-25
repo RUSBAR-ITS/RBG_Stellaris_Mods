@@ -2,8 +2,15 @@
 
 ## Contents
 
+- [Version 0.0.4](#version-004)
 - [Version 0.0.3](#version-003)
 - [Overridden mod strings](#overridden-mod-strings)
+
+## Version 0.0.4
+
+- `common/scripted_effects/psionic_auras_scripted_effects.txt` (Stellaris 4.6.0). The patch overrides `desire_aura_max_intensity_effect` through the submod path `common/scripted_effects/uiod_psionic_auras_scripted_effects.txt`. Planets and arkships use `uiod_ascension_limit` as the limit and `uiod_rus_next_ascension_tier` for the new tier.
+- `common/script_values/01_script_values_paragon.txt`. The vanilla `add_planet_ascension_tier` serves as the baseline for comparison. Its other callers use the original formula. The system cooldown remains defined in `common/inline_scripts/shroud/psionic_aura_definition.txt`.
+- `common/technology/ui_tech_ascension_theory_repeatable.txt` belongs to Ascension Slots. UIOD_RUS replaces this file to remove the rejected `ai_update_type` field. The technology and the tier limit variable originate in submod `1890399946`.
 
 ## Version 0.0.3
 

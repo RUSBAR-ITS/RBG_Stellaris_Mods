@@ -1,0 +1,58 @@
+namespace = pce
+
+# Transformations and decisions may finish clearing features after their on_action fires.
+carrier_event = {
+	id = pce.10
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { pce_has_capacity = yes exists = colony exists = owner }
+	immediate = {
+		pce_reconcile_features = yes
+		carrier_event = { id = pce.11 days = 1 }
+	}
+}
+
+carrier_event = {
+	id = pce.11
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { pce_has_capacity = yes exists = colony exists = owner }
+	immediate = { pce_reconcile_features = yes }
+}
+
+# A few vanilla transitions only update flags or local zones. Follow the installed
+# feature while its carrier is occupied, including after save/load and ownership transfer.
+carrier_event = {
+	id = pce.12
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { pce_has_capacity = yes }
+	immediate = {
+		if = {
+			limit = { exists = colony exists = owner }
+			if = {
+				limit = { exists = from any_deposit = { is_same_value = from } }
+				from = { save_event_target_as = pce_previous_feature }
+				pce_select_feature = yes
+			}
+			else = { pce_reconcile_features = yes }
+		}
+		if = {
+			limit = { exists = from any_deposit = { is_same_value = from } }
+			carrier_event = { id = pce.12 days = 1 scopes = { from = from } }
+		}
+	}
+}
+
+country_event = {
+	id = pce.13
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = { any_owned_colony = { pce_has_capacity = yes } }
+	immediate = {
+		every_owned_colony = {
+			limit = { pce_has_capacity = yes }
+			pce_reconcile_features = yes
+		}
+	}
+}

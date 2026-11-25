@@ -1,29 +1,244 @@
-d_pce_multilayered_cities = {
-    icon = pce_multilayered_cities
-    is_for_colonizable = yes
-    should_swap_deposit_on_terraforming = no
-    category = deposit_cat_rare
-
-    planet_modifier = {
-        planet_max_districts_add = 1
-    }
-
-    drop_weight = {
-        weight = 0
-    }
+pce_multilayered_cities = {
+	icon = pce_multilayered_cities
+	inline_script = pce/capacity_deposit
 }
 
-d_pce_additional_compartments = {
-    icon = pce_additional_compartments
-    is_for_colonizable = yes
-    should_swap_deposit_on_terraforming = no
-    category = deposit_cat_rare
+pce_tiered_nests = {
+	icon = pce_tiered_nests
+	inline_script = pce/capacity_deposit
+}
 
-    planet_modifier = {
-        planet_max_districts_add = 1
-    }
+pce_modular_quarters = {
+	icon = pce_modular_quarters
+	inline_script = pce/capacity_deposit
+}
 
-    drop_weight = {
-        weight = 0
-    }
+pce_distributed_nodes = {
+	icon = pce_distributed_nodes
+	inline_script = pce/capacity_deposit
+}
+
+pce_biosphere_layers = {
+	icon = pce_biosphere_layers
+	inline_script = pce/capacity_deposit
+}
+
+pce_volcanic_multilayered_cities = {
+	icon = pce_volcanic_multilayered_cities
+	inline_script = pce/capacity_deposit
+}
+
+pce_volcanic_tiered_nests = {
+	icon = pce_volcanic_tiered_nests
+	inline_script = pce/capacity_deposit
+}
+
+pce_volcanic_modular_quarters = {
+	icon = pce_volcanic_modular_quarters
+	inline_script = pce/capacity_deposit
+}
+
+pce_volcanic_distributed_nodes = {
+	icon = pce_volcanic_distributed_nodes
+	inline_script = pce/capacity_deposit
+}
+
+pce_ecumenopolis_upper_city = {
+	icon = pce_ecumenopolis_upper_city
+	inline_script = pce/capacity_deposit
+}
+
+pce_ecumenopolis_modular_arcologies = {
+	icon = pce_ecumenopolis_modular_arcologies
+	inline_script = pce/capacity_deposit
+}
+
+pce_ecumenopolis_nest_towers = {
+	icon = pce_ecumenopolis_nest_towers
+	inline_script = pce/capacity_deposit
+}
+
+pce_ecumenopolis_assembly_towers = {
+	icon = pce_ecumenopolis_assembly_towers
+	inline_script = pce/capacity_deposit
+}
+
+pce_ecumenopolis_garden_arcologies = {
+	icon = pce_ecumenopolis_garden_arcologies
+	inline_script = pce/capacity_deposit
+}
+
+pce_hive_world_deep_hive_cells = {
+	icon = pce_hive_world_deep_hive_cells
+	inline_script = pce/capacity_deposit
+}
+
+pce_hive_world_reclaimed_galleries = {
+	icon = pce_hive_world_reclaimed_galleries
+	inline_script = pce/capacity_deposit
+}
+
+pce_machine_world_layers_of_the_planetary_machine = {
+	icon = pce_machine_world_layers_of_the_planetary_machine
+	inline_script = pce/capacity_deposit
+}
+
+pce_machine_world_quiet_decks = {
+	icon = pce_machine_world_quiet_decks
+	inline_script = pce/capacity_deposit
+}
+
+pce_machine_world_artisans_quarters = {
+	icon = pce_machine_world_artisans_quarters
+	inline_script = pce/capacity_deposit
+}
+
+pce_machine_world_habitation_sections = {
+	icon = pce_machine_world_habitation_sections
+	inline_script = pce/capacity_deposit
+}
+
+pce_machine_world_heat_exchanger_nests = {
+	icon = pce_machine_world_heat_exchanger_nests
+	inline_script = pce/capacity_deposit
+}
+
+pce_nanite_tiers = {
+	icon = pce_nanite_tiers
+	inline_script = pce/capacity_deposit
+}
+
+pce_habitat_modular_quarters = {
+	icon = pce_habitat_modular_quarters
+	inline_script = pce/capacity_deposit
+}
+
+pce_habitat_brood_compartments = {
+	icon = pce_habitat_brood_compartments
+	inline_script = pce/capacity_deposit
+}
+
+pce_habitat_rack_mounted_decks = {
+	icon = pce_habitat_rack_mounted_decks
+	inline_script = pce/capacity_deposit
+}
+
+pce_habitat_airlock_workshops = {
+	icon = pce_habitat_airlock_workshops
+	inline_script = pce/capacity_deposit
+}
+
+pce_habitat_starlight_cabins = {
+	icon = pce_habitat_starlight_cabins
+	inline_script = pce/capacity_deposit
+}
+
+pce_habitat_galleries_of_the_order = {
+	icon = pce_habitat_galleries_of_the_order
+	inline_script = pce/capacity_deposit
+}
+
+pce_ringworld_cities_above_the_main_line = {
+	icon = pce_ringworld_cities_above_the_main_line
+	inline_script = pce/capacity_deposit
+}
+
+pce_ringworld_nests_in_the_ring_frame = {
+	icon = pce_ringworld_nests_in_the_ring_frame
+	inline_script = pce/capacity_deposit
+}
+
+pce_ringworld_maintenance_tiers = {
+	icon = pce_ringworld_maintenance_tiers
+	inline_script = pce/capacity_deposit
+}
+
+pce_ringworld_settlements_on_the_outer_rim = {
+	icon = pce_ringworld_settlements_on_the_outer_rim
+	inline_script = pce/capacity_deposit
+}
+
+pce_ringworld_garden_quays = {
+	icon = pce_ringworld_garden_quays
+	inline_script = pce/capacity_deposit
+}
+
+pce_synaptic_lathe_pod_galleries = {
+	icon = pce_synaptic_lathe_pod_galleries
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_streets_between_decks = {
+	icon = pce_arkship_streets_between_decks
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_brood_nests_under_way = {
+	icon = pce_arkship_brood_nests_under_way
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_rotary_racks = {
+	icon = pce_arkship_rotary_racks
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_custom_built_cabins = {
+	icon = pce_arkship_custom_built_cabins
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_family_decks = {
+	icon = pce_arkship_family_decks
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_promenade_decks = {
+	icon = pce_arkship_promenade_decks
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_cabins_with_a_private_dawn = {
+	icon = pce_arkship_cabins_with_a_private_dawn
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_pilgrims_courts = {
+	icon = pce_arkship_pilgrims_courts
+	inline_script = pce/capacity_deposit
+}
+
+pce_arkship_galleries_of_the_order = {
+	icon = pce_habitat_galleries_of_the_order
+	inline_script = pce/capacity_deposit
+}
+
+pce_resort_terraces = {
+	icon = pce_resort_terraces
+	inline_script = pce/capacity_deposit
+}
+
+pce_resort_spectrum_galleries = {
+	icon = pce_resort_spectrum_galleries
+	inline_script = pce/capacity_deposit
+}
+
+pce_penal_tiered_prison_yards = {
+	icon = pce_penal_tiered_prison_yards
+	inline_script = pce/capacity_deposit
+}
+
+pce_penal_subterranean_cell_blocks = {
+	icon = pce_penal_subterranean_cell_blocks
+	inline_script = pce/capacity_deposit
+}
+
+pce_thrall_barrack_tiers = {
+	icon = pce_thrall_barrack_tiers
+	inline_script = pce/capacity_deposit
+}
+
+pce_thrall_numbered_barracks = {
+	icon = pce_thrall_numbered_barracks
+	inline_script = pce/capacity_deposit
 }

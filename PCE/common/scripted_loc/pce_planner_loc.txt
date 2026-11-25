@@ -1,0 +1,149 @@
+defined_text = {
+	name = pce_welcome
+	text = {
+		trigger = { uses_district_set = nomad }
+		localization_key = pce_ark_welcome
+	}
+	default = pce_planet_welcome
+}
+
+defined_text = {
+	name = pce_increase
+	text = {
+		trigger = { uses_district_set = nomad }
+		localization_key = pce_ark_increase
+	}
+	default = pce_planet_increase
+}
+
+defined_text = {
+	name = pce_decrease
+	text = {
+		trigger = { uses_district_set = nomad }
+		localization_key = pce_ark_decrease
+	}
+	default = pce_planet_decrease
+}
+
+defined_text = {
+	name = pce_district_context
+	text = {
+		trigger = { uses_district_set = standard has_district = district_craglands owner = { is_wilderness_empire = yes } }
+		localization_key = pce_context_district_craglands
+	}
+	text = {
+		trigger = { uses_district_set = nomad has_district = district_ark_city }
+		localization_key = pce_context_district_ark_city
+	}
+	default = pce_empty
+}
+
+defined_text = {
+	name = pce_display_index
+	value = value:pce_current_index
+}
+
+defined_text = {
+	name = pce_result_zero
+	value = value:pce_zero_index
+}
+
+defined_text = {
+	name = pce_after_add_1
+	value = value:pce_add_result|AMOUNT|1|
+}
+
+defined_text = {
+	name = pce_after_add_2
+	value = value:pce_add_result|AMOUNT|2|
+}
+
+defined_text = {
+	name = pce_after_add_3
+	value = value:pce_add_result|AMOUNT|3|
+}
+
+defined_text = {
+	name = pce_after_add_4
+	value = value:pce_add_result|AMOUNT|4|
+}
+
+defined_text = {
+	name = pce_after_add_5
+	value = value:pce_add_result|AMOUNT|5|
+}
+
+defined_text = {
+	name = pce_after_add_6
+	value = value:pce_add_result|AMOUNT|6|
+}
+
+defined_text = {
+	name = pce_after_add_7
+	value = value:pce_add_result|AMOUNT|7|
+}
+
+defined_text = {
+	name = pce_after_add_8
+	value = value:pce_add_result|AMOUNT|8|
+}
+
+defined_text = {
+	name = pce_after_add_9
+	value = value:pce_add_result|AMOUNT|9|
+}
+
+defined_text = {
+	name = pce_after_add_10
+	value = value:pce_add_result|AMOUNT|10|
+}
+
+defined_text = {
+	name = pce_after_remove_1
+	value = value:pce_remove_result|AMOUNT|1|
+}
+
+defined_text = {
+	name = pce_after_remove_2
+	value = value:pce_remove_result|AMOUNT|2|
+}
+
+defined_text = {
+	name = pce_after_remove_3
+	value = value:pce_remove_result|AMOUNT|3|
+}
+
+defined_text = {
+	name = pce_after_remove_4
+	value = value:pce_remove_result|AMOUNT|4|
+}
+
+defined_text = {
+	name = pce_after_remove_5
+	value = value:pce_remove_result|AMOUNT|5|
+}
+
+defined_text = {
+	name = pce_after_remove_6
+	value = value:pce_remove_result|AMOUNT|6|
+}
+
+defined_text = {
+	name = pce_after_remove_7
+	value = value:pce_remove_result|AMOUNT|7|
+}
+
+defined_text = {
+	name = pce_after_remove_8
+	value = value:pce_remove_result|AMOUNT|8|
+}
+
+defined_text = {
+	name = pce_after_remove_9
+	value = value:pce_remove_result|AMOUNT|9|
+}
+
+defined_text = {
+	name = pce_after_remove_10
+	value = value:pce_remove_result|AMOUNT|10|
+}

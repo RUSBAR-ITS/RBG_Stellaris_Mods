@@ -1,0 +1,570 @@
+﻿l_russian:
+
+ ##################################
+ # Особые должности
+ ##################################
+
+ # civilian
+ job_tourist_rinfix: "туристов"
+ job_fe_hedonist_rinfix: "гедонистов"
+ job_sacred_path_civilian_rinfix: "верных послушников"
+ job_civilian_rinfix: "граждан"
+
+ # criminal
+ job_criminal_rinfix: "преступников"
+
+ ##################################
+ # Должности элитариев
+ ##################################
+
+ # politician
+ job_executive_rinfix: "управляющих"
+ job_head_researcher_rinfix: "передовых учёных"
+ job_noble_rinfix: "аристократов"
+ job_merchant_rinfix: "торговцев"
+ job_high_priest_rinfix: "верховных жрецов"
+ job_technophant_rinfix: "техножрецов"
+ job_fire_oracle_rinfix: "огненных оракулов"
+ job_blazewright_rinfix: "мастеров пламени"
+ job_radiant_priest_rinfix: "сияющих жрецов"
+ job_pyrocrat_rinfix: "пирократов"
+ job_ashbroker_rinfix: "пеплоторговцев"
+ job_blazing_harbinger_rinfix: "пылающих предвестников"
+ job_warden_rinfix: "планетарных приставов"
+ job_noble_researcher_rinfix: "учёных-дворян"
+ job_sacred_noble_rinfix: "священных дворян"
+ job_augmentation_merchant_rinfix: "торговцев аугментациями"
+ job_superstitious_beliefs_high_priest_rinfix: "верховных астрологов"
+ job_superstitious_beliefs_high_priest_corporate_rinfix: "брокеров удачи"
+ job_visionary_rinfix: "техновизионеров"
+ job_noble_merchant_rinfix: "патрициев"
+ job_sacred_path_elite_rinfix: "высших пилигримов"
+ job_politician_rinfix: "политиков"
+
+ ##################################
+ # Должности специалистов
+ ##################################
+
+ # physicist
+ job_astrometeorologist_rinfix: "астрометеорологов"
+ job_astral_researcher_rinfix: "астральных исследователей"
+ job_space_time_anomaly_researcher_rinfix: "исследователей пространственно-временной аномалии"
+ job_dimensional_portal_researcher_rinfix: "исследователей портала"
+ job_astral_meteorologist_rinfix: "астральных метеорологов"
+ job_physicist_rinfix: "физиков"
+
+ # biologist
+ job_ranger_rinfix: "рейнджеров"
+ job_stratovent_researcher_rinfix: "исследователей каналов"
+ job_xeno_zoo_keeper_rinfix: "смотрителей за животными"
+ job_archaeoengineers_rinfix: "археоинженеров"
+ job_biologist_rinfix: "биологов"
+
+ # engineer
+ job_manufactorium_scraper_rinfix: "разборщиков"
+ job_munitions_decommissioner_rinfix: "специалистов по утилизации оружия"
+ job_nanotech_researcher_rinfix: "исследователей нанотехнологий"
+ job_engineer_rinfix: "инженеров"
+
+ # bureaucrat
+ job_manager_rinfix: "руководителей"
+ job_priest_rinfix: "жрецов"
+ job_steward_rinfix: "распорядителей"
+ job_preacher_rinfix: "проповедников процветания"
+ job_numistic_priest_rinfix: "нумских жрецов"
+ job_unifier_rinfix: "специалистов по объединению"
+ job_culture_worker_rinfix: "работников культуры"
+ job_death_priest_rinfix: "жрецов смерти"
+ job_fire_dancer_rinfix: "огненных танцоров"
+ job_fire_seer_rinfix: "огненных пророков"
+ job_pyromancer_rinfix: "пиромантов"
+ job_cremator_rinfix: "крематоров"
+ job_low_tech_bureaucrat_rinfix: "администраторов"
+ job_low_tech_manager_rinfix: "наблюдателей"
+ job_low_tech_priest_rinfix: "проповедников"
+ job_memorialist_rinfix: "хронистов смерти"
+ job_death_manager_rinfix: "руководителей вымирания"
+ job_haruspex_rinfix: "гаруспиков"
+ job_superstitious_beliefs_priest_rinfix: "духовных медиумов"
+ job_superstitious_beliefs_priest_corporate_rinfix: "предсказателей"
+ job_corpse_reader_rinfix: "трупных провидцев"
+ job_corpse_broker_rinfix: "торговцев трупами"
+ job_sacred_path_specialist_rinfix: "посвящённых адептов"
+ job_bureaucrat_rinfix: "бюрократов"
+
+ # enforcer
+ job_educator_rinfix: "педагогов"
+ job_enforcer_rinfix: "силовиков"
+
+ # telepath
+ job_educator_telepath_rinfix: "псионических наставников"
+ job_telepath_rinfix: "телепатов"
+
+ # entertainer
+ job_duelist_rinfix: "дуэлянтов"
+ job_storm_dancer_rinfix: "буревых танцоров"
+ job_curator_rinfix: "музейных смотрителей"
+ job_storm_duelist_rinfix: "буревых дуэлянтов"
+ job_reenactor_rinfix: "исторических реконструкторов"
+ job_entertainer_rinfix: "артистов"
+
+ # chemist
+ job_chemist_rinfix: "химиков"
+
+ # translucer
+ job_translucer_rinfix: "специалистов по кристаллам"
+
+ # gas_refiner
+ job_gas_refiner_rinfix: "переработчиков газов"
+
+ # roboticist
+ job_roboticist_rinfix: "роботостроителей"
+
+ # healthcare
+ job_genomic_researcher_rinfix: "исследователей генома"
+ job_healthcare_rinfix: "медиков"
+
+ # trader
+ job_underground_trade_worker_rinfix: "сотрудников по подземным связям"
+ job_trader_rinfix: "продавцов"
+
+ # necro_apprentice
+ job_necro_apprentice_rinfix: "некрофитов"
+
+ # foundry
+ job_catalytic_technician_rinfix: "техников-катализаторов"
+ job_foundry_rinfix: "металлургов"
+
+ # artisan
+ job_artificer_rinfix: "мастеров"
+ job_pearl_diver_rinfix: "ловцов жемчуга"
+ job_pearl_crafter_rinfix: "жемчужных мастеров"
+ job_artisan_rinfix: "ремесленников"
+
+ # reassigner
+ job_reassigner_rinfix: "супервайзеров"
+
+ # bath_attendant
+ job_bath_attendant_individual_machine_rinfix: "смазочных терминалов"
+ job_bath_attendant_rinfix: "операторов ванн"
+
+ # knight
+ job_knight_rinfix: "рыцарей"
+
+ # resort_worker
+ job_resort_worker_rinfix: "курортных работников"
+
+ # soldier
+ job_necromancer_rinfix: "некромантов"
+ job_soldier_rinfix: "солдат"
+
+ # battle_thrall
+ job_battle_thrall_rinfix: "воинов-рабов"
+
+ ##################################
+ # Должности рабочих
+ ##################################
+
+ # colonist
+ job_colonist_rinfix: "колонистов"
+
+ # clerk
+ job_clerk_rinfix: "клерков"
+
+ # technician
+ job_mote_harvester_rinfix: "сборщиков пыли"
+ job_technician_rinfix: "техников"
+
+ # miner
+ job_scrap_miner_rinfix: "добытчиков лома"
+ job_cave_cleaner_rinfix: "чистильщиков пещер"
+ job_turtle_miner_rinfix: "шахтёров неммы"
+ job_crystal_miner_rinfix: "добытчиков кристаллов"
+ job_melt_extractor_rinfix: "термоплавильщиков"
+ job_miner_rinfix: "шахтёров"
+
+ # farmer
+ job_titan_hunter_rinfix: "охотников на титанов"
+ job_puddle_technician_rinfix: "техников луж"
+ job_gas_extractor_rinfix: "добытчиков газа"
+ job_angler_rinfix: "рыбаков"
+ job_farmer_rinfix: "фермеров"
+
+ # mortal_initiate
+ job_mortal_initiate_rinfix: "посвящённых смерти"
+
+ # squire
+ job_squire_rinfix: "оруженосцев"
+
+ # foundry_prison_worker
+ job_foundry_prison_worker_rinfix: "заключённых-металлургов"
+
+ # catalytic_technician_prison_worker
+ job_catalytic_technician_prison_worker_rinfix: "заключённых техников-катализаторов"
+
+ # artisan_prison_worker
+ job_artisan_prison_worker_rinfix: "заключённых-ремесленников"
+
+ # artificer_prison_worker
+ job_artificer_prison_worker_rinfix: "заключённых-мастеров"
+
+ ##################################
+ # Должности гештальтов
+ ##################################
+
+ # spawning_drone
+ job_offspring_drone_rinfix: "единиц-отпрысков"
+ job_genomic_drone_rinfix: "генных единиц"
+ job_broodsymbiont_rinfix: "плодосимбионтов"
+ job_spawning_drone_rinfix: "смотрителей выводка"
+
+ # replicator
+ job_assembly_drone_rinfix: "сборочных единиц"
+ job_replicator_rinfix: "репликаторов"
+
+ # gestation_drone
+ job_gestation_drone_rinfix: "инкубационных единиц"
+
+ # evaluator
+ job_curator_drone_rinfix: "единиц-смотрителей"
+ job_evaluator_rinfix: "анализаторов"
+
+ # coordinator
+ job_synapse_drone_rinfix: "синаптических единиц"
+ job_chronicle_drone_rinfix: "хронистов"
+ job_choirsymbiont_rinfix: "хоросимбионтов"
+ job_coordinator_rinfix: "координаторов"
+
+ # calculator_physicist
+ job_astrometeorologist_machine_rinfix: "астрометеорологических модулей"
+ job_brain_drone_physicist_rinfix: "научных единиц-физиков"
+ job_astrometeorologist_hive_rinfix: "астрометеорологических трутней"
+ job_dimensional_portal_researcher_gestalt_rinfix: "единиц-исследователей портала"
+ job_evosymbiont_physicist_rinfix: "эвосимбионтов-физиков"
+ job_extradimensional_research_unit_rinfix: "межпространственных исследовательских модулей"
+ job_calculator_physicist_rinfix: "физических подпрограмм"
+
+ # calculator_biologist
+ job_brain_drone_biologist_rinfix: "научных единиц-биологов"
+ job_archaeo_drone_rinfix: "археоинженерных трутней"
+ job_archaeo_unit_rinfix: "археоинженерных модулей"
+ job_evosymbiont_biologist_rinfix: "эвосимбионтов-биологов"
+ job_observator_drone_rinfix: "единиц-наблюдателей"
+ job_calculator_biologist_rinfix: "биологических подпрограмм"
+
+ # calculator_engineer
+ job_brain_drone_engineer_rinfix: "научных единиц-инженеров"
+ job_evosymbiont_engineer_rinfix: "эвосимбионтов-инженеров"
+ job_nanotech_research_unit_rinfix: "модулей изучения нанитов"
+ job_calculator_engineer_rinfix: "инженерных подпрограмм"
+
+ # artisan_drone
+ job_artisan_drone_rinfix: "единиц-ремесленников"
+
+ # fabricator
+ job_alloy_drone_rinfix: "единиц-литейщиков"
+ job_catalytic_drone_rinfix: "единиц-катализаторов"
+ job_forgesymbiont_rinfix: "кузнесимбионтов"
+ job_fabricator_rinfix: "изготовителей"
+
+ # chemist_drone
+ job_motesymbiote_rinfix: "пылесимбионтов"
+ job_chemist_drone_rinfix: "единиц-химиков"
+
+ # translucer_drone
+ job_crystalsymbiote_rinfix: "кристаллосимбионтов"
+ job_translucer_drone_rinfix: "единиц-кристальщиков"
+
+ # gas_refiner_drone
+ job_gaseosymbiote_rinfix: "газосимбионтов"
+ job_gas_refiner_drone_rinfix: "единиц-переработчиков"
+
+ # patrol_drone
+ job_immunosymbiont_rinfix: "иммуносимбионтов"
+ job_patrol_drone_rinfix: "единиц-следопытов"
+
+ # mote_harvesting_drone
+ job_mote_harvesting_drone_rinfix: "единиц-сборщиков пыли"
+
+ # crystal_mining_drone
+ job_crystal_mining_drone_rinfix: "единиц-добытчиков кристаллов"
+
+ # gas_extraction_drone
+ job_gas_extraction_drone_rinfix: "единиц-добытчиков газа"
+
+ # logistics_drone
+ job_underground_contact_drone_rinfix: "подземных единиц-посредников"
+ job_spindlesymbiont_rinfix: "ткачесимбионтов"
+ job_logistics_drone_rinfix: "логистических единиц"
+
+ # mining_drone
+ job_scrap_miner_drone_rinfix: "единиц-добытчиков лома"
+ job_grubsymbiont_rinfix: "кротосимбионтов"
+ job_melt_extractor_drone_rinfix: "термоплавильных единиц"
+ job_mining_drone_rinfix: "добывающих единиц"
+
+ # agri_drone
+ job_puddle_technician_drone_rinfix: "единиц-техников луж"
+ job_pollinosymbiont_rinfix: "споросимбионтов"
+ job_agri_drone_rinfix: "аграрных единиц"
+
+ # technician_drone
+ job_photosymbiont_rinfix: "фотосимбионтов"
+ job_technician_drone_rinfix: "технических единиц"
+
+ # maintenance_drone
+ job_maintenance_drone_rinfix: "обслуживающих единиц"
+
+ # warrior_drone
+ job_tamersymbiont_rinfix: "зверосимбионтов"
+ job_warrior_drone_rinfix: "боевых единиц"
+
+ # bath_attendant_machine
+ job_bath_attendant_hive_rinfix: "операторов преобразования"
+ job_bath_attendant_machine_rinfix: "смазочных терминалов"
+
+ ##################################
+ # Должности Machine Age
+ ##################################
+
+ # augmentor
+ job_augmentor_rinfix: "аугментаторов"
+
+ ##################################
+ # Должности Grand Archive
+ ##################################
+
+ # wrangler
+ job_rancher_rinfix: "скотоводов"
+ job_trophy_hunter_rinfix: "охотников за трофеями"
+ job_animal_handler_rinfix: "специалистов по животным"
+ job_beastfighter_rinfix: "бойцов с животными"
+ job_wrangler_rinfix: "зоотехников"
+
+ # drone_wrangler
+ job_hunter_drone_rinfix: "единиц-охотников"
+ job_symbiosis_integrator_rinfix: "интеграторов симбиоза"
+ job_drone_wrangler_rinfix: "единиц-зоотехников"
+
+ ##################################
+ # Должности Shroud
+ ##################################
+
+ # telepath_drone
+ job_telepath_drone_rinfix: "телепатических единиц"
+
+ # test_subject
+ job_test_subject_rinfix: "подопытных"
+
+ # test_subject_drone
+ job_test_subject_drone_rinfix: "подопытных единиц"
+
+ # experiment_engineer
+ job_experiment_engineer_rinfix: "инженеров-экспериментаторов"
+
+ # experiment_engineer
+ job_experiment_engineer_drone_rinfix: "единиц-экспериментаторов"
+
+ # shroud_trader
+ job_shroud_trader_rinfix: "эмпатических маркетологов"
+
+
+ # Пустые описания, чтобы не было ошибок в error.log
+ job_civilian_rinfix_desc: ""
+ job_tourist_rinfix_desc: ""
+ job_fe_hedonist_rinfix_desc: ""
+ job_sacred_path_civilian_rinfix_desc: ""
+ job_criminal_rinfix_desc: ""
+ job_politician_rinfix_desc: ""
+ job_executive_rinfix_desc: ""
+ job_head_researcher_rinfix_desc: ""
+ job_noble_rinfix_desc: ""
+ job_merchant_rinfix_desc: ""
+ job_high_priest_rinfix_desc: ""
+ job_technophant_rinfix_desc: ""
+ job_fire_oracle_rinfix_desc: ""
+ job_blazewright_rinfix_desc: ""
+ job_radiant_priest_rinfix_desc: ""
+ job_pyrocrat_rinfix_desc: ""
+ job_ashbroker_rinfix_desc: ""
+ job_blazing_harbinger_rinfix_desc: ""
+ job_warden_rinfix_desc: ""
+ job_noble_researcher_rinfix_desc: ""
+ job_sacred_noble_rinfix_desc: ""
+ job_augmentation_merchant_rinfix_desc: ""
+ job_superstitious_beliefs_high_priest_rinfix_desc: ""
+ job_superstitious_beliefs_high_priest_corporate_rinfix_desc: ""
+ job_visionary_rinfix_desc: ""
+ job_noble_merchant_rinfix_desc: ""
+ job_sacred_path_elite_rinfix_desc: ""
+ job_physicist_rinfix_desc: ""
+ job_astrometeorologist_rinfix_desc: ""
+ job_astral_researcher_rinfix_desc: ""
+ job_space_time_anomaly_researcher_rinfix_desc: ""
+ job_dimensional_portal_researcher_rinfix_desc: ""
+ job_astral_meteorologist_rinfix_desc: ""
+ job_biologist_rinfix_desc: ""
+ job_ranger_rinfix_desc: ""
+ job_stratovent_researcher_rinfix_desc: ""
+ job_xeno_zoo_keeper_rinfix_desc: ""
+ job_archaeoengineers_rinfix_desc: ""
+ job_engineer_rinfix_desc: ""
+ job_manufactorium_scraper_rinfix_desc: ""
+ job_munitions_decommissioner_rinfix_desc: ""
+ job_nanotech_researcher_rinfix_desc: ""
+ job_bureaucrat_rinfix_desc: ""
+ job_manager_rinfix_desc: ""
+ job_priest_rinfix_desc: ""
+ job_steward_rinfix_desc: ""
+ job_preacher_rinfix_desc: ""
+ job_numistic_priest_rinfix_desc: ""
+ job_unifier_rinfix_desc: ""
+ job_culture_worker_rinfix_desc: ""
+ job_death_priest_rinfix_desc: ""
+ job_fire_dancer_rinfix_desc: ""
+ job_fire_seer_rinfix_desc: ""
+ job_pyromancer_rinfix_desc: ""
+ job_cremator_rinfix_desc: ""
+ job_low_tech_bureaucrat_rinfix_desc: ""
+ job_low_tech_manager_rinfix_desc: ""
+ job_low_tech_priest_rinfix_desc: ""
+ job_memorialist_rinfix_desc: ""
+ job_death_manager_rinfix_desc: ""
+ job_haruspex_rinfix_desc: ""
+ job_superstitious_beliefs_priest_rinfix_desc: ""
+ job_superstitious_beliefs_priest_corporate_rinfix_desc: ""
+ job_corpse_reader_rinfix_desc: ""
+ job_corpse_broker_rinfix_desc: ""
+ job_sacred_path_specialist_rinfix_desc: ""
+ job_enforcer_rinfix_desc: ""
+ job_educator_rinfix_desc: ""
+ job_telepath_rinfix_desc: ""
+ job_educator_telepath_rinfix_desc: ""
+ job_entertainer_rinfix_desc: ""
+ job_duelist_rinfix_desc: ""
+ job_storm_dancer_rinfix_desc: ""
+ job_curator_rinfix_desc: ""
+ job_storm_duelist_rinfix_desc: ""
+ job_reenactor_rinfix_desc: ""
+ job_chemist_rinfix_desc: ""
+ job_translucer_rinfix_desc: ""
+ job_gas_refiner_rinfix_desc: ""
+ job_roboticist_rinfix_desc: ""
+ job_healthcare_rinfix_desc: ""
+ job_genomic_researcher_rinfix_desc: ""
+ job_trader_rinfix_desc: ""
+ job_underground_trade_worker_rinfix_desc: ""
+ job_necro_apprentice_rinfix_desc: ""
+ job_foundry_rinfix_desc: ""
+ job_catalytic_technician_rinfix_desc: ""
+ job_artisan_rinfix_desc: ""
+ job_artificer_rinfix_desc: ""
+ job_pearl_diver_rinfix_desc: ""
+ job_pearl_crafter_rinfix_desc: ""
+ job_reassigner_rinfix_desc: ""
+ job_bath_attendant_rinfix_desc: ""
+ job_bath_attendant_individual_machine_rinfix_desc: ""
+ job_knight_rinfix_desc: ""
+ job_resort_worker_rinfix_desc: ""
+ job_soldier_rinfix_desc: ""
+ job_necromancer_rinfix_desc: ""
+ job_battle_thrall_rinfix_desc: ""
+ job_colonist_rinfix_desc: ""
+ job_clerk_rinfix_desc: ""
+ job_technician_rinfix_desc: ""
+ job_mote_harvester_rinfix_desc: ""
+ job_miner_rinfix_desc: ""
+ job_scrap_miner_rinfix_desc: ""
+ job_cave_cleaner_rinfix_desc: ""
+ job_turtle_miner_rinfix_desc: ""
+ job_crystal_miner_rinfix_desc: ""
+ job_melt_extractor_rinfix_desc: ""
+ job_gas_extractor_rinfix_desc: ""
+ job_farmer_rinfix_desc: ""
+ job_titan_hunter_rinfix_desc: ""
+ job_puddle_technician_rinfix_desc: ""
+ job_angler_rinfix_desc: ""
+ job_mortal_initiate_rinfix_desc: ""
+ job_squire_rinfix_desc: ""
+ job_foundry_prison_worker_rinfix_desc: ""
+ job_catalytic_technician_prison_worker_rinfix_desc: ""
+ job_artisan_prison_worker_rinfix_desc: ""
+ job_artificer_prison_worker_rinfix_desc: ""
+ job_spawning_drone_rinfix_desc: ""
+ job_offspring_drone_rinfix_desc: ""
+ job_genomic_drone_rinfix_desc: ""
+ job_broodsymbiont_rinfix_desc: ""
+ job_replicator_rinfix_desc: ""
+ job_assembly_drone_rinfix_desc: ""
+ job_gestation_drone_rinfix_desc: ""
+ job_evaluator_rinfix_desc: ""
+ job_curator_drone_rinfix_desc: ""
+ job_coordinator_rinfix_desc: ""
+ job_synapse_drone_rinfix_desc: ""
+ job_chronicle_drone_rinfix_desc: ""
+ job_choirsymbiont_rinfix_desc: ""
+ job_calculator_physicist_rinfix_desc: ""
+ job_astrometeorologist_machine_rinfix_desc: ""
+ job_brain_drone_physicist_rinfix_desc: ""
+ job_astrometeorologist_hive_rinfix_desc: ""
+ job_dimensional_portal_researcher_gestalt_rinfix_desc: ""
+ job_evosymbiont_physicist_rinfix_desc: ""
+ job_extradimensional_research_unit_rinfix_desc: ""
+ job_calculator_biologist_rinfix_desc: ""
+ job_brain_drone_biologist_rinfix_desc: ""
+ job_archaeo_drone_rinfix_desc: ""
+ job_archaeo_unit_rinfix_desc: ""
+ job_evosymbiont_biologist_rinfix_desc: ""
+ job_observator_drone_rinfix_desc: ""
+ job_calculator_engineer_rinfix_desc: ""
+ job_brain_drone_engineer_rinfix_desc: ""
+ job_evosymbiont_engineer_rinfix_desc: ""
+ job_nanotech_research_unit_rinfix_desc: ""
+ job_artisan_drone_rinfix_desc: ""
+ job_fabricator_rinfix_desc: ""
+ job_alloy_drone_rinfix_desc: ""
+ job_catalytic_drone_rinfix_desc: ""
+ job_forgesymbiont_rinfix_desc: ""
+ job_chemist_drone_rinfix_desc: ""
+ job_motesymbiote_rinfix_desc: ""
+ job_translucer_drone_rinfix_desc: ""
+ job_crystalsymbiote_rinfix_desc: ""
+ job_gas_refiner_drone_rinfix_desc: ""
+ job_gaseosymbiote_rinfix_desc: ""
+ job_patrol_drone_rinfix_desc: ""
+ job_immunosymbiont_rinfix_desc: ""
+ job_mote_harvesting_drone_rinfix_desc: ""
+ job_crystal_mining_drone_rinfix_desc: ""
+ job_gas_extraction_drone_rinfix_desc: ""
+ job_logistics_drone_rinfix_desc: ""
+ job_underground_contact_drone_rinfix_desc: ""
+ job_spindlesymbiont_rinfix_desc: ""
+ job_mining_drone_rinfix_desc: ""
+ job_scrap_miner_drone_rinfix_desc: ""
+ job_grubsymbiont_rinfix_desc: ""
+ job_melt_extractor_drone_rinfix_desc: ""
+ job_agri_drone_rinfix_desc: ""
+ job_puddle_technician_drone_rinfix_desc: ""
+ job_pollinosymbiont_rinfix_desc: ""
+ job_technician_drone_rinfix_desc: ""
+ job_photosymbiont_rinfix_desc: ""
+ job_maintenance_drone_rinfix_desc: ""
+ job_warrior_drone_rinfix_desc: ""
+ job_tamersymbiont_rinfix_desc: ""
+ job_bath_attendant_machine_rinfix_desc: ""
+ job_bath_attendant_hive_rinfix_desc: ""
+ job_augmentor_rinfix_desc: ""
+ job_wrangler_rinfix_desc: ""
+ job_rancher_rinfix_desc: ""
+ job_trophy_hunter_rinfix_desc: ""
+ job_animal_handler_rinfix_desc: ""
+ job_beastfighter_rinfix_desc: ""
+ job_drone_wrangler_rinfix_desc: ""
+ job_hunter_drone_rinfix_desc: ""
+ job_symbiosis_integrator_rinfix_desc: ""
+ job_telepath_drone_rinfix_desc: ""
+ job_test_subject_rinfix_desc: ""
+ job_test_subject_drone_rinfix_desc: ""
+ job_experiment_engineer_rinfix_desc: ""
+ job_experiment_engineer_drone_rinfix_desc: ""
+ job_shroud_trader_rinfix_desc: ""

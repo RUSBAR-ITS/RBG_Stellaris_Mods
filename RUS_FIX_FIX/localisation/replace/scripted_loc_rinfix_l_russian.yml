@@ -1,0 +1,146 @@
+﻿l_russian:
+
+ ##################################
+ # Скрипты для должностей
+ ##################################
+
+ # GetTransferenceVolunteerDrone_rinfix
+ job_transference_drone_plural_rinfix: "переносящихся единиц"
+ job_neurosymbiont_plural_rinfix: "нейросимбионтов"
+ job_transference_volunteer_plural_rinfix: "добровольно переносящихся"
+
+ # GetHealthcareSwapPluralWithIcon_rinfix
+ job_gestation_drone_plural_with_icon_rinfix: "[gestation_drone.GetIcon] [gestation_drone_rinfix.GetName]"
+ job_healthcare_plural_with_icon_rinfix: "[healthcare.GetIcon] [healthcare_rinfix.GetName]"
+
+ # GetPopAssemblersPluralWithIcon_rinfix
+ job_roboticist_plural_with_icon_and_job_identity_designer_plural_with_icon_rinfix: "[roboticist.GetIcon] [roboticist_rinfix.GetName] и £job_identity_designer£ конструкторов личности"
+ job_replicator_plural_with_icon_rinfix: "[replicator.GetIcon] [replicator_rinfix.GetName]"
+ job_spawning_drone_plural_with_icon_rinfix: "[spawning_drone.GetIcon] [spawning_drone_rinfix.GetName]"
+ job_broodsymbiont_plural_with_icon_rinfix: "[spawning_drone.GetIcon] $job_broodsymbiont_plural_rinfix$"
+ job_roboticist_plural_with_icon_rinfix: "[roboticist.GetIcon] [roboticist_rinfix.GetName]"
+
+ # GetSubterraneanTraderPluralWithIcon_rinfix
+ job_underground_contact_drone_plural_with_icon_rinfix: "£job_low_tech_bureaucrat£ $job_underground_contact_drone_plural_plural$"
+ job_underground_trade_worker_plural_with_icon_rinfix: "£job_trader£ $job_underground_trade_worker_plural_rinfix$"
+
+ # GetTraderSwapPluralWithIcon_rinfix
+ job_logistics_drone_plural_with_icon_rinfix: "[logistics_drone.GetIcon] [logistics_drone_rinfix.GetName]"
+ job_trader_plural_with_icon_rinfix: "[trader.GetIcon] [trader_rinfix.GetName]"
+
+ # GetGenomicJobsPluralWithIcon_rinfix
+ job_genomic_drone_plural_with_icon_rinfix: "£job_genomic_drone£ $job_genomic_drone_plural_rinfix$"
+ job_genomic_researcher_plural_with_icon_rinfix: "£job_genomic_researcher£ $job_genomic_researcher_plural_rinfix$"
+
+ # GetResearcherPluralWithIcon_rinfix
+ job_brain_drone_plural_with_icon_rinfix: "[calculator_physicist.GetIcon] [calculator_biologist.GetIcon] [calculator_engineer.GetIcon] научных единиц"
+ job_evosymbiont_plural_with_icon_rinfix: "[calculator_physicist.GetIcon] [calculator_biologist.GetIcon] [calculator_engineer.GetIcon] эвосимбионтов"
+ job_calculator_plural_with_icon_rinfix: "[calculator_physicist.GetIcon] [calculator_biologist.GetIcon] [calculator_engineer.GetIcon] научных подпрограмм"
+ job_researcher_plural_with_icon_rinfix: "[physicist.GetIcon] [biologist.GetIcon] [engineer.GetIcon] исследователей"
+
+ # GetWranglerJobNamePluralWithIcon_rinfix
+ job_rancher_plural_with_icon_rinfix: "£job_wrangler£ $job_rancher_plural_rinfix$"
+ job_trophy_hunter_plural_with_icon_rinfix: "£job_trophy_hunter£ $job_trophy_hunter_plural_rinfix$"
+ job_animal_handler_plural_with_icon_rinfix: "£job_animal_handler£ $job_animal_handler_plural_rinfix$"
+ job_beastfighter_plural_with_icon_rinfix: "£job_beastfighter£ $job_beastfighter_plural_rinfix$"
+ job_drone_wrangler_plural_with_icon_rinfix: "£job_wrangler£ $job_drone_wrangler_plural_rinfix$"
+ job_hunter_drone_plural_with_icon_rinfix: "£job_hunter_drone£ $job_hunter_drone_plural_rinfix$"
+ job_symbiosis_integrator_plural_with_icon_rinfix: "£job_symbiosis_integrator£ $job_symbiosis_integrator_plural_rinfix$"
+ job_wrangler_plural_with_icon_rinfix: "£job_wrangler£ $job_wrangler_plural_rinfix$"
+
+ # GetLeaderSoldierJobType_rinfix
+ job_warrior_drone_with_texticon_rinfix: "[warrior_drone.GetIcon] §Y[warrior_drone_rinfix.GetName]§!"
+ job_soldier_with_texticon_rinfix: "[soldier.GetIcon] §Y[soldier_rinfix.GetName]§!"
+
+ ##################################
+ # Прочие скрипты
+ ##################################
+
+ # GetPlanetMoon_rinfix
+ habitat_rinfix: "орбитальное поселение&!neut|||prep:орбитальном поселении|||inst:орбитальным поселением|||acc:орбитальное поселение|||dat:орбитальному поселению|||gen:орбитального поселения"
+ ringworld_rinfix: "мир-кольцо&!masc|||prep:мире-кольце|||inst:миром-кольцом|||acc:мир-кольцо|||dat:миру-кольцу|||gen:мира-кольца"
+ arkship_rinfix: "корабль-ковчег&!masc|||prep:корабле-ковчеге|||inst:кораблём-ковчегом|||acc:корабль-ковчег|||dat:кораблю-ковчегу|||gen:корабля-ковчега"
+ moon_rinfix: "луна&!fem|||prep:луне|||inst:луной|||acc:луну|||dat:луне|||gen:луны"
+ planet_rinfix: "планета&!fem|||prep:планете|||inst:планетой|||acc:планету|||dat:планете|||gen:планеты"
+
+ # GetPlanetMoonCap_rinfix
+ habitat_cap_rinfix: "Орбитальное поселение&!neut|||prep:Орбитальном поселении|||inst:Орбитальным поселением|||acc:Орбитальное поселение|||dat:Орбитальному поселению|||gen:Орбитального поселения"
+ ringworld_cap_rinfix: "Мир-кольцо&!masc|||prep:Мире-кольце|||inst:Миром-кольцом|||acc:Мир-кольцо|||dat:Миру-кольцу|||gen:Мира-кольца"
+ arkship_cap_rinfix: "Корабль-ковчег&!masc|||prep:Корабле-ковчеге|||inst:Кораблём-ковчегом|||acc:Корабль-ковчег|||dat:Кораблю-ковчегу|||gen:Корабля-ковчега"
+ moon_cap_rinfix: "Луна&!fem|||prep:Луне|||inst:Луной|||acc:Луну|||dat:Луне|||gen:Луны"
+ planet_cap_rinfix: "Планета&!fem|||prep:Планете|||inst:Планетой|||acc:Планету|||dat:Планете|||gen:Планеты"
+
+ # GetScientist_rinfix
+ scientist_machine_rinfix: "научный модуль"
+ scientist_hive_rinfix: "научный трутень"
+ scientist_wilderness_rinfix: "научный симбионт"
+ scientist_normal_female_rinfix: "учёная"
+ scientist_normal_male_rinfix: "учёный"
+
+ # GetScientistCap_rinfix
+ scientist_machine_cap_rinfix: "Научный модуль"
+ scientist_hive_cap_rinfix: "Научный трутень"
+ scientist_wilderness_cap_rinfix: "Научный симбионт"
+ scientist_normal_cap_female_rinfix: "Учёная"
+ scientist_normal_cap_male_rinfix: "Учёный"
+
+ # GetResearcherPlural_rinfix
+ brain_drone_plural_rinfix_cases: "научные единицы|||prep:научных единицах|||inst:научными единицами|||acc:научные единицы|||dat:научным единицам|||gen:научных единиц"
+ evosymbiont_plural_rinfix_cases: "эвосимбионты|||prep:эвосимбионтах|||inst:эвосимбионтами|||acc:эвосимбионтов|||dat:эвосимбионтам|||gen:эвосимбионтов"
+ calculator_plural_rinfix_cases: "научные подпрограммы|||prep:научных подпрограммах|||inst:научными подпрограммами|||acc:научные подпрограммы|||dat:научным подпрограммам|||gen:научных подпрограмм"
+ researcher_plural_rinfix_cases: "исследователи|||prep:исследователях|||inst:исследователями|||acc:исследователей|||dat:исследователям|||gen:исследователей"
+
+ # GetTrophyName_rinfix
+ drakes_scale_rinfix: "клык дракона&!masc|||prep:клыке дракона|||inst:клыком дракона|||acc:клык дракона|||dat:клыку дракона|||gen:клыка дракона"
+ eye_of_the_shard_rinfix: "глаз Шард&!masc|||prep:глазе Шард|||inst:глазом Шард|||acc:глаз Шард|||dat:глазу Шард|||gen:глаза Шард"
+ matriarchs_flagella_rinfix: "жгутик матриарха&!masc|||prep:жгутике матриарха|||inst:жгутиком матриарха|||acc:жгутик матриарха|||dat:жгутику матриарха|||gen:жгутика матриарха"
+ voidspawns_chitin_rinfix: "ядовитая железа Порождения пустоты&!fem|||prep:ядовитой железе Порождения пустоты|||inst:ядовитой железой Порождения пустоты|||acc:ядовитую железу Порождения пустоты|||dat:ядовитой железе Порождения пустоты|||gen:ядовитой железы Порождения пустоты"
+ wraiths_energy_disperser_rinfix: "рассеивающий мешок фантома&!masc|||prep:рассеивающем мешке фантома|||inst:рассеивающим мешком фантома|||acc:рассеивающий мешок фантома|||dat:рассеивающему мешку фантома|||gen:рассеивающего мешка фантома"
+ devourers_plasma_rinfix: "яйцевая камера Пожирателя&!fem|||prep:яйцевой камере Пожирателя|||inst:яйцевой камерой Пожирателя|||acc:яйцевую камеру Пожирателя|||dat:яйцевой камере Пожирателя|||gen:яйцевой камеры Пожирателя"
+ horrific_inverse_mass_rinfix: "жуткая инверсная масса&!fem|||prep:жуткой инверсной массе|||inst:жуткой инверсной массой|||acc:жуткую инверсную массу|||dat:жуткой инверсной массе|||gen:жуткой инверсной массы"
+ dreadnoughts_reactor_rinfix: "реактор дредноута&!masc|||prep:реакторе дредноута|||inst:реактором дредноута|||acc:реактор дредноута|||dat:реактору дредноута|||gen:реактора дредноута"
+ fortress_hull_plates_rinfix: "камера из крепости&!fem|||prep:камере из крепости|||inst:камерой из крепости|||acc:камеру из крепости|||dat:камере из крепости|||gen:камеры из крепости"
+ scavenger_bots_compactor_rinfix: "уплотнитель Робота-мусорщика&!masc|||prep:уплотнителе Робота-мусорщика|||inst:уплотнителем Робота-мусорщика|||acc:уплотнитель Робота-мусорщика|||dat:уплотнителю Робота-мусорщика|||gen:уплотнителя Робота-мусорщика"
+ sky_dragons_plume_rinfix: "перо Небесного дракона&!neut|||prep:пере Небесного дракона|||inst:пером Небесного дракона|||acc:перо Небесного дракона|||dat:перу Небесного дракона|||gen:пера Небесного дракона"
+
+ # GetLeviathanTargetName_rinfix
+ ether_drake_rinfix: "Эфирный дракон&!masc|||prep:Эфирном драконе|||inst:Эфирным драконом|||acc:Эфирного дракона|||dat:Эфирному дракону|||gen:Эфирного дракона"
+ shard_rinfix: "Шард&!fem"
+ tiyanki_matriarch_rinfix: "Матриарх тиянки&!masc|||prep:Матриархе тиянки|||inst:Матриархом тиянки|||acc:Матриарха тиянки|||dat:Матриарху тиянки|||gen:Матриарха тиянки"
+ voidspawn_rinfix: "Порождение пустоты&!neut|||prep:Порождении пустоты|||inst:Порождением пустоты|||acc:Порождение пустоты|||dat:Порождению пустоты|||gen:Порождения пустоты"
+ spectral_wraith_rinfix: "Фантом&!masc|||prep:Фантоме|||inst:Фантомом|||acc:Фантома|||dat:Фантому|||gen:Фантома"
+ stellar_devourer_rinfix: "Пожиратель звёзд&!masc|||prep:Пожирателе звёзд|||inst:Пожирателем звёзд|||acc:Пожирателя звёзд|||dat:Пожирателю звёзд|||gen:Пожирателя звёзд"
+ dimensional_horror_rinfix: "Межпространственный ужас&!masc|||prep:Межпространственном ужасе|||inst:Межпространственным ужасом|||acc:Межпространственный ужас|||dat:Межпространственному ужасу|||gen:Межпространственного ужаса"
+ elder_one_rinfix: "Древний&!masc|||prep:Древнем|||inst:Древним|||acc:Древнего|||dat:Древнему|||gen:Древнего"
+ worm_rinfix: "Червь&!masc|||prep:Черве|||inst:Червём|||acc:Червя|||dat:Червю|||gen:Червя"
+ automated_dreadnought_rinfix: "Автоматизированный дредноут&!masc|||prep:Автоматизированном дредноуте|||inst:Автоматизированным дредноутом|||acc:Автоматизированный дредноут|||dat:Автоматизированному дредноуту|||gen:Автоматизированного дредноута"
+ enigmatic_fortress_rinfix: "Загадочная крепость&!fem|||prep:Загадочной крепости|||inst:Загадочной крепостью|||acc:Загадочную крепость|||dat:Загадочной крепости|||gen:Загадочной крепости"
+ scavenger_bot_rinfix: "Робот-мусорщик&!masc|||prep:Роботе-мусорщике|||inst:Роботом-мусорщиком|||acc:Робота-мусорщика|||dat:Роботу-мусорщику|||gen:Робота-мусорщика"
+ hrozgar_rinfix: "Небесный дракон&!masc|||prep:Небесном драконе|||inst:Небесным драконом|||acc:Небесного дракона|||dat:Небесному дракону|||gen:Небесного дракона"
+
+ # GetGalCommunityOrGalImperium_rinfix
+ galactic_community_rinfix: "Галактическое сообщество&!neut|||prep:Галактическом сообществе|||inst:Галактическим сообществом|||acc:Галактическое сообщество|||dat:Галактическому сообществу|||gen:Галактического сообщества"
+ galactic_empire_rinfix: "Галактический империум&!masc|||prep:Галактическом империуме|||inst:Галактическим империумом|||acc:Галактическое империум|||dat:Галактическому империуму|||gen:Галактического империума"
+
+ # GetCommunityOrImperium_rinfix
+ community_rinfix: "Сообщество&!neut|||prep:Сообществе|||inst:Сообществом|||acc:Сообщество|||dat:Сообществу|||gen:Сообщества"
+ imperium_rinfix: "Империум&!masc|||prep:Империуме|||inst:Империумом|||acc:Империум|||dat:Империуму|||gen:Империума"
+
+ # GetLeaderClass_rinfix
+ commander_rinfix: "командир|||cap:Командир"
+ scientist_male_rinfix: "учёный|||cap:Учёный"
+ scientist_female_rinfix: "учёная|||cap:Учёная"
+ official_male_rinfix: "чиновник|||cap:Чиновник"
+ official_female_rinfix: "чиновница|||cap:Чиновница"
+ envoy_rinfix: "посол|||cap:Посол"
+ clown_rinfix: "§_клоун§!|||cap:§_Клоун§!"
+
+ # GetLeaderClassPrefix_rinfix
+ CLASS_PREFIX_RENOWNED_male_rinfix: "§rЗнаменитый "
+ CLASS_PREFIX_RENOWNED_female_rinfix: "§rЗнаменитая "
+ CLASS_PREFIX_LEGENDARY_male_rinfix: "§lЛегендарный "
+ CLASS_PREFIX_LEGENDARY_female_rinfix: "§lЛегендарная "
+
+ # GetCitizenOrCrew_rinfix
+ cruise_crew_rinfix: "экипажа"
+ citizen_rinfix: "граждан"

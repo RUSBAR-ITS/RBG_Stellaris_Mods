@@ -1,0 +1,29 @@
+﻿l_russian:
+# Defense Platform Protocols policy
+ policy_defense_platform_protocols: "Оборонительные платформы"
+ policy_defense_platform_protocols_desc: "Постоянные предписания, определяющие оснащение, энергоснабжение и восстановление наших оборонительных платформ."
+
+ defense_platform_standard: "Стандартная доктрина"
+ defense_platform_standard_name: "$defense_platform_standard$"
+ defense_platform_standard_desc: "Оборонительные платформы действуют согласно базовым спецификациям.\n\n§EБез дополнительных эффектов и затрат на содержание.§!"
+
+ defense_platform_synchronized_shielding: "Синхронизация щитов"
+ defense_platform_synchronized_shielding_name: "$defense_platform_synchronized_shielding$"
+ defense_platform_synchronized_shielding_desc: "Распределённые гармоники щитов укрывают наши оборонительные платформы от самых разрушительных атак.\n\n§EОборонительные платформы получают меньше урона от звёздной пушки.§!"
+ defense_platform_synchronized_shielding_effect: "Снижение урона от звёздной пушки: §G+60%§!"
+
+ defense_platform_reinforced_plating: "Усиленные броневые пластины"
+ defense_platform_reinforced_plating_name: "$defense_platform_reinforced_plating$"
+ defense_platform_reinforced_plating_desc: "Многослойная абляционная броня укрепляет космические базы и их оборонительные платформы, защищая их от вражеского огня.\n\n§EКосмические базы и их оборонительные платформы получают меньше урона от всех видов вооружения.§!"
+ defense_platform_reinforced_plating_effect: "Снижение получаемого урона для космических баз и оборонительных платформ: §G+15%§!"
+
+ defense_platform_resilient_frames: "Прочные корпуса"
+ defense_platform_resilient_frames_name: "$defense_platform_resilient_frames$"
+ defense_platform_resilient_frames_desc: "Резервные энергетические ядра и модульная конструкция позволяют повреждённым платформам отключиться и перезапуститься, а не разваливаться на части.\n\n§EОборонительные платформы выходят из строя, а не уничтожаются, и восстанавливаются после боя.§!"
+
+ defense_platform_provocation_arrays: "Привлечение внимания"
+ defense_platform_provocation_arrays_name: "$defense_platform_provocation_arrays$"
+ defense_platform_provocation_arrays_desc: "Агрессивное наведение на цели и подавляющий огонь заставляют противника направлять атаки на платформы, отвлекаясь от флота.\n\n§EВражеские корабли значительно чаще выбирают оборонительные платформы в качестве целей.§!"
+
+# Fleet modifier from the Reinforced Plating doctrine
+ defense_platform_reinforced_field: "Усиленные броневые пластины"

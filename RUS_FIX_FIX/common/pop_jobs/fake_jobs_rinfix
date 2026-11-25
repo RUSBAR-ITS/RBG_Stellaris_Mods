@@ -1,0 +1,1834 @@
+##################################
+# Особые должности
+##################################
+
+civilian_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				exists = owner
+				has_modifier = resort_colony
+			}
+			name = tourist_rinfix
+			icon = colonist
+			weight = 6
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_pleasure_seeker_empire = yes }
+			}
+			name = fe_hedonist_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				civilian_is_sacred_path_civilian = yes
+			}
+			name = sacred_path_civilian_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+criminal_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности элитариев
+##################################
+
+politician_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				politician_is_executive = yes
+			}
+			name = executive_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				politician_is_science_director = yes
+			}
+			name = head_researcher_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				politician_is_noble = yes
+			}
+			name = noble_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				politician_is_merchant = yes
+			}
+			name = merchant_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				politician_is_high_priest = yes
+			}
+			name = high_priest_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				politician_is_technophant = yes
+			}
+			name = technophant_rinfix
+			icon = colonist
+			weight = 30
+		}
+		swap_type = {
+			trigger = {
+				politician_is_fire_oracle = yes
+			}
+			name = fire_oracle_rinfix
+			icon = colonist
+			weight = 25
+		}
+		swap_type = {
+			trigger = {
+				politician_is_blazewright = yes
+			}
+			name = blazewright_rinfix
+			icon = colonist
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_radiant_priest = yes
+			}
+			name = radiant_priest_rinfix
+			icon = colonist
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_pyrocrat = yes
+			}
+			name = pyrocrat_rinfix
+			icon = colonist
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_ashbroker = yes
+			}
+			name = ashbroker_rinfix
+			icon = colonist
+			weight = 26
+		}
+		swap_type = {
+			trigger = {
+				politician_is_blazing_harbinger = yes
+			}
+			name = blazing_harbinger_rinfix
+			icon = colonist
+			weight = 27
+		}
+		swap_type = {
+			trigger = {
+				politician_is_planetary_warden = yes
+			}
+			name = warden_rinfix
+			icon = colonist
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				politician_is_noble = yes
+				politician_is_science_director = yes
+			}
+			name = noble_researcher_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				colony? = {
+					politician_is_noble = yes
+					politician_is_high_priest = yes
+				}
+			}
+			name = sacred_noble_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_augmentation_merchant = yes
+			}
+			name = augmentation_merchant_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_superstitious_beliefs_high_priest = yes
+			}
+			name = superstitious_beliefs_high_priest_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_superstitious_beliefs_high_priest_corporate = yes
+			}
+			name = superstitious_beliefs_high_priest_corporate_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_visionary = yes
+			}
+			name = visionary_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				colony? = {
+					politician_is_noble = yes
+					politician_is_merchant = yes
+				}
+			}
+			name = noble_merchant_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				politician_is_sacred_path_elite = yes
+			}
+			name = sacred_path_elite_rinfix
+			icon = colonist
+			weight = 50
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности специалистов
+##################################
+
+physicist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astrometeorologist_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_astral_researcher_trigger = yes
+			}
+			name = astral_researcher_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_space_time_researcher_trigger = yes
+			}
+			name = space_time_anomaly_researcher_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_dimensional_portal_researcher_trigger = yes
+			}
+			name = dimensional_portal_researcher_rinfix
+			icon = colonist
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				colony? = {
+					physicist_is_astral_researcher_trigger = yes
+					physicist_is_astrometeorologist_trigger = yes
+				}
+			}
+			name = astral_meteorologist_rinfix
+			icon = colonist
+			weight = 20
+		}
+	}
+	possible = { always = no }
+}
+
+biologist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				biologist_is_ranger_trigger = yes
+			}
+			name = ranger_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				biologist_is_vent_researcher_trigger = yes
+			}
+			name = stratovent_researcher_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				biologist_is_zookeeper_trigger = yes
+			}
+			name = xeno_zoo_keeper_rinfix
+			icon = colonist
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				biologist_is_archaeo_engineer_trigger = yes
+			}
+			name = archaeoengineers_rinfix
+			icon = colonist
+			weight = 20
+		}
+	}
+	possible = { always = no }
+}
+
+engineer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				engineer_is_manufactorium_scraper_trigger = yes
+			}
+			name = manufactorium_scraper_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				engineer_is_munitions_decommissioner_trigger = yes
+			}
+			name = munitions_decommissioner_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				engineer_is_nanotech_researcher_trigger = yes
+			}
+			name = nanotech_researcher_rinfix
+			icon = colonist
+			weight = 15
+		}
+	}
+	possible = { always = no }
+}
+
+bureaucrat_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_manager = yes
+			}
+			name = manager_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_priest = yes
+			}
+			name = priest_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_steward = yes
+			}
+			name = steward_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_preacher = yes
+			}
+			name = preacher_rinfix
+			icon = colonist
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_numistic_priest = yes
+			}
+			name = numistic_priest_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_unifier = yes
+			}
+			name = unifier_rinfix
+			icon = colonist
+			weight = 25
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_culture_worker = yes
+			}
+			name = culture_worker_rinfix
+			icon = colonist
+			weight = 30
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_death_priest = yes
+			}
+			name = death_priest_rinfix
+			icon = colonist
+			weight = 35
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_fire_dancer = yes
+			}
+			name = fire_dancer_rinfix
+			icon = colonist
+			weight = 40
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_fire_seer = yes
+			}
+			name = fire_seer_rinfix
+			icon = colonist
+			weight = 450
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_pyromancer = yes
+			}
+			name = pyromancer_rinfix
+			icon = colonist
+			weight = 450
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_cremator = yes
+			}
+			name = cremator_rinfix
+			icon = colonist
+			weight = 450
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_low_tech = yes
+			}
+			name = low_tech_bureaucrat_rinfix
+			icon = colonist
+			weight = 40
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_low_tech_manager = yes
+			}
+			name = low_tech_manager_rinfix
+			icon = colonist
+			weight = 45
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_low_tech_priest = yes
+			}
+			name = low_tech_priest_rinfix
+			icon = colonist
+			weight = 50
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_memorialist = yes
+			}
+			name = memorialist_rinfix
+			icon = colonist
+			weight = 200
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_death_priest = yes
+				bureaucrat_is_manager = yes
+			}
+			name = death_manager_rinfix
+			icon = colonist
+			weight = 300
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_haruspex = yes
+			}
+			name = haruspex_rinfix
+			icon = colonist
+			weight = 500
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_superstitious_beliefs_priest = yes
+			}
+			name = superstitious_beliefs_priest_rinfix
+			icon = colonist
+			weight = 400
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_superstitious_beliefs_priest_corporate = yes
+			}
+			name = superstitious_beliefs_priest_corporate_rinfix
+			icon = colonist
+			weight = 400
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_corpse_reader = yes
+			}
+			name = corpse_reader_rinfix
+			icon = colonist
+			weight = 500
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_corpse_broker = yes
+			}
+			name = corpse_broker_rinfix
+			icon = colonist
+			weight = 500
+		}
+		swap_type = {
+			trigger = {
+				bureaucrat_is_sacred_path_specialist = yes
+			}
+			name = sacred_path_specialist_rinfix
+			icon = colonist
+			weight = 500
+		}
+	}
+	possible = { always = no }
+}
+
+enforcer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				enforcer_is_educator_trigger = yes
+			}
+			name = educator_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+telepath_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				enforcer_is_educator_trigger = yes
+			}
+			name = educator_telepath_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+entertainer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				entertainer_is_duelist_trigger = yes
+			}
+			name = duelist_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				entertainer_is_storm_dancer_trigger = yes
+			}
+			name = storm_dancer_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				entertainer_is_curator_trigger = yes
+			}
+			name = curator_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				colony? = {
+					entertainer_is_duelist_trigger = yes
+					entertainer_is_storm_dancer_trigger = yes
+				}
+			}
+			name = storm_duelist_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				colony? = {
+					entertainer_is_duelist_trigger = yes
+					entertainer_is_curator_trigger = yes
+				}
+			}
+			name = reenactor_rinfix
+			icon = colonist
+			weight = 20
+		}
+	}
+	possible = { always = no }
+}
+
+chemist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+translucer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+gas_refiner_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+roboticist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+healthcare_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				healthcare_is_genomic_researcher_trigger = yes
+			}
+			name = genomic_researcher_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+trader_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				trader_is_subterranean = yes
+			}
+			name = underground_trade_worker_rinfix
+			icon = colonist
+			weight = 5
+		}
+	}
+	possible = { always = no }
+}
+
+necro_apprentice_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+foundry_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				industrial_jobs_are_catalytic_trigger = yes
+			}
+			name = catalytic_technician_rinfix
+			icon = colonist
+			weight = 5
+		}
+	}
+	possible = { always = no }
+}
+
+artisan_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				artisan_is_artificer_trigger = yes
+			}
+			name = artificer_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				artisan_is_pearl_diver_trigger = yes
+			}
+			name = pearl_diver_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				artisan_is_artificer_trigger = yes
+				artisan_is_pearl_diver_trigger = yes
+			}
+			name = pearl_crafter_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+reassigner_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+bath_attendant_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_individual_machine = yes }
+			}
+			name = bath_attendant_individual_machine_rinfix
+			icon = colonist
+			weight = 5
+		}
+	}
+	possible = { always = no }
+}
+
+knight_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+resort_worker_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+soldier_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				soldier_is_necromancer = yes
+			}
+			name = necromancer_rinfix
+			icon = colonist
+			weight = 50
+		}
+	}
+	possible = { always = no }
+}
+
+battle_thrall_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности рабочих
+##################################
+
+colonist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+clerk_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+technician_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				technician_is_mote_harvester_trigger = yes
+			}
+			name = mote_harvester_rinfix
+			icon = colonist
+			weight = 20
+
+		}
+	}
+	possible = { always = no }
+}
+
+miner_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				miner_is_scrap_miner_trigger = yes
+			}
+			name = scrap_miner_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				miner_is_cave_cleaner_trigger = yes
+			}
+			name = cave_cleaner_rinfix
+			icon = colonist
+			weight = 10
+
+		}
+		swap_type = {
+			trigger = {
+				miner_is_turtle_miner_trigger = yes
+			}
+			name = turtle_miner_rinfix
+			icon = colonist
+			weight = 20
+
+		}
+		swap_type = {
+			trigger = {
+				miner_is_crystal_miner_trigger = yes
+			}
+			name = crystal_miner_rinfix
+			icon = colonist
+			weight = 20
+
+		}
+		swap_type = {
+			trigger = {
+				miner_is_thermoforger_trigger = yes
+			}
+			name = melt_extractor_rinfix
+			icon = colonist
+			weight = 35
+		}
+	}
+	possible = { always = no }
+}
+
+crystal_miner_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+gas_extractor_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+mote_harvester_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+farmer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				farmer_is_titan_hunter_trigger = yes
+			}
+			name = titan_hunter_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				farmer_is_puddle_technician_trigger = yes
+			}
+			name = puddle_technician_rinfix
+			icon = colonist
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				farmer_is_gas_extractor_trigger = yes
+			}
+			name = gas_extractor_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				farmer_is_angler_trigger = yes
+			}
+			name = angler_rinfix
+			icon = colonist
+			weight = 50
+		}
+	}
+	possible = { always = no }
+}
+
+mortal_initiate_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+squire_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+foundry_prison_worker_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+catalytic_technician_prison_worker_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+artisan_prison_worker_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+artificer_prison_worker_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности гештальтов
+##################################
+
+spawning_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				spawning_drone_is_offspring_drone_trigger = yes
+			}
+			name = offspring_drone_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				healthcare_is_genomic_researcher_trigger = yes
+			}
+			name = genomic_drone_rinfix
+			icon = colonist
+			weight = 15
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = broodsymbiont_rinfix
+			icon = colonist
+			weight = 100
+		}
+	}
+	possible = { always = no }
+}
+
+replicator_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+			}
+			name = assembly_drone_rinfix
+			icon = colonist
+			weight = 5
+		}
+	}
+	possible = { always = no }
+}
+
+gestation_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+evaluator_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				entertainer_is_curator_trigger = yes
+			}
+			name = curator_drone_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+coordinator_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = synapse_drone_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_memorialist_empire = yes }
+			}
+			name = chronicle_drone_rinfix
+			icon = colonist
+			weight = 3
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = choirsymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+synapse_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+calculator_physicist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_machine_empire = yes }
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astrometeorologist_machine_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = brain_drone_physicist_rinfix
+			icon = colonist
+			weight = 50
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_hive_empire = yes }
+				physicist_is_astrometeorologist_trigger = yes
+			}
+			name = astrometeorologist_hive_rinfix
+			icon = colonist
+			weight = 55
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_dimensional_portal_researcher_trigger = yes
+			}
+			name = dimensional_portal_researcher_gestalt_rinfix
+			icon = colonist
+			weight = 60
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = evosymbiont_physicist_rinfix
+			icon = colonist
+			weight = 100
+		}
+		swap_type = {
+			trigger = {
+				physicist_is_extradimensional_research_unit_trigger = yes
+			}
+			name = extradimensional_research_unit_rinfix
+			icon = colonist
+			weight = 100
+		}
+	}
+	possible = { always = no }
+}
+
+calculator_biologist_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = brain_drone_biologist_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				has_building = building_archaeostudies_faculty
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = archaeo_drone_rinfix
+			icon = colonist
+			weight = 3
+		}
+		swap_type = {
+			trigger = {
+				has_building = building_archaeostudies_faculty
+				owner? = { is_machine_empire = yes }
+			}
+			name = archaeo_unit_rinfix
+			icon = colonist
+			weight = 3
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = evosymbiont_biologist_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				biologist_is_observator_trigger = yes
+			}
+			name = observator_drone_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+calculator_engineer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_wilderness_empire = no
+				}
+			}
+			name = brain_drone_engineer_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = evosymbiont_engineer_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				engineer_is_nanotech_researcher_trigger = yes
+			}
+			name = nanotech_research_unit_rinfix
+			icon = colonist
+			weight = 15
+		}
+	}
+	possible = { always = no }
+}
+
+artisan_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+fabricator_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = {
+					is_hive_empire = yes
+					is_catalytic_empire = no
+					is_wilderness_empire = no
+				}
+			}
+			name = alloy_drone_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_catalytic_empire = yes }
+			}
+			name = catalytic_drone_rinfix
+			icon = colonist
+			weight = 3
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = forgesymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+chemist_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = motesymbiote_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+translucer_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = crystalsymbiote_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+gas_refiner_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = gaseosymbiote_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+patrol_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = immunosymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+mote_harvesting_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = motesymbiote_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+crystal_mining_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = crystalsymbiote_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+gas_extraction_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = gaseosymbiote_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+logistics_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				trader_is_subterranean = yes
+			}
+			name = underground_contact_drone_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = spindlesymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+mining_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				OR = {
+					colony? = {
+						has_deposit = d_space_ship_graveyard
+						is_planet_class = pc_shattered_ring_habitable
+					}
+				}
+			}
+			name = scrap_miner_drone_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				miner_is_crystal_miner_trigger = yes
+			}
+			name = crystal_mining_drone_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = grubsymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				miner_is_thermoforger_trigger = yes
+			}
+			name = melt_extractor_drone_rinfix
+			icon = colonist
+			weight = 15
+		}
+	}
+	possible = { always = no }
+}
+
+agri_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				farmer_is_puddle_technician_trigger = yes
+			}
+			name = puddle_technician_drone_rinfix
+			icon = colonist
+			weight = 10
+		}
+		swap_type = {
+			trigger = {
+				farmer_is_gas_extractor_trigger = yes
+			}
+			name = gas_extraction_drone_rinfix
+			icon = colonist
+			weight = 20
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = pollinosymbiont_rinfix
+			icon = colonist
+			weight = 100
+		}
+	}
+	possible = { always = no }
+}
+
+technician_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				technician_is_mote_harvester_trigger = yes
+			}
+			name = mote_harvesting_drone_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = photosymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+maintenance_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+warrior_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner? = { is_wilderness_empire = yes }
+			}
+			name = tamersymbiont_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+bath_attendant_machine_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				owner = {
+					is_hive_empire = yes
+				}
+			}
+			name = bath_attendant_hive_rinfix
+			icon = colonist
+			weight = 2
+		}
+		swap_type = {
+			trigger = {
+				owner = {
+					has_valid_civic = civic_machine_servitor
+				}
+			}
+			name = bath_attendant_rinfix
+			icon = colonist
+			weight = 5
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности Machine Age
+##################################
+
+augmentor_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности Grand Archive
+##################################
+
+wrangler_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				wrangler_is_rancher_trigger = yes
+			}
+			name = rancher_rinfix
+			icon = colonist
+			weight = 5
+		}
+		# Trophy Hunters
+		swap_type = {
+			trigger = {
+				wrangler_is_trophy_hunter_trigger = yes
+			}
+			name = trophy_hunter_rinfix
+			icon = colonist
+			weight = 5
+		}
+		# Animal Handlers
+		swap_type = {
+			trigger = {
+				wrangler_is_animal_handler_trigger = yes
+			}
+			name = animal_handler_rinfix
+			icon = colonist
+			weight = 5
+		}
+		# Beastfighters
+		swap_type = {
+			trigger = {
+				wrangler_is_beastfighter_trigger = yes
+			}
+			name = beastfighter_rinfix
+			icon = colonist
+			weight = 10
+		}
+	}
+	possible = { always = no }
+}
+
+drone_wrangler_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+		swap_type = {
+			trigger = {
+				wrangler_is_hunter_drone_trigger = yes
+			}
+			name = hunter_drone_rinfix
+			icon = colonist
+			weight = 5
+		}
+		swap_type = {
+			trigger = {
+				wrangler_is_symbiosis_integrator_trigger = yes
+			}
+			name = symbiosis_integrator_rinfix
+			icon = colonist
+			weight = 5
+		}
+	}
+	possible = { always = no }
+}
+
+##################################
+# Должности Shroud
+##################################
+
+telepath_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+test_subject_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+test_subject_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+experiment_engineer_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+experiment_engineer_drone_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}
+
+shroud_trader_rinfix = {
+	swappable_data = {
+		default = {
+			icon = colonist
+		}
+	}
+	possible = { always = no }
+}

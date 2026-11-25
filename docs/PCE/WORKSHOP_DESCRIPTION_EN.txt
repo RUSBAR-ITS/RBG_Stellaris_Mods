@@ -1,0 +1,21 @@
+[b]Planetary Capacity Extender 2.0.1 for Stellaris v4.6.*[/b]
+
+This small cheat mod lets you raise the total district limit on any colony you own for free. It works on colonized planets, habitats, habitable ring world segments and arkships. The bonus applies only to the selected colony. You build the districts as usual.
+
+[h2]How to adjust the district limit[/h2]
+
+Select a colony, open [b]Decisions[/b] and choose [b]Colony Infrastructure Planning[/b]. The menu shows the colony’s current capacity index. Each point adds one district slot. Only players can use this decision.
+
+[list]
+[*]To add slots, choose the increase option and select an amount from 1 to 10. You can repeat this action.
+[*]To remove some of the bonus, choose the decrease option. The menu shows only amounts you can remove. Choose [b]Remove all[/b] to clear the entire bonus from this colony.
+[/list]
+
+[b]The index changes immediately. The new district limit takes effect within a few in-game days.[/b]
+
+[h2]Where to see the bonus[/h2]
+
+The colony’s feature list shows the total district bonus as a single feature. The mod selects one of 49 variants based on the colony and empire type. Terraforming or a change of ownership can change which feature appears. The colony keeps its accumulated bonus.
+
+[b]Feedback[/b]
+Thanks to everyone who reports bugs, issues, or unexpected behavior. Your feedback helps improve the mod.

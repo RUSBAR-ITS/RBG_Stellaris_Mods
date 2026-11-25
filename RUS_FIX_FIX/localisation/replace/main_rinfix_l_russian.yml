@@ -1,0 +1,173 @@
+﻿l_russian:
+
+ ##################################
+ # Свои строки
+ ##################################
+
+ # Значения по умолчанию в настройках галактики
+ tiny_galaxy_rinfix: "$tiny$ (200 звёзд):"
+ small_galaxy_rinfix: "$small$ (400 звёзд):"
+ medium_galaxy_rinfix: "$medium$ (600 звёзд):"
+ large_galaxy_rinfix: "$large$ (800 звёзд):"
+ huge_galaxy_rinfix: "$huge$ (1000 звёзд):"
+ concept_fe_crises_default_rinfix: "$tiny_galaxy_rinfix$ §Y0.5x§!\n$small_galaxy_rinfix$ §Y0.75x§!\n$medium_galaxy_rinfix$ §Y1x§!\n$large_galaxy_rinfix$ §Y1.25x§!\n$huge_galaxy_rinfix$ §Y1.5x§!"
+ concept_fe_marauder_empires_default_rinfix: "$tiny_galaxy_rinfix$ §Y1§!\n$small_galaxy_rinfix$ §Y1§!\n$medium_galaxy_rinfix$ §Y2§!\n$large_galaxy_rinfix$ §Y2§!\n$huge_galaxy_rinfix$ §Y3§!"
+ concept_fe_storm_early_max_default_rinfix: "$tiny_galaxy_rinfix$ §Y1x§!\n$small_galaxy_rinfix$ §Y1x§!\n$medium_galaxy_rinfix$ §Y2x§!\n$large_galaxy_rinfix$ §Y3x§!\n$huge_galaxy_rinfix$ §Y4x§!"
+ concept_fe_storm_mid_max_default_rinfix: "$tiny_galaxy_rinfix$ §Y2x§!\n$small_galaxy_rinfix$ §Y3x§!\n$medium_galaxy_rinfix$ §Y5x§!\n$large_galaxy_rinfix$ §Y6x§!\n$huge_galaxy_rinfix$ §Y8x§!"
+ concept_fe_storm_late_max_default_rinfix: "$tiny_galaxy_rinfix$ §Y3x§!\n$small_galaxy_rinfix$ §Y5x§!\n$medium_galaxy_rinfix$ §Y8x§!\n$large_galaxy_rinfix$ §Y10x§!\n$huge_galaxy_rinfix$ §Y14x§!"
+ concept_fe_nomad_empires_default_rinfix: "$tiny_galaxy_rinfix$ §YВыкл.§!\n$small_galaxy_rinfix$ §Y1§!\n$medium_galaxy_rinfix$ §Y2§!\n$large_galaxy_rinfix$ §Y2§!\n$huge_galaxy_rinfix$ §Y3§!"
+
+ # Фракции
+ Unity_rinfix: "единства&!neut" # Фронт Человеческого единства
+ Democratic_rinfix: "демократии" # Комитет демократии
+ Awareness_rinfix: "разумного отношения к&!dat" # Фонд разумного отношения к инопланетянам
+
+ ##################################
+ # Недостающие строки
+ ##################################
+
+ # Встречаются в подсказках к эффектам
+ economy: "Экономика"
+ military: "Мощь флота"
+ default: "Обычное государство"
+ reorganizing_leviathan_parade: "Идёт перенос парада"
+ prismatic_ice_exhibit_happened: "Количество проведённых выставок призматического льда"
+
+ # Для предсозданных государств
+ PRESCRIPTED_ruler_title_female_knights: "Королева" 
+ PRESCRIPTED_ruler_title_female_certeran_covenant: "Первая прародительница"
+
+ # В подсказке, когда воруешь технологию (и нет доступных вариантов?)
+ NO_POSSIBLE_OPTION: "§RНет доступных вариантов.§!"
+
+ # Разработчики забыли добавить черты
+ leader_trait_space_miner_2: "$leader_trait_space_miner$ II"
+ leader_trait_space_miner_2_desc: "$leader_trait_space_miner_desc$"
+ leader_trait_space_miner_3: "$leader_trait_space_miner$ III"
+ leader_trait_space_miner_3_desc: "$leader_trait_space_miner_desc$"
+
+ # В списке источников вместимости флота
+ FROM_MEGASTRUCTURE: "От мегасооружений"
+
+ ##################################
+ # Падежи для терминов
+ ##################################
+
+ pop_cat_psionic_nom: "псионики"
+ pop_cat_psionic_gen: "псиоников"
+ pop_cat_complex_drone_plural_nom: "комплексные единицы"
+ pop_cat_complex_drone_plural_gen: "комплексных единиц"
+ pop_cat_simple_drone_plural_nom: "простые единицы"
+ pop_cat_simple_drone_plural_gen: "простых единиц"
+ pop_cat_maintenance_drone_plural_gen: "обслуживающих единиц"
+ pop_cat_ruler_plural_nom: "элитарии"
+ pop_cat_ruler_plural_gen: "элитариев"
+ pop_cat_ruler_plural_acc: "элитариев"
+ pop_cat_ruler_plural_inst: "элитариями"
+ pop_cat_ruler_plural_prep: "элитариях"
+ pop_cat_specialist_plural_nom: "специалисты"
+ pop_cat_specialist_plural_gen: "специалистов"
+ pop_cat_specialist_plural_acc: "специалистов"
+ pop_cat_specialist_plural_inst: "специалистами"
+ pop_cat_specialist_plural_prep: "специалистах"
+ pop_cat_worker_plural_nom: "рабочие"
+ pop_cat_worker_plural_gen: "рабочих"
+ pop_cat_worker_plural_acc: "рабочих"
+ pop_cat_worker_plural_prep: "рабочих"
+ pop_cat_civilian_plural_nom: "граждане"
+ pop_cat_civilian_plural_gen: "граждан"
+ pop_cat_slave_plural_nom: "рабы"
+ pop_cat_slave_plural_gen: "рабов"
+ pop_cat_criminal_plural_nom: "преступники"
+ pop_cat_criminal_plural_gen: "преступников"
+ pop_cat_bio_trophy_nom: "биотрофей"
+ pop_cat_bio_trophy_plural_nom: "биотрофеи"
+ pop_cat_bio_trophy_plural_gen: "биотрофеев"
+ pop_cat_purge_plural_nom: "нежелательные"
+ pop_cat_purge_plural_gen: "нежелательных"
+ RULERS_gen: "£pop_cat_ruler£ $pop_cat_ruler_plural_gen$"
+ SPECIALISTS_gen: "£pop_cat_specialist£ $pop_cat_specialist_plural_gen$"
+ SPECIALISTS_inst: "£pop_cat_specialist£ $pop_cat_specialist_plural_inst$"
+ WORKERS_gen: "£pop_cat_worker£ $pop_cat_worker_plural_gen$"
+ CIVILIANS_gen: "£pop_cat_civilian£ $pop_cat_civilian_plural_gen$"
+ SLAVES_gen: "£slavery£ $pop_cat_slave_plural_gen$"
+ CRIMINALS_gen: "£crime£ $pop_cat_criminal_plural_gen$"
+ BIO_TROPHIES_gen: "£pop_cat_bio_trophy£ $pop_cat_bio_trophy_plural_gen$"
+
+ admiral_gen: "адмирала"
+ admiral_plural_gen: "адмиралов"
+ admiral_plural_with_icon_gen: "£admiral£ $admiral_plural_gen$"
+ admiral_with_icon_gen: "£admiral£ $admiral_gen$"
+ commander_gen: "командира"
+ commander_plural_gen: "командиров"
+ commander_plural_with_icon_gen: "£commander£ $commander_plural_gen$"
+ commander_with_icon_gen: "£commander£ $commander_gen$"
+ general_gen: "генерала"
+ general_plural_gen: "генералов"
+ general_plural_with_icon_gen: "£general£ $general_plural_gen$"
+ general_with_icon_gen: "£general£ $general_gen$"
+ governor_gen: "губернатора"
+ governor_plural_gen: "губернаторов"
+ governor_plural_with_icon_gen: "£official£ $governor_plural_gen$"
+ governor_with_icon_gen: "£official£ $governor_gen$"
+ official_gen: "чиновника"
+ official_plural_gen: "чиновников"
+ official_plural_with_icon_gen: "£official£ $official_plural_gen$"
+ official_with_icon_gen: "£official£ $official_gen$"
+ ruler_gen: "правителя"
+ ruler_plural_gen: "правителей"
+ ruler_plural_with_icon_gen: "£ruler£ $ruler_plural_gen$"
+ ruler_with_icon_gen: "£ruler£ $ruler_gen$"
+ scientist_gen: "учёного"
+ scientist_plural_gen: "учёных"
+ scientist_plural_with_icon_gen: "£scientist£ $scientist_plural_gen$"
+ scientist_with_icon_gen: "£scientist£ $scientist_gen$"
+
+ ship_growth_stage_1_gen: "юного"
+ ship_growth_stage_2_gen: "взрослого"
+ ship_growth_stage_3_gen: "старого"
+ ship_growth_stage_4_gen: "древнего"
+ ship_growth_stage_1_neut: "Юное"
+ ship_growth_stage_2_neut: "Взрослое"
+ ship_growth_stage_3_neut: "Старое"
+ ship_growth_stage_4_neut: "Древнее"
+ ship_growth_stage_1_plural: "Юные"
+ ship_growth_stage_2_plural: "Взрослые"
+ ship_growth_stage_3_plural: "Старые"
+ ship_growth_stage_4_plural: "Древние"
+ mauler_class_gen: "мучителя"
+ mauler_stage_1_gen: "$ship_growth_stage_1_gen$ $mauler_class_gen$"
+ mauler_stage_2_gen: "$ship_growth_stage_2_gen$ $mauler_class_gen$"
+ mauler_stage_3_gen: "$ship_growth_stage_3_gen$ $mauler_class_gen$"
+ offspring_mauler_class_gen: "мучителя-отпрыска"
+ offspring_mauler_stage_1_gen: "$ship_growth_stage_1_gen$ $offspring_mauler_class_gen$"
+ offspring_mauler_stage_2_gen: "$ship_growth_stage_2_gen$ $offspring_mauler_class_gen$"
+ offspring_mauler_stage_3_gen: "$ship_growth_stage_3_gen$ $offspring_mauler_class_gen$"
+ weaver_class_gen: "ткача"
+ weaver_stage_1_gen: "$ship_growth_stage_1_gen$ $weaver_class_gen$"
+ weaver_stage_2_gen: "$ship_growth_stage_2_gen$ $weaver_class_gen$"
+ weaver_stage_3_gen: "$ship_growth_stage_3_gen$ $weaver_class_gen$"
+ offspring_weaver_class_gen: "ткача-отпрыска"
+ offspring_weaver_stage_1_gen: "$ship_growth_stage_1_gen$ $offspring_weaver_class_gen$"
+ offspring_weaver_stage_2_gen: "$ship_growth_stage_2_gen$ $offspring_weaver_class_gen$"
+ offspring_weaver_stage_3_gen: "$ship_growth_stage_3_gen$ $offspring_weaver_class_gen$"
+ harbinger_class_gen: "предвестника"
+ harbinger_stage_1_gen: "$ship_growth_stage_1_gen$ $harbinger_class_gen$"
+ harbinger_stage_2_gen: "$ship_growth_stage_2_gen$ $harbinger_class_gen$"
+ harbinger_stage_3_gen: "$ship_growth_stage_3_gen$ $harbinger_class_gen$"
+ offspring_harbinger_class_gen: "предвестника-отпрыска"
+ offspring_harbinger_stage_1_gen: "$ship_growth_stage_1_gen$ $offspring_harbinger_class_gen$"
+ offspring_harbinger_stage_2_gen: "$ship_growth_stage_2_gen$ $offspring_harbinger_class_gen$"
+ offspring_harbinger_stage_3_gen: "$ship_growth_stage_3_gen$ $offspring_harbinger_class_gen$"
+ stinger_class_gen: "жала"
+ stinger_stage_1_gen: "$ship_growth_stage_1_gen$ $stinger_class_gen$"
+ stinger_stage_2_gen: "$ship_growth_stage_2_gen$ $stinger_class_gen$"
+ stinger_stage_3_gen: "$ship_growth_stage_3_gen$ $stinger_class_gen$"
+ offspring_stinger_class_gen: "жала-отпрыска"
+ offspring_stinger_stage_1_gen: "$ship_growth_stage_1_gen$ $offspring_stinger_class_gen$"
+ offspring_stinger_stage_2_gen: "$ship_growth_stage_2_gen$ $offspring_stinger_class_gen$"
+ offspring_stinger_stage_3_gen: "$ship_growth_stage_3_gen$ $offspring_stinger_class_gen$"
+
+ station_gatherers_gen: "добывающих станций"
+ station_researchers_gen: "научных станций"
+ planet_automated_jobs_gen: "автоматизированной рабочей силы"

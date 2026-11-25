@@ -1,0 +1,55 @@
+# Always remove individual PCE instances. Vanilla and other mods' deposits are left in place.
+pce_remove_features = {
+	every_deposit = {
+		limit = { pce_is_capacity_feature = yes }
+		remove_deposit = yes
+	}
+}
+
+pce_use_feature = {
+	if = {
+		limit = { NOT = { has_deposit = $TYPE$ } }
+		if = {
+			limit = {
+				exists = event_target:pce_previous_feature
+				any_deposit = { is_same_value = event_target:pce_previous_feature }
+			}
+			event_target:pce_previous_feature = { remove_deposit = yes }
+		}
+		add_deposit = $TYPE$
+		# Bind the outstanding check to this instance. Removing or replacing it retires the old check.
+		every_deposit = {
+			limit = { is_deposit_type = $TYPE$ }
+			save_event_target_as = pce_installed_feature
+		}
+		carrier_event = { id = pce.12 days = 1 scopes = { from = event_target:pce_installed_feature } }
+	}
+}
+
+# Check for duplicates at entry points; the daily state check only compares the selected type.
+pce_reconcile_features = {
+	if = {
+		limit = { count_deposit = { limit = { pce_is_capacity_feature = yes } count > 1 } }
+		pce_remove_features = yes
+	}
+	every_deposit = {
+		limit = { pce_is_capacity_feature = yes }
+		save_event_target_as = pce_previous_feature
+	}
+	pce_select_feature = yes
+}
+
+pce_apply_change = {
+	if = {
+		limit = { pce_amount_available = { INCREASE = $INCREASE$ AMOUNT = $AMOUNT$ } }
+		set_variable = { which = pce_extra_districts value = value:pce_$OP$_result|AMOUNT|$AMOUNT$| }
+		if = {
+			limit = { pce_has_capacity = yes }
+			carrier_event = { id = pce.11 }
+		}
+		else = {
+			pce_remove_features = yes
+			clear_variable = pce_extra_districts
+		}
+	}
+}

@@ -1,0 +1,18 @@
+﻿l_russian:
+
+# В скрипте местоимения перепутаны местами, поэтому поменяла тут тоже
+ RULOC_ej: "ему" # GetEjEmu
+ RULOC_emu: "ей" # GetEjEmu
+ RULOC_ej_cap: "Ему" # GetEjEmuCap
+ RULOC_emu_cap: "Ей" # GetEjEmuCap
+ RULOC_eyu: "им" # GetEyuIm
+ RULOC_im: "ею" # GetEyuIm
+ RULOC_eyu_cap: "Им" # GetEyuImCap
+ RULOC_im_cap: "Ею" # GetEyuImCap
+ RULOC_nej: "нём" # GetNejNem
+ RULOC_nem: "ней" # GetNejNem
+ RULOC_nej_cap: "Нём" # GetNejNemCap
+ RULOC_nem_cap: "Ней" # GetNejNemCap
+# Использую эту пару строк для контекстных вариантов
+ RULOC_a: "женщина&!fem" # GetAXX
+ RULOC_null: "мужчина&!masc" # GetAXX

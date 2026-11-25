@@ -1,0 +1,981 @@
+##################################
+# Скрипты для должностей
+##################################
+
+defined_text = {
+	name = GetTransferenceVolunteerDrone_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_gestalt = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_transference_drone_plural_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_neurosymbiont_plural_rinfix
+	}
+	default = job_transference_volunteer_plural_rinfix
+}
+
+defined_text = {
+	name = GetHealthcareSwapPluralWithIcon_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = job_gestation_drone_plural_with_icon_rinfix
+	}
+	default = job_healthcare_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetPopAssemblersPluralWithIcon_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_regular_empire = yes
+				is_individual_machine = no
+				has_country_flag = identity_complex_available
+			}
+		}
+		localization_key = job_roboticist_plural_with_icon_and_job_identity_designer_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = job_replicator_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+				NOT = { has_origin = origin_progenitor_hive }
+			}
+		}
+		localization_key = job_spawning_drone_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_broodsymbiont_plural_with_icon_rinfix
+	}
+	default = job_roboticist_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetSubterraneanTraderPluralWithIcon_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = job_underground_contact_drone_plural_with_icon_rinfix
+	}
+	default = job_underground_trade_worker_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetTraderSwapPluralWithIcon_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = job_logistics_drone_plural_with_icon_rinfix
+	}
+	default = job_trader_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetGenomicJobsPluralWithIcon_rinfix
+	text = {
+		trigger = {
+			owner? = { is_hive_empire = yes }
+		}
+		localization_key = job_genomic_drone_plural_with_icon_rinfix
+	}
+	default = job_genomic_researcher_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetResearcherPluralWithIcon_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_brain_drone_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_evosymbiont_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = job_calculator_plural_with_icon_rinfix
+	}
+	default = job_researcher_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetWranglerJobNamePluralWithIcon_rinfix
+	random = no
+	text = {
+		trigger = {
+			owner? = { has_rancher_job = yes }
+		}
+		localization_key = job_rancher_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_trophy_hunter_job = yes }
+		}
+		localization_key = job_trophy_hunter_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_animal_handler_job = yes }
+		}
+		localization_key = job_animal_handler_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_beastfighter_job = yes }
+		}
+		localization_key = job_beastfighter_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_drone_wrangler_job = yes }
+		}
+		localization_key = job_drone_wrangler_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_hunter_drone_job = yes }
+		}
+		localization_key = job_hunter_drone_plural_with_icon_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_symbiosis_integrator_job = yes }
+		}
+		localization_key = job_symbiosis_integrator_plural_with_icon_rinfix
+	}
+	default = job_wrangler_plural_with_icon_rinfix
+}
+
+defined_text = {
+	name = GetLeaderSoldierJobType_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = job_warrior_drone_with_texticon_rinfix
+	}
+	default = job_soldier_with_texticon_rinfix
+}
+
+##################################
+# Скрипты для должностей со ссылками на строки из fake_jobs_rinfix
+##################################
+
+defined_text = {
+	name = GetBureaucratPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_synapse_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_choirsymbiont_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {is_machine_empire = yes }
+		}
+		localization_key = job_coordinator_rinfix
+	}
+	default = job_bureaucrat_rinfix
+}
+
+defined_text = {
+	name = GetPriestPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_megacorp = yes
+				is_superstitious_beliefs_empire = no
+				NOR = {
+					has_valid_civic = civic_death_cult
+					has_valid_civic = civic_death_cult_corporate
+					has_origin = origin_cybernetic_creed
+				}
+			}
+		}
+		localization_key = job_preacher_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_superstitious_beliefs_empire = no
+				OR = {
+					has_valid_civic = civic_death_cult
+					has_valid_civic = civic_death_cult_corporate
+				}
+			}
+		}
+		localization_key = job_death_priest_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_megacorp = no
+				is_superstitious_beliefs_empire = yes
+			}
+		}
+		localization_key = job_superstitious_beliefs_priest_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_megacorp = yes
+				is_superstitious_beliefs_empire = yes
+			}
+		}
+		localization_key = job_superstitious_beliefs_priest_corporate_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { has_origin = origin_cybernetic_creed }
+		}
+		localization_key = job_haruspex_rinfix
+	}
+	default = job_priest_rinfix
+}
+
+defined_text = {
+	name = GetAlloyProducerPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_regular_empire = yes
+				is_catalytic_empire = yes
+			}
+		}
+		localization_key = job_catalytic_technician_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_machine_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		localization_key = job_fabricator_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+				is_catalytic_empire = no
+			}
+		}
+		localization_key = job_alloy_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_gestalt = yes
+				is_catalytic_empire = yes
+			}
+		}
+		localization_key = job_catalytic_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_forgesymbiont_rinfix
+	}
+	default = job_foundry_rinfix
+}
+
+defined_text = {
+	name = GetSoldierPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_gestalt = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_warrior_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_tamersymbiont_rinfix
+	}
+	default = job_soldier_rinfix
+}
+
+defined_text = {
+	name = GetAstrometeorologistPlural_rinfix
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = job_astrometeorologist_machine_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_hive_empire = yes }
+		}
+		localization_key = job_astrometeorologist_hive_rinfix
+	}
+	default = job_astrometeorologist_rinfix
+}
+
+defined_text = {
+	name = GetTechnicianPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_gestalt = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_technician_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_photosymbiont_rinfix
+	}
+	default = job_technician_rinfix
+}
+
+defined_text = {
+	name = GetMinerPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_gestalt = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_mining_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_grubsymbiont_rinfix
+	}
+	default = job_miner_rinfix
+}
+
+defined_text = {
+	name = GetFarmerPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_gestalt = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = job_agri_drone_rinfix
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = job_pollinosymbiont_rinfix
+	}
+	default = job_farmer_rinfix
+}
+
+##################################
+# Прочие скрипты
+##################################
+
+defined_text = {
+	name = GetPlanetMoon_rinfix
+	text = {
+		trigger = {
+			is_planet_class = pc_habitat
+		}
+		localization_key = habitat_rinfix
+	}
+	text = {
+		trigger = {
+			OR = {
+				is_planet_class = pc_ringworld_habitable
+				is_planet_class = pc_ringworld_habitable_damaged
+				is_planet_class = pc_cybrex
+			}
+		}
+		localization_key = ringworld_rinfix
+	}
+	text = {
+		trigger = {
+			is_planet_class = pc_ark
+		}
+		localization_key = arkship_rinfix
+	}
+	text = {
+		trigger = {
+			is_moon = yes
+		}
+		localization_key = moon_rinfix
+	}
+	default = planet_rinfix
+}
+
+defined_text = {
+	name = GetPlanetMoonCap_rinfix
+	text = {
+		trigger = {
+			is_planet_class = pc_habitat
+		}
+		localization_key = habitat_cap_rinfix
+	}
+	text = {
+		trigger = {
+			OR = {
+				is_planet_class = pc_ringworld_habitable
+				is_planet_class = pc_ringworld_habitable_damaged
+				is_planet_class = pc_cybrex
+			}
+		}
+		localization_key = ringworld_cap_rinfix
+	}
+	text = {
+		trigger = {
+			is_planet_class = pc_ark
+		}
+		localization_key = arkship_cap_rinfix
+	}
+	text = {
+		trigger = {
+			is_moon = yes
+		}
+		localization_key = moon_cap_rinfix
+	}
+	default = planet_cap_rinfix
+}
+
+defined_text = {
+	name = GetScientist_rinfix
+	random = no
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = scientist_machine_rinfix
+		weight = 10
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = scientist_hive_rinfix
+		weight = 10
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = scientist_wilderness_rinfix
+		weight = 10
+	}
+	text = {
+		trigger = {
+			leader? = { loc_leader_fem = yes }
+		}
+		localization_key = scientist_normal_female_rinfix
+		weight = 5
+	}
+	default = scientist_normal_male_rinfix
+}
+
+defined_text = {
+	name = GetScientistCap_rinfix
+	random = no
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = scientist_machine_cap_rinfix
+		weight = 10
+	}
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = scientist_hive_cap_rinfix
+		weight = 10
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = scientist_wilderness_cap_rinfix
+		weight = 10
+	}
+	text = {
+		trigger = {
+			leader? = { loc_leader_fem = yes }
+		}
+		localization_key = scientist_normal_cap_female_rinfix
+		weight = 5
+	}
+	default = scientist_normal_cap_male_rinfix
+}
+
+defined_text = {
+	name = AlloysProducerResources_rinfix
+	text = {
+		trigger = {
+			planet.owner? = { is_catalytic_empire = yes }
+		}
+		localization_key = r_food_acc
+	}
+	default = r_minerals_acc
+}
+
+defined_text = {
+	name = GetInstrumentCraving_rinfix
+	text = {
+		trigger = { has_country_flag = instrument_craving_consumer_goods }
+		localization_key = consumer_goods_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_alloys }
+		localization_key = alloys_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_unity }
+		localization_key = unity_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_gas }
+		localization_key = exotic_gases_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_crystal }
+		localization_key = rare_crystals_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_motes }
+		localization_key = volatile_motes_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_zro }
+		localization_key = zro_gen
+	}
+	text = {
+		trigger = { has_country_flag =  instrument_craving_dark_matter }
+		localization_key = dark_matter_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_living_metal }
+		localization_key = living_metal_gen
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_nanites }
+		localization_key = nanites_gen
+	}
+}
+
+defined_text = {
+	name = GetInstrumentCravingWithIcon_rinfix
+	text = {
+		trigger = { has_country_flag = instrument_craving_consumer_goods }
+		localization_key = r_consumer_goods_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_alloys }
+		localization_key = r_alloys_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_unity }
+		localization_key = r_unity_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_gas }
+		localization_key = r_exotic_gases_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_crystal }
+		localization_key = r_rare_crystals_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_motes }
+		localization_key = r_volatile_motes_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_zro }
+		localization_key = r_zro_acc
+	}
+	text = {
+		trigger = { has_country_flag =  instrument_craving_dark_matter }
+		localization_key = r_dark_matter_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_living_metal }
+		localization_key = r_living_metal_acc
+	}
+	text = {
+		trigger = { has_country_flag = instrument_craving_nanites }
+		localization_key = r_nanites_acc
+	}
+}
+
+defined_text = {
+	name = SubjectResearcherUpkeep_rinfix
+	text = {
+		trigger = {
+			owner? = { is_hive_empire = yes }
+		}
+		localization_key = r_minerals_acc
+	}
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = r_energy_acc
+	}
+	default = r_consumer_goods_acc
+}
+
+defined_text = {
+	name = GetCatalyticMineralsOrFood_rinfix
+	text = {
+		trigger = {
+			owner? = { is_catalytic_empire = yes }
+		}
+		localization_key = r_food_acc
+	}
+	default = r_minerals_acc
+}
+
+defined_text = {
+	name = GetWorkerPlural_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = pop_cat_simple_drone_plural_gen
+	}
+	default = pop_cat_worker_plural_gen
+}
+
+defined_text = {
+	name = GetSpecialistPlural_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = pop_cat_complex_drone_plural_gen
+	}
+	default = pop_cat_specialist_plural_gen
+}
+
+defined_text = {
+	name = GetResearcherPlural_rinfix
+	text = {
+		trigger = {
+			owner? = {
+				is_hive_empire = yes
+				is_wilderness_empire = no
+			}
+		}
+		localization_key = brain_drone_plural_rinfix_cases
+	}
+	text = {
+		trigger = {
+			owner? = { is_wilderness_empire = yes }
+		}
+		localization_key = _evosymbiont_plural_rinfix_cases
+	}
+	text = {
+		trigger = {
+			owner? = { is_machine_empire = yes }
+		}
+		localization_key = calculator_plural_rinfix_cases
+	}
+	default = researcher_plural_rinfix_cases
+}
+
+defined_text = {
+	name = CrimeOrDeviancy_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = r_deviancy_gen
+	}
+	default = r_crime_gen
+}
+
+defined_text = {
+	name = GetCrimeDeviancy_rinfix
+	text = {
+		trigger = {
+			owner? = { is_gestalt = yes }
+		}
+		localization_key = deviancy_acc
+	}
+	default = crime_acc
+}
+
+defined_text = {
+	name = GetTrophyName_rinfix
+	text = {
+		trigger = { has_situation_flag = celebration_ether_drake }
+		localization_key = drakes_scale_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_shard }
+		localization_key = eye_of_the_shard_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_tiyanki_matriarch }
+		localization_key = matriarchs_flagella_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_voidspawn }
+		localization_key = voidspawns_chitin_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_spectral_wraith }
+		localization_key = wraiths_energy_disperser_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_stellar_devourer }
+		localization_key = devourers_plasma_rinfix
+	}
+	text = {
+		trigger = {
+			OR = {
+				has_situation_flag = celebration_dimensional_horror
+				has_situation_flag = celebration_worm
+				has_situation_flag = celebration_elder_one
+			}
+		}
+		localization_key = horrific_inverse_mass_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_automated_dreadnought }
+		localization_key = dreadnoughts_reactor_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_enigmatic_fortress }
+		localization_key = fortress_hull_plates_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_scavenger_bot }
+		localization_key = scavenger_bots_compactor_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_hrozgar }
+		localization_key = sky_dragons_plume_rinfix
+	}
+}
+
+defined_text = {
+	name = GetLeviathanTargetName_rinfix
+	text = {
+		trigger = { has_situation_flag = celebration_ether_drake }
+		localization_key = ether_drake_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_shard }
+		localization_key = shard_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_tiyanki_matriarch }
+		localization_key = tiyanki_matriarch_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_voidspawn }
+		localization_key = voidspawn_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_spectral_wraith }
+		localization_key = spectral_wraith_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_stellar_devourer }
+		localization_key = stellar_devourer_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_dimensional_horror }
+		localization_key = dimensional_horror_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_elder_one }
+		localization_key = elder_one_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_worm }
+		localization_key = worm_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_automated_dreadnought }
+		localization_key = automated_dreadnought_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_enigmatic_fortress }
+		localization_key = enigmatic_fortress_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_scavenger_bot }
+		localization_key = scavenger_bot_rinfix
+	}
+	text = {
+		trigger = { has_situation_flag = celebration_hrozgar }
+		localization_key = hrozgar_rinfix
+	}
+}
+
+defined_text = {
+	name = GetGalCommunityOrGalImperium_rinfix
+	text = {
+		trigger = { has_galactic_emperor = yes }
+		localization_key = galactic_empire_rinfix
+	}
+	default = galactic_community_rinfix
+}
+
+defined_text = {
+	name = GetCommunityOrImperium_rinfix
+	text = {
+		trigger = { has_galactic_emperor = yes }
+		localization_key = imperium_rinfix
+	}
+	default = community_rinfix
+}
+
+defined_text = {
+	name = GetLeaderClass_rinfix
+	text = {
+		trigger = {
+			leader_class = commander
+		}
+		localization_key = commander_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = no
+			leader_class = scientist
+		}
+		localization_key = scientist_male_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = yes
+			leader_class = scientist
+		}
+		localization_key = scientist_female_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = no
+			leader_class = official
+		}
+		localization_key = official_male_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = yes
+			leader_class = official
+		}
+		localization_key = official_female_rinfix
+	}
+	text = {
+		trigger = {
+			leader_class = envoy
+		}
+		localization_key = envoy_rinfix
+	}
+	default = clown_rinfix
+}
+
+defined_text = {
+	name = GetLeaderClassPrefix_rinfix
+	random = no
+	text = {
+		trigger = {
+			loc_leader_fem = no
+			is_leader_tier = leader_tier_renowned
+		}
+		localization_key = CLASS_PREFIX_RENOWNED_male_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = yes
+			is_leader_tier = leader_tier_renowned
+		}
+		localization_key = CLASS_PREFIX_RENOWNED_female_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = no
+			is_leader_tier = leader_tier_legendary
+		}
+		localization_key = CLASS_PREFIX_LEGENDARY_male_rinfix
+	}
+	text = {
+		trigger = {
+			loc_leader_fem = yes
+			is_leader_tier = leader_tier_legendary
+		}
+		localization_key = CLASS_PREFIX_LEGENDARY_female_rinfix
+	}
+	default = CLASS_PREFIX_NONE
+}
+
+defined_text = {
+	name = GetCitizenOrCrew_rinfix
+	text = {
+		trigger = {
+			is_scope_valid = yes
+			is_nomadic = yes
+			has_origin = origin_forever_cruise
+			NOT = { has_country_flag = forever_cruise_over }
+		}
+		localization_key = cruise_crew_rinfix
+	}
+	default = citizen_rinfix
+}

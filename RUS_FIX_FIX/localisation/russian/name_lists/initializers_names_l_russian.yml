@@ -1,0 +1,604 @@
+﻿l_russian:
+# See also: english\random_names\random_names_l_english.yml, which contains the names used for randomly-generated stars. The stars named in this file belong to particular, scripted star systems.
+
+######################
+# PRESCRIPTED SYSTEMS
+######################
+
+# United Nations of Earth
+ NAME_United_Nations_of_Earth: "Объединённые Нации Земли"
+ NAME_Sol: "Солнце&!neut|||prep:Солнце|||inst:Солнцем|||acc:Солнце|||dat:Солнцу|||gen:Солнца"
+ NAME_1_Ceres: "Церера&!fem|||prep:Церере|||inst:Церерой|||acc:Цереру|||dat:Церере|||gen:Цереры"
+ NAME_2_Pallas: "Паллада&!fem|||prep:Палладе|||inst:Палладой|||acc:Палладу|||dat:Палладе|||gen:Паллады"
+ NAME_3_Juno: "Юнона&!fem|||prep:Юноне|||inst:Юноной|||acc:Юнону|||dat:Юноне|||gen:Юноны"
+ NAME_4_Vesta: "Веста&!fem|||prep:Весте|||inst:Вестой|||acc:Весту|||dat:Весте|||gen:Весты"
+ NAME_Mercury: "Меркурий&!masc|||prep:Меркурии|||inst:Меркурием|||acc:Меркурий|||dat:Меркурию|||gen:Меркурия"
+ NAME_Venus: "Венера&!fem|||prep:Венере|||inst:Венерой|||acc:Венеру|||dat:Венере|||gen:Венеры"
+ NAME_Earth: "Земля&!fem|||prep:Земле|||inst:Землёй|||acc:Землю|||dat:Земле|||gen:Земли"
+ NAME_Luna: "Луна&!fem|||prep:Луне|||inst:Луной|||acc:Луну|||dat:Луне|||gen:Луны"
+ NAME_Mars: "Марс&!masc|||prep:Марсе|||inst:Марсом|||acc:Марс|||dat:Марсу|||gen:Марса"
+ NAME_Jupiter: "Юпитер&!masc|||prep:Юпитере|||inst:Юпитером|||acc:Юпитер|||dat:Юпитеру|||gen:Юпитера"
+ NAME_Io: "Ио&!fem"
+ NAME_Europa: "Европа&!fem|||prep:Европе|||inst:Европой|||acc:Европу|||dat:Европе|||gen:Европы"
+ NAME_Ganymede: "Ганимед&!masc|||prep:Ганимеде|||inst:Ганимедом|||acc:Ганимед|||dat:Ганимеду|||gen:Ганимеда"
+ NAME_Callisto: "Калисто&!fem"
+ NAME_Saturn: "Сатурн&!masc|||prep:Сатурне|||inst:Сатурном|||acc:Сатурн|||dat:Сатурну|||gen:Сатурна"
+ NAME_Titan: "Титан&!masc|||prep:Титане|||inst:Титаном|||acc:Титан|||dat:Титану|||gen:Титана"
+ NAME_Uranus: "Уран&!masc|||prep:Уране|||inst:Ураном|||acc:Уран|||dat:Урану|||gen:Урана"
+ NAME_Neptune: "Нептун&!masc|||prep:Нептуне|||inst:Нептуном|||acc:Нептун|||dat:Нептуну|||gen:Нептуна"
+ NAME_Triton: "Тритон&!masc|||prep:Тритоне|||inst:Тритоном|||acc:Тритон|||dat:Тритону|||gen:Тритона"
+ NAME_134340_Pluto: "134340 Плутон&!masc|||prep:134340 Плутоне|||inst:134340 Плутоном|||acc:134340 Плутон|||dat:134340 Плутону|||gen:134340 Плутона"
+
+ # Alternative names used
+ NAME_Demeter: "Деметра&!fem|||prep:Деметре|||inst:Деметрой|||acc:Деметру|||dat:Деметре|||gen:Деметры" # Greek equivalent of Ceres
+ NAME_Athena: "Афина&!fem|||prep:Афине|||inst:Афиной|||acc:Афину|||dat:Афине|||gen:Афины" # Athena adopted Pallas's name
+ NAME_Hera: "Гера&!fem|||prep:Гере|||inst:Герой|||acc:Геру|||dat:Гере|||gen:Геры" # Greek equivalent of Juno
+ NAME_Hestia: "Гестия&!fem|||prep:Гестии|||inst:Гестией|||acc:Гестию|||dat:Гестии|||gen:Гестии" # Greek equivalent of Vesta
+ NAME_Hermes: "Гермес&!masc|||prep:Гермесе|||inst:Гермесом|||acc:Гермес|||dat:Гермесу|||gen:Гермеса" # Greek equivalent of Mercury
+ NAME_Aphrodite: "Афродита&!fem|||prep:Афродите|||inst:Афродитой|||acc:Афродиту|||dat:Афродите|||gen:Афродиты" # Greek equivalent of Venus
+ NAME_Gaia: "Гея&!fem|||prep:Гее|||inst:Геей|||acc:Гею|||dat:Гее|||gen:Геи" # Greek equivalent of Terra
+ NAME_Selene: "Селена&!fem|||prep:Селене|||inst:Селеной|||acc:Селену|||dat:Селене|||gen:Селены" # Greek equivalent of Luna
+ NAME_Ares: "Арес&!masc|||prep:Аресе|||inst:Аресом|||acc:Арес|||dat:Аресу|||gen:Ареса" # Greek equivalent of Mars
+ NAME_Zeus: "Зевс&!masc|||prep:Зевсе|||inst:Зевсом|||acc:Зевс|||dat:Зевсу|||gen:Зевса" # Greek equivalent of Jupiter
+ NAME_Phoronis: "Форонида&!fem|||prep:Форониде|||inst:Форонидой|||acc:Форониду|||dat:Форониде|||gen:Форониды" # Io was also known as Phoronis
+ NAME_Astarte: "Астарта&!fem|||prep:Астарте|||inst:Астартой|||acc:Астарту|||dat:Астарте|||gen:Астарты" # Europa may have her origin as Aštart
+ NAME_Catamitus: "Катамит&!masc|||prep:Катамите|||inst:Катамитом|||acc:Катамит|||dat:Катамиту|||gen:Катамита" # Latinized form of Ganymede
+ NAME_Themisto: "Фемисто&!fem" # Mother of Arcas in other accounts
+ NAME_Cronus: "Кронос&!masc|||prep:Кроносе|||inst:Кроносом|||acc:Кронос|||dat:Кроносу|||gen:Кроноса" # Greek equivalent of Saturn
+ NAME_Orpheus: "Орфей&!masc|||prep:Орфее|||inst:Орфеем|||acc:Орфей|||dat:Орфею|||gen:Орфея" # Titans were important in Orphic tales
+ NAME_Caelus: "Целус&!masc|||prep:Целусе|||inst:Целусом|||acc:Целус|||dat:Целусу|||gen:Целуса" # Latin equivalent of Uranus
+ NAME_Poseidon: "Посейдон&!masc|||prep:Посейдоне|||inst:Посейдоном|||acc:Посейдон|||dat:Посейдону|||gen:Посейдона" # Greek equivalent of Neptune
+ NAME_Rhodos: "Рода&!fem|||prep:Роде|||inst:Родой|||acc:Роду|||dat:Роде|||gen:Роды" # Sibling of Triton
+ NAME_Hades: "Аид&!masc|||prep:Аиде|||inst:Аидом|||acc:Аид|||dat:Аиду|||gen:Аида" # Greek equivalent of Pluto
+ NAME_Tane: "Тане&!masc" # Makemake appeared to be a version of the Polynesian god Tāne
+ NAME_Papa: "Папаханаумоку&!fem" # Papahānaumoku alternative name for Haumea
+ NAME_Prachetas: "Прачеты&!pl|||prep:Прачетах|||inst:Прачетами|||acc:Прачеты|||dat:Прачетам|||gen:Прачет" # An epithet of Varuna
+
+# UNE neighboring systems
+ NAME_Alpha_Centauri: "Альфа Центавра&!fem|||prep:Альфе Центавра|||inst:Альфой Центавра|||acc:Альфу Центавра|||dat:Альфе Центавра|||gen:Альфы Центавра"
+ NAME_Alpha_Centauri_A: "Альфа Центавра A&!fem|||prep:Альфе Центавра A|||inst:Альфой Центавра A|||acc:Альфу Центавра A|||dat:Альфе Центавра A|||gen:Альфы Центавра A"
+ NAME_Alpha_Centauri_B: "Альфа Центавра B&!fem|||prep:Альфе Центавра B|||inst:Альфой Центавра B|||acc:Альфу Центавра B|||dat:Альфе Центавра B|||gen:Альфы Центавра B"
+ NAME_Alpha_Centauri_B_I: "Альфа Центавра B I&!fem|||prep:Альфе Центавра B I|||inst:Альфой Центавра B I|||acc:Альфу Центавра B I|||dat:Альфе Центавра B I|||gen:Альфы Центавра B I"
+ NAME_Alpha_Centauri_B_II: "Альфа Центавра B II&!fem|||prep:Альфе Центавра B II|||inst:Альфой Центавра B II|||acc:Альфу Центавра B II|||dat:Альфе Центавра B II|||gen:Альфы Центавра B II"
+ NAME_Alpha_Centauri_B_III: "Альфа Центавра B III&!fem|||prep:Альфе Центавра B III|||inst:Альфой Центавра B III|||acc:Альфу Центавра B III|||dat:Альфе Центавра B III|||gen:Альфы Центавра B III"
+ NAME_Barnards_Star: "Звезда Барнарда&!fem|||prep:Звезде Барнарда|||inst:Звездой Барнарда|||acc:Звезду Барнарда|||dat:Звезде Барнарда|||gen:Звезды Барнарда"
+ NAME_Polaris: "Полярная звезда&!fem|||prep:Полярной звезде|||inst:Полярной звездой|||acc:Полярную звезду|||dat:Полярной звезде|||gen:Полярной звезды"
+ NAME_PolarisAa: "Полярная звезда Aa&!fem|||prep:Полярной звезде Aa|||inst:Полярной звездой Aa|||acc:Полярную звезду Aa|||dat:Полярной звезде Aa|||gen:Полярной звезды Aa"
+ NAME_PolarisAb: "Полярная звезда Ab&!fem|||prep:Полярной звезде Ab|||inst:Полярной звездой Ab|||acc:Полярную звезду Ab|||dat:Полярной звезде Ab|||gen:Полярной звезды Ab"
+ NAME_PolarisB: "Полярная звезда B&!fem|||prep:Полярной звезде B|||inst:Полярной звездой B|||acc:Полярную звезду B|||dat:Полярной звезде B|||gen:Полярной звезды B"
+ NAME_Procyon: "Процион&!masc|||prep:Проционе|||inst:Проционом|||acc:Процион|||dat:Проциону|||gen:Проциона"
+ NAME_Procyon_A: "Процион A&!masc|||prep:Проционе A|||inst:Проционом A|||acc:Процион A|||dat:Проциону A|||gen:Проциона A"
+ NAME_Procyon_B: "Процион B&!masc|||prep:Проционе B|||inst:Проционом B|||acc:Процион B|||dat:Проциону B|||gen:Проциона B"
+ NAME_Proxima_Centauri: "Проксима Центавра&!fem|||prep:Проксиме Центавра|||inst:Проксимой Центавра|||acc:Проксиму Центавра|||dat:Проксиме Центавра|||gen:Проксимы Центавра"
+ NAME_Proxima_Centauri_b: "Проксима Центавра b&!fem|||prep:Проксиме Центавра b|||inst:Проксимой Центавра b|||acc:Проксиму Центавра b|||dat:Проксиме Центавра b|||gen:Проксимы Центавра b"
+ NAME_Proxima_Centauri_c: "Проксима Центавра c&!fem|||prep:Проксиме Центавра c|||inst:Проксимой Центавра c|||acc:Проксиму Центавра c|||dat:Проксиме Центавра c|||gen:Проксимы Центавра c"
+ NAME_Sirius: "Сириус&!masc|||prep:Сириусе|||inst:Сириусом|||acc:Сириус|||dat:Сириусу|||gen:Сириуса"
+ NAME_Sirius_A: "Сириус A&!masc|||prep:Сириусе A|||inst:Сириусом A|||acc:Сириус A|||dat:Сириусу A|||gen:Сириуса A"
+ NAME_Sirius_B: "Сириус B&!masc|||prep:Сириусе B|||inst:Сириусом B|||acc:Сириус B|||dat:Сириусу B|||gen:Сириуса B"
+
+ NAME_136472_Makemake: "136472 Макемаке&!masc"
+ NAME_136108_Haumea: "136108 Хаумеа&!fem"
+ NAME_20000_Varuna: "20000 Варуна&!fem|||prep:20000 Варуне|||inst:20000 Варуной|||acc:20000 Варуну|||dat:20000 Варуне|||gen:20000 Варуны"
+
+# Deneb (Commonwealth of Man/UNE)
+ NAME_Deneb: "Денеб&!masc|||prep:Денебе|||inst:Денебом|||acc:Денеб|||dat:Денебу|||gen:Денеба" #star
+ NAME_Inferno: "Пекло&!neut|||prep:Пекле|||inst:Пеклом|||acc:Пекло|||dat:Пеклу|||gen:Пекла" #planet
+ NAME_DT4-298: "DT4-298&!neut" #asteroid
+ NAME_LR-2129: "LR-2129&!neut" #asteroid
+ NAME_GR-345: "GR-345&!neut" #asteroid
+ NAME_Olympus: "Олимп&!masc|||prep:Олимпе|||inst:Олимпом|||acc:Олимп|||dat:Олимпу|||gen:Олимпа" #planet
+ NAME_New_Luna: "Новая Луна&!fem|||prep:Новой Луне|||inst:Новой Луной|||acc:Новую Луну|||dat:Новой Луне|||gen:Новой Луны" #moon, as in 'NAME_Luna'
+ NAME_Unity: "Единство&!neut|||prep:Единстве|||inst:Единством|||acc:Единство|||dat:Единству|||gen:Единства" #moon
+ NAME_Marble: "Мрамор&!masc|||prep:Мраморе|||inst:Мрамором|||acc:Мрамор|||dat:Мрамору|||gen:Мрамора" #planet
+ NAME_Hyperion: "Гиперион&!masc|||prep:Гиперионе|||inst:Гиперионом|||acc:Гиперион|||dat:Гипериону|||gen:Гипериона" #planet
+ NAME_Helios: "Гелиос&!masc|||prep:Гелиосе|||inst:Гелиосом|||acc:Гелиос|||dat:Гелиосу|||gen:Гелиоса" #moon
+ NAME_Tumbleweed: "Перекати-поле&!neut|||prep:Перекати-поле|||inst:Перекати-полем|||acc:Перекати-поле|||dat:Перекати-полу|||gen:Перекати-пола" #planet
+ NAME_Jackson's_Planet: "Планета Джексона&!fem|||prep:Планете Джексона|||inst:Планетой Джексона|||acc:Планету Джексона|||dat:Планете Джексона|||gen:Планеты Джексона" #planet
+
+# Sol (Void Dweller origin)
+ NAME_Sol_Void_Dweller: "Солнце (жители пустоты)" #system
+ NAME_Old_Earth: "Старая Земля&!fem|||prep:Старой Земле|||inst:Старой Землёй|||acc:Старую Землю|||dat:Старой Земле|||gen:Старой Земли" #planet
+ NAME_Earth_Habitat: "Поселение Земли&!neut|||prep:Поселении Земли|||inst:Поселением Земли|||acc:Поселение Земли|||dat:Поселению Земли|||gen:Поселения Земли"
+ NAME_Mars_Habitat: "Поселение Марса&!neut|||prep:Поселении Марса|||inst:Поселением Марса|||acc:Поселение Марса|||dat:Поселению Марса|||gen:Поселения Марса"
+ NAME_Saturn_Habitat: "Поселение Сатурна&!neut|||prep:Поселении Сатурна|||inst:Поселением Сатурна|||acc:Поселение Сатурна|||dat:Поселению Сатурна|||gen:Поселения Сатурна"
+
+# Titawin (Federated Theian Preservers)
+ titawin_init_NAME: "Титавин"
+ titawin_init_DESC: "Стартовая звёздная система Федеративных хранителей Тейи.\n\n$system_initializer_DESC$"
+ NAME_Titawin: "Титавин&!masc|||prep:Титавине|||inst:Титавином|||acc:Титавин|||dat:Титавину|||gen:Титавина" #Upsilon Andromedae
+ NAME_Titawin_A: "Титавин A&!masc|||prep:Титавине A|||inst:Титавином A|||acc:Титавин A|||dat:Титавину A|||gen:Титавина A" #F-Type Star
+ NAME_Titawin_B: "Титавин B&!masc|||prep:Титавине B|||inst:Титавином B|||acc:Титавин B|||dat:Титавину B|||gen:Титавина B" #Red Dwarf Star
+ NAME_Saffar: "Саффар&!masc|||prep:Саффаре|||inst:Саффаром|||acc:Саффар|||dat:Саффару|||gen:Саффара" #Gas Giant
+ NAME_Samh: "Самх&!masc|||prep:Самхе|||inst:Самхом|||acc:Самх|||dat:Самху|||gen:Самха" #Gas Giant
+ NAME_Majriti: "Маджрити&!masc" #Gas Giant
+ NAME_Curiel: "Куриэль&!masc|||prep:Куриэле|||inst:Куриэлем|||acc:Куриэль|||dat:Куриэлю|||gen:Куриэля" #Gas Giant
+ NAME_Theia: "Тея&!fem|||prep:Тее|||inst:Теей|||acc:Тею|||dat:Тее|||gen:Теи" #Homeworld
+ NAME_Akal_Amectuh: "Акал Амек&!masc|||prep:Акале Амеке|||inst:Акалом Амеком|||acc:Акал Амек|||dat:Акалу Амеку|||gen:Акала Амека" #Moon
+ NAME_Yessefsi: "Йессеф&!masc|||prep:Йессефе|||inst:Йессефом|||acc:Йессеф|||dat:Йессефу|||gen:Йессефа" #Molten World
+ NAME_PHS_01: "PHS-01&!masc" #Asteroid
+ NAME_PHS_02: "PHS-02&!masc" #Asteroid
+ NAME_PHS_03: "PHS-03&!masc" #Asteroid
+ NAME_PHS_04: "PHS-04&!masc" #Asteroid
+
+# Sol (Knights of the Toxic God)
+ NAME_Luna_Habitat: "Обитаемый комплекс Сол&!masc|||prep:Обитаемом комплексе Сол|||inst:Обитаемым комплексом Сол|||acc:Обитаемый комплекс Сол|||dat:Обитаемому комплексу Сол|||gen:Обитаемого комплекса Сол"
+ NAME_Aurora: "Аврора&!fem|||prep:Авроре|||inst:Авророй|||acc:Аврору|||dat:Авроре|||gen:Авроры"
+
+# Sol (Blooms of Gaea)
+ NAME_Gaea: "Гея&!fem|||prep:Гее|||inst:Геей|||acc:Гею|||dat:Гее|||gen:Геи" #Homeworld
+
+# L-Cluster
+ NAME_Final_Egress: "Последний Исход&!masc|||prep:Последнем Исходе|||inst:Последним Исходом|||acc:Последний Исход|||dat:Последнему Исходу|||gen:Последнего Исхода" #star
+ NAME_Sel-Ufaan: "Сел-Уфаан&!masc|||prep:Сел-Уфаане|||inst:Сел-Уфааном|||acc:Сел-Уфаан|||dat:Сел-Уфаану|||gen:Сел-Уфаана"
+ NAME_Ten-Aard-Shel: "Тен-Аард-Шел&!masc|||prep:Тен-Аард-Шеле|||inst:Тен-Аард-Шелом|||acc:Тен-Аард-Шел|||dat:Тен-Аард-Шелу|||gen:Тен-Аард-Шела"
+ NAME_Diim-Fu-Rem: "Диим-Фа-Рем&!masc|||prep:Диим-Фа-Реме|||inst:Диим-Фа-Ремом|||acc:Диим-Фа-Рем|||dat:Диим-Фа-Рему|||gen:Диим-Фа-Рема"
+ NAME_Dora-Fu-Rem: "Дора-Фа-Рем&!masc|||prep:Дора-Фа-Реме|||inst:Дора-Фа-Ремом|||acc:Дора-Фа-Рем|||dat:Дора-Фа-Рему|||gen:Дора-Фа-Рема"
+ NAME_Naal-Di-Kor: "Наал-Ди-Кор&!masc|||prep:Наал-Ди-Коре|||inst:Наал-Ди-Кором|||acc:Наал-Ди-Кор|||dat:Наал-Ди-Кору|||gen:Наал-Ди-Кора"
+ NAME_Tao-Enar-Vi: "Тао-Энар-Ви&!masc"
+ NAME_Tao-Fun-Vi: "Тао-Фан-Ви&!masc"
+ NAME_Tao-Arl-Vi: "Тао-Арл-Ви&!masc"
+ NAME_Tao-Got-Vi: "Тао-Гот-Ви&!masc"
+ NAME_Gol-Unda-Fiir: "Гол-Унда-Фиир&!masc|||prep:Гол-Унда-Фиире|||inst:Гол-Унда-Фииром|||acc:Гол-Унда-Фиир|||dat:Гол-Унда-Фииру|||gen:Гол-Унда-Фиира"
+ NAME_Dora-Enar-Fiir: "Дора-Энар-Фиир&!masc|||prep:Дора-Энар-Фиире|||inst:Дора-Энар-Фииром|||acc:Дора-Энар-Фиир|||dat:Дора-Энар-Фииру|||gen:Дора-Энар-Фиира"
+ NAME_Dora-Fun-Fiir: "Дора-Фан-Фиир&!masc|||prep:Дора-Фан-Фиире|||inst:Дора-Фан-Фииром|||acc:Дора-Фан-Фиир|||dat:Дора-Фан-Фииру|||gen:Дора-Фан-Фиира"
+ NAME_Dora-Arl-Fiir: "Дора-Арл-Фиир&!masc|||prep:Дора-Арл-Фиире|||inst:Дора-Арл-Фииром|||acc:Дора-Арл-Фиир|||dat:Дора-Арл-Фииру|||gen:Дора-Арл-Фиира"
+ NAME_Dora-Got-Fiir: "Дора-Гот-Фиир&!masc|||prep:Дора-Гот-Фиире|||inst:Дора-Гот-Фииром|||acc:Дора-Гот-Фиир|||dat:Дора-Гот-Фииру|||gen:Дора-Гот-Фиира"
+ NAME_Gol-Umn-Toor: "Гол-Умн-Тоор&!masc|||prep:Гол-Умн-Тооре|||inst:Гол-Умн-Тоором|||acc:Гол-Умн-Тоор|||dat:Гол-Умн-Тоору|||gen:Гол-Умн-Тоора"
+ NAME_Dora-Enar-Toor: "Дора-Энар-Тоор&!masc|||prep:Дора-Энар-Тооре|||inst:Дора-Энар-Тоором|||acc:Дора-Энар-Тоор|||dat:Дора-Энар-Тоору|||gen:Дора-Энар-Тоора"
+ NAME_Gol-Salm-Ri: "Гол-Салм-Ри&!masc"
+ NAME_Gol-Mel-Rood: "Гол-Мел-Роод&!masc|||prep:Гол-Мел-Рооде|||inst:Гол-Мел-Роодом|||acc:Гол-Мел-Роод|||dat:Гол-Мел-Рооду|||gen:Гол-Мел-Роода"
+ NAME_Dora-Enar-Rood: "Дора-Энар-Роод&!masc|||prep:Дора-Энар-Рооде|||inst:Дора-Энар-Роодом|||acc:Дора-Энар-Роод|||dat:Дора-Энар-Рооду|||gen:Дора-Энар-Роода"
+
+##############
+# CARAVANEERS
+##############
+
+# Ship names
+ NAME_Caravaneer_Starbase: "Маяк караванщиков"
+
+###########
+# ENCLAVES
+###########
+
+# Artisans
+ NAME_Artisan_Troupe: "Труппа Мастеров&!fem|||prep:Труппе Мастеров|||inst:Труппой Мастеров|||acc:Труппу Мастеров|||dat:Труппе Мастеров|||gen:Труппы Мастеров" #empire
+ NAME_Artisan_adj: "Мастерск" #empire, e.g. 'an Artisan starbase'
+ NAME_Ars_Artem: "Арс Артэм"
+
+# Curators
+ NAME_Curator_Order: "Орден Кураторов&!masc|||prep:Ордене Кураторов|||inst:Орденом Кураторов|||acc:Орден Кураторов|||dat:Ордену Кураторов|||gen:Ордена Кураторов" #empire
+ NAME_Curator_adj: "Кураторск" #empire, e.g. 'a Curator starbase'
+ NAME_Curator_Alpha_Enclave: "Анклав кураторов Альфа" #starbase
+ NAME_Curator_Lambda_Enclave: "Анклав кураторов Лямбда" #starbase
+ NAME_Curator_Sigma_Enclave: "Анклав кураторов Сигма" #starbase
+
+# Traders
+ NAME_Muutagan_Merchant_Guild: "Муутаганская Торговая Гильдия&!fem|||prep:Муутаганской Торговой Гильдии|||inst:Муутаганской Торговой Гильдией|||acc:Муутаганскую Торговую Гильдию|||dat:Муутаганской Торговой Гильдии|||gen:Муутаганской Торговой Гильдии" #empire
+ NAME_Muutagan_adj: "Муутаганск|||masc:Муутаганский $1$|||masc,gen:Муутаганского $1$|||masc,dat:Муутаганскому $1$|||masc,acc:Муутаганский $1$|||masc,inst:Муутаганским $1$|||masc,prep:Муутаганском $1$|||fem:Муутаганская $1$|||fem,gen:Муутаганской $1$|||masc,acc,ani:Муутаганский $1$|||masc,inst:Муутаганским $1$|||masc,prep:Муутаганском $1$|||fem:Муутаганская $1$|||fem,gen:Муутаганского $1$|||fem,dat:Муутаганской $1$|||fem,acc:Муутаганскую $1$|||fem,inst:Муутаганской $1$|||fem,prep:Муутаганской $1$|||neut:Муутаганское $1$|||neut,gen:Муутаганского $1$|||neut,dat:Муутаганскому $1$|||neut,acc:Муутаганское $1$|||neut,inst:Муутаганским $1$|||neut,prep:Муутаганском $1$|||pl:Муутаганские $1$|||pl,gen:Муутаганских $1$|||pl,dat:Муутаганским $1$|||pl,acc:Муутаганские $1$|||pl,acc,ani:Муутаганских $1$|||pl,inst:Муутаганскими $1$|||pl,prep:Муутаганских $1$" #empire
+ NAME_Muutagan: "Муутаган|||gen:Муутагана" #species
+ NAME_Muutagan_plural: "Муутаганцы|||gen:Муутаганцев"
+ NAME_Muutag_Station: "Станция Муутаг" #starbase
+ NAME_Riggan_Commerce_Exchange: "Ригганская Торговая Биржа&!fem|||prep:Ригганской Торговой Бирже|||inst:Ригганской Торговой Биржей|||acc:Ригганскую Торговую Биржу|||dat:Ригганской Торговой Бирже|||gen:Ригганской Торговой Биржи" #empire
+ NAME_Riggan_adj: "Ригганск|||masc:Ригганский $1$|||masc,gen:Ригганского $1$|||masc,dat:Ригганскому $1$|||masc,acc:Ригганский $1$|||masc,inst:Ригганским $1$|||masc,prep:Ригганском $1$|||fem:Ригганская $1$|||fem,gen:Ригганской $1$|||masc,acc,ani:Ригганский $1$|||masc,inst:Ригганским $1$|||masc,prep:Ригганском $1$|||fem:Ригганская $1$|||fem,gen:Ригганского $1$|||fem,dat:Ригганской $1$|||fem,acc:Ригганскую $1$|||fem,inst:Ригганской $1$|||fem,prep:Ригганской $1$|||neut:Ригганское $1$|||neut,gen:Ригганского $1$|||neut,dat:Ригганскому $1$|||neut,acc:Ригганское $1$|||neut,inst:Ригганским $1$|||neut,prep:Ригганском $1$|||pl:Ригганские $1$|||pl,gen:Ригганских $1$|||pl,dat:Ригганским $1$|||pl,acc:Ригганские $1$|||pl,acc,ani:Ригганских $1$|||pl,inst:Ригганскими $1$|||pl,prep:Ригганских $1$" #empire
+ NAME_Riggan: "Ригган|||gen:Риггана" #species
+ NAME_Riggan_plural: "Ригганцы|||gen:Ригганцев"
+ NAME_Grand_Bazaar: "Большой базар" #starbase
+ NAME_XuraCorp: "Корпорация «Ксура»&!fem|||prep:Корпорации «Ксура»|||inst:Корпорацией «Ксура»|||acc:Корпорацию «Ксура»|||dat:Корпорации «Ксура»|||gen:Корпорации «Ксура»" #empire
+ NAME_XuraCorp_adj: "Ксурийск|||masc:Ксурийский $1$|||masc,gen:Ксурийского $1$|||masc,dat:Ксурийскому $1$|||masc,acc:Ксурийский $1$|||masc,inst:Ксурийским $1$|||masc,prep:Ксурийском $1$|||fem:Ксурийская $1$|||fem,gen:Ксурийской $1$|||masc,acc,ani:Ксурийский $1$|||masc,inst:Ксурийским $1$|||masc,prep:Ксурийском $1$|||fem:Ксурийская $1$|||fem,gen:Ксурийского $1$|||fem,dat:Ксурийской $1$|||fem,acc:Ксурийскую $1$|||fem,inst:Ксурийской $1$|||fem,prep:Ксурийской $1$|||neut:Ксурийское $1$|||neut,gen:Ксурийского $1$|||neut,dat:Ксурийскому $1$|||neut,acc:Ксурийское $1$|||neut,inst:Ксурийским $1$|||neut,prep:Ксурийском $1$|||pl:Ксурийские $1$|||pl,gen:Ксурийских $1$|||pl,dat:Ксурийским $1$|||pl,acc:Ксурийские $1$|||pl,acc,ani:Ксурийских $1$|||pl,inst:Ксурийскими $1$|||pl,prep:Ксурийских $1$" #empire
+ NAME_Xuri: "Ксури" #species
+ NAME_Xuri_plural: "Ксури"
+ NAME_XuraCorp_HQ: "Штаб корпорации «Ксура»" #starbase
+
+# Salvagers
+ NAME_Asters_Workshop: "Мастерская Астера" #starbase
+
+# Shroudwalkers
+ NAME_Shroud_Teachers: "Локус Покрова" #starbase
+
+#################
+# FALLEN EMPIRES
+#################
+# See also: entries in event_names_l_<language>.yml, which pertain to Awakened Empires.
+
+# Star system names
+ NAME_Alpha_Refuge: "Убежище Альфа&!neut|||prep:Убежище Альфа|||inst:Убежищем Альфа|||acc:Убежище Альфа|||dat:Убежищу Альфа|||gen:Убежища Альфа"
+ NAME_Beta_Refuge: "Убежище Бета&!neut|||prep:Убежище Бета|||inst:Убежищем Бета|||acc:Убежище Бета|||dat:Убежищу Бета|||gen:Убежища Бета"
+ NAME_Gamma_Refuge: "Убежище Гамма&!neut|||prep:Убежище Гамма|||inst:Убежищем Гамма|||acc:Убежище Гамма|||dat:Убежищу Гамма|||gen:Убежища Гамма"
+ NAME_Delta_Refuge: "Убежище Дельта&!neut|||prep:Убежище Дельта|||inst:Убежищем Дельта|||acc:Убежище Дельта|||dat:Убежищу Дельта|||gen:Убежища Дельта"
+ NAME_Great_Nexus: "Источник Знаний&!masc|||prep:Источнике Знаний|||inst:Источником Знаний|||acc:Источник Знаний|||dat:Источнику Знаний|||gen:Источника Знаний"
+ NAME_Custodian_Nexus: "Центральный Процессор&!masc|||prep:Центральном Процессоре|||inst:Центральным Процессором|||acc:Центральный Процессор|||dat:Центральному Процессору|||gen:Центрального Процессора"
+
+# Planet names
+ NAME_Apostasy: "Отречение&!neut|||prep:Отречении|||inst:Отречением|||acc:Отречение|||dat:Отречению|||gen:Отречения"
+ NAME_Boundary: "Предел&!masc|||prep:Пределе|||inst:Пределом|||acc:Предел|||dat:Пределу|||gen:Предела"
+ NAME_Brother: "Брат&!masc|||prep:Брате|||inst:Братом|||acc:Брат|||dat:Брату|||gen:Брата"
+ NAME_Celestial_Throne: "Небесный Трон&!masc|||prep:Небесном Троне|||inst:Небесным Троном|||acc:Небесный Трон|||dat:Небесному Трону|||gen:Небесного Трона"
+ NAME_The_Core: "Ядро&!neut|||prep:Ядре|||inst:Ядром|||acc:Ядро|||dat:Ядру|||gen:Ядра"
+ NAME_Cradle: "Колыбель&!fem|||prep:Колыбели|||inst:Колыбелью|||acc:Колыбель|||dat:Колыбели|||gen:Колыбели"
+ NAME_The_Mistake: "Ошибка&!fem|||prep:Ошибке|||inst:Ошибкой|||acc:Ошибку|||dat:Ошибке|||gen:Ошибки"
+ NAME_Mother: "Мать&!fem|||prep:Матери|||inst:Матерью|||acc:Мать|||dat:Матери|||gen:Матери"
+ NAME_The_Preserve: "Заповедник&!masc|||prep:Заповеднике|||inst:Заповедником|||acc:Заповедник|||dat:Заповеднику|||gen:Заповедника"
+ NAME_Pristine_Jewel: "Первозданная Жемчужина&!fem|||prep:Первозданной Жемчужине|||inst:Первозданной Жемчужиной|||acc:Первозданную Жемчужину|||dat:Первозданной Жемчужине|||gen:Первозданной Жемчужины"
+ NAME_Prophets_Retreat: "Пристанище Пророка&!neut|||prep:Пристанище Пророка|||inst:Пристанищем Пророка|||acc:Пристанище Пророка|||dat:Пристанищу Пророка|||gen:Пристанища Пророка"
+ NAME_Sister: "Сестра&!fem|||prep:Сестре|||inst:Сестрой|||acc:Сестру|||dat:Сестре|||gen:Сестры"
+ NAME_Sky_Father: "Отец-Небо&!masc|||prep:Отце-Небе|||inst:Отцам-Небом|||acc:Отца-Небо|||dat:Отцу-Небу|||gen:Отца-Неба"
+ NAME_Sky_Temple: "Небесный Храм&!masc|||prep:Небесном Храме|||inst:Небесным Храмом|||acc:Небесный Храм|||dat:Небесному Храму|||gen:Небесного Храма"
+ NAME_Walled_Garden: "Огороженный Сад&!masc|||prep:Огороженном Саде|||inst:Огороженным Садом|||acc:Огороженный Сад|||dat:Огороженному Саду|||gen:Огороженного Сада"
+ NAME_Wanderer: "Скиталец&!masc|||prep:Скитальце|||inst:Скитальцем|||acc:Скитальца|||dat:Скитальцу|||gen:Скитальца"
+ NAME_Alpha_Complex: "Комплекс Альфа&!masc|||prep:Комплексе Альфа|||inst:Комплексом Альфа|||acc:Комплекс Альфа|||dat:Комплексу Альфа|||gen:Комплекса Альфа"
+ NAME_The_Archives: "Архивы&!pl|||prep:Архивах|||inst:Архивами|||acc:Архивы|||dat:Архивам|||gen:Архив"
+ NAME_Production_Unit: "Производственный Модуль&!masc|||prep:Производственном Модуле|||inst:Производственным Модулем|||acc:Производственный Модуль|||dat:Производственному Модулю|||gen:Производственного Модуля"
+ NAME_Processing_Unit: "Вычислительный Модуль&!masc|||prep:Вычислительном Модуле|||inst:Вычислительным Модулем|||acc:Вычислительный Модуль|||dat:Вычислительному Модулю|||gen:Вычислительного Модуля"
+ NAME_Data_Corrupted: "ÒÎ Ç° ДАННЫЕ_ПОВРЕЖДЕНЫ w+Á"
+ NAME_Circuit_I: "Контур I&!masc|||prep:Контуре I|||inst:Контуром I|||acc:Контур I|||dat:Контуру I|||gen:Контура I" #ringworld segment
+ NAME_Circuit_II: "Контур II&!masc|||prep:Контуре II|||inst:Контуром II|||acc:Контур II|||dat:Контуру II|||gen:Контура II" #ringworld segment
+ NAME_Circuit_III: "Контур III&!masc|||prep:Контуре III|||inst:Контуром III|||acc:Контур III|||dat:Контуру III|||gen:Контура III" #ringworld segment
+ NAME_Superstructure_I: "Пролёт I&!masc|||prep:Пролёте I|||inst:Пролётом I|||acc:Пролёт I|||dat:Пролёту I|||gen:Пролёта I" #ringworld segment
+ NAME_Superstructure_II: "Пролёт II&!masc|||prep:Пролёте II|||inst:Пролётом II|||acc:Пролёт II|||dat:Пролёту II|||gen:Пролёта II" #ringworld segment
+ NAME_Superstructure_III: "Пролёт III&!masc|||prep:Пролёте III|||inst:Пролётом III|||acc:Пролёт III|||dat:Пролёту III|||gen:Пролёта III" #ringworld segment
+
+# Species names
+ NAME_Dead_Species: "Мёртвая раса"
+ NAME_Synthetic: "Синтетик|||gen:Синтетика" #servant robot
+ NAME_Synthetic_plural: "Синтетики|||gen:Синтетиков"
+
+# Ship names
+ NAME_Adjuster: "Регулировщик"
+ NAME_Alpha: "Альфа"
+ NAME_Archivist: "Архивариус"
+ NAME_Avatar: "Аватар"
+ NAME_Benevolence: "Милосердие"
+ NAME_Beta: "Бета"
+ NAME_Cleanser: "Чистильщик"
+ NAME_Cloaker: "Скрытень"
+ NAME_Delta: "Дельта"
+ NAME_Enforcer: "Принудитель"
+ NAME_Librarian: "Библиотекарь"
+ NAME_Sage: "Мудрец"
+ NAME_Savant: "Савант"
+ NAME_Scholar: "Учёный"
+ NAME_Seeker: "Искатель"
+ NAME_Epsilon: "Эпсилон"
+ NAME_Gamma: "Гамма"
+ NAME_Omega: "Омега"
+ NAME_Progress: "Прогресс"
+ NAME_Surplus_I: "Избыток"
+ NAME_Surplus_II: "$NAME_Surplus_I$"
+ NAME_Surplus_III: "$NAME_Surplus_I$"
+ NAME_Tau: "Тау"
+ NAME_Theta: "Тета"
+
+###########################
+# LEVIATHANS & SPACE FAUNA
+###########################
+# See also: event_names_l_english.yml, which caontains names used for when additional entities spawn, typically around mid-game.
+
+# Guardians/Leviathans
+ NAME_Automated_Dreadnought: "Автоматизированный дредноут" #fleet
+ NAME_JuukTidir: "Джуук'Тидир" #ship/entity
+
+ NAME_Enigmatic_Fortress: "Загадочная крепость"
+
+ NAME_Infinity_Machine: "Машина бесконечности" #empire, ship design
+ NAME_I_O: "I-O" #ship/entity
+ NAME_The_Infinity_Machine: "Машина бесконечности" #fleet
+ NAME_Gargantua: "Гаргантюа" #black hole
+
+ NAME_Voidwyrm: "Змей пустоты" #empire
+ NAME_Ether_Drake: "Эфирный дракон" #fleet
+ NAME_Avice: "Авичи" #ship/entity (named dragon)
+ NAME_Grand_Dragon: "Великий дракон" #'ship' type
+ NAME_Dragons_Hoard: "Драконья кладка&!fem|||prep:Драконье кладке|||inst:Драконьей кладкой|||acc:Драконью кладку|||dat:Драконьей кладке|||gen:Драконьей кладки" #planet
+
+# Ancient Mining Drones
+ NAME_Mineral_Extraction_Operation: "Система добычи минералов" #empire
+ NAME_Central_Processing: "Центральный Процессор&!masc|||prep:Центральном Процессоре|||inst:Центральным Процессором|||acc:Центральный Процессор|||dat:Центральному Процессору|||gen:Центрального Процессора" #planet
+ NAME_Ore_Grinder: "Рудоизмельчитель&!masc|||prep:Рудоизмельчителе|||inst:Рудоизмельчителем|||acc:Рудоизмельчитель|||dat:Рудоизмельчителю|||gen:Рудоизмельчителя" #planet
+ NAME_Asset_Protection_Unit: "Единица защиты активов" #fleet
+ NAME_Mining_Corps: "Добывающий корпус" #fleet
+
+# Space Amoebae
+ NAME_Spaceborne_Organics: "Космические организмы" #empire
+ NAME_Space_Amoebas_United: "Скопище космических амеб" #empire
+ NAME_Amor_Alveo: "Амор Альвео&!fem" #star
+ NAME_Amor_Toreo: "Амор Торео&!fem" #planet
+ NAME_Amor_Dareetheo: "Амор Даритео&!fem" #planet
+ NAME_Veronax: "Веронакс&!masc|||prep:Веронаксе|||inst:Веронаксом|||acc:Веронакс|||dat:Веронаксу|||gen:Веронакса" #planet
+ NAME_Evor_Aras: "Эвор Арас&!masc|||prep:Эвор Арасе|||inst:Эвор Арасом|||acc:Эвор Арас|||dat:Эвор Арасу|||gen:Эвор Араса" #planet
+ NAME_Evor_Tomos: "Эвор Томос&!masc|||prep:Эвор Томосе|||inst:Эвор Томосом|||acc:Эвор Томос|||dat:Эвор Томосу|||gen:Эвор Томоса" #planet
+ NAME_Eberax: "Эберакс&!masc|||prep:Эбераксе|||inst:Эбераксом|||acc:Эберакс|||dat:Эбераксу|||gen:Эберакса" #planet
+ NAME_Tharonax: "Таронакс&!masc|||prep:Таронаксе|||inst:Таронаксом|||acc:Таронакс|||dat:Таронаксу|||gen:Таронакса" #planet
+ NAME_Narnax: "Нарнакс&!masc|||prep:Нарнаксе|||inst:Нарнаксом|||acc:Нарнакс|||dat:Нарнаксу|||gen:Нарнакса" #planet
+ NAME_Tior: "Тиор&!masc|||prep:Тиоре|||inst:Тиором|||acc:Тиор|||dat:Тиору|||gen:Тиора" #planet
+ NAME_Lemior: "Лемиор&!masc|||prep:Лемиоре|||inst:Лемиором|||acc:Лемиор|||dat:Лемиору|||gen:Лемиора" #planet
+ NAME_Isior: "Исиор&!masc|||prep:Исиоре|||inst:Исиором|||acc:Исиор|||dat:Исиору|||gen:Исиора" #planet
+ NAME_Selor: "Селор&!masc|||prep:Селоре|||inst:Селором|||acc:Селор|||dat:Селору|||gen:Селора" #planet
+ NAME_Theresior: "Тересиор&!masc|||prep:Тересиоре|||inst:Тересиором|||acc:Тересиор|||dat:Тересиору|||gen:Тересиора" #planet
+ NAME_Pesior: "Песиор&!masc|||prep:Песиоре|||inst:Песиором|||acc:Песиор|||dat:Песиору|||gen:Песиора" #planet
+ NAME_Amoeba_Swarm: "Рой амёб" #fleet
+ NAME_Amoeba_Swarm_seed: "Рой амёб (£seed_pod£)" #fleet carrying seeds (Fruitful Origin)
+ NAME_Space_Amoeba_Hunters: "Космические амёбы-охотники" #fleet
+ NAME_Space_Amoeba_Hunters_seed: "Космические амёбы-охотники (£seed_pod£)" #fleet carrying seeds (Fruitful Origin)
+
+# Space Crystals
+ NAME_Prism: "Призма" #empire
+ NAME_Crystal_Nidus: "Кристальное гнездо" #ship
+ NAME_Kappa: "Каппа" #ship
+ NAME_Shardlings: "Осколыши" #fleet
+ NAME_Shardling: "Осколыш" #ship
+ NAME_Emerald_Guardians: "Изумрудные стражи" #fleet
+ NAME_Emerald_Mausoleum: "Изумрудный мавзолей" #planet
+ NAME_Emerald_Roamers: "Изумрудные скитальцы" #fleet
+ NAME_Ruby_Guardians: "Рубиновые стражи" #fleet
+ NAME_Ruby_Stack: "Рубиновое скопление" #fleet
+ NAME_Ruby_Swarm: "Рубиновый рой" #fleet
+ NAME_Sapphire_Guardians: "Сапфировые стражи" #fleet
+ NAME_Sapphire_Lurkers: "Сапфировые странники" #fleet
+ NAME_Topaz_Guardians: "Топазовые стражи" #fleet
+ NAME_Shards_of_Diamond: "Алмазные осколки" #fleet
+ NAME_Shards_of_Obsidian: "Обсидиановые осколки" #fleet
+ NAME_Shards_of_Onyx: "Ониксовые осколки" #fleet
+ NAME_Shards_of_Sapphire: "Сапфировые осколки" #fleet
+ NAME_Yormak's_Belly: "Брюхо Йормака" #planet
+ NAME_Yormak's_Eye: "Глаз Йормака&!masc|||prep:Глазе Йормака|||inst:Глазом Йормака|||acc:Глаз Йормака|||dat:Глазу Йормака|||gen:Глаза Йормака" #planet
+ NAME_Yormak's_Fist: "Кулак Йормака&!masc|||prep:Кулаке Йормака|||inst:Кулаком Йормака|||acc:Кулак Йормака|||dat:Кулаку Йормака|||gen:Кулака Йормака" #planet
+ NAME_Yormak's_Heart: "Сердце Йормака&!neut|||prep:Сердце Йормака|||inst:Сердцем Йормака|||acc:Сердце Йормака|||dat:Сердцу Йормака|||gen:Сердца Йормака" #planet
+ NAME_Yormak's_Snout: "Хобот Йормака&!masc|||prep:Хоботе Йормака|||inst:Хоботом Йормака|||acc:Хобот Йормака|||dat:Хоботу Йормака|||gen:Хобота Йормака" #planet
+ NAME_Yormak's_Tail: "Хвост Йормака&!masc|||prep:Хвосте Йормака|||inst:Хвостом Йормака|||acc:Хвост Йормака|||dat:Хвосту Йормака|||gen:Хвоста Йормака" #planet
+ NAME_Yormak's_Tongue: "Язык Йормака&!masc|||prep:Языке Йормака|||inst:Языком Йормака|||acc:Язык Йормака|||dat:Языку Йормака|||gen:Языка Йормака" #planet
+ NAME_Yormak's_Tusk: "Бивень Йормака&!masc|||prep:Бивне Йормака|||inst:Бивнем Йормака|||acc:Бивень Йормака|||dat:Бивню Йормака|||gen:Бивня Йормака" #planet
+
+# Tiyanki
+ NAME_Placid_Leviathans: "Мирные левиафаны" #empire
+ NAME_Tiyanki_Space_Whale: "Космический кит тиянки" #fleet
+ NAME_Tiyanki_Space_Whale_seed: "Космический кит тиянки (£seed_pod£)" #fleet carrying seeds (Fruitful Origin)
+ NAME_Tiyanki_Bull: "Самец тиянки"
+ NAME_Tiyanki_Cow: "Самка тиянки"
+ NAME_Tiyanki_Hatchling: "Детёныш тиянки"
+ NAME_Tiyanki_Ox: "Тиянки-вол"
+
+ NAME_Tiyana_Vek: "Тияна Век&!fem|||prep:Тияне Век|||inst:Тияной Век|||acc:Тияну Век|||dat:Тияне Век|||gen:Тияны Век" #star
+ NAME_Zathika_Mev: "Затика Мев&!fem|||prep:Затике Мев|||inst:Затикой Мев|||acc:Затику Мев|||dat:Затике Мев|||gen:Затики Мев" #planet
+ NAME_Surribzha: "Сарриб'Жа&!fem" #planet
+ NAME_Yllarv: "Ялларв&!masc|||prep:Ялларве|||inst:Ялларвом|||acc:Ялларв|||dat:Ялларву|||gen:Ялларва" #planet
+ NAME_Khetzhavu: "Хет'Жаву&!fem" #planet
+ NAME_Dulna: "Дулна&!fem|||prep:Дулне|||inst:Дулной|||acc:Дулну|||dat:Дулне|||gen:Дулны" #planet
+ NAME_Valzhuva: "Вал'жу'Ва&!fem" #planet
+
+ NAME_Tiyun_Ort: "Тиюн Орт&!masc|||prep:Тиюне Орте|||inst:Тиюном Ортом|||acc:Тиюн Орт|||dat:Тиюну Орту|||gen:Тиюна Орта" #star
+ NAME_Ghanek: "Ганек&!masc|||prep:Ганеке|||inst:Ганеком|||acc:Ганек|||dat:Ганеку|||gen:Ганека" #planet
+ NAME_Zhaduva: "Жадува&!fem|||prep:Жадуве|||inst:Жадувой|||acc:Жадуву|||dat:Жадуве|||gen:Жадувы" #planet
+ NAME_Orek_Vuul: "Орек Вуул&!masc|||prep:Ореке Вууле|||inst:Ореком Вуулом|||acc:Орек Вуул|||dat:Ореку Вуулу|||gen:Орека Вуула" #planet
+
+# Void Clouds
+ NAME_Enigmatic_Energy: "Загадочная энергия" #empire
+ NAME_Great_Wound: "Великая Рана&!fem|||prep:Великой Ране|||inst:Великой Раной|||acc:Великую Рану|||dat:Великой Ране|||gen:Великой Раны" #star/black hole
+ NAME_Subspace_Rupture_1: "Подпространственный разрыв F-49&!masc|||prep:Подпространственном разрыве F-49|||inst:Подпространственным разрывом F-49|||acc:Подпространственный разрыв F-49|||dat:Подпространственному разрыву F-49|||gen:Подпространственного разрыва F-49" #black hole
+ NAME_Subspace_Rupture_2: "Подпространственный разрыв RX-199&!masc|||prep:Подпространственном разрыве RX-199|||inst:Подпространственным разрывом RX-199|||acc:Подпространственный разрыв RX-199|||dat:Подпространственному разрыву RX-199|||gen:Подпространственного RX-199" #black hole
+ NAME_Subspace_Rupture_3: "Подпространственный разрыв G-12&!masc|||prep:Подпространственном разрыве G-12|||inst:Подпространственным разрывом G-12|||acc:Подпространственный разрыв G-12|||dat:Подпространственному разрыву G-12|||gen:Подпространственного G-12" #black hole
+ NAME_Subspace_Rupture_4: "Подпространственный разрыв NL-889&!masc|||prep:Подпространственном разрыве NL-889|||inst:Подпространственным разрывом NL-889|||acc:Подпространственный разрыв NL-889|||dat:Подпространственному разрыву NL-889|||gen:Подпространственного NL-889" #black hole
+ NAME_Subspace_Rupture_5: "Подпространственный разрыв QX-3&!masc|||prep:Подпространственном разрыве QX-3|||inst:Подпространственным разрывом QX-3|||acc:Подпространственный разрыв QX-3|||dat:Подпространственному разрыву QX-3|||gen:Подпространственного QX-3" #black hole
+ NAME_Subspace_Rupture_6: "Подпространственный разрыв NGR-412&!masc|||prep:Подпространственном разрыве NGR-412|||inst:Подпространственным разрывом NGR-412|||acc:Подпространственный разрыв NGR-412|||dat:Подпространственному разрыву NGR-412|||gen:Подпространственного NGR-412" #black hole
+ NAME_Subspace_Rupture_7: "Подпространственный разрыв ZT-34&!masc|||prep:Подпространственном разрыве ZT-34|||inst:Подпространственным разрывом ZT-34|||acc:Подпространственный разрыв ZT-34|||dat:Подпространственному разрыву ZT-34|||gen:Подпространственного ZT-34" #black hole
+ NAME_Subspace_Rupture_8: "Подпространственный разрыв F-311&!masc|||prep:Подпространственном разрыве F-311|||inst:Подпространственным разрывом F-311|||acc:Подпространственный разрыв F-311|||dat:Подпространственному разрыву F-311|||gen:Подпространственного F-311" #black hole
+ NAME_Subspace_Rupture_9: "Подпространственный разрыв SX-77&!masc|||prep:Подпространственном разрыве SX-77|||inst:Подпространственным разрывом SX-77|||acc:Подпространственный разрыв SX-77|||dat:Подпространственному разрыву SX-77|||gen:Подпространственного SX-77" #black hole
+ NAME_Subspace_Rupture_10: "Подпространственный разрыв PL-4499&!masc|||prep:Подпространственном разрыве PL-4499|||inst:Подпространственным разрывом PL-4499|||acc:Подпространственный разрыв PL-4499|||dat:Подпространственному разрыву PL-4499|||gen:Подпространственного PL-4499" #black hole
+
+##################
+# PRE-FTL SPECIES
+##################
+# See also: entries in event_names_l_<language>.yml
+
+# Earth
+ NAME_Human: "Человек|||gen:Человека" #species
+ NAME_Human_plural: "Люди|||gen:Людей" #species
+ NAME_ISS_II: "МКС-2" #International Space Station (2nd generation)
+ NAME_British_Armed_Forces: "Вооружённые силы Великобритании" #army
+ NAME_Chinese_PLA: "НОАК" #People's Liberation Army
+ NAME_EU_Combined_Forces: "Объединённая армия ЕС" #European Union army
+ NAME_Feudal_Levies: "Феодальное ополчение" #army
+ NAME_German_Wehrmacht: "Германский вермахт" #army
+ NAME_Imperial_Japanese_Forces: "Императорская армия Японии" #army
+ NAME_Russian_Armed_Forces: "Вооружённые силы РФ" #army
+ NAME_Soviet_Red_Army: "Красная армия" #army
+ NAME_US_Armed_Forces: "Вооружённые силы США" #army
+ NAME_US_Armed_Forces_East: "Вооружённые Силы США — Восток" #army
+ NAME_US_Armed_Forces_West: "Вооружённые Силы США — Запад" #army
+ NAME_Sol_III: "Солнце III" #star
+
+################
+# OTHER CONTENT
+################
+
+# Guardians of Zanaam
+ NAME_Guardians_of_Zanaam: "Хранители Занаама" #country, fleet
+ NAME_Zanaam: "Занаам&!masc|||prep:Занааме|||inst:Занаамом|||acc:Занаам|||dat:Занааму|||gen:Занаама" #planet
+ NAME_Defensive_Alpha: "Защитник Альфа" #ship
+ NAME_Defensive_Beta: "Защитник Бета" #ship
+ NAME_Defensive_Chi: "Защитник Хи" #ship
+ NAME_Defensive_Delta: "Защитник Дельта" #ship
+ NAME_Defensive_Epsilon: "Защитник Эпсилон" #ship
+ NAME_Defensive_Eta: "Защитник Эта" #ship
+ NAME_Defensive_Gamma: "Защитник Гамма" #ship
+ NAME_Defensive_Iota: "Защитник Йота" #ship
+ NAME_Defensive_Kappa: "Защитник Каппа" #ship
+ NAME_Defensive_Ksi: "Защитник Кси" #ship
+ NAME_Defensive_Lambda: "Защитник Лямбда" #ship
+ NAME_Defensive_Mu: "Защитник Мю" #ship
+ NAME_Defensive_Nu: "Защитник Ню" #ship
+ NAME_Defensive_Omega: "Защитник Омега" #ship
+ NAME_Defensive_Omicron: "Защитник Омикрон" #ship
+ NAME_Defensive_Phi: "Защитник Фи" #ship
+ NAME_Defensive_Pi: "Защитник Пи" #ship
+ NAME_Defensive_Psi: "Защитник Пси" #ship
+ NAME_Defensive_Rho: "Защитник Ро" #ship
+ NAME_Defensive_Sigma: "Защитник Сигма" #ship
+ NAME_Defensive_Tau: "Защитник Тау" #ship
+ NAME_Defensive_Theta: "Защитник Тета" #ship
+ NAME_Defensive_Upsilon: "Защитник Ипсилон" #ship
+ NAME_Defensive_Zeta: "Защитник Дзета" #ship
+
+# The Sanctuary
+ NAME_Sanctuary: "Заповедник&!masc|||prep:Заповеднике|||inst:Заповедником|||acc:Заповедник|||dat:Заповеднику|||gen:Заповедника" #star
+ NAME_Administrator: "Администратор" #ship
+ NAME_Sanctuary_Core: "Ядро Заповедника" #ship design/type
+ NAME_Sanctuary_A: "Заповедник A&!masc|||prep:Заповеднике A|||inst:Заповедником A|||acc:Заповедник A|||dat:Заповеднику A|||gen:Заповедника A" #ringworld section
+ NAME_Sanctuary-B: "Заповедник B&!masc|||prep:Заповеднике B|||inst:Заповедником B|||acc:Заповедник B|||dat:Заповеднику B|||gen:Заповедника B" #ringworld section
+ NAME_Sanctuary-C: "Заповедник C&!masc|||prep:Заповеднике C|||inst:Заповедником C|||acc:Заповедник C|||dat:Заповеднику C|||gen:Заповедника C" #ringworld section
+ NAME_Sanctuary-D: "Заповедник D&!masc|||prep:Заповеднике D|||inst:Заповедником D|||acc:Заповедник D|||dat:Заповеднику D|||gen:Заповедника D" #ringworld section
+ NAME_Sanctuary-E: "Заповедник E&!masc|||prep:Заповеднике E|||inst:Заповедником E|||acc:Заповедник E|||dat:Заповеднику E|||gen:Заповедника E" #ringworld section
+ NAME_Sanctuary-F: "Заповедник F&!masc|||prep:Заповеднике F|||inst:Заповедником F|||acc:Заповедник F|||dat:Заповеднику F|||gen:Заповедника F" #ringworld section
+ NAME_Sanctuary-G: "Заповедник G&!masc|||prep:Заповеднике G|||inst:Заповедником G|||acc:Заповедник G|||dat:Заповеднику G|||gen:Заповедника G" #ringworld section
+ NAME_Sanctuary-H: "Заповедник H&!masc|||prep:Заповеднике H|||inst:Заповедником H|||acc:Заповедник H|||dat:Заповеднику H|||gen:Заповедника H" #ringworld section
+ NAME_Sanctuary-I: "Заповедник I&!masc|||prep:Заповеднике I|||inst:Заповедником I|||acc:Заповедник I|||dat:Заповеднику I|||gen:Заповедника I" #ringworld section
+ NAME_Sanctuary-J: "Заповедник J&!masc|||prep:Заповеднике J|||inst:Заповедником J|||acc:Заповедник J|||dat:Заповеднику J|||gen:Заповедника J" #ringworld section
+ NAME_Sanctuary-K: "Заповедник K&!masc|||prep:Заповеднике K|||inst:Заповедником K|||acc:Заповедник K|||dat:Заповеднику K|||gen:Заповедника K" #ringworld section
+ NAME_Sanctuary-L: "Заповедник L&!masc|||prep:Заповеднике L|||inst:Заповедником L|||acc:Заповедник L|||dat:Заповеднику L|||gen:Заповедника L" #ringworld section
+
+# Trappist system
+ NAME_Trappist: "Траппист&!masc|||prep:Трапписте|||inst:Траппистом|||acc:Траппист|||dat:Трапписту|||gen:Трапписта" #system
+
+# Ratling systems
+ NAME_Decayed_Hub: "Обветшалый Узел&!masc|||prep:Обветшалом Узле|||inst:Обветшалым Узлом|||acc:Обветшалый Узел|||dat:Обветшалому Узлу|||gen:Обветшалого Узла" #planet
+
+# Hauer system (Rutger Hauer tribute)
+ NAME_Hauer: "Хауэр&!masc|||prep:Хауэре|||inst:Хауэром|||acc:Хауэр|||dat:Хауэру|||gen:Хауэра" #star
+ NAME_Aureyon: "Ау'Рейон&!masc|||prep:Ау'Рейоне|||inst:Ау'Рейоном|||acc:Ау'Рейон|||dat:Ау'Рейону|||gen:Ау'Рейона" #planet
+ NAME_Baage: "Баадж&!masc|||prep:Баадже|||inst:Бааджом|||acc:Баадж|||dat:Бааджу|||gen:Бааджа" #planet
+ NAME_Baelte: "Бель'те&!fem" #planet
+ NAME_Bhete: "Бете&!fem" #planet
+ NAME_Snaaraa: "Фанж&!masc|||prep:Фанже|||inst:Фанжом|||acc:Фанж|||dat:Фанжу|||gen:Фанжа" #planet
+ NAME_Floe: "Флоэ&!fem" #planet
+ NAME_Piyhl: "Пи'Юл&!masc|||prep:Пи'Юле|||inst:Пи'Юлом|||acc:Пи'Юл|||dat:Пи'Юлу|||gen:Пи'Юла" #planet
+ NAME_Snaara: "Снаара&!fem|||prep:Снааре|||inst:Снаарой|||acc:Снаару|||dat:Снааре|||gen:Снаары" #planet
+ NAME_Straeng: "Стренг&!masc|||prep:Стренге|||inst:Стренгом|||acc:Стренг|||dat:Стренгу|||gen:Стренга" #planet
+ NAME_Stykkia: "Стиккия&!fem|||prep:Стиккии|||inst:Стиккией|||acc:Стиккию|||dat:Стиккии|||gen:Стиккии" #planet
+
+# Kept Grounds (Wenkwort Artem)
+ NAME_Fruitful: "Смотрители Аудона&!pl|||prep:Смотрителях Аудона|||inst:Смотрителями Аудона|||acc:Смотрителов Аудона|||dat:Смотрителям Аудона|||gen:Смотрителей Аудона" #empire
+ NAME_Wenkwort_Keeper: "Аудонский хранитель" #species
+ NAME_Wenkwort_Keeper_plural: "Аудонские хранители" #species
+ NAME_Warder_of_the_Ruins: "Хранитель руин" #ship
+ NAME_Wenkwort: "Уэнкворт&!masc|||prep:Уэнкворте|||inst:Уэнквортом|||acc:Уэнкворт|||dat:Уэнкворту|||gen:Уэнкворта" #star
+ NAME_wenkwort_prime: "Уэнкворт Артэм&!masc|||prep:Уэнкворте Артэм|||inst:Уэнквортом Артэм|||acc:Уэнкворт Артэм|||dat:Уэнкворту Артэм|||gen:Уэнкворта Артэм" #planet
+ NAME_wenkwort_moon: "Милфод&!masc|||prep:Милфоде|||inst:Милфодом|||acc:Милфод|||dat:Милфоду|||gen:Милфода" #planet
+ NAME_wenkwort_2: "Реллрайт&!masc|||prep:Реллрайте|||inst:Реллрайтом|||acc:Реллрайт|||dat:Реллрайту|||gen:Реллрайта" #planet
+ NAME_wenkwort_3: "Бураве&!masc" #planet
+ NAME_wenkwort_4: "Макрен&!masc|||prep:Макрене|||inst:Макреном|||acc:Макрен|||dat:Макрену|||gen:Макрена" #planet
+ NAME_wenkwort_asteroid: "Трайн&!masc|||prep:Трайне|||inst:Трайном|||acc:Трайн|||dat:Трайну|||gen:Трайна" #planet
+ NAME_Gardener_Drone: "Модуль-смотритель Аудона" #ship
+ NAME_Gardener_Drone_plural: "Отряд смотрителей 14-WW" #fleet
+ NAME_Gardeners: "Садовники"
+ NAME_Gardener1: "Смотритель Пертон" #ship
+ NAME_Gardener2: "Смотритель Спартон-Брон" #ship
+ NAME_Gardener3: "Смотритель Визентон" #ship
+ NAME_Wenkwort_Enforcer: "Аудонский крейсер" #ship design
+ NAME_Wenkwort_Enforcer_plural: "Отряд блюстителей порядка 61-VL" #fleet
+
+# Ruins of Shallash
+ NAME_Darad: "Дарад&!masc|||prep:Дараде|||inst:Дарадом|||acc:Дарад|||dat:Дараду|||gen:Дарада" #planet
+ NAME_Shallash: "Шаллаш&!masc|||prep:Шаллаше|||inst:Шаллашем|||acc:Шаллаш|||dat:Шаллашу|||gen:Шаллаша" #planet
+ NAME_Shallasha: "Шаллаш a&!masc|||prep:Шаллаше a|||inst:Шаллашем a|||acc:Шаллаш a|||dat:Шаллашу a|||gen:Шаллаша a" #moon
+ NAME_Shallashb: "Шаллаш b&!masc|||prep:Шаллаше b|||inst:Шаллашем b|||acc:Шаллаш b|||dat:Шаллашу b|||gen:Шаллаша b" #moon
+ NAME_Shallashc: "Шаллаш c&!masc|||prep:Шаллаше c|||inst:Шаллашем c|||acc:Шаллаш c|||dat:Шаллашу c|||gen:Шаллаша c" #moon
+ NAME_Shallashd: "Шаллаш d&!masc|||prep:Шаллаше d|||inst:Шаллашем d|||acc:Шаллаш d|||dat:Шаллашу d|||gen:Шаллаша d" #moon
+ NAME_Shallashe: "Шаллаш e&!masc|||prep:Шаллаше e|||inst:Шаллашем e|||acc:Шаллаш e|||dat:Шаллашу e|||gen:Шаллаша e" #moon
+ NAME_Shallashf: "Шаллаш f&!masc|||prep:Шаллаше f|||inst:Шаллашем f|||acc:Шаллаш f|||dat:Шаллашу f|||gen:Шаллаша f" #moon
+ NAME_Parvus: "Парвус&!masc|||prep:Парвусе|||inst:Парвусом|||acc:Парвус|||dat:Парвусу|||gen:Парвуса" #planet
+
+# Fumongus
+ NAME_Fumongus_System: "Орвалл&!masc|||prep:Орвалле|||inst:Орваллом|||acc:Орвалл|||dat:Орваллу|||gen:Орвалла" #star
+ NAME_Grazing_Tiyanki: "Пасущиеся тиянки" #fleet
+ NAME_Grazing_Tiyanki_seed: "Пасущиеся тиянки (£seed_pod£)" #fleet carrying seeds (Fruitful Origin)
+ NAME_Fumongus_Star: "Козмог-1" #star (also a personality/vanity system)
+ NAME_Fumongus_Planet01: "Блем-Сел&!masc|||prep:Блем-Селе|||inst:Блем-Селом|||acc:Блем-Сел|||dat:Блем-Селу|||gen:Блем-Села"
+ NAME_Fumongus_Planet02: "Гай-Миг&!masc|||prep:Гай-Миге|||inst:Гай-Мигом|||acc:Гай-Миг|||dat:Гай-Мигу|||gen:Гай-Мига"
+ NAME_Fumongus_Planet02a: "Гай-Миг a&!masc|||prep:Гай-Миге a|||inst:Гай-Мигом a|||acc:Гай-Миг a|||dat:Гай-Мигу a|||gen:Гай-Мига a"
+ NAME_Fumongus_PlanetDig: "Мур-Хсретту&!fem"
+ NAME_Fumongus_Planet03: "Ан-Май&!masc|||prep:Ан-Мае|||inst:Ан-Маем|||acc:Ан-Май|||dat:Ан-Маю|||gen:Ан-Мая"
+ NAME_Fumongus_Planet03a: "Ан-Май a&!masc|||prep:Ан-Мае a|||inst:Ан-Маем a|||acc:Ан-Май a|||dat:Ан-Маю a|||gen:Ан-Мая a"
+
+# Ghost Ship
+ NAME_Hillos: "Иллос&!masc|||prep:Иллосе|||inst:Иллосом|||acc:Иллос|||dat:Иллосу|||gen:Иллоса" #system
+ NAME_Hillos_Star: "Иллос&!masc|||prep:Иллосе|||inst:Иллосом|||acc:Иллос|||dat:Иллосу|||gen:Иллоса" #star
+ NAME_HillosA: "Иллос I&!masc|||prep:Иллосе I|||inst:Иллосом I|||acc:Иллос I|||dat:Иллосу I|||gen:Иллоса I"
+ NAME_HillosB: "Иллос II&!masc|||prep:Иллосе II|||inst:Иллосом II|||acc:Иллос II|||dat:Иллосу II|||gen:Иллоса II"
+ NAME_HillosC: "Иллос III&!masc|||prep:Иллосе III|||inst:Иллосом III|||acc:Иллос III|||dat:Иллосу III|||gen:Иллоса III"
+ NAME_HillosA_moon: "Ширья&!fem|||prep:Ширье|||inst:Ширьей|||acc:Ширью|||dat:Ширье|||gen:Ширьи"
+
+# Surveillance Supercomputer
+ NAME_Ultima_Vigilis: "Ультима Виджилис&!fem|||prep:Ультиме Виджилис|||inst:Ультимой Виджилис|||acc:Ультиму Виджилис|||dat:Ультиме Виджилис|||gen:Ультимы Виджилис"
+ NAME_Observation_Terminal: "Терминал наблюдения"
+ NAME_Repurposed_Surveillance_Network: "Переоборудованная сеть наблюдения"
+
+# Larionessi Refuge
+ NAME_Unique_System_1: "Предел Федерации&!masc|||prep:Пределе Федерации|||inst:Пределом Федерации|||acc:Предел Федерации|||dat:Пределу Федерации|||gen:Предела Федерации" #star
+ NAME_Unique_System_2: "Убежище Ларионцев&!neut|||prep:Убежище Ларионцев|||inst:Убежищем Ларионцев|||acc:Убежище Ларионцев|||dat:Убежищу Ларионцев|||gen:Убежища Ларионцев" #star
+ NAME_Unique_System_2_Planet: "Ларион&!masc|||prep:Ларионе|||inst:Ларионом|||acc:Ларион|||dat:Лариону|||gen:Лариона"
+
+# Zevox (Shrouded planet)
+ NAME_Unique_System_3: "Зивокс&!masc|||prep:Зивоксе|||inst:Зивоксом|||acc:Зивокс|||dat:Зивоксу|||gen:Зивокса" #star
+ NAME_Unique_System_3_Planet: "Ноль-Один&!masc"
+ NAME_Unique_System_3_Moon: "Ноль-Два&!masc"
+
+# Ancient Battlefields
+ NAME_Unique_System_4: "Опора Фенракса&!fem|||prep:Опоре Фенракса|||inst:Опорой Фенракса|||acc:Опору Фенракса|||dat:Опоре Фенракса|||gen:Опоры Фенракса" #star
+ NAME_Unique_System_5: "Прибежище Жанрокса&!neut|||prep:Прибежище Жанрокса|||inst:Прибежищем Жанрокса|||acc:Прибежище Жанрокса|||dat:Прибежищу Жанрокса|||gen:Прибежища Жанрокса" #star
+ NAME_Unique_System_6: "Афари&!fem" #star
+
+# Triple Planet systems
+ NAME_Unique_System_7: "Крест Трагулы&!masc|||prep:Кресте Трагулы|||inst:Крестом Трагулы|||acc:Крест Трагулы|||dat:Кресту Трагулы|||gen:Креста Трагулы"
+ NAME_Unique_System_8: "Обещание Трина&!neut|||prep:Обещании Трина|||inst:Обещанием Трина|||acc:Обещание Трина|||dat:Обещанию Трина|||gen:Обещания Трина"
+ NAME_Unique_System_9: "Ло&!masc"
+
+# Lost Swarm System
+ NAME_Lost_Swarm_System: "Юбоглилт&!masc|||prep:Юбоглилте|||inst:Юбоглилтом|||acc:Юбоглилт|||dat:Юбоглилту|||gen:Юбоглилта"
+ NAME_Ubogleelt: "Юбоглилт&!masc|||prep:Юбоглилте|||inst:Юбоглилтом|||acc:Юбоглилт|||dat:Юбоглилту|||gen:Юбоглилта"
+ NAME_UbogleeltA: "Юбоглилт I&!masc|||prep:Юбоглилте I|||inst:Юбоглилтом I|||acc:Юбоглилт I|||dat:Юбоглилту I|||gen:Юбоглилта I"
+ NAME_UbogleeltB: "Юбоглилт II&!masc|||prep:Юбоглилте II|||inst:Юбоглилтом II|||acc:Юбоглилт II|||dat:Юбоглилту II|||gen:Юбоглилта II"
+ NAME_UbogleeltC: "Юбоглилт III&!masc|||prep:Юбоглилте III|||inst:Юбоглилтом III|||acc:Юбоглилт III|||dat:Юбоглилту III|||gen:Юбоглилта III"
+ NAME_UbogleeltD: "Юбоглилт IV&!masc|||prep:Юбоглилте IV|||inst:Юбоглилтом IV|||acc:Юбоглилт IV|||dat:Юбоглилту IV|||gen:Юбоглилта IV"
+ NAME_UbogleeltE: "Юбоглилт V&!masc|||prep:Юбоглилте V|||inst:Юбоглилтом V|||acc:Юбоглилт V|||dat:Юбоглилту V|||gen:Юбоглилта V"
+ NAME_Lost_Swarm: "Рой саранчи"
+ NAME_Lost_Swarm_Ship: "Саранча"
+ NAME_Lost_Swarm_Adult: "Саранча"
+
+# Holibrae
+ NAME_Holibrae: "Холибре&!fem"
+ NAME_Holibrae_Corps: "Корпус Холибре" #fleet
+ NAME_Holibrae_Destroyer: "Эсминец Холибре" #ship type
+
+# Star Mall
+ NAME_Parking_Orbit_White_Dwarf: "Парковочная орбита: Зона белого карлика"
+ NAME_Parking_Orbit_Main_Sequence: "Парковочная орбита: Зона главной последовательности"
+ NAME_Star_Mall: "Звёздный центр"
+ NAME_Parking_Orbit_Magnetar: "Парковочная орбита: Зона магнетара"
+ NAME_Parking_Orbit_Black_Hole: "Парковочная орбита: Зона чёрной дыры"
+ NAME_Parking_Orbit_Pulsar: "Парковочная орбита: Зона пульсара"
+ NAME_Parking_Orbit_Brown: "Парковочная орбита: Зона коричневого карлика"
+ star_mall_drone: "Парковочный дрон Звёздного центра"
+ star_mall_drone_plural: "Парковочные дроны Звёздного центра"
+ NAME_Star_Mall_Parking_Drones: "Парковочная служба Звёздного центра"
+ NAME_Star_Mall_Parking_Services: "Парковочная служба Звёздного центра"
+
+# Breachsealers
+ NAME_Seddom: "Седдом"			# Modders
+ NAME_Ariph: "Ариф"				# Ariphaos
+ NAME_Hari_XXIV: "Хари XXIV"	# Harain & The24thDS
+ NAME_Risasi: "Рисаси"			# Risa
+ NAME_Aridder: "Ариддер"		# alexrider903
+ NAME_E'cho: "Э'хо"				# ECHO
+ NAME_Rover: "Ровер"			# Roverstorm
+ NAME_Jasepe: "Джейсепе"		# jasonpepe
+ NAME_Blaxe: "Блакс"			# SirBlackAxe
+ NAME_Glavi: "Глави"			# Glavius
+ NAME_Salvold: "Салволд"		# Savlor & OldEnt
+ NAME_Frince: "Фринс"			# Fireprince
+ NAME_Huanghun: "Презентация Фухэ Зигети"		# Huanghun
+
+# Stewart's Resolve
+ NAME_Stewarts_Resolve: "Решимость Стюарта"
+ NAME_Stewarts_Resolve_I: "Решимость Стюарта I"
+ NAME_Stewarts_Resolve_II: "Решимость Стюарта II"
+ NAME_Stewarts_Resolve_III: "Решимость Стюарта III"
+ NAME_Stewarts_Resolve_IV: "Решимость Стюарта IV"

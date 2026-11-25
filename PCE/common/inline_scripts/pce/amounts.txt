@@ -1,0 +1,10 @@
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 1 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 2 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 3 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 4 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 5 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 6 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 7 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 8 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 9 SCREEN = $SCREEN$ }
+inline_script = { script = pce/amount_option OP = $OP$ INCREASE = $INCREASE$ AMOUNT = 10 SCREEN = $SCREEN$ }

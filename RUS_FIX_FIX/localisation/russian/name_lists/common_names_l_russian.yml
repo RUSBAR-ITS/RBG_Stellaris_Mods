@@ -1,0 +1,74 @@
+﻿l_russian:
+# The following names are applied to generic ships, Megastructures, and space creatures ('fauna') which populate the galaxy and are related to features, rather than particular events.
+
+# Generic ships
+ NAME_Constructor: "Сборщик"
+
+# Space Fauna 'countries' (describing e.g. the Tiyanki, Space Crystals, Mining Drones...)
+
+# Galactic Imperium
+ NAME_Rebellion: "Коалиция Повстанцев" #federation
+ NAME_Loyalists: "Имперские Лоялисты" #federation
+ NAME_The_Civil_War: "Галактическое восстание" #war
+ NAME_Declared_Crisis_War: "[This.MainDefender.GetAdj&fem] война кризиса" #war
+ NAME_Crisis_Star_Eater: "Пожиратель"
+ NAME_GDF: "Силы галактической обороны"
+ NAME_Imperial_Crusade_War: "Имперский крестовый поход" #war
+
+#################
+# MEGASTRUCTURES
+#################
+
+# Ring World sections
+ NAME_Ring_Section_A: "Секция мира-кольца A"
+ NAME_Ring_Section_B: "Секция мира-кольца B"
+ NAME_Ring_Section_C: "Секция мира-кольца C"
+ NAME_Ring_Section_D: "Секция мира-кольца D"
+ NAME_Ring_Section_E: "Секция мира-кольца E"
+ NAME_Ring_Section_F: "Секция мира-кольца F"
+ NAME_Ring_Section_G: "Секция мира-кольца G"
+ NAME_Ring_Section_H: "Секция мира-кольца H"
+ NAME_Ring_Section_I: "Секция мира-кольца I"
+ NAME_Ring_Section_K: "Секция мира-кольца K"
+ NAME_Ring_Section_L: "Секция мира-кольца L"
+ NAME_Ring_Section: "Секция мира-кольца"
+ NAME_Habitable_Section_A: "Обитаемая секция A"
+ NAME_Habitable_Section_B: "Обитаемая секция B"
+ NAME_Habitable_Section_C: "Обитаемая секция C"
+ NAME_Habitable_Section_D: "Обитаемая секция D"
+
+##########
+# ORIGINS
+##########
+
+# Galactic Doorstep
+ NAME_Galactic_Doorstep: "Чёрный Венец" #megastructure
+ NAME_Gateway_Vermin: "Нечисть из врат&!fem|||prep:Нечисти из врат|||inst:Нечистью из врат|||acc:Нечисть из врат|||dat:Нечисти из врат|||gen:Нечисти из врат" #empire
+
+# On the Shoulders of Giants
+ NAME_Theros: "Терос&!masc|||prep:Теросе|||inst:Теросом|||acc:Терос|||dat:Теросу|||gen:Тероса" #planet
+ NAME_Melidas: "Мелидас&!masc|||prep:Мелидасе|||inst:Мелидасом|||acc:Мелидас|||dat:Мелидасу|||gen:Мелидаса" #planet
+ NAME_Koras: "Корас&!masc|||prep:Корасе|||inst:Корасом|||acc:Корас|||dat:Корасу|||gen:Кораса" #planet
+ NAME_Haradas: "Харадас&!masc|||prep:Харадасе|||inst:Харадасом|||acc:Харадас|||dat:Харадасу|||gen:Харадаса" #planet
+ NAME_Islena: "Ислена&!fem|||prep:Ислене|||inst:Исленой|||acc:Ислену|||dat:Ислене|||gen:Ислены" #planet
+
+# Shattered Ring
+ NAME_Irreparable_Damage: "Катастрофический Ущерб" #ringworld segment
+ NAME_The_Interloper: "Незваный Гость" #shattered planet
+
+# Here Be Dragons
+ NAME_Sky_Dragon: "Небесный дракон"
+ NAME_Sky_Dragon_Baby: "Молодой небесный дракон"
+ NAME_Hrozgar_of_the_Endless_Flames: "Хрозгар Вечное Пламя"
+
+# Imperial Fiefdom
+ NAME_Imperial_Origin_Empire: "Священная [origin_imperial_species.GetAdj&fem] Империя&!fem|||prep:Священной [origin_imperial_species.GetAdj&fem] Империи&!fem|||inst:Священной [origin_imperial_species.GetAdj&fem] Империей&!fem|||acc:Священную [origin_imperial_species.GetAdj&fem] Империю&!fem|||dat:Священной [origin_imperial_species.GetAdj&fem] Империи&!fem|||gen:Священной [origin_imperial_species.GetAdj&fem] Империи&!fem"
+ NAME_Imperial_Origin_Empire_2: "Королевство [origin_imperial_species_2.GetNamePlural&gen]&!neut|||prep:Королевстве [origin_imperial_species_2.GetNamePlural&gen]&!neut|||inst:Королевством [origin_imperial_species_2.GetNamePlural&gen]&!neut|||acc:Королевство [origin_imperial_species_2.GetNamePlural&gen]&!neut|||dat:Королевству [origin_imperial_species_2.GetNamePlural&gen]&!neut|||gen:Королевства [origin_imperial_species_2.GetNamePlural&gen]&!neut"
+ NAME_Imperial_Origin_Empire_3: "Курфюршество [origin_imperial_species_3.GetNamePlural&gen]&!neut|||prep:Курфюршестве [origin_imperial_species_2.GetNamePlural&gen]&!neut|||inst:Курфюршеством [origin_imperial_species_2.GetNamePlural&gen]&!neut|||acc:Курфюршество [origin_imperial_species_2.GetNamePlural&gen]&!neut|||dat:Курфюршеству [origin_imperial_species_2.GetNamePlural&gen]&!neut|||gen:Курфюршества [origin_imperial_species_2.GetNamePlural&gen]&!neut"
+ NAME_Imperial_Origin_Empire_4: "Пфальцграфство [origin_imperial_species_4.GetNamePlural&gen]&!neut|||prep:Пфальцграфстве [origin_imperial_species_2.GetNamePlural&gen]&!neut|||inst:Пфальцграфством [origin_imperial_species_2.GetNamePlural&gen]&!neut|||acc:Пфальцграфство [origin_imperial_species_2.GetNamePlural&gen]&!neut|||dat:Пфальцграфству [origin_imperial_species_2.GetNamePlural&gen]&!neut|||gen:Пфальцграфства [origin_imperial_species_2.GetNamePlural&gen]&!neut"
+ NAME_Imperial_Origin_Empire_5: "[origin_imperial_species_5.GetAdj&fem] Лига&!fem|||prep:[origin_imperial_species_5.GetAdj&fem] Лиге&!fem|||inst:[origin_imperial_species_5.GetAdj&fem] Лигой&!fem|||acc:[origin_imperial_species_5.GetAdj&fem] Лигу&!fem|||dat:[origin_imperial_species_5.GetAdj&fem] Лиге&!fem|||gen:[origin_imperial_species_5.GetAdj&fem] Лиги&!fem"
+ NAME_Aix: "Экс" #planet
+
+ # Toxic Knights
+ NAME_Sinople: "Изумруд"
+ NAME_Syamelle: "Сиамель"

@@ -1,27 +1,23 @@
 decision_pce_extend_planetary_capacity = {
-    owned_planets_only = yes
-    icon = pce_extend_planetary_capacity
-    sound = event_administrative_work
-    enactment_time = 0
+	owned_planets_only = yes
+	icon = pce_extend_planetary_capacity
+	sound = event_administrative_work
+	enactment_time = 0
+	resources = { category = decisions }
 
-    resources = {
-        category = decisions
-        cost = { }
-    }
-
-    potential = {
-        pce_is_valid_capacity_target = yes
-    }
-
-    allow = {
-        always = yes
-    }
-
-    effect = {
-        planet_event = { id = PCE.1 }
-    }
-
-    ai_weight = {
-        weight = 0
-    }
+	potential = {
+		pce_valid_colony = yes
+		is_owned_by = from
+	}
+	effect = {
+		custom_tooltip = pce_open_planner_tt
+		hidden_effect = {
+			if = {
+				limit = { pce_valid_colony = yes is_owned_by = from }
+				from = { save_event_target_as = pce_operator }
+				carrier_event = { id = pce.1 }
+			}
+		}
+	}
+	ai_weight = { weight = 0 }
 }

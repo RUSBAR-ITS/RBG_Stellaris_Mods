@@ -1,0 +1,85 @@
+desire_aura_max_intensity_effect = {
+	set_variable = {
+		which = ascensions_added
+		value = 0
+	}
+	every_system_planet_colony = {
+		limit = {
+			has_owner = yes
+			is_owned_by = root.aura_owner
+			has_planetary_ascension_tier < event_target:global_event_country.uiod_ascension_limit
+			has_ground_combat = no
+			is_occupied_flag = no
+			NOT = { has_carrier_flag = recent_colony_aura_effect_triggered }
+		}
+		set_timed_carrier_flag = {
+			flag = recent_colony_aura_effect_triggered
+			years = 10
+		}
+		set_planetary_ascension_tier = value:uiod_rus_next_ascension_tier
+		prev = {
+			change_variable = {
+				which = ascensions_added
+				value = 1
+			}
+		}
+		if = {
+			limit = {
+				NOT = { exists = event_target:selected_colony }
+			}
+			save_event_target_as = selected_colony
+		}
+	}
+	every_system_ship_colony = {
+		limit = {
+			has_owner = yes
+			is_owned_by = root.aura_owner
+			has_planetary_ascension_tier < event_target:global_event_country.uiod_ascension_limit
+			is_occupied_flag = no
+			NOT = { has_carrier_flag = recent_colony_aura_effect_triggered }
+		}
+		set_planetary_ascension_tier = value:uiod_rus_next_ascension_tier
+		prev = {
+			change_variable = {
+				which = ascensions_added
+				value = 1
+			}
+		}
+		set_timed_carrier_flag = {
+			flag = recent_colony_aura_effect_triggered
+			years = 10
+		}
+		if = {
+			limit = {
+				NOT = { exists = event_target:selected_colony }
+			}
+			save_event_target_as = selected_colony
+		}
+	}
+	if = {
+		limit = {
+			exists = event_target:selected_colony
+			check_variable = { which = ascensions_added value > 0 }
+		}
+		create_message = {
+			type = MESSAGE_PSIONIC_AURA_the_instrument_of_desire
+			localization = MESSAGE_PSIONIC_AURA_MAX_INTENSITY_the_instrument_of_desire_DESC
+			days = 30
+			# Default recipient is the system owner, which is null for nomads (no primary starbase).
+			recipient = root.aura_owner
+			target = event_target:selected_colony
+			variable = {
+				type = name
+				localization = SYSTEM
+				scope = this
+			}
+			variable = {
+				type = variable
+				localization = VALUE
+				varname = this.ascensions_added
+				scope = this
+			}
+		}
+	}
+	clear_variable = ascensions_added
+}

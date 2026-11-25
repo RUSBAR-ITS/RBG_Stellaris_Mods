@@ -14,33 +14,38 @@
 
 ID мода: `UIOD_RUS`. Отображаемое имя: **UI Overhaul Dynamic - Russian Localization Fix**.
 
-Версия **0.0.3** для Stellaris **4.5.***. Мод дополняет русскую локализацию UI Overhaul Dynamic и UI Overhaul Dynamic - Ascension Slots: 12 и 7 строк соответственно. В игре должен быть выбран русский язык.
+Версия **0.0.4** для Stellaris `v4.6.*`. UIOD_RUS исправляет ауру Исполнителя желаний и повторяемую технологию Ascension Slots для любого языка интерфейса. При выборе русского языка мод также переводит 12 строк UI Overhaul Dynamic и 7 строк Ascension Slots.
 
 Для More Tradition Categories (80), Tiny Options и Tiny Outliner отдельных переводов не требуется: в проверенных версиях у них нет собственных файлов локализации. Оригинальные названия модов и сервисов сохраняются там, где они являются собственными именами; подпись Steam Workshop переведена как «Мастерская Steam».
 
 ## Состав поставки
 
-В игровую поставку входят только три файла:
+В архив входят шесть игровых файлов.
 
-- `descriptor.mod`;
-- `localisation/replace/uiod_rus_ui_overhaul_l_russian.yml`;
-- `localisation/replace/uiod_rus_ascension_slots_l_russian.yml`.
+- `descriptor.mod`
+- `common/scripted_effects/uiod_psionic_auras_scripted_effects.txt`
+- `common/script_values/uiod_rus_ascension_values.txt`
+- `common/technology/ui_tech_ascension_theory_repeatable.txt`
+- `localisation/replace/uiod_rus_ui_overhaul_l_russian.yml`
+- `localisation/replace/uiod_rus_ascension_slots_l_russian.yml`
 
-Архив: [UIOD_RUS_0.0.3.zip](../../TMP/UIOD_RUS/UIOD_RUS_0.0.3.zip). В нём находится папка `UIOD_RUS` с указанными файлами. Документация, глоссарий и временные материалы исключены из архива.
+Архив: [UIOD_RUS_0.0.4.zip](../../TMP/UIOD_RUS/UIOD_RUS_0.0.4.zip). В нём находится папка `UIOD_RUS` с указанными файлами. Документация, глоссарий и временные материалы исключены из архива.
 
 ## Подключение
 
 1. Установить и включить UI Overhaul Dynamic и UI Overhaul Dynamic - Ascension Slots.
-2. Разместить папку `UIOD_RUS` из игровой поставки в пользовательском каталоге `Documents/Paradox Interactive/Stellaris/mod/`. На текущем компьютере это `C:/Users/RUSBAR/Documents/Paradox Interactive/Stellaris/mod/UIOD_RUS/`.
-3. В родительском каталоге `mod/` создать `UIOD_RUS.mod`: содержимое `descriptor.mod` и дополнительная строка `path="C:/Users/RUSBAR/Documents/Paradox Interactive/Stellaris/mod/UIOD_RUS"`. На другом компьютере указать его фактический абсолютный путь с прямыми косыми чертами.
+2. На компьютере разработчика лаунчер читает мод прямо из `D:/Repos/RBG_Stellaris_Mods/UIOD_RUS`. При установке из архива распаковать папку `UIOD_RUS` в пользовательский каталог `Documents/Paradox Interactive/Stellaris/mod/`.
+3. В пользовательском каталоге `mod/` сохранить `UIOD_RUS.mod` с содержимым `descriptor.mod` и строкой `path`, указывающей на фактический каталог мода. Для прямого подключения на этом компьютере используется `path="D:/Repos/RBG_Stellaris_Mods/UIOD_RUS"`.
 4. Перезапустить лаунчер. Для игры пользователь самостоятельно добавляет **UI Overhaul Dynamic - Russian Localization Fix** в используемый набор модов и включает его. Разместить его ниже UI Overhaul Dynamic и Ascension Slots; для указанной серии из пяти UIOD-модов удобно поставить его после всей серии.
-5. Выбрать русский язык и запустить игру с этим набором модов.
+5. Запустить игру. Чтобы проверить перевод, выбрать русский язык.
 
 Папка установленной игры и папки Steam Workshop не являются местом установки UIOD_RUS. Не копировать рабочую папку `Docs` и общий глоссарий в игровую поставку.
 
 ## Проверка в игре
 
-Проверку проводит пользователь:
+Для проверки ауры выставить лимит выше 10. На планете и на ковчеге проверить переход 10 → 11 по фактическому уровню колонии. Повторить при достигнутом лимите и при действующем десятилетнем флаге. Для технологии проверить, что опция Ascension Slots управляет её доступностью, исследование даёт одну ячейку, а `error.log` больше не сообщает об `ai_update_type` для этого файла. [Все сценарии](TZ_ASCENSION_SLOTS_46_RU.md#проверка-и-приёмка).
+
+В русской локализации проверить следующие элементы.
 
 - окно информации UIOD: версия, основной текст, подписи и подсказки Steam и Discord;
 - дополнительная подсказка дерева технологий;
@@ -53,7 +58,7 @@ ID мода: `UIOD_RUS`. Отображаемое имя: **UI Overhaul Dynamic 
 
 ## Проверка файлов
 
-Результаты синтетической проверки: [validation_report.json](../../TMP/UIOD_RUS/validation_report.json). Проверка сравнивает все 19 записей с исходными строками и утверждённым ТЗ: ключи, оболочки записей, служебные токены, числа, кодировку, окончания строк, глоссарий и состав архива.
+Для версии 0.0.4 проверены структура игровых скриптов, отличия от исходников, условия повышения уровня и содержимое архива. [Отчёт 0.0.4](../../TMP/UIOD_RUS/validation_0.0.4.json). Проверки исходного перевода задокументированы отдельно. [Отчёт 0.0.3](../../TMP/UIOD_RUS/validation_report.json).
 
 Глоссарий: [uiod_rus_terms.json](../../Glossary/uiod_rus_terms.json). Он содержит 6 уникальных терминов с 20 ссылками на английские оригиналы и русские источники. Это рабочий словарь перевода, а не игровой файл.
 
@@ -61,11 +66,12 @@ ID мода: `UIOD_RUS`. Отображаемое имя: **UI Overhaul Dynamic 
 
 ## Известное ограничение
 
-В исходном UIOD ключ `UIO_FAVORS_TITLE` ссылается на отсутствующий `TRADE_CATEGORY_FAVORS`. Это отдельный дефект исходной локализации. По утверждённому ТЗ версия 0.0.3 его не исправляет.
+В исходном UIOD ключ `UIO_FAVORS_TITLE` ссылается на отсутствующий `TRADE_CATEGORY_FAVORS`. Это отдельный дефект исходной локализации.
 
 ## Документация
 
-- [Утверждённое ТЗ](TZ_RU.md).
+- [ТЗ локализации](TZ_RU.md).
+- [ТЗ первого этапа для Stellaris 4.6](TZ_ASCENSION_SLOTS_46_RU.md).
 - [История изменений](CHANGELOG_RU.md).
 - [Затронутые ванильные файлы и функции](VANILLA_CHANGES_RU.md).
 - [English instructions](README_EN.md).

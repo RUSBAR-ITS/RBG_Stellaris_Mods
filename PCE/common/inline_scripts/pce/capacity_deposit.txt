@@ -1,0 +1,10 @@
+is_for_colonizable = yes
+category = deposit_cat_rare
+should_swap_deposit_on_terraforming = no
+potential = { always = no }
+drop_weight = { weight = 0 }
+
+triggered_planet_modifier = {
+	planet_max_districts_add = 1
+	mult = pce_extra_districts
+}

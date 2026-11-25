@@ -1,0 +1,21 @@
+pce_current_index = {
+	base = 0
+	modifier = {
+		is_variable_set = pce_extra_districts
+		add = pce_extra_districts
+	}
+}
+
+pce_add_result = {
+	base = 0
+	add = value:pce_current_index
+	add = $AMOUNT$
+}
+
+pce_remove_result = {
+	base = 0
+	add = value:pce_current_index
+	subtract = $AMOUNT$
+}
+
+pce_zero_index = { base = 0 }

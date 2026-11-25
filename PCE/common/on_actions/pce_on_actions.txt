@@ -1,0 +1,13 @@
+on_planet_class_changed = { events = { pce.10 } }
+on_terraforming_complete = { events = { pce.10 } }
+on_decision_enacted = { events = { pce.10 } }
+on_colony_transfer = { events = { pce.10 } }
+on_colonized = { events = { pce.10 } }
+on_zone_complete = { events = { pce.10 } }
+on_district_demolished = { events = { pce.10 } }
+on_arkship_encamped = { events = { pce.10 } }
+on_arkship_mobile = { events = { pce.10 } }
+
+on_post_government_changed = { events = { pce.13 } }
+on_modification_completion = { events = { pce.13 } }
+on_policy_changed = { events = { pce.13 } }

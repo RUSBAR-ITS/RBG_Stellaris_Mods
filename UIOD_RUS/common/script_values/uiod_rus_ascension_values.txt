@@ -1,0 +1,8 @@
+uiod_rus_next_ascension_tier = {
+	base = 1
+	complex_trigger_modifier = {
+		trigger = has_planetary_ascension_tier
+		trigger_scope = this
+		mode = add
+	}
+}

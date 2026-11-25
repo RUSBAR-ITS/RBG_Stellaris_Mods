@@ -1,0 +1,3067 @@
+defined_text = {
+	name = GetBackupCloneName_rinfix
+	text = {
+		trigger = {
+			is_ruler = yes
+			exists = owner
+			owner = {
+				is_cloning_authority = yes
+				is_imperial_authority = yes
+			}
+		}
+		localization_key = backup_clone_imperial_rinfix
+	}
+	default = backup_clone_default_rinfix
+}
+
+defined_text = {
+	name = background_pc_rinfix
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_desert } }
+		}
+		localization_key = pc_desert_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_arid } }
+		}
+		localization_key = pc_arid_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_tundra } }
+		}
+		localization_key = pc_tundra_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_continental } }
+		}
+		localization_key = pc_continental_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_tropical } }
+		}
+		localization_key = pc_tropical_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_ocean } }
+		}
+		localization_key = pc_ocean_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_arctic } }
+		}
+		localization_key = pc_arctic_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_alpine } }
+		}
+		localization_key = pc_alpine_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_savannah } }
+		}
+		localization_key = pc_savannah_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_gaia } }
+		}
+		localization_key = pc_gaia_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_nuked } }
+		}
+		localization_key = pc_nuked_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_volcanic } }
+		}
+		localization_key = pc_volcanic_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_habitat } }
+		}
+		localization_key = pc_habitat_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_city } }
+		}
+		localization_key = pc_city_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_relic } }
+		}
+		localization_key = pc_relic_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_hive } }
+		}
+		localization_key = pc_hive_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_machine } }
+		}
+		localization_key = pc_machine_rinfix
+	}
+	text = {
+		trigger = {
+			this? = { background_planet = { is_planet_class = pc_ark } }
+		}
+		localization_key = pc_ark_rinfix
+	}
+	text = {
+		trigger = {
+			this? = {
+				background_planet = {
+					OR = {
+						is_planet_class = pc_ringworld_habitable
+						is_planet_class = pc_shattered_ring_habitable
+						is_planet_class = pc_cybrex
+					}
+				}
+			}
+		}
+		localization_key = pc_ringworld_habitable_rinfix
+	}
+	default = pc_unusual_rinfix
+}
+
+defined_text = {
+	name = background_job_rinfix
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = civilian }
+		localization_key = job_civilian_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = civilian }
+		localization_key = job_civilian_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = servant }
+		localization_key = job_servant_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = servant }
+		localization_key = job_servant_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = slave_overseer }
+		localization_key = job_slave_overseer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = slave_overseer }
+		localization_key = job_slave_overseer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = slave_toiler }
+		localization_key = job_slave_toiler_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = slave_toiler }
+		localization_key = job_slave_toiler_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = organic_battery }
+		localization_key = job_organic_battery_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = organic_battery }
+		localization_key = job_organic_battery_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock }
+		localization_key = job_livestock_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock }
+		localization_key = job_livestock_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock_infernal }
+		localization_key = job_livestock_infernal_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock_infernal }
+		localization_key = job_livestock_infernal_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock_zoo_animal }
+		localization_key = job_livestock_zoo_animal_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock_zoo_animal }
+		localization_key = job_livestock_zoo_animal_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock_zoo_beast }
+		localization_key = job_livestock_zoo_beast_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock_zoo_beast }
+		localization_key = job_livestock_zoo_beast_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bio_trophy }
+		localization_key = job_bio_trophy_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bio_trophy }
+		localization_key = job_bio_trophy_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge }
+		localization_key = job_purge_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge }
+		localization_key = job_purge_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = crisis_purge }
+		localization_key = job_crisis_purge_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = crisis_purge }
+		localization_key = job_crisis_purge_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = assimilation }
+		localization_key = job_assimilation_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = assimilation }
+		localization_key = job_assimilation_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = criminal }
+		localization_key = job_criminal_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = criminal }
+		localization_key = job_criminal_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = deviant_drone }
+		localization_key = job_deviant_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = deviant_drone }
+		localization_key = job_deviant_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = corrupt_drone }
+		localization_key = job_corrupt_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = corrupt_drone }
+		localization_key = job_corrupt_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fotd_protectors }
+		localization_key = job_fotd_protectors_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fotd_protectors }
+		localization_key = job_fotd_protectors_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = organic_exhibit }
+		localization_key = job_organic_exhibit_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = organic_exhibit }
+		localization_key = job_organic_exhibit_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock_lithoid }
+		localization_key = job_livestock_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock_lithoid }
+		localization_key = job_livestock_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock_zoo_animal_lithoid }
+		localization_key = job_livestock_zoo_animal_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock_zoo_animal_lithoid }
+		localization_key = job_livestock_zoo_animal_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = livestock_zoo_beast_lithoid }
+		localization_key = job_livestock_zoo_beast_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = livestock_zoo_beast_lithoid }
+		localization_key = job_livestock_zoo_beast_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_lithoid }
+		localization_key = job_purge_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_lithoid }
+		localization_key = job_purge_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_robot }
+		localization_key = job_purge_robot_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_robot }
+		localization_key = job_purge_robot_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_processing }
+		localization_key = job_purge_processing_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_processing }
+		localization_key = job_purge_processing_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_processing_lithoid }
+		localization_key = job_purge_processing_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_processing_lithoid }
+		localization_key = job_purge_processing_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_processing_infernal }
+		localization_key = job_purge_processing_infernal_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_processing_infernal }
+		localization_key = job_purge_processing_infernal_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_processing_robot }
+		localization_key = job_purge_processing_robot_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_processing_robot }
+		localization_key = job_purge_processing_robot_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_labor_camps }
+		localization_key = job_purge_labor_camps_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_labor_camps }
+		localization_key = job_purge_labor_camps_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_matrix }
+		localization_key = job_purge_matrix_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_matrix }
+		localization_key = job_purge_matrix_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = purge_sacrifice }
+		localization_key = job_purge_sacrifice_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = purge_sacrifice }
+		localization_key = job_purge_sacrifice_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bio_trophy_unemployment }
+		localization_key = job_bio_trophy_unemployment_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bio_trophy_unemployment }
+		localization_key = job_bio_trophy_unemployment_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = slave_unemployment }
+		localization_key = job_slave_unemployment_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = slave_unemployment }
+		localization_key = job_slave_unemployment_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = politician }
+		localization_key = job_politician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = politician }
+		localization_key = job_politician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = knight_commander }
+		localization_key = job_knight_commander_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = knight_commander }
+		localization_key = job_knight_commander_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = dystopian_enforcer }
+		localization_key = job_dystopian_enforcer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = dystopian_enforcer }
+		localization_key = job_dystopian_enforcer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = dystopian_telepath }
+		localization_key = job_dystopian_telepath_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = dystopian_telepath }
+		localization_key = job_dystopian_telepath_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = head_researcher }
+		localization_key = job_head_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = head_researcher }
+		localization_key = job_head_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = high_priest }
+		localization_key = job_high_priest_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = high_priest }
+		localization_key = job_high_priest_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = noble }
+		localization_key = job_noble_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = noble }
+		localization_key = job_noble_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = merchant }
+		localization_key = job_merchant_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = merchant }
+		localization_key = job_merchant_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = executive }
+		localization_key = job_executive_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = executive }
+		localization_key = job_executive_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = warden }
+		localization_key = job_warden_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = warden }
+		localization_key = job_warden_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = physicist }
+		localization_key = job_physicist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = physicist }
+		localization_key = job_physicist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = biologist }
+		localization_key = job_biologist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = biologist }
+		localization_key = job_biologist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = engineer }
+		localization_key = job_engineer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = engineer }
+		localization_key = job_engineer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_keeper }
+		localization_key = job_xeno_zoo_keeper_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_keeper }
+		localization_key = job_xeno_zoo_keeper_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bureaucrat }
+		localization_key = job_bureaucrat_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bureaucrat }
+		localization_key = job_bureaucrat_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = enforcer }
+		localization_key = job_enforcer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = enforcer }
+		localization_key = job_enforcer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = educator }
+		localization_key = job_educator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = educator }
+		localization_key = job_educator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = telepath }
+		localization_key = job_telepath_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = telepath }
+		localization_key = job_telepath_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = entertainer }
+		localization_key = job_entertainer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = entertainer }
+		localization_key = job_entertainer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = culture_worker }
+		localization_key = job_culture_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = culture_worker }
+		localization_key = job_culture_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = unifier }
+		localization_key = job_unifier_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = unifier }
+		localization_key = job_unifier_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = chemist }
+		localization_key = job_chemist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = chemist }
+		localization_key = job_chemist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = translucer }
+		localization_key = job_translucer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = translucer }
+		localization_key = job_translucer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gas_refiner }
+		localization_key = job_gas_refiner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gas_refiner }
+		localization_key = job_gas_refiner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = roboticist }
+		localization_key = job_roboticist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = roboticist }
+		localization_key = job_roboticist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = healthcare }
+		localization_key = job_healthcare_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = healthcare }
+		localization_key = job_healthcare_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = trader }
+		localization_key = job_trader_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = trader }
+		localization_key = job_trader_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = numistic_priest }
+		localization_key = job_numistic_priest_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = numistic_priest }
+		localization_key = job_numistic_priest_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = preacher }
+		localization_key = job_preacher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = preacher }
+		localization_key = job_preacher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = manager }
+		localization_key = job_manager_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = manager }
+		localization_key = job_manager_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = steward }
+		localization_key = job_steward_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = steward }
+		localization_key = job_steward_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = necromancer }
+		localization_key = job_necromancer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = necromancer }
+		localization_key = job_necromancer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = death_chronicler }
+		localization_key = job_death_chronicler_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = death_chronicler }
+		localization_key = job_death_chronicler_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = necro_apprentice }
+		localization_key = job_necro_apprentice_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = necro_apprentice }
+		localization_key = job_necro_apprentice_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = foundry }
+		localization_key = job_foundry_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = foundry }
+		localization_key = job_foundry_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = catalytic_technician }
+		localization_key = job_catalytic_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = catalytic_technician }
+		localization_key = job_catalytic_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = artisan }
+		localization_key = job_artisan_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = artisan }
+		localization_key = job_artisan_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = artificer }
+		localization_key = job_artificer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = artificer }
+		localization_key = job_artificer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = pearl_diver }
+		localization_key = job_pearl_diver_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = pearl_diver }
+		localization_key = job_pearl_diver_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = reassigner }
+		localization_key = job_reassigner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = reassigner }
+		localization_key = job_reassigner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bath_attendant }
+		localization_key = job_bath_attendant_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bath_attendant }
+		localization_key = job_bath_attendant_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bath_attendant_individual_machine }
+		localization_key = job_bath_attendant_individual_machine_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bath_attendant_individual_machine }
+		localization_key = job_bath_attendant_individual_machine_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = knight }
+		localization_key = job_knight_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = knight }
+		localization_key = job_knight_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = archaeoengineers }
+		localization_key = job_archaeoengineers_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = archaeoengineers }
+		localization_key = job_archaeoengineers_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = resort_worker }
+		localization_key = job_resort_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = resort_worker }
+		localization_key = job_resort_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = polytechnic_mentor }
+		localization_key = job_polytechnic_mentor_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = polytechnic_mentor }
+		localization_key = job_polytechnic_mentor_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = offworld_prospector }
+		localization_key = job_offworld_prospector_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = offworld_prospector }
+		localization_key = job_offworld_prospector_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = soldier }
+		localization_key = job_soldier_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = soldier }
+		localization_key = job_soldier_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = battle_thrall }
+		localization_key = job_battle_thrall_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = battle_thrall }
+		localization_key = job_battle_thrall_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = colonist }
+		localization_key = job_colonist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = colonist }
+		localization_key = job_colonist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = clerk }
+		localization_key = job_clerk_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = clerk }
+		localization_key = job_clerk_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = technician }
+		localization_key = job_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = technician }
+		localization_key = job_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = miner }
+		localization_key = job_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = miner }
+		localization_key = job_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = crystal_miner }
+		localization_key = job_crystal_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = crystal_miner }
+		localization_key = job_crystal_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gas_extractor }
+		localization_key = job_gas_extractor_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gas_extractor }
+		localization_key = job_gas_extractor_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mote_harvester }
+		localization_key = job_mote_harvester_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mote_harvester }
+		localization_key = job_mote_harvester_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = farmer }
+		localization_key = job_farmer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = farmer }
+		localization_key = job_farmer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mortal_initiate }
+		localization_key = job_mortal_initiate_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mortal_initiate }
+		localization_key = job_mortal_initiate_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = scrap_miner }
+		localization_key = job_scrap_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = scrap_miner }
+		localization_key = job_scrap_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = angler }
+		localization_key = job_angler_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = angler }
+		localization_key = job_angler_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ranger }
+		localization_key = job_ranger_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ranger }
+		localization_key = job_ranger_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = squire }
+		localization_key = job_squire_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = squire }
+		localization_key = job_squire_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = foundry_prison_worker }
+		localization_key = job_foundry_prison_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = foundry_prison_worker }
+		localization_key = job_foundry_prison_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = catalytic_technician_prison_worker }
+		localization_key = job_catalytic_technician_prison_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = catalytic_technician_prison_worker }
+		localization_key = job_catalytic_technician_prison_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = artisan_prison_worker }
+		localization_key = job_artisan_prison_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = artisan_prison_worker }
+		localization_key = job_artisan_prison_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = artificer_prison_worker }
+		localization_key = job_artificer_prison_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = artificer_prison_worker }
+		localization_key = job_artificer_prison_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = spawning_drone }
+		localization_key = job_spawning_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = spawning_drone }
+		localization_key = job_spawning_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = offspring_drone }
+		localization_key = job_offspring_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = offspring_drone }
+		localization_key = job_offspring_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = replicator }
+		localization_key = job_replicator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = replicator }
+		localization_key = job_replicator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gestation_drone }
+		localization_key = job_gestation_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gestation_drone }
+		localization_key = job_gestation_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = evaluator }
+		localization_key = job_evaluator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = evaluator }
+		localization_key = job_evaluator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = coordinator }
+		localization_key = job_coordinator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = coordinator }
+		localization_key = job_coordinator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = synapse_drone }
+		localization_key = job_synapse_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = synapse_drone }
+		localization_key = job_synapse_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = chronicle_drone }
+		localization_key = job_chronicle_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = chronicle_drone }
+		localization_key = job_chronicle_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = calculator_physicist }
+		localization_key = job_calculator_physicist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = calculator_physicist }
+		localization_key = job_calculator_physicist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = brain_drone_physicist }
+		localization_key = job_brain_drone_physicist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = brain_drone_physicist }
+		localization_key = job_brain_drone_physicist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = calculator_biologist }
+		localization_key = job_calculator_biologist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = calculator_biologist }
+		localization_key = job_calculator_biologist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = brain_drone_biologist }
+		localization_key = job_brain_drone_biologist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = brain_drone_biologist }
+		localization_key = job_brain_drone_biologist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = archaeo_drone }
+		localization_key = job_archaeo_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = archaeo_drone }
+		localization_key = job_archaeo_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = archaeo_unit }
+		localization_key = job_archaeo_unit_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = archaeo_unit }
+		localization_key = job_archaeo_unit_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = calculator_engineer }
+		localization_key = job_calculator_engineer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = calculator_engineer }
+		localization_key = job_calculator_engineer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = brain_drone_engineer }
+		localization_key = job_brain_drone_engineer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = brain_drone_engineer }
+		localization_key = job_brain_drone_engineer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = artisan_drone }
+		localization_key = job_artisan_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = artisan_drone }
+		localization_key = job_artisan_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fabricator }
+		localization_key = job_fabricator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fabricator }
+		localization_key = job_fabricator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = alloy_drone }
+		localization_key = job_alloy_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = alloy_drone }
+		localization_key = job_alloy_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = catalytic_drone }
+		localization_key = job_catalytic_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = catalytic_drone }
+		localization_key = job_catalytic_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = chemist_drone }
+		localization_key = job_chemist_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = chemist_drone }
+		localization_key = job_chemist_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = translucer_drone }
+		localization_key = job_translucer_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = translucer_drone }
+		localization_key = job_translucer_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gas_refiner_drone }
+		localization_key = job_gas_refiner_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gas_refiner_drone }
+		localization_key = job_gas_refiner_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = patrol_drone }
+		localization_key = job_patrol_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = patrol_drone }
+		localization_key = job_patrol_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mote_harvesting_drone }
+		localization_key = job_mote_harvesting_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mote_harvesting_drone }
+		localization_key = job_mote_harvesting_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = crystal_mining_drone }
+		localization_key = job_crystal_mining_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = crystal_mining_drone }
+		localization_key = job_crystal_mining_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gas_extraction_drone }
+		localization_key = job_gas_extraction_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gas_extraction_drone }
+		localization_key = job_gas_extraction_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = logistics_drone }
+		localization_key = job_logistics_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = logistics_drone }
+		localization_key = job_logistics_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mining_drone }
+		localization_key = job_mining_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mining_drone }
+		localization_key = job_mining_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = scrap_miner_drone }
+		localization_key = job_scrap_miner_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = scrap_miner_drone }
+		localization_key = job_scrap_miner_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = agri_drone }
+		localization_key = job_agri_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = agri_drone }
+		localization_key = job_agri_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = technician_drone }
+		localization_key = job_technician_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = technician_drone }
+		localization_key = job_technician_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = maintenance_drone }
+		localization_key = job_maintenance_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = maintenance_drone }
+		localization_key = job_maintenance_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = wilderness_maintenance_drone }
+		localization_key = job_wilderness_maintenance_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = wilderness_maintenance_drone }
+		localization_key = job_wilderness_maintenance_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = warrior_drone }
+		localization_key = job_warrior_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = warrior_drone }
+		localization_key = job_warrior_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bath_attendant_machine }
+		localization_key = job_bath_attendant_machine_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bath_attendant_machine }
+		localization_key = job_bath_attendant_machine_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = bath_attendant_hive }
+		localization_key = job_bath_attendant_hive_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = bath_attendant_hive }
+		localization_key = job_bath_attendant_hive_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = polytechnic_drone }
+		localization_key = job_polytechnic_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = polytechnic_drone }
+		localization_key = job_polytechnic_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = offworld_prospector_drone }
+		localization_key = job_offworld_prospector_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = offworld_prospector_drone }
+		localization_key = job_offworld_prospector_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = pre_sapient }
+		localization_key = job_pre_sapient_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = pre_sapient }
+		localization_key = job_pre_sapient_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = pre_sapient_nascent }
+		localization_key = job_pre_sapient_nascent_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = pre_sapient_nascent }
+		localization_key = job_pre_sapient_nascent_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hunted_pre_sapient }
+		localization_key = job_hunted_pre_sapient_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hunted_pre_sapient }
+		localization_key = job_hunted_pre_sapient_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hunted_pre_sapient_lithoid }
+		localization_key = job_hunted_pre_sapient_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hunted_pre_sapient_lithoid }
+		localization_key = job_hunted_pre_sapient_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_animal }
+		localization_key = job_xeno_zoo_animal_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_animal }
+		localization_key = job_xeno_zoo_animal_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_animal_nascent }
+		localization_key = job_xeno_zoo_animal_nascent_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_animal_nascent }
+		localization_key = job_xeno_zoo_animal_nascent_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_animal_lithoid }
+		localization_key = job_xeno_zoo_animal_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_animal_lithoid }
+		localization_key = job_xeno_zoo_animal_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_animal_lithoid_nascent }
+		localization_key = job_xeno_zoo_animal_lithoid_nascent_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_animal_lithoid_nascent }
+		localization_key = job_xeno_zoo_animal_lithoid_nascent_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_beast }
+		localization_key = job_xeno_zoo_beast_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_beast }
+		localization_key = job_xeno_zoo_beast_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_beast_nascent }
+		localization_key = job_xeno_zoo_beast_nascent_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_beast_nascent }
+		localization_key = job_xeno_zoo_beast_nascent_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_beast_lithoid }
+		localization_key = job_xeno_zoo_beast_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_beast_lithoid }
+		localization_key = job_xeno_zoo_beast_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = xeno_zoo_beast_lithoid_nascent }
+		localization_key = job_xeno_zoo_beast_lithoid_nascent_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = xeno_zoo_beast_lithoid_nascent }
+		localization_key = job_xeno_zoo_beast_lithoid_nascent_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hunter_gatherer }
+		localization_key = job_hunter_gatherer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hunter_gatherer }
+		localization_key = job_hunter_gatherer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hunter_gatherer_lithoid }
+		localization_key = job_hunter_gatherer_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hunter_gatherer_lithoid }
+		localization_key = job_hunter_gatherer_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = peasant }
+		localization_key = job_peasant_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = peasant }
+		localization_key = job_peasant_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = peasant_lithoid }
+		localization_key = job_peasant_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = peasant_lithoid }
+		localization_key = job_peasant_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_warrior }
+		localization_key = job_primitive_warrior_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_warrior }
+		localization_key = job_primitive_warrior_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_noble }
+		localization_key = job_primitive_noble_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_noble }
+		localization_key = job_primitive_noble_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_researcher }
+		localization_key = job_primitive_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_researcher }
+		localization_key = job_primitive_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_priest }
+		localization_key = job_primitive_priest_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_priest }
+		localization_key = job_primitive_priest_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_laborer }
+		localization_key = job_primitive_laborer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_laborer }
+		localization_key = job_primitive_laborer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_miner }
+		localization_key = job_primitive_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_miner }
+		localization_key = job_primitive_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_technician }
+		localization_key = job_primitive_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_technician }
+		localization_key = job_primitive_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_farmer }
+		localization_key = job_primitive_farmer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_farmer }
+		localization_key = job_primitive_farmer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_researcher_2 }
+		localization_key = job_primitive_researcher_2_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_researcher_2 }
+		localization_key = job_primitive_researcher_2_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_priest_2 }
+		localization_key = job_primitive_priest_2_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_priest_2 }
+		localization_key = job_primitive_priest_2_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_entertainer }
+		localization_key = job_primitive_entertainer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_entertainer }
+		localization_key = job_primitive_entertainer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_warrior_2 }
+		localization_key = job_primitive_warrior_2_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_warrior_2 }
+		localization_key = job_primitive_warrior_2_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_bureaucrat }
+		localization_key = job_primitive_bureaucrat_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_bureaucrat }
+		localization_key = job_primitive_bureaucrat_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = solarpunk_anarchist }
+		localization_key = job_solarpunk_anarchist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = solarpunk_anarchist }
+		localization_key = job_solarpunk_anarchist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_administrator }
+		localization_key = job_primitive_administrator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_administrator }
+		localization_key = job_primitive_administrator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hive_sustenance_drone }
+		localization_key = job_hive_sustenance_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hive_sustenance_drone }
+		localization_key = job_hive_sustenance_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hive_sustenance_drone_lithoid }
+		localization_key = job_hive_sustenance_drone_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hive_sustenance_drone_lithoid }
+		localization_key = job_hive_sustenance_drone_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hive_basic_agri_drone }
+		localization_key = job_hive_basic_agri_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hive_basic_agri_drone }
+		localization_key = job_hive_basic_agri_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = hive_basic_agri_drone_lithoid }
+		localization_key = job_hive_basic_agri_drone_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = hive_basic_agri_drone_lithoid }
+		localization_key = job_hive_basic_agri_drone_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_warrior }
+		localization_key = job_primitive_hive_warrior_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_warrior }
+		localization_key = job_primitive_hive_warrior_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_synapse_drone }
+		localization_key = job_primitive_hive_synapse_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_synapse_drone }
+		localization_key = job_primitive_hive_synapse_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_cerebellum_drone }
+		localization_key = job_primitive_hive_cerebellum_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_cerebellum_drone }
+		localization_key = job_primitive_hive_cerebellum_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_factory_drone }
+		localization_key = job_primitive_hive_factory_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_factory_drone }
+		localization_key = job_primitive_hive_factory_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_miner }
+		localization_key = job_primitive_hive_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_miner }
+		localization_key = job_primitive_hive_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_technician }
+		localization_key = job_primitive_hive_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_technician }
+		localization_key = job_primitive_hive_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_farmer }
+		localization_key = job_primitive_hive_farmer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_farmer }
+		localization_key = job_primitive_hive_farmer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_brain_drone }
+		localization_key = job_primitive_hive_brain_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_brain_drone }
+		localization_key = job_primitive_hive_brain_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_spawning_drone }
+		localization_key = job_primitive_hive_spawning_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_spawning_drone }
+		localization_key = job_primitive_hive_spawning_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_warrior_2 }
+		localization_key = job_primitive_hive_warrior_2_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_warrior_2 }
+		localization_key = job_primitive_hive_warrior_2_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = primitive_hive_synapse_drone_2 }
+		localization_key = job_primitive_hive_synapse_drone_2_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = primitive_hive_synapse_drone_2 }
+		localization_key = job_primitive_hive_synapse_drone_2_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = event_purge }
+		localization_key = job_event_purge_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = event_purge }
+		localization_key = job_event_purge_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ratling_scavenger }
+		localization_key = job_ratling_scavenger_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ratling_scavenger }
+		localization_key = job_ratling_scavenger_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = odd_factory_worker }
+		localization_key = job_odd_factory_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = odd_factory_worker }
+		localization_key = job_odd_factory_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = odd_factory_drone }
+		localization_key = job_odd_factory_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = odd_factory_drone }
+		localization_key = job_odd_factory_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = underground_trade_worker }
+		localization_key = job_underground_trade_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = underground_trade_worker }
+		localization_key = job_underground_trade_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = underground_contact_drone }
+		localization_key = job_underground_contact_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = underground_contact_drone }
+		localization_key = job_underground_contact_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = dimensional_portal_researcher }
+		localization_key = job_dimensional_portal_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = dimensional_portal_researcher }
+		localization_key = job_dimensional_portal_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = dimensional_portal_researcher_gestalt }
+		localization_key = job_dimensional_portal_researcher_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = dimensional_portal_researcher_gestalt }
+		localization_key = job_dimensional_portal_researcher_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = space_time_anomaly_researcher }
+		localization_key = job_space_time_anomaly_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = space_time_anomaly_researcher }
+		localization_key = job_space_time_anomaly_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = space_time_anomaly_researcher_gestalt }
+		localization_key = job_space_time_anomaly_researcher_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = space_time_anomaly_researcher_gestalt }
+		localization_key = job_space_time_anomaly_researcher_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gas_plant_engineer }
+		localization_key = job_gas_plant_engineer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gas_plant_engineer }
+		localization_key = job_gas_plant_engineer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = gas_plant_engineer_gestalt }
+		localization_key = job_gas_plant_engineer_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = gas_plant_engineer_gestalt }
+		localization_key = job_gas_plant_engineer_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cave_cleaner }
+		localization_key = job_cave_cleaner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cave_cleaner }
+		localization_key = job_cave_cleaner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cave_cleaner_gestalt }
+		localization_key = job_cave_cleaner_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cave_cleaner_gestalt }
+		localization_key = job_cave_cleaner_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = titan_hunter }
+		localization_key = job_titan_hunter_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = titan_hunter }
+		localization_key = job_titan_hunter_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = robot_caretaker }
+		localization_key = job_robot_caretaker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = robot_caretaker }
+		localization_key = job_robot_caretaker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = turtle_miner }
+		localization_key = job_turtle_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = turtle_miner }
+		localization_key = job_turtle_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = turtle_miner_gestalt }
+		localization_key = job_turtle_miner_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = turtle_miner_gestalt }
+		localization_key = job_turtle_miner_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = machine_nurse }
+		localization_key = job_machine_nurse_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = machine_nurse }
+		localization_key = job_machine_nurse_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = manufactorium_specialist }
+		localization_key = job_manufactorium_specialist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = manufactorium_specialist }
+		localization_key = job_manufactorium_specialist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = manufactorium_complex_drone }
+		localization_key = job_manufactorium_complex_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = manufactorium_complex_drone }
+		localization_key = job_manufactorium_complex_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = manufactorium_scraper }
+		localization_key = job_manufactorium_scraper_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = manufactorium_scraper }
+		localization_key = job_manufactorium_scraper_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = manufactorium_scraper_drone }
+		localization_key = job_manufactorium_scraper_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = manufactorium_scraper_drone }
+		localization_key = job_manufactorium_scraper_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = archivist }
+		localization_key = job_archivist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = archivist }
+		localization_key = job_archivist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = puddle_technician }
+		localization_key = job_puddle_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = puddle_technician }
+		localization_key = job_puddle_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = puddle_technician_drone }
+		localization_key = job_puddle_technician_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = puddle_technician_drone }
+		localization_key = job_puddle_technician_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = stasis_warden }
+		localization_key = job_stasis_warden_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = stasis_warden }
+		localization_key = job_stasis_warden_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = stasis_warden_drone }
+		localization_key = job_stasis_warden_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = stasis_warden_drone }
+		localization_key = job_stasis_warden_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astrogarbage_collector }
+		localization_key = job_astrogarbage_collector_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astrogarbage_collector }
+		localization_key = job_astrogarbage_collector_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astrogarbage_collector_gestalt }
+		localization_key = job_astrogarbage_collector_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astrogarbage_collector_gestalt }
+		localization_key = job_astrogarbage_collector_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = myrmeku_power_farmer }
+		localization_key = job_myrmeku_power_farmer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = myrmeku_power_farmer }
+		localization_key = job_myrmeku_power_farmer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = myrmeku_power_farmer_gestalt }
+		localization_key = job_myrmeku_power_farmer_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = myrmeku_power_farmer_gestalt }
+		localization_key = job_myrmeku_power_farmer_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = stratovent_researcher }
+		localization_key = job_stratovent_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = stratovent_researcher }
+		localization_key = job_stratovent_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = stratovent_refiner }
+		localization_key = job_stratovent_refiner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = stratovent_refiner }
+		localization_key = job_stratovent_refiner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = stratovent_refiner_upg }
+		localization_key = job_stratovent_refiner_upg_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = stratovent_refiner_upg }
+		localization_key = job_stratovent_refiner_upg_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = stratovent_refiner_minerals }
+		localization_key = job_stratovent_refiner_minerals_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = stratovent_refiner_minerals }
+		localization_key = job_stratovent_refiner_minerals_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mineral_diver }
+		localization_key = job_mineral_diver_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mineral_diver }
+		localization_key = job_mineral_diver_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mineral_diver_drone }
+		localization_key = job_mineral_diver_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mineral_diver_drone }
+		localization_key = job_mineral_diver_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = alien_hunter }
+		localization_key = job_alien_hunter_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = alien_hunter }
+		localization_key = job_alien_hunter_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_overseer }
+		localization_key = job_fe_overseer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_overseer }
+		localization_key = job_fe_overseer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_sky_cardinal }
+		localization_key = job_fe_sky_cardinal_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_sky_cardinal }
+		localization_key = job_fe_sky_cardinal_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_guardian_bot }
+		localization_key = job_fe_guardian_bot_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_guardian_bot }
+		localization_key = job_fe_guardian_bot_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_protector }
+		localization_key = job_fe_protector_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_protector }
+		localization_key = job_fe_protector_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_archivist }
+		localization_key = job_fe_archivist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_archivist }
+		localization_key = job_fe_archivist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_acolyte_farm }
+		localization_key = job_fe_acolyte_farm_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_acolyte_farm }
+		localization_key = job_fe_acolyte_farm_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_acolyte_mine }
+		localization_key = job_fe_acolyte_mine_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_acolyte_mine }
+		localization_key = job_fe_acolyte_mine_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_acolyte_generator }
+		localization_key = job_fe_acolyte_generator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_acolyte_generator }
+		localization_key = job_fe_acolyte_generator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_augur }
+		localization_key = job_fe_augur_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_augur }
+		localization_key = job_fe_augur_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_xeno_keeper }
+		localization_key = job_fe_xeno_keeper_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_xeno_keeper }
+		localization_key = job_fe_xeno_keeper_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_xeno_ward }
+		localization_key = job_fe_xeno_ward_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_xeno_ward }
+		localization_key = job_fe_xeno_ward_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_hedonist }
+		localization_key = job_fe_hedonist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_hedonist }
+		localization_key = job_fe_hedonist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_acolyte_artisan }
+		localization_key = job_fe_acolyte_artisan_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_acolyte_artisan }
+		localization_key = job_fe_acolyte_artisan_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = fe_maintenance_bot }
+		localization_key = job_fe_maintenance_bot_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = fe_maintenance_bot }
+		localization_key = job_fe_maintenance_bot_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_propagandist }
+		localization_key = job_overlord_propagandist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_propagandist }
+		localization_key = job_overlord_propagandist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_propagandist_drone }
+		localization_key = job_overlord_propagandist_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_propagandist_drone }
+		localization_key = job_overlord_propagandist_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_academic }
+		localization_key = job_overlord_academic_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_academic }
+		localization_key = job_overlord_academic_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_academic_drone }
+		localization_key = job_overlord_academic_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_academic_drone }
+		localization_key = job_overlord_academic_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_trader }
+		localization_key = job_overlord_trader_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_trader }
+		localization_key = job_overlord_trader_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_trader_drone }
+		localization_key = job_overlord_trader_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_trader_drone }
+		localization_key = job_overlord_trader_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = aid_worker }
+		localization_key = job_aid_worker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = aid_worker }
+		localization_key = job_aid_worker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = aid_worker_drone }
+		localization_key = job_aid_worker_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = aid_worker_drone }
+		localization_key = job_aid_worker_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_breeder }
+		localization_key = job_overlord_breeder_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_breeder }
+		localization_key = job_overlord_breeder_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_breeder_drone }
+		localization_key = job_overlord_breeder_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_breeder_drone }
+		localization_key = job_overlord_breeder_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mind_thrall }
+		localization_key = job_mind_thrall_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mind_thrall }
+		localization_key = job_mind_thrall_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = mind_thrall_drone }
+		localization_key = job_mind_thrall_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = mind_thrall_drone }
+		localization_key = job_mind_thrall_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_offspring_drone_feeder }
+		localization_key = job_overlord_offspring_drone_feeder_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_offspring_drone_feeder }
+		localization_key = job_overlord_offspring_drone_feeder_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_offspring_drone_feeder_drone }
+		localization_key = job_overlord_offspring_drone_feeder_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_offspring_drone_feeder_drone }
+		localization_key = job_overlord_offspring_drone_feeder_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_metallurgist }
+		localization_key = job_overlord_metallurgist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_metallurgist }
+		localization_key = job_overlord_metallurgist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_foundry_drone }
+		localization_key = job_overlord_foundry_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_foundry_drone }
+		localization_key = job_overlord_foundry_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_fabricator }
+		localization_key = job_overlord_fabricator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_fabricator }
+		localization_key = job_overlord_fabricator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_catalytic_technician }
+		localization_key = job_overlord_catalytic_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_catalytic_technician }
+		localization_key = job_overlord_catalytic_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_catalytic_drone }
+		localization_key = job_overlord_catalytic_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_catalytic_drone }
+		localization_key = job_overlord_catalytic_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_beholder }
+		localization_key = job_overlord_beholder_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_beholder }
+		localization_key = job_overlord_beholder_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_beholder_drone }
+		localization_key = job_overlord_beholder_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_beholder_drone }
+		localization_key = job_overlord_beholder_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_necromancer }
+		localization_key = job_overlord_necromancer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_necromancer }
+		localization_key = job_overlord_necromancer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_necromancer_drone }
+		localization_key = job_overlord_necromancer_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_necromancer_drone }
+		localization_key = job_overlord_necromancer_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_reassigner }
+		localization_key = job_overlord_reassigner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_reassigner }
+		localization_key = job_overlord_reassigner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_reassigner_drone }
+		localization_key = job_overlord_reassigner_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_reassigner_drone }
+		localization_key = job_overlord_reassigner_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_recruiter }
+		localization_key = job_overlord_recruiter_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_recruiter }
+		localization_key = job_overlord_recruiter_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_recruiter_drone }
+		localization_key = job_overlord_recruiter_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_recruiter_drone }
+		localization_key = job_overlord_recruiter_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_ranger }
+		localization_key = job_overlord_ranger_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_ranger }
+		localization_key = job_overlord_ranger_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_ranger_drone }
+		localization_key = job_overlord_ranger_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_ranger_drone }
+		localization_key = job_overlord_ranger_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_arborist }
+		localization_key = job_overlord_arborist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_arborist }
+		localization_key = job_overlord_arborist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_arborist_drone }
+		localization_key = job_overlord_arborist_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_arborist_drone }
+		localization_key = job_overlord_arborist_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_bio_trophy }
+		localization_key = job_overlord_bio_trophy_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_bio_trophy }
+		localization_key = job_overlord_bio_trophy_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_bio_trophy_drone }
+		localization_key = job_overlord_bio_trophy_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_bio_trophy_drone }
+		localization_key = job_overlord_bio_trophy_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_manager }
+		localization_key = job_overlord_manager_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_manager }
+		localization_key = job_overlord_manager_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_mortal_initiate }
+		localization_key = job_overlord_mortal_initiate_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_mortal_initiate }
+		localization_key = job_overlord_mortal_initiate_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_mortal_initiate_drone }
+		localization_key = job_overlord_mortal_initiate_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_mortal_initiate_drone }
+		localization_key = job_overlord_mortal_initiate_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_knight }
+		localization_key = job_overlord_knight_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_knight }
+		localization_key = job_overlord_knight_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_knight_drone }
+		localization_key = job_overlord_knight_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_knight_drone }
+		localization_key = job_overlord_knight_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_healthcare }
+		localization_key = job_overlord_healthcare_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_healthcare }
+		localization_key = job_overlord_healthcare_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_replicator }
+		localization_key = job_overlord_replicator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_replicator }
+		localization_key = job_overlord_replicator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_spawning_drone }
+		localization_key = job_overlord_spawning_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_spawning_drone }
+		localization_key = job_overlord_spawning_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = overlord_spawning_drone_lithoid }
+		localization_key = job_overlord_spawning_drone_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = overlord_spawning_drone_lithoid }
+		localization_key = job_overlord_spawning_drone_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_laborer }
+		localization_key = job_low_tech_laborer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_laborer }
+		localization_key = job_low_tech_laborer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_miner }
+		localization_key = job_low_tech_miner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_miner }
+		localization_key = job_low_tech_miner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_technician }
+		localization_key = job_low_tech_technician_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_technician }
+		localization_key = job_low_tech_technician_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_farmer }
+		localization_key = job_low_tech_farmer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_farmer }
+		localization_key = job_low_tech_farmer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_researcher }
+		localization_key = job_low_tech_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_researcher }
+		localization_key = job_low_tech_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_priest }
+		localization_key = job_low_tech_priest_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_priest }
+		localization_key = job_low_tech_priest_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_bureaucrat }
+		localization_key = job_low_tech_bureaucrat_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_bureaucrat }
+		localization_key = job_low_tech_bureaucrat_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_manager }
+		localization_key = job_low_tech_manager_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_manager }
+		localization_key = job_low_tech_manager_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = low_tech_warrior }
+		localization_key = job_low_tech_warrior_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = low_tech_warrior }
+		localization_key = job_low_tech_warrior_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = broken_shackles_scavenger }
+		localization_key = job_broken_shackles_scavenger_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = broken_shackles_scavenger }
+		localization_key = job_broken_shackles_scavenger_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = captain }
+		localization_key = job_captain_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = captain }
+		localization_key = job_captain_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = chief_navigator }
+		localization_key = job_chief_navigator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = chief_navigator }
+		localization_key = job_chief_navigator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = principal_pilot }
+		localization_key = job_principal_pilot_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = principal_pilot }
+		localization_key = job_principal_pilot_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ship_weapons_officer }
+		localization_key = job_ship_weapons_officer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ship_weapons_officer }
+		localization_key = job_ship_weapons_officer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ship_logistics_officer }
+		localization_key = job_ship_logistics_officer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ship_logistics_officer }
+		localization_key = job_ship_logistics_officer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = special_operations_commander }
+		localization_key = job_special_operations_commander_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = special_operations_commander }
+		localization_key = job_special_operations_commander_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = commanding_officer }
+		localization_key = job_commanding_officer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = commanding_officer }
+		localization_key = job_commanding_officer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = chief_supply_officer }
+		localization_key = job_chief_supply_officer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = chief_supply_officer }
+		localization_key = job_chief_supply_officer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = intelligence_officer }
+		localization_key = job_intelligence_officer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = intelligence_officer }
+		localization_key = job_intelligence_officer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = chief_security_officer }
+		localization_key = job_chief_security_officer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = chief_security_officer }
+		localization_key = job_chief_security_officer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = government_employee }
+		localization_key = job_government_employee_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = government_employee }
+		localization_key = job_government_employee_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = researcher }
+		localization_key = job_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = researcher }
+		localization_key = job_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = none }
+		localization_key = job_none_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = none }
+		localization_key = job_none_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = munitions_decommissioner }
+		localization_key = job_munitions_decommissioner_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = munitions_decommissioner }
+		localization_key = job_munitions_decommissioner_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = munitions_decommissioning_unit }
+		localization_key = job_munitions_decommissioning_unit_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = munitions_decommissioning_unit }
+		localization_key = job_munitions_decommissioning_unit_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = munitions_decommissioning_unit_lithoid }
+		localization_key = job_munitions_decommissioning_unit_lithoid_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = munitions_decommissioning_unit_lithoid }
+		localization_key = job_munitions_decommissioning_unit_lithoid_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = munitions_decommissioning_drone }
+		localization_key = job_munitions_decommissioning_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = munitions_decommissioning_drone }
+		localization_key = job_munitions_decommissioning_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astral_researcher }
+		localization_key = job_astral_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astral_researcher }
+		localization_key = job_astral_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astral_drone }
+		localization_key = job_astral_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astral_drone }
+		localization_key = job_astral_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astral_unit }
+		localization_key = job_astral_unit_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astral_unit }
+		localization_key = job_astral_unit_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astrometeorologist }
+		localization_key = job_astrometeorologist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astrometeorologist }
+		localization_key = job_astrometeorologist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astrometeorologist_hive }
+		localization_key = job_astrometeorologist_hive_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astrometeorologist_hive }
+		localization_key = job_astrometeorologist_hive_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = astrometeorologist_machine }
+		localization_key = job_astrometeorologist_machine_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = astrometeorologist_machine }
+		localization_key = job_astrometeorologist_machine_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = haruspex }
+		localization_key = job_haruspex_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = haruspex }
+		localization_key = job_haruspex_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = technophant }
+		localization_key = job_technophant_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = technophant }
+		localization_key = job_technophant_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = neural_chip }
+		localization_key = job_neural_chip_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = neural_chip }
+		localization_key = job_neural_chip_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = augmentor }
+		localization_key = job_augmentor_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = augmentor }
+		localization_key = job_augmentor_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = augmentor_drone }
+		localization_key = job_augmentor_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = augmentor_drone }
+		localization_key = job_augmentor_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = identity_designer }
+		localization_key = job_identity_designer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = identity_designer }
+		localization_key = job_identity_designer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cyberdome_duelist }
+		localization_key = job_cyberdome_duelist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cyberdome_duelist }
+		localization_key = job_cyberdome_duelist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cyberdome_spectator }
+		localization_key = job_cyberdome_spectator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cyberdome_spectator }
+		localization_key = job_cyberdome_spectator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = clip_maximizer }
+		localization_key = job_clip_maximizer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = clip_maximizer }
+		localization_key = job_clip_maximizer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = nanotech_research_unit }
+		localization_key = job_nanotech_research_unit_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = nanotech_research_unit }
+		localization_key = job_nanotech_research_unit_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = nanotech_researcher }
+		localization_key = job_nanotech_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = nanotech_researcher }
+		localization_key = job_nanotech_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = treasure_gatherer }
+		localization_key = job_treasure_gatherer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = treasure_gatherer }
+		localization_key = job_treasure_gatherer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = wrangler }
+		localization_key = job_wrangler_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = wrangler }
+		localization_key = job_wrangler_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = drone_wrangler }
+		localization_key = job_drone_wrangler_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = drone_wrangler }
+		localization_key = job_drone_wrangler_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = treasure_gatherer_gestalt }
+		localization_key = job_treasure_gatherer_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = treasure_gatherer_gestalt }
+		localization_key = job_treasure_gatherer_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = disconnected_drone }
+		localization_key = job_disconnected_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = disconnected_drone }
+		localization_key = job_disconnected_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = skywatcher }
+		localization_key = job_skywatcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = skywatcher }
+		localization_key = job_skywatcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = skywatcher_drone }
+		localization_key = job_skywatcher_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = skywatcher_drone }
+		localization_key = job_skywatcher_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = genomic_researcher }
+		localization_key = job_genomic_researcher_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = genomic_researcher }
+		localization_key = job_genomic_researcher_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = genomic_drone }
+		localization_key = job_genomic_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = genomic_drone }
+		localization_key = job_genomic_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = transference_volunteer }
+		localization_key = job_transference_volunteer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = transference_volunteer }
+		localization_key = job_transference_volunteer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = transference_drone }
+		localization_key = job_transference_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = transference_drone }
+		localization_key = job_transference_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = sand_whisperer }
+		localization_key = job_sand_whisperer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = sand_whisperer }
+		localization_key = job_sand_whisperer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = sand_caretaker }
+		localization_key = job_sand_caretaker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = sand_caretaker }
+		localization_key = job_sand_caretaker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = drone_sand_whisperer }
+		localization_key = job_drone_sand_whisperer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = drone_sand_whisperer }
+		localization_key = job_drone_sand_whisperer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = drone_sand_caretaker }
+		localization_key = job_drone_sand_caretaker_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = drone_sand_caretaker }
+		localization_key = job_drone_sand_caretaker_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = space_junk_collector }
+		localization_key = job_space_junk_collector_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = space_junk_collector }
+		localization_key = job_space_junk_collector_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = drone_space_junk_collector }
+		localization_key = job_drone_space_junk_collector_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = drone_space_junk_collector }
+		localization_key = job_drone_space_junk_collector_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = telepath_drone }
+		localization_key = job_telepath_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = telepath_drone }
+		localization_key = job_telepath_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = physician_drone }
+		localization_key = job_physician_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = physician_drone }
+		localization_key = job_physician_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = observator_drone }
+		localization_key = job_observator_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = observator_drone }
+		localization_key = job_observator_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = energy_thrall }
+		localization_key = job_energy_thrall_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = energy_thrall }
+		localization_key = job_energy_thrall_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = drone_energy_thrall }
+		localization_key = job_drone_energy_thrall_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = drone_energy_thrall }
+		localization_key = job_drone_energy_thrall_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = test_subject }
+		localization_key = job_test_subject_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = test_subject }
+		localization_key = job_test_subject_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = test_subject_drone }
+		localization_key = job_test_subject_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = test_subject_drone }
+		localization_key = job_test_subject_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = experiment_engineer }
+		localization_key = job_experiment_engineer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = experiment_engineer }
+		localization_key = job_experiment_engineer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = experiment_engineer_drone }
+		localization_key = job_experiment_engineer_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = experiment_engineer_drone }
+		localization_key = job_experiment_engineer_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = slave_orderly }
+		localization_key = job_slave_orderly_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = slave_orderly }
+		localization_key = job_slave_orderly_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = production_overseer }
+		localization_key = job_production_overseer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = production_overseer }
+		localization_key = job_production_overseer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = spe_colonist }
+		localization_key = job_spe_colonist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = spe_colonist }
+		localization_key = job_spe_colonist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = extradimensional_research_unit }
+		localization_key = job_extradimensional_research_unit_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = extradimensional_research_unit }
+		localization_key = job_extradimensional_research_unit_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = shroud_trader }
+		localization_key = job_shroud_trader_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = shroud_trader }
+		localization_key = job_shroud_trader_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cruise_passenger }
+		localization_key = job_cruise_passenger_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cruise_passenger }
+		localization_key = job_cruise_passenger_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cruise_passenger_unemployment }
+		localization_key = job_cruise_passenger_unemployment_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cruise_passenger_unemployment }
+		localization_key = job_cruise_passenger_unemployment_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cruise_crew_overseer }
+		localization_key = job_cruise_crew_overseer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cruise_crew_overseer }
+		localization_key = job_cruise_crew_overseer_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = cruise_crew_overseer_drone }
+		localization_key = job_cruise_crew_overseer_drone_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = cruise_crew_overseer_drone }
+		localization_key = job_cruise_crew_overseer_drone_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ark_waystation_trader }
+		localization_key = job_ark_waystation_trader_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ark_waystation_trader }
+		localization_key = job_ark_waystation_trader_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ark_harvester }
+		localization_key = job_ark_harvester_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ark_harvester }
+		localization_key = job_ark_harvester_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ark_waystation_trader_gestalt }
+		localization_key = job_ark_waystation_trader_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ark_waystation_trader_gestalt }
+		localization_key = job_ark_waystation_trader_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ark_harvester_gestalt }
+		localization_key = job_ark_harvester_gestalt_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ark_harvester_gestalt }
+		localization_key = job_ark_harvester_gestalt_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = ark_deep_sleep }
+		localization_key = job_ark_deep_sleep_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = ark_deep_sleep }
+		localization_key = job_ark_deep_sleep_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = duelist }
+		localization_key = job_duelist_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = duelist }
+		localization_key = job_duelist_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = historical_curator }
+		localization_key = job_historical_curator_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = historical_curator }
+		localization_key = job_historical_curator_female_rinfix
+	}
+	text = {
+		trigger = { loc_leader_masc = yes has_background_job = storm_dancer }
+		localization_key = job_storm_dancer_male_rinfix
+	}
+	text = {
+		trigger = { loc_leader_fem = yes has_background_job = storm_dancer }
+		localization_key = job_storm_dancer_female_rinfix
+	}
+	default = job_clown_rinfix
+}
