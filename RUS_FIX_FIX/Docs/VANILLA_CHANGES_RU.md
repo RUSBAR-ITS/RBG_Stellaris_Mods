@@ -11,6 +11,17 @@
 
 ## Участки совместимости
 
+С версии `4.5.15` мод замещает четыре файла в `prescripted_countries/`. При обновлении игры сверять **все определения** в каждом файле, включая соседние державы.
+
+| Файл ванили | Авторская правка |
+| --- | --- |
+| `00_top_countries.txt` | `plantoid_humans.adjective` |
+| `88_astral_planes_prescripted_countries.txt` | `certeran_covenant.ruler.ruler_title_female` |
+| `89_first_contact_prescripted_countries.txt` | `resistance.ruler.ruler_title_female` |
+| `90_toxoids_prescripted_countries.txt` | `knights.ruler.ruler_title_female` |
+
+Вспомогательный `bureaucrat_rinfix` сверять с самостоятельной ванильной должностью `culture_worker` в `common/pop_jobs/02_specialist_jobs.txt`. Ветку дикого сознания в `GetResearcherPlural_rinfix` сверять с условием `is_wilderness_empire` и падежными формами `evosymbiont_plural_rinfix_cases`. [Проверенные поля, ветки и локализация](../../TMP/RUS_FIX_FIX/empires_jobs_4.5.15.json).
+
 В `4.5.13` изменены пять русских файлов локализации: `scripted_loc_l_russian.yml`, `apocalypse_l_russian.yml`, `wilderness_l_russian.yml`, `strange_worlds_l_russian.yml` и `nemesis_content_l_russian.yml`. Сверены `GetPlanetMoon_RULOC`, `GetSabotagedStarbaseTitle`, определения договоров в `common/agreement_presets/`, постройка `ring_feeder` и выбор флага в `espionage_event_effects.txt`. Для биографий сопоставлены ветки `GetJob_gender_lower_FR` и авторской `background_job_rinfix`. [Доказательства по ключам](../../TMP/RUS_FIX_FIX/older_forms_review.json).
 
 В `4.5.12` добавления затронули 33 файла в `localisation/russian/`. Правки прежних строк дополнительно затронули `toxoids_l_russian.yml`, всего 34 файла. Сопоставлены имена категорий в `common/pop_categories/00_social_classes.txt` и `02_other_categories.txt`, условие `is_warmongers_empire`, функции выбора текста предтеч, лидеров и восстаний. Условия поиска системы предтеч сверены с `has_accessible_precursor_system` и вызовами из `common/artifact_actions/artifact_actions.txt`. Для ремонта проверены `ship_orbit_repair`, `station_self_repair` в `common/static_modifiers/02_static_modifiers.txt` и параметры времени и скорости в `common/defines/00_defines.txt`. Служебные форматы имён сверены с ванильной локализацией. [Все пути и ключи](../../TMP/RUS_FIX_FIX/remaining_46_review.json) · [Итоговые строки и проверенные источники](../../TMP/RUS_FIX_FIX/remaining_46_result.json).

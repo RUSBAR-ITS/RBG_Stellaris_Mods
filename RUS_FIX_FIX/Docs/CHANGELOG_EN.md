@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [4.5.15 — empire presets and job names](#4515--empire-presets-and-job-names)
 - [4.5.14 — Stellaris 4.6 compatibility](#4514--stellaris-46-compatibility)
 - [4.5.13 — inflections and labels](#4513--inflections-and-labels)
 - [Name list review for Stellaris 4.6.0](#name-list-review-for-stellaris-460)
@@ -15,9 +16,21 @@
 - [4.5.5 — opinion modifier names](#455--opinion-modifier-names)
 - [2026-11-25 — Stellaris 4.6.0 audit](#2026-11-25--stellaris-460-audit)
 
+## 4.5.15 — empire presets and job names
+
+Compared the 25 November runs at 19:54 and 20:03. Both logs were free of the previous empire preset and bureaucrat trigger errors. Providing ten probe keys removed exactly the ten corresponding entries from `setup.log`. Removed the temporary localisation file after verification. [Control log counts](../../TMP/RUS_FIX_FIX/ship_modifier_probe/control_run_20261125_195447.json) · [Key-level differences](../../TMP/RUS_FIX_FIX/ship_modifier_probe/result_run_20261125_200348.json).
+
+Reviewed 1,600 ship modifier entries from `setup.log`. All 134 English labels identified have Russian text. Checked an isolated ten-key probe in the working directory. The user closed the previous ship name issue. [Game registry and localisation comparison](../../TMP/RUS_FIX_FIX/ship_modifier_audit_46.json).
+
+Restored the complete Stellaris 4.6.0 definitions for four empires. The upstream female ruler titles are preserved for `knights`, `resistance` and `certeran_covenant`. The `plantoid_humans` adjective uses the upstream stem «Зеленеющ». Parser checks confirmed all 13 empires in the four files resolve once and that the four fields are the only differences from vanilla.
+
+Removed the obsolete bureaucrat branch that called `bureaucrat_is_culture_worker`. Checked the 22 remaining variants and both job names in leader background definitions. Corrected the Wilderness researcher reference to the Russian inflections of «эвосимбионты». Updated the mod and launcher registration to `4.5.15`. In-game validation is pending. [Verification results](../../TMP/RUS_FIX_FIX/empires_jobs_4.5.15.json).
+
 ## 4.5.14 — Stellaris 4.6 compatibility
 
 The project and launcher descriptors now declare support for Stellaris `v4.6.*`.
+
+Drafted a specification from the 4.6.0 logs covering four hidden empires, job names, adjectives, ship name inflection and 1,600 vanilla modifier labels. [Proposed fixes and acceptance criteria](TZ_RUNTIME_46_EN.md).
 
 ## 4.5.13 — inflections and labels
 

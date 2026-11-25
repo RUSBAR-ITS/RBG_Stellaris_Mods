@@ -3,5 +3,5 @@ tags={
 	"Translation"
 }
 picture="thumbnail.png"
-version="4.5.14"
+version="4.5.15"
 supported_version="v4.6.*"

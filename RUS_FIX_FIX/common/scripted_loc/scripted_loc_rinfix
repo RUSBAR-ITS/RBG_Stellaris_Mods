@@ -726,7 +726,7 @@ defined_text = {
 		trigger = {
 			owner? = { is_wilderness_empire = yes }
 		}
-		localization_key = _evosymbiont_plural_rinfix_cases
+		localization_key = evosymbiont_plural_rinfix_cases
 	}
 	text = {
 		trigger = {

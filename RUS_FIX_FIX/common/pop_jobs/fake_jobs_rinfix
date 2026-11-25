@@ -418,14 +418,6 @@ bureaucrat_rinfix = {
 		}
 		swap_type = {
 			trigger = {
-				bureaucrat_is_culture_worker = yes
-			}
-			name = culture_worker_rinfix
-			icon = colonist
-			weight = 30
-		}
-		swap_type = {
-			trigger = {
 				bureaucrat_is_death_priest = yes
 			}
 			name = death_priest_rinfix

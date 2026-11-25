@@ -48,6 +48,8 @@ Both references are absent from the upstream mod. The author already defines bot
 
 ## Changes
 
+The 4.6.0 startup logs informed a separate proposal with field-level changes for empires and jobs and acceptance criteria for localisation tests. [Proposed runtime fixes](TZ_RUNTIME_46_EN.md).
+
 After the first step, 26 more references from the initial 31 candidates were restored. Version `4.5.6` contains all 28 references whose keys were added relative to the Russian snapshot. The three earlier entries for faction names, district limits and official energy income were reviewed and restored in version `4.5.7`. [Full batch and three-entry check](../../TMP/RUS_FIX_FIX/aliases_4.5.7.json). [Keys and verification results](../../TMP/RUS_FIX_FIX/aliases_4.5.6.json).
 
 1. The target load order for the local build is `RUS_FIX_FIX → UI Overhaul Dynamic`. The installed UIOD for Stellaris 4.6 provides all 19 upstream `.gui` windows at the same paths, so porting those layouts is outside the required work. UIOD supplies the ship prefix field in empire creation, while the Russian localisation controls the displayed ship name format. UIOD ships its font definitions under a different path from both `interface/fonts.gfx` and `interface/load_screen_font.gfx`. Its font table declares some of the same names, including `load_screen`. Check Cyrillic rendering during the normal in-game test with this load order.

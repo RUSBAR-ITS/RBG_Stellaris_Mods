@@ -11,6 +11,17 @@ The [complete 285-file inventory](../../TMP/RUS_FIX_FIX/files.json) records path
 
 ## Compatibility areas
 
+Starting with `4.5.15`, the mod overrides four files in `prescripted_countries/`. Review **all definitions** in each file on game updates, including sibling empires.
+
+| Vanilla file | Upstream translation change |
+| --- | --- |
+| `00_top_countries.txt` | `plantoid_humans.adjective` |
+| `88_astral_planes_prescripted_countries.txt` | `certeran_covenant.ruler.ruler_title_female` |
+| `89_first_contact_prescripted_countries.txt` | `resistance.ruler.ruler_title_female` |
+| `90_toxoids_prescripted_countries.txt` | `knights.ruler.ruler_title_female` |
+
+Cross-check the auxiliary `bureaucrat_rinfix` against the separate vanilla `culture_worker` job in `common/pop_jobs/02_specialist_jobs.txt`. Review the Wilderness branch of `GetResearcherPlural_rinfix` against the `is_wilderness_empire` condition and the `evosymbiont_plural_rinfix_cases` forms. [Verified fields, branches and localisation](../../TMP/RUS_FIX_FIX/empires_jobs_4.5.15.json).
+
 Version `4.5.13` changes five Russian localisation files, `scripted_loc_l_russian.yml`, `apocalypse_l_russian.yml`, `wilderness_l_russian.yml`, `strange_worlds_l_russian.yml` and `nemesis_content_l_russian.yml`. The review covered `GetPlanetMoon_RULOC`, `GetSabotagedStarbaseTitle`, the preset definitions in `common/agreement_presets/`, the `ring_feeder` building and the sabotage flag in `espionage_event_effects.txt`. For leader biographies, the branches of `GetJob_gender_lower_FR` were matched to the author’s `background_job_rinfix`. [Evidence by key](../../TMP/RUS_FIX_FIX/older_forms_review.json).
 
 Version `4.5.12` adds entries in 33 files under `localisation/russian/`. Updates to existing entries also touch `toxoids_l_russian.yml`, bringing the total to 34. Checked stratum names in `common/pop_categories/00_social_classes.txt` and `02_other_categories.txt`, the `is_warmongers_empire` condition, and selectors for precursors, leaders and revolts. Checked precursor site requirements against `has_accessible_precursor_system` and its callers in `common/artifact_actions/artifact_actions.txt`. Repair descriptions refer to `ship_orbit_repair` and `station_self_repair` in `common/static_modifiers/02_static_modifiers.txt` and to timing and speed parameters in `common/defines/00_defines.txt`. Compared internal name formats with vanilla localization. [Paths and keys](../../TMP/RUS_FIX_FIX/remaining_46_review.json) · [Effective text and source checks](../../TMP/RUS_FIX_FIX/remaining_46_result.json).
