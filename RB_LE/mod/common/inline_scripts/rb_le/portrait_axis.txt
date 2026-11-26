@@ -1,0 +1,11 @@
+option = {
+	name = rb_le_portrait_$AXIS$
+	trigger = {
+		rb_le_has_preview = yes
+		check_variable = { which = rb_le_$AXIS$_n value > 1 }
+	}
+	hidden_effect = {
+		set_variable = { which = rb_le_axis value = $ID$ }
+		country_event = { id = rb_le.26 }
+	}
+}

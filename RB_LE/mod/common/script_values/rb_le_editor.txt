@@ -1,0 +1,17 @@
+# Leader scope. The threshold is the organic minimum plus the requested decrease.
+rb_le_organic_age_threshold = {
+	base = 16
+	add = $STEP$
+}
+
+rb_le_age_preview = {
+	base = 0
+	add = trigger:leader_age
+	add = $DELTA$
+}
+
+rb_le_remove_level_xp = {
+	base = 0
+	add = trigger:has_experience
+	mult = -1
+}

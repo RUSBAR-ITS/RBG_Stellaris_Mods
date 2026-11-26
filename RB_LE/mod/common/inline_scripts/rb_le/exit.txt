@@ -1,10 +1,23 @@
 option = {
-	name = EXIT
+	name = rb_le_exit
 	default_hide_option = yes
 	hidden_effect = {
+		rb_le_close_portrait = yes
+		rb_le_clear_job_page = yes
+		clear_variable = rb_le_detected
 		remove_country_flag = rb_le_register_open
 		clear_variable = rb_le_page
 		clear_variable = rb_le_pages
 		clear_variable = rb_le_visible
+		clear_variable = rb_le_register_id
+		clear_variable = rb_le_base_level
+		clear_variable = rb_le_effective_level
+		clear_variable = rb_le_current_xp
+		clear_variable = rb_le_next_level_xp
+		clear_variable = rb_le_age_after_1
+		clear_variable = rb_le_age_after_5
+		clear_variable = rb_le_age_after_10
+		clear_variable = rb_le_age_after_50
+		clear_variable = rb_le_age_after_100
 	}
 }

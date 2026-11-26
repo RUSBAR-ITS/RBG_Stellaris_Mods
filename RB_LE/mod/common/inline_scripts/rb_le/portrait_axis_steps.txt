@@ -1,0 +1,34 @@
+desc = {
+	trigger = { rb_le_has_preview = yes check_variable = { which = rb_le_axis value = $ID$ } }
+	text = rb_le_portrait_$AXIS$
+}
+option = {
+	name = rb_le_portrait_next
+	trigger = { rb_le_can_cycle_axis = { ID = $ID$ AXIS = $AXIS$ } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_can_cycle_axis = { ID = $ID$ AXIS = $AXIS$ } }
+			if = {
+				limit = { check_variable = { which = rb_le_$AXIS$ value = rb_le_$AXIS$_n } }
+				set_variable = { which = rb_le_$AXIS$ value = 1 }
+			}
+			else = { change_variable = { which = rb_le_$AXIS$ value = 1 } }
+		}
+		country_event = { id = rb_le.27 }
+	}
+}
+option = {
+	name = rb_le_portrait_prev
+	trigger = { rb_le_can_cycle_axis = { ID = $ID$ AXIS = $AXIS$ } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_can_cycle_axis = { ID = $ID$ AXIS = $AXIS$ } }
+			if = {
+				limit = { check_variable = { which = rb_le_$AXIS$ value = 1 } }
+				set_variable = { which = rb_le_$AXIS$ value = rb_le_$AXIS$_n }
+			}
+			else = { change_variable = { which = rb_le_$AXIS$ value = -1 } }
+		}
+		country_event = { id = rb_le.27 }
+	}
+}

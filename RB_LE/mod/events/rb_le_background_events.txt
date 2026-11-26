@@ -1,0 +1,63 @@
+namespace = rb_le
+
+country_event = {
+	id = rb_le.60
+	inline_script = { script = rb_le/selected_leader_screen TITLE = rb_le_background_menu DESC = rb_le_background_desc }
+	option = {
+		name = rb_le_change_occupation
+		trigger = { rb_le_can_edit_occupation = yes }
+		hidden_effect = {
+			set_variable = { which = rb_le_job_page value = 1 }
+			country_event = { id = rb_le.61 }
+		}
+	}
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.12 }
+}
+
+country_event = {
+	id = rb_le.61
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_change_occupation DESC = rb_le_occupation_list_desc }
+	immediate = {
+		rb_le_collect_job_page = yes
+		# Rebind after a source disappeared between page clicks.
+		if = {
+			limit = {
+				check_variable = { which = rb_le_job_pages value > 0 }
+				check_variable = { which = rb_le_job_page value > rb_le_job_pages }
+			}
+			set_variable = { which = rb_le_job_page value = rb_le_job_pages }
+			rb_le_collect_job_page = yes
+		}
+	}
+	inline_script = { script = rb_le/occupation_option SLOT = 1 }
+	inline_script = { script = rb_le/occupation_option SLOT = 2 }
+	inline_script = { script = rb_le/occupation_option SLOT = 3 }
+	inline_script = { script = rb_le/occupation_option SLOT = 4 }
+	inline_script = { script = rb_le/occupation_option SLOT = 5 }
+	inline_script = { script = rb_le/occupation_option SLOT = 6 }
+	inline_script = { script = rb_le/occupation_option SLOT = 7 }
+	inline_script = { script = rb_le/occupation_option SLOT = 8 }
+	inline_script = { script = rb_le/occupation_option SLOT = 9 }
+	inline_script = { script = rb_le/occupation_option SLOT = 10 }
+	inline_script = { script = rb_le/page_navigation PAGE = rb_le_job_page PAGES = rb_le_job_pages EVENT = rb_le.61 }
+	option = {
+		name = BACK
+		hidden_effect = { rb_le_clear_job_page = yes country_event = { id = rb_le.60 } }
+	}
+	inline_script = rb_le/exit
+}
+
+country_event = {
+	id = rb_le.62
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { rb_le_can_edit_occupation = yes is_variable_set = rb_le_chosen_job }
+			inline_script = rb_le/occupation_dispatch
+		}
+		clear_variable = rb_le_chosen_job
+		rb_le_clear_job_page = yes
+		country_event = { id = rb_le.12 }
+	}
+}

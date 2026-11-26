@@ -1,0 +1,11 @@
+title = $TITLE$
+desc = {
+	trigger = { rb_le_has_selected = yes }
+	text = $DESC$
+}
+desc = {
+	trigger = { rb_le_has_selected = no }
+	text = rb_le_dossier_unavailable
+}
+picture = GFX_evt_galactic_senate
+is_triggered_only = yes

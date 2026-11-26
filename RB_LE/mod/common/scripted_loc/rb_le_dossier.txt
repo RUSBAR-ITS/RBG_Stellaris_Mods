@@ -1,6 +1,20 @@
 # The event text calls personal fields on the selected leader. The returned
 # localization can then read the same leader's properties directly.
 defined_text = {
+	name = rb_le_gender
+	random = no
+	default = indeterminable
+	text = {
+		trigger = { gender = male }
+		localization_key = male
+	}
+	text = {
+		trigger = { gender = female }
+		localization_key = female
+	}
+}
+
+defined_text = {
 	name = rb_le_species_line
 	random = no
 	default = BLANK_STRING

@@ -1,0 +1,11 @@
+option = {
+	name = rb_le_level_$LEVEL$
+	trigger = { rb_le_can_lower_to = { LEVEL = $LEVEL$ } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_can_lower_to = { LEVEL = $LEVEL$ } }
+			event_target:rb_le_selected_leader = { set_skill = $LEVEL$ }
+		}
+		country_event = { id = rb_le.40 }
+	}
+}

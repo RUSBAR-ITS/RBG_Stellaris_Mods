@@ -1,0 +1,12 @@
+option = {
+	name = ACCEPT
+	trigger = { rb_le_has_preview = yes }
+	hidden_effect = { rb_le_accept_portrait = yes }
+}
+option = {
+	name = $DISCARD_LABEL$
+	hidden_effect = {
+		rb_le_close_portrait = yes
+		country_event = { id = rb_le.20 }
+	}
+}

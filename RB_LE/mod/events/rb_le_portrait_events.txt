@@ -1,0 +1,158 @@
+namespace = rb_le
+
+# Shared entry for Personal details, commit validation and post-write readback.
+country_event = {
+	id = rb_le.20
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		rb_le_inspect_portrait = yes
+		if = {
+			limit = { has_country_flag = rb_le_check_written }
+			if = {
+				limit = {
+					rb_le_portrait_session = yes
+					check_variable = { which = rb_le_expected_look value > 0 }
+					check_variable = { which = rb_le_read_look value = rb_le_expected_look }
+				}
+				log = "RB_LE portrait: leader [rb_le_selected_leader.GetName] full portrait key matched, look [Root.rb_le_read_look], body [Root.rb_le_body], texture [Root.rb_le_tex], stage [Root.rb_le_stage], attachment [Root.rb_le_hair], outfit [Root.rb_le_outfit]"
+				rb_le_close_portrait = yes
+				country_event = { id = rb_le.29 }
+			}
+			else = {
+				log = "RB_LE portrait: apply unconfirmed, expected look [Root.rb_le_expected_look], observed [Root.rb_le_read_look]"
+				rb_le_close_portrait = yes
+				country_event = { id = rb_le.28 }
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = rb_le_commit_preview }
+			country_event = { id = rb_le.27 }
+		}
+		else = {
+			if = {
+				limit = { rb_le_has_selected = yes }
+				log = "RB_LE portrait: inspected [rb_le_selected_leader.GetName], gender [rb_le_selected_leader.rb_le_gender], saved RB_LE look [Root.rb_le_read_look], catalogue [Root.rb_le_detected]"
+			}
+			country_event = { id = rb_le.29 }
+		}
+	}
+}
+
+country_event = {
+	id = rb_le.25
+	inline_script = rb_le/portrait_screen
+	desc = {
+		trigger = { rb_le_has_preview = yes }
+		text = rb_le_portrait_instructions
+	}
+	inline_script = { script = rb_le/portrait_axis ID = 1 AXIS = pheno }
+	inline_script = { script = rb_le/portrait_axis ID = 2 AXIS = tex }
+	inline_script = { script = rb_le/portrait_axis ID = 3 AXIS = hair }
+	inline_script = { script = rb_le/portrait_axis ID = 4 AXIS = outfit }
+	inline_script = { script = rb_le/portrait_axis ID = 5 AXIS = stage }
+	inline_script = { script = rb_le/portrait_actions DISCARD_LABEL = BACK }
+	inline_script = rb_le/exit
+}
+
+country_event = {
+	id = rb_le.26
+	inline_script = rb_le/portrait_screen
+	inline_script = { script = rb_le/portrait_axis_steps ID = 1 AXIS = pheno }
+	inline_script = { script = rb_le/portrait_axis_steps ID = 2 AXIS = tex }
+	inline_script = { script = rb_le/portrait_axis_steps ID = 3 AXIS = hair }
+	inline_script = { script = rb_le/portrait_axis_steps ID = 4 AXIS = outfit }
+	inline_script = { script = rb_le/portrait_axis_steps ID = 5 AXIS = stage }
+	inline_script = { script = rb_le/portrait_actions DISCARD_LABEL = CANCEL }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.25 }
+}
+
+# Share one catalogue expansion across opening, all arrows and accepting.
+country_event = {
+	id = rb_le.27
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		remove_country_flag = rb_le_preview_ready
+		set_variable = { which = rb_le_expected_look value = 0 }
+		if = {
+			limit = {
+				rb_le_portrait_session = yes
+				OR = {
+					NOT = { has_country_flag = rb_le_commit_preview }
+					check_variable = { which = rb_le_detected value = rb_le_family }
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = rb_le_commit_preview } }
+				rb_le_render_choices = yes
+				rb_le_bound_portrait_choices = yes
+			}
+			rb_le_render_pose = yes
+			if = {
+				limit = {
+					rb_le_has_preview = yes
+					check_variable = { which = rb_le_axis value = 0 }
+				}
+				log = "RB_LE portrait: opened catalogue for [rb_le_selected_leader.GetName], gender [rb_le_selected_leader.rb_le_gender], family [Root.rb_le_family], first body [Root.rb_le_body], phenotypes [Root.rb_le_pheno_n], attachments [Root.rb_le_hair_n]"
+			}
+			refresh_portraits = character
+		}
+		if = {
+			limit = { has_country_flag = rb_le_commit_preview }
+			set_country_flag = rb_le_check_written
+			country_event = { id = rb_le.20 }
+		}
+		else_if = {
+			limit = { check_variable = { which = rb_le_axis value > 0 } }
+			country_event = { id = rb_le.26 }
+		}
+		else = { country_event = { id = rb_le.25 } }
+	}
+}
+
+country_event = {
+	id = rb_le.28
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_change_portrait DESC = rb_le_portrait_apply_unconfirmed }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.20 }
+}
+
+# Console entry point for a disposable test game. Reuse the two test objects.
+country_event = {
+	id = rb_le.90
+	hide_window = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				is_ai = no
+				exists = owner_main_species
+				owner_main_species = { species_portrait = human }
+			}
+			if = {
+				limit = { NOT = { any_galaxy_species = { has_species_flag = rb_le_portrait_trial@root } } }
+				create_species = {
+					name = rb_le_portrait_sample
+					plural = rb_le_portrait_sample
+					class = HUM
+					portrait = humanoid_02
+					effect = { set_species_flag = rb_le_portrait_trial@root }
+				}
+			}
+			if = {
+				limit = { NOT = { any_owned_leader = { has_leader_flag = rb_le_portrait_trial@root } } }
+				create_leader = {
+					class = scientist
+					species = root.owner_main_species
+					name = rb_le_portrait_scientist
+					gender = female
+					skill = 1
+					effect = {
+						set_leader_flag = rb_le_portrait_trial@root
+						change_leader_portrait = human_female_01
+					}
+				}
+			}
+		}
+	}
+}

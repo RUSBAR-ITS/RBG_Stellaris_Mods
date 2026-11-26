@@ -5,7 +5,7 @@ option = {
 		if = {
 			limit = { rb_le_slot_is_current = { N = $N$ MATCH = rb_le_$GROUP$_member } }
 			event_target:rb_le_slot_$N$ = { save_event_target_as = rb_le_selected_leader }
-			country_event = { id = $DOSSIER$ }
+			country_event = { id = rb_le.12 }
 		}
 		else = { country_event = { id = $LIST$ } }
 	}

@@ -1,0 +1,31 @@
+rb_le_safe_probe = {
+	rb_le_has_selected = yes
+	exists = event_target:rb_le_portrait_probe
+	event_target:rb_le_portrait_probe = {
+		has_species_flag = rb_le_portrait_trial@root
+		NOT = { is_same_value = event_target:rb_le_selected_leader.species }
+	}
+}
+
+rb_le_can_edit_portrait = {
+	rb_le_has_selected = yes
+	check_variable = { which = rb_le_detected value > 0 }
+}
+
+rb_le_portrait_session = {
+	rb_le_safe_probe = yes
+	exists = event_target:rb_le_portrait_subject
+	event_target:rb_le_selected_leader = { is_same_value = event_target:rb_le_portrait_subject }
+	check_variable = { which = rb_le_family value > 0 }
+}
+
+rb_le_has_preview = {
+	rb_le_portrait_session = yes
+	has_country_flag = rb_le_preview_ready
+}
+
+rb_le_can_cycle_axis = {
+	rb_le_has_preview = yes
+	check_variable = { which = rb_le_axis value = $ID$ }
+	check_variable = { which = rb_le_$AXIS$_n value > 1 }
+}

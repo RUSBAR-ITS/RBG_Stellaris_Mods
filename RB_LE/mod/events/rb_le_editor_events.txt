@@ -1,0 +1,213 @@
+namespace = rb_le
+
+country_event = {
+	id = rb_le.12
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_dossier_title DESC = rb_le_dossier_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_dossier = yes
+		}
+	}
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_personal AVAILABLE = rb_le_has_selected EVENT = rb_le.20 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_background_menu AVAILABLE = rb_le_can_edit_occupation EVENT = rb_le.60 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_experience AVAILABLE = rb_le_has_selected EVENT = rb_le.40 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_traits AVAILABLE = rb_le_has_selected EVENT = rb_le.30 }
+	option = {
+		name = BACK
+		hidden_effect = { rb_le_return_to_register = yes }
+	}
+	inline_script = rb_le/exit
+}
+
+country_event = {
+	id = rb_le.29
+	inline_script = { script = rb_le/selected_leader_screen TITLE = rb_le_personal DESC = rb_le_personal_desc }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_change_ethic AVAILABLE = rb_le_can_edit_ethic EVENT = rb_le.21 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_change_age AVAILABLE = rb_le_has_selected EVENT = rb_le.22 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_change_gender AVAILABLE = rb_le_has_selected EVENT = rb_le.50 }
+	option = {
+		name = rb_le_change_portrait
+		trigger = { rb_le_can_edit_portrait = yes }
+		hidden_effect = { rb_le_open_portrait = yes }
+	}
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.12 }
+}
+
+country_event = {
+	id = rb_le.50
+	inline_script = { script = rb_le/selected_leader_screen TITLE = rb_le_change_gender DESC = rb_le_gender_desc }
+	inline_script = { script = rb_le/gender_option GENDER = male }
+	inline_script = { script = rb_le/gender_option GENDER = female }
+	inline_script = { script = rb_le/gender_option GENDER = indeterminable }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.20 }
+}
+
+country_event = {
+	id = rb_le.21
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_change_ethic DESC = rb_le_ethic_desc }
+
+	inline_script = { script = rb_le/ethic_option ETHIC = egalitarian }
+	inline_script = { script = rb_le/ethic_option ETHIC = authoritarian }
+	inline_script = { script = rb_le/ethic_option ETHIC = xenophile }
+	inline_script = { script = rb_le/ethic_option ETHIC = xenophobe }
+	inline_script = { script = rb_le/ethic_option ETHIC = militarist }
+	inline_script = { script = rb_le/ethic_option ETHIC = pacifist }
+	inline_script = { script = rb_le/ethic_option ETHIC = materialist }
+	inline_script = { script = rb_le/ethic_option ETHIC = spiritualist }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.20 }
+}
+
+country_event = {
+	id = rb_le.22
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_change_age DESC = rb_le_age_desc }
+
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_younger AVAILABLE = rb_le_can_rejuvenate_one_year EVENT = rb_le.23 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_older AVAILABLE = rb_le_has_selected EVENT = rb_le.24 }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.20 }
+}
+
+country_event = {
+	id = rb_le.23
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_younger DESC = rb_le_age_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_age_choices = { SIGN = "-" }
+		}
+	}
+	inline_script = { script = rb_le/age_option DIRECTION = younger STEP = 1 DELTA = -1 OLDER = no KEEP_OPEN = rb_le_can_rejuvenate_one_year EVENT = rb_le.23 }
+	inline_script = { script = rb_le/age_option DIRECTION = younger STEP = 5 DELTA = -5 OLDER = no KEEP_OPEN = rb_le_can_rejuvenate_one_year EVENT = rb_le.23 }
+	inline_script = { script = rb_le/age_option DIRECTION = younger STEP = 10 DELTA = -10 OLDER = no KEEP_OPEN = rb_le_can_rejuvenate_one_year EVENT = rb_le.23 }
+	inline_script = { script = rb_le/age_option DIRECTION = younger STEP = 50 DELTA = -50 OLDER = no KEEP_OPEN = rb_le_can_rejuvenate_one_year EVENT = rb_le.23 }
+	inline_script = { script = rb_le/age_option DIRECTION = younger STEP = 100 DELTA = -100 OLDER = no KEEP_OPEN = rb_le_can_rejuvenate_one_year EVENT = rb_le.23 }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.22 }
+}
+
+country_event = {
+	id = rb_le.24
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_older DESC = rb_le_age_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_age_choices = { SIGN = "+" }
+		}
+	}
+	inline_script = { script = rb_le/age_option DIRECTION = older STEP = 1 DELTA = 1 OLDER = yes KEEP_OPEN = rb_le_has_selected EVENT = rb_le.24 }
+	inline_script = { script = rb_le/age_option DIRECTION = older STEP = 5 DELTA = 5 OLDER = yes KEEP_OPEN = rb_le_has_selected EVENT = rb_le.24 }
+	inline_script = { script = rb_le/age_option DIRECTION = older STEP = 10 DELTA = 10 OLDER = yes KEEP_OPEN = rb_le_has_selected EVENT = rb_le.24 }
+	inline_script = { script = rb_le/age_option DIRECTION = older STEP = 50 DELTA = 50 OLDER = yes KEEP_OPEN = rb_le_has_selected EVENT = rb_le.24 }
+	inline_script = { script = rb_le/age_option DIRECTION = older STEP = 100 DELTA = 100 OLDER = yes KEEP_OPEN = rb_le_has_selected EVENT = rb_le.24 }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.22 }
+}
+
+country_event = {
+	id = rb_le.30
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_traits DESC = rb_le_selected_name }
+
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_add_traits AVAILABLE = rb_le_has_selected EVENT = rb_le.31 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_remove_traits AVAILABLE = rb_le_has_selected EVENT = rb_le.32 }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.12 }
+}
+
+country_event = {
+	id = rb_le.31
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_add_traits DESC = rb_le_selected_name }
+
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.30 }
+}
+
+country_event = {
+	id = rb_le.32
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_remove_traits DESC = rb_le_selected_name }
+
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.30 }
+}
+
+country_event = {
+	id = rb_le.40
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_experience DESC = rb_le_experience_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_dossier = yes
+		}
+	}
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_grant_xp AVAILABLE = rb_le_can_grant_xp EVENT = rb_le.41 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_remove_xp AVAILABLE = rb_le_can_remove_xp EVENT = rb_le.42 }
+	inline_script = { script = rb_le/menu_link LABEL = rb_le_lower_level AVAILABLE = rb_le_can_lower_level EVENT = rb_le.43 }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.12 }
+}
+
+country_event = {
+	id = rb_le.41
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_grant_xp DESC = rb_le_experience_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_dossier = yes
+		}
+	}
+	inline_script = { script = rb_le/xp_option STEP = 10 DELTA = 10 MIN_XP = 0 AVAILABLE = rb_le_can_grant_xp }
+	inline_script = { script = rb_le/xp_option STEP = 100 DELTA = 100 MIN_XP = 0 AVAILABLE = rb_le_can_grant_xp }
+	inline_script = { script = rb_le/xp_option STEP = 1000 DELTA = 1000 MIN_XP = 0 AVAILABLE = rb_le_can_grant_xp }
+	inline_script = { script = rb_le/xp_option STEP = 10000 DELTA = 10000 MIN_XP = 0 AVAILABLE = rb_le_can_grant_xp }
+	inline_script = { script = rb_le/xp_option STEP = 100000 DELTA = 100000 MIN_XP = 0 AVAILABLE = rb_le_can_grant_xp }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.40 }
+}
+
+country_event = {
+	id = rb_le.42
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_remove_xp DESC = rb_le_experience_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_dossier = yes
+		}
+	}
+	inline_script = { script = rb_le/xp_option STEP = 10 DELTA = -10 MIN_XP = 10 AVAILABLE = rb_le_can_remove_xp }
+	inline_script = { script = rb_le/xp_option STEP = 100 DELTA = -100 MIN_XP = 100 AVAILABLE = rb_le_can_remove_xp }
+	inline_script = { script = rb_le/xp_option STEP = 1000 DELTA = -1000 MIN_XP = 1000 AVAILABLE = rb_le_can_remove_xp }
+	inline_script = { script = rb_le/xp_option STEP = 10000 DELTA = -10000 MIN_XP = 10000 AVAILABLE = rb_le_can_remove_xp }
+	inline_script = { script = rb_le/xp_option STEP = 100000 DELTA = -100000 MIN_XP = 100000 AVAILABLE = rb_le_can_remove_xp }
+	option = {
+		name = rb_le_remove_all_xp
+		trigger = { rb_le_can_remove_xp = yes }
+		hidden_effect = {
+			if = {
+				limit = { rb_le_can_remove_xp = yes }
+				event_target:rb_le_selected_leader = { add_experience = value:rb_le_remove_level_xp }
+			}
+			country_event = { id = rb_le.40 }
+		}
+	}
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.40 }
+}
+
+country_event = {
+	id = rb_le.43
+	inline_script = { script = rb_le/editor_screen TITLE = rb_le_lower_level DESC = rb_le_experience_desc }
+
+	immediate = {
+		if = {
+			limit = { rb_le_has_selected = yes }
+			rb_le_prepare_dossier = yes
+		}
+	}
+	inline_script = { script = rb_le/level_option LEVEL = 1 }
+	inline_script = { script = rb_le/level_option LEVEL = 2 }
+	inline_script = { script = rb_le/level_option LEVEL = 3 }
+	inline_script = { script = rb_le/level_option LEVEL = 4 }
+	inline_script = { script = rb_le/level_option LEVEL = 5 }
+	inline_script = { script = rb_le/level_option LEVEL = 6 }
+	inline_script = { script = rb_le/level_option LEVEL = 7 }
+	inline_script = { script = rb_le/level_option LEVEL = 8 }
+	inline_script = { script = rb_le/level_option LEVEL = 9 }
+	inline_script = { script = rb_le/menu_navigation BACK = rb_le.40 }
+}

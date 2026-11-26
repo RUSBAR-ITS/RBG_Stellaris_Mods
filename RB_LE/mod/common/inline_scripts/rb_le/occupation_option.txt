@@ -1,0 +1,8 @@
+option = {
+	name = rb_le_job_slot_$SLOT$_label
+	trigger = { check_variable = { which = rb_le_job_slot_$SLOT$ value > 0 } }
+	hidden_effect = {
+		set_variable = { which = rb_le_chosen_job value = rb_le_job_slot_$SLOT$ }
+		country_event = { id = rb_le.62 }
+	}
+}

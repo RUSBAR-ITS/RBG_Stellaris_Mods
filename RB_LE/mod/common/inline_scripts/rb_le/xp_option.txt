@@ -1,0 +1,17 @@
+option = {
+	name = rb_le_xp_$STEP$
+	trigger = {
+		$AVAILABLE$ = yes
+		event_target:rb_le_selected_leader = { has_experience >= $MIN_XP$ }
+	}
+	hidden_effect = {
+		if = {
+			limit = {
+				$AVAILABLE$ = yes
+				event_target:rb_le_selected_leader = { has_experience >= $MIN_XP$ }
+			}
+			event_target:rb_le_selected_leader = { add_experience = $DELTA$ }
+		}
+		country_event = { id = rb_le.40 }
+	}
+}

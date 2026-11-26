@@ -1,0 +1,74 @@
+# Country scope. Validate the selected object again when applying an edit.
+rb_le_has_selected = {
+	exists = event_target:rb_le_selected_leader
+	event_target:rb_le_selected_leader = {
+		is_owned_by = root
+		is_pool_leader = no
+	}
+}
+
+rb_le_can_edit_ethic = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = { is_gestalt = no }
+}
+
+# The unrestricted domestic commander pool has multiple occupations. Even a
+# leader with one of them always has another selectable entry in the catalogue.
+rb_le_can_edit_occupation = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = { NOT = { has_ethic = ethic_gestalt_consciousness } }
+}
+
+rb_le_can_choose_ethic = {
+	rb_le_can_edit_ethic = yes
+	event_target:rb_le_selected_leader = { is_$ETHIC$ = no }
+}
+
+rb_le_can_choose_gender = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = { NOT = { gender = $GENDER$ } }
+}
+
+rb_le_can_rejuvenate = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = {
+		exists = species
+		OR = {
+			AND = {
+				species = { is_robotic = yes }
+				leader_age >= $STEP$
+			}
+			AND = {
+				species = { OR = { is_archetype = BIOLOGICAL is_archetype = LITHOID } }
+				leader_age >= value:rb_le_organic_age_threshold|STEP|$STEP$|
+			}
+		}
+	}
+}
+
+rb_le_can_rejuvenate_one_year = { rb_le_can_rejuvenate = { STEP = 1 } }
+
+rb_le_age_step_available = {
+	rb_le_has_selected = yes
+	OR = {
+		always = $OLDER$
+		rb_le_can_rejuvenate = { STEP = $STEP$ }
+	}
+}
+
+rb_le_can_grant_xp = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = { has_base_skill < 10 }
+}
+
+rb_le_can_remove_xp = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = { has_experience > 0 }
+}
+
+rb_le_can_lower_to = {
+	rb_le_has_selected = yes
+	event_target:rb_le_selected_leader = { has_base_skill > $LEVEL$ }
+}
+
+rb_le_can_lower_level = { rb_le_can_lower_to = { LEVEL = 1 } }

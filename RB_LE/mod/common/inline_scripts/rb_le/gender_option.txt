@@ -1,0 +1,12 @@
+option = {
+	name = $GENDER$
+	trigger = { rb_le_can_choose_gender = { GENDER = $GENDER$ } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_can_choose_gender = { GENDER = $GENDER$ } }
+			event_target:rb_le_selected_leader = { set_gender = $GENDER$ }
+			log = "RB_LE gender: leader [rb_le_selected_leader.GetName], requested $GENDER$, current [rb_le_selected_leader.rb_le_gender]"
+		}
+		country_event = { id = rb_le.50 }
+	}
+}

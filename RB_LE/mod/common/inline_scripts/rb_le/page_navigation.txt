@@ -1,0 +1,24 @@
+option = {
+	name = rb_le_next_page
+	trigger = { check_variable = { which = $PAGES$ value > 1 } }
+	hidden_effect = {
+		if = {
+			limit = { check_variable = { which = $PAGE$ value >= $PAGES$ } }
+			set_variable = { which = $PAGE$ value = 1 }
+		}
+		else = { change_variable = { which = $PAGE$ value = 1 } }
+		country_event = { id = $EVENT$ }
+	}
+}
+option = {
+	name = rb_le_previous_page
+	trigger = { check_variable = { which = $PAGES$ value > 1 } }
+	hidden_effect = {
+		if = {
+			limit = { check_variable = { which = $PAGE$ value <= 1 } }
+			set_variable = { which = $PAGE$ value = $PAGES$ }
+		}
+		else = { change_variable = { which = $PAGE$ value = -1 } }
+		country_event = { id = $EVENT$ }
+	}
+}

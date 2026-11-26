@@ -1,0 +1,16 @@
+# The cursor counts eligible alternatives only. Slot IDs stay bound until the next page opens.
+if = {
+	limit = {
+		event_target:rb_le_selected_leader = { NOT = { has_background_job = $JOB$ } }
+		rb_le_job_$JOB$ = yes
+	}
+	change_variable = { which = rb_le_job_count value = 1 }
+	change_variable = { which = rb_le_job_cursor value = 1 }
+	if = {
+		limit = {
+			check_variable = { which = rb_le_job_cursor value >= 1 }
+			check_variable = { which = rb_le_job_cursor value <= 10 }
+		}
+		rb_le_bind_job_slot = { INDEX = $INDEX$ }
+	}
+}

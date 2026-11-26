@@ -1,0 +1,121 @@
+# The scratch species belongs to one country's editor and has no population.
+# Reading a leader follows clones.1. Never write to the leader's own species.
+rb_le_inspect_portrait = {
+	set_variable = { which = rb_le_detected value = 0 }
+	set_variable = { which = rb_le_read_look value = 0 }
+	if = {
+		limit = { rb_le_has_selected = yes }
+		if = {
+			limit = { NOT = { any_galaxy_species = { has_species_flag = rb_le_portrait_trial@root } } }
+			create_species = {
+				name = rb_le_portrait_sample
+				plural = rb_le_portrait_sample
+				class = HUM
+				portrait = rb_le_empty_portrait
+				effect = { set_species_flag = rb_le_portrait_trial@root }
+			}
+		}
+		random_galaxy_species = {
+			limit = { has_species_flag = rb_le_portrait_trial@root }
+			save_event_target_as = rb_le_portrait_probe
+		}
+		if = {
+			limit = { rb_le_safe_probe = yes }
+			event_target:rb_le_portrait_probe = {
+				rb_le_read_subject_portrait = yes
+			}
+			rb_le_identify_portrait = yes
+		}
+	}
+}
+
+rb_le_open_portrait = {
+	if = {
+		limit = { rb_le_can_edit_portrait = yes }
+		event_target:rb_le_selected_leader = { save_event_target_as = rb_le_portrait_subject }
+		set_variable = { which = rb_le_family value = rb_le_detected }
+		set_variable = { which = rb_le_body value = 0 }
+		set_variable = { which = rb_le_axis value = 0 }
+		remove_country_flag = rb_le_commit_preview
+		set_variable = { which = rb_le_pheno value = 1 }
+		set_variable = { which = rb_le_hair value = 1 }
+		set_variable = { which = rb_le_outfit value = 1 }
+		set_variable = { which = rb_le_tex value = 1 }
+		set_variable = { which = rb_le_stage value = 1 }
+		country_event = { id = rb_le.27 }
+	}
+	else = { country_event = { id = rb_le.20 } }
+}
+
+rb_le_bound_portrait_choice = {
+	if = {
+		limit = { check_variable = { which = rb_le_$AXIS$ value > rb_le_$AXIS$_n } }
+		set_variable = { which = rb_le_$AXIS$ value = 1 }
+	}
+}
+
+rb_le_bound_portrait_choices = {
+	rb_le_bound_portrait_choice = { AXIS = hair }
+	rb_le_bound_portrait_choice = { AXIS = outfit }
+	rb_le_bound_portrait_choice = { AXIS = tex }
+	rb_le_bound_portrait_choice = { AXIS = stage }
+}
+
+# Scratch species scope. Clear the last read so a failed copy cannot match it.
+rb_le_read_subject_portrait = {
+	change_species_characteristics = { portrait = rb_le_empty_portrait can_change_leader = no }
+	change_species_characteristics = { portrait = event_target:rb_le_selected_leader can_change_leader = no }
+}
+
+rb_le_paint_portrait = {
+	if = {
+		limit = { has_country_flag = rb_le_commit_preview }
+		event_target:rb_le_selected_leader = { change_leader_portrait = $PORTRAIT$ }
+		set_variable = { which = rb_le_expected_look value = $INDEX$ }
+	}
+	else = {
+		event_target:rb_le_portrait_probe = {
+			change_species_characteristics = { portrait = $PORTRAIT$ can_change_leader = no }
+			if = {
+				limit = { species_portrait = $PORTRAIT$ }
+				root = { set_country_flag = rb_le_preview_ready }
+			}
+		}
+	}
+}
+
+rb_le_accept_portrait = {
+	if = {
+		limit = { rb_le_has_preview = yes }
+		set_country_flag = rb_le_commit_preview
+		country_event = { id = rb_le.20 }
+	}
+	else = {
+		log = "RB_LE portrait: apply requested without a valid preview"
+		rb_le_close_portrait = yes
+		country_event = { id = rb_le.28 }
+	}
+}
+
+rb_le_close_portrait = {
+	remove_country_flag = rb_le_commit_preview
+	remove_country_flag = rb_le_check_written
+	remove_country_flag = rb_le_preview_ready
+	clear_variable = rb_le_expected_look
+	clear_variable = rb_le_read_look
+	clear_variable = rb_le_family
+	clear_variable = rb_le_body
+	clear_variable = rb_le_next_body
+	clear_variable = rb_le_axis
+	clear_variable = rb_le_pheno
+	clear_variable = rb_le_pheno_n
+	clear_variable = rb_le_hair
+	clear_variable = rb_le_hair_n
+	clear_variable = rb_le_hair_kind
+	clear_variable = rb_le_outfit
+	clear_variable = rb_le_outfit_n
+	clear_variable = rb_le_tex
+	clear_variable = rb_le_tex_n
+	clear_variable = rb_le_stage
+	clear_variable = rb_le_stage_n
+}

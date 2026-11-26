@@ -1,0 +1,88 @@
+# Country scope. The occupation page is independent of the leader register.
+rb_le_bind_job_slot = {
+	if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 1 } }
+		set_variable = { which = rb_le_job_slot_1 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 2 } }
+		set_variable = { which = rb_le_job_slot_2 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 3 } }
+		set_variable = { which = rb_le_job_slot_3 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 4 } }
+		set_variable = { which = rb_le_job_slot_4 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 5 } }
+		set_variable = { which = rb_le_job_slot_5 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 6 } }
+		set_variable = { which = rb_le_job_slot_6 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 7 } }
+		set_variable = { which = rb_le_job_slot_7 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 8 } }
+		set_variable = { which = rb_le_job_slot_8 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 9 } }
+		set_variable = { which = rb_le_job_slot_9 value = $INDEX$ }
+	}
+	else_if = {
+		limit = { check_variable = { which = rb_le_job_cursor value = 10 } }
+		set_variable = { which = rb_le_job_slot_10 value = $INDEX$ }
+	}
+}
+
+rb_le_clear_job_slots = {
+	clear_variable = rb_le_job_slot_1
+	clear_variable = rb_le_job_slot_2
+	clear_variable = rb_le_job_slot_3
+	clear_variable = rb_le_job_slot_4
+	clear_variable = rb_le_job_slot_5
+	clear_variable = rb_le_job_slot_6
+	clear_variable = rb_le_job_slot_7
+	clear_variable = rb_le_job_slot_8
+	clear_variable = rb_le_job_slot_9
+	clear_variable = rb_le_job_slot_10
+}
+
+rb_le_clear_job_page = {
+	rb_le_clear_job_slots = yes
+	clear_variable = rb_le_job_page
+	clear_variable = rb_le_job_pages
+}
+
+rb_le_collect_job_page = {
+	set_variable = { which = rb_le_job_slot_1 value = 0 }
+	set_variable = { which = rb_le_job_slot_2 value = 0 }
+	set_variable = { which = rb_le_job_slot_3 value = 0 }
+	set_variable = { which = rb_le_job_slot_4 value = 0 }
+	set_variable = { which = rb_le_job_slot_5 value = 0 }
+	set_variable = { which = rb_le_job_slot_6 value = 0 }
+	set_variable = { which = rb_le_job_slot_7 value = 0 }
+	set_variable = { which = rb_le_job_slot_8 value = 0 }
+	set_variable = { which = rb_le_job_slot_9 value = 0 }
+	set_variable = { which = rb_le_job_slot_10 value = 0 }
+	set_variable = { which = rb_le_job_count value = 0 }
+	set_variable = { which = rb_le_job_cursor value = rb_le_job_page }
+	change_variable = { which = rb_le_job_cursor value = -1 }
+	multiply_variable = { which = rb_le_job_cursor value = -10 }
+	if = {
+		limit = { rb_le_can_edit_occupation = yes }
+		inline_script = rb_le/occupation_candidates
+	}
+	set_variable = { which = rb_le_job_pages value = rb_le_job_count }
+	divide_variable = { which = rb_le_job_pages value = 10 }
+	ceiling_variable = rb_le_job_pages
+	clear_variable = rb_le_job_count
+	clear_variable = rb_le_job_cursor
+}

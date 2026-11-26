@@ -1,0 +1,15 @@
+option = {
+	name = rb_le_$DIRECTION$_$STEP$
+	trigger = { rb_le_age_step_available = { STEP = $STEP$ OLDER = $OLDER$ } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_age_step_available = { STEP = $STEP$ OLDER = $OLDER$ } }
+			event_target:rb_le_selected_leader = { add_age = $DELTA$ }
+		}
+		if = {
+			limit = { $KEEP_OPEN$ = yes }
+			country_event = { id = $EVENT$ }
+		}
+		else = { country_event = { id = rb_le.22 } }
+	}
+}

@@ -1,0 +1,17 @@
+defined_text = {
+	name = rb_le_attachment_label
+	random = no
+	default = ATTACHMENTS
+	text = {
+		trigger = { check_variable = { which = rb_le_hair_kind value = 1 } }
+		localization_key = HAIR_STYLE
+	}
+	text = {
+		trigger = { check_variable = { which = rb_le_hair_kind value = 2 } }
+		localization_key = MASK
+	}
+	text = {
+		trigger = { check_variable = { which = rb_le_hair_kind value = 3 } }
+		localization_key = HAT
+	}
+}

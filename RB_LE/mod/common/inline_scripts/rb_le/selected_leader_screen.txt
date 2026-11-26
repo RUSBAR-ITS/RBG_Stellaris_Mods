@@ -1,0 +1,17 @@
+title = $TITLE$
+desc = {
+	trigger = { rb_le_has_selected = yes }
+	text = $DESC$
+}
+desc = {
+	trigger = { rb_le_has_selected = no }
+	text = rb_le_dossier_unavailable
+}
+is_triggered_only = yes
+diplomatic = yes
+diplomatic_title = BLANK_STRING
+picture_event_data = {
+	trigger = { rb_le_has_selected = yes }
+	portrait = event_target:rb_le_selected_leader
+	room = ethic_spaceship_room
+}

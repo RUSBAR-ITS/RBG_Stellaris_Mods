@@ -1,0 +1,13 @@
+title = rb_le_change_portrait
+is_triggered_only = yes
+diplomatic = yes
+diplomatic_title = BLANK_STRING
+picture_event_data = {
+	trigger = { rb_le_has_preview = yes }
+	portrait = event_target:rb_le_portrait_probe
+	room = ethic_spaceship_room
+}
+desc = {
+	trigger = { rb_le_has_preview = no }
+	text = rb_le_portrait_unavailable
+}

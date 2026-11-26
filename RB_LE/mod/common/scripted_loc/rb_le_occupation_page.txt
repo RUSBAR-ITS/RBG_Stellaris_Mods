@@ -1,0 +1,79 @@
+defined_text = {
+	name = rb_le_job_page_footer
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { check_variable = { which = rb_le_job_pages value > 1 } }
+		localization_key = rb_le_job_page_line
+	}
+}
+
+defined_text = {
+	name = rb_le_job_slot_1_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 1 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_2_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 2 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_3_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 3 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_4_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 4 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_5_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 5 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_6_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 6 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_7_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 7 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_8_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 8 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_9_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 9 }
+}
+
+defined_text = {
+	name = rb_le_job_slot_10_name
+	random = no
+	default = BLANK_STRING
+	inline_script = { script = rb_le/occupation_labels SLOT = 10 }
+}

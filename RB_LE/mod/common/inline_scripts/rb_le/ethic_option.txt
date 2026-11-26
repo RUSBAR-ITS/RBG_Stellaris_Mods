@@ -1,0 +1,11 @@
+option = {
+	name = ethic_$ETHIC$
+	trigger = { rb_le_can_choose_ethic = { ETHIC = $ETHIC$ } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_can_choose_ethic = { ETHIC = $ETHIC$ } }
+			event_target:rb_le_selected_leader = { change_background_ethic = ethic_$ETHIC$ }
+		}
+		country_event = { id = rb_le.21 }
+	}
+}
