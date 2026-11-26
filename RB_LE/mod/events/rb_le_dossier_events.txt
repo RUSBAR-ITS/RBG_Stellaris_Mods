@@ -1,0 +1,19 @@
+namespace = rb_le
+
+country_event = {
+	id = rb_le.1
+	title = rb_le_personnel_department
+	desc = rb_le_register_intro
+	picture = GFX_evt_galactic_senate
+	is_triggered_only = yes
+	inline_script = { script = rb_le/section_button GROUP = ruler LABEL = RULER LIST = rb_le.2 }
+	inline_script = { script = rb_le/section_button GROUP = commander LABEL = COMMANDERS LIST = rb_le.3 }
+	inline_script = { script = rb_le/section_button GROUP = official LABEL = OFFICIALS LIST = rb_le.4 }
+	inline_script = { script = rb_le/section_button GROUP = scientist LABEL = rb_le_scientists LIST = rb_le.5 }
+	inline_script = rb_le/exit
+}
+
+inline_script = { script = rb_le/register_events GROUP = ruler LIST = rb_le.2 DOSSIER = rb_le.12 }
+inline_script = { script = rb_le/register_events GROUP = commander LIST = rb_le.3 DOSSIER = rb_le.13 }
+inline_script = { script = rb_le/register_events GROUP = official LIST = rb_le.4 DOSSIER = rb_le.14 }
+inline_script = { script = rb_le/register_events GROUP = scientist LIST = rb_le.5 DOSSIER = rb_le.15 }

@@ -1,0 +1,12 @@
+option = {
+	name = rb_le_slot_$N$_name
+	trigger = { rb_le_slot_is_current = { N = $N$ MATCH = rb_le_$GROUP$_member } }
+	hidden_effect = {
+		if = {
+			limit = { rb_le_slot_is_current = { N = $N$ MATCH = rb_le_$GROUP$_member } }
+			event_target:rb_le_slot_$N$ = { save_event_target_as = rb_le_selected_leader }
+			country_event = { id = $DOSSIER$ }
+		}
+		else = { country_event = { id = $LIST$ } }
+	}
+}

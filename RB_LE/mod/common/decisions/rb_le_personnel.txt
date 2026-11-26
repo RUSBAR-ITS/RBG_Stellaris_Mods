@@ -1,0 +1,27 @@
+rb_le_personnel_department = {
+	owned_planets_only = yes
+	icon = decision_politics
+	sound = event_administrative_work
+	enactment_time = 0
+	resources = { category = decisions }
+
+	potential = {
+		is_colony = yes
+		is_owned_by = from
+		from = { is_ai = no }
+	}
+	allow = { from = { NOT = { has_country_flag = rb_le_register_open } } }
+	effect = {
+		custom_tooltip = rb_le_open_register_tt
+		hidden_effect = {
+			from = {
+				if = {
+					limit = { is_ai = no NOT = { has_country_flag = rb_le_register_open } }
+					set_country_flag = rb_le_register_open
+					country_event = { id = rb_le.1 }
+				}
+			}
+		}
+	}
+	ai_weight = { weight = 0 }
+}

@@ -1,0 +1,8 @@
+option = {
+	name = $LABEL$
+	trigger = { rb_le_has_member = { MATCH = rb_le_$GROUP$_member } }
+	hidden_effect = {
+		set_variable = { which = rb_le_page value = 1 }
+		country_event = { id = $LIST$ }
+	}
+}

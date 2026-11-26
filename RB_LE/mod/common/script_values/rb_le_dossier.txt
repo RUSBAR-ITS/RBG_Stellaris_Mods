@@ -1,0 +1,10 @@
+# Leader scope. The vanilla leader_level_half_experience uses the same
+# threshold before multiplying it by 0.5.
+rb_le_level_xp_requirement = {
+	base = 1
+	complex_trigger_modifier = {
+		trigger = get_leader_exp_to_level
+		parameters = { target = this }
+		mode = mult
+	}
+}

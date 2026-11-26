@@ -1,0 +1,10 @@
+option = {
+	name = EXIT
+	default_hide_option = yes
+	hidden_effect = {
+		remove_country_flag = rb_le_register_open
+		clear_variable = rb_le_page
+		clear_variable = rb_le_pages
+		clear_variable = rb_le_visible
+	}
+}

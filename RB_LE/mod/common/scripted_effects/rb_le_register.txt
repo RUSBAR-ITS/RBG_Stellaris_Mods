@@ -1,0 +1,95 @@
+# Country event ROOT. Visit the ruler once, including when their class also matches.
+rb_le_each_member = {
+	if = {
+		limit = { exists = ruler ruler = { $MATCH$ = yes } }
+		ruler = { $ACTION$ = yes }
+	}
+	every_owned_leader = {
+		limit = { is_ruler = no $MATCH$ = yes }
+		$ACTION$ = yes
+	}
+}
+
+rb_le_count_member = {
+	root = { change_variable = { which = rb_le_pages value = 1 } }
+}
+
+rb_le_prepare_page = {
+	set_variable = { which = rb_le_pages value = 0 }
+	rb_le_each_member = { MATCH = $MATCH$ ACTION = rb_le_count_member }
+	divide_variable = { which = rb_le_pages value = 10 }
+	ceiling_variable = rb_le_pages
+
+	# If a roster shrinks, return to its last remaining page.
+	if = {
+		limit = { check_variable = { which = rb_le_page value > rb_le_pages } }
+		set_variable = { which = rb_le_page value = rb_le_pages }
+	}
+	if = {
+		limit = { check_variable = { which = rb_le_page value < 1 } }
+		set_variable = { which = rb_le_page value = 1 }
+	}
+
+	# The first member of the requested page advances the cursor to slot 1.
+	set_variable = { which = rb_le_cursor value = rb_le_page }
+	change_variable = { which = rb_le_cursor value = -1 }
+	multiply_variable = { which = rb_le_cursor value = -10 }
+	set_variable = { which = rb_le_visible value = 0 }
+	rb_le_each_member = { MATCH = $MATCH$ ACTION = rb_le_bind_member }
+	clear_variable = rb_le_cursor
+}
+
+# Save the actual leader in each visible slot for the event chain. Labels and
+# clicks use the same target even if the leader list changes while displayed.
+rb_le_bind_member = {
+	root = { change_variable = { which = rb_le_cursor value = 1 } }
+	if = {
+		limit = {
+			root = {
+				check_variable = { which = rb_le_cursor value >= 1 }
+				check_variable = { which = rb_le_cursor value <= 10 }
+			}
+		}
+		root = { change_variable = { which = rb_le_visible value = 1 } }
+		if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 1 } } }
+			save_event_target_as = rb_le_slot_1
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 2 } } }
+			save_event_target_as = rb_le_slot_2
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 3 } } }
+			save_event_target_as = rb_le_slot_3
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 4 } } }
+			save_event_target_as = rb_le_slot_4
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 5 } } }
+			save_event_target_as = rb_le_slot_5
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 6 } } }
+			save_event_target_as = rb_le_slot_6
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 7 } } }
+			save_event_target_as = rb_le_slot_7
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 8 } } }
+			save_event_target_as = rb_le_slot_8
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 9 } } }
+			save_event_target_as = rb_le_slot_9
+		}
+		else_if = {
+			limit = { root = { check_variable = { which = rb_le_cursor value = 10 } } }
+			save_event_target_as = rb_le_slot_10
+		}
+	}
+}

@@ -1,0 +1,126 @@
+# The event text calls personal fields on the selected leader. The returned
+# localization can then read the same leader's properties directly.
+defined_text = {
+	name = rb_le_species_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { exists = species }
+		localization_key = rb_le_dossier_species
+	}
+}
+
+# Species scope. Some unique species are neither robotic nor biological/lithoid.
+defined_text = {
+	name = rb_le_trait_type
+	random = no
+	default = rb_le_nonrobotic_type
+	text = {
+		trigger = { is_robotic = yes }
+		localization_key = SYNTH
+	}
+	text = {
+		trigger = { OR = { is_archetype = BIOLOGICAL is_archetype = LITHOID } }
+		localization_key = rb_le_organic_type
+	}
+}
+
+defined_text = {
+	name = rb_le_ethic_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = {
+			OR = {
+				is_authoritarian = yes
+				is_egalitarian = yes
+				is_materialist = yes
+				is_spiritualist = yes
+				is_militarist = yes
+				is_pacifist = yes
+				is_xenophile = yes
+				is_xenophobe = yes
+				has_ethic = ethic_gestalt_consciousness
+			}
+		}
+		localization_key = rb_le_dossier_ethic
+	}
+}
+
+defined_text = {
+	name = rb_le_background_section
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { OR = { exists = background_planet exists = background_colony has_background_job = yes } }
+		localization_key = rb_le_dossier_background
+	}
+}
+
+defined_text = {
+	name = rb_le_home_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { exists = background_planet }
+		localization_key = rb_le_dossier_homeworld
+	}
+}
+
+# Called from the event so the saved mobile colony is available by name.
+defined_text = {
+	name = rb_le_mobile_home_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = {
+			event_target:rb_le_selected_leader = { NOT = { exists = background_planet } exists = background_colony }
+			exists = event_target:rb_le_home_colony
+		}
+		localization_key = rb_le_dossier_home_colony
+	}
+}
+
+defined_text = {
+	name = rb_le_job_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { has_background_job = yes }
+		localization_key = rb_le_dossier_job
+	}
+}
+
+defined_text = {
+	name = rb_le_specialization_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { num_leader_traits = { is_subclass = yes value > 0 } }
+		localization_key = rb_le_dossier_specialization
+	}
+}
+
+defined_text = {
+	name = rb_le_effective_level_line
+	random = no
+	default = BLANK_STRING
+	text = {
+		trigger = { NOT = { check_variable = { which = rb_le_effective_level value = rb_le_base_level } } }
+		localization_key = rb_le_dossier_effective_level
+	}
+}
+
+defined_text = {
+	name = rb_le_xp_line
+	random = no
+	default = rb_le_dossier_current_xp
+	text = {
+		trigger = { rb_le_dossier_at_level_cap = yes }
+		localization_key = LEADER_MAX_LEVEL
+	}
+	text = {
+		trigger = { check_variable = { which = rb_le_next_level_xp value > 0 } }
+		localization_key = rb_le_dossier_xp_progress
+	}
+}

@@ -1,0 +1,26 @@
+rb_le_ruler_member = { is_ruler = yes }
+rb_le_commander_member = { leader_class = commander }
+rb_le_official_member = { leader_class = official }
+rb_le_scientist_member = { leader_class = scientist }
+
+# Country scope. NGameplay.LEADER_BASE_SKILL_CAP and LEADER_MAX_SKILL_CAP
+# are both 10 in 4.6. Effective skill bonuses do not count toward this cap.
+rb_le_dossier_at_level_cap = { check_variable = { which = rb_le_base_level value >= 10 } }
+
+rb_le_has_member = {
+	OR = {
+		AND = { exists = ruler ruler = { $MATCH$ = yes } }
+		any_owned_leader = { $MATCH$ = yes }
+	}
+}
+
+# A displayed slot may lose its leader while the event window is open.
+rb_le_slot_is_current = {
+	check_variable = { which = rb_le_visible value >= $N$ }
+	exists = event_target:rb_le_slot_$N$
+	event_target:rb_le_slot_$N$ = {
+		is_owned_by = root
+		is_pool_leader = no
+		$MATCH$ = yes
+	}
+}

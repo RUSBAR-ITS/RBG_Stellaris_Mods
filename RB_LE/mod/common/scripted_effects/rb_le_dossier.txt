@@ -1,0 +1,19 @@
+# Country scope. Keep the display snapshot on the register owner.
+rb_le_prepare_dossier = {
+	set_variable = { which = rb_le_base_level value = event_target:rb_le_selected_leader.trigger:has_base_skill }
+	set_variable = { which = rb_le_effective_level value = event_target:rb_le_selected_leader.trigger:has_total_skill }
+	set_variable = { which = rb_le_current_xp value = event_target:rb_le_selected_leader.trigger:has_experience }
+	round_variable = rb_le_current_xp
+	set_variable = { which = rb_le_next_level_xp value = 0 }
+	if = {
+		limit = { rb_le_dossier_at_level_cap = no }
+		set_variable = { which = rb_le_next_level_xp value = event_target:rb_le_selected_leader.value:rb_le_level_xp_requirement }
+		round_variable = rb_le_next_level_xp
+	}
+	event_target:rb_le_selected_leader = {
+		if = {
+			limit = { NOT = { exists = background_planet } exists = background_colony }
+			background_colony = { save_event_target_as = rb_le_home_colony }
+		}
+	}
+}

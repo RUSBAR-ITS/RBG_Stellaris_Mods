@@ -1,0 +1,75 @@
+# Each list and its dossier form a pair, so Back returns to the same register.
+country_event = {
+	id = $LIST$
+	title = rb_le_$GROUP$_title
+	desc = rb_le_$GROUP$_desc
+	picture = GFX_evt_galactic_senate
+	is_triggered_only = yes
+	immediate = { rb_le_prepare_page = { MATCH = rb_le_$GROUP$_member } }
+
+	inline_script = { script = rb_le/leader_button N = 1 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 2 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 3 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 4 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 5 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 6 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 7 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 8 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 9 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+	inline_script = { script = rb_le/leader_button N = 10 GROUP = $GROUP$ LIST = $LIST$ DOSSIER = $DOSSIER$ }
+
+	option = {
+		name = PREV
+		trigger = { check_variable = { which = rb_le_page value > 1 } }
+		hidden_effect = {
+			change_variable = { which = rb_le_page value = -1 }
+			country_event = { id = $LIST$ }
+		}
+	}
+	option = {
+		name = NEXT
+		trigger = { check_variable = { which = rb_le_page value < rb_le_pages } }
+		hidden_effect = {
+			change_variable = { which = rb_le_page value = 1 }
+			country_event = { id = $LIST$ }
+		}
+	}
+	option = {
+		name = BACK
+		hidden_effect = { country_event = { id = rb_le.1 } }
+	}
+	inline_script = rb_le/exit
+}
+
+country_event = {
+	id = $DOSSIER$
+	title = rb_le_dossier_title
+	desc = {
+		trigger = { exists = event_target:rb_le_selected_leader }
+		text = rb_le_dossier_desc
+	}
+	desc = {
+		trigger = { NOT = { exists = event_target:rb_le_selected_leader } }
+		text = rb_le_dossier_unavailable
+	}
+	picture = GFX_evt_galactic_senate
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { exists = event_target:rb_le_selected_leader }
+			rb_le_prepare_dossier = yes
+		}
+	}
+
+	option = {
+		name = BACK
+		hidden_effect = { country_event = { id = $LIST$ } }
+	}
+	inline_script = rb_le/exit
+	after = {
+		clear_variable = rb_le_base_level
+		clear_variable = rb_le_effective_level
+		clear_variable = rb_le_current_xp
+		clear_variable = rb_le_next_level_xp
+	}
+}
